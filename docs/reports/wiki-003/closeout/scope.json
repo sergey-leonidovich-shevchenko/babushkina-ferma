@@ -1,0 +1,19 @@
+{
+  "accepted_base": "cc6132837e546e807873d974456a4a743b2d973e",
+  "tracked_changed_files": [
+    "TESTING.md",
+    "VERSION",
+    "docs/backlog/wiki-workspace-2026-10/README.md",
+    "docs/epics/refactoring-2026-10/README.md",
+    "project.godot",
+    "wiki/articles/project-refactoring.md",
+    "wiki/articles/visual-pilot.md",
+    "Бабушкина ферма.app/Contents/Info.plist"
+  ],
+  "other_task_blocks_unchanged": 10,
+  "preserved_old_report_files": 364,
+  "runtime_tests_assets_planning_unchanged": true,
+  "existing_accepted_WIKI_003_trailers": 0,
+  "only_status_change": "WIKI-003 in_progress -> done",
+  "version": "0.0.352"
+}

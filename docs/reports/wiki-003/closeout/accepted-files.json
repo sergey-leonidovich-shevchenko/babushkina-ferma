@@ -1,0 +1,1827 @@
+{
+  "accepted_main": "cc6132837e546e807873d974456a4a743b2d973e",
+  "files": [
+    {
+      "path": "docs/reports/wiki-003/README.md",
+      "bytes": 6507,
+      "sha256": "6c6efe8ead203f7e1065aac36388f9e461ae5fdc4545fd280f9f18509c3f41ed"
+    },
+    {
+      "path": "docs/reports/wiki-003/before-board.png",
+      "bytes": 445634,
+      "sha256": "2048170a9804780f13442e6bb8fd14a090216a50cbe1b41b04ffb1444c357188"
+    },
+    {
+      "path": "docs/reports/wiki-003/before-board.txt.gz",
+      "bytes": 4192,
+      "sha256": "a7bf1f5f4697e3387e49428473c9ac416880fc8e30e8c60aa97e82bc404da60a"
+    },
+    {
+      "path": "docs/reports/wiki-003/checks.json",
+      "bytes": 6270,
+      "sha256": "889ce821c8f1193dc1e0230e029486a4cfff9746aafc4dbc207dec13f0500c57"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/PLAN.md",
+      "bytes": 3958,
+      "sha256": "6d37717aeb48d7423fbec0ec07baa0d5569b7a0e72a6a3df7c36e8db6e61798d"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/README.md",
+      "bytes": 8828,
+      "sha256": "d4e36f005fcf7cffeafa4115b60c25ed2b2696ab96b496cec6579fb7620ca70b"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/architecture.txt",
+      "bytes": 12651,
+      "sha256": "52337b4cdafefdaae9b827e6cfc9e2cd8a9a6d63f105ba4f410d6f7afe27a43b"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/backlog-350.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/documentation-350.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/expected-date.json",
+      "bytes": 756,
+      "sha256": "37c64fd918efdf2b131a6923a821f059bc6d629d43b27f028e30306f94b76690"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/auto-observed.json",
+      "bytes": 162,
+      "sha256": "d46b08e231c0a61943826f0c7c9833c6bce67140fa4206c10101ec56ff76212b"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/auto-request.json",
+      "bytes": 199,
+      "sha256": "98604bf2bbc46e7000e658e3407f1db2507452f4c830f2be406aa66534785a33"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/backlog.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/branch-cleanup.json",
+      "bytes": 530,
+      "sha256": "ae0d1c2ddb825cba9ae846dad27fb21946f5d319e46cfe4eb7b3363cf92e629f"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/browser.json",
+      "bytes": 1587,
+      "sha256": "46f777c639e2d2b25e50b291419b4c44b9f87767444520a2c0df6f32d022ac41"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/catalog.json",
+      "bytes": 136807,
+      "sha256": "a4761e9be81a61660f9f3899e9945fab266c809f8adcc174b025d68fbb1fb7d5"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/checks.json",
+      "bytes": 11934,
+      "sha256": "c27ea7710c188851baf6789595da00c3323eb557a638fd8c5152277df58b6016"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/desktop-active.png",
+      "bytes": 79138,
+      "sha256": "c00b9bcb5b9fbd497e5e3792402200ff60bf1333fa8b67139e58f81cd910a1e0"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/desktop-card.png",
+      "bytes": 87783,
+      "sha256": "3d2e9a5ceeb24a14a80469ce07f68dbaaf23c4857018316e7bbdbe8f9e2dd00d"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/desktop-history.json",
+      "bytes": 6924,
+      "sha256": "d8c9ada042fbcbb495da987fdeaf359699532ffd7eadc89221636c19cab2a57e"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/desktop-history.png",
+      "bytes": 76800,
+      "sha256": "b722ef91a953aac15db1d9ef6ed1d58eb549dfffa00df28d71590ddcc6a3c5bf"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/desktop-initial.json",
+      "bytes": 1290,
+      "sha256": "9800aace2b600b32d9f0464c49156f6cced3ad6d8caf527d807cf8c6dc1548e2"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/documentation.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/export-before-publish.json",
+      "bytes": 53,
+      "sha256": "c78e4fdc36d4d6bb084fa55b61a05ae886720e4eca15c263f80a851b1f0a4bbb"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/export-state.json",
+      "bytes": 51,
+      "sha256": "b333a68bdac62f897efa820e475788698dde40cb0494f950111f5eee3593ae4d"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/failed-output-preservation.json",
+      "bytes": 440,
+      "sha256": "1b4b0c7d4edbcb94a70c0ffdc7566da7c2c9f807348726c95b5084334f85e422"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/final-card-status.json",
+      "bytes": 252,
+      "sha256": "49b680359b014f19074f0da01e205f4752890136d066f86a7307f6e691b78cd9"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/final-card.json",
+      "bytes": 2087,
+      "sha256": "e02130e1c0a778c07cb47a19145b36bd639b30a2631456d5b02a3e7af25ac3d4"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/final-card.png",
+      "bytes": 87783,
+      "sha256": "3d2e9a5ceeb24a14a80469ce07f68dbaaf23c4857018316e7bbdbe8f9e2dd00d"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/first-location-allowed.txt",
+      "bytes": 787,
+      "sha256": "4f2bb114ab080e8c906b69b7a091781d6721634e3ed08cd3121c585ed19af8a7"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/first-location-fixed.txt",
+      "bytes": 1299,
+      "sha256": "df08492258f2e4cc8181c3a9899be7d8872ffa3f7b0192b20c37719cff2f8a9d"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/format.txt",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/manual-empty.json",
+      "bytes": 69,
+      "sha256": "6461e0f4593057356a52a3b1487cff658d247ee563531869617b7c2ba75a40e4"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/manual-empty.png",
+      "bytes": 77804,
+      "sha256": "716db14c2acdb4ad178a52e0c7b23a0eeaa65662622b14db2c2aaa5b06dbe4bb"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/mobile-active.png",
+      "bytes": 48329,
+      "sha256": "4fb9ad67d4b14875c4c3a0f358c826c297cafc30d0a29cd7ca15cf2f4b1100b4"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/mobile-card.json",
+      "bytes": 221,
+      "sha256": "18854bfd5d73ba5ed23c3c5b6bb4b5881adc7d11d4235494e1011e6f217bba1c"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/mobile-card.png",
+      "bytes": 48731,
+      "sha256": "d568f92ad3d255077733b8fb3e63114dd60f372d158c2a6a17e1387bd72956df"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/mobile-harness.html",
+      "bytes": 515,
+      "sha256": "f585b7929ffc14eaa295d13a99461cc6c8e928ff19c13d9b10f86801a1e86cbc"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/mobile-history.json",
+      "bytes": 700,
+      "sha256": "19aa8efd03e46568d7e98019260325e6b137a68e2b101e1c5f2e5b1059a54319"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/mobile-history.png",
+      "bytes": 42413,
+      "sha256": "a23be3e26e223cb3cdb5a60c2af864a99ba77647a20606edc6301793e1c88ae4"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/mobile-initial.json",
+      "bytes": 207,
+      "sha256": "d20a4c6b0aaf4e16af04e71d3f0845f9bf2b74dd961b03524f9e21ae0021a75f"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/mobile-menu.png",
+      "bytes": 31403,
+      "sha256": "fbda455e0c2fb63bbfd47a56fff14694218339a5f97b5dd272aaacf4c0921436"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/preservation.json",
+      "bytes": 764,
+      "sha256": "d92d3a3076485511cd126dc08c6ff3d91920a38acf8c1c14745dde474eeaf398"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/qa-cleanup.json",
+      "bytes": 129,
+      "sha256": "da77b515df1cf906e30e02a7de7cf350f6fded7a882c6dcd1f180dcc05ad0395"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/restored.json",
+      "bytes": 197,
+      "sha256": "c9b539e7ec72999dc9785367b8d36745265c1fc5d46be93c05cf2bb29253cdff"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/version.txt",
+      "bytes": 30,
+      "sha256": "aab3293183242221ac5d2d5c836a9ef7afe27d2f1863b356983d4d9eacd0cf63"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/wiki-351-final.txt",
+      "bytes": 13820,
+      "sha256": "7254c293adc412b37b6175dc36575be7388fed001b503ad8ad63733bc77ef07c"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/wiki-351-first.txt.gz",
+      "bytes": 6156,
+      "sha256": "46bbdae51688fb1c37caaaffff8269e5c6ca1479b27a8bf21246662d5ce63358"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/wiki-351-fixed.txt",
+      "bytes": 13810,
+      "sha256": "0925f1f983109973f0d4fe9e8949039118bbbd6457d5bbc968c5e9c99b398d78"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/final/wiki-351-publish.txt",
+      "bytes": 13810,
+      "sha256": "600015bf5f347fe8db2efc340cebdeddca692617e992cb358d5194571ddc9024"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/gate-exits.json",
+      "bytes": 487,
+      "sha256": "03698471c9e2ea57f32f66f92131a9765d614120bb746de4e5fddba256dbcb14"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/headless/f10/engine.txt",
+      "bytes": 10988,
+      "sha256": "d8fdc678b5ed597f7dbad94c0229edb2b7ba49749ad920f58407dd3d98bbb651"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/headless/f10/frames.jsonl",
+      "bytes": 9097,
+      "sha256": "399772a3b2ea8f54f0a79ecdcf3c42767f54553e8330a6e988496315cb5ec132"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "dfa12b184b0e0bcb038a9a89e38517cb637dc02fd071bb47a7f12d009f56ad27"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/headless/normal/engine.txt",
+      "bytes": 11090,
+      "sha256": "9a656bafec27d3603514b0562fd93522aed829b06f4ddfe392b0400aaffd37b5"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/headless/normal/frames.jsonl",
+      "bytes": 9196,
+      "sha256": "566b56a4277d3b14a9364fe706cd06d08fa0e534e22360f506cf419ffa52944f"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "6c32573e08cd92b68ddb156e334ceee91dc27d5a6de9a2a96106155b822f1017"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/inherited-whitespace.json",
+      "bytes": 125,
+      "sha256": "1ca90568460b4dd1bed8cd12140d7a00e4c5424da108e9d55726dcbab00f315e"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/inherited-whitespace.txt.gz",
+      "bytes": 3167,
+      "sha256": "3a600e3004d7eab78db64d7aba7cf6339da08bccb85bfa61fcf3d2a2319f7359"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/input-prs.json",
+      "bytes": 9922,
+      "sha256": "e8a7ac5239dc3d675bdfd4b55f8735c2a42a3a87a09de6593deb2a7e88363c9c"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/premerge-checks.json",
+      "bytes": 729,
+      "sha256": "49ed806479ad1828060a2cf906199e043442b4117d5ab6e468a6309e9e37a32b"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/premerge-manifest.json",
+      "bytes": 2122,
+      "sha256": "e3fa1e4cfacce16a14c5770ab968fefe4b35b5db75bdd4479cb39aa73bf38dcb"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/preserved-files.json",
+      "bytes": 74612,
+      "sha256": "83561ec6fd87664bb3af4b04e0d648d2230e185ffe09296995d4108907ca50b4"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/previous-card.json",
+      "bytes": 1725,
+      "sha256": "3cc31dd291a0600fd2a880c59369cb757c323b668978e9d17230d59c9c3776a3"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/qa-server.mjs",
+      "bytes": 1032,
+      "sha256": "452261f60711ed83552fccabbe7231214a5def6bb987d0cead438217a53b84ee"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/source-scope.json",
+      "bytes": 2291,
+      "sha256": "773b56414a3a77be896d2e9a2eabf2540eb391a5736e58b68155faeb2ef08b07"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/version-350.txt",
+      "bytes": 30,
+      "sha256": "9bd316d43b6c3be40563761bdbb55c9c698cd378edf75104d007e9be9080d8e9"
+    },
+    {
+      "path": "docs/reports/wiki-003/integration-1/wiki-350.txt",
+      "bytes": 13815,
+      "sha256": "998978831954b35df6f836def3bf40dbae8591944d1c75b4e8e12b0d8c14cf11"
+    },
+    {
+      "path": "docs/reports/wiki-003/polish-1/README.md",
+      "bytes": 1137,
+      "sha256": "965d66d136c16f036245acc7938369632c7dacb085e12e2e55564ce4138db5ed"
+    },
+    {
+      "path": "docs/reports/wiki-003/polish-1/browser.json",
+      "bytes": 129,
+      "sha256": "2b8a4c4719b8f121398c53bd4573ce8bfa97c7acf237ad3bb588e398afcb5d9b"
+    },
+    {
+      "path": "docs/reports/wiki-003/polish-1/checks.json",
+      "bytes": 921,
+      "sha256": "d27a78980b2939ec7ae4af0f9165305ac16b5985fff70b4b487155d15778986d"
+    },
+    {
+      "path": "docs/reports/wiki-003/polish-1/documentation.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/wiki-003/polish-1/history.png",
+      "bytes": 67132,
+      "sha256": "af946e1e852da720c7afa8abef9d1271cdf40bd356e16ac1742b5135e1fe0ba6"
+    },
+    {
+      "path": "docs/reports/wiki-003/polish-1/scope.json",
+      "bytes": 693,
+      "sha256": "b724820da82f99c4df2096ac1882a32875c2ebc89f0933dc4baff9dac519223a"
+    },
+    {
+      "path": "docs/reports/wiki-003/polish-1/version.txt",
+      "bytes": 30,
+      "sha256": "3c988b3c6f61eb8d378f5a0068193a0403f2a0c4bc10350f56609888381c7954"
+    },
+    {
+      "path": "docs/reports/wiki-003/polish-1/wiki.txt",
+      "bytes": 13827,
+      "sha256": "fd1baab7b207f5b04c7d1b525265b2312ce386e6a8b6dfa2909b65975af7385f"
+    },
+    {
+      "path": "docs/reports/wiki-003/publication/README.md",
+      "bytes": 1111,
+      "sha256": "0532aa9f9a27e8e7b4873cef582eb693b76a05a419bb10c1bce77e9aa49f841e"
+    },
+    {
+      "path": "docs/reports/wiki-003/publication/backlog.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "docs/reports/wiki-003/publication/checks.json",
+      "bytes": 921,
+      "sha256": "5e191f2cd9a268d9add1baf4bb8468b35f72643e0101386d8761783c3c6ec090"
+    },
+    {
+      "path": "docs/reports/wiki-003/publication/documentation.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/wiki-003/publication/scope.json",
+      "bytes": 756,
+      "sha256": "95e5c5424df626cdec637b19c2f03d781fd21154ca987e0ba4a9bb9f39ee88d7"
+    },
+    {
+      "path": "docs/reports/wiki-003/publication/version.txt",
+      "bytes": 30,
+      "sha256": "a919ca57d9d8acf3eb59a6f8ad319c8dd8b6a49bb347734ae1972e48a9a92a71"
+    },
+    {
+      "path": "docs/reports/wiki-003/publication/wiki.txt",
+      "bytes": 13823,
+      "sha256": "1adc83f8a1b3d31659af1818ef10fbc14097d938bb4e939b53ce63441527b29d"
+    },
+    {
+      "path": "docs/reports/wiki-003/qa-frame.html",
+      "bytes": 325,
+      "sha256": "c53f0ff69341943c4ccd7664561e9f498649d0429851fa6b1caa9c2cd44cabff"
+    },
+    {
+      "path": "docs/reports/wiki-003/qa-server.mjs",
+      "bytes": 949,
+      "sha256": "7fc7e5ebf0ae4b01424f3c03c87f5dcaea83873119fc62b37dbf95a1c1f2188b"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/architecture.txt",
+      "bytes": 12652,
+      "sha256": "05516337b95727feaa093e586ab4e87b6d0d5317021b42d6d541c9fa8b310597"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/auto-refresh-technical.json",
+      "bytes": 485,
+      "sha256": "bf8a0e764233cabe6d3c1df1575dfbbb2a30e89bcb4601cafc9808030758c4f9"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/auto-refresh.json",
+      "bytes": 116,
+      "sha256": "2de64dc9e5e59cfb828495a0e36946f38ab86e69ebee3ec2cdb333894795a488"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/backlog-first.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/backlog-publish.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/browser-fixture.json",
+      "bytes": 607,
+      "sha256": "f04d2ed85d07dd9bb5de03529ff0cade10480680a090e5bc728815a06e77e8d0"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/build-final.txt.gz",
+      "bytes": 511,
+      "sha256": "2bb1261f3a690a00184c38a67e213697333b710a5689aa6b5c1d9c6a303f77e3"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/desktop-current.png",
+      "bytes": 71372,
+      "sha256": "2946b34cd1278519a80416c30e2d40516888b5a1e9c836a5e629235ed40019b3"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/desktop-final.png",
+      "bytes": 79329,
+      "sha256": "d78c34e8f81f26cccf1afd7e3d1909bd5e181324b3be2e4fa9df0a1e26db56a4"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/desktop.png",
+      "bytes": 79138,
+      "sha256": "c00b9bcb5b9fbd497e5e3792402200ff60bf1333fa8b67139e58f81cd910a1e0"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/documentation-final.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/documentation-first.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/documentation-publish.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/documentation-report.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/final-dom.json",
+      "bytes": 530,
+      "sha256": "7a692d7980d4f5446a1c7dcb5ceace7874edff08fd60f4c2571fe85924a88dec"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/final-history.png",
+      "bytes": 66495,
+      "sha256": "15a3a4e3b2dd8ed57fbb414eeeb462af478e4e5828990f525cdc869e55ee523c"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/final-overview.png",
+      "bytes": 79329,
+      "sha256": "d78c34e8f81f26cccf1afd7e3d1909bd5e181324b3be2e4fa9df0a1e26db56a4"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/focused-first.txt",
+      "bytes": 1303,
+      "sha256": "1cb5f4f5378eddce301b74cd75687e1ebb0dddd321d265bfb695687d579b6987"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/format-last.txt",
+      "bytes": 82,
+      "sha256": "b10c74c6cd6af7a71c3981e33fa31da90c44b284a46b9a5b3195d6cac2012f26"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/format.txt",
+      "bytes": 398,
+      "sha256": "fd3bc022fa4708ed4e3df2fbd52ee3e714718e85b6e4d390dfadf7061891d54d"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/game-start-failure.txt",
+      "bytes": 36,
+      "sha256": "6def63193b05cc907aedfa8e6ca804441306f190981acd39cd864ec77ada7947"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/headless/f10/engine.txt",
+      "bytes": 11063,
+      "sha256": "98c1e20893946611019f7f3f03e03591dc1f158ab6fc4a6ac14d03c0987e413d"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/headless/f10/frames.jsonl",
+      "bytes": 9172,
+      "sha256": "252e2e58867e7068ff76ed67ce7266ee161179b1649b748c378d5baacb3c4219"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "9a64cf9ea433399bf835de31c9351c1fff51185b1dbd0fdaf54880e0ae06b4a4"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/headless/normal/engine.txt",
+      "bytes": 11052,
+      "sha256": "4001798fea46e088b4b9eeeb0216c12144af87db4b7c039c8819a35728ab7d27"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/headless/normal/frames.jsonl",
+      "bytes": 9158,
+      "sha256": "1f9bb4e7330f4008f415f10713de675beac12fff58f7b666fa3af8afc80a9e9a"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "e6cb9e9669cdb4b2be33fd082ce30b67373c5fc3eee9ddcdd48589155f81fe9c"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/manual-empty.png",
+      "bytes": 77804,
+      "sha256": "716db14c2acdb4ad178a52e0c7b23a0eeaa65662622b14db2c2aaa5b06dbe4bb"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/mobile-390.png",
+      "bytes": 35769,
+      "sha256": "537424dd4080de61b5cbf2aaa1e3596879766ff39de8572c59e4eecf6162ce5a"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/mobile-history-390.png",
+      "bytes": 37392,
+      "sha256": "1efb25686f3f101ac350fac03e8766f8aa14021aec1dc7a854550e8c0d0b21ea"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/node-final.txt",
+      "bytes": 12951,
+      "sha256": "da90abfffabdfd99a83b0702f002c2f4e90bcbc89e6115a6e131b87bb9895674"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/responsive-intermediate-390.json",
+      "bytes": 13462,
+      "sha256": "84b23073f227f7f1c779a5a73878b7c89ed6d72fd6f8dbe0001b460f12bc5997"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/responsive-intermediate-390.png",
+      "bytes": 43479,
+      "sha256": "0420fb0774752ff9e94a342e1cd337f6b056e363a822323252bcd617c578ee89"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/scope.json",
+      "bytes": 3557,
+      "sha256": "9ffa54589fe66414624969cb9d76e04dbcf491e0260e8eabd25880ac36af73d6"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/types-final.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/version-final.txt",
+      "bytes": 30,
+      "sha256": "27e1465f169e45d22102cca254ba742b7582f59fd1f067560dbae87857e294b1"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/wiki-current.txt",
+      "bytes": 13824,
+      "sha256": "5ec82c0b5bf39aa4c65e9f38b374e51fe06857aa62d9b109811a847ed904f0d9"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/wiki-final.txt",
+      "bytes": 14159,
+      "sha256": "53f889a2abf283281209cd9e98d0725319ccd481ac1a6a4e5b0317b5bafd09af"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/wiki-first.txt",
+      "bytes": 13640,
+      "sha256": "9d447480eb72bd3589f6853aa5e5ea2493b576b79fa522c4c0b50755117d1584"
+    },
+    {
+      "path": "docs/reports/wiki-003/validation/wiki-link-rejected.txt",
+      "bytes": 380,
+      "sha256": "00378a125e952af5b2ed40f25497cb930dc940b4dd34a28743683f201c2f8370"
+    },
+    {
+      "path": "docs/reports/refactor-01/README.md",
+      "bytes": 23208,
+      "sha256": "1618449b556a71ac4ab644aaee5e0be74acdedbe374f396b48d80f63f8164da2"
+    },
+    {
+      "path": "docs/reports/refactor-01/baseline-verification.json",
+      "bytes": 1549,
+      "sha256": "86e7d475710b096634ef8a5e091c480a58e29567880aae689f0ac61bbed40c10"
+    },
+    {
+      "path": "docs/reports/refactor-01/browser.json",
+      "bytes": 2076,
+      "sha256": "477635a52d591f405df3c6aa2afe8d968767481d50ccf7e85ff1649754f906c6"
+    },
+    {
+      "path": "docs/reports/refactor-01/checks.json",
+      "bytes": 4173,
+      "sha256": "2874ed318b37a2a04507043bbc74069d359a70d191cad544d8dd3cbcc8d7eb5a"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/README.md",
+      "bytes": 5675,
+      "sha256": "200f0841ce0b33a2eb5d6fc79ed938759c2205fabc69bd174aa9766157e70a5e"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/accepted-files.json",
+      "bytes": 41905,
+      "sha256": "c52e4fa827e84556f31ef33deab1dadbec1b15c78d2a332edf1cce04a5ef95c4"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/accepted-github.json",
+      "bytes": 20287,
+      "sha256": "b016346647c2fba1237a2b2a93842309e009b62c8ae8f425d36349883df80c0b"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/architecture.txt",
+      "bytes": 12657,
+      "sha256": "0a22a88fe805c539703bd62e6903f3ba8706caf7d3fa964b5d5e030ff8b37e82"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/backlog.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/browser.json",
+      "bytes": 926,
+      "sha256": "c5cb16a28f73784b65e8339be71d51992e2b72a6fdcf4599ab92ec503c90f742"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/card.png",
+      "bytes": 80650,
+      "sha256": "d4f06178d50c1cb3b813c8b4637d6de769db5c1a348c96f549109e015021f41b"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/catalog.json",
+      "bytes": 41876,
+      "sha256": "2a894b663600ff24defed73909d7f49912ee5d90b38e572740bdcfa838904f6e"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/checks.json",
+      "bytes": 3757,
+      "sha256": "8086e35f591fbeccabf01ce310f31fc87912dfe5deeae886381d35873ba39bad"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/completion.json",
+      "bytes": 5247,
+      "sha256": "0071444c86b59039c29bd9de3140a01ecd2cbf55348158fcb4fee93b42e62032"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/completion.png",
+      "bytes": 94227,
+      "sha256": "e5c71719ff950851ea730dac33c2b0695b97fbc77deaf8cbfbb7961801fd01f8"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/documentation.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/guide.png",
+      "bytes": 133163,
+      "sha256": "594fbc64ff78bb5a9dca57cf577518633579fd05a157d00bdb991b3be0f88bb6"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/headless/f10/engine.txt",
+      "bytes": 11102,
+      "sha256": "e2b858ac61fc6c2ee493038b612dc4f62b97596d5e921e927e4727772e2cf4fb"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/headless/f10/frames.jsonl",
+      "bytes": 9211,
+      "sha256": "9a36675c2569388b96d0529af66bdb39c059e302a9834a939786a9fd972f1d98"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "1867833e1367f954d4ca142d4eb0749c4c62babffa8614ec023800e58ced0fb5"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/headless/normal/engine.txt",
+      "bytes": 11091,
+      "sha256": "c4a3fd578519de237b862861ea845e32d221f9be7010eb1cbb173e712eb40e5e"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/headless/normal/frames.jsonl",
+      "bytes": 9197,
+      "sha256": "f1f951785a3ccf43178464e8705ceb653f45a7d967c88dc9b0aabb452445a8a9"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "9318c9ddd93f1985cd86d3e46fd7cf78590478f1a02840ea73d1229e8eb3020c"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/preservation.json",
+      "bytes": 879,
+      "sha256": "a43b57556c84bae0142d9cd686fe96371c83f9e21e61dcd41080530699c8a171"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/version.txt",
+      "bytes": 30,
+      "sha256": "53747e01e9b9cd6aadfdc6548d1f7906fef3f058a0e0faa5348274952e54603b"
+    },
+    {
+      "path": "docs/reports/refactor-01/closeout/wiki.txt",
+      "bytes": 13297,
+      "sha256": "f68f0aa1136807533f4251286e0c7f70c8fa5ccc59bf0048082d35c7fefa216a"
+    },
+    {
+      "path": "docs/reports/refactor-01/experiments/git-hook-environment.json",
+      "bytes": 2067,
+      "sha256": "8d427e3e41a94cf5305bca42043815e2de641008ea10024245a025eff4841c9d"
+    },
+    {
+      "path": "docs/reports/refactor-01/experiments/root-depth.json",
+      "bytes": 2100,
+      "sha256": "a607cfee57cc9d75738d9bffe6aff46712668010b929216e9bacdfed2a90d211"
+    },
+    {
+      "path": "docs/reports/refactor-01/final-verification.json",
+      "bytes": 5309,
+      "sha256": "97fd13d8289c959cc393ee38118587b7101527e1d37d09f241d041bd98495ff9"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/README.md",
+      "bytes": 921,
+      "sha256": "34bb6616e1d6e0bd919822543ba3defff94b018f290e11de6aeea73ddb3f5f86"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/baseline-verification.json",
+      "bytes": 2377,
+      "sha256": "71512e2b7e657e01a30f5d457a68e05be08066132783cfccecb45ed02b2a79a7"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/experiments/git-hook-environment.json",
+      "bytes": 2067,
+      "sha256": "c658f3d3bc7151b19e60b1d48dc9342e5e7492a7f7656b35d07283d33ab606fe"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/experiments/root-depth.json",
+      "bytes": 2100,
+      "sha256": "be863d3130f4c5704ff2860ab1c3fc793b1e4f7408c21b4f144c62964746c099"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/archives.json",
+      "bytes": 2232,
+      "sha256": "fce682026959c22bd2d59207128729e77f8c53719ff36a16299034451b2f16ba"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/baseline-files.jsonl.gz",
+      "bytes": 1558905,
+      "sha256": "2dcb23f8565ab3cd04bb388955f5b98e182e09d0f00efa490f04b53532699fa0"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/cross-family-imports.json",
+      "bytes": 5487,
+      "sha256": "e63eb6f64d3922d97dbd76ffc313ea5d555a1f74d137b51c8c14c1f2f2f8d216"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/hazards.json",
+      "bytes": 171844,
+      "sha256": "9702ea3c06f85899b69319c9fabc06478a619fbb06d71d5f00b2149e155f1084"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/inventory.json",
+      "bytes": 8060,
+      "sha256": "0a434ba08b003cb829ce1d7fc159aa7cc31705783aac01071f8b50af11f8ebc0"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/markdown-links.json",
+      "bytes": 7722,
+      "sha256": "7fda9e96fc1bdd3085903e7ca8f73d55647422e78efc7d2c5c63f7a03e445591"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/migration-plan-copy.json",
+      "bytes": 154795,
+      "sha256": "3edf9f5ad962c1a3c58c065902e1408f0a7aaec05f76d5916808f3727f802532"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/other-catalogs.json",
+      "bytes": 127932,
+      "sha256": "de3725fc12f98113f7f9469a8669cd05ea06824ced0e9575d6bf300401ce7211"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/packet.json",
+      "bytes": 1296,
+      "sha256": "6e6af3606d71de588e9b730988e3d809e82ebaf46ee96f210724f9dcfc10fdda"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/references.jsonl.gz",
+      "bytes": 4457438,
+      "sha256": "07b1d1b4fc98aa03f6b5e5e045c09b225fe951bc5bbeb1f0389a6122784328e0"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/suite-registry.json",
+      "bytes": 63527,
+      "sha256": "cf3b0c810d72fedba6ecfdc3f2f2e2b6cef78fbcede21328ff1f9a7c1626fce1"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/tool-map.csv",
+      "bytes": 208020,
+      "sha256": "69d770ce4f35b6927441de6c7aba6bdefe9ae53d64158088eaaced9a807e5697"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/tool-map.json",
+      "bytes": 1365598,
+      "sha256": "2dab6f4e4caaccc1ac858490fcb3d896c82bbcdee259630bfc2557e63dfad2fd"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/tool-map.md",
+      "bytes": 161055,
+      "sha256": "f4d59a77b3f020b3e5c520d5a1f0bcea1097c71ae4ad256ccb7811ae6cebafc7"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/validation/architecture.txt",
+      "bytes": 12659,
+      "sha256": "03a59b0464c9c50dc2e8ab6917504856e8fc01b257c68e7dddd373c857c230b4"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/validation/collect.txt",
+      "bytes": 8379,
+      "sha256": "cb0e31b6f68bde2a881000bc6945aa42e74aba5c47450dbce4c4f6013c51e52c"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/validation/game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/validation/headless/f10/engine.txt",
+      "bytes": 11090,
+      "sha256": "311be2e7cca5d217d76aa3107e637df699476990faf8d4af19787a6fa10284f4"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/validation/headless/f10/frames.jsonl",
+      "bytes": 9199,
+      "sha256": "c3b83ea25e36085c2a7a6d1cbac854087d144b85bedfcf7a38a0bbf53ed04507"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/validation/headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "9ae6608098029e8d2a56626772c853e4c75149c77d425713060aee9c41dddf65"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/validation/headless/normal/engine.txt",
+      "bytes": 11016,
+      "sha256": "c16746fa61b6300b51dec9c120508a373f10e6368e246af8a2793f5b3f1dc325"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/validation/headless/normal/frames.jsonl",
+      "bytes": 9122,
+      "sha256": "61fe9233539d5c39e5cfd1cd7b9b7762f29ef964f5d701caeda5f07fdcf2c3dc"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/validation/headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "46d362c95916baa218527ba5874b7b729e6f8d2fbb1ee46dcd76af69386db42a"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/validation/probes.txt",
+      "bytes": 111,
+      "sha256": "83511f4d21b2f46f541766327f89dbfe7c6765914aadd620bb71ab2fdba9d7f2"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/validation/unit.txt",
+      "bytes": 3393,
+      "sha256": "365cbb56e3bebb9cd7110ecaf453518cbba470b6a43671a26a8457f89276fc7a"
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/validation/wiki.txt",
+      "bytes": 12843,
+      "sha256": "364a0c135e4950cb49c14b6c05e742f90ff68bae4e0e7b76e48b754864f24c85"
+    },
+    {
+      "path": "docs/reports/refactor-01/instrumentation/.gitignore",
+      "bytes": 13,
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b"
+    },
+    {
+      "path": "docs/reports/refactor-01/instrumentation/archive_index.py",
+      "bytes": 4160,
+      "sha256": "9d6829ee8b0ef3732579fe8a94120886e01a92c3e9b5b6fbea63cf7335a40862"
+    },
+    {
+      "path": "docs/reports/refactor-01/instrumentation/audit.py",
+      "bytes": 12603,
+      "sha256": "ab0e9b3666f1ac4d667014f347ef7150f17c2019e843dc5cc7d10cdb09183885"
+    },
+    {
+      "path": "docs/reports/refactor-01/instrumentation/git_snapshot.py",
+      "bytes": 5699,
+      "sha256": "ba472987380089b1c6b522be4ade2d735c385e02cd77e64c26227691f24d682a"
+    },
+    {
+      "path": "docs/reports/refactor-01/instrumentation/mapping.py",
+      "bytes": 12566,
+      "sha256": "a73fb5ee29b3df60105bab6cfd25bde6805b7d78973eb0abbc6aba3a71eebb6d"
+    },
+    {
+      "path": "docs/reports/refactor-01/instrumentation/probes.py",
+      "bytes": 8318,
+      "sha256": "4a31c351c298ea21e08fc22e0a11f7c746ceacfc119031b7d9c6c683a590c953"
+    },
+    {
+      "path": "docs/reports/refactor-01/instrumentation/references.py",
+      "bytes": 12522,
+      "sha256": "5fe6c43437f234d739794c67d93aaedc5ee686eed4de854fa4ac8c41aabdc1cd"
+    },
+    {
+      "path": "docs/reports/refactor-01/instrumentation/suite_registry.py",
+      "bytes": 4044,
+      "sha256": "2eb345891b7e883f1bce627d38bfa67606460e9d473f4c9d41da5f028334b567"
+    },
+    {
+      "path": "docs/reports/refactor-01/instrumentation/test_audit.py",
+      "bytes": 18011,
+      "sha256": "f661f98fa1561e70c2d9ebe0c28afcc18ec0501c4f38720a381c1d8f1d52aa49"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/README.md",
+      "bytes": 12287,
+      "sha256": "726869d31fdc5247bb5c0350a0c38a3921606e3c7ba1563a20302cb8a7fc3adf"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/baseline-verification.json",
+      "bytes": 846,
+      "sha256": "43e9bb1657454d12ce41855b114f5501f4cecfa5c546cb7293e4149c3d4fd26d"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/browser.json",
+      "bytes": 1104,
+      "sha256": "2393c6b40c3ceb8595e0200bde77991be75feba79cf19a2c2b0dbe73e8407a0a"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/checks.json",
+      "bytes": 3646,
+      "sha256": "ab217aa944b0317b0aa7062e82b105219c554f9d278e5120e9d389e73d5ce9c2"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/experiments/git-hook-environment.json",
+      "bytes": 2067,
+      "sha256": "2c77f4b0b3956d6d4e01aaaf1229a6a48c87f6872b54787ab66a2e695c748e2f"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/experiments/root-depth.json",
+      "bytes": 2100,
+      "sha256": "c4fd99345d7acfedda95449bbe416b70a11461c54e80541228dd403591d41f11"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/final-verification.json",
+      "bytes": 5276,
+      "sha256": "af54f92523529d8e0cb493a82e58a20f44404ec64420d98f3a8027f4a2f4736d"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/local-uid-observation.json",
+      "bytes": 32856,
+      "sha256": "597d1df01d922ae09d7fd7f8e1ebc72525e79fbb661dd7a3749ed33d03c2d023"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/migration-plan.json",
+      "bytes": 155009,
+      "sha256": "8553b96ad259190ce5271af9ec124d3ce67275d9098c5d34e0c2b46e9675472f"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/reference-decisions.json",
+      "bytes": 1819,
+      "sha256": "028204fef29f1a562a389a35a789cd761b01a270048dd51d959896fc656e2d73"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/scope-audit.json",
+      "bytes": 12602,
+      "sha256": "311ba67b606bc20719bb06eb57ef92219c7e0cd36ea2533aab9c9ba1345295d4"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/archives.json",
+      "bytes": 2232,
+      "sha256": "fce682026959c22bd2d59207128729e77f8c53719ff36a16299034451b2f16ba"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/baseline-files.jsonl.gz",
+      "bytes": 1565039,
+      "sha256": "1dac24716eeb135056f7015b48ca3f3cd71ee715f85d6b98af258e91bc95d87e"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/cross-family-imports.json",
+      "bytes": 5487,
+      "sha256": "f4455f7eae20326ce2bf08bb39cc9ac997486e70ced6381dade37b231d280869"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/hazards.json",
+      "bytes": 171844,
+      "sha256": "9702ea3c06f85899b69319c9fabc06478a619fbb06d71d5f00b2149e155f1084"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/inventory.json",
+      "bytes": 8140,
+      "sha256": "5a7191e53264fa42aea711d16880630583c0f87358ff05ac0846b7c12c18b51f"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/markdown-links.json",
+      "bytes": 7722,
+      "sha256": "7fda9e96fc1bdd3085903e7ca8f73d55647422e78efc7d2c5c63f7a03e445591"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/migration-plan-copy.json",
+      "bytes": 155009,
+      "sha256": "8553b96ad259190ce5271af9ec124d3ce67275d9098c5d34e0c2b46e9675472f"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/other-catalogs.json",
+      "bytes": 129236,
+      "sha256": "b40e0cdde21d1eae082cc204702314f720500e16e0cfa9a198dfb6f987340e6a"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/packet.json",
+      "bytes": 1296,
+      "sha256": "790dcaa8a920b783c4dc24c9d565613fa2f1dfe5d579aa3acd385acf8c2a3059"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/references.jsonl.gz",
+      "bytes": 4459168,
+      "sha256": "16ccc924600a21f50dab4f8d511fef048b17f7957b04b77f91ac36f5805ede54"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/suite-registry.json",
+      "bytes": 63527,
+      "sha256": "cf3b0c810d72fedba6ecfdc3f2f2e2b6cef78fbcede21328ff1f9a7c1626fce1"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/tool-map.csv",
+      "bytes": 208020,
+      "sha256": "69d770ce4f35b6927441de6c7aba6bdefe9ae53d64158088eaaced9a807e5697"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/tool-map.json",
+      "bytes": 1365632,
+      "sha256": "a45668f89b2ce09465b013d86a0bfd05835d1183e96145bfbf0df41e129c8c3c"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/tool-map.md",
+      "bytes": 161055,
+      "sha256": "cc026637441312a81134b665bac3e353418f8f45391ca9889f7f803c96666abd"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/architecture.txt",
+      "bytes": 12655,
+      "sha256": "a3264d1687cf343a837ed5c437ea21090663a4b63a7a16b9b96e20255d743f0c"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/backlog-final.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/browser-card.txt.gz",
+      "bytes": 3239,
+      "sha256": "a8529f014bfb63d372b0f2d2030a8c8963507a91f183afb144bbc793588df094"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/browser-map.png",
+      "bytes": 111479,
+      "sha256": "7194dd41152129df9ff7d312b79bc999af9b1354b72ae3e4e00aa15d499c35c1"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/browser-map.txt.gz",
+      "bytes": 37677,
+      "sha256": "0a4eaf173d560faeb1b2a0a7351217d80c4b2daf97f11ff7820f271a3e0f4fb4"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/browser-overview.png",
+      "bytes": 129528,
+      "sha256": "905ce9de5b01440cc15ae5f90afa25f0a5822aafd52b83da23ed5b4ddebfd3ba"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/browser-overview.txt.gz",
+      "bytes": 5527,
+      "sha256": "5b78bfcd91779081f676a9423d476e7c38a0949903cd675d7247231022f2c118"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/collect-final.txt",
+      "bytes": 8459,
+      "sha256": "5f9933d46d517c93934b32c3cffc3c4a868923abb61453ecbe4793eb7974141f"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/collect.txt",
+      "bytes": 8379,
+      "sha256": "05463931fafd5d5a9e147d8c8f9aaada17887d1ef65dc5cea7078a07a936f045"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/diff-final.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/diff-note.json",
+      "bytes": 237,
+      "sha256": "c2761d05c1e7d782ce021bc51ab16768be6f4168f9a5c8ccf8c2458bfab754df"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/diff-raw-whitespace.txt",
+      "bytes": 9616,
+      "sha256": "9bc8690d195af6b35262d8144e8becd1ed1f05470c930d844c78bb730b72757f"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/diff-source-final.txt",
+      "bytes": 65,
+      "sha256": "aad82a483c2e1b5971ab66ad53f416d2f617c8cc3af746f7a91cecaa8e9f7de2"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/documentation-final.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/documentation-publication.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/headless/f10/engine.txt",
+      "bytes": 11130,
+      "sha256": "fac70d30aa5ae2a7808cbd13d52970505d5347db360fbcecda7195b8c9832e22"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/headless/f10/frames.jsonl",
+      "bytes": 9239,
+      "sha256": "3c6979e0803069ca9c0ae1ea69814d0002bdfa782c93d950592e5294f69cee1d"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "52da9027dc493a0c00976420f5bb3bdeb7cf3b4701815f36b1335143d978fc2e"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/headless/normal/engine.txt",
+      "bytes": 11090,
+      "sha256": "8416a9b122dc3b93982c216d7b3031b319ef22f10fa099cccf7528709efabc24"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/headless/normal/frames.jsonl",
+      "bytes": 9196,
+      "sha256": "1eaa8e5005d60d9feee3ed2c46d14f44c273cf39501141c8c6bbf02020203e70"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "f058cf2713d7c2e27f5d99a06f4c273f31e9db209e6fae062223133880153a87"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/probes.txt",
+      "bytes": 111,
+      "sha256": "83511f4d21b2f46f541766327f89dbfe7c6765914aadd620bb71ab2fdba9d7f2"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/reproduce-other-cwd.txt",
+      "bytes": 8459,
+      "sha256": "5f9933d46d517c93934b32c3cffc3c4a868923abb61453ecbe4793eb7974141f"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/reproduce-root.txt",
+      "bytes": 8459,
+      "sha256": "5f9933d46d517c93934b32c3cffc3c4a868923abb61453ecbe4793eb7974141f"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/scope-final.json",
+      "bytes": 12602,
+      "sha256": "311ba67b606bc20719bb06eb57ef92219c7e0cd36ea2533aab9c9ba1345295d4"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/scope-final.txt",
+      "bytes": 12602,
+      "sha256": "311ba67b606bc20719bb06eb57ef92219c7e0cd36ea2533aab9c9ba1345295d4"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/scope-negative.txt",
+      "bytes": 857,
+      "sha256": "bf3daa627f29576df75afd5a5921cc7c6e63d45c7867e25c70770a618d16d003"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/scope.json",
+      "bytes": 11523,
+      "sha256": "2594d2a081204d08b620a22578fb8d31b061aa31c7a7ec7ea02e223637aa705a"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/scope.txt",
+      "bytes": 11523,
+      "sha256": "2594d2a081204d08b620a22578fb8d31b061aa31c7a7ec7ea02e223637aa705a"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/unit.txt",
+      "bytes": 3393,
+      "sha256": "b103c7f0fb3b54b800096d1f8b9e01a4632126be2ceb9e64326dd43521716b9c"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/version-final.txt",
+      "bytes": 30,
+      "sha256": "7292518287618110d1fb9bfca7e2a20c101662440eca4264a6bd14c59e41a6f2"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/wiki-final.txt",
+      "bytes": 12854,
+      "sha256": "eaa2ee1fd18f8da4a18c8f21926e06ae99e5591da1aab4c2a8e4758f710aa845"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/validation/wiki.txt",
+      "bytes": 12864,
+      "sha256": "ab0de2cbdcd2521b827fb00e0b3f69b3d8f1e431fcddadf7416535250ac973c3"
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/verify_scope.py",
+      "bytes": 6438,
+      "sha256": "0619c69d472cdf3c61c1c20164a73e746b3f983ac6e82a4edb5e3a7b31d183c8"
+    },
+    {
+      "path": "docs/reports/refactor-01/local-uid-observation.json",
+      "bytes": 32856,
+      "sha256": "4583b1100b479d9c1f5ca9319f22014c7cbc29fe5e308a9d5a4afa1fbb6eac98"
+    },
+    {
+      "path": "docs/reports/refactor-01/migration-batches.md",
+      "bytes": 11369,
+      "sha256": "77e307b8560c56aba17e4795cd536cb0a749cb6775d216f1d9d191112db9d14f"
+    },
+    {
+      "path": "docs/reports/refactor-01/migration-plan.json",
+      "bytes": 154795,
+      "sha256": "15222dcbdbb2d76a467d7e90a55cc854f727774964cc62f03f45263ce497398c"
+    },
+    {
+      "path": "docs/reports/refactor-01/publication/README.md",
+      "bytes": 1010,
+      "sha256": "f49276ee7420954b011490a01a73f218b18c565c905b056364394368b4c9d580"
+    },
+    {
+      "path": "docs/reports/refactor-01/publication/backlog.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "docs/reports/refactor-01/publication/card.png",
+      "bytes": 79247,
+      "sha256": "9cee35e04ee7ebeef368bb4fb067aff5b55ec245a6ebc8b51ecebaab21c1eb69"
+    },
+    {
+      "path": "docs/reports/refactor-01/publication/documentation.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/refactor-01/publication/editorial-scope.json",
+      "bytes": 778,
+      "sha256": "ecac1c03e73cb355b57deeda43403ba1301aa435a3bad4fb4b741fa252101723"
+    },
+    {
+      "path": "docs/reports/refactor-01/publication/scope.json",
+      "bytes": 14119,
+      "sha256": "aa6ab9bf5d7a022b5ca1c927a21a013c75824faa920c6ca7e6620208c8eacf7a"
+    },
+    {
+      "path": "docs/reports/refactor-01/publication/scope.txt",
+      "bytes": 14119,
+      "sha256": "aa6ab9bf5d7a022b5ca1c927a21a013c75824faa920c6ca7e6620208c8eacf7a"
+    },
+    {
+      "path": "docs/reports/refactor-01/publication/unit.txt",
+      "bytes": 3393,
+      "sha256": "afcca293350cabac59f8876744797caa1eea7247c9f835dbd398d2da60696b5f"
+    },
+    {
+      "path": "docs/reports/refactor-01/publication/version.txt",
+      "bytes": 30,
+      "sha256": "84de9326c41e4ae9a5b4674eaafe6a1442495f0a94b38946ec4f73ed5839c61e"
+    },
+    {
+      "path": "docs/reports/refactor-01/publication/wiki-path-failure.txt",
+      "bytes": 198,
+      "sha256": "68cb7237957459269b020a3e37b68b3ea7edd02397896b0e3a397135ae8deb73"
+    },
+    {
+      "path": "docs/reports/refactor-01/publication/wiki-sandbox-failure.txt",
+      "bytes": 507,
+      "sha256": "00584cbe0c5b82038017e89a0a9432b5ffdcb8dc4a8fa27a5dd6a42cf04b93c1"
+    },
+    {
+      "path": "docs/reports/refactor-01/publication/wiki.txt",
+      "bytes": 13306,
+      "sha256": "06b360452bc13c42219c0d4ad3f3d6a04852cd52befcdb9342d4117141f77d06"
+    },
+    {
+      "path": "docs/reports/refactor-01/reference-decisions.json",
+      "bytes": 1819,
+      "sha256": "325622fa07024f1d21eafb8a1d546b844cab3ed08a4c97f7c6d88f2d43044130"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/README.md",
+      "bytes": 7326,
+      "sha256": "f733ab371b71892b05359adcaae3ea7c9824ae3910d63b2a072c4dfb2dff2140"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/checks.json",
+      "bytes": 6818,
+      "sha256": "b6546a3380fdddefd395854b9f4b7c18f7fb65adb72a6252d7a4773fcb3b303d"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/collection-comparison.json",
+      "bytes": 1805,
+      "sha256": "b94b94fc1186b27a9872dde4700bec4cc2db3fc0fe2f2bfca91ac96a84de337c"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/frozen-preservation.json",
+      "bytes": 493,
+      "sha256": "04cc6add4e4bcd1a5301fb61a86c02231624a3addfd98848d56aa2b753db2636"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/green-production-plan.json",
+      "bytes": 830,
+      "sha256": "099ad784b7a5a833a3cffe90e8abd47d25b60de49504e2473ba38bb0e56adf07"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/red-reproduction.json",
+      "bytes": 613,
+      "sha256": "496387cede5b987eaeecb7b01e0e0d86ac94e0123e214d6eaf7bfe8d6513e652"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/replay.py",
+      "bytes": 3036,
+      "sha256": "d8d321140ff695c8ad2f984ce69e599f3a6760a487a12a4799bdb3a294376afb"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/reproduction/inventory.json",
+      "bytes": 8140,
+      "sha256": "660e22ea57a8c55d8a3b9d8f761adb68bb060f44e2d07251452327a8feda79b7"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/reproduction/packet.json",
+      "bytes": 1296,
+      "sha256": "6723deb131a7545f68700551095a03403642e3ad893e1a209f14465abed40959"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/architecture.txt",
+      "bytes": 12654,
+      "sha256": "0cb9ceeb70ac25f54a4768b34a5a3be40f0ad4c7406d62750b8ea47ae41394ac"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/attachment-parity.json",
+      "bytes": 1376,
+      "sha256": "842484fd121558d8374bc99467926bfdbb786ebf919de73a48d868c418c2b674"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/backlog.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/browser-links-final.json",
+      "bytes": 722,
+      "sha256": "79a89e73ce5fa111ab5dff3c7a63bb69bc4e3b86786d4aa2205f1c184b6d17ee"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/browser-links.json",
+      "bytes": 59,
+      "sha256": "ab52897ba76704b0607329df7486356f20bb88a301c67212bbf6122f8f057552"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/browser-production-plan.json",
+      "bytes": 830,
+      "sha256": "099ad784b7a5a833a3cffe90e8abd47d25b60de49504e2473ba38bb0e56adf07"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/collect.txt",
+      "bytes": 8459,
+      "sha256": "7a2f3bcef80e38bfdb0168ac8b7569add139622d224734e994894e329c80fa76"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/documentation-final-report.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/documentation-final.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/documentation-first.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/documentation-publish.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/documentation-report.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/full-PR-whitespace.txt.gz",
+      "bytes": 3167,
+      "sha256": "3a600e3004d7eab78db64d7aba7cf6339da08bccb85bfa61fcf3d2a2319f7359"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/headless/f10/engine.txt",
+      "bytes": 11087,
+      "sha256": "a0d2f143469985f11dcd9742bf1acdd0ddfade7cf512a697f893c6bf991ee836"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/headless/f10/frames.jsonl",
+      "bytes": 9196,
+      "sha256": "597a773e5bf8042c0780141f57643ecce6be81a7d72aabec51d2240631d6e186"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "5df76f8a9dde9af62a18578f9753fe849771e4bd2780a05befaf306d184f480a"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/headless/normal/engine.txt",
+      "bytes": 11031,
+      "sha256": "ffbc7f32a5362d6611e830788440112a71a68489a51dba04ae7dd94635e17774"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/headless/normal/frames.jsonl",
+      "bytes": 9137,
+      "sha256": "5e1b0d58c6aa2b1ceebf7abded7dbdd7f0fd72f2a26ac08ca3304dba8fe74cb9"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "c6386d82b8b23e1b315d8a31a0c4b837aea371bc929dd822ef884287bd716c09"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/red-tests.txt.gz",
+      "bytes": 1636,
+      "sha256": "a89f4e3a35034ac76140af032e3f3f525678cc03de6372acc34d3cda054031db"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/replay-other-cwd.txt",
+      "bytes": 8459,
+      "sha256": "7a2f3bcef80e38bfdb0168ac8b7569add139622d224734e994894e329c80fa76"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/replay-root.txt",
+      "bytes": 8459,
+      "sha256": "7a2f3bcef80e38bfdb0168ac8b7569add139622d224734e994894e329c80fa76"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/replay-spaced-cwd.txt",
+      "bytes": 8459,
+      "sha256": "7a2f3bcef80e38bfdb0168ac8b7569add139622d224734e994894e329c80fa76"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/scope-final.json",
+      "bytes": 16553,
+      "sha256": "5ee4a85dfe79ce94df391d7f470023971b3e9da791f7c01497c0bde929479a1d"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/scope-final.txt",
+      "bytes": 16553,
+      "sha256": "5ee4a85dfe79ce94df391d7f470023971b3e9da791f7c01497c0bde929479a1d"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/scope.json",
+      "bytes": 15542,
+      "sha256": "0a1a840d90bc02b6b140b81349be3165bed916fa75eabe5f69b090a3ff67634a"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/scope.txt",
+      "bytes": 15542,
+      "sha256": "0a1a840d90bc02b6b140b81349be3165bed916fa75eabe5f69b090a3ff67634a"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/unit.txt",
+      "bytes": 4268,
+      "sha256": "c1c4c0bd922abe797ee493f543755b6d49241999dd8e070e08b1b235f81eb028"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/version.txt",
+      "bytes": 30,
+      "sha256": "c39b3a9044935d9b831c2861f543ffe58458b6247ade1980e7c309cb62f184e8"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/whitespace.json",
+      "bytes": 320,
+      "sha256": "1e04c87dd4c31613bb6c7187fa39e43a1d191dd09a7742cf186d5826f3303552"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/wiki-final.txt",
+      "bytes": 12855,
+      "sha256": "8b772a5f898034521780c4a09e8b78e932a006fe2938388f0aa9879271215180"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/wiki-review-final.png",
+      "bytes": 130611,
+      "sha256": "165f1aa44604c72c03d5fa520e8ab94d10906b448549b6c8d154c73a427eb533"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/wiki-review.png",
+      "bytes": 130611,
+      "sha256": "165f1aa44604c72c03d5fa520e8ab94d10906b448549b6c8d154c73a427eb533"
+    },
+    {
+      "path": "docs/reports/refactor-01/review-1/validation/wiki.txt",
+      "bytes": 12853,
+      "sha256": "da90fb866e1301deaf03ea45ff91335603310a9c2b4c9687f77666cc2db9b06c"
+    },
+    {
+      "path": "docs/reports/refactor-01/scope-audit.json",
+      "bytes": 8604,
+      "sha256": "e4ae810ce84dedd469192eab25e03a3ae761b4772eaf286233134a6e7d997f85"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/archives.json",
+      "bytes": 2232,
+      "sha256": "fce682026959c22bd2d59207128729e77f8c53719ff36a16299034451b2f16ba"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/baseline-files.jsonl.gz",
+      "bytes": 1563889,
+      "sha256": "096fa39d2848852def04e2eb6d3deecda0802f2ac004ca7a8f22e1a255a5d107"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/cross-family-imports.json",
+      "bytes": 5487,
+      "sha256": "42573bdec6ae6397989ff27501d6c6d5fdd9e86a368a6014a4a0ffee435857b1"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/hazards.json",
+      "bytes": 171844,
+      "sha256": "9702ea3c06f85899b69319c9fabc06478a619fbb06d71d5f00b2149e155f1084"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/inventory.json",
+      "bytes": 8060,
+      "sha256": "114632fd5f1b30412da77ed808abeffbef280c3a6abf9093d20bfe223ec13189"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/markdown-links.json",
+      "bytes": 7722,
+      "sha256": "7fda9e96fc1bdd3085903e7ca8f73d55647422e78efc7d2c5c63f7a03e445591"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/migration-plan-copy.json",
+      "bytes": 154795,
+      "sha256": "15222dcbdbb2d76a467d7e90a55cc854f727774964cc62f03f45263ce497398c"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/other-catalogs.json",
+      "bytes": 128632,
+      "sha256": "c65e9f8c5cb76d8c1da27f9ac28906b6bde1fdd94e8a4fd3cffd768f7ff38133"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/packet.json",
+      "bytes": 1296,
+      "sha256": "e4b4ba6dfcea63b2fcef19be7c9738304e26108106021c00e299b8a0ba4f62bb"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/references.jsonl.gz",
+      "bytes": 4458600,
+      "sha256": "13491db7ca894508cf78faefb46dbe85c3ceee08b3892126b1fad443bef29132"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/suite-registry.json",
+      "bytes": 63527,
+      "sha256": "cf3b0c810d72fedba6ecfdc3f2f2e2b6cef78fbcede21328ff1f9a7c1626fce1"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/tool-map.csv",
+      "bytes": 208020,
+      "sha256": "69d770ce4f35b6927441de6c7aba6bdefe9ae53d64158088eaaced9a807e5697"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/tool-map.json",
+      "bytes": 1365621,
+      "sha256": "b02316a994fd8f8ed7508ed39e9a8040f011412c7fad914a5ef21e9712130d8c"
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/tool-map.md",
+      "bytes": 161055,
+      "sha256": "a7aff6d5574c1611c0c17a8ebc9d002b057be27e90f6f86c11c21bd62ba28b04"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/architecture.txt",
+      "bytes": 12654,
+      "sha256": "cfdc7b7bab5700c616d105210c718bcb179f660f80ac7a1a7abed3509c8bc170"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/backlog-final.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/browser-card.txt",
+      "bytes": 9403,
+      "sha256": "835c24efbaa8e72ff23c2946d7114155bbf2ac260c97da7b51cce00be226b102"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/browser-map.png",
+      "bytes": 110934,
+      "sha256": "36c3c824ea631f18ee06d713c11435eb4a78a81780afe066d9f0478c9192db5a"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/browser-overview.png",
+      "bytes": 129476,
+      "sha256": "6ec4f39aa10ebeda330747ab5c4f7a4967f5c0ada4f7a7a2fa7133ba5772b187"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/browser-overview.txt",
+      "bytes": 14817,
+      "sha256": "f952a099eb76577cc522dc2baf756c4cfae3c3bfb5bccca8e33ad159adbcdca7"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/browser-search.txt",
+      "bytes": 1855,
+      "sha256": "99b933dee67062e2d2672a4d8e6450b798166747e21b50e2da613836dec71379"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/collect.txt",
+      "bytes": 8379,
+      "sha256": "019e538cb932ac312a844eb62104673ebade2d411185f50da4bdf33812f655b1"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/diff-final.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/documentation-final.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/failed-1/README.md",
+      "bytes": 758,
+      "sha256": "5e2e5806a47fc2fc8a0b3c364433af78a89c2cb5faaaa4b9228babca4e1c8d26"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/failed-1/documentation.txt",
+      "bytes": 31601,
+      "sha256": "a97094cde437202f35231581ed1769dae7025c750799fd76e67d638c0490278d"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/headless/f10/engine.txt",
+      "bytes": 11063,
+      "sha256": "baf869d7d1a0f28e96acabbb0d9a5e3fb425fedb8c89d8fe6e8b5a3e43c6ff5f"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/headless/f10/frames.jsonl",
+      "bytes": 9172,
+      "sha256": "d12a9edcbb71a51e509f04fbddf7ef3a7c43f019b962b73284f6d3632e9ff0fa"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "ed3ad3781394873c4c6cd67fa5d3d195a8cf7d0a2457e9e85a14cea92bd3a388"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/headless/normal/engine.txt",
+      "bytes": 11081,
+      "sha256": "60c5b60efea6d57a8bf19cf777d2ba06920112ae6753b503eddcb01c6586ff0a"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/headless/normal/frames.jsonl",
+      "bytes": 9187,
+      "sha256": "e227d3429a0d940a533741a546e7b1f881a978fc483ac1c9e36f34d34bcdb4ba"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "ae57726fa81dfd387be35d3ef3a2c5a96c5542ccdeab1a30ab9647b39482ef76"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/probes.txt",
+      "bytes": 111,
+      "sha256": "83511f4d21b2f46f541766327f89dbfe7c6765914aadd620bb71ab2fdba9d7f2"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/reproduce-other-cwd.txt",
+      "bytes": 8379,
+      "sha256": "019e538cb932ac312a844eb62104673ebade2d411185f50da4bdf33812f655b1"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/reproduce-root.txt",
+      "bytes": 8379,
+      "sha256": "019e538cb932ac312a844eb62104673ebade2d411185f50da4bdf33812f655b1"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/scope-final.json",
+      "bytes": 8604,
+      "sha256": "e4ae810ce84dedd469192eab25e03a3ae761b4772eaf286233134a6e7d997f85"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/scope-final.txt",
+      "bytes": 8604,
+      "sha256": "e4ae810ce84dedd469192eab25e03a3ae761b4772eaf286233134a6e7d997f85"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/scope-first-positive.json",
+      "bytes": 8309,
+      "sha256": "b896fa56eace7f37fc15bf4a3cbc216de6b5a5197f2601fa87b5ce0c252cec13"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/scope-negative.txt",
+      "bytes": 883,
+      "sha256": "7b472373a2624e9e275c3cb192c787669092c7e23e2f94cc4548431640506dad"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/scope-pre-final.json",
+      "bytes": 3165,
+      "sha256": "002ade1f32c5657167386ceaf0384a84b46c6c87bed2fc05cda8fc73bd00ca80"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/scope.txt",
+      "bytes": 8309,
+      "sha256": "b896fa56eace7f37fc15bf4a3cbc216de6b5a5197f2601fa87b5ce0c252cec13"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/unit.txt",
+      "bytes": 3393,
+      "sha256": "044c22137ade081f811e38a202badcb8ac8fb6dbae4b57e917d2f435fec1d39c"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/version-final.txt",
+      "bytes": 30,
+      "sha256": "a53ca1571b17da7deaa1a547d18f49bc60917cc1d8ec090bef1a3272e033720b"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/wiki-final.txt",
+      "bytes": 13294,
+      "sha256": "06e03fa5f9684e491af1c8d329a21cd8b30f447bfa63bcabdad77c7df4538f8c"
+    },
+    {
+      "path": "docs/reports/refactor-01/validation/wiki.txt",
+      "bytes": 13315,
+      "sha256": "7bc2fe974d784c662fd83b5f1fab4bee9d7cf092cd4db29f1fc81f1fa09c0b99"
+    },
+    {
+      "path": "docs/reports/refactor-01/verify_scope.py",
+      "bytes": 6440,
+      "sha256": "dc46cfaf48b575daf63d75766f8d4f6ee456b5de9a65b904fc8f525903b56288"
+    }
+  ],
+  "preserved_files": 364,
+  "all_byte_identical": true
+}

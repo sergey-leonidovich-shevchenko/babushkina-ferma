@@ -1,0 +1,337 @@
+{
+  "task": "WIKI-003 accepted implementation closeout",
+  "version": "0.0.352",
+  "base": "cc6132837e546e807873d974456a4a743b2d973e",
+  "fresh_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "zsh",
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.352",
+      "started_at": "2026-10-26T19:08:01.558226+00:00",
+      "finished_at": "2026-10-26T19:28:34.804136+00:00",
+      "exit": 0
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.352",
+      "started_at": "2026-10-26T19:28:34.804693+00:00",
+      "finished_at": "2026-10-26T19:35:00.290556+00:00",
+      "exit": 0
+    }
+  ],
+  "architecture": {
+    "suites": 82,
+    "cases": 1135,
+    "exit": 0
+  },
+  "game": {
+    "passed": 53502,
+    "failed": 0,
+    "exit": 0
+  },
+  "redraw": {
+    "normal": {
+      "passed": 90,
+      "failed": 0,
+      "display": "headless"
+    },
+    "f10": {
+      "passed": 90,
+      "failed": 0,
+      "display": "headless"
+    }
+  },
+  "wiki": {
+    "command": "pnpm --dir wiki check",
+    "exit": 0,
+    "tests": 145,
+    "passed": 145,
+    "failed": 0
+  },
+  "other_checks": {
+    "documentation": 0,
+    "version": 0,
+    "project_backlog": 0,
+    "source_public_dist_catalog_equal": true,
+    "receipt_source_public_dist_byte_equal": true,
+    "preserved_accepted_report_files": 364
+  },
+  "browser": {
+    "tab": "7",
+    "desktop": {
+      "width": 1280,
+      "docWidth": 1280
+    },
+    "mobile": {
+      "width": 390,
+      "docWidth": 390,
+      "history": 82,
+      "cardWidth": 390,
+      "cardDocWidth": 390
+    },
+    "receiptHref": "generated/attachments/bd367a4e61f67d9036d20ff97511bb289e9e8a94880c4e9230273c252de90233.json",
+    "historyProofs": [
+      {
+        "href": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/15",
+        "text": "PR #15"
+      },
+      {
+        "href": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/15#pullrequestreview-5658832101",
+        "text": "PR #15"
+      },
+      {
+        "href": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/cc6132837e546e807873d974456a4a743b2d973e/docs/reports/wiki-003/integration-1/README.md",
+        "text": "Отчёт принятой интеграции"
+      }
+    ],
+    "cardStatus": "\t\t\t746 text WIKI-003 Завершена P1 Объём M",
+    "manualRefresh": {
+      "history": 82,
+      "proofs": 3
+    },
+    "scope": "Read-only real canonical catalog; 390 CSS px frame, not physical phone; no planning mutations"
+  },
+  "commit_policy": "Full gates executed before commit/push. --no-verify prevents a second pre-commit version bump and repeat; normal post-commit retained. New PR still requires exact-head CI and independent review/Team Lead decision.",
+  "limitations": [
+    "Headless regression, no new native FPS or VMAP acceptance",
+    "390 CSS px same-origin frame, not a physical phone",
+    "Accepted PR15 CI is historical implementation evidence, not new closeout CI"
+  ],
+  "failed_attempts": [
+    "backlog-command-error.json",
+    "qa-cleanup.json initial sandbox loopback denial before any signal"
+  ],
+  "raw_files": [
+    {
+      "path": "README.md",
+      "bytes": 7709,
+      "sha256": "c46b1ec225603f6b46c0aa6d5f817005a1935015c42bd22e395a79048c984067"
+    },
+    {
+      "path": "accepted-ci.json",
+      "bytes": 3981,
+      "sha256": "870ecf06ba90cedfde36b7517adc3315702d694e76f134e6fb22d3500396edf5"
+    },
+    {
+      "path": "accepted-files.json",
+      "bytes": 70043,
+      "sha256": "d2b5f808f703ec2ee5fee8c35f9eee922a9de3315b8b940666c3b746e7acc34e"
+    },
+    {
+      "path": "accepted-github.json",
+      "bytes": 11802,
+      "sha256": "36b4a207bde6dcf6a75a1b0c8b8d04f0fce5cf8fb217d0a011154b72a390c581"
+    },
+    {
+      "path": "architecture.txt",
+      "bytes": 12651,
+      "sha256": "5f7de89593270543c5e6d9316b413d56936eedabaad9c5c92fc71bd94d2812d1"
+    },
+    {
+      "path": "attachment-browser.txt",
+      "bytes": 5848,
+      "sha256": "4748538ccf00dda3b0cefb4446c2a80354395b1b9fc37b2b15a507878343ef99"
+    },
+    {
+      "path": "attachment.json",
+      "bytes": 241,
+      "sha256": "219dcb05402db55515b246cca91f467a883a0c6c47ac8a959d1327f90d154cea"
+    },
+    {
+      "path": "backlog-command-error.json",
+      "bytes": 345,
+      "sha256": "2218cb41c60ea929a217a9d66c0ad09a2375f58ce5d614ad42b58890104f16d2"
+    },
+    {
+      "path": "backlog-final.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "backlog-first.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "branch-cleanup.json",
+      "bytes": 250,
+      "sha256": "942ce28f4a3264cbccbde7fc9cfaba385e50436dd3f6525d8f7f812fb0fb8447"
+    },
+    {
+      "path": "browser.json",
+      "bytes": 1120,
+      "sha256": "fa6fa39d1933f71295d5e1528c3a2cb32c4d1d5dbf9cd89dc2271c74240e1a3a"
+    },
+    {
+      "path": "card.json",
+      "bytes": 614,
+      "sha256": "e4412d63263eb771cf681f13d7a9db0665701a8e7ce491d7aa062e8771a730d7"
+    },
+    {
+      "path": "card.png",
+      "bytes": 88859,
+      "sha256": "ef35e89ac0aae8c59bace5bf6de06a85fd57b658a27f676c221f43d30d908b34"
+    },
+    {
+      "path": "catalog.json",
+      "bytes": 9314,
+      "sha256": "0ef096bfe34e1405794aeb224c920e372667d3f4c7444367109a5aada4563d0c"
+    },
+    {
+      "path": "completion.json",
+      "bytes": 5292,
+      "sha256": "bd367a4e61f67d9036d20ff97511bb289e9e8a94880c4e9230273c252de90233"
+    },
+    {
+      "path": "desktop.json",
+      "bytes": 6448,
+      "sha256": "8bf615492db62e7fb2fa82d5e24bc7308f5d579b73bf92f2269dd5922f8d792c"
+    },
+    {
+      "path": "desktop.png",
+      "bytes": 81336,
+      "sha256": "45c8d70aa112ad0b4671967a30735f7e204df7f1e7dc67c354478c19e13c3940"
+    },
+    {
+      "path": "documentation-final.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "documentation-first.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "gate-exits.json",
+      "bytes": 487,
+      "sha256": "06de20b381c68190897d2de3eb769064ac820cb43b1086fe343033c68a38e99b"
+    },
+    {
+      "path": "guide.json",
+      "bytes": 115,
+      "sha256": "80789ac700049ff15e7e63b8e0e731d0aa54bbc0cf9553204785d3a0c7cb4849"
+    },
+    {
+      "path": "guide.png",
+      "bytes": 127557,
+      "sha256": "4553ca29438e7bc5c6742ae1b6b6bb95b59a7ce4e65baeff9a4761cd5b3f17eb"
+    },
+    {
+      "path": "headless/f10/engine.txt",
+      "bytes": 11111,
+      "sha256": "d536d140423eeaa37cd5c296822755b595ec83b7f42dc3f809ed4b66fb9d8534"
+    },
+    {
+      "path": "headless/f10/frames.jsonl",
+      "bytes": 9220,
+      "sha256": "9fefb1bd63f54164c209971872223118e8946ca435093d88ebc913a91a47e895"
+    },
+    {
+      "path": "headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "ec99b1a4895c5e80ef86b50c71a4c742e5d95187facceccb15d67a24f50d7033"
+    },
+    {
+      "path": "headless/normal/engine.txt",
+      "bytes": 11070,
+      "sha256": "536d0a2fb2008d6bb26f230fc087b1a1e2a7a4e77c8530a55b85c2afc01079e3"
+    },
+    {
+      "path": "headless/normal/frames.jsonl",
+      "bytes": 9176,
+      "sha256": "abc4126d5f1624500f4d8e93446c97364df15358b375bc6dce979f3a0e8d85f8"
+    },
+    {
+      "path": "headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "a599ab14ba0d41d1548b3163da483fd16331df679fed2c78281ca9fd98e09368"
+    },
+    {
+      "path": "history-proofs.json",
+      "bytes": 593,
+      "sha256": "77bc7550c2d110751334497d0976711ec7348faa5453c3337ee38b5eea4d71bb"
+    },
+    {
+      "path": "history.png",
+      "bytes": 81889,
+      "sha256": "56178fe611c1afabde67161d501f91b4e0fc08bf3b6e308d078f6c1d6e33748a"
+    },
+    {
+      "path": "mobile-card.json",
+      "bytes": 6396,
+      "sha256": "4f31ab135baf36971fa00dda1a64bde6fc8fe82395fbc2ea3f92c56a241fc45e"
+    },
+    {
+      "path": "mobile-card.png",
+      "bytes": 47304,
+      "sha256": "fd72cca7f24291c470e9117d8912eb390225f7c3b78156408007d4e1ce9c7b91"
+    },
+    {
+      "path": "mobile-history.png",
+      "bytes": 47258,
+      "sha256": "1b0fa9cd83ea7a8abb4d51b3465fcee3845dd61cec39e8ac8ee3822038d17ecd"
+    },
+    {
+      "path": "mobile-proofs.json",
+      "bytes": 609,
+      "sha256": "caf8d7eb3c1f29bf3c5bd8d3bec1ba3fe3f901b7b02fa89d48f44d4461fff043"
+    },
+    {
+      "path": "mobile.json",
+      "bytes": 27115,
+      "sha256": "dabbf4eba2a71932e5d71274d506382448d9cd724613007269a69e67d7095bc9"
+    },
+    {
+      "path": "mobile.png",
+      "bytes": 48329,
+      "sha256": "4fb9ad67d4b14875c4c3a0f358c826c297cafc30d0a29cd7ca15cf2f4b1100b4"
+    },
+    {
+      "path": "preservation.json",
+      "bytes": 261,
+      "sha256": "d6ca409d7ae2a7bb9f19524eedeedb9531bf0d8834ae126833f1cb8beb04fec6"
+    },
+    {
+      "path": "qa-cleanup.json",
+      "bytes": 359,
+      "sha256": "700d31c80ac9422d66df01cfd04a0861a3b26ae991de1336d749d92031420e2a"
+    },
+    {
+      "path": "qa-server.mjs",
+      "bytes": 965,
+      "sha256": "b874a5a6d27bd8670bb3c2bae13147fbc974d8ea750e474fb08c90b8a1c30255"
+    },
+    {
+      "path": "scope.json",
+      "bytes": 645,
+      "sha256": "5bfaf048428e0354abe774b559e3220da066e6ba6881f6f509f7a20ebd15849d"
+    },
+    {
+      "path": "version-final.txt",
+      "bytes": 30,
+      "sha256": "5dbfcd4a2a9d3dc2446c09ca33fe42063780ac5deb42db74e232bd9afc24658d"
+    },
+    {
+      "path": "version-first.txt",
+      "bytes": 30,
+      "sha256": "5dbfcd4a2a9d3dc2446c09ca33fe42063780ac5deb42db74e232bd9afc24658d"
+    },
+    {
+      "path": "wiki.txt",
+      "bytes": 13820,
+      "sha256": "cceda98d31497e355bb4b7ee6e9a3597167c654294ba03fed931ad5724afcfc1"
+    }
+  ]
+}
