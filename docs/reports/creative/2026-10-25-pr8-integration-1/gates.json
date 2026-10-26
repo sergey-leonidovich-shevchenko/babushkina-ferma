@@ -1,0 +1,37 @@
+{
+  "finishedAt": "2026-10-26T03:27:27.695502+00:00",
+  "command": ".githooks/pre-commit (entire unchanged repository hook)",
+  "exitCode": 0,
+  "metadata": "0.0.341",
+  "architecture": {
+    "pythonSuites": 82,
+    "pythonTests": 1135
+  },
+  "game": {
+    "passed": 53502,
+    "failed": 0
+  },
+  "redraw": [
+    {
+      "passed": 90,
+      "failed": 0
+    },
+    {
+      "passed": 90,
+      "failed": 0
+    }
+  ],
+  "rawLogSHA256": "b0ac22676d3523855bb3fe0634aad9917cf184317dd4868067947c46fd16b5cb",
+  "wiki": {
+    "build": "pass",
+    "testsPassed": 135,
+    "testsFailed": 0,
+    "rawLogSHA256": "3b3e994413f8045732103fb1e641fa930c84ea5081596037f5730ae2437987f9"
+  },
+  "capture": "External ignored wrapper unsets inherited Git-local vars, executes the original hook without skips, then stages only this receipt and compressed raw logs. Original post-commit remains active.",
+  "limits": "Local gates only; not GitHub CI, native FPS acceptance, new gameplay or audience validation. The interrupted earlier run is not counted as a completed gate.",
+  "runtime": {
+    "python": "3.11.17",
+    "pillow": "11.3.0"
+  }
+}

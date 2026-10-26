@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-10-25T11:18:47.928Z",
+  "base": "2fa58d3719ff89f6f61a755e531d963807762ae9",
+  "status": "pass",
+  "preservedIdeas": 221,
+  "preservedAssessments": 60,
+  "reservedPublishedIDs": [
+    "IDEA-222",
+    "IDEA-223",
+    "IDEA-224",
+    "IDEA-225",
+    "IDEA-226",
+    "IDEA-227",
+    "IDEA-228",
+    "IDEA-229",
+    "IDEA-230",
+    "IDEA-231",
+    "IDEA-232",
+    "IDEA-233",
+    "IDEA-234",
+    "IDEA-235",
+    "IDEA-236",
+    "IDEA-237",
+    "IDEA-238",
+    "IDEA-239",
+    "IDEA-240",
+    "IDEA-241"
+  ],
+  "newIdeas": 10,
+  "futureTasks": 43,
+  "dialogueNodes": 31,
+  "playerAnswers": 94,
+  "futureScenarios": 60,
+  "plannedLocations": [
+    "old_moon_gauge",
+    "underfloor_seam",
+    "memory_clearing"
+  ],
+  "catalog": {
+    "plans": 103,
+    "epics": 157,
+    "tasks": 1993
+  },
+  "scope": "Редакционная полнота и зависимости. Игровые сценарии и интерес аудитории не проверены."
+}

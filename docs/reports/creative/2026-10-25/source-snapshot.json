@@ -1,0 +1,49 @@
+{
+  "observedAt": "2026-10-25",
+  "main": "2fa58d3719ff89f6f61a755e531d963807762ae9",
+  "openPRs": [
+    {
+      "number": 7,
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
+      "head": "codex/vfoliage-010-visibility-budget",
+      "headSha": "8ef7feaefb5cc669997c871234ba0501c6e7d4cf",
+      "baseSha": "2fa58d3719ff89f6f61a755e531d963807762ae9",
+      "state": "open",
+      "draft": false,
+      "merged": false
+    },
+    {
+      "number": 6,
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/6",
+      "head": "codex/idea-review-20261024-npc",
+      "headSha": "92a951569845278c6da0be8f694b4b7458e50a0b",
+      "baseSha": "2fa58d3719ff89f6f61a755e531d963807762ae9",
+      "state": "open",
+      "draft": true,
+      "merged": false
+    },
+    {
+      "number": 2,
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/2",
+      "head": "codex/idea-review-20261023-evening",
+      "headSha": "9592ad3f65ea5e219580fb13027d4981df4d0fbb",
+      "baseSha": "fe5919686aed1b6ea66cd1112a8075a57d448946",
+      "state": "open",
+      "draft": true,
+      "merged": false
+    }
+  ],
+  "reserved": {
+    "from": 222,
+    "to": 241
+  },
+  "previousReview": {
+    "id": "IDEA-REVIEW-20261024",
+    "head": "92a951569845278c6da0be8f694b4b7458e50a0b",
+    "ci": {
+      "run": 40180180398,
+      "conclusion": "success"
+    },
+    "independentReview": "pending"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "checkedAt": "2026-10-25T11:26:04.039917+00:00",
+  "url": "http://127.0.0.1:4184",
+  "sourceVersion": "0.0.335",
+  "phase": "Final content and PR routing before second mandatory version bump",
+  "articleChecks": [
+    {
+      "id": "IDEA-242",
+      "version335": true,
+      "ownEpic": true,
+      "latestRule": true
+    },
+    {
+      "id": "IDEA-243",
+      "version335": true,
+      "ownEpic": true,
+      "latestRule": true
+    },
+    {
+      "id": "IDEA-244",
+      "version335": true,
+      "ownEpic": true,
+      "latestRule": true
+    },
+    {
+      "id": "IDEA-245",
+      "version335": true,
+      "ownEpic": true,
+      "latestRule": true
+    },
+    {
+      "id": "IDEA-246",
+      "version335": true,
+      "ownEpic": true,
+      "latestRule": true
+    },
+    {
+      "id": "IDEA-247",
+      "version335": true,
+      "ownEpic": true,
+      "latestRule": true
+    },
+    {
+      "id": "IDEA-248",
+      "version335": true,
+      "ownEpic": true,
+      "latestRule": true
+    },
+    {
+      "id": "IDEA-249",
+      "version335": true,
+      "ownEpic": true,
+      "latestRule": true
+    },
+    {
+      "id": "IDEA-250",
+      "version335": true,
+      "ownEpic": true,
+      "latestRule": true
+    },
+    {
+      "id": "IDEA-251",
+      "version335": true,
+      "ownEpic": true,
+      "latestRule": true
+    }
+  ],
+  "shiu": {
+    "fourthNode": true,
+    "unknownToObservedOnEntry": true,
+    "explicitNeedsConfirmed": true,
+    "translatorNotMandatory": true
+  },
+  "museumDependency": {
+    "task": "IDEA-243-03",
+    "ownPreviousStage": true,
+    "RELIC-09": true
+  },
+  "editorial": {
+    "id": "IDEA-REVIEW-20261025",
+    "status": "in_progress",
+    "pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/8",
+    "literalUrlRendered": true,
+    "counts31_94Rendered": true,
+    "falseDependenciesHeading": false
+  },
+  "mobile": {
+    "report": [
+      390,
+      390
+    ],
+    "editorial": [
+      390,
+      390
+    ],
+    "temporaryViewportReset": true
+  },
+  "report": {
+    "tenRows": true,
+    "futureTasks": 43,
+    "dialogueNodes": 31,
+    "playerAnswers": 94,
+    "futureScenarios": 60,
+    "plannedLocations": 3
+  },
+  "sourceSha256": {
+    "wiki/articles/IDEA-242.md": "5be53bb9dac20dbaf4608894128bf5a50dd18fb3a9f599e9e2c1fb3d017ac66f",
+    "wiki/articles/IDEA-243.md": "cd4cc49e0b1006fbfbe5dc77b0a5e3d30c2bf01363f4a42da070690cae1f3d18",
+    "wiki/articles/IDEA-244.md": "95f0746dff9ab02081fb0b71348ec0723d7a0d500f4af8b4c93c6cafed87cdb7",
+    "wiki/articles/IDEA-245.md": "c06094f93039003343ba029ca05f273f9e2a18723d9f07d014f54bc66cef0300",
+    "wiki/articles/IDEA-246.md": "5dd35985a53fe99433146b03586573fb80c2f5321505685b2a64fabd194fc289",
+    "wiki/articles/IDEA-247.md": "f72e62ffc5e173b701ee39e9bd812bcc8c7b0e872998a305ff01e81b957c6831",
+    "wiki/articles/IDEA-248.md": "e124bb45401a75a3ccd11b703a6ee493147d266c6abea1c7b2c63f781f5c1338",
+    "wiki/articles/IDEA-249.md": "4eb84b47146877f07cc31e26e4cfcf9ce91a392b37c33af43b276ce89e80424a",
+    "wiki/articles/IDEA-250.md": "50f33731811215dfad2a555a92867503b28438a1790f2af5ec84ebd88cefece8",
+    "wiki/articles/IDEA-251.md": "9dd4671150b937fb1e7d9b2716bac3eb49b31abc4ec7fa1b1b12ba0caaf8dc06",
+    "docs/epics/ideas/idea-242/TASKS.md": "81d0c5e72815dc733d846bbfa69512378caeff615e3cea6ab7a57b3011e42207",
+    "docs/epics/ideas/idea-243/TASKS.md": "382bb85a380069dc33c050499d5d1e1fecd309d2630818a4867832134272677d",
+    "docs/epics/ideas/idea-244/TASKS.md": "c6878a760bd588058b387c5174ab58b0077893774ebc3c529ca32a1388d16fd4",
+    "docs/epics/ideas/idea-245/TASKS.md": "7de900bb66fb8195d9ddae1c47fa91ee9b1180a32098ff7d9c7033ccb28878de",
+    "docs/epics/ideas/idea-246/TASKS.md": "e2cf0a96183e5d6cf9696ee6467d4700bfa4f29f218da97f439c6b5f511caed8",
+    "docs/epics/ideas/idea-247/TASKS.md": "6ebdb6e690c6040ff8602c5fef8be0318b150fc04d500b510ffe8930c87f5603",
+    "docs/epics/ideas/idea-248/TASKS.md": "8c3772fa1c1d346a2391448a1a8ca19809a4f1efd355b84a465e7aa55b976684",
+    "docs/epics/ideas/idea-249/TASKS.md": "eab23ffcf7817d96b17dcda5bd838bd70bf357325791b0ec53de1923dc611e39",
+    "docs/epics/ideas/idea-250/TASKS.md": "601bb2c6ad3465620c826e9aa549fe993032a942cbc3c387eae8cd66692c7df8",
+    "docs/epics/ideas/idea-251/TASKS.md": "231fab19a66892eead09bbf14a327ed5774bd19fa8d5d82b9cdb3ee33b471562",
+    "wiki/articles/creative-review-2026-10-25.md": "8bf08b8a563e77ce1ab83001825c3127a49774c54d8359663f6da8daa17e2d87",
+    "wiki/articles/npc-life-contracts.md": "15c0aa7ef71f3e2b9fe7d31e4762793f48e424260b7c783e0120bbfb193ab77e",
+    "wiki/articles/idea-assessment-method.md": "65818199e9ff8ecfd7f090dad8d9c2d8bf2d66d297ef8c4186b6d6e2725252fb",
+    "wiki/articles/idea-feature-epics.md": "33444079e791464571bb60ed960fafe9a5cdfa15e44000bf36872127d1b0f844",
+    "wiki/articles/index.json": "c7326ecd7405149d28daadf285652d61ed73dc9bb63333245cee60582e996cf4",
+    "wiki/planning/state.json": "1eeae1fb0be64e3f3cdf78f8ef8c8d1bc41b99e0f2c8e8c35e72f9e7eb0e20d5",
+    "wiki/planning/sources.json": "a30d0465d3bf6c740484921feeb5761cdee511523f56770f446633521f0ca21f",
+    "wiki/planning/assessments.json": "b253e87b819d27a63c656827cfc8e95da41e99f511cf82222e4ed4efc7f8e5a7",
+    "docs/backlog/wiki-workspace-2026-10/README.md": "6ffc5c4b814e20b75a37473fe860a8e00deefc7f2b4a9ab6f3d2a7cc55e03481",
+    "wiki/scripts/editorial-npc-life-audit.mjs": "779bb4982627dd5f32571000d28214ac2cbc7a1dd5ad100fd38ffba2248024b8"
+  },
+  "screenshots": [
+    "browser-shiu-final.png",
+    "browser-editorial-final.png",
+    "browser-390-final.png",
+    "browser-report-final.png"
+  ],
+  "scope": "Real Wiki UI. Future gameplay and audience interest are not tested."
+}

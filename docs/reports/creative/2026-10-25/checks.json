@@ -1,0 +1,49 @@
+{
+  "phase": "routing and refined design before second normal commit",
+  "environment": {
+    "python": "3.11.17",
+    "pillow": "11.3.0",
+    "godot": "4.7.1.stable.official.a13da4feb",
+    "base": "2fa58d3719ff89f6f61a755e531d963807762ae9"
+  },
+  "documentation": "pass",
+  "editorialAudit": "pass;31 nodes/94 exact authored answers, unique node/task IDs, ratings, Markdown tables and acyclic dependencies",
+  "wiki": {
+    "command": "pnpm --dir wiki check",
+    "log": "/private/tmp/creative25-wiki-routing-final.log",
+    "tests": 135,
+    "failed": 0,
+    "version": "0.0.335"
+  },
+  "browser": "pass; final exact content source bindings and PR URL in browser-final.json; temporary viewport reset",
+  "mandatoryPreCommit": "Second normal commit runs the unchanged full hook again; final stdout and exact SHA reported in PR after completion.",
+  "gameplayScenarios": "not implemented; not run",
+  "audienceProbe": "future hypothesis, no observations yet",
+  "checkpoint": {
+    "head": "f5742f2eafb6839764a44f7edd5fe28d92436bbb",
+    "version": "0.0.335",
+    "precommit": "pass",
+    "pythonSuites": 81,
+    "pythonCases": 1101,
+    "gamePassed": 53371,
+    "gameFailed": 0,
+    "normalRedraw": [
+      90,
+      0
+    ],
+    "f10Redraw": [
+      90,
+      0
+    ],
+    "rawLog": "precommit-checkpoint.txt"
+  },
+  "pullRequest": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/8",
+  "refinedDesign": {
+    "nodes": 31,
+    "answers": 94,
+    "futureTasks": 43,
+    "futureGameplayScenarios": 60
+  },
+  "paperReview": "paper-walkthrough.md; own editorial reading, not gameplay or audience observations",
+  "finalCommitHookLog": "/private/tmp/creative25-commit2.log"
+}

@@ -1,0 +1,137 @@
+{
+  "checkedAt": "2026-10-25T10:34:14.161901+00:00",
+  "url": "http://127.0.0.1:4184",
+  "sourceVersion": "0.0.334",
+  "scope": "Реальная Wiki, не игровой runtime",
+  "articleChecks": [
+    {
+      "id": "IDEA-242",
+      "proposedNotice": true,
+      "ownEpicLink": true,
+      "futureAcceptance": true
+    },
+    {
+      "id": "IDEA-243",
+      "proposedNotice": true,
+      "ownEpicLink": true,
+      "futureAcceptance": true
+    },
+    {
+      "id": "IDEA-244",
+      "proposedNotice": true,
+      "ownEpicLink": true,
+      "futureAcceptance": true
+    },
+    {
+      "id": "IDEA-245",
+      "proposedNotice": true,
+      "ownEpicLink": true,
+      "futureAcceptance": true
+    },
+    {
+      "id": "IDEA-246",
+      "proposedNotice": true,
+      "ownEpicLink": true,
+      "futureAcceptance": true
+    },
+    {
+      "id": "IDEA-247",
+      "proposedNotice": true,
+      "ownEpicLink": true,
+      "futureAcceptance": true
+    },
+    {
+      "id": "IDEA-248",
+      "proposedNotice": true,
+      "ownEpicLink": true,
+      "futureAcceptance": true
+    },
+    {
+      "id": "IDEA-249",
+      "proposedNotice": true,
+      "ownEpicLink": true,
+      "futureAcceptance": true
+    },
+    {
+      "id": "IDEA-250",
+      "proposedNotice": true,
+      "ownEpicLink": true,
+      "futureAcceptance": true
+    },
+    {
+      "id": "IDEA-251",
+      "proposedNotice": true,
+      "ownEpicLink": true,
+      "futureAcceptance": true
+    }
+  ],
+  "routeChain": [
+    "guides/IDEA-244",
+    "development/epics/idea-244--IDEA-244",
+    "development/tasks/idea-244--IDEA-244-01"
+  ],
+  "ratings": {
+    "idea": "IDEA-244",
+    "scores": [
+      4,
+      5,
+      5,
+      5,
+      4,
+      4
+    ],
+    "status": "Предложение",
+    "rendered": true
+  },
+  "searches": [
+    {
+      "query": "Крынка в чужом окне",
+      "results": 2,
+      "types": [
+        "idea",
+        "epic"
+      ]
+    },
+    {
+      "query": "IDEA-251-04",
+      "results": 1,
+      "types": [
+        "task"
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "temporaryOverrideReset": true,
+    "table": "reduced from four to three columns after visual inspection"
+  },
+  "badTestingDomainLink": false,
+  "sourceSha256": {
+    "wiki/articles/IDEA-242.md": "5be53bb9dac20dbaf4608894128bf5a50dd18fb3a9f599e9e2c1fb3d017ac66f",
+    "wiki/articles/IDEA-243.md": "a13a1ca79abdff5d2f146b8c03f6986ff47a90cbe0c11e8732c6bca38a23b666",
+    "wiki/articles/IDEA-244.md": "2a3e87e945a0269c07dde3248246585c2d3220d025d2457081b66536514b1933",
+    "wiki/articles/IDEA-245.md": "71a0fd74718281146cda027dd346feb4bd18966167607ef746a4b3f4596518e5",
+    "wiki/articles/IDEA-246.md": "5dd35985a53fe99433146b03586573fb80c2f5321505685b2a64fabd194fc289",
+    "wiki/articles/IDEA-247.md": "b5a5f13ce1c51bbe72c07c1b773e0d56620ca8cec2253a99776ad7be36881c9a",
+    "wiki/articles/IDEA-248.md": "32e5e08509d0ac1efbaaa2418cd48dc902b58f6bec1656d5fc6b8a105c543d54",
+    "wiki/articles/IDEA-249.md": "98d056b5fe2c8e82396b3c4d88581aadf35e5588c68754580c50a851db41d8f4",
+    "wiki/articles/IDEA-250.md": "4568890f68e54d2296e8045c901c7f5b1d8b7176d128a262337a71a2a2bcd493",
+    "wiki/articles/IDEA-251.md": "4b6e971c065f608f28fd38134989c6c685c0032d97df2333b8238fa08b14c455",
+    "wiki/articles/npc-life-contracts.md": "15c0aa7ef71f3e2b9fe7d31e4762793f48e424260b7c783e0120bbfb193ab77e",
+    "wiki/articles/idea-assessment-method.md": "65818199e9ff8ecfd7f090dad8d9c2d8bf2d66d297ef8c4186b6d6e2725252fb",
+    "wiki/articles/idea-feature-epics.md": "33444079e791464571bb60ed960fafe9a5cdfa15e44000bf36872127d1b0f844",
+    "wiki/articles/index.json": "c7326ecd7405149d28daadf285652d61ed73dc9bb63333245cee60582e996cf4",
+    "wiki/planning/state.json": "1eeae1fb0be64e3f3cdf78f8ef8c8d1bc41b99e0f2c8e8c35e72f9e7eb0e20d5",
+    "wiki/planning/sources.json": "a30d0465d3bf6c740484921feeb5761cdee511523f56770f446633521f0ca21f",
+    "wiki/planning/assessments.json": "b253e87b819d27a63c656827cfc8e95da41e99f511cf82222e4ed4efc7f8e5a7",
+    "docs/backlog/wiki-workspace-2026-10/README.md": "43e9b02bda7ea0b90575dd2deeb39c4121d46378c26485f3e8df081bc1e7445f"
+  },
+  "screenshots": [
+    "browser-task.png",
+    "browser-390.png",
+    "browser-report.png"
+  ],
+  "diagnostic": "diagnostic-mobile-table-before.png is the real earlier cramped table, not accepted final UI",
+  "note": "Initial content browser proof before the mandatory version bump and creation of PR. Routing URL will receive a separate final check. The appended protocol line was added after screenshots; the ten idea designs and tested routes are unchanged. Report screenshots are layout-only initial evidence; the appended protocol has no capture hash here. Final complete source bindings are stored separately."
+}

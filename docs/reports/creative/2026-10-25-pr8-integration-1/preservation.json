@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-25T18:50:49.167Z",
+  "status": "pass",
+  "parents": {
+    "acceptedMain": "206918abb963b542af8dd3faf3bba80f30b5e908",
+    "previousHead": "dcfc80850e3fb0dd505ea1f64373131e9b9069b5"
+  },
+  "ideas": 241,
+  "assessments": 80,
+  "futureTasks": 86,
+  "dialogueNodes": 63,
+  "answers": 190,
+  "historicalReportFiles": 17305,
+  "catalog": {
+    "plans": 114,
+    "epics": 168,
+    "tasks": 2044
+  },
+  "priority": [
+    "REFACTOR-01",
+    "REFACTOR-02",
+    "REFACTOR-03",
+    "REFACTOR-06"
+  ],
+  "taskStatuses": {
+    "VFOLIAGE-010": "done",
+    "REFACTOR-00": "done",
+    "REFACTOR-01": "ready",
+    "IDEA-REVIEW-20261025": "in_progress"
+  },
+  "scope": "Интеграционная сохранность. Игровые механики предложений и интерес аудитории не проверены."
+}
