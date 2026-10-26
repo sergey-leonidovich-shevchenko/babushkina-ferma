@@ -1,0 +1,65 @@
+[
+  {
+    "path": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/p2-ci/performance-measurements.zip",
+    "git_blob": "9e11cdf82797e143acb3213d7ef1b952691e5e59",
+    "sha256": "a15a40cce74dcb260c422b088976ce81ef76c9e2281fa5cf907bae0537df0e75",
+    "size": 190337,
+    "members": 37,
+    "tool_members": 0,
+    "errors": []
+  },
+  {
+    "path": "docs/reports/visual-overhaul/vfoliage-006/redraw-output-ownership/previous-head-ci/performance-measurements.zip",
+    "git_blob": "d9eb2145fae0f1e508399bc64aa6ba83534b9358",
+    "sha256": "35f28d376282cd458db2da5d18fc9fd0cbe3024a2facd545380726a73660f6a3",
+    "size": 190092,
+    "members": 37,
+    "tool_members": 0,
+    "errors": []
+  },
+  {
+    "path": "docs/reports/visual-overhaul/vfoliage-009/inputs-focused.zip",
+    "git_blob": "5d9f0e5b5b13a29c31a176a1fe62148713ff8318",
+    "sha256": "7bfbed80f1aa6c0b20fc7514efa1ae288f1ce50d19a100b52b3391603038b67f",
+    "size": 2091568,
+    "members": 403,
+    "tool_members": 5,
+    "errors": []
+  },
+  {
+    "path": "docs/reports/visual-overhaul/vfoliage-009/inputs-unlocked.zip",
+    "git_blob": "13711e4ca1a789bca3cf4a58afe5e5fc7f2b2dc4",
+    "sha256": "bb17a613590a41ba8f4b434f3349f100322dc51212eb7dfcc3673bafdd69d2c7",
+    "size": 2091810,
+    "members": 403,
+    "tool_members": 5,
+    "errors": []
+  },
+  {
+    "path": "docs/reports/visual-overhaul/vfoliage-009/inputs-windowed.zip",
+    "git_blob": "4a9a1840d4e62b056630206d022c9253ead672a7",
+    "sha256": "ff1b75badd41e5ea7004d6b8069d80176604a0ef61e3f1639c9a46c88b939f02",
+    "size": 2092227,
+    "members": 403,
+    "tool_members": 5,
+    "errors": []
+  },
+  {
+    "path": "docs/reports/visual-overhaul/vfoliage-009/inputs.zip",
+    "git_blob": "5aa0daf7904aa96340d4c9f3a118376fe7801f22",
+    "sha256": "d9a2471c6d3dcbcea856e1d318c54e51f6a7717d092790bf76932421fe3b2b5f",
+    "size": 2091469,
+    "members": 403,
+    "tool_members": 5,
+    "errors": []
+  },
+  {
+    "path": "docs/reports/visual-overhaul/vfoliage-010/sources.tar.gz",
+    "git_blob": "b7c522a35a919dacf50f2d2c7ead61fd35ccdf08",
+    "sha256": "56727315cf46c5cf020033a2023f762870af57668c18d1870fbde55760d0f776",
+    "size": 870008,
+    "members": 809,
+    "tool_members": 8,
+    "errors": []
+  }
+]

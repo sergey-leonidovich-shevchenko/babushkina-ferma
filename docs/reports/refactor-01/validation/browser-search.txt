@@ -1,0 +1,13 @@
+Browser tab: 14, Title: "Лунная долина · Wiki", URL: "http://127.0.0.1:4175/#/search?q=performance_sampler.gd".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 97-99, 103-5406
+~1 AXWebArea Лунная долина · Wiki, URL: 127.0.0.1:4175/#/search?q=performance_sampler.gd
+~			28 search text field (settable) Description: Поиск по wiki, Value: performance_sampler.gd
+~			96 text ПОИСК ПО ВСЕЙ WIKI
++			97 heading Результаты: «performance_sampler.gd», Value: 1
++				98 text Результаты: «performance_sampler.gd»
++			99 text Поиск находит названия, описания, требования, ингредиенты и связанные страницы.
+~			100 text Найдено: 2
+~			101 link Value: 127.0.0.1:4175/#/guides/tools-migration-map, Description: РУКОВОДСТВО Полная карта tools — REFACTOR-01 17 тематических семейств, все 779 файлов, старые и предложенные пути, назначение, UID и точные скачиваемые карты. Это предложение до переноса.
+~			102 link Value: 127.0.0.1:4175/#/guides/project-refactoring, Description: РУКОВОДСТВО Рефакторинг: инструменты по назначению REFACTOR-01: все 779 файлов tools, consumers/UID/архивы, девять будущих корневых входов и адресные решения остальных каталогов. Переносы ещё не выполнены.
+The focused UI element is 28 search text field (settable) Description: Поиск по wiki, Value: performance_sampler.gd

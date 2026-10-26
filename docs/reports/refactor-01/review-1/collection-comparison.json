@@ -1,0 +1,35 @@
+{
+  "baseline": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "files_compared": 14,
+  "changed_metadata_only": [
+    "inventory.json",
+    "packet.json"
+  ],
+  "generator_delta": {
+    "mapping.py": {
+      "before": "be3273e56f004f27cdb542d33e2c071adab27e154cb4a7002cc7943ebab252d6",
+      "after": "a73fb5ee29b3df60105bab6cfd25bde6805b7d78973eb0abbc6aba3a71eebb6d"
+    },
+    "test_audit.py": {
+      "before": "58ec4946e8645e174b6c53f8873d391ed1eb5fd06877a36939f9bde82751619a",
+      "after": "f661f98fa1561e70c2d9ebe0c28afcc18ec0501c4f38720a381c1d8f1d52aa49"
+    }
+  },
+  "data_and_plan_byte_identical_sha256": {
+    "archives.json": "fce682026959c22bd2d59207128729e77f8c53719ff36a16299034451b2f16ba",
+    "baseline-files.jsonl.gz": "1dac24716eeb135056f7015b48ca3f3cd71ee715f85d6b98af258e91bc95d87e",
+    "cross-family-imports.json": "f4455f7eae20326ce2bf08bb39cc9ac997486e70ced6381dade37b231d280869",
+    "hazards.json": "9702ea3c06f85899b69319c9fabc06478a619fbb06d71d5f00b2149e155f1084",
+    "markdown-links.json": "7fda9e96fc1bdd3085903e7ca8f73d55647422e78efc7d2c5c63f7a03e445591",
+    "migration-plan-copy.json": "8553b96ad259190ce5271af9ec124d3ce67275d9098c5d34e0c2b46e9675472f",
+    "other-catalogs.json": "b40e0cdde21d1eae082cc204702314f720500e16e0cfa9a198dfb6f987340e6a",
+    "references.jsonl.gz": "16ccc924600a21f50dab4f8d511fef048b17f7957b04b77f91ac36f5805ede54",
+    "suite-registry.json": "cf3b0c810d72fedba6ecfdc3f2f2e2b6cef78fbcede21328ff1f9a7c1626fce1",
+    "tool-map.csv": "69d770ce4f35b6927441de6c7aba6bdefe9ae53d64158088eaaced9a807e5697",
+    "tool-map.json": "a45668f89b2ce09465b013d86a0bfd05835d1183e96145bfbf0df41e129c8c3c",
+    "tool-map.md": "cc026637441312a81134b665bac3e353418f8f45391ca9889f7f803c96666abd"
+  },
+  "baseline_blobs": 24070,
+  "tools": 779,
+  "root_count": 9
+}

@@ -1,0 +1,27 @@
+{
+  "review_head": "c9cea3aef393380f2abdd3c9ef126acbd58c366b",
+  "method": "actual sample_plan and validate_plan before fix",
+  "mapping_sha256": "be3273e56f004f27cdb542d33e2c071adab27e154cb4a7002cc7943ebab252d6",
+  "cases": [
+    {
+      "path": "../outside.py",
+      "accepted": true,
+      "root_count": 3
+    },
+    {
+      "path": "/tmp/outside.py",
+      "accepted": true,
+      "root_count": 3
+    },
+    {
+      "path": "tools/common/nested_dispatcher.py",
+      "accepted": true,
+      "root_count": 3
+    },
+    {
+      "path": "tools/run.py",
+      "accepted": true,
+      "root_count": 3
+    }
+  ]
+}

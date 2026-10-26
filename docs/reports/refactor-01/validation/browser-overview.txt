@@ -1,0 +1,110 @@
+Browser tab: 14, Title: "Лунная долина · Wiki", URL: "http://127.0.0.1:4175/#/guides/project-refactoring".
+1 AXWebArea Лунная долина · Wiki, URL: 127.0.0.1:4175/#/guides/project-refactoring
+	2 container app
+		3 link Description: Перейти к содержимому, Value: 127.0.0.1:4175/#wiki-content
+		4 container
+			5 link Description: Лунная долина WIKI · СПРАВОЧНИК, Value: 127.0.0.1:4175/#/
+			6 container Разделы wiki
+				7 link Description: Первая локация · прогресс, Value: 127.0.0.1:4175/#/development/first-location
+				8 link Description: Главная, Value: 127.0.0.1:4175/#/
+				9 text РАЗРАБОТКА
+				10 link Description: Эпики 168, Value: 127.0.0.1:4175/#/development/epics
+				11 link Description: Идеи 241, Value: 127.0.0.1:4175/#/development/ideas
+				12 link Description: На проработку 0, Value: 127.0.0.1:4175/#/development/refinement
+				13 link Description: Задачи 2044, Value: 127.0.0.1:4175/#/development/tasks
+				14 text О ДОЛИНЕ
+				15 link Description: Персонажи 42, Value: 127.0.0.1:4175/#/characters
+				16 link Description: Миссии 44, Value: 127.0.0.1:4175/#/missions
+				17 link Description: Здания и станки 27, Value: 127.0.0.1:4175/#/buildings
+				18 link Description: Крафт и алхимия 321, Value: 127.0.0.1:4175/#/craft
+				19 link Description: Предметы 386, Value: 127.0.0.1:4175/#/items
+				20 link Description: Растения 40, Value: 127.0.0.1:4175/#/plants
+				21 link Description: Мир и локации 30, Value: 127.0.0.1:4175/#/locations
+				22 link Description: Таланты 20, Value: 127.0.0.1:4175/#/skills
+				23 link Description: Рыбалка 11, Value: 127.0.0.1:4175/#/fishing
+				24 link Description: Руководство 265, Value: 127.0.0.1:4175/#/guides
+			25 text ☾ Изучайте мир.
+			26 text Возвращайтесь за открытиями. Игра 0.0.342
+		27 container
+			28 search text field (settable) Поиск по wiki
+			29 text ⌘ / Ctrl K Энциклопедия игры
+		95 container wiki-content
+			96 container Путь статьи
+				97 link Description: Wiki, Value: 127.0.0.1:4175/#/
+				98 link Description: Руководство, Value: 127.0.0.1:4175/#/guides
+				99 text Рефакторинг: инструменты по назначению
+			100 text Разработка
+			101 text Рефакторинг
+			102 text Технологии
+			103 text REFACTOR
+			104 text tools
+			105 heading Рефакторинг: инструменты по назначению, Value: 1
+				106 text Рефакторинг: инструменты по назначению
+			107 text REFACTOR-01: все 779 файлов tools, consumers/UID/архивы, девять будущих корневых входов и адресные решения остальных каталогов. Переносы ещё не выполнены.
+			108 button Скопировать ссылку
+			109 container
+				110 text REFACTOR-01 в работе:
+				111 text  подготовлена полная карта принятой main 
+				112 text ad60faf4
+				113 text  после PR #8, 0.0.341. Все 779 файлов tools получили тематический путь либо объяснённое исключение. Переносов нет; аудит ожидает проверок и независимого exact-head ревью. 
+				114 link Description: Карточка, Value: 127.0.0.1:4175/#/development/tasks/refactoring--REFACTOR-01
+				115 text  · 
+				116 link Description: полная карта прямо в Wiki, Value: 127.0.0.1:4175/#/guides/tools-migration-map
+				117 text  · 
+				118 link Description: JSON с consumers и UID, Value: 127.0.0.1:4175/generated/attachments/b02316a994fd8f8ed7508ed39e9a8040f011412c7fad914a5ef21e9712130d8c.json
+				119 text  · 
+				120 link Description: CSV, Value: 127.0.0.1:4175/generated/attachments/69d770ce4f35b6927441de6c7aba6bdefe9ae53d64158088eaaced9a807e5697.csv
+				121 text . Постановка принята через 
+				122 link Description: PR #9, Value: github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9
+				123 text , учёт VFOLIAGE-010 — через 
+				124 link Description: PR #10, Value: github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/10
+				125 text , учёт REFACTOR-00 — через 
+				126 link Description: PR #11, Value: github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/11
+				127 text , merge 
+				128 text 206918ab
+				129 text . 
+				130 link Description: Запись приёмки постановки, Value: 127.0.0.1:4175/generated/attachments/a93b8a52716af22e15932afac1f44de0c1935cc0900510b2cab1d7120f088266.json
+				131 text  остаётся исторической.
+				132 link Description: Эпик и карточки, Value: 127.0.0.1:4175/#/development/epics/refactoring--REFACTOR
+				133 text  · 
+				134 link Description: Постановка в PR #9, Value: github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9
+				135 text  · 
+				136 link Description: Исходная ведомость, Value: 127.0.0.1:4175/generated/attachments/9ae497f847e82c5d0095030e2e80fae6b5595c9853048145270846e9077677de.json
+				137 text . Исходная ведомость закрепляет два снимка: в принятой на момент постановки main 
+				138 text 2fa58d3
+				139 text  у корня tools 750 файлов; в тогда открытом PR №7 
+				140 text 8ef7feae
+				141 text  — 762. Это исторические измерения, а не счётчик нынешней main. PR №7 позже принят и влит merge-коммитом 
+				142 text 7dde012f
+				143 text ; актуальную карту составляет REFACTOR-01. Там смешаны QA, работа с ассетами, сборка, общие проверки и ручные стенды. Первый полезный выпуск группирует их по ответственности и оставляет в корне не более 30 исходников публичных команд с объяснёнными исключениями. Python и Godot одной подсистемы остаются рядом. Порядок: аудит ссылок и входов → общие пути/репозиторные команды → QA/asset/build/dev-пакеты → README и guard. Каждый этап имеет отдельную ветку/PR и собственную приёмку. Тесты не теряются в новых папках; новые внутренние инструменты больше не попадают автоматически в корень. Аудит проверил scripts/systems, scripts/presentation, tests/suites, helpers, reports, wiki/scripts и preview. Адресные предложения 04/05: systems/storage — 6 и furnace — 3; presentation/storage — 4 и foliage — 9 исходников; suites/foliage — 8 и storage — 4 набора. Остальные модули не включены в перенос автоматически. Helpers, reports, wiki/scripts и preview оставляем: дополнительная вложенность не оправдывает риск. 
+				144 link Description: Полные имена и обоснования, Value: 127.0.0.1:4175/generated/attachments/c65e9f8c5cb76d8c1da27f9ac28906b6bde1fdd94e8a4fd3cffd768f7ff38133.json
+				145 text . Главный риск — сломать импорт, preload, CI, Wiki или прежнее доказательство. Сохранённые планы, капсулы, source SHA, raw и неудачные попытки остаются неизменными; исторические readers читают свой Git base/капсулу. Старые сотни имён не превращаются в сотни пустых wrappers. Механический перенос отделяется от изменения поведения. Это техническая очередь по новому прямому поручению. Она не разрешает новые механики/карты и не закрывает общий FPS или VMAP-003. После первого выпуска tools возвращается обычный маршрут первой локации; оставшиеся адресные переносы согласуются Team Lead по ведомости.
+				146 heading Что именно предложено, Value: 2
+					147 text Что именно предложено
+				148 text Нынешний tools: 767 непосредственных файлов, 779 рекурсивно; в корне 553 исполняемых исходника; рекурсивно 558 исходников +1 shader и 216 tracked UID. Предлагаются 17 семейств: quality/planning, assets по назначению, build/dev, QA art/camera/foliage/ground/world/performance/compatibility. После будущих переносов в корне останется 
+				149 text 9 исходников при бюджете 30
+				150 text , а не сотни wrappers. Шесть фасадов сохраняют публичные check_architecture, bump_version, task_batch, smoke_test, performance_gate.sh и импортируемый performance_gate.py. Frozen redraw_compare присваивает gate.SAMPLER: этот facade обязан сохранять идентичность модуля и mutable globals, обычный import-star не подходит. Полные performance_sampler.gd и water_audit.gd остаются на старых местах: первый читает действующий frozen causal test, на второй ссылается физическая ссылка старого отчёта WATER. Один новый tools/run.py — общий launcher, пока только предложение. Ни один новый путь сейчас не объявлен работающим.
+				151 heading Риски, которые проверили на копиях, Value: 2
+					152 text Риски, которые проверили на копиях
+				153 text Byte-identical checker из базы проходит в tools и отказывает после наивного вложения в quality: 
+				154 text .parent.parent
+				155 text  ищет неправильный корень. Настоящий метод test_shore_kit с унаследованными GIT_* меняет disposable parent config и падает; очистка окружения проходит и сохраняет config/index. Реальный репозиторий в опыте не изменён. Эти условия нужно устранить первыми в 02; исправления здесь не выполнены. У 86 Godot-исходников UID нет в Git, хотя локально sidecars существуют и ignored. Их нельзя потерять при переезде или случайно добавить вместе с установленным движком. Tracked 216 UID перемещаются с исходниками без генерации новых значений. 
+				156 link Description: Локальное наблюдение, Value: 127.0.0.1:4175/generated/attachments/4583b1100b479d9c1f5ca9319f22014c7cbc29fe5e308a9d5a4afa1fbb6eac98.json
+				157 text . Исторические source descriptors нельзя переписывать под новые пути: выявлены 52 imports общих SOURCES/OVERLAY, а также старые prefix-фильтры. Старый reader читает закреплённые base/capsule, новый collector пишет собственную серию. Все 24056 blobs базы, семь архивов и 28 tools-members проиндексированы; link/provenance checkers остаются включены.
+				158 heading Как проверить и что дальше, Value: 2
+					159 text Как проверить и что дальше
+				160 text 29 контролей проверяют карту, UID, повреждённый пакет, настоящий Git, worktree с пробелами и другую cwd. Полное воспроизведение читает все 6,26 GiB базы и побайтно сравнивает весь пакет, не только summary:
+				161 text python3 -m unittest discover -s docs/reports/refactor-01/instrumentation -p 'test_*.py' -v
+python3 docs/reports/refactor-01/instrumentation/audit.py check --snapshot docs/reports/refactor-01/snapshot
+python3 docs/reports/refactor-01/instrumentation/audit.py show --snapshot docs/reports/refactor-01/snapshot --path tools/performance_sampler.gd
+
+				162 link Description: Свежие проверки, Value: 127.0.0.1:4175/generated/attachments/2874ed318b37a2a04507043bbc74069d359a70d191cad544d8dd3cbcc8d7eb5a.json
+				163 text  отделены от 
+				164 link Description: журналов принятой базы, Value: 127.0.0.1:4175/generated/attachments/86e7d475710b096634ef8a5e091c480a58e29567880aae689f0ac61bbed40c10.json
+				165 text . Статический граф 174 suites содержит 37 верхних запусков, без потери/дубля; это не замена фактическому Game. Нативная графика/GPU-FPS не переснимаются и не принимаются этим аудитом. После принятия 01: 
+				166 text 02 — пути/Git-изоляция/quality/planning →03 — тематические инструменты →06 — README/guard
+				167 text . Внутри 03 сначала учитываются взаимные imports assets/build и camera/performance, затем world/ground/foliage и совместимость. 04/05 остаются отдельными будущими работами Team Lead. Все старые raw, планы, капсулы и source SHA сохраняются; откат опубликованного пакета — git revert с теми же проверками.
+		93 container
+			94 text Лунная долина · 1186 статей Описание и ресурсы из игры 0.0.342
+
+The focused UI element is 1 AXWebArea Лунная долина · Wiki, URL: 127.0.0.1:4175/#/guides/project-refactoring

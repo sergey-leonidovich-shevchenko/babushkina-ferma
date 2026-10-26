@@ -1,0 +1,227 @@
+[
+  {
+    "consumer": "docs/ASSET_PIPELINE.md",
+    "line": 9,
+    "kind": "markdown_link",
+    "target": "tools/visual_asset_policy.json",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[`visual_asset_policy.json`](../tools/visual_asset_policy.json)"
+  },
+  {
+    "consumer": "docs/ASSET_PIPELINE.md",
+    "line": 9,
+    "kind": "markdown_link",
+    "target": "tools/visual_pipeline.py",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[`visual_pipeline.py`](../tools/visual_pipeline.py)"
+  },
+  {
+    "consumer": "docs/COMPACT_HUD.md",
+    "line": 32,
+    "kind": "markdown_link",
+    "target": "tools/compact_hud_review.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[QA-стенд](../tools/compact_hud_review.gd)"
+  },
+  {
+    "consumer": "docs/VISUAL_RESOURCE_FORMAT.md",
+    "line": 3,
+    "kind": "markdown_link",
+    "target": "tools/visual_resources.py",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[валидатор](../tools/visual_resources.py)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vbase.md",
+    "line": 23,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vbase.md",
+    "line": 63,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vbase.md",
+    "line": 103,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vbase.md",
+    "line": 143,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vbase.md",
+    "line": 183,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vbase.md",
+    "line": 223,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vbase.md",
+    "line": 263,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vbase.md",
+    "line": 303,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vbase.md",
+    "line": 343,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vbase.md",
+    "line": 383,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vperf.md",
+    "line": 23,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vperf.md",
+    "line": 63,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vperf.md",
+    "line": 103,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vperf.md",
+    "line": 143,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vperf.md",
+    "line": 183,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vperf.md",
+    "line": 223,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vperf.md",
+    "line": 263,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vperf.md",
+    "line": 303,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vperf.md",
+    "line": 343,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/epics/visual-overhaul-2026-10/epics/vperf.md",
+    "line": 383,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "live_documentation_or_data",
+    "binding": "filesystem_markdown",
+    "text": "[tools/water_audit.gd](../../../../tools/water_audit.gd)"
+  },
+  {
+    "consumer": "docs/reports/water-2026-10/README.md",
+    "line": 36,
+    "kind": "markdown_link",
+    "target": "tools/water_audit.gd",
+    "scope": "historical_evidence",
+    "binding": "filesystem_markdown",
+    "text": "[water_audit.gd](../../../tools/water_audit.gd)"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "task": "REFACTOR-01",
+  "checkpoint": "ebaed6e7d0071d1d318558ba2287d7d3693a25e1",
+  "version": "0.0.344",
+  "changed_old_paths": {
+    "VERSION": "2d958f039f8ce22a01f09fa15173332c529f378b41d3e6dbc7605b5f6e32651e",
+    "docs/epics/refactoring-2026-10/TASKS.md": "bc6d4922900a8d518c307df7c1f776ad046c89c1cee5dd6275eae8483b28b8a9",
+    "project.godot": "b3ad9640957e408529af65b488d68fbed0ce82ea2a4672fd09c79700acbcfb41",
+    "wiki/articles/project-refactoring.md": "812faadff75d61e7d4eac39be592388feade681a1a0da68531b880f624c70830",
+    "Бабушкина ферма.app/Contents/Info.plist": "ffb61a79ab34115b39347da0f6b1686f133a23d1818b5446abb6a5777dbd7899"
+  },
+  "game_tools_unchanged_from_full_gates": true,
+  "new_paths_only": "docs/reports/refactor-01/publication/"
+}

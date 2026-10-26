@@ -1,0 +1,37 @@
+{
+  "baseline_commit": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "scope": "All three live unresolved literal tools paths from snapshot ledger; other unresolved historical rows remain visible",
+  "no_checker_disabled": true,
+  "decisions": [
+    {
+      "consumer": "docs/ASSET_PIPELINE.md",
+      "line": 5,
+      "target": "tools/tests",
+      "classification": "prose_shorthand",
+      "decision": "Describes exclusion of two existing trees tools and tests, not an executable path or hyperlink. Leave historical baseline prose; clarify on a future live editorial touch."
+    },
+    {
+      "consumer": "docs/epics/refactoring-2026-10/TASKS.md",
+      "line": 91,
+      "target": "tools/README.md",
+      "classification": "future_acceptance_output",
+      "decision": "Planned navigation in REFACTOR-03/06. Do not create an empty document to make an audit counter green."
+    },
+    {
+      "consumer": "docs/epics/visual-overhaul-2026-10/imported-plan.json",
+      "line": 160,
+      "target": "tools/visual_environment_review.gd",
+      "classification": "unimplemented_imported_backlog_proposal",
+      "decision": "Not a live caller; keep imported plan unchanged. No such tool is claimed implemented."
+    }
+  ],
+  "resolved_search_path_decisions": [
+    {
+      "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/redraw_compare.py",
+      "line": 22,
+      "target": "tools/performance_gate.py",
+      "evidence": "sys.path.insert ROOT/tools at line14; imported by active test_redraw_observer.py:10; gate.SAMPLER reassigned at81",
+      "decision": "Explicit public import/CLI facade; same implementation module identity and mutable globals, no import-star. performance_protocol dependency becomes qualified in moved implementation; frozen files unchanged."
+    }
+  ]
+}

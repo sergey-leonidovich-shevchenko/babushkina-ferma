@@ -1,0 +1,34 @@
+{
+  "task": "REFACTOR-01",
+  "version": "0.0.343",
+  "baseline": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "origin": "http://127.0.0.1:4175",
+  "overview": {
+    "route": "#/guides/project-refactoring",
+    "accepted_base_visible": "da9fa07e",
+    "root_source_proposal": 9
+  },
+  "map": {
+    "route": "#/guides/tools-migration-map",
+    "tables": 17,
+    "body_rows": 563,
+    "viewport_width": 1280,
+    "document_width": 1280
+  },
+  "card": {
+    "route": "#/development/tasks/refactoring--REFACTOR-01",
+    "status": "in_progress",
+    "dependencies_done": [
+      "REFACTOR-00",
+      "VFOLIAGE-010"
+    ]
+  },
+  "limitations": [
+    "Read-only preview; no planning writes performed.",
+    "First checkpoint browser limitations remain recorded in ../browser.json: large JSON download not confirmed and 390px override not applied. Neither is claimed here."
+  ],
+  "screenshots": {
+    "validation/browser-map.png": "7194dd41152129df9ff7d312b79bc999af9b1354b72ae3e4e00aa15d499c35c1",
+    "validation/browser-overview.png": "905ce9de5b01440cc15ae5f90afa25f0a5822aafd52b83da23ed5b4ddebfd3ba"
+  }
+}

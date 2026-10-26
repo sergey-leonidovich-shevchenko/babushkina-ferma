@@ -1,0 +1,3 @@
+# REFACTOR-01 — публикация PR #14
+
+[PR #14](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14) опубликован из ветки codex/refactor-01-maintainable-layout, base main da9fa07e. Полные локальные gates выполнены для проверенного merge ebaed6e7 (версия 0.0.343), их raw и SHA остаются в integration-1. Эта отдельная редакционная запись добавляет URL PR в карточку и Wiki, синхронизирует версию 0.0.344 и сохраняет собственные проверки. Игровые/tools исходники и воспроизводимый пакет не меняются. CI и независимое ревью должны относиться к последнему head; прежний PASS не объявляется запуском новой версии. Карточка in_progress, Task-Complete отсутствует.

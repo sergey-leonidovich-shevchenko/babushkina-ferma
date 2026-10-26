@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "task": "REFACTOR-01",
+  "task_status": "in_progress",
+  "state": "local mandatory gates passed; exact-head PR CI and independent review still required",
+  "baseline": "ad60faf4bd46faa335babb6075737694927fc61f",
+  "version": "0.0.342",
+  "branch": "codex/refactor-01-maintainable-layout",
+  "initial_completed_checks": "initial-206918ab/validation",
+  "mandatory_gates": {
+    "architecture": {
+      "exit": 0,
+      "suites": 82,
+      "cases": 1135,
+      "historical_reader": [
+        512,
+        36,
+        24
+      ],
+      "visibility_controls": 34,
+      "raw": "validation/architecture.txt"
+    },
+    "game": {
+      "exit": 0,
+      "passed": 53502,
+      "failed": 0,
+      "normal_F10_each": [
+        90,
+        0
+      ],
+      "raw": "validation/game.txt"
+    },
+    "wiki": {
+      "exit": 0,
+      "passed": 135,
+      "failed": 0,
+      "raw": "validation/wiki.txt"
+    }
+  },
+  "audit_checks": {
+    "unit_controls": 29,
+    "root_full_byte_reproduction": true,
+    "other_cwd_full_byte_reproduction": true,
+    "baseline_blobs_each": 24056,
+    "Git_worktree_with_spaces": "real disposable Git linked worktree covered by unit controls",
+    "root_parent_depth_probe": "expected original failure at nested copy; original location passes",
+    "Git_hook_probe": "expected disposable parent contamination; clean boundary passes; real config/index unchanged",
+    "scope_negative": "unrelated new source rejected; owned fixture removed",
+    "UID_local86_after_import_identical": true
+  },
+  "scope": "scope-audit.json",
+  "final_export_browser_receipt": "final-verification.json",
+  "partial_failure_preserved": "validation/failed-1/documentation.txt",
+  "partial_failure_reason": "own temporary Markdown backup was inside repo traversal; retained outside repo; checker and exclusions unchanged; full rerun passed",
+  "no_tools_or_production_moves": true,
+  "no_Task_Complete_before_acceptance": true,
+  "native_GPU_FPS_accepted": false,
+  "commit_hook_policy": "Mandatory full gates executed explicitly; duplicate pre-commit may be skipped at commit, normal post-commit retained. No tracked hook changed.",
+  "raw_sha256": {
+    "validation/architecture.txt": "cfdc7b7bab5700c616d105210c718bcb179f660f80ac7a1a7abed3509c8bc170",
+    "validation/collect.txt": "019e538cb932ac312a844eb62104673ebade2d411185f50da4bdf33812f655b1",
+    "validation/failed-1/README.md": "5e2e5806a47fc2fc8a0b3c364433af78a89c2cb5faaaa4b9228babca4e1c8d26",
+    "validation/failed-1/documentation.txt": "a97094cde437202f35231581ed1769dae7025c750799fd76e67d638c0490278d",
+    "validation/game.txt": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+    "validation/headless/f10/engine.txt": "baf869d7d1a0f28e96acabbb0d9a5e3fb425fedb8c89d8fe6e8b5a3e43c6ff5f",
+    "validation/headless/f10/frames.jsonl": "d12a9edcbb71a51e509f04fbddf7ef3a7c43f019b962b73284f6d3632e9ff0fa",
+    "validation/headless/f10/summary.json": "ed3ad3781394873c4c6cd67fa5d3d195a8cf7d0a2457e9e85a14cea92bd3a388",
+    "validation/headless/normal/engine.txt": "60c5b60efea6d57a8bf19cf777d2ba06920112ae6753b503eddcb01c6586ff0a",
+    "validation/headless/normal/frames.jsonl": "e227d3429a0d940a533741a546e7b1f881a978fc483ac1c9e36f34d34bcdb4ba",
+    "validation/headless/normal/summary.json": "ae57726fa81dfd387be35d3ef3a2c5a96c5542ccdeab1a30ab9647b39482ef76",
+    "validation/probes.txt": "83511f4d21b2f46f541766327f89dbfe7c6765914aadd620bb71ab2fdba9d7f2",
+    "validation/reproduce-other-cwd.txt": "019e538cb932ac312a844eb62104673ebade2d411185f50da4bdf33812f655b1",
+    "validation/reproduce-root.txt": "019e538cb932ac312a844eb62104673ebade2d411185f50da4bdf33812f655b1",
+    "validation/scope-negative.txt": "7b472373a2624e9e275c3cb192c787669092c7e23e2f94cc4548431640506dad",
+    "validation/scope-pre-final.json": "002ade1f32c5657167386ceaf0384a84b46c6c87bed2fc05cda8fc73bd00ca80",
+    "validation/scope.txt": "b896fa56eace7f37fc15bf4a3cbc216de6b5a5197f2601fa87b5ce0c252cec13",
+    "validation/unit.txt": "044c22137ade081f811e38a202badcb8ac8fb6dbae4b57e917d2f435fec1d39c",
+    "validation/wiki.txt": "7bc2fe974d784c662fd83b5f1fab4bee9d7cf092cd4db29f1fc81f1fa09c0b99"
+  }
+}

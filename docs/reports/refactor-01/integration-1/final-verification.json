@@ -1,0 +1,102 @@
+{
+  "task": "REFACTOR-01",
+  "version": "0.0.343",
+  "baseline": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "state": "final local checks complete; current-head CI and independent review still required",
+  "Wiki_final": {
+    "exit": 0,
+    "passed": 135,
+    "failed": 0,
+    "raw": "validation/wiki-final.txt"
+  },
+  "scope_sha256": "311ba67b606bc20719bb06eb57ef92219c7e0cd36ea2533aab9c9ba1345295d4",
+  "checks_sha256": "ab217aa944b0317b0aa7062e82b105219c554f9d278e5120e9d389e73d5ce9c2",
+  "attachment_parity": [
+    {
+      "source": "docs/reports/refactor-01/integration-1/snapshot/tool-map.json",
+      "sha256": "a45668f89b2ce09465b013d86a0bfd05835d1183e96145bfbf0df41e129c8c3c",
+      "bytes": 1365632,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-01/integration-1/snapshot/tool-map.csv",
+      "sha256": "69d770ce4f35b6927441de6c7aba6bdefe9ae53d64158088eaaced9a807e5697",
+      "bytes": 208020,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-00/closeout/completion.json",
+      "sha256": "a93b8a52716af22e15932afac1f44de0c1935cc0900510b2cab1d7120f088266",
+      "bytes": 5138,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-00/inventory.json",
+      "sha256": "9ae497f847e82c5d0095030e2e80fae6b5595c9853048145270846e9077677de",
+      "bytes": 4533,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-01/integration-1/snapshot/other-catalogs.json",
+      "sha256": "b40e0cdde21d1eae082cc204702314f720500e16e0cfa9a198dfb6f987340e6a",
+      "bytes": 129236,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-01/integration-1/local-uid-observation.json",
+      "sha256": "597d1df01d922ae09d7fd7f8e1ebc72525e79fbb661dd7a3749ed33d03c2d023",
+      "bytes": 32856,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-01/integration-1/checks.json",
+      "sha256": "ab217aa944b0317b0aa7062e82b105219c554f9d278e5120e9d389e73d5ce9c2",
+      "bytes": 3646,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-01/integration-1/baseline-verification.json",
+      "sha256": "43e9bb1657454d12ce41855b114f5501f4cecfa5c546cb7293e4149c3d4fd26d",
+      "bytes": 846,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-01/integration-1/snapshot/inventory.json",
+      "sha256": "5a7191e53264fa42aea711d16880630583c0f87358ff05ac0846b7c12c18b51f",
+      "bytes": 8140,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-01/integration-1/snapshot/suite-registry.json",
+      "sha256": "cf3b0c810d72fedba6ecfdc3f2f2e2b6cef78fbcede21328ff1f9a7c1626fce1",
+      "bytes": 63527,
+      "source_public_dist_identical": true
+    }
+  ],
+  "Wiki563_table_rows_identical": true,
+  "source_sha256": {
+    "TESTING.md": "819043614d9332f5721570eebf8d58ac36df728b26b85d1698313c777f3b1805",
+    "VERSION": "a147b646d8cdbb24184186b1cee3a7c8782c4ce494e97e12b71d26f8dfee0d6c",
+    "docs/epics/refactoring-2026-10/README.md": "6d9b34a41fefb73a2e80fdc35ebb0b5c2dffff983428069230962e2e886bf0e4",
+    "docs/epics/refactoring-2026-10/TASKS.md": "a62a845e2208a766eeee4fbb0febf5764410117fb2e0fb62c0a5fdebb4b76b89",
+    "project.godot": "e9286dc20efd98c13fd51f5ee6d271c3e5e7171249650fcef05156b6c462ff20",
+    "wiki/articles/index.json": "4ec46094f8a9dd02edd391e50d6fa979fe06149c90084f724ca6aa63eee01d7c",
+    "wiki/articles/project-refactoring.md": "04a18780bbb095e1e5f73838a8709001a52455d734a6e6ce457c8e1be4f55106",
+    "wiki/articles/visual-pilot.md": "8b0fb929311ca65193f8244011751e6dd7d7ed79b36fddb16e9819eab8690b15",
+    "Бабушкина ферма.app/Contents/Info.plist": "9d03e2d4c513f66881b3371b18e5c029156223eadb2da871abf64d7aaf6aad14"
+  },
+  "audit_code_sha256": {
+    "docs/reports/refactor-01/instrumentation/archive_index.py": "9d6829ee8b0ef3732579fe8a94120886e01a92c3e9b5b6fbea63cf7335a40862",
+    "docs/reports/refactor-01/instrumentation/audit.py": "ab0e9b3666f1ac4d667014f347ef7150f17c2019e843dc5cc7d10cdb09183885",
+    "docs/reports/refactor-01/instrumentation/git_snapshot.py": "ba472987380089b1c6b522be4ade2d735c385e02cd77e64c26227691f24d682a",
+    "docs/reports/refactor-01/instrumentation/mapping.py": "be3273e56f004f27cdb542d33e2c071adab27e154cb4a7002cc7943ebab252d6",
+    "docs/reports/refactor-01/instrumentation/probes.py": "4a31c351c298ea21e08fc22e0a11f7c746ceacfc119031b7d9c6c683a590c953",
+    "docs/reports/refactor-01/instrumentation/references.py": "5fe6c43437f234d739794c67d93aaedc5ee686eed4de854fa4ac8c41aabdc1cd",
+    "docs/reports/refactor-01/instrumentation/suite_registry.py": "2eb345891b7e883f1bce627d38bfa67606460e9d473f4c9d41da5f028334b567",
+    "docs/reports/refactor-01/instrumentation/test_audit.py": "58ec4946e8645e174b6c53f8873d391ed1eb5fd06877a36939f9bde82751619a",
+    "docs/reports/refactor-01/integration-1/verify_scope.py": "0619c69d472cdf3c61c1c20164a73e746b3f983ac6e82a4edb5e3a7b31d183c8"
+  },
+  "no_gameplay_changes": true,
+  "native_GPU_FPS_accepted": false,
+  "browser_sha256": "2393c6b40c3ceb8595e0200bde77991be75feba79cf19a2c2b0dbe73e8407a0a"
+}

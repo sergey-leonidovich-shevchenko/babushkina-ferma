@@ -1,0 +1,314 @@
+{"hashed_blobs": 5000, "baseline": "206918abb963b542af8dd3faf3bba80f30b5e908"}
+{"hashed_blobs": 10000, "baseline": "206918abb963b542af8dd3faf3bba80f30b5e908"}
+{"hashed_blobs": 15000, "baseline": "206918abb963b542af8dd3faf3bba80f30b5e908"}
+{"hashed_blobs": 20000, "baseline": "206918abb963b542af8dd3faf3bba80f30b5e908"}
+{
+  "schema": 1,
+  "task": "REFACTOR-01",
+  "baseline_commit": "206918abb963b542af8dd3faf3bba80f30b5e908",
+  "baseline_tree": "062c100a2b840e5388e5f70389bc27d24c6b5d8b",
+  "baseline_version": "0.0.341",
+  "method": "tracked Git blobs only; SHA256 of every blob; no runtime execution or relocation",
+  "repository_files": 23993,
+  "repository_bytes": 6718389865,
+  "directories": {
+    "tools": {
+      "immediate": {
+        "tracked_files": 767,
+        "executable_sources": 553,
+        "uid_files": 210,
+        "shader_sources": 0,
+        "bytes": 3242467,
+        "extensions": {
+          ".gd": 296,
+          ".json": 4,
+          ".mjs": 1,
+          ".py": 251,
+          ".sh": 3,
+          ".swift": 2,
+          ".uid": 210
+        }
+      },
+      "recursive": {
+        "tracked_files": 779,
+        "executable_sources": 558,
+        "uid_files": 216,
+        "shader_sources": 1,
+        "bytes": 3268779,
+        "extensions": {
+          ".gd": 301,
+          ".gdshader": 1,
+          ".json": 4,
+          ".mjs": 1,
+          ".py": 251,
+          ".sh": 3,
+          ".swift": 2,
+          ".uid": 216
+        }
+      }
+    },
+    "scripts/systems": {
+      "immediate": {
+        "tracked_files": 564,
+        "executable_sources": 282,
+        "uid_files": 282,
+        "shader_sources": 0,
+        "bytes": 2317262,
+        "extensions": {
+          ".gd": 282,
+          ".uid": 282
+        }
+      },
+      "recursive": {
+        "tracked_files": 564,
+        "executable_sources": 282,
+        "uid_files": 282,
+        "shader_sources": 0,
+        "bytes": 2317262,
+        "extensions": {
+          ".gd": 282,
+          ".uid": 282
+        }
+      }
+    },
+    "scripts/presentation": {
+      "immediate": {
+        "tracked_files": 184,
+        "executable_sources": 89,
+        "uid_files": 92,
+        "shader_sources": 3,
+        "bytes": 331924,
+        "extensions": {
+          ".gd": 89,
+          ".gdshader": 3,
+          ".uid": 92
+        }
+      },
+      "recursive": {
+        "tracked_files": 184,
+        "executable_sources": 89,
+        "uid_files": 92,
+        "shader_sources": 3,
+        "bytes": 331924,
+        "extensions": {
+          ".gd": 89,
+          ".gdshader": 3,
+          ".uid": 92
+        }
+      }
+    },
+    "tests/suites": {
+      "immediate": {
+        "tracked_files": 350,
+        "executable_sources": 175,
+        "uid_files": 175,
+        "shader_sources": 0,
+        "bytes": 1936752,
+        "extensions": {
+          ".gd": 175,
+          ".uid": 175
+        }
+      },
+      "recursive": {
+        "tracked_files": 350,
+        "executable_sources": 175,
+        "uid_files": 175,
+        "shader_sources": 0,
+        "bytes": 1936752,
+        "extensions": {
+          ".gd": 175,
+          ".uid": 175
+        }
+      }
+    },
+    "tests/helpers": {
+      "immediate": {
+        "tracked_files": 6,
+        "executable_sources": 3,
+        "uid_files": 3,
+        "shader_sources": 0,
+        "bytes": 12837,
+        "extensions": {
+          ".gd": 3,
+          ".uid": 3
+        }
+      },
+      "recursive": {
+        "tracked_files": 6,
+        "executable_sources": 3,
+        "uid_files": 3,
+        "shader_sources": 0,
+        "bytes": 12837,
+        "extensions": {
+          ".gd": 3,
+          ".uid": 3
+        }
+      }
+    },
+    "wiki/scripts": {
+      "immediate": {
+        "tracked_files": 18,
+        "executable_sources": 18,
+        "uid_files": 0,
+        "shader_sources": 0,
+        "bytes": 136052,
+        "extensions": {
+          ".gd": 5,
+          ".mjs": 13
+        }
+      },
+      "recursive": {
+        "tracked_files": 18,
+        "executable_sources": 18,
+        "uid_files": 0,
+        "shader_sources": 0,
+        "bytes": 136052,
+        "extensions": {
+          ".gd": 5,
+          ".mjs": 13
+        }
+      }
+    },
+    "docs/reports": {
+      "immediate": {
+        "tracked_files": 263,
+        "executable_sources": 0,
+        "uid_files": 0,
+        "shader_sources": 0,
+        "bytes": 93172606,
+        "extensions": {
+          ".import": 110,
+          ".json": 18,
+          ".md": 17,
+          ".png": 116,
+          ".wav": 2
+        }
+      },
+      "recursive": {
+        "tracked_files": 17269,
+        "executable_sources": 2910,
+        "uid_files": 2,
+        "shader_sources": 9,
+        "bytes": 5754497113,
+        "extensions": {
+          "": 85,
+          ".bin": 2,
+          ".csv": 7,
+          ".gd": 2688,
+          ".gdshader": 9,
+          ".godot": 63,
+          ".gz": 2067,
+          ".html": 13,
+          ".import": 490,
+          ".jpg": 45,
+          ".json": 1789,
+          ".jsonl": 16,
+          ".log": 67,
+          ".md": 164,
+          ".mp4": 53,
+          ".patch": 5,
+          ".png": 8084,
+          ".py": 203,
+          ".res": 41,
+          ".sh": 1,
+          ".svg": 4,
+          ".swift": 18,
+          ".tres": 71,
+          ".tscn": 43,
+          ".txt": 1219,
+          ".uid": 2,
+          ".wav": 2,
+          ".webp": 12,
+          ".zip": 6
+        }
+      }
+    },
+    "assets/game/items/ui/preview": {
+      "immediate": {
+        "tracked_files": 772,
+        "executable_sources": 0,
+        "uid_files": 0,
+        "shader_sources": 0,
+        "bytes": 13568460,
+        "extensions": {
+          ".import": 386,
+          ".png": 386
+        }
+      },
+      "recursive": {
+        "tracked_files": 772,
+        "executable_sources": 0,
+        "uid_files": 0,
+        "shader_sources": 0,
+        "bytes": 13568460,
+        "extensions": {
+          ".import": 386,
+          ".png": 386
+        }
+      }
+    }
+  },
+  "tool_files_mapped": 779,
+  "future_root_sources_proposed": 9,
+  "root_budget": 30,
+  "families": {
+    "art-review": 5,
+    "art-standard": 26,
+    "assets-alpha": 8,
+    "assets-audio": 5,
+    "assets-authoring": 36,
+    "assets-contracts": 59,
+    "assets-migration": 7,
+    "assets-slicing": 11,
+    "build": 5,
+    "camera": 44,
+    "compatibility": 153,
+    "foliage": 102,
+    "ground": 113,
+    "performance": 49,
+    "planning": 11,
+    "quality": 3,
+    "world": 142
+  },
+  "references": 121683,
+  "reference_kinds": {
+    "archive_member": 28,
+    "dynamic_path": 190,
+    "godot_resource": 15310,
+    "installed_runtime": 835,
+    "markdown_link": 25,
+    "path": 104656,
+    "prefix_filter": 23,
+    "python_import": 601,
+    "unresolved_path": 15
+  },
+  "hazards": 739,
+  "archive_count": 7,
+  "archive_index_errors": 0,
+  "tracked_uid_pairs": 216,
+  "sources_without_tracked_uid": 86,
+  "uid_registry_scope": "tracked source sidecars in tools/scripts/tests/wiki/scripts; archive copies excluded",
+  "generator_sha256": {
+    "archive_index.py": "9d6829ee8b0ef3732579fe8a94120886e01a92c3e9b5b6fbea63cf7335a40862",
+    "audit.py": "c4d211df328b9a671bb927b0581ce5edfd8096750e5c7f5a5b953e942df109db",
+    "git_snapshot.py": "ba472987380089b1c6b522be4ade2d735c385e02cd77e64c26227691f24d682a",
+    "mapping.py": "be3273e56f004f27cdb542d33e2c071adab27e154cb4a7002cc7943ebab252d6",
+    "probes.py": "4a31c351c298ea21e08fc22e0a11f7c746ceacfc119031b7d9c6c683a590c953",
+    "references.py": "5fe6c43437f234d739794c67d93aaedc5ee686eed4de854fa4ac8c41aabdc1cd",
+    "suite_registry.py": "2eb345891b7e883f1bce627d38bfa67606460e9d473f4c9d41da5f028334b567",
+    "test_audit.py": "01d8fb8c07c2c7b0c60bb693f2383b44ac01d9b9ca14394c87e6e7ae691db6e8"
+  },
+  "plan_sha256": "3edf9f5ad962c1a3c58c065902e1408f0a7aaec05f76d5916808f3727f802532",
+  "verification_catalog": {
+    "full-snapshot-reproduction": {
+      "command": "python3 docs/reports/refactor-01/instrumentation/audit.py check --snapshot docs/reports/refactor-01/snapshot",
+      "coverage": "all baseline blobs, paths, UID pairs, static references and archive member index; no execution claim"
+    }
+  },
+  "limits": [
+    "static dependency paths do not prove every branch executed",
+    "dynamic pattern candidates are potential, not exact consumers",
+    "native captures were not repeated; no GPU/FPS claim",
+    "future targets and dispatcher are proposed, not implemented"
+  ]
+}

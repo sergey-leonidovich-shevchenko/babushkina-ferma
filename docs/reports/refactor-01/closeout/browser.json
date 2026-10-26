@@ -1,0 +1,23 @@
+{
+  "url": "http://127.0.0.1:4188/#/development/tasks/refactoring--REFACTOR-01",
+  "version": "0.0.349",
+  "task_status_visible": "Завершена",
+  "dependencies_visible_done": [
+    "REFACTOR-00",
+    "VFOLIAGE-010"
+  ],
+  "guide": "http://127.0.0.1:4188/#/guides/project-refactoring",
+  "guide_accepted_head": "567b05c7",
+  "guide_actual_merge": "d43c4550",
+  "attachment": "http://127.0.0.1:4188/generated/attachments/0071444c86b59039c29bd9de3140a01ecd2cbf55348158fcb4fee93b42e62032.json",
+  "attachment_read_in_browser": true,
+  "attachment_accepted_head": "567b05c7d032d40f243df750ea25070e86f6d678",
+  "attachment_merge": "d43c455046bf333e145f7cd097768ec4f60dabac",
+  "download_event_confirmed": false,
+  "note": "Link click did not navigate; direct navigation to its observed href rendered full JSON. No successful download claimed.",
+  "screenshots": [
+    "card.png",
+    "guide.png",
+    "completion.png"
+  ]
+}
