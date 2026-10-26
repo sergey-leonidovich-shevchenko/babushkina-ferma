@@ -1,0 +1,42 @@
+{
+  "infrastructure-final.txt": {
+    "exit": 0,
+    "tests": 12
+  },
+  "task-batch.txt": {
+    "exit": 0,
+    "tests": 16
+  },
+  "shore-kit.txt": {
+    "exit": 0,
+    "tests": 10
+  },
+  "pilot-checks-corrected.txt": {
+    "exit": 0,
+    "original_commands": 8
+  },
+  "infrastructure-first.txt": {
+    "process_exit": 0,
+    "tests": 0,
+    "accepted": false,
+    "reason": "unittest __main__ not registered; fixed with alter_sys=True"
+  },
+  "infrastructure-second.txt": {
+    "exit": 1,
+    "tests": 11,
+    "failures": 3,
+    "reason": "fixture /var vs /private/var; expectations now resolved"
+  },
+  "pilot-harness-failed-command": {
+    "exit": 1,
+    "started_commands": 0,
+    "reason": "outer harness heredoc redirection syntax; corrected run retained",
+    "record_source": "Tool returned SyntaxError before redirection; no log file was created",
+    "stderr": "SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers"
+  },
+  "python39-profile.txt": {
+    "exit": 0,
+    "tests": 12,
+    "python": "system 3.9"
+  }
+}

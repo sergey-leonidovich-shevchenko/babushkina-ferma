@@ -125,6 +125,10 @@ class TaskBatchTests(unittest.TestCase):
         tools.mkdir()
         shutil.copy2(task_batch.ROOT / ".githooks" / "post-commit", hooks / "post-commit")
         shutil.copy2(task_batch.ROOT / "tools" / "task_batch.py", tools / "task_batch.py")
+        shutil.copytree(task_batch.ROOT / "tools" / "common", tools / "common",
+                        ignore=shutil.ignore_patterns("__pycache__"))
+        shutil.copy2(task_batch.ROOT / "project.godot", self.root / "project.godot")
+        shutil.copy2(task_batch.ROOT / "VERSION", self.root / "VERSION")
         self.run_git(self.root, "config", "core.hooksPath", str(hooks))
         self.run_git(self.root, "add", ".githooks", "tools")
         result = subprocess.run(

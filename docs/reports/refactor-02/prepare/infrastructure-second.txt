@@ -1,0 +1,41 @@
+F..F....F..
+======================================================================
+FAIL: test_anchor_not_cwd_selects_root_and_preserves_argv (__main__.InfrastructureTests.test_anchor_not_cwd_selects_root_and_preserves_argv)
+Чужая cwd и аргументы с пробелами не меняют проект или границы аргументов.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/common/test_infrastructure.py", line 68, in test_anchor_not_cwd_selects_root_and_preserves_argv
+    self.assertEqual(json.loads(result.stdout), {
+AssertionError: {'root': '/private/var/folders/ky/t3jq24z91jdgvtstvk[209 chars]on']} != {'root': '/var/folders/ky/t3jq24z91jdgvtstvkrkz20h00[193 chars]on']}
+Diff is 805 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_external_tools_package_cannot_shadow_project (__main__.InfrastructureTests.test_external_tools_package_cannot_shadow_project)
+Внешний PYTHONPATH с пакетом tools не подменяет собственную команду.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/common/test_infrastructure.py", line 100, in test_external_tools_package_cannot_shadow_project
+    self.assertEqual(json.loads(result.stdout)["root"], str(self.root))
+AssertionError: '/private/var/folders/ky/t3jq24z91jdgvtstvk[59 chars]aces' != '/var/folders/ky/t3jq24z91jdgvtstvkrkz20h00[51 chars]aces'
+- /private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary p7u71tga/project with spaces
+? --------
++ /var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary p7u71tga/project with spaces
+
+
+======================================================================
+FAIL: test_real_worktree_with_spaces (__main__.InfrastructureTests.test_real_worktree_with_spaces)
+В worktree .git является файлом; launcher выбирает его собственные исходники.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/common/test_infrastructure.py", line 124, in test_real_worktree_with_spaces
+    self.assertEqual(json.loads(result.stdout)["root"], str(checkout))
+AssertionError: '/private/var/folders/ky/t3jq24z91jdgvtstvk[67 chars]aces' != '/var/folders/ky/t3jq24z91jdgvtstvkrkz20h00[59 chars]aces'
+- /private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary nd_1a9lt/linked checkout with spaces
+? --------
++ /var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary nd_1a9lt/linked checkout with spaces
+
+
+----------------------------------------------------------------------
+Ran 11 tests in 1.869s
+
+FAILED (failures=3)

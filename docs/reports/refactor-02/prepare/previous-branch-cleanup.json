@@ -1,0 +1,12 @@
+{
+  "branch": "codex/wiki-003-closeout",
+  "tip": "d4330ff2b4d4c98d0f3edb45642bc51a2e73e396",
+  "accepted_main": "d603de591082f19b1a9964eefd8f1d0671d38839",
+  "fully_merged": true,
+  "named_worktree_references": 0,
+  "local_deleted": true,
+  "remote_deleted": true,
+  "remote_already_absent": false,
+  "other_branches_untouched": true,
+  "no_additional_WIKI_003_closeout": true
+}

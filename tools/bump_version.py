@@ -9,7 +9,10 @@ import subprocess
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.git import git_environment
+
+ROOT = project_root(__file__)
 VERSION_FILE = ROOT / "VERSION"
 PROJECT_FILE = ROOT / "project.godot"
 PLIST_FILE = ROOT / "Бабушкина ферма.app" / "Contents" / "Info.plist"
@@ -32,6 +35,7 @@ def head_version() -> str | None:
         text=True,
         capture_output=True,
         check=False,
+        env=git_environment(),
     )
     return result.stdout.strip() if result.returncode == 0 else None
 

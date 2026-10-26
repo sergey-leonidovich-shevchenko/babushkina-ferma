@@ -3,7 +3,9 @@ import csv
 import json
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+
+ROOT = project_root(__file__)
 FOLDER = ROOT / "docs/epics/optimization-2026-10"
 
 # Каждый пункт описывает отдельное действие или нагрузку, а не размножает один FPS-замер по устройствам.

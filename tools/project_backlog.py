@@ -7,7 +7,9 @@ import json
 from pathlib import Path
 import re
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+
+ROOT = project_root(__file__)
 FOLDER = ROOT / 'docs/backlog/2026-10'
 REPOSITORY = 'sergey-leonidovich-shevchenko/babushkina-ferma'
 STATES = ('backlog', 'ready', 'blocked', 'in_progress', 'done')

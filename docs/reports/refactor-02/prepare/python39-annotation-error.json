@@ -1,0 +1,8 @@
+{
+  "command": "python3 tools/bump_version.py --set 0.0.353",
+  "exit": 1,
+  "python": "system Python 3.9",
+  "error": "TypeError: unsupported operand type(s) for |: type and type",
+  "stage": "before version mutation, in common.paths annotation",
+  "fix": "Deferred annotations in common.paths and common.git; retained Python 3.9 launcher compatibility"
+}

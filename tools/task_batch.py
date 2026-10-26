@@ -8,7 +8,10 @@ import re
 import subprocess
 import sys
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.git import git_environment
+
+ROOT = project_root(__file__)
 BATCH_SIZE = 10
 TASK_ID = re.compile(r"[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+")
 
@@ -26,7 +29,7 @@ class Batch:
 def git(root: Path, *args: str) -> str:
     """Выполняет Git без shell и сохраняет причину отказа для пользователя."""
     result = subprocess.run(
-        ["git", *args], cwd=root, text=True, capture_output=True, check=False
+        ["git", *args], cwd=root, text=True, capture_output=True, check=False, env=git_environment()
     )
     if result.returncode:
         raise RuntimeError(result.stderr.strip() or result.stdout.strip() or "Ошибка Git")
@@ -52,7 +55,7 @@ def read_batch(root: Path) -> Batch:
             task_ids.append(task_id)
     ancestor = subprocess.run(
         ["git", "merge-base", "--is-ancestor", remote, head],
-        cwd=root, capture_output=True, text=True, check=False,
+        cwd=root, capture_output=True, text=True, check=False, env=git_environment(),
     )
     if ancestor.returncode not in (0, 1):
         raise RuntimeError(ancestor.stderr.strip() or "Не удалось сравнить main и origin/main")

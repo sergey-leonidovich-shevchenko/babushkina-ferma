@@ -7,7 +7,9 @@ import json
 from pathlib import Path
 from migration_inventory import git_bytes
 
-ROOT=Path(__file__).resolve().parents[1]
+from common.paths import project_root
+
+ROOT = project_root(__file__)
 FOLDER='docs/reports/visual-overhaul/vrelease-001'
 PROGRAM='docs/epics/visual-overhaul-2026-10/backlog.json'
 BASE='12e6e2c7ac30f87af839cdb8cd0e2a4d1e558ee5'

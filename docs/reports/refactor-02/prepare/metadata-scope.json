@@ -1,0 +1,24 @@
+{
+  "version": "0.0.353",
+  "files": [
+    {
+      "path": "VERSION",
+      "accepted_sha256": "436dde4184d1f2d400f78688e893d8b534dca8fa33f345cd35b933ecaa2bf9ef",
+      "candidate_sha256": "d97e92ee159928aaa2f313e24a63f2990e69e52e6c7f13231e2eeebca2ee9613",
+      "change": "only version 0.0.352 -> 0.0.353"
+    },
+    {
+      "path": "project.godot",
+      "accepted_sha256": "560cbb3b4802bab48021f1c741aa3816132c72176bab20c95c7bdd5d661fb9cd",
+      "candidate_sha256": "fc765c0f8f0329267cf48b638e92d7ab0771b25e66fe49b5e6839eeec2a5eadf",
+      "change": "only version 0.0.352 -> 0.0.353"
+    },
+    {
+      "path": "\u0411\u0430\u0431\u0443\u0448\u043a\u0438\u043d\u0430 \u0444\u0435\u0440\u043c\u0430.app/Contents/Info.plist",
+      "accepted_sha256": "db099515c78b1e08ef2d439bfce5818930b39a615e67a2039485ce5cfdd6b864",
+      "candidate_sha256": "0eecdea8fc50ca6582cfef968b3a34cd812040ca65d75e3cacd8c34c3f146bf3",
+      "change": "only version 0.0.352 -> 0.0.353"
+    }
+  ],
+  "gameplay_configuration_otherwise_byte_identical": true
+}

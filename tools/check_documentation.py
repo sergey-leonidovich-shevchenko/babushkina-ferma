@@ -9,6 +9,8 @@ import os
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
+from common.paths import project_root
+
 
 REQUIRED_DOCUMENTS = (
     "README.md",
@@ -75,7 +77,7 @@ def validate(root: Path) -> list[str]:
 
 # Запускает проверку из корня репозитория и возвращает ненулевой код при любой ошибке.
 def main() -> int:
-    root = Path(__file__).resolve().parent.parent
+    root = project_root(__file__)
     errors = validate(root)
     if errors:
         for error in errors:

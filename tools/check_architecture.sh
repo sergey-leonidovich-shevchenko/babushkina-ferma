@@ -1,7 +1,7 @@
 #!/bin/zsh
 set -e
 
-repo_root="$(git rev-parse --show-toplevel)"
+repo_root="$(python3 "${0:A:h}/run.py" --root)"
 cd "$repo_root"
 
 ## Считает только исполняемые строки, чтобы русская документация не расходовала архитектурный лимит.
@@ -22,17 +22,18 @@ check_limit scripts/game_renderer.gd 450
 check_limit scripts/game_context.gd 350
 check_limit scripts/systems/level_editor_system.gd 420
 check_limit scripts/editor/level_editor_document_store.gd 180
-for module in scripts/core/*.gd; do
+for module in scripts/core/**/*.gd; do
 	check_limit "$module" 260
 done
-for module in scripts/presentation/*.gd; do
+for module in scripts/presentation/**/*.gd; do
 	check_limit "$module" 180
 done
-for suite in tests/suites/*_suite.gd; do
+for suite in tests/suites/**/*_suite.gd; do
 	check_limit "$suite" 350
 done
 
 python3 tools/bump_version.py --check
+python3 tools/run.py common.test_infrastructure
 python3 tools/test_task_batch.py
 
 if rg -n '^func draw_' scripts/game.gd >/dev/null; then
