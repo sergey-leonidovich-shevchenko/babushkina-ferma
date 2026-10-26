@@ -1,0 +1,27 @@
+{
+  "version": "0.0.350",
+  "files": {
+    "PLAN.md": "6d37717aeb48d7423fbec0ec07baa0d5569b7a0e72a6a3df7c36e8db6e61798d",
+    "architecture.txt": "52337b4cdafefdaae9b827e6cfc9e2cd8a9a6d63f105ba4f410d6f7afe27a43b",
+    "backlog-350.txt": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a",
+    "documentation-350.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "expected-date.json": "37c64fd918efdf2b131a6923a821f059bc6d629d43b27f028e30306f94b76690",
+    "game.txt": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+    "gate-exits.json": "03698471c9e2ea57f32f66f92131a9765d614120bb746de4e5fddba256dbcb14",
+    "headless/f10/engine.txt": "d8fdc678b5ed597f7dbad94c0229edb2b7ba49749ad920f58407dd3d98bbb651",
+    "headless/f10/frames.jsonl": "399772a3b2ea8f54f0a79ecdcf3c42767f54553e8330a6e988496315cb5ec132",
+    "headless/f10/summary.json": "dfa12b184b0e0bcb038a9a89e38517cb637dc02fd071bb47a7f12d009f56ad27",
+    "headless/normal/engine.txt": "9a656bafec27d3603514b0562fd93522aed829b06f4ddfe392b0400aaffd37b5",
+    "headless/normal/frames.jsonl": "566b56a4277d3b14a9364fe706cd06d08fa0e534e22360f506cf419ffa52944f",
+    "headless/normal/summary.json": "6c32573e08cd92b68ddb156e334ceee91dc27d5a6de9a2a96106155b822f1017",
+    "input-prs.json": "e8a7ac5239dc3d675bdfd4b55f8735c2a42a3a87a09de6593deb2a7e88363c9c",
+    "premerge-checks.json": "49ed806479ad1828060a2cf906199e043442b4117d5ab6e468a6309e9e37a32b",
+    "preserved-files.json": "83561ec6fd87664bb3af4b04e0d648d2230e185ffe09296995d4108907ca50b4",
+    "previous-card.json": "3cc31dd291a0600fd2a880c59369cb757c323b668978e9d17230d59c9c3776a3",
+    "qa-server.mjs": "452261f60711ed83552fccabbe7231214a5def6bb987d0cead438217a53b84ee",
+    "source-scope.json": "773b56414a3a77be896d2e9a2eabf2540eb391a5736e58b68155faeb2ef08b07",
+    "version-350.txt": "9bd316d43b6c3be40563761bdbb55c9c698cd378edf75104d007e9be9080d8e9",
+    "wiki-350.txt": "998978831954b35df6f836def3bf40dbae8591944d1c75b4e8e12b0d8c14cf11"
+  },
+  "purpose": "Preserve the premerge packet unchanged during later actual catalog and browser QA"
+}

@@ -1,0 +1,6 @@
+{
+  "exit": 2,
+  "warnings": 66,
+  "all_inherited_accepted_refactor_reports": true,
+  "diff_against_accepted_main_exit": 0
+}

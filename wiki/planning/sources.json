@@ -98,7 +98,7 @@
       "title": "Wiki и управление разработкой",
       "format": "markdown",
       "group": "technology",
-      "expected": 10,
+      "expected": 11,
       "epics": [
         {
           "id": "WIKI",

@@ -1,0 +1,28 @@
+{
+  "phase": "Before integration merge commit",
+  "version": "0.0.350",
+  "architecture": {
+    "exit": 0,
+    "suites": 82,
+    "cases": 1135
+  },
+  "game": {
+    "exit": 0,
+    "passed": 53502,
+    "failed": 0,
+    "redraw_normal_F10_each": [
+      90,
+      0
+    ]
+  },
+  "wiki": {
+    "exit": 0,
+    "passed": 145,
+    "failed": 0,
+    "build_TypeScript": true
+  },
+  "preserved_old_reports": 299,
+  "unchanged_WIKI_implementation_files": 12,
+  "actual_integrated_history_QA": "Pending after ordinary merge commit; HEAD remains f095 at this phase",
+  "format_diagnostic": "First formatter command had incomplete PATH; rerun with bundled pnpm and Wiki .prettierrc succeeded. No dependency or source implementation change."
+}

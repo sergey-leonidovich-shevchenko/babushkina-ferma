@@ -1,0 +1,56 @@
+{
+  "task": "WIKI-003",
+  "base": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "source_guard": "git diff old paths + exact declared untracked paths; no old report modifications",
+  "changed_old_paths": [
+    "TESTING.md",
+    "VERSION",
+    "docs/backlog/wiki-workspace-2026-10/README.md",
+    "project.godot",
+    "wiki/articles/visual-pilot.md",
+    "wiki/planning/sources.json",
+    "wiki/scripts/planning-catalog.mjs",
+    "wiki/scripts/rollout-queues.mjs",
+    "wiki/src/components/FirstLocationBoard.vue",
+    "wiki/src/first-location.css",
+    "wiki/src/lib/first-location.ts",
+    "wiki/src/lib/planning.ts",
+    "wiki/tests/first-location.test.mjs",
+    "wiki/tests/rollout-queues.test.mjs",
+    "Бабушкина ферма.app/Contents/Info.plist"
+  ],
+  "new_code_paths": [
+    "wiki/scripts/task-completion.mjs",
+    "wiki/src/components/LocationHistory.vue",
+    "wiki/src/lib/location-scope.ts",
+    "wiki/tests/task-completion.test.mjs"
+  ],
+  "canonical_status_and_planning_preserved_sha256": {
+    "wiki/planning/state.json": "c8180d8bbc3ca195471633273d315eaec15f31db6ccfd28249977e3294e8d1b4",
+    "wiki/planning/assessments.json": "82e929a2ac358a00762461b091e42877defdeaa547dee1474b9cec3cd185cde8",
+    "docs/epics/refactoring-2026-10/TASKS.md": "a9e99876209926b54b461147a8f6331ab17ba0f8ac9f45207a21833e6458ba5c",
+    "docs/epics/visual-overhaul-2026-10/backlog.json": "b1934d14272b4a7c2c280b6e7a0d33c790e60bbf2f3e132c3dd84f52d4f87426"
+  },
+  "only_manifest_change": "wiki expected10→11",
+  "source_sha256": {
+    "TESTING.md": "4af08865b26e0447ed2aee85921ba2a1c4262899f90767c035d1d7ee0f6b498b",
+    "VERSION": "7298bf593da59bb7942651c19ff324f51f69c0a61a24c66cecefb740b05a7905",
+    "docs/backlog/wiki-workspace-2026-10/README.md": "95d9b4906a6be799dce027ccb463f0fb434975015a7c6de1da18a3482e4d4370",
+    "project.godot": "88744b0dea781de71bec9e03f5cae120edcad6ab294ae99d96c714de0e0aad46",
+    "wiki/articles/visual-pilot.md": "6548c8320d12ae2f32ad48aff6688604fa932f39239e4d911ebdecf1531e9d74",
+    "wiki/planning/sources.json": "6122d2272740c99fa69a1cce9ac3d35c07ee6e565489aa496aff7f3bef49b59d",
+    "wiki/scripts/planning-catalog.mjs": "d856109ada8a8a15852173b18493ffcfe769118df99c47e6e0925e92a9cdce5e",
+    "wiki/scripts/rollout-queues.mjs": "c01fb1df0ed106348f07a3383c5ce543a8bb431858a6d4834ec3cf4095c16183",
+    "wiki/scripts/task-completion.mjs": "3a06c3c6a2c1b30fd3ba466793baf1cc08ae6709a522e72abc05b4b8817cb9d9",
+    "wiki/src/components/FirstLocationBoard.vue": "32594d37a36fa1902822fa9f132ebca8f5eb7b9d40e35ea0e642e8f57c131e99",
+    "wiki/src/components/LocationHistory.vue": "0594891bc7374fb6d193abe37477c2c9e7e2bba33856b44aae7f36f8be7b770d",
+    "wiki/src/first-location.css": "6f97f2f5f5b9e2948b965d05035127d1464bf1769bd93fe2c0868fe0b1b94953",
+    "wiki/src/lib/first-location.ts": "356497394369da02f0ebe4385b1fad53726f4ca4a0443ba64b85dd12114b0ac7",
+    "wiki/src/lib/location-scope.ts": "5da8e60c19feda78917a2bc621ed129e29bfe0065787ceb1c2b88bd68c3db837",
+    "wiki/src/lib/planning.ts": "2adf9f545b4d22374076be45825490822f7f7b7bd2337e77e680150ee96995b4",
+    "wiki/tests/first-location.test.mjs": "f21851c51c7d7dd0dbda1a3fd29519bb13dce8186fee846c509f3a2d5811f9e9",
+    "wiki/tests/rollout-queues.test.mjs": "05332e0570666486dee24b58a2683a6eed85f9af0b6b1208fbe902c273a6e1dc",
+    "wiki/tests/task-completion.test.mjs": "61ea4d9daa15621972388f0879d9e92c9c7ff8a7fa324e47646a455d9393e033",
+    "Бабушкина ферма.app/Contents/Info.plist": "630abaebf5141a2c5ffb4e342450955cbd3e289b7e4d1302d02f8eb940de2c78"
+  }
+}

@@ -1,0 +1,31 @@
+✔ first location resolves all selected epics without changing the catalog (102.678393ms)
+✔ map and release progress exclude other locations and later releases (40.092962ms)
+✔ live changes update active cards and per-epic counts (52.9856ms)
+✔ current technical work is visible without accepting or inflating the map (48.245275ms)
+✔ history uses canonical done, stable dates, and bounded route/support scopes (2.614608ms)
+✔ only the canonical final acceptance completes the first location (54.072082ms)
+✔ catalog-wide scopes and missing epic data remain explicit (6.067074ms)
+✖ API refresh keeps active work and completion history coherent (51.713425ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 965.324158
+
+✖ failing tests:
+
+test at wiki/tests/first-location.test.mjs:205:1
+✖ API refresh keeps active work and completion history coherent (51.713425ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:2145:21)
+      at listenInCluster (node:net:2224:12)
+      at node:net:2448:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }

@@ -1,0 +1,2630 @@
+{
+  "merge": "86c74faf0addf7c9068431ac51f7394288640930",
+  "accepted_base": "364acd8fd666c6bcc4227886041ff6f1f8589abc",
+  "plans": 114,
+  "epics": 168,
+  "tasks": 2045,
+  "active": [
+    {
+      "id": "WIKI-003",
+      "key": "wiki--WIKI-003",
+      "context": "Обслуживание разработки: Wiki и прозрачный учёт работы."
+    },
+    {
+      "id": "IDEA-REVIEW-20261024",
+      "key": "wiki--IDEA-REVIEW-20261024",
+      "context": "Другое направление. Его статус не означает смену курса первой локации."
+    }
+  ],
+  "history_count": 81,
+  "unknown_dates": 20,
+  "accepted_map": false,
+  "groups": 5,
+  "visual_water_epics": 22,
+  "refactor_completion": {
+    "date": "2026-10-27",
+    "basis": "Дата принятия completion-коммита в main",
+    "evidence": [
+      {
+        "label": "PR #16",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/16"
+      },
+      {
+        "label": "Принятие в main",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/364acd8fd666c6bcc4227886041ff6f1f8589abc"
+      },
+      {
+        "label": "PR #14",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14"
+      },
+      {
+        "label": "PR #14",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14#pullrequestreview-5655708005"
+      },
+      {
+        "label": "Учёт и прежний результат",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/refactor-01/closeout/completion.json"
+      }
+    ]
+  },
+  "wiki_key": "wiki--WIKI-003",
+  "rows": [
+    {
+      "id": "REFACTOR-01",
+      "key": "refactoring--REFACTOR-01",
+      "status": "done",
+      "date": "2026-10-27",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "PR #16",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/16"
+        },
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/364acd8fd666c6bcc4227886041ff6f1f8589abc"
+        },
+        {
+          "label": "PR #14",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14"
+        },
+        {
+          "label": "PR #14",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14#pullrequestreview-5655708005"
+        },
+        {
+          "label": "Учёт и прежний результат",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/refactor-01/closeout/completion.json"
+        }
+      ]
+    },
+    {
+      "id": "VFOLIAGE-010",
+      "key": "visual--VFOLIAGE-010",
+      "status": "done",
+      "date": "2026-10-25",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "PR #10",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/10"
+        },
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/3befe8356aa7beafd0b93c2eb7d3d3d004c9cfdd"
+        },
+        {
+          "label": "PR #7",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7"
+        },
+        {
+          "label": "PR #7",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#discussion_r4370635795"
+        },
+        {
+          "label": "PR #7",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#pullrequestreview-5642594398"
+        },
+        {
+          "label": "PR #7",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#pullrequestreview-5643255148"
+        },
+        {
+          "label": "PR #7",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#pullrequestreview-5643813863"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-010/README.md"
+        },
+        {
+          "label": "Материал: plan.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-010/plan.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-010/native-01/source.json"
+        },
+        {
+          "label": "Материал: verification.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-010/verification.json"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-010/review-1/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-010/review-2/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-010/integration-1/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-010/closeout/completion.json"
+        }
+      ]
+    },
+    {
+      "id": "REFACTOR-00",
+      "key": "refactoring--REFACTOR-00",
+      "status": "done",
+      "date": "2026-10-25",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "PR #11",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/11"
+        },
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/206918abb963b542af8dd3faf3bba80f30b5e908"
+        },
+        {
+          "label": "PR #9",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9"
+        },
+        {
+          "label": "PR #9",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9#pullrequestreview-5644081658"
+        },
+        {
+          "label": "Запись приёмки",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/refactor-00/closeout/completion.json"
+        }
+      ]
+    },
+    {
+      "id": "VFOLIAGE-006",
+      "key": "visual--VFOLIAGE-006",
+      "status": "done",
+      "date": "2026-10-24",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "PR #3",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/3"
+        },
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/eb7f424129935cf361655a112d007e0c69ff7853"
+        },
+        {
+          "label": "PR #1",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1"
+        },
+        {
+          "label": "PR #1",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1#pullrequestreview-5636691069"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/README.md"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/summary.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/completion.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/native/source.json"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/review-1/README.md"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/review-1/summary.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/review-1/completion.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/review-1/native/source.json"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-portability/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-portability/completion.json"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-godot-env/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-godot-env/completion.json"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-migration-source/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-migration-source/completion.json"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-platform/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-platform/completion.json"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-repro/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-repro/completion.json"
+        },
+        {
+          "label": "Материал: sources.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-repro/mac/sources.json"
+        },
+        {
+          "label": "Материал: report.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-repro/mac/preview/report.json"
+        },
+        {
+          "label": "Материал: report.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-repro/mac/catalogue/report.json"
+        },
+        {
+          "label": "Материал: report.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-repro/mac/ui/report.json"
+        },
+        {
+          "label": "Материал: ci-artifacts.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-repro/ci-artifacts.json"
+        },
+        {
+          "label": "Материал: context.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-repro/mac-gl-cachefix/context.json"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-integration/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-performance/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-performance/production/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-performance/p3/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/ci-error-detection/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/causal-investigation/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/redraw-output-ownership/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-006/closeout/completion.json"
+        }
+      ]
+    },
+    {
+      "id": "VFOLIAGE-009",
+      "key": "visual--VFOLIAGE-009",
+      "status": "done",
+      "date": "2026-10-24",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "PR #5",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/5"
+        },
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/2fa58d3719ff89f6f61a755e531d963807762ae9"
+        },
+        {
+          "label": "PR #4",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4"
+        },
+        {
+          "label": "PR #4",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4#pullrequestreview-5637772163"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-009/README.md"
+        },
+        {
+          "label": "Материал: plan-windowed.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-009/plan-windowed.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-009/native-windowed/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-009/closeout/completion.json"
+        }
+      ]
+    },
+    {
+      "id": "VFOLIAGE-004",
+      "key": "visual--VFOLIAGE-004",
+      "status": "done",
+      "date": "2026-10-23",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/ff5b2d2c7e6abf7a98d98d3c90b37650c9318101"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-004/README.md"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-004/summary.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-004/completion.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-004/native/source.json"
+        }
+      ]
+    },
+    {
+      "id": "VFOLIAGE-005",
+      "key": "visual--VFOLIAGE-005",
+      "status": "done",
+      "date": "2026-10-23",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/ab52022ac0ba38954c95bfcc8b3cc94d1cda03e0"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-005/README.md"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-005/summary.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-005/completion.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-005/native/source.json"
+        }
+      ]
+    },
+    {
+      "id": "VRENDER-005",
+      "key": "visual--VRENDER-005",
+      "status": "done",
+      "date": "2026-10-22",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/2f844d14e4ea6ab6c56503c694135dc29e0eb4a2"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-005/README.md"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-005/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-005/native/before/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-005/native/after/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-005/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-005/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VRENDER-006",
+      "key": "visual--VRENDER-006",
+      "status": "done",
+      "date": "2026-10-22",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/9225275e519bfbc4861e95295f9f68db9f3ed516"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-006/README.md"
+        },
+        {
+          "label": "Материал: dependency-audit.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-006/dependency-audit.json"
+        },
+        {
+          "label": "Материал: changes.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-006/changes.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-006/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-006/native/before/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-006/native/after/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-006/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-006/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VRENDER-008",
+      "key": "visual--VRENDER-008",
+      "status": "done",
+      "date": "2026-10-22",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/630a6030792736125072180956b26549e1740f8f"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-008/README.md"
+        },
+        {
+          "label": "Материал: dependency-audit.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-008/dependency-audit.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-008/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-008/native/before/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-008/native/after/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-008/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-008/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VFOLIAGE-001",
+      "key": "visual--VFOLIAGE-001",
+      "status": "done",
+      "date": "2026-10-22",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/e3b3db2383a4d29295f9192205f77ae19d73e7a4"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-001/README.md"
+        },
+        {
+          "label": "Материал: dependency-audit.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-001/dependency-audit.json"
+        },
+        {
+          "label": "Материал: changes.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-001/changes.json"
+        },
+        {
+          "label": "Материал: native-admission.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-001/native-admission.json"
+        },
+        {
+          "label": "Материал: profiles.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-001/profiles.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-001/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-001/native/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-001/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-001/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VFOLIAGE-002",
+      "key": "visual--VFOLIAGE-002",
+      "status": "done",
+      "date": "2026-10-22",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/85ae79d809ebe15958900afde0115a72845e5d1c"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-002/README.md"
+        },
+        {
+          "label": "Материал: dependency-audit.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-002/dependency-audit.json"
+        },
+        {
+          "label": "Материал: changes.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-002/changes.json"
+        },
+        {
+          "label": "Материал: native-admission.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-002/native-admission.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-002/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-002/native/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-002/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-002/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VFOLIAGE-003",
+      "key": "visual--VFOLIAGE-003",
+      "status": "done",
+      "date": "2026-10-22",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/785d1967f2c9d1a56fc5b62c315144e0974e5fe8"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-003/README.md"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-003/summary.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-003/completion.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vfoliage-003/native/source.json"
+        }
+      ]
+    },
+    {
+      "id": "VSHADOW-001",
+      "key": "visual--VSHADOW-001",
+      "status": "done",
+      "date": "2026-10-22",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/7cf646e22f04353aa4220979623baa852d1d4a9a"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshadow-001/README.md"
+        },
+        {
+          "label": "Материал: dependency-audit.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshadow-001/dependency-audit.json"
+        },
+        {
+          "label": "Материал: inventory.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshadow-001/inventory.json"
+        },
+        {
+          "label": "Материал: native-admission.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshadow-001/native-admission.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshadow-001/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshadow-001/native/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshadow-001/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshadow-001/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VCOMPAT-001",
+      "key": "visual--VCOMPAT-001",
+      "status": "done",
+      "date": "2026-10-22",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/5dd9ddc4b5c894972f29c382ad4c9eb084703fa5"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcompat-001/README.md"
+        },
+        {
+          "label": "Материал: dependency-audit.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcompat-001/dependency-audit.json"
+        },
+        {
+          "label": "Материал: changes.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcompat-001/changes.json"
+        },
+        {
+          "label": "Материал: ownership.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcompat-001/ownership.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcompat-001/summary.json"
+        },
+        {
+          "label": "Материал: before-probe.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcompat-001/before-probe.json"
+        },
+        {
+          "label": "Материал: after-probe.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcompat-001/after-probe.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcompat-001/native/before/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcompat-001/native/after/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcompat-001/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcompat-001/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VPROP-002",
+      "key": "visual--VPROP-002",
+      "status": "done",
+      "date": "2026-10-22",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/7db74296165663c37620a85e989d853c181ce01f"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002/README.md"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002/source.json"
+        },
+        {
+          "label": "Материал: prompts.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002/prompts.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002/native/before/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002/native/after/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002/browser-review.json"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002-four-legs/README.md"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002-four-legs/source.json"
+        },
+        {
+          "label": "Материал: prompts.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002-four-legs/prompts.json"
+        },
+        {
+          "label": "Материал: native.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002-four-legs/native.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002-four-legs/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-002-four-legs/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VPROP-007",
+      "key": "visual--VPROP-007",
+      "status": "done",
+      "date": "2026-10-22",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/cc55ff9a3a2b1bfaf8e6887c912a7b4b1c474fa7"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-007/README.md"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-007/source.json"
+        },
+        {
+          "label": "Материал: prompts.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-007/prompts.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-007/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-007/native/before/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-007/native/after/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-007/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-007/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VRELEASE-002",
+      "key": "visual--VRELEASE-002",
+      "status": "done",
+      "date": "2026-10-22",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/979d8a9361174a8628b32b4f3d8abf8cb6a5689c"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-002/README.md"
+        },
+        {
+          "label": "Материал: dependency-audit.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-002/dependency-audit.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-002/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-002/native/static/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-002/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-002/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VRENDER-002",
+      "key": "visual--VRENDER-002",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/246456c4ec62169665178a0e587270e3a7488cc7"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-002/README.md"
+        },
+        {
+          "label": "Материал: ADR.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-002/ADR.md"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-002/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-002/bench/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-002/cpu-only/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-002/quality/source.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-002/browser-review.json"
+        },
+        {
+          "label": "Материал: checks.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-002/checks.json"
+        }
+      ]
+    },
+    {
+      "id": "VRENDER-003",
+      "key": "visual--VRENDER-003",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/f002d52d426e5bcc93abd378ec8a64529806cfcc"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-003/README.md"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-003/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-003/native/source.json"
+        },
+        {
+          "label": "Материал: hot-loop.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-003/native/1152/hot-loop.json"
+        },
+        {
+          "label": "Материал: cold.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-003/native/1152/cold.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-003/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VRENDER-004",
+      "key": "visual--VRENDER-004",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/d009a1b9601ba81c6a1d46ef6a0266f4cae86f5c"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-004/README.md"
+        },
+        {
+          "label": "Материал: contract.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-004/contract.json"
+        },
+        {
+          "label": "Материал: sampling-notes.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-004/sampling-notes.json"
+        },
+        {
+          "label": "Материал: progress-check.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-004/progress-check.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-004/browser-review.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-004/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-004/native/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-004/completion.json"
+        }
+      ]
+    },
+    {
+      "id": "VGROUND-001",
+      "key": "visual--VGROUND-001",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/e680a87744bf639d2d127ada050fa97092655841"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-001/README.md"
+        },
+        {
+          "label": "Материал: art-source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-001/art-source.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-001/summary.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-001/completion.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-001/native/source.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-001/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VGROUND-003",
+      "key": "visual--VGROUND-003",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/873c2fc19f9572d81058a82cbd7c75ae0ec030c7"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-003/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-003/completion.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-003/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-003/native/source.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-003/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VGROUND-004",
+      "key": "visual--VGROUND-004",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/5182226a04977b7839d7c5d199b3746c44b892bc"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-004/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-004/completion.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-004/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-004/native/source.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-004/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VGROUND-005",
+      "key": "visual--VGROUND-005",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/6c3656ea5355c626a0a4baf9166c7206a2f28f33"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-005/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-005/completion.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-005/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-005/native/source.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-005/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VGROUND-006",
+      "key": "visual--VGROUND-006",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/06cb4aa218c521d41d36ee98932d131bef4e6d2c"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-006/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-006/completion.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-006/summary.json"
+        },
+        {
+          "label": "Материал: art-source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-006/art-source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-006/native/source.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-006/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VGROUND-007",
+      "key": "visual--VGROUND-007",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/c9ae970781fae8d1aab95644873668036b5c3011"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-007/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-007/completion.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-007/summary.json"
+        },
+        {
+          "label": "Материал: art-source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-007/art-source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-007/native/source.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-007/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VGROUND-008",
+      "key": "visual--VGROUND-008",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/b3c847f2812e4d7c245fb69f751a670725e7236d"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-008/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-008/completion.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-008/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-008/native/source.json"
+        },
+        {
+          "label": "Материал: sampling-notes.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-008/sampling-notes.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-008/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VGROUND-009",
+      "key": "visual--VGROUND-009",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/559277afcefcccc1d8efad5ae04469a193ba13d2"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-009/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-009/completion.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-009/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-009/native/source.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-009/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VGROUND-010",
+      "key": "visual--VGROUND-010",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/7d1069d37f4ec95c9ddaaa8a31a3c7870ba48921"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-010/README.md"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-010/completion.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-010/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-010/native/source.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vground-010/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VPROP-003",
+      "key": "visual--VPROP-003",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/28fa0aa897eabeac65b502860e18fcb7abe8ac2c"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-003/README.md"
+        },
+        {
+          "label": "Материал: alpha-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-003/alpha-review.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-003/source.json"
+        },
+        {
+          "label": "Материал: prompts.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-003/prompts.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-003/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-003/native/before/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-003/native/after/source.json"
+        },
+        {
+          "label": "Материал: sampling-notes.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-003/sampling-notes.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-003/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-003/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VPROP-004",
+      "key": "visual--VPROP-004",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/152f1080837c9ba13e48c229ec87fd60a2845302"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-004/README.md"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-004/source.json"
+        },
+        {
+          "label": "Материал: prompts.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-004/prompts.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-004/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-004/native/before/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-004/native/after/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-004/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-004/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VPROP-005",
+      "key": "visual--VPROP-005",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/90a98a75f792dd6aa3a4e875dab11ee80bf8edc5"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-005/README.md"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-005/source.json"
+        },
+        {
+          "label": "Материал: prompts.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-005/prompts.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-005/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-005/native/before/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-005/native/after/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-005/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-005/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VPROP-006",
+      "key": "visual--VPROP-006",
+      "status": "done",
+      "date": "2026-10-21",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/4ff434f6d27eb85fdb5c49cff0c1d3878c2174aa"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-006/README.md"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-006/source.json"
+        },
+        {
+          "label": "Материал: prompts.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-006/prompts.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-006/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-006/native/before/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-006/native/after/source.json"
+        },
+        {
+          "label": "Материал: completion.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-006/completion.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vprop-006/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VRENDER-001",
+      "key": "visual--VRENDER-001",
+      "status": "done",
+      "date": "2026-10-20",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/58ddc3d0233858d98c0be98e149f79dc5821dc41"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-001/README.md"
+        },
+        {
+          "label": "Материал: contract.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-001/contract.json"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-001/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-001/native/source.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrender-001/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VCAMERA-006",
+      "key": "visual--VCAMERA-006",
+      "status": "done",
+      "date": "2026-10-20",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/ed38d94c01490c4e39b8be949887220f2c810d75"
+        }
+      ]
+    },
+    {
+      "id": "VSHORE-001",
+      "key": "visual--VSHORE-001",
+      "status": "done",
+      "date": "2026-10-20",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/7056f24d949477d01aefd2c42b7640acf7794f09"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshore-001/README.md"
+        },
+        {
+          "label": "Материал: profile.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshore-001/profile.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshore-001/source.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshore-001/native/capture.json"
+        },
+        {
+          "label": "Материал: water-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshore-001/water-review.json"
+        },
+        {
+          "label": "Материал: acceptance.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vshore-001/acceptance.json"
+        }
+      ]
+    },
+    {
+      "id": "VPERF-001",
+      "key": "visual--VPERF-001",
+      "status": "done",
+      "date": "2026-10-20",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/79070100ede18dfa91f815180f9d18ae911bcab7"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vperf-001/README.md"
+        },
+        {
+          "label": "Материал: summary.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vperf-001/summary.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vperf-001/native/source.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vperf-001/controls/source.json"
+        },
+        {
+          "label": "Материал: browser-review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vperf-001/browser-review.json"
+        }
+      ]
+    },
+    {
+      "id": "VRELEASE-005",
+      "key": "visual--VRELEASE-005",
+      "status": "done",
+      "date": "2026-10-20",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/333037d769dfe6fed8cc13c3e3c46ac9e3dda888"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-005/README.md"
+        },
+        {
+          "label": "Материал: references.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-005/references.json"
+        },
+        {
+          "label": "Материал: acceptance.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-005/acceptance.json"
+        }
+      ]
+    },
+    {
+      "id": "VBASE-002",
+      "key": "visual--VBASE-002",
+      "status": "done",
+      "date": "2026-10-19",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/0b00534cdeed61f23763f7494e888d8727134bc0"
+        }
+      ]
+    },
+    {
+      "id": "VBASE-005",
+      "key": "visual--VBASE-005",
+      "status": "done",
+      "date": "2026-10-19",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/95475d2b30e9612deac2740c5b7a76267e50a8d4"
+        }
+      ]
+    },
+    {
+      "id": "VCAMERA-002",
+      "key": "visual--VCAMERA-002",
+      "status": "done",
+      "date": "2026-10-19",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/55cde6cca444d3cd9bef757c017e0834331087da"
+        }
+      ]
+    },
+    {
+      "id": "VCAMERA-003",
+      "key": "visual--VCAMERA-003",
+      "status": "done",
+      "date": "2026-10-19",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/efe34dc9188670998b3bfd561328a8d41f1fb6e9"
+        }
+      ]
+    },
+    {
+      "id": "VRELEASE-001",
+      "key": "visual--VRELEASE-001",
+      "status": "done",
+      "date": "2026-10-19",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/d2820e0619ba6e59e4f085b2f7e6fb4c71de6bc8"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-001/README.md"
+        },
+        {
+          "label": "Материал: plan.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-001/plan.json"
+        },
+        {
+          "label": "Материал: queue.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-001/queue.json"
+        },
+        {
+          "label": "Материал: acceptance.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vrelease-001/acceptance.json"
+        }
+      ]
+    },
+    {
+      "id": "WIKI-002",
+      "key": "wiki--WIKI-002",
+      "status": "done",
+      "date": "2026-10-19",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/9273cf830c31334b5f4f5ca5fdd4394e58e931e5"
+        }
+      ]
+    },
+    {
+      "id": "VART-010",
+      "key": "visual--VART-010",
+      "status": "done",
+      "date": "2026-10-18",
+      "basis": "Явная дата в карточке",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-010/README.md"
+        },
+        {
+          "label": "Материал: icons.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-010/icons.json"
+        },
+        {
+          "label": "Материал: review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-010/review.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-010/source.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-010/native/capture.json"
+        },
+        {
+          "label": "Материал: browser.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-010/browser.json"
+        }
+      ]
+    },
+    {
+      "id": "VPIPELINE-001",
+      "key": "visual--VPIPELINE-001",
+      "status": "done",
+      "date": "2026-10-18",
+      "basis": "Явная дата в карточке",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-001/README.md"
+        },
+        {
+          "label": "Материал: baseline.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-001/baseline.json"
+        },
+        {
+          "label": "Материал: import-comparison.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-001/import-comparison.json"
+        },
+        {
+          "label": "Материал: native-comparison.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-001/native-comparison.json"
+        },
+        {
+          "label": "Материал: browser.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-001/browser.json"
+        },
+        {
+          "label": "Материал: verification.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-001/verification.json"
+        },
+        {
+          "label": "Материал: additional-local-preview-audit.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-001/additional-local-preview-audit.json"
+        },
+        {
+          "label": "Материал: local-tile-preview-relocation.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-001/local-tile-preview-relocation.json"
+        },
+        {
+          "label": "Материал: editor-textures-after.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-001/editor-textures-after.json"
+        }
+      ]
+    },
+    {
+      "id": "VPIPELINE-002",
+      "key": "visual--VPIPELINE-002",
+      "status": "done",
+      "date": "2026-10-18",
+      "basis": "Явная дата в карточке",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-002/README.md"
+        },
+        {
+          "label": "Материал: native-comparison.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-002/native-comparison.json"
+        },
+        {
+          "label": "Материал: verification.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-002/verification.json"
+        },
+        {
+          "label": "Материал: browser.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-002/browser.json"
+        }
+      ]
+    },
+    {
+      "id": "VPIPELINE-005",
+      "key": "visual--VPIPELINE-005",
+      "status": "done",
+      "date": "2026-10-18",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/d9bd5ce6f21cc02386b0c7af4608af8266b1e8bd"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-005/README.md"
+        },
+        {
+          "label": "Материал: numeric-proof.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-005/numeric-proof.json"
+        },
+        {
+          "label": "Материал: room-comparison.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-005/room-comparison.json"
+        },
+        {
+          "label": "Материал: browser.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-005/browser.json"
+        },
+        {
+          "label": "Материал: verification.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-005/verification.json"
+        }
+      ]
+    },
+    {
+      "id": "VPIPELINE-006",
+      "key": "visual--VPIPELINE-006",
+      "status": "done",
+      "date": "2026-10-18",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/a55ebc1ae580b1f09d21b63fb699a84cb8e7fb54"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-006/README.md"
+        },
+        {
+          "label": "Материал: proof.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-006/proof.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-006/after/capture.json"
+        },
+        {
+          "label": "Материал: browser.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-006/browser.json"
+        },
+        {
+          "label": "Материал: verification.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-006/verification.json"
+        }
+      ]
+    },
+    {
+      "id": "VPIPELINE-007",
+      "key": "visual--VPIPELINE-007",
+      "status": "done",
+      "date": "2026-10-18",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/96cedb2f48939ff5b38fbe06fa5667cc88b803da"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-007/README.md"
+        },
+        {
+          "label": "Материал: legacy-baseline.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-007/legacy-baseline.json"
+        },
+        {
+          "label": "Материал: proof.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-007/proof.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-007/native/capture.json"
+        }
+      ]
+    },
+    {
+      "id": "VPIPELINE-008",
+      "key": "visual--VPIPELINE-008",
+      "status": "done",
+      "date": "2026-10-18",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/1621d49502cd244c1036168f9d235561b708b33a"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-008/README.md"
+        },
+        {
+          "label": "Материал: proof.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-008/proof.json"
+        },
+        {
+          "label": "Материал: legacy-slices.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-008/legacy-slices.json"
+        },
+        {
+          "label": "Материал: inventory.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-008/after/inventory.json"
+        },
+        {
+          "label": "Материал: measurements.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-008/after/measurements.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-008/before-native/capture.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-008/after-native/capture.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json"
+        },
+        {
+          "label": "Материал: browser.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-008/browser.json"
+        },
+        {
+          "label": "Материал: verification.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-008/verification.json"
+        }
+      ]
+    },
+    {
+      "id": "VPIPELINE-009",
+      "key": "visual--VPIPELINE-009",
+      "status": "done",
+      "date": "2026-10-18",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/6ade4a2c8a2fac640109d3365c69bd4b6ccadfc4"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-009/README.md"
+        },
+        {
+          "label": "Материал: plan.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-009/plan.json"
+        },
+        {
+          "label": "Материал: inventory.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-009/inventory.json"
+        },
+        {
+          "label": "Материал: proof.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-009/proof.json"
+        },
+        {
+          "label": "Материал: fixture-sources.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-009/fixture-sources.json"
+        },
+        {
+          "label": "Материал: production-unchanged.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-009/production-unchanged.json"
+        },
+        {
+          "label": "Материал: wiki-contract.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-009/wiki-contract.json"
+        },
+        {
+          "label": "Материал: browser.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-009/browser.json"
+        },
+        {
+          "label": "Материал: verification.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-009/verification.json"
+        },
+        {
+          "label": "Материал: historical-replay.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-009/historical-replay.json"
+        }
+      ]
+    },
+    {
+      "id": "VPIPELINE-010",
+      "key": "visual--VPIPELINE-010",
+      "status": "done",
+      "date": "2026-10-18",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/12e6e2c7ac30f87af839cdb8cd0e2a4d1e558ee5"
+        }
+      ]
+    },
+    {
+      "id": "WIKI-001",
+      "key": "wiki--WIKI-001",
+      "status": "done",
+      "date": "2026-10-18",
+      "basis": "Дата принятия completion-коммита в main",
+      "evidence": [
+        {
+          "label": "Принятие в main",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/214a3d3ba7187fe569aec800d88a3daef0cea9ec"
+        }
+      ]
+    },
+    {
+      "id": "VART-007",
+      "key": "visual--VART-007",
+      "status": "done",
+      "date": "2026-10-17",
+      "basis": "Явная дата в карточке",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-007/README.md"
+        },
+        {
+          "label": "Материал: light-profile.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-007/light-profile.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-007/native/capture.json"
+        }
+      ]
+    },
+    {
+      "id": "VART-008",
+      "key": "visual--VART-008",
+      "status": "done",
+      "date": "2026-10-17",
+      "basis": "Явная дата в карточке",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-005/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-006/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-008/README.md"
+        },
+        {
+          "label": "Материал: modules.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-008/modules.json"
+        },
+        {
+          "label": "Материал: measurements.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-008/measurements.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-008/source.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-008/native/capture.json"
+        },
+        {
+          "label": "Материал: browser.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-008/browser.json"
+        }
+      ]
+    },
+    {
+      "id": "VART-009",
+      "key": "visual--VART-009",
+      "status": "done",
+      "date": "2026-10-17",
+      "basis": "Явная дата в карточке",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-009/README.md"
+        },
+        {
+          "label": "Материал: decisions.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-009/decisions.json"
+        },
+        {
+          "label": "Материал: inventory.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-009/inventory.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-009/native/capture.json"
+        },
+        {
+          "label": "Материал: browser.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-009/browser.json"
+        }
+      ]
+    },
+    {
+      "id": "VART-002",
+      "key": "visual--VART-002",
+      "status": "done",
+      "date": "2026-10-16",
+      "basis": "Явная дата в карточке",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-002/README.md"
+        },
+        {
+          "label": "Материал: review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-002/review.json"
+        },
+        {
+          "label": "Материал: scale-profile.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-002/scale-profile.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-002/native/source.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-002/native/capture.json"
+        }
+      ]
+    },
+    {
+      "id": "VART-003",
+      "key": "visual--VART-003",
+      "status": "done",
+      "date": "2026-10-16",
+      "basis": "Явная дата в карточке",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-003/README.md"
+        },
+        {
+          "label": "Материал: palette.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-003/palette.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-003/source.json"
+        },
+        {
+          "label": "Материал: measurements.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-003/measurements.json"
+        },
+        {
+          "label": "Материал: browser-check.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-003/browser-check.json"
+        },
+        {
+          "label": "Материал: browser-artifacts.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-003/browser-artifacts.json"
+        }
+      ]
+    },
+    {
+      "id": "VART-004",
+      "key": "visual--VART-004",
+      "status": "done",
+      "date": "2026-10-16",
+      "basis": "Явная дата в карточке",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-004/README.md"
+        },
+        {
+          "label": "Материал: standard.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-004/standard.json"
+        },
+        {
+          "label": "Материал: runtime-export.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-004/runtime-export.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-004/source.json"
+        },
+        {
+          "label": "Материал: export-check.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-004/export-check.json"
+        },
+        {
+          "label": "Материал: browser-check.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-004/browser-check.json"
+        },
+        {
+          "label": "Материал: browser-artifacts.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-004/browser-artifacts.json"
+        }
+      ]
+    },
+    {
+      "id": "SAFE-01",
+      "key": "base--SAFE-01",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": []
+    },
+    {
+      "id": "SAFE-02",
+      "key": "base--SAFE-02",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": []
+    },
+    {
+      "id": "SAFE-03",
+      "key": "base--SAFE-03",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": []
+    },
+    {
+      "id": "SAFE-04",
+      "key": "base--SAFE-04",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": []
+    },
+    {
+      "id": "SAFE-05",
+      "key": "base--SAFE-05",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": []
+    },
+    {
+      "id": "SAFE-06",
+      "key": "base--SAFE-06",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": []
+    },
+    {
+      "id": "SAFE-07",
+      "key": "base--SAFE-07",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": []
+    },
+    {
+      "id": "VBASE-001",
+      "key": "visual--VBASE-001",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": []
+    },
+    {
+      "id": "VBASE-003",
+      "key": "visual--VBASE-003",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vbase-003/README.md"
+        },
+        {
+          "label": "Материал: camera-points.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vbase-003/camera-points.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vbase-003/native/source.json"
+        }
+      ]
+    },
+    {
+      "id": "VBASE-004",
+      "key": "visual--VBASE-004",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vbase-004/README.md"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vbase-004/native/source.json"
+        }
+      ]
+    },
+    {
+      "id": "VART-001",
+      "key": "visual--VART-001",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-001/README.md"
+        },
+        {
+          "label": "Материал: review.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-001/review.json"
+        }
+      ]
+    },
+    {
+      "id": "VART-005",
+      "key": "visual--VART-005",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-005/README.md"
+        },
+        {
+          "label": "Материал: edge-profile.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-005/edge-profile.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-005/source.json"
+        },
+        {
+          "label": "Материал: browser-check.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-005/browser-check.json"
+        },
+        {
+          "label": "Материал: browser-artifacts.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-005/browser-artifacts.json"
+        }
+      ]
+    },
+    {
+      "id": "VART-006",
+      "key": "visual--VART-006",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-004/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-005/README.md"
+        },
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-006/README.md"
+        },
+        {
+          "label": "Материал: density-profile.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-006/density-profile.json"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-006/source.json"
+        },
+        {
+          "label": "Материал: browser-check.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-006/browser-check.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vart-006/native/capture.json"
+        }
+      ]
+    },
+    {
+      "id": "VCAMERA-001",
+      "key": "visual--VCAMERA-001",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcamera-001/README.md"
+        },
+        {
+          "label": "Материал: source.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vcamera-001/native/source.json"
+        }
+      ]
+    },
+    {
+      "id": "VPIPELINE-003",
+      "key": "visual--VPIPELINE-003",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-003/README.md"
+        },
+        {
+          "label": "Материал: native-comparison.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-003/native-comparison.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-003/native/after/capture.json"
+        },
+        {
+          "label": "Материал: browser.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-003/browser.json"
+        },
+        {
+          "label": "Материал: verification.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-003/verification.json"
+        }
+      ]
+    },
+    {
+      "id": "VPIPELINE-004",
+      "key": "visual--VPIPELINE-004",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": [
+        {
+          "label": "Материал: README.md",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-004/README.md"
+        },
+        {
+          "label": "Материал: native-comparison.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-004/native-comparison.json"
+        },
+        {
+          "label": "Материал: capture.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-004/native/capture.json"
+        },
+        {
+          "label": "Материал: browser.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-004/browser.json"
+        },
+        {
+          "label": "Материал: verification.json",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/visual-overhaul/vpipeline-004/verification.json"
+        }
+      ]
+    },
+    {
+      "id": "WATER-01",
+      "key": "water--WATER-01",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": [
+        {
+          "label": "Отчёт WATER-01",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/water-2026-10/README.md"
+        }
+      ]
+    },
+    {
+      "id": "WATER-03",
+      "key": "water--WATER-03",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": [
+        {
+          "label": "Контракт и проверка",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/water-2026-10/topology.md"
+        }
+      ]
+    },
+    {
+      "id": "WATER-07",
+      "key": "water--WATER-07",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": [
+        {
+          "label": "report",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/water-2026-10/navigation.md"
+        }
+      ]
+    },
+    {
+      "id": "WATER-11",
+      "key": "water--WATER-11",
+      "status": "done",
+      "date": null,
+      "basis": "Дата не указана",
+      "evidence": [
+        {
+          "label": "report",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/water-2026-10/fishing.md"
+        }
+      ]
+    }
+  ]
+}

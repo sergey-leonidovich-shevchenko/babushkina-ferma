@@ -1,0 +1,356 @@
+{
+  "dateBasisGap": 5,
+  "docWidth": 1280,
+  "links": [
+    {
+      "href": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/16",
+      "text": "PR #16"
+    },
+    {
+      "href": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/364acd8fd666c6bcc4227886041ff6f1f8589abc",
+      "text": "Принятие в main"
+    },
+    {
+      "href": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14",
+      "text": "PR #14"
+    },
+    {
+      "href": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14#pullrequestreview-5655708005",
+      "text": "PR #14"
+    },
+    {
+      "href": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/364acd8fd666c6bcc4227886041ff6f1f8589abc/docs/reports/refactor-01/closeout/completion.json",
+      "text": "Учёт и прежний результат"
+    }
+  ],
+  "pilotMax": "52",
+  "pilotValue": "52",
+  "proofExpanded": true,
+  "rows": [
+    {
+      "date": "2026-10-27",
+      "key": "refactoring--REFACTOR-01"
+    },
+    {
+      "date": "2026-10-25",
+      "key": "visual--VFOLIAGE-010"
+    },
+    {
+      "date": "2026-10-25",
+      "key": "refactoring--REFACTOR-00"
+    },
+    {
+      "date": "2026-10-24",
+      "key": "visual--VFOLIAGE-006"
+    },
+    {
+      "date": "2026-10-24",
+      "key": "visual--VFOLIAGE-009"
+    },
+    {
+      "date": "2026-10-23",
+      "key": "visual--VFOLIAGE-004"
+    },
+    {
+      "date": "2026-10-23",
+      "key": "visual--VFOLIAGE-005"
+    },
+    {
+      "date": "2026-10-22",
+      "key": "visual--VRENDER-005"
+    },
+    {
+      "date": "2026-10-22",
+      "key": "visual--VRENDER-006"
+    },
+    {
+      "date": "2026-10-22",
+      "key": "visual--VRENDER-008"
+    },
+    {
+      "date": "2026-10-22",
+      "key": "visual--VFOLIAGE-001"
+    },
+    {
+      "date": "2026-10-22",
+      "key": "visual--VFOLIAGE-002"
+    },
+    {
+      "date": "2026-10-22",
+      "key": "visual--VFOLIAGE-003"
+    },
+    {
+      "date": "2026-10-22",
+      "key": "visual--VSHADOW-001"
+    },
+    {
+      "date": "2026-10-22",
+      "key": "visual--VCOMPAT-001"
+    },
+    {
+      "date": "2026-10-22",
+      "key": "visual--VPROP-002"
+    },
+    {
+      "date": "2026-10-22",
+      "key": "visual--VPROP-007"
+    },
+    {
+      "date": "2026-10-22",
+      "key": "visual--VRELEASE-002"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VRENDER-002"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VRENDER-003"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VRENDER-004"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VGROUND-001"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VGROUND-003"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VGROUND-004"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VGROUND-005"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VGROUND-006"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VGROUND-007"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VGROUND-008"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VGROUND-009"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VGROUND-010"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VPROP-003"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VPROP-004"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VPROP-005"
+    },
+    {
+      "date": "2026-10-21",
+      "key": "visual--VPROP-006"
+    },
+    {
+      "date": "2026-10-20",
+      "key": "visual--VRENDER-001"
+    },
+    {
+      "date": "2026-10-20",
+      "key": "visual--VCAMERA-006"
+    },
+    {
+      "date": "2026-10-20",
+      "key": "visual--VSHORE-001"
+    },
+    {
+      "date": "2026-10-20",
+      "key": "visual--VPERF-001"
+    },
+    {
+      "date": "2026-10-20",
+      "key": "visual--VRELEASE-005"
+    },
+    {
+      "date": "2026-10-19",
+      "key": "visual--VBASE-002"
+    },
+    {
+      "date": "2026-10-19",
+      "key": "visual--VBASE-005"
+    },
+    {
+      "date": "2026-10-19",
+      "key": "visual--VCAMERA-002"
+    },
+    {
+      "date": "2026-10-19",
+      "key": "visual--VCAMERA-003"
+    },
+    {
+      "date": "2026-10-19",
+      "key": "visual--VRELEASE-001"
+    },
+    {
+      "date": "2026-10-19",
+      "key": "wiki--WIKI-002"
+    },
+    {
+      "date": "2026-10-18",
+      "key": "visual--VART-010"
+    },
+    {
+      "date": "2026-10-18",
+      "key": "visual--VPIPELINE-001"
+    },
+    {
+      "date": "2026-10-18",
+      "key": "visual--VPIPELINE-002"
+    },
+    {
+      "date": "2026-10-18",
+      "key": "visual--VPIPELINE-005"
+    },
+    {
+      "date": "2026-10-18",
+      "key": "visual--VPIPELINE-006"
+    },
+    {
+      "date": "2026-10-18",
+      "key": "visual--VPIPELINE-007"
+    },
+    {
+      "date": "2026-10-18",
+      "key": "visual--VPIPELINE-008"
+    },
+    {
+      "date": "2026-10-18",
+      "key": "visual--VPIPELINE-009"
+    },
+    {
+      "date": "2026-10-18",
+      "key": "visual--VPIPELINE-010"
+    },
+    {
+      "date": "2026-10-18",
+      "key": "wiki--WIKI-001"
+    },
+    {
+      "date": "2026-10-17",
+      "key": "visual--VART-007"
+    },
+    {
+      "date": "2026-10-17",
+      "key": "visual--VART-008"
+    },
+    {
+      "date": "2026-10-17",
+      "key": "visual--VART-009"
+    },
+    {
+      "date": "2026-10-16",
+      "key": "visual--VART-002"
+    },
+    {
+      "date": "2026-10-16",
+      "key": "visual--VART-003"
+    },
+    {
+      "date": "2026-10-16",
+      "key": "visual--VART-004"
+    },
+    {
+      "date": null,
+      "key": "base--SAFE-01"
+    },
+    {
+      "date": null,
+      "key": "base--SAFE-02"
+    },
+    {
+      "date": null,
+      "key": "base--SAFE-03"
+    },
+    {
+      "date": null,
+      "key": "base--SAFE-04"
+    },
+    {
+      "date": null,
+      "key": "base--SAFE-05"
+    },
+    {
+      "date": null,
+      "key": "base--SAFE-06"
+    },
+    {
+      "date": null,
+      "key": "base--SAFE-07"
+    },
+    {
+      "date": null,
+      "key": "visual--VBASE-001"
+    },
+    {
+      "date": null,
+      "key": "visual--VBASE-003"
+    },
+    {
+      "date": null,
+      "key": "visual--VBASE-004"
+    },
+    {
+      "date": null,
+      "key": "visual--VART-001"
+    },
+    {
+      "date": null,
+      "key": "visual--VART-005"
+    },
+    {
+      "date": null,
+      "key": "visual--VART-006"
+    },
+    {
+      "date": null,
+      "key": "visual--VCAMERA-001"
+    },
+    {
+      "date": null,
+      "key": "visual--VPIPELINE-003"
+    },
+    {
+      "date": null,
+      "key": "visual--VPIPELINE-004"
+    },
+    {
+      "date": null,
+      "key": "water--WATER-01"
+    },
+    {
+      "date": null,
+      "key": "water--WATER-03"
+    },
+    {
+      "date": null,
+      "key": "water--WATER-07"
+    },
+    {
+      "date": null,
+      "key": "water--WATER-11"
+    }
+  ],
+  "width": 1280
+}

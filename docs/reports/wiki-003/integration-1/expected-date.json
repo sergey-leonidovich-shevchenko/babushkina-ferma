@@ -1,0 +1,20 @@
+{
+  "base": "364acd8fd666c6bcc4227886041ff6f1f8589abc",
+  "source_git_cI": "2026-10-27T00:13:32+05:00",
+  "github_merged_at": "2026-10-26T19:13:33Z",
+  "completion": {
+    "date": "2026-10-27",
+    "basis": "Дата принятия completion-коммита в main",
+    "evidence": [
+      {
+        "label": "PR #16",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/16"
+      },
+      {
+        "label": "Принятие в main",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/364acd8fd666c6bcc4227886041ff6f1f8589abc"
+      }
+    ]
+  },
+  "source": "Read directly from accepted main before integration commit; expected value to compare with real catalog afterward"
+}

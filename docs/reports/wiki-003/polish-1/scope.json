@@ -1,0 +1,14 @@
+{
+  "task": "WIKI-003",
+  "version": "0.0.347",
+  "base_head": "fc36fc1c626d50f341135fa2d689d62da97ebf0d",
+  "changed_old_paths": {
+    "VERSION": "877fc612fdc520592b453637de6e69f43404f289ad4d0f17dd2ee780c8557d38",
+    "project.godot": "e754fe7ed83ee1ea9154b786185cc5d3f3b0d15e0424fa67585f85873ae40517",
+    "wiki/src/first-location.css": "cc628a4201e83ad53b8fa999d2dbd6930c771e2ef51689c8e9f0832179bf81b6",
+    "Бабушкина ферма.app/Contents/Info.plist": "54949ec43ffd821d9f09347c748c1dae5ab0ef7adc846ba9d6a7b230b065b924"
+  },
+  "only_UI_change": "align-self:start for history date cell",
+  "API_sorting_status_game_tools_unchanged": true,
+  "previous_evidence_preserved": true
+}

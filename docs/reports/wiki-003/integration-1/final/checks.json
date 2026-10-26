@@ -1,0 +1,235 @@
+{
+  "task": "WIKI-003",
+  "PR": 15,
+  "publication_version": "0.0.351",
+  "old_PR15_head": "f095a345f290464f11c0579275435b863ead73ac",
+  "accepted_main": "364acd8fd666c6bcc4227886041ff6f1f8589abc",
+  "ordinary_merge": "86c74faf0addf7c9068431ac51f7394288640930",
+  "premerge_350": {
+    "phase": "Before integration merge commit",
+    "version": "0.0.350",
+    "architecture": {
+      "exit": 0,
+      "suites": 82,
+      "cases": 1135
+    },
+    "game": {
+      "exit": 0,
+      "passed": 53502,
+      "failed": 0,
+      "redraw_normal_F10_each": [
+        90,
+        0
+      ]
+    },
+    "wiki": {
+      "exit": 0,
+      "passed": 145,
+      "failed": 0,
+      "build_TypeScript": true
+    },
+    "preserved_old_reports": 299,
+    "unchanged_WIKI_implementation_files": 12,
+    "actual_integrated_history_QA": "Pending after ordinary merge commit; HEAD remains f095 at this phase",
+    "format_diagnostic": "First formatter command had incomplete PATH; rerun with bundled pnpm and Wiki .prettierrc succeeded. No dependency or source implementation change."
+  },
+  "fresh_351": {
+    "Wiki": {
+      "exit": 0,
+      "passed": 145,
+      "failed": 0,
+      "build_TypeScript": true,
+      "final_raw": "final/wiki-351-publish.txt"
+    },
+    "first_location": {
+      "exit": 0,
+      "passed": 8,
+      "failed": 0,
+      "raw": "final/first-location-allowed.txt"
+    },
+    "format": {
+      "exit": 0
+    },
+    "documentation": {
+      "exit": 0
+    },
+    "backlog": {
+      "exit": 0
+    },
+    "version_sync": {
+      "exit": 0
+    },
+    "source_public_dist_same_catalog": true
+  },
+  "retained_failures": {
+    "functional_first351": {
+      "exit": 1,
+      "passed": 144,
+      "failed": 1,
+      "cause": "API test assumed 2026-10-26 would always be newest; real accepted REFACTOR-01 date27 correctly sorted first",
+      "raw": "final/wiki-351-first.txt.gz",
+      "decoded_sha256": "021686393e24d075fbd09916201ba244d00b10a16a42d5b387dfcea9927f7c1b"
+    },
+    "targeted_sandbox": {
+      "exit": 1,
+      "passed": 7,
+      "failed": 1,
+      "cause": "loopback listen EPERM",
+      "raw": "final/first-location-fixed.txt"
+    },
+    "export_before_text_refresh": "final/export-before-publish.json",
+    "nonaccepting_browser_probes": "final/browser.json diagnostics and final-card-status.json"
+  },
+  "test_scope": {
+    "existing_test_count": 8,
+    "first7_test_bodies_byte_identical": true,
+    "original_first_place_assertion_retained": true,
+    "new_competitor_date_and_second_place_assertions": true,
+    "only_test_fixture_changed": true
+  },
+  "preservation": {
+    "accepted_base": "364acd8fd666c6bcc4227886041ff6f1f8589abc",
+    "merge": "86c74faf0addf7c9068431ac51f7394288640930",
+    "old_PR15": "f095a345f290464f11c0579275435b863ead73ac",
+    "old_reports_unchanged": 299,
+    "premerge_packet_files_unchanged": 24,
+    "old_implementation_unchanged_files": 11,
+    "only_changed_old_code": [
+      "wiki/tests/first-location.test.mjs"
+    ],
+    "runtime_WIKI_unchanged": true,
+    "production_tools_tests_assets_match_main": true,
+    "other_canonical_task_blocks_unchanged": 10,
+    "sources_same_as_f095": true,
+    "sources_main_delta": "only Wiki expected10->11 registration",
+    "planning_state_unchanged": true,
+    "REFACTOR_cards_exact_accepted_main": true,
+    "WIKI_003_Task_Complete_absent": true,
+    "REFACTOR_01_Task_Complete_count": 1
+  },
+  "browser": {
+    "version": "0.0.351",
+    "desktop": [
+      1280,
+      1280
+    ],
+    "mobile": [
+      390,
+      390
+    ],
+    "mobile_kind": "same-origin 390x700 CSS iframe inside 1280px viewport, not phone hardware",
+    "canonical_active": 2,
+    "canonical_history": 81,
+    "unknown_dates": 20,
+    "all_DOM_rows_equal_actual_catalog": true,
+    "newest_date": "2026-10-27",
+    "newest_task": "REFACTOR-01",
+    "PR14_PR16_and_accepted_commit_links": true,
+    "internal_WIKI_003_and_REF_01_card_navigation": true,
+    "mobile_menu_open_close_and_navigation": true,
+    "mobile_proofs_expanded_without_overflow": true,
+    "automatic_refresh": {
+      "active": [
+        2,
+        1
+      ],
+      "history": [
+        81,
+        82
+      ],
+      "button_used": false,
+      "only_private_fixture_changed": true
+    },
+    "manual_empty_active": 0,
+    "restored": {
+      "active": 2,
+      "history": 81
+    },
+    "pilot": [
+      52,
+      52
+    ],
+    "VMAP_accepted": false,
+    "diagnostics": [
+      "Initial page loading snapshots excluded from acceptance.",
+      "Readonly evaluate does not expose iframe contentWindow/contentDocument; valid measurements obtained using documented frameLocator html scope.",
+      "First center click on the full-page backdrop hit the overlapping sidebar Tasks link; state was inspected. Actual close was subsequently verified by clicking the screenshot-visible exposed backdrop area. No product code changed for automation.",
+      "Final exact-space body substring probe returned false because badge text uses a newline; separate visible badge/AX check is true. Both records retained."
+    ],
+    "final_card_badge_visible": true
+  },
+  "cleanup": {
+    "server_stopped": 94789,
+    "own_project_checked": true,
+    "temporary_tabs_closed": true,
+    "other_servers_untouched": true
+  },
+  "publication_gate": "Same PR15; exact new head needs fresh CI, independent Tech Lead review and Team Lead decision. No WIKI-003 completion or REFACTOR-02 start.",
+  "mandatory_hook": "Full architecture/Game350 explicitly passed before merge; duplicate precommit skipped, normal postcommit ran. Final351 changes only test fixture, docs, QA and metadata; fresh full Wiki351 passed. Full Game350 is not renamed351.",
+  "raw_sha256": {
+    "PLAN.md": "6d37717aeb48d7423fbec0ec07baa0d5569b7a0e72a6a3df7c36e8db6e61798d",
+    "README.md": "d4e36f005fcf7cffeafa4115b60c25ed2b2696ab96b496cec6579fb7620ca70b",
+    "architecture.txt": "52337b4cdafefdaae9b827e6cfc9e2cd8a9a6d63f105ba4f410d6f7afe27a43b",
+    "backlog-350.txt": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a",
+    "documentation-350.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "expected-date.json": "37c64fd918efdf2b131a6923a821f059bc6d629d43b27f028e30306f94b76690",
+    "final/auto-observed.json": "d46b08e231c0a61943826f0c7c9833c6bce67140fa4206c10101ec56ff76212b",
+    "final/auto-request.json": "98604bf2bbc46e7000e658e3407f1db2507452f4c830f2be406aa66534785a33",
+    "final/backlog.txt": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a",
+    "final/branch-cleanup.json": "ae0d1c2ddb825cba9ae846dad27fb21946f5d319e46cfe4eb7b3363cf92e629f",
+    "final/browser.json": "46f777c639e2d2b25e50b291419b4c44b9f87767444520a2c0df6f32d022ac41",
+    "final/catalog.json": "a4761e9be81a61660f9f3899e9945fab266c809f8adcc174b025d68fbb1fb7d5",
+    "final/desktop-active.png": "c00b9bcb5b9fbd497e5e3792402200ff60bf1333fa8b67139e58f81cd910a1e0",
+    "final/desktop-card.png": "3d2e9a5ceeb24a14a80469ce07f68dbaaf23c4857018316e7bbdbe8f9e2dd00d",
+    "final/desktop-history.json": "d8c9ada042fbcbb495da987fdeaf359699532ffd7eadc89221636c19cab2a57e",
+    "final/desktop-history.png": "b722ef91a953aac15db1d9ef6ed1d58eb549dfffa00df28d71590ddcc6a3c5bf",
+    "final/desktop-initial.json": "9800aace2b600b32d9f0464c49156f6cced3ad6d8caf527d807cf8c6dc1548e2",
+    "final/documentation.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "final/export-before-publish.json": "c78e4fdc36d4d6bb084fa55b61a05ae886720e4eca15c263f80a851b1f0a4bbb",
+    "final/export-state.json": "b333a68bdac62f897efa820e475788698dde40cb0494f950111f5eee3593ae4d",
+    "final/failed-output-preservation.json": "1b4b0c7d4edbcb94a70c0ffdc7566da7c2c9f807348726c95b5084334f85e422",
+    "final/final-card-status.json": "49b680359b014f19074f0da01e205f4752890136d066f86a7307f6e691b78cd9",
+    "final/final-card.json": "e02130e1c0a778c07cb47a19145b36bd639b30a2631456d5b02a3e7af25ac3d4",
+    "final/final-card.png": "3d2e9a5ceeb24a14a80469ce07f68dbaaf23c4857018316e7bbdbe8f9e2dd00d",
+    "final/first-location-allowed.txt": "4f2bb114ab080e8c906b69b7a091781d6721634e3ed08cd3121c585ed19af8a7",
+    "final/first-location-fixed.txt": "df08492258f2e4cc8181c3a9899be7d8872ffa3f7b0192b20c37719cff2f8a9d",
+    "final/format.txt": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20",
+    "final/manual-empty.json": "6461e0f4593057356a52a3b1487cff658d247ee563531869617b7c2ba75a40e4",
+    "final/manual-empty.png": "716db14c2acdb4ad178a52e0c7b23a0eeaa65662622b14db2c2aaa5b06dbe4bb",
+    "final/mobile-active.png": "4fb9ad67d4b14875c4c3a0f358c826c297cafc30d0a29cd7ca15cf2f4b1100b4",
+    "final/mobile-card.json": "18854bfd5d73ba5ed23c3c5b6bb4b5881adc7d11d4235494e1011e6f217bba1c",
+    "final/mobile-card.png": "d568f92ad3d255077733b8fb3e63114dd60f372d158c2a6a17e1387bd72956df",
+    "final/mobile-harness.html": "f585b7929ffc14eaa295d13a99461cc6c8e928ff19c13d9b10f86801a1e86cbc",
+    "final/mobile-history.json": "19aa8efd03e46568d7e98019260325e6b137a68e2b101e1c5f2e5b1059a54319",
+    "final/mobile-history.png": "a23be3e26e223cb3cdb5a60c2af864a99ba77647a20606edc6301793e1c88ae4",
+    "final/mobile-initial.json": "d20a4c6b0aaf4e16af04e71d3f0845f9bf2b74dd961b03524f9e21ae0021a75f",
+    "final/mobile-menu.png": "fbda455e0c2fb63bbfd47a56fff14694218339a5f97b5dd272aaacf4c0921436",
+    "final/preservation.json": "d92d3a3076485511cd126dc08c6ff3d91920a38acf8c1c14745dde474eeaf398",
+    "final/qa-cleanup.json": "da77b515df1cf906e30e02a7de7cf350f6fded7a882c6dcd1f180dcc05ad0395",
+    "final/restored.json": "c9b539e7ec72999dc9785367b8d36745265c1fc5d46be93c05cf2bb29253cdff",
+    "final/version.txt": "aab3293183242221ac5d2d5c836a9ef7afe27d2f1863b356983d4d9eacd0cf63",
+    "final/wiki-351-final.txt": "7254c293adc412b37b6175dc36575be7388fed001b503ad8ad63733bc77ef07c",
+    "final/wiki-351-first.txt.gz": "46bbdae51688fb1c37caaaffff8269e5c6ca1479b27a8bf21246662d5ce63358",
+    "final/wiki-351-fixed.txt": "0925f1f983109973f0d4fe9e8949039118bbbd6457d5bbc968c5e9c99b398d78",
+    "final/wiki-351-publish.txt": "600015bf5f347fe8db2efc340cebdeddca692617e992cb358d5194571ddc9024",
+    "game.txt": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+    "gate-exits.json": "03698471c9e2ea57f32f66f92131a9765d614120bb746de4e5fddba256dbcb14",
+    "headless/f10/engine.txt": "d8fdc678b5ed597f7dbad94c0229edb2b7ba49749ad920f58407dd3d98bbb651",
+    "headless/f10/frames.jsonl": "399772a3b2ea8f54f0a79ecdcf3c42767f54553e8330a6e988496315cb5ec132",
+    "headless/f10/summary.json": "dfa12b184b0e0bcb038a9a89e38517cb637dc02fd071bb47a7f12d009f56ad27",
+    "headless/normal/engine.txt": "9a656bafec27d3603514b0562fd93522aed829b06f4ddfe392b0400aaffd37b5",
+    "headless/normal/frames.jsonl": "566b56a4277d3b14a9364fe706cd06d08fa0e534e22360f506cf419ffa52944f",
+    "headless/normal/summary.json": "6c32573e08cd92b68ddb156e334ceee91dc27d5a6de9a2a96106155b822f1017",
+    "inherited-whitespace.json": "1ca90568460b4dd1bed8cd12140d7a00e4c5424da108e9d55726dcbab00f315e",
+    "inherited-whitespace.txt.gz": "3a600e3004d7eab78db64d7aba7cf6339da08bccb85bfa61fcf3d2a2319f7359",
+    "input-prs.json": "e8a7ac5239dc3d675bdfd4b55f8735c2a42a3a87a09de6593deb2a7e88363c9c",
+    "premerge-checks.json": "49ed806479ad1828060a2cf906199e043442b4117d5ab6e468a6309e9e37a32b",
+    "premerge-manifest.json": "e3fa1e4cfacce16a14c5770ab968fefe4b35b5db75bdd4479cb39aa73bf38dcb",
+    "preserved-files.json": "83561ec6fd87664bb3af4b04e0d648d2230e185ffe09296995d4108907ca50b4",
+    "previous-card.json": "3cc31dd291a0600fd2a880c59369cb757c323b668978e9d17230d59c9c3776a3",
+    "qa-server.mjs": "452261f60711ed83552fccabbe7231214a5def6bb987d0cead438217a53b84ee",
+    "source-scope.json": "773b56414a3a77be896d2e9a2eabf2540eb391a5736e58b68155faeb2ef08b07",
+    "version-350.txt": "9bd316d43b6c3be40563761bdbb55c9c698cd378edf75104d007e9be9080d8e9",
+    "wiki-350.txt": "998978831954b35df6f836def3bf40dbae8591944d1c75b4e8e12b0d8c14cf11"
+  }
+}
