@@ -6,7 +6,7 @@ import re
 import runpy
 import sys
 
-from common.paths import project_root
+from .paths import project_root
 
 
 def module_name(command: str, root: Path) -> str:

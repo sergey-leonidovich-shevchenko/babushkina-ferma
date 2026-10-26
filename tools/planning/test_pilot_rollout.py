@@ -3,7 +3,7 @@
 import copy
 import json
 import unittest
-from pilot_rollout import ROOT,FOLDER,PROGRAM,load,validate,project,frontier,reference,graph_signature
+from tools.planning.pilot_rollout import ROOT,FOLDER,PROGRAM,load,validate,project,frontier,reference,graph_signature
 
 
 class PilotRolloutTests(unittest.TestCase):

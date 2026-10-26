@@ -1,0 +1,9 @@
+{
+  "nonhistorical_python_AST_scan": true,
+  "old_pilot_bare_imports": [],
+  "consumers_repaired": [
+    "tools/test_optimization_audit.py",
+    "tools/pilot_static_audit.py"
+  ],
+  "changes": "Shared bootstrap plus qualified imports only; files stay unmoved until03; algorithms/cases unchanged"
+}

@@ -11,7 +11,7 @@ import re
 import zipfile
 from pathlib import Path
 
-from common.paths import project_root
+from tools.common.paths import project_root
 
 ROOT = project_root(__file__)
 FOLDER = ROOT / "docs/epics/visual-overhaul-2026-10"

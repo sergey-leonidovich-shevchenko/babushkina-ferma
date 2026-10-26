@@ -10,7 +10,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import task_batch
+from tools.planning import task_batch
 
 
 class TaskBatchTests(unittest.TestCase):
@@ -74,7 +74,7 @@ class TaskBatchTests(unittest.TestCase):
         """Вложенный прогон с GIT_DIR/GIT_INDEX_FILE не меняет родительский fixture."""
         before = (self.root / ".git" / "config").read_bytes()
         subprocess.run(
-            [sys.executable, __file__, "TaskBatchTests.test_empty_batch"],
+            [sys.executable, str(task_batch.ROOT / "tools/run.py"), "planning.test_task_batch", "TaskBatchTests.test_empty_batch"],
             cwd=self.root, capture_output=True, text=True, check=True,
             env={**os.environ, "GIT_DIR": str(self.root / ".git"),
                  "GIT_INDEX_FILE": str(self.root / ".git" / "index"), "GIT_WORK_TREE": str(self.root)},
@@ -125,6 +125,11 @@ class TaskBatchTests(unittest.TestCase):
         tools.mkdir()
         shutil.copy2(task_batch.ROOT / ".githooks" / "post-commit", hooks / "post-commit")
         shutil.copy2(task_batch.ROOT / "tools" / "task_batch.py", tools / "task_batch.py")
+        shutil.copy2(task_batch.ROOT / "tools/__init__.py", tools / "__init__.py")
+        planning = tools / "planning"
+        planning.mkdir()
+        shutil.copy2(Path(task_batch.__file__), planning / "task_batch.py")
+        shutil.copy2(task_batch.ROOT / "tools/planning/__init__.py", planning / "__init__.py")
         shutil.copytree(task_batch.ROOT / "tools" / "common", tools / "common",
                         ignore=shutil.ignore_patterns("__pycache__"))
         shutil.copy2(task_batch.ROOT / "project.godot", self.root / "project.godot")

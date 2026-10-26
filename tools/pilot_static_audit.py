@@ -2,7 +2,14 @@
 """Bind acceptance to the canonical queue at its real Git base; this is an audit, not a status registry."""
 import argparse,hashlib,json,subprocess,re
 from pathlib import Path
-from pilot_rollout import project,validate,load,ROOT
+
+# Сохраняет прямой CLI/cwd старого QA-входа до его отдельного переноса в REFACTOR-03.
+from common.launch import prepare_imports
+from common.paths import project_root
+
+prepare_imports(project_root(__file__))
+
+from tools.planning.pilot_rollout import project,validate,load,ROOT
 REPORT=ROOT/'docs/reports/visual-overhaul/vrelease-002'
 
 def git_json(base,path):

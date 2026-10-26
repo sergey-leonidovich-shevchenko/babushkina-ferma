@@ -1,0 +1,35 @@
+{
+  "prepare_commit": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+  "version": "0.0.354",
+  "only_changed_task": "REFACTOR-02, stays in_progress with PR18",
+  "other_refactor_cards_unchanged": 6,
+  "only_wiki_index_change": [
+    {
+      "id": "project-refactoring",
+      "fields": [
+        "summary"
+      ]
+    }
+  ],
+  "version_metadata": [
+    {
+      "path": "VERSION",
+      "only_change": "0.0.353 -> 0.0.354",
+      "sha256": "65b7cfa6789b8c85e1be89766db59888db2185b23948ef6dc2b1158c14162be9"
+    },
+    {
+      "path": "project.godot",
+      "only_change": "0.0.353 -> 0.0.354",
+      "sha256": "32fee6bf493b0f23bad65c32dab50c4ff0aac7ea250f376993d34de1898747e0"
+    },
+    {
+      "path": "\u0411\u0430\u0431\u0443\u0448\u043a\u0438\u043d\u0430 \u0444\u0435\u0440\u043c\u0430.app/Contents/Info.plist",
+      "only_change": "0.0.353 -> 0.0.354",
+      "sha256": "7a3137f6e19961298c9fb8e5758d7ff0fd6cae74540262d8539424fc1dbc960d"
+    }
+  ],
+  "production_source_moves": 14,
+  "additional_legacy_consumer_import_adaptations": 2,
+  "Task_Complete_trailer_count": 0,
+  "REFACTOR_03_started": false
+}

@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 import re
 
-from common.paths import project_root
+from tools.common.paths import project_root
 
 ROOT = project_root(__file__)
 FOLDER = ROOT / 'docs/backlog/2026-10'
@@ -118,7 +118,7 @@ def render(plan):
         'реализация и подтверждения отмечены в карточках. Исходный commit: `' + plan['baseline_commit'] + '`.',
         '[Исследование и первичные источники](RESEARCH.md) · [Рабочий процесс](../../BACKLOG_WORKFLOW.md) · ' +
         '[Редактируемый источник](backlog.json) · [Дополнительные эпики](../README.md). ' +
-        'Этот Markdown создаётся командой `python3 tools/project_backlog.py --write`.',
+        'Этот Markdown создаётся командой `python3 tools/run.py planning.project_backlog --write`.',
         '## Состояние\n\n' + ', '.join(f'`{state}`: {counts[state]}' for state in STATES) +
         '. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.',
         '## Эпики\n\n| ID | Направление | Задач |\n|---|---|---:|\n' +
@@ -168,7 +168,7 @@ def main():
     if args.write:
         target.write_text(output, encoding='utf-8')
     elif target.read_text(encoding='utf-8') != output:
-        raise ValueError('README устарел: python3 tools/project_backlog.py --write')
+        raise ValueError('README устарел: python3 tools/run.py planning.project_backlog --write')
     print(f"BACKLOG OK: {len(plan['epics'])} epics / {len(plan['tasks'])} tasks / " +
           f"{sum(t['status'] == 'ready' for t in plan['tasks'])} Ready; network: 0")
 

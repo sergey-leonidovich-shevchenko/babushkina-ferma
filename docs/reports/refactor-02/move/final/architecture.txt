@@ -1,0 +1,19 @@
+VERSION: 0.0.354 synchronized
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 2.478s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 14.850s
+
+OK
+DOCUMENTATION: обязательные файлы и локальные ссылки корректны
+DOCUMENTATION TEST: свои ссылки проверяются, зависимости и сборки исключены
+WORLD SPRITE AUDIT TEST: dynamic discovery and dead preload checks are valid
+WORLD SPRITE AUDIT: 29 семейств; готово 28; открыто P1=1, P2=0, P3=0
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/test_optimization_audit.py", line 9, in <module>
+    from build_optimization_matrix import build_rows, write_artifacts
+ModuleNotFoundError: No module named 'build_optimization_matrix'

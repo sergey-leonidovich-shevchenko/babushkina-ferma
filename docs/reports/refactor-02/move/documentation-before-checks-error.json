@@ -1,0 +1,8 @@
+{
+  "command": "python3 tools/run.py quality.check_documentation",
+  "exit": 1,
+  "error": "move/README.md linked checks.json before the final receipt file was assembled",
+  "stdout_file": "documentation-final.txt (empty)",
+  "accepted": false,
+  "correction": "Create the receipt target, rerun documentation check, then seal the final raw hashes"
+}

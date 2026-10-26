@@ -4,7 +4,7 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from check_documentation import REQUIRED_DOCUMENTS, markdown_files, validate
+from tools.quality.check_documentation import REQUIRED_DOCUMENTS, markdown_files, validate
 
 
 def test_project_links_stay_checked() -> None:

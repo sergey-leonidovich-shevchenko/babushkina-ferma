@@ -3,7 +3,7 @@ import csv
 import json
 from pathlib import Path
 
-from common.paths import project_root
+from tools.common.paths import project_root
 
 ROOT = project_root(__file__)
 FOLDER = ROOT / "docs/epics/optimization-2026-10"

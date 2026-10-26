@@ -1,0 +1,83 @@
+{
+  "desktop": {
+    "active": [
+      {
+        "href": "#/development/tasks/refactoring--REFACTOR-02",
+        "text": "REFACTOR-02Разделить общую инфраструктуру и репозиторные команды toolsТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003."
+      },
+      {
+        "href": "#/development/tasks/wiki--IDEA-REVIEW-20261024",
+        "text": "IDEA-REVIEW-20261024Проработать десять самостоятельных NPC-историйДругое направление. Его статус не означает смену курса первой локации."
+      }
+    ],
+    "docWidth": 1280,
+    "firstHistory": [
+      {
+        "key": "wiki--WIKI-003",
+        "text": "27.10.2026\nДата принятия completion-коммита в main\nWIKI-003\nПоказывать текущую работу и историю завершения в обзоре первой локации\n\nОбслуживание разработки: Wiki и прозрачный учёт работы.\n\nМатериалы и подтверждения · 5"
+      },
+      {
+        "key": "refactoring--REFACTOR-01",
+        "text": "27.10.2026\nДата принятия completion-коммита в main\nREFACTOR-01\nСоставить полную карту переносов tools и подтвердить остальные узкие места\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 5"
+      }
+    ],
+    "history": 82,
+    "progress": [
+      {
+        "max": "52",
+        "value": "52"
+      }
+    ],
+    "width": 1280
+  },
+  "card": {
+    "status": "\t\t\t52 text REFACTOR-02 В работе P1 Объём M",
+    "dependency": "\t\t\t\t59 link Description: REFACTOR-01 Завершена, Value: 127.0.0.1:4192/#/development/tasks/refactoring--REFACTOR-01",
+    "hasPR18": true,
+    "docWidth": 1280,
+    "width": 1280
+  },
+  "guide": {
+    "width": 1280,
+    "docWidth": 1280,
+    "correctedSummary": true,
+    "oldSummaryAbsent": true
+  },
+  "migration": {
+    "href": "generated/attachments/8a58ac9887f824fd9a2d084cc35b2ca1f6ef837de90807ab0b323b2b92bf3f5d.json",
+    "actuallyOpened": true,
+    "prepareCommitPresent": true
+  },
+  "mobile": {
+    "active": [
+      {
+        "href": "#/development/tasks/refactoring--REFACTOR-02",
+        "text": "REFACTOR-02Разделить общую инфраструктуру и репозиторные команды toolsТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003."
+      },
+      {
+        "href": "#/development/tasks/wiki--IDEA-REVIEW-20261024",
+        "text": "IDEA-REVIEW-20261024Проработать десять самостоятельных NPC-историйДругое направление. Его статус не означает смену курса первой локации."
+      }
+    ],
+    "docWidth": 390,
+    "history": 82,
+    "progress": [
+      {
+        "max": "52",
+        "value": "52"
+      }
+    ],
+    "width": 390
+  },
+  "mobileCard": {
+    "width": 390,
+    "docWidth": 390,
+    "hasPR18": true
+  },
+  "manualRefresh": {
+    "width": 390,
+    "docWidth": 390,
+    "inProgressPreserved": true
+  },
+  "scope": "Read-only actual canonical catalog; 390 CSS px same-origin frame, not physical phone; no planning changes"
+}

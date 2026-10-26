@@ -8,8 +8,8 @@ import sys
 import tempfile
 import unittest
 
-from common.git import git_environment
-from common.paths import project_root
+from tools.common.git import git_environment
+from tools.common.paths import project_root
 
 ROOT = project_root()
 
@@ -32,7 +32,7 @@ class InfrastructureTests(unittest.TestCase):
                         ignore=shutil.ignore_patterns("__pycache__"))
         (self.root / "tools/probe.py").write_text(
             "import json,sys\nfrom pathlib import Path\n"
-            "from common.paths import project_root\n"
+            "from tools.common.paths import project_root\n"
             "print(json.dumps(dict(root=str(project_root(__file__)),"
             "cwd=str(Path.cwd()),argv=sys.argv[1:])))\n"
             "raise SystemExit(7 if '--fail' in sys.argv else 0)\n"
@@ -126,6 +126,19 @@ class InfrastructureTests(unittest.TestCase):
         self.assertEqual(json.loads(result.stdout)["root"], str(checkout))
         self.assertTrue((checkout / ".git").is_file())
 
+    def test_package_entry_and_public_api_imports(self):
+        """Пакетный -m и публичные API работают без вручную добавленного tools в sys.path."""
+        result = subprocess.run([sys.executable, "-m", "tools.run", "probe", "--help"],
+                                cwd=self.root, text=True, capture_output=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout)["argv"], ["--help"])
+        result = subprocess.run([sys.executable, "-c",
+            "import tools.task_batch as public;from tools.planning import task_batch as actual;"
+            "assert public is actual;public.BATCH_SIZE=23;assert actual.BATCH_SIZE==23;"
+            "import tools.bump_version as public_bump;from tools.planning import bump_version;"
+            "assert public_bump is bump_version"], cwd=ROOT, text=True, capture_output=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_environment_copy_clears_all_git_overrides(self):
         """Hook/config/index overrides удаляются из копии; PATH и исходный dict сохраняются."""
         environment = {"PATH": "/usr/bin", "KEEP": "value", "GIT_DIR": "foreign",
@@ -138,6 +151,10 @@ class InfrastructureTests(unittest.TestCase):
     def test_hook_staging_keeps_its_intentional_alternate_index(self):
         """Изоляция readers не лишает bump --stage законного index текущего commit hook."""
         shutil.copy2(ROOT / "tools/bump_version.py", self.root / "tools/bump_version.py")
+        planning = self.root / "tools/planning"
+        planning.mkdir()
+        for name in ("bump_version.py", "__init__.py"):
+            shutil.copy2(ROOT / "tools/planning" / name, planning / name)
         plist = Path("Бабушкина ферма.app/Contents/Info.plist")
         (self.root / plist).parent.mkdir(parents=True)
         shutil.copy2(ROOT / plist, self.root / plist)
@@ -195,6 +212,9 @@ class InfrastructureTests(unittest.TestCase):
         source = ROOT / "tools/check_architecture.sh"
         target = self.root / "tools/check_architecture.sh"
         shutil.copy2(source, target)
+        quality = self.root / "tools/quality"
+        quality.mkdir()
+        shutil.copy2(ROOT / "tools/quality/check_architecture.sh", quality / "check_architecture.sh")
         for folder in ("scripts/core", "scripts/presentation", "tests/suites/nested"):
             (self.root / folder).mkdir(parents=True)
         for name in ("game.gd", "game_core.gd", "game_renderer.gd", "game_context.gd"):

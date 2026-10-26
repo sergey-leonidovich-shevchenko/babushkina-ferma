@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from migration_inventory import git_bytes
 
-from common.paths import project_root
+from tools.common.paths import project_root
 
 ROOT = project_root(__file__)
 FOLDER='docs/reports/visual-overhaul/vrelease-001'

@@ -9,7 +9,7 @@ import os
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
-from common.paths import project_root
+from tools.common.paths import project_root
 
 
 REQUIRED_DOCUMENTS = (

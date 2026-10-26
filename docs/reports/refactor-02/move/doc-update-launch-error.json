@@ -1,0 +1,6 @@
+{
+  "exit": 1,
+  "error": "Non-UTF-8 code starting with byte d0 in a long Russian stdin heredoc",
+  "effect": "Parsing failed before any Card/TESTING writes",
+  "correction": "Use apply_patch for prose and ASCII-only Python for checked paragraph replacement"
+}

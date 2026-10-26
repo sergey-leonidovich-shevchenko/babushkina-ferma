@@ -4,7 +4,7 @@
 from copy import deepcopy
 import unittest
 
-import project_backlog as backlog
+from tools.planning import project_backlog as backlog
 
 
 class BacklogTests(unittest.TestCase):

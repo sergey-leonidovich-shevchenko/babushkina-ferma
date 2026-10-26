@@ -5,8 +5,14 @@ import tempfile
 import unittest
 from pathlib import Path
 
+# Этот legacy CLI остаётся в корне до REFACTOR-03, но импортирует уже перенесённый пилот.
+from common.launch import prepare_imports
+from common.paths import project_root
+
+prepare_imports(project_root(__file__))
+
 from analyze_optimization_audit import analyze_native, statistics
-from build_optimization_matrix import build_rows, write_artifacts
+from tools.planning.build_optimization_matrix import build_rows, write_artifacts
 from optimization_asset_audit import audit
 
 

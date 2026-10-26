@@ -2,7 +2,7 @@
 """Негативные проверки плана: структура не должна ложно обещать готовность или покрытие."""
 import copy
 import unittest
-import visual_backlog as plan
+from tools.planning import visual_backlog as plan
 
 
 class VisualBacklogTests(unittest.TestCase):
