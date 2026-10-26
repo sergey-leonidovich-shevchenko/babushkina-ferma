@@ -1,0 +1,12 @@
+{
+  "own_tab_closed": "7",
+  "server_status_before": {
+    "app": "moon-valley-wiki",
+    "project": "WIKI-003-closeout-read-only-QA",
+    "pid": 14385,
+    "planning": 1
+  },
+  "own_server_stopped": true,
+  "unrelated_servers_and_tabs": "untouched",
+  "initial_cleanup_attempt": "sandbox denied loopback before any signal; retried with network permission"
+}

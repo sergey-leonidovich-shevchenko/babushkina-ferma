@@ -1,0 +1,53 @@
+{
+  "implementation": {
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/15",
+    "number": 15,
+    "state": "closed",
+    "merged": true,
+    "mergeable": true,
+    "draft": false,
+    "body": "Обзор первой локации скрывал техническую работу за фильтром visual/WATER. Теперь он показывает все канонические in_progress с контекстом и приоритетом REFACTOR, а история — завершённые задачи маршрута и обслуживания с датой, карточкой и принятыми материалами. На актуальной базе WIKI-003 видна в работе, REFACTOR-01 первой в истории: 81 завершение, 20 без подтверждённой даты.\n\nДаты читаются из принятого в main completion-события либо явного поля карточки. Невлитые ветки и mtime не становятся датами; равные даты стабильны, неизвестные находятся внизу. REFACTOR-01 получила completion через PR №16 и календарную дату Git 27.10 при смещении +05. Один каталог согласованно обновляет работу и историю кнопкой и каждые 30 секунд. Пять групп, 22 эпика, пилот 52/52 и отдельная приёмка VMAP-003 сохранены.\n\nПринятая main `364acd8f` объединена обычным merge `86c74faf` с родителями `f095a345` и `364acd8f`. Пять конфликтов разрешены с сохранением обеих сторон документации и синхронной metadata. Runtime Wiki и игровые scripts/tools/tests/assets прежние. Изменена только календарная фикстура API-теста: реальное принятие 27.10 выявило ошибочное ожидание, что фиксированное 26.10 всегда новее. Две динамические поздние даты и соперник сохраняют и расширяют строгие проверки порядка. Исходный отказ 144/145 побайтно сохранён в gzip с decoded SHA.\n\nФактические проверки:\n\n- Версия 0.0.350 до merge-коммита: architecture — 82 набора / 1135 сценариев; Game — 53502/0; normal/F10 — по 90/0; Wiki — 145/0. Реальные exit 0 общих процессов записаны отдельно.\n- Версия 0.0.351 после merge и исправления фикстуры: Wiki build/TypeScript и 145/0, first-location 8/0, форматирование, документация, бэклог и версия.\n- Настоящий каталог: 114 планов, 168 эпиков, 2045 задач. Все 81 строки DOM совпали с каталогом; source/public/dist равны.\n- Браузер: 1280/1280 и same-origin iframe 390/390 CSS px; работа, история, ссылки PR №14/16, меню, карточки и материалы. Узкая проверка не объявляется физическим телефоном.\n- На отдельной QA-копии таймер без кнопки дал active 2→1 / history 81→82; ручное обновление показало empty 0 / history 82. Исходные 2/81 восстановлены; канонические карточки для QA не менялись.\n- Сохранены 299 прежних файлов отчётов и 24 файла пакета 0.0.350. Чужие карточки и planning state прежние. Две собственные полностью влитые ветки REFACTOR-01 удалены после проверок tip/ancestry/worktree. QA-вкладки и собственный сервер закрыты.\n\nОтчёт: `docs/reports/wiki-003/integration-1/README.md`, факты и SHA — `final/checks.json`. Исторические отказы и 66 inherited frozen whitespace-предупреждений сохранены; собственный diff к main проходит check. Game 0.0.350 не объявляется запуском 0.0.351; нативные GPU/FPS и VMAP не принимаются.\n\nТочный head: `8334caa47459c871880e907069d93ce974aeb29c`. Base: `364acd8fd666c6bcc4227886041ff6f1f8589abc`. Версия 0.0.351. Прежнее одобрение f095/da9 не перенесено. Свежие exact-head CI — 8/8 success; независимое повторное ревью APPROVED №5658832101: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/15#pullrequestreview-5658832101. Отменённый Linux121828401691 после долгой загрузки шрифта сохранён как отказ; единственный targeted retry121839703440 прошёл. Остальные7 успешных результатов не перезапускались. PR ready; слияние ожидает отдельного решения Team Lead и свежей проверки base/head/CI. WIKI-003 остаётся in_progress, её Task-Complete отсутствует; REFACTOR-02 не начат.",
+    "title": "WIKI-003: текущая работа и история завершений первой локации",
+    "base": "main",
+    "base_sha": "364acd8fd666c6bcc4227886041ff6f1f8589abc",
+    "head": "codex/wiki-003-current-work-history",
+    "head_sha": "8334caa47459c871880e907069d93ce974aeb29c",
+    "head_repo_id": 1319706890,
+    "head_repo_full_name": "sergey-leonidovich-shevchenko/babushkina-ferma",
+    "merge_commit_sha": "cc6132837e546e807873d974456a4a743b2d973e",
+    "user": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?v=4",
+      "id": 16123649
+    },
+    "requested_reviewers": null,
+    "requested_team_reviewers": null,
+    "diff": null,
+    "comments": null,
+    "created_at": "2026-10-26T14:21:23Z",
+    "updated_at": "2026-10-26T20:55:07Z",
+    "closed_at": "2026-10-26T20:55:06Z",
+    "merged_at": "2026-10-26T20:55:06Z",
+    "commits": 5,
+    "changed_files": 146,
+    "additions": 10526,
+    "deletions": 19,
+    "display_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/15",
+    "display_title": "WIKI-003: текущая работа и история завершений первой локации"
+  },
+  "independent_final_review": {
+    "id": "PRR_kwDOTqkhCs8AAAABUUrs5Q",
+    "state": "COMMENTED",
+    "body": "APPROVED — повторное независимое ревью точного head8334caa47459c871880e907069d93ce974aeb29c, base364acd8fd666c6bcc4227886041ff6f1f8589abc, версия0.0.351. Замечаний к исходникам, читаемости, исправлению теста и интеграции нет; открытых inline findings нет. Прежнее одобрение f095 не использовано как одобрение нового head.\n\nПодтверждены обычные merge-родители86c74faf=[f095a345,364acd8f], синхронная metadata и сохранность принятой main. Runtime Wiki относительно f095 прежний; меняется только последний API-тест. Первые7 методов побайтно сохранены. Две даты после максимума каталога и существующий соперник сохраняют строгое первое место, дополняя проверками даты и второго места. Исходный144/145 сохранён в gzip; decoded SHA021686393e24d075fbd09916201ba244d00b10a16a42d5b387dfcea9927f7c1b проверен. Это исправление фикстуры, а не ослабление продукта/теста.\n\nНезависимо: Wiki build/TypeScript/145 тестов — exit0; source/public/dist каталог равен,114 планов/168 эпиков/2045 задач. Браузер: active2/history81/unknown20, REFACTOR-01 сверху27.10 с5 ссылками на принятые материалы; дата совпадает с Git %cI принятого PR16 (+05). Desktop1280/1280 и реальный viewport390/390 без overflow, материалы, меню и переход к WIKI-003 проверены. Сохранённые81 desktop DOM-строк также точно совпали с новым независимым экспортом. Диагностический таймаут браузера при последующем открытии большого JSON отдельно зафиксирован в source review5658671175 и не засчитан за PASS. Пять групп/22 эпика, pilot52/52 и VMAP false сохранены.\n\nПроверены64 raw SHA,299 прежних файлов отчётов,24 файла пакета350, production scripts/tools/tests/assets, принятые REF-карточки и10 старых Wiki-карточек. Единственный Task-Complete REFACTOR-01 сохранён; WIKI-003 in_progress без своего trailer; REFACTOR-02 ready и не начат. Полные локальные Game/architecture350 не выданы за351. Игра на ПК не запускалась; headless Game проверялся в GitHub CI.\n\nВсе8 текущих exact-head CI success. Полные оригинальные test jobs: push121828377934 и PR121828401921 — каждый82 набора/1135, Game53520/0, normal/F10 по90/0, smoke180 и6 валидных10сек серий budget passed, без engine errors. Оба Wiki CI —145/0, Linux/Mac —21+14 тестов и411 checks без failures; Linux HUD after_issues/errors пусты.\n\nОтменённый PR Linux121828401691 не объявлен успешным:15мин лимит после долгой загрузки fonts-noto-cjk, импорт прерван, профильные шаги skipped, артефакт отсутствовал. После завершения исходного run выполнен ровно один targeted retry: Linux121839703440, raw791508 символов, все шаги success. Итоговые PR IDs: Linux121839703440, test121839704956, Wiki121839706347, Mac121839748453; последние3 наследуют ранее успешные результаты, не являются новыми измерениями. Push IDs121828377934/121828378351/121828378472/121828378321 успешны без rerun.\n\nТехническая приёмка head8334 завершена. Merge допустим после отдельного решения Team Lead для этого head и свежей проверки неизменных base/head/CI. Учёт WIKI-003 done и переход к REFACTOR-02 — после подтверждённого слияния, отдельным установленным порядком.",
+    "submitted_at": "2026-10-26T20:53:42Z",
+    "author": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+      "id": null
+    }
+  }
+}

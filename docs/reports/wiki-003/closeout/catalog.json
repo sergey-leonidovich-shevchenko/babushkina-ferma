@@ -1,0 +1,451 @@
+{
+  "plans": 114,
+  "epics": 168,
+  "tasks": 2045,
+  "active": [
+    {
+      "id": "IDEA-REVIEW-20261024",
+      "context": "Другое направление. Его статус не означает смену курса первой локации."
+    }
+  ],
+  "history": 82,
+  "unknown": 20,
+  "tie_order": [
+    "wiki--WIKI-003",
+    "refactoring--REFACTOR-01"
+  ],
+  "wiki_completion": {
+    "date": "2026-10-27",
+    "basis": "Явная дата в карточке",
+    "evidence": [
+      {
+        "label": "PR #15",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/15"
+      },
+      {
+        "label": "PR #15",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/15#pullrequestreview-5658832101"
+      },
+      {
+        "label": "Отчёт принятой интеграции",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/cc6132837e546e807873d974456a4a743b2d973e/docs/reports/wiki-003/integration-1/README.md"
+      }
+    ]
+  },
+  "VMAP_accepted": false,
+  "groups": 5,
+  "epics_in_groups": 22,
+  "source_public_dist_equal": true,
+  "rows": [
+    {
+      "key": "wiki--WIKI-003",
+      "id": "WIKI-003",
+      "date": "2026-10-27"
+    },
+    {
+      "key": "refactoring--REFACTOR-01",
+      "id": "REFACTOR-01",
+      "date": "2026-10-27"
+    },
+    {
+      "key": "visual--VFOLIAGE-010",
+      "id": "VFOLIAGE-010",
+      "date": "2026-10-25"
+    },
+    {
+      "key": "refactoring--REFACTOR-00",
+      "id": "REFACTOR-00",
+      "date": "2026-10-25"
+    },
+    {
+      "key": "visual--VFOLIAGE-006",
+      "id": "VFOLIAGE-006",
+      "date": "2026-10-24"
+    },
+    {
+      "key": "visual--VFOLIAGE-009",
+      "id": "VFOLIAGE-009",
+      "date": "2026-10-24"
+    },
+    {
+      "key": "visual--VFOLIAGE-004",
+      "id": "VFOLIAGE-004",
+      "date": "2026-10-23"
+    },
+    {
+      "key": "visual--VFOLIAGE-005",
+      "id": "VFOLIAGE-005",
+      "date": "2026-10-23"
+    },
+    {
+      "key": "visual--VRENDER-005",
+      "id": "VRENDER-005",
+      "date": "2026-10-22"
+    },
+    {
+      "key": "visual--VRENDER-006",
+      "id": "VRENDER-006",
+      "date": "2026-10-22"
+    },
+    {
+      "key": "visual--VRENDER-008",
+      "id": "VRENDER-008",
+      "date": "2026-10-22"
+    },
+    {
+      "key": "visual--VFOLIAGE-001",
+      "id": "VFOLIAGE-001",
+      "date": "2026-10-22"
+    },
+    {
+      "key": "visual--VFOLIAGE-002",
+      "id": "VFOLIAGE-002",
+      "date": "2026-10-22"
+    },
+    {
+      "key": "visual--VFOLIAGE-003",
+      "id": "VFOLIAGE-003",
+      "date": "2026-10-22"
+    },
+    {
+      "key": "visual--VSHADOW-001",
+      "id": "VSHADOW-001",
+      "date": "2026-10-22"
+    },
+    {
+      "key": "visual--VCOMPAT-001",
+      "id": "VCOMPAT-001",
+      "date": "2026-10-22"
+    },
+    {
+      "key": "visual--VPROP-002",
+      "id": "VPROP-002",
+      "date": "2026-10-22"
+    },
+    {
+      "key": "visual--VPROP-007",
+      "id": "VPROP-007",
+      "date": "2026-10-22"
+    },
+    {
+      "key": "visual--VRELEASE-002",
+      "id": "VRELEASE-002",
+      "date": "2026-10-22"
+    },
+    {
+      "key": "visual--VRENDER-002",
+      "id": "VRENDER-002",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VRENDER-003",
+      "id": "VRENDER-003",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VRENDER-004",
+      "id": "VRENDER-004",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VGROUND-001",
+      "id": "VGROUND-001",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VGROUND-003",
+      "id": "VGROUND-003",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VGROUND-004",
+      "id": "VGROUND-004",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VGROUND-005",
+      "id": "VGROUND-005",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VGROUND-006",
+      "id": "VGROUND-006",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VGROUND-007",
+      "id": "VGROUND-007",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VGROUND-008",
+      "id": "VGROUND-008",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VGROUND-009",
+      "id": "VGROUND-009",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VGROUND-010",
+      "id": "VGROUND-010",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VPROP-003",
+      "id": "VPROP-003",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VPROP-004",
+      "id": "VPROP-004",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VPROP-005",
+      "id": "VPROP-005",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VPROP-006",
+      "id": "VPROP-006",
+      "date": "2026-10-21"
+    },
+    {
+      "key": "visual--VRENDER-001",
+      "id": "VRENDER-001",
+      "date": "2026-10-20"
+    },
+    {
+      "key": "visual--VCAMERA-006",
+      "id": "VCAMERA-006",
+      "date": "2026-10-20"
+    },
+    {
+      "key": "visual--VSHORE-001",
+      "id": "VSHORE-001",
+      "date": "2026-10-20"
+    },
+    {
+      "key": "visual--VPERF-001",
+      "id": "VPERF-001",
+      "date": "2026-10-20"
+    },
+    {
+      "key": "visual--VRELEASE-005",
+      "id": "VRELEASE-005",
+      "date": "2026-10-20"
+    },
+    {
+      "key": "visual--VBASE-002",
+      "id": "VBASE-002",
+      "date": "2026-10-19"
+    },
+    {
+      "key": "visual--VBASE-005",
+      "id": "VBASE-005",
+      "date": "2026-10-19"
+    },
+    {
+      "key": "visual--VCAMERA-002",
+      "id": "VCAMERA-002",
+      "date": "2026-10-19"
+    },
+    {
+      "key": "visual--VCAMERA-003",
+      "id": "VCAMERA-003",
+      "date": "2026-10-19"
+    },
+    {
+      "key": "visual--VRELEASE-001",
+      "id": "VRELEASE-001",
+      "date": "2026-10-19"
+    },
+    {
+      "key": "wiki--WIKI-002",
+      "id": "WIKI-002",
+      "date": "2026-10-19"
+    },
+    {
+      "key": "visual--VART-010",
+      "id": "VART-010",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "visual--VPIPELINE-001",
+      "id": "VPIPELINE-001",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "visual--VPIPELINE-002",
+      "id": "VPIPELINE-002",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "visual--VPIPELINE-005",
+      "id": "VPIPELINE-005",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "visual--VPIPELINE-006",
+      "id": "VPIPELINE-006",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "visual--VPIPELINE-007",
+      "id": "VPIPELINE-007",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "visual--VPIPELINE-008",
+      "id": "VPIPELINE-008",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "visual--VPIPELINE-009",
+      "id": "VPIPELINE-009",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "visual--VPIPELINE-010",
+      "id": "VPIPELINE-010",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "wiki--WIKI-001",
+      "id": "WIKI-001",
+      "date": "2026-10-18"
+    },
+    {
+      "key": "visual--VART-007",
+      "id": "VART-007",
+      "date": "2026-10-17"
+    },
+    {
+      "key": "visual--VART-008",
+      "id": "VART-008",
+      "date": "2026-10-17"
+    },
+    {
+      "key": "visual--VART-009",
+      "id": "VART-009",
+      "date": "2026-10-17"
+    },
+    {
+      "key": "visual--VART-002",
+      "id": "VART-002",
+      "date": "2026-10-16"
+    },
+    {
+      "key": "visual--VART-003",
+      "id": "VART-003",
+      "date": "2026-10-16"
+    },
+    {
+      "key": "visual--VART-004",
+      "id": "VART-004",
+      "date": "2026-10-16"
+    },
+    {
+      "key": "base--SAFE-01",
+      "id": "SAFE-01",
+      "date": null
+    },
+    {
+      "key": "base--SAFE-02",
+      "id": "SAFE-02",
+      "date": null
+    },
+    {
+      "key": "base--SAFE-03",
+      "id": "SAFE-03",
+      "date": null
+    },
+    {
+      "key": "base--SAFE-04",
+      "id": "SAFE-04",
+      "date": null
+    },
+    {
+      "key": "base--SAFE-05",
+      "id": "SAFE-05",
+      "date": null
+    },
+    {
+      "key": "base--SAFE-06",
+      "id": "SAFE-06",
+      "date": null
+    },
+    {
+      "key": "base--SAFE-07",
+      "id": "SAFE-07",
+      "date": null
+    },
+    {
+      "key": "visual--VBASE-001",
+      "id": "VBASE-001",
+      "date": null
+    },
+    {
+      "key": "visual--VBASE-003",
+      "id": "VBASE-003",
+      "date": null
+    },
+    {
+      "key": "visual--VBASE-004",
+      "id": "VBASE-004",
+      "date": null
+    },
+    {
+      "key": "visual--VART-001",
+      "id": "VART-001",
+      "date": null
+    },
+    {
+      "key": "visual--VART-005",
+      "id": "VART-005",
+      "date": null
+    },
+    {
+      "key": "visual--VART-006",
+      "id": "VART-006",
+      "date": null
+    },
+    {
+      "key": "visual--VCAMERA-001",
+      "id": "VCAMERA-001",
+      "date": null
+    },
+    {
+      "key": "visual--VPIPELINE-003",
+      "id": "VPIPELINE-003",
+      "date": null
+    },
+    {
+      "key": "visual--VPIPELINE-004",
+      "id": "VPIPELINE-004",
+      "date": null
+    },
+    {
+      "key": "water--WATER-01",
+      "id": "WATER-01",
+      "date": null
+    },
+    {
+      "key": "water--WATER-03",
+      "id": "WATER-03",
+      "date": null
+    },
+    {
+      "key": "water--WATER-07",
+      "id": "WATER-07",
+      "date": null
+    },
+    {
+      "key": "water--WATER-11",
+      "id": "WATER-11",
+      "date": null
+    }
+  ]
+}

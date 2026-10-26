@@ -1,0 +1,125 @@
+{
+  "scope": "Accepted PR15 implementation checks; not a new closeout execution",
+  "headRevision": "8334caa47459c871880e907069d93ce974aeb29c",
+  "checks": [
+    {
+      "id": 121839748453,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "8334caa47459c871880e907069d93ce974aeb29c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40395808812/job/121839748453",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 121839706347,
+      "name": "Wiki quality gate",
+      "head_sha": "8334caa47459c871880e907069d93ce974aeb29c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40395808812/job/121839706347",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 121839704956,
+      "name": "test",
+      "head_sha": "8334caa47459c871880e907069d93ce974aeb29c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40395808812/job/121839704956",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 121839703440,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "8334caa47459c871880e907069d93ce974aeb29c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40395808812/job/121839703440",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 121828378472,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "8334caa47459c871880e907069d93ce974aeb29c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40395802049/job/121828378472",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 121828378351,
+      "name": "Wiki quality gate",
+      "head_sha": "8334caa47459c871880e907069d93ce974aeb29c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40395802049/job/121828378351",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2
+      }
+    },
+    {
+      "id": 121828378321,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "8334caa47459c871880e907069d93ce974aeb29c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40395802049/job/121828378321",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 121828377934,
+      "name": "test",
+      "head_sha": "8334caa47459c871880e907069d93ce974aeb29c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40395802049/job/121828377934",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2
+      }
+    }
+  ],
+  "statuses": [],
+  "annotations": [],
+  "hasMore": false,
+  "job": null,
+  "jobs": [],
+  "log": null,
+  "logTruncated": false
+}
