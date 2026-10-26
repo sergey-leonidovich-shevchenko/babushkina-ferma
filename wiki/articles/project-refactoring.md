@@ -32,14 +32,16 @@ Byte-identical checker из базы проходит в tools и отказыв
 
 ## Как проверить и что дальше
 
-29 контролей проверяют карту, UID, повреждённый пакет, настоящий Git, worktree с пробелами и другую cwd. Полное воспроизведение читает все 6,26 GiB базы и побайтно сравнивает весь пакет, не только summary:
+36 контролей проверяют карту, UID, повреждённый пакет, настоящий Git, worktree с пробелами и другую cwd. После независимого ревью новые root-входы требуют безопасного нормализованного пути непосредственно в tools, расширения исходника и непустой причины; дубликаты запрещены. Production-план779/9 не меняется. Полное воспроизведение читает все6,26 GiB базы и побайтно сравнивает весь пакет, не только summary:
 
 ```sh
 python3 -m unittest discover -s docs/reports/refactor-01/instrumentation -p 'test_*.py' -v
-python3 docs/reports/refactor-01/instrumentation/audit.py check --plan docs/reports/refactor-01/integration-1/migration-plan.json --snapshot docs/reports/refactor-01/integration-1/snapshot
+python3 docs/reports/refactor-01/review-1/replay.py
 python3 docs/reports/refactor-01/instrumentation/audit.py show --snapshot docs/reports/refactor-01/integration-1/snapshot --path tools/performance_sampler.gd
 ```
 
-[Свежие проверки](../../docs/reports/refactor-01/integration-1/checks.json) отделены от [журналов принятой базы](../../docs/reports/refactor-01/integration-1/baseline-verification.json). Статический граф 174 suites содержит 37 верхних запусков, без потери/дубля; это не замена фактическому Game. Нативная графика/GPU-FPS не переснимаются и не принимаются этим аудитом.
+[Исходные проверки](../../docs/reports/refactor-01/integration-1/checks.json) отделены от [журналов принятой базы](../../docs/reports/refactor-01/integration-1/baseline-verification.json). [Доработка P2 в PR14](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14) сохраняет весь прежний пакет: обновляются только SHA двух файлов генератора и производные metadata в отдельном комплекте. Текущий replay приведён выше, старый snapshot воспроизводится генератором c9cea3ae. Статический граф174 suites содержит37 верхних запусков, без потери/дубля; это не замена Game. Нативная графика/GPU-FPS не переснимаются и не принимаются этим аудитом.
+
+[Воспроизведение ложного PASS](../../docs/reports/refactor-01/review-1/red-reproduction.json) · [Отказ повреждённых production-планов](../../docs/reports/refactor-01/review-1/green-production-plan.json) · [Новый inventory](../../docs/reports/refactor-01/review-1/reproduction/inventory.json) · [Новый packet](../../docs/reports/refactor-01/review-1/reproduction/packet.json) · [Сравнение всех данных](../../docs/reports/refactor-01/review-1/collection-comparison.json).
 
 После принятия 01: **02 — пути/Git-изоляция/quality/planning →03 — тематические инструменты →06 — README/guard**. Внутри 03 сначала учитываются взаимные imports assets/build и camera/performance, затем world/ground/foliage и совместимость. 04/05 остаются отдельными будущими работами Team Lead. Все старые raw, планы, капсулы и source SHA сохраняются; откат опубликованного пакета — git revert с теми же проверками.

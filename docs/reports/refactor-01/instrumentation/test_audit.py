@@ -89,6 +89,61 @@ class PlanControls(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "entry collision"):
             validate_plan(self.plan, self.paths)
 
+    def test_new_entry_outside_tools_or_nested_is_rejected(self):
+        for name in ["../outside.py", "/tmp/outside.py", "tools/common/nested_dispatcher.py"]:
+            with self.subTest(path=name):
+                plan = sample_plan()
+                plan["new_entries_proposed_not_implemented"][0]["path"] = name
+                with self.assertRaisesRegex(ValueError, "new root entry"):
+                    validate_plan(plan, self.paths)
+
+    def test_new_entry_requires_canonical_portable_path(self):
+        for name in ["", ".", "tools", "tools/", "./tools/run.py", "tools//run.py",
+                     "tools/./run.py", "tools/qa/../run.py", "tools/run.py/",
+                     "tools\\run.py", "tools/C:run.py", "tools/new\nrun.py", "tools/run\0.py", None]:
+            with self.subTest(path=name):
+                plan = sample_plan()
+                plan["new_entries_proposed_not_implemented"][0]["path"] = name
+                with self.assertRaisesRegex(ValueError, "new root entry"):
+                    validate_plan(plan, self.paths)
+
+    def test_new_entry_must_be_a_declared_source(self):
+        for name in ["tools/config.json", "tools/run.py.uid", "tools/README.md", "tools/dispatcher"]:
+            with self.subTest(path=name):
+                plan = sample_plan()
+                plan["new_entries_proposed_not_implemented"][0]["path"] = name
+                with self.assertRaisesRegex(ValueError, "new root entry"):
+                    validate_plan(plan, self.paths)
+
+    def test_duplicate_new_entries_are_not_hidden_by_root_set(self):
+        self.plan["new_entries_proposed_not_implemented"].append({
+            "path": "tools/run.py", "reason": "second duplicate must not disappear",
+        })
+        with self.assertRaisesRegex(ValueError, "entry collision"):
+            validate_plan(self.plan, self.paths)
+
+    def test_new_entry_requires_nonblank_reason(self):
+        for reason in ["", " \t\n", None, 123]:
+            with self.subTest(reason=reason):
+                plan = sample_plan()
+                plan["new_entries_proposed_not_implemented"][0]["reason"] = reason
+                with self.assertRaisesRegex(ValueError, "missing reason"):
+                    validate_plan(plan, self.paths)
+
+    def test_alternative_root_source_is_counted(self):
+        self.plan["new_entries_proposed_not_implemented"][0]["path"] = "tools/dispatch.sh"
+        self.assertEqual(validate_plan(self.plan, self.paths), 3)
+
+    def test_multiple_distinct_root_sources_are_counted(self):
+        self.plan["new_entries_proposed_not_implemented"].append({
+            "path": "tools/dispatch.sh", "reason": "documented additional CLI",
+        })
+        self.plan["future_root_source_count"] = 4
+        self.assertEqual(validate_plan(self.plan, self.paths), 4)
+        self.plan["root_source_budget"] = 3
+        with self.assertRaisesRegex(ValueError, "budget"):
+            validate_plan(self.plan, self.paths)
+
     def test_root_budget(self):
         self.plan["root_source_budget"] = 2
         with self.assertRaisesRegex(ValueError, "budget"):

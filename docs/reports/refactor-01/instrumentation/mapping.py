@@ -66,14 +66,29 @@ def validate_plan(plan: dict, paths: set[str]) -> int:
         raise ValueError("protected root anchor registry differs from map")
     if declared_facades != plan["public_facades"]:
         raise ValueError("public facade registry differs from map")
+    # Этот список декларирует именно новые корневые исходники, поэтому вложенный путь
+    # нельзя безусловно включать в бюджет корня или молча трактовать как внутренний модуль.
+    new_root_entries = set()
     for entry in plan["new_entries_proposed_not_implemented"]:
-        if entry["path"] in paths or entry["path"] in targets or entry["path"] in declared_facades or not entry.get("reason"):
+        name = entry.get("path")
+        if not isinstance(name, str) or any(char in name for char in ("\\", ":")) or any(
+            ord(char) < 32 or ord(char) == 127 for char in name
+        ):
+            raise ValueError("unsafe new root entry path: " + repr(name))
+        target = PurePosixPath(name)
+        if (target.is_absolute() or ".." in target.parts or str(target) != name
+                or target.parent != PurePosixPath("tools") or target.suffix not in code_extensions):
+            raise ValueError("new root entry requires normalized source directly in tools: " + repr(name))
+        reason = entry.get("reason")
+        if (name in paths or name in targets or name in declared_facades or name in new_root_entries
+                or not isinstance(reason, str) or not reason.strip()):
             raise ValueError("new entry collision or missing reason")
+        new_root_entries.add(name)
     extensions = code_extensions
     future_root = {str(target) for target in map(PurePosixPath, targets)
                    if target.parent == PurePosixPath("tools") and target.suffix in extensions}
     future_root.update(plan["public_facades"])
-    future_root.update(row["path"] for row in plan["new_entries_proposed_not_implemented"])
+    future_root.update(new_root_entries)
     if len(future_root) > plan["root_source_budget"] or len(future_root) != plan["future_root_source_count"]:
         raise ValueError("future root source budget/count mismatch")
     return len(future_root)

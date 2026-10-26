@@ -657,4 +657,3 @@
 | `tools/world_native.gd` | `tools/qa/compatibility/world_native.gd` | Регрессии существующих игровых систем: вход или вспомогательный модуль семейства; UID: отслеживается | 3 |
 | `tools/world_review.gd` | `tools/qa/compatibility/world_review.gd` | Регрессии существующих игровых систем: профильные Godot-проверки; UID: отслеживается | 3 |
 | `tools/world_workbench_review.gd` | `tools/qa/compatibility/world_workbench_review.gd` | Регрессии существующих игровых систем: профильные Godot-проверки; UID: отслеживается | 6 |
-
