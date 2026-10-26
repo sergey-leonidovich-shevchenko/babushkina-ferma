@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-26T04:04:09.165396+00:00",
+  "branch": "codex/idea-review-20261025-neighbors",
+  "exactOldHead": "5f847da5ef15a3bfc13e9fb477525b504f9c81a2",
+  "acceptedMain": "ad60faf4bd46faa335babb6075737694927fc61f",
+  "worktreeReferencesBefore": 0,
+  "fullyMerged": true,
+  "remoteExistedBefore": true,
+  "remoteAfter": "absent",
+  "localAfter": "absent",
+  "scope": "Only the fully merged author branch of PR8 was removed. Current closeout and all unrelated branches/worktrees are retained."
+}
