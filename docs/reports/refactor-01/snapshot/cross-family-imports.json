@@ -1,0 +1,336 @@
+[
+  {
+    "consumer_family": "art-standard",
+    "provider_family": "camera",
+    "reference_ids": [
+      121062
+    ]
+  },
+  {
+    "consumer_family": "assets-alpha",
+    "provider_family": "assets-contracts",
+    "reference_ids": [
+      118489,
+      118490,
+      118491,
+      120438
+    ]
+  },
+  {
+    "consumer_family": "assets-authoring",
+    "provider_family": "assets-contracts",
+    "reference_ids": [
+      118739
+    ]
+  },
+  {
+    "consumer_family": "assets-contracts",
+    "provider_family": "art-standard",
+    "reference_ids": [
+      120931
+    ]
+  },
+  {
+    "consumer_family": "assets-contracts",
+    "provider_family": "assets-migration",
+    "reference_ids": [
+      118649
+    ]
+  },
+  {
+    "consumer_family": "assets-contracts",
+    "provider_family": "build",
+    "reference_ids": [
+      118654,
+      120463
+    ]
+  },
+  {
+    "consumer_family": "assets-contracts",
+    "provider_family": "camera",
+    "reference_ids": [
+      119566,
+      119727,
+      120600,
+      120628,
+      120989,
+      120992,
+      121036
+    ]
+  },
+  {
+    "consumer_family": "assets-migration",
+    "provider_family": "assets-contracts",
+    "reference_ids": [
+      118561,
+      119644
+    ]
+  },
+  {
+    "consumer_family": "assets-slicing",
+    "provider_family": "assets-contracts",
+    "reference_ids": [
+      120235
+    ]
+  },
+  {
+    "consumer_family": "assets-slicing",
+    "provider_family": "compatibility",
+    "reference_ids": [
+      120357
+    ]
+  },
+  {
+    "consumer_family": "build",
+    "provider_family": "assets-contracts",
+    "reference_ids": [
+      118565,
+      118567,
+      118569,
+      118575,
+      120451,
+      120453
+    ]
+  },
+  {
+    "consumer_family": "build",
+    "provider_family": "assets-migration",
+    "reference_ids": [
+      118566,
+      120454
+    ]
+  },
+  {
+    "consumer_family": "camera",
+    "provider_family": "performance",
+    "reference_ids": [
+      118518
+    ]
+  },
+  {
+    "consumer_family": "foliage",
+    "provider_family": "camera",
+    "reference_ids": [
+      119147,
+      119203,
+      119248,
+      119250,
+      119334,
+      119346
+    ]
+  },
+  {
+    "consumer_family": "foliage",
+    "provider_family": "performance",
+    "reference_ids": [
+      119085,
+      119109,
+      119110,
+      119120,
+      119154,
+      119174,
+      119208,
+      119229,
+      119230,
+      119257,
+      119349,
+      119367,
+      119840
+    ]
+  },
+  {
+    "consumer_family": "foliage",
+    "provider_family": "world",
+    "reference_ids": [
+      119166,
+      119204,
+      119249,
+      119251,
+      119335,
+      119368,
+      119837,
+      119841,
+      119856
+    ]
+  },
+  {
+    "consumer_family": "ground",
+    "provider_family": "camera",
+    "reference_ids": [
+      118668,
+      118963,
+      119292,
+      119383,
+      119458,
+      119515,
+      119600,
+      119874,
+      120101,
+      120382
+    ]
+  },
+  {
+    "consumer_family": "ground",
+    "provider_family": "foliage",
+    "reference_ids": [
+      119429
+    ]
+  },
+  {
+    "consumer_family": "ground",
+    "provider_family": "performance",
+    "reference_ids": [
+      118675,
+      118715,
+      118971,
+      119016,
+      119300,
+      119323,
+      119390,
+      119426,
+      119428,
+      119470,
+      119527,
+      119607,
+      119633,
+      119881,
+      119920,
+      120108,
+      120149,
+      120387,
+      120432
+    ]
+  },
+  {
+    "consumer_family": "ground",
+    "provider_family": "world",
+    "reference_ids": [
+      118669,
+      118714,
+      118966,
+      119017,
+      119293,
+      119322,
+      119384,
+      119425,
+      119430,
+      119459,
+      119466,
+      119528,
+      119601,
+      119632,
+      119875,
+      119919,
+      120102,
+      120148,
+      120384,
+      120433
+    ]
+  },
+  {
+    "consumer_family": "performance",
+    "provider_family": "camera",
+    "reference_ids": [
+      119751
+    ]
+  },
+  {
+    "consumer_family": "performance",
+    "provider_family": "planning",
+    "reference_ids": [
+      120505
+    ]
+  },
+  {
+    "consumer_family": "planning",
+    "provider_family": "assets-migration",
+    "reference_ids": [
+      119800
+    ]
+  },
+  {
+    "consumer_family": "world",
+    "provider_family": "art-standard",
+    "reference_ids": [
+      119825
+    ]
+  },
+  {
+    "consumer_family": "world",
+    "provider_family": "assets-alpha",
+    "reference_ids": [
+      120815
+    ]
+  },
+  {
+    "consumer_family": "world",
+    "provider_family": "assets-contracts",
+    "reference_ids": [
+      120216
+    ]
+  },
+  {
+    "consumer_family": "world",
+    "provider_family": "camera",
+    "reference_ids": [
+      119651,
+      119652,
+      119770,
+      119808,
+      119924,
+      120080,
+      120204,
+      120610,
+      120633,
+      120669,
+      120713,
+      120751,
+      120794,
+      120824
+    ]
+  },
+  {
+    "consumer_family": "world",
+    "provider_family": "compatibility",
+    "reference_ids": [
+      121081,
+      121082,
+      121084
+    ]
+  },
+  {
+    "consumer_family": "world",
+    "provider_family": "performance",
+    "reference_ids": [
+      118519,
+      119662,
+      119706,
+      119776,
+      119792,
+      119816,
+      119833,
+      119932,
+      120208,
+      120616,
+      120639,
+      120656,
+      120675,
+      120700,
+      120719,
+      120738,
+      120757,
+      120771,
+      120800,
+      120811,
+      120830,
+      120847
+    ]
+  },
+  {
+    "consumer_family": "world",
+    "provider_family": "planning",
+    "reference_ids": [
+      119802
+    ]
+  }
+]

@@ -1,0 +1,59 @@
+{
+  "task": "REFACTOR-01",
+  "version": "0.0.342",
+  "base": "ad60faf4bd46faa335babb6075737694927fc61f",
+  "origin": "http://127.0.0.1:4175",
+  "overview": {
+    "url": "#/guides/project-refactoring",
+    "accepted_base_visible": "ad60faf4",
+    "proposed_root": 9,
+    "scope": "proposal; no moves"
+  },
+  "map": {
+    "url": "#/guides/tools-migration-map",
+    "tables": 17,
+    "rows_without_separate_UID_rows": 563,
+    "all_original_tools_blobs_in_JSON": 779,
+    "desktop_document_width": 1280,
+    "desktop_viewport_width": 1280
+  },
+  "card": {
+    "url": "#/development/tasks/refactoring--REFACTOR-01",
+    "status": "in_progress",
+    "dependencies_done": [
+      "REFACTOR-00",
+      "VFOLIAGE-010"
+    ]
+  },
+  "search": {
+    "query": "performance_sampler.gd",
+    "guide_results": 2,
+    "development_search_is_separate": true
+  },
+  "small_inventory_JSON": {
+    "opened_and_read_in_browser": true,
+    "SHA256": "114632fd5f1b30412da77ed808abeffbef280c3a6abf9093d20bfe223ec13189",
+    "baseline_blobs": 24056,
+    "tools": 779,
+    "root_source_count": 553,
+    "root_shader_count": 0,
+    "recursive_source_count": 558,
+    "recursive_shader_count": 1,
+    "planned_root": 9,
+    "Wiki_scripts": 20
+  },
+  "source_public_dist_exact_files": 10,
+  "limitations": [
+    "IAB downloadMedia and download event did not provide a downloaded file; no full-download claim. Actual download href/attributes and exact source/public/dist bytes checked separately; small JSON rendered successfully.",
+    "Large raw JSON AX tree exceeded provider deadline. Normal article recovered in fresh same-browser HTTP tab.",
+    "390px viewport override did not apply; actual width remained1280. Override reset; narrow viewport not claimed."
+  ],
+  "screenshots": [
+    "validation/browser-map.png",
+    "validation/browser-overview.png"
+  ],
+  "screenshots_sha256": {
+    "validation/browser-map.png": "36c3c824ea631f18ee06d713c11435eb4a78a81780afe066d9f0478c9192db5a",
+    "validation/browser-overview.png": "6ec4f39aa10ebeda330747ab5c4f7a4967f5c0ada4f7a7a2fa7133ba5772b187"
+  }
+}

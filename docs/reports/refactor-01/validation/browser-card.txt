@@ -1,0 +1,97 @@
+Browser tab: 14, Title: "Лунная долина · Wiki", URL: "http://127.0.0.1:4175/#/development/tasks/refactoring--REFACTOR-01".
+1 AXWebArea Лунная долина · Wiki, URL: 127.0.0.1:4175/#/development/tasks/refactoring--REFACTOR-01
+	2 container app
+		3 link Description: Перейти к содержимому, Value: 127.0.0.1:4175/#wiki-content
+		4 container
+			5 link Description: Лунная долина WIKI · СПРАВОЧНИК, Value: 127.0.0.1:4175/#/
+			6 container Разделы wiki
+				7 link Description: Первая локация · прогресс, Value: 127.0.0.1:4175/#/development/first-location
+				8 link Description: Главная, Value: 127.0.0.1:4175/#/
+				9 text РАЗРАБОТКА
+				10 link Description: Эпики 168, Value: 127.0.0.1:4175/#/development/epics
+				11 link Description: Идеи 241, Value: 127.0.0.1:4175/#/development/ideas
+				12 link Description: На проработку 0, Value: 127.0.0.1:4175/#/development/refinement
+				13 link Description: Задачи 2044, Value: 127.0.0.1:4175/#/development/tasks
+				14 text О ДОЛИНЕ
+				15 link Description: Персонажи 42, Value: 127.0.0.1:4175/#/characters
+				16 link Description: Миссии 44, Value: 127.0.0.1:4175/#/missions
+				17 link Description: Здания и станки 27, Value: 127.0.0.1:4175/#/buildings
+				18 link Description: Крафт и алхимия 321, Value: 127.0.0.1:4175/#/craft
+				19 link Description: Предметы 386, Value: 127.0.0.1:4175/#/items
+				20 link Description: Растения 40, Value: 127.0.0.1:4175/#/plants
+				21 link Description: Мир и локации 30, Value: 127.0.0.1:4175/#/locations
+				22 link Description: Таланты 20, Value: 127.0.0.1:4175/#/skills
+				23 link Description: Рыбалка 11, Value: 127.0.0.1:4175/#/fishing
+				24 link Description: Руководство 265, Value: 127.0.0.1:4175/#/guides
+			25 text ☾ Изучайте мир.
+			26 text Возвращайтесь за открытиями. Игра 0.0.342
+		27 container
+			28 search text field (settable) Поиск по wiki
+			29 text ⌘ / Ctrl K Центр разработки
+		30 container
+			31 text РАЗРАБОТКА ДОЛИНЫ
+			32 heading Задачи, Value: 1
+				33 text Задачи
+			34 text Все карточки разработки: результат, зависимости, приёмка и подтверждения.
+			35 button Обновить
+			36 text Текущий курс: первая локация целиком до VMAP-003.
+			37 text  Новые механики и другие карты — после её приёмки. 
+			38 link Description: Эталон и порядок эпиков, Value: 127.0.0.1:4175/#/guides/visual-pilot
+			39 container Путь от идеи к реализации
+				40 link Description: Идеи 241, Value: 127.0.0.1:4175/#/development/ideas
+				41 link Description: На проработку 0, Value: 127.0.0.1:4175/#/development/refinement
+				42 link Description: Эпики 168, Value: 127.0.0.1:4175/#/development/epics
+				43 link Description: Задачи 2044, Value: 127.0.0.1:4175/#/development/tasks
+			44 text Открыта сохранённая версия для просмотра. Для сохранения решений запустите значок «Лунная долина Wiki» рядом с игрой. Режим просмотра
+			45 link Description: Понятная структура инструментов и модулей, Value: 127.0.0.1:4175/#/development/epics/refactoring--REFACTOR
+			46 text REFACTOR-01 В работе P1 Объём M
+			47 heading Составить полную карту переносов tools и подтвердить остальные узкие места, Value: 2
+				48 text Составить полную карту переносов tools и подтвердить остальные узкие места
+			49 text Назначение каждого файла tools, пары UID, импорты/публичные входы/исторические ссылки и целевая таблица путей. Отдельно оценить systems, presentation, suites, helpers и reports.
+			50 container
+				51 heading Зависимости, Value: 3
+					52 text Зависимости
+				53 link Description: REFACTOR-00 Завершена, Value: 127.0.0.1:4175/#/development/tasks/refactoring--REFACTOR-00
+				54 link Description: VFOLIAGE-010 Завершена, Value: 127.0.0.1:4175/#/development/tasks/visual--VFOLIAGE-010
+			55 container
+				56 heading Критерии приёмки, Value: 3
+					57 text Критерии приёмки
+				58 content list
+					59 container
+						60 AXListMarker • 
+						61 text У каждого исходника tools есть новый тематический путь либо обоснованное публичное исключение; будущий корень содержит не более 30 исходников.
+					62 container
+						63 AXListMarker • 
+						64 text Для каждого входа перечислены реальные потребители CI/hooks/Python/Godot/Wiki и воспроизводимая проверка. Живые ссылки документации отделены от исторических: старые доказательства доступны по закреплённому Git base/капсуле, проверка ссылок не отключается целиком.
+					65 container
+						66 AXListMarker • 
+						67 text Для других каталогов записано конкретное семейство и польза переноса либо мотивированное «оставить»; никаких массовых перемещений по одному счётчику.
+					68 container
+						69 AXListMarker • 
+						70 text Базовые проверки и все неизменяемые доказательства перечислены с SHA; намечены маленькие тематические коммиты и откат. Отдельно учтена изоляция вложенных Git-команд: известный test_shore_kit не должен наследовать Git-окружение hook и менять конфигурацию родительского репозитория.
+			71 container
+				72 heading Ветка, Value: 3
+					73 text Ветка
+				74 text codex/refactor-01-maintainable-layout
+			75 container
+				76 heading Условия запуска, Value: 3
+					77 text Условия запуска
+				78 text REFACTOR-00 и VFOLIAGE-010 приняты и done; актуальная main. Карта путей является результатом этого аудита, заранее она не требуется. VMAP-003 не является блокером заказанного технического первого выпуска.
+			79 container
+				80 heading Проверка, Value: 3
+					81 text Проверка
+				82 text Read-only аудит принятой актуальной main, действующие профильные gates и проверка ведомости человеком. Реализация последующих переносов не требуется для приёмки аудита.
+			83 container
+				84 heading Условия из плана, Value: 3
+					85 text Условия из плана
+				86 text REFACTOR-00, VFOLIAGE-010.
+			87 container
+				88 heading Подтверждения и результат, Value: 3
+					89 text Подтверждения и результат
+				90 text Полный аудит принятой базы ad60faf4bd46faa335babb6075737694927fc61f: все 779 tools blobs,216 tracked UID и 86 отсутствующих в Git sidecars;17 семейств,9 будущих корневых исходников при бюджете 30. Для каждого файла — назначение/путь/CLI/consumers/проверка; сохранены SHA всех 24056 blobs, индекс семи архивов и отдельные живые/исторические ссылки. Статический runner:174 suites,37 верхних запусков, без потери/дубля. Адресные предложения 04/05 и мотивированное «оставить» перечислены отдельно. Два реальных риска воспроизведены на disposable копиях: parent-depth и inherited Git environment. Проверки, Wiki-карта, пакеты и откат. Переносов 02/03 нет; после обязательных gates публикуется PR этой ветки, до принятия текущего head карточка остаётся in_progress.
+			91 button Скопировать карточку агенту
+			92 text Рефакторинг структуры проекта
+		93 container
+			94 text Лунная долина · 1186 статей Описание и ресурсы из игры 0.0.342
+
+The focused UI element is 1 AXWebArea Лунная долина · Wiki, URL: 127.0.0.1:4175/#/development/tasks/refactoring--REFACTOR-01

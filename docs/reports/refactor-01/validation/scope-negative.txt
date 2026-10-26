@@ -1,0 +1,13 @@
+OWNED NEGATIVE CONTROL: extra untracked root source rejected; expected failure, not a failed candidate gate
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-01/verify_scope.py", line 122, in <module>
+    main()
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-01/verify_scope.py", line 114, in main
+    text = json.dumps(verify(root), ensure_ascii=False, indent=2) + "\n"
+                      ^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-01/verify_scope.py", line 68, in verify
+    assert all(name.startswith("docs/reports/refactor-01/") or name == "wiki/articles/tools-migration-map.md"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpected new files
+
+Fixture removed only after exact-byte ownership check.

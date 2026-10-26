@@ -1,0 +1,2186 @@
+{
+  "runner": "tests/test_game.gd",
+  "suite_files": 174,
+  "base_or_other_gd": [
+    "tests/suites/suite_base.gd"
+  ],
+  "top_level_run_edges": 37,
+  "run_edges": [
+    {
+      "consumer": "tests/suites/adventure_polish_suite.gd",
+      "line": 5,
+      "target": "tests/suites/compact_dialogue_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/alchemy_suite.gd",
+      "line": 17,
+      "target": "tests/suites/alchemy_effects_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 8,
+      "target": "tests/suites/visual_camera_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 9,
+      "target": "tests/suites/visual_static_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 10,
+      "target": "tests/suites/ground_layers_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 11,
+      "target": "tests/suites/meadow_ground_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 12,
+      "target": "tests/suites/ground_edge_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 13,
+      "target": "tests/suites/axial_road_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 14,
+      "target": "tests/suites/road_network_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 15,
+      "target": "tests/suites/plaza_ground_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 16,
+      "target": "tests/suites/garden_soil_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 17,
+      "target": "tests/suites/decoration_rules_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 18,
+      "target": "tests/suites/terrain_revision_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 19,
+      "target": "tests/suites/ground_seasons_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 20,
+      "target": "tests/suites/object_draw_command_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 21,
+      "target": "tests/suites/pilot_object_pass_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 22,
+      "target": "tests/suites/post_motion_frame_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 23,
+      "target": "tests/suites/plant_depth_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 24,
+      "target": "tests/suites/transient_visual_save_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 25,
+      "target": "tests/suites/foliage_root_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 26,
+      "target": "tests/suites/foliage_uv_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 27,
+      "target": "tests/suites/foliage_wind_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 28,
+      "target": "tests/suites/foliage_contact_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 29,
+      "target": "tests/suites/foliage_speed_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 30,
+      "target": "tests/suites/foliage_recovery_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 31,
+      "target": "tests/suites/foliage_pause_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 32,
+      "target": "tests/suites/foliage_visibility_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 33,
+      "target": "tests/suites/village_bench_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 34,
+      "target": "tests/suites/village_street_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 35,
+      "target": "tests/suites/village_lamp_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 36,
+      "target": "tests/suites/village_fence_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 37,
+      "target": "tests/suites/village_board_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 38,
+      "target": "tests/suites/village_trade_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 39,
+      "target": "tests/suites/coordinate_contract_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 40,
+      "target": "tests/suites/camera_quantization_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 41,
+      "target": "tests/suites/presentation_pose_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 42,
+      "target": "tests/suites/reference_zoom_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 43,
+      "target": "tests/suites/visual_motion_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 100,
+      "target": "tests/suites/content_reference_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/atomic_save_suite.gd",
+      "line": 10,
+      "target": "tests/suites/atomic_fault_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/combat_epic_suite.gd",
+      "line": 6,
+      "target": "tests/suites/player_contact_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/combat_epic_suite.gd",
+      "line": 7,
+      "target": "tests/suites/enemy_projectile_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/combat_epic_suite.gd",
+      "line": 8,
+      "target": "tests/suites/boss_balance_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/combat_epic_suite.gd",
+      "line": 9,
+      "target": "tests/suites/cave_geometry_cache_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/combat_epic_suite.gd",
+      "line": 10,
+      "target": "tests/suites/cave_boss_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/combat_epic_suite.gd",
+      "line": 11,
+      "target": "tests/suites/cave_boss_minions_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 19,
+      "target": "tests/suites/action_lifecycle_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 20,
+      "target": "tests/suites/focus_pause_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 21,
+      "target": "tests/suites/runtime_maintenance_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 22,
+      "target": "tests/suites/qa_teleport_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 23,
+      "target": "tests/suites/held_weapon_visibility_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 24,
+      "target": "tests/suites/resident_visual_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 25,
+      "target": "tests/suites/village_clearance_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 26,
+      "target": "tests/suites/celestial_dial_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 27,
+      "target": "tests/suites/hero_combat_visual_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 28,
+      "target": "tests/suites/hero_action_visual_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 29,
+      "target": "tests/suites/horizontal_pause_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 30,
+      "target": "tests/suites/lunar_menu_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 31,
+      "target": "tests/suites/runtime_comfort_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 32,
+      "target": "tests/suites/item_window_comfort_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 33,
+      "target": "tests/suites/hud_comfort_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 34,
+      "target": "tests/suites/hero_action_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 35,
+      "target": "tests/suites/hero_visual_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 36,
+      "target": "tests/suites/village_map_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 37,
+      "target": "tests/suites/ui_text_metrics_cache_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 38,
+      "target": "tests/suites/player_corner_assist_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 39,
+      "target": "tests/suites/tree_occlusion_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 40,
+      "target": "tests/suites/player_corner_world_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 41,
+      "target": "tests/suites/grandmother_visual_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 42,
+      "target": "tests/suites/compact_hud_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 43,
+      "target": "tests/suites/quick_access_visual_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/core_suite.gd",
+      "line": 5,
+      "target": "tests/suites/save_integrity_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/core_suite.gd",
+      "line": 6,
+      "target": "tests/suites/atomic_save_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 6,
+      "target": "tests/suites/inventory_transaction_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 7,
+      "target": "tests/suites/front_facing_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 8,
+      "target": "tests/suites/basement_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 9,
+      "target": "tests/suites/basement_content_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 10,
+      "target": "tests/suites/kitchen_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 11,
+      "target": "tests/suites/workshop_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 12,
+      "target": "tests/suites/artisan_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 13,
+      "target": "tests/suites/garden_crafting_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 14,
+      "target": "tests/suites/research_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 15,
+      "target": "tests/suites/furnace_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 16,
+      "target": "tests/suites/household_cooking_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 6,
+      "target": "tests/suites/farm_economy_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 7,
+      "target": "tests/suites/farm_recycling_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 8,
+      "target": "tests/suites/farm_seasons_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 9,
+      "target": "tests/suites/farm_livestock_loop_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 10,
+      "target": "tests/suites/farm_queue_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 11,
+      "target": "tests/suites/farm_alchemy_learning_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 12,
+      "target": "tests/suites/farm_fishing_access_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 13,
+      "target": "tests/suites/production_plan_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 14,
+      "target": "tests/suites/livestock_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 15,
+      "target": "tests/suites/apiary_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 19,
+      "target": "tests/suites/house_furniture_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/first_chapter_suite.gd",
+      "line": 5,
+      "target": "tests/suites/first_week_route_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/fishing_suite.gd",
+      "line": 6,
+      "target": "tests/suites/water_fishing_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/gameplay_suite.gd",
+      "line": 7,
+      "target": "tests/suites/dropped_loot_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 45,
+      "target": "tests/suites/level_editor_runtime_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 46,
+      "target": "tests/suites/asset_boundary_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 47,
+      "target": "tests/suites/visual_resource_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 48,
+      "target": "tests/suites/visual_sampling_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 49,
+      "target": "tests/suites/padded_atlas_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 50,
+      "target": "tests/suites/texture_intent_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 51,
+      "target": "tests/suites/item_sizes_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 52,
+      "target": "tests/suites/atlas_source_geometry_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/suites/living_world_suite.gd",
+      "line": 6,
+      "target": "tests/suites/wildlife_combat_comfort_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/living_world_suite.gd",
+      "line": 7,
+      "target": "tests/suites/inspector_query_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/menu_suite.gd",
+      "line": 9,
+      "target": "tests/suites/recovery_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/navigation_broadphase_suite.gd",
+      "line": 8,
+      "target": "tests/suites/wildlife_query_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/potion_suite.gd",
+      "line": 6,
+      "target": "tests/suites/alchemy_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/runtime_comfort_suite.gd",
+      "line": 6,
+      "target": "tests/suites/debug_frame_budget_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/runtime_comfort_suite.gd",
+      "line": 7,
+      "target": "tests/suites/navigation_broadphase_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/save_integrity_suite.gd",
+      "line": 9,
+      "target": "tests/suites/save_catalog_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/storage_forge_suite.gd",
+      "line": 5,
+      "target": "tests/suites/storage_grid_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/storage_forge_suite.gd",
+      "line": 6,
+      "target": "tests/suites/storage_view_cache_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/storage_forge_suite.gd",
+      "line": 7,
+      "target": "tests/suites/dev_cabinet_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/storage_forge_suite.gd",
+      "line": 8,
+      "target": "tests/suites/storage_actions_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/ui_visual_regression_suite.gd",
+      "line": 6,
+      "target": "tests/suites/paper_theme_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/visual_assets_suite.gd",
+      "line": 11,
+      "target": "tests/suites/lazy_item_icons_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/visual_assets_suite.gd",
+      "line": 12,
+      "target": "tests/suites/prepared_pixel_cache_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/visual_assets_suite.gd",
+      "line": 13,
+      "target": "tests/suites/painted_item_icon_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/visual_assets_suite.gd",
+      "line": 14,
+      "target": "tests/suites/item_icon_contract_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/visual_assets_suite.gd",
+      "line": 15,
+      "target": "tests/suites/cave_assets_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/visual_assets_suite.gd",
+      "line": 16,
+      "target": "tests/suites/cave_boss_assets_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/wildlife_combat_comfort_suite.gd",
+      "line": 10,
+      "target": "tests/suites/editor_actor_source_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 10,
+      "target": "tests/suites/world_rng_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 11,
+      "target": "tests/suites/water_topology_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 12,
+      "target": "tests/suites/water_navigation_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 13,
+      "target": "tests/suites/world_design_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 14,
+      "target": "tests/suites/cave_location_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 15,
+      "target": "tests/suites/cave_labyrinth_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 16,
+      "target": "tests/suites/village_regions_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 17,
+      "target": "tests/suites/village_wayfinding_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 18,
+      "target": "tests/suites/npc_availability_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 19,
+      "target": "tests/suites/cave_boss_arena_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 26,
+      "target": "tests/suites/story_relic_arena_suite.gd",
+      "kind": "inline_run"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 41,
+      "target": "tests/suites/core_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 53,
+      "target": "tests/suites/architecture_suite.gd",
+      "kind": "constant_run"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/comfort_suite.gd",
+      "kind": "runner_array",
+      "alias": "ComfortSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/gameplay_suite.gd",
+      "kind": "runner_array",
+      "alias": "GameplaySuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/world_suite.gd",
+      "kind": "runner_array",
+      "alias": "WorldSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/water_visual_suite.gd",
+      "kind": "runner_array",
+      "alias": "WaterVisualSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/buildings_suite.gd",
+      "kind": "runner_array",
+      "alias": "BuildingsSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/progression_suite.gd",
+      "kind": "runner_array",
+      "alias": "ProgressionSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/talent_suite.gd",
+      "kind": "runner_array",
+      "alias": "TalentSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/spell_suite.gd",
+      "kind": "runner_array",
+      "alias": "SpellSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/animation_suite.gd",
+      "kind": "runner_array",
+      "alias": "AnimationSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/audio_suite.gd",
+      "kind": "runner_array",
+      "alias": "AudioSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/interface_suite.gd",
+      "kind": "runner_array",
+      "alias": "InterfaceSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/enemy_levels_suite.gd",
+      "kind": "runner_array",
+      "alias": "EnemyLevelsSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/storage_forge_suite.gd",
+      "kind": "runner_array",
+      "alias": "StorageForgeSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/contracts_suite.gd",
+      "kind": "runner_array",
+      "alias": "ContractsSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/menu_suite.gd",
+      "kind": "runner_array",
+      "alias": "MenuSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/story_suite.gd",
+      "kind": "runner_array",
+      "alias": "StorySuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/fishing_suite.gd",
+      "kind": "runner_array",
+      "alias": "FishingSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/tree_suite.gd",
+      "kind": "runner_array",
+      "alias": "TreeSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/crafting_pipeline_suite.gd",
+      "kind": "runner_array",
+      "alias": "CraftingPipelineSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/pirate_ship_suite.gd",
+      "kind": "runner_array",
+      "alias": "PirateShipSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/visual_assets_suite.gd",
+      "kind": "runner_array",
+      "alias": "VisualAssetsSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/potion_suite.gd",
+      "kind": "runner_array",
+      "alias": "PotionSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/sprite_standard_suite.gd",
+      "kind": "runner_array",
+      "alias": "SpriteStandardSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/world_events_suite.gd",
+      "kind": "runner_array",
+      "alias": "WorldEventsSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/expansion_suite.gd",
+      "kind": "runner_array",
+      "alias": "ExpansionSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/adventure_polish_suite.gd",
+      "kind": "runner_array",
+      "alias": "AdventurePolishSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/enemy_animation_suite.gd",
+      "kind": "runner_array",
+      "alias": "EnemyAnimationSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/combat_epic_suite.gd",
+      "kind": "runner_array",
+      "alias": "CombatEpicSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/living_world_suite.gd",
+      "kind": "runner_array",
+      "alias": "LivingWorldSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/farm_life_suite.gd",
+      "kind": "runner_array",
+      "alias": "FarmLifeSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/first_chapter_suite.gd",
+      "kind": "runner_array",
+      "alias": "FirstChapterSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/world_farming_suite.gd",
+      "kind": "runner_array",
+      "alias": "WorldFarmingSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/level_editor_suite.gd",
+      "kind": "runner_array",
+      "alias": "LevelEditorSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/fence_building_suite.gd",
+      "kind": "runner_array",
+      "alias": "FenceBuildingSuite"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 52,
+      "target": "tests/suites/ui_visual_regression_suite.gd",
+      "kind": "runner_array",
+      "alias": "UiVisualRegressionSuite"
+    }
+  ],
+  "preload_links": [
+    {
+      "consumer": "tests/suites/adventure_polish_suite.gd",
+      "line": 5,
+      "target": "tests/suites/compact_dialogue_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/alchemy_suite.gd",
+      "line": 17,
+      "target": "tests/suites/alchemy_effects_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 8,
+      "target": "tests/suites/visual_camera_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 9,
+      "target": "tests/suites/visual_static_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 10,
+      "target": "tests/suites/ground_layers_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 11,
+      "target": "tests/suites/meadow_ground_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 12,
+      "target": "tests/suites/ground_edge_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 13,
+      "target": "tests/suites/axial_road_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 14,
+      "target": "tests/suites/road_network_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 15,
+      "target": "tests/suites/plaza_ground_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 16,
+      "target": "tests/suites/garden_soil_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 17,
+      "target": "tests/suites/decoration_rules_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 18,
+      "target": "tests/suites/terrain_revision_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 19,
+      "target": "tests/suites/ground_seasons_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 20,
+      "target": "tests/suites/object_draw_command_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 21,
+      "target": "tests/suites/pilot_object_pass_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 22,
+      "target": "tests/suites/post_motion_frame_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 23,
+      "target": "tests/suites/plant_depth_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 24,
+      "target": "tests/suites/transient_visual_save_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 25,
+      "target": "tests/suites/foliage_root_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 26,
+      "target": "tests/suites/foliage_uv_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 27,
+      "target": "tests/suites/foliage_wind_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 28,
+      "target": "tests/suites/foliage_contact_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 29,
+      "target": "tests/suites/foliage_speed_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 30,
+      "target": "tests/suites/foliage_recovery_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 31,
+      "target": "tests/suites/foliage_pause_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 32,
+      "target": "tests/suites/foliage_visibility_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 33,
+      "target": "tests/suites/village_bench_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 34,
+      "target": "tests/suites/village_street_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 35,
+      "target": "tests/suites/village_lamp_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 36,
+      "target": "tests/suites/village_fence_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 37,
+      "target": "tests/suites/village_board_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 38,
+      "target": "tests/suites/village_trade_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 39,
+      "target": "tests/suites/coordinate_contract_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 40,
+      "target": "tests/suites/camera_quantization_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 41,
+      "target": "tests/suites/presentation_pose_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 42,
+      "target": "tests/suites/reference_zoom_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 43,
+      "target": "tests/suites/visual_motion_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/architecture_suite.gd",
+      "line": 100,
+      "target": "tests/suites/content_reference_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/atomic_save_suite.gd",
+      "line": 10,
+      "target": "tests/suites/atomic_fault_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/combat_epic_suite.gd",
+      "line": 6,
+      "target": "tests/suites/player_contact_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/combat_epic_suite.gd",
+      "line": 7,
+      "target": "tests/suites/enemy_projectile_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/combat_epic_suite.gd",
+      "line": 8,
+      "target": "tests/suites/boss_balance_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/combat_epic_suite.gd",
+      "line": 9,
+      "target": "tests/suites/cave_geometry_cache_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/combat_epic_suite.gd",
+      "line": 10,
+      "target": "tests/suites/cave_boss_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/combat_epic_suite.gd",
+      "line": 11,
+      "target": "tests/suites/cave_boss_minions_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 3,
+      "target": "tests/suites/runtime_comfort_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 4,
+      "target": "tests/suites/item_window_comfort_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 5,
+      "target": "tests/suites/hud_comfort_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 6,
+      "target": "tests/suites/hero_action_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 7,
+      "target": "tests/suites/hero_visual_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 8,
+      "target": "tests/suites/village_map_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 9,
+      "target": "tests/suites/ui_text_metrics_cache_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 10,
+      "target": "tests/suites/player_corner_assist_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 11,
+      "target": "tests/suites/tree_occlusion_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 12,
+      "target": "tests/suites/player_corner_world_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 13,
+      "target": "tests/suites/grandmother_visual_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 14,
+      "target": "tests/suites/compact_hud_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 15,
+      "target": "tests/suites/quick_access_visual_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 19,
+      "target": "tests/suites/action_lifecycle_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 20,
+      "target": "tests/suites/focus_pause_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 21,
+      "target": "tests/suites/runtime_maintenance_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 22,
+      "target": "tests/suites/qa_teleport_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 23,
+      "target": "tests/suites/held_weapon_visibility_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 24,
+      "target": "tests/suites/resident_visual_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 25,
+      "target": "tests/suites/village_clearance_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 26,
+      "target": "tests/suites/celestial_dial_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 27,
+      "target": "tests/suites/hero_combat_visual_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 28,
+      "target": "tests/suites/hero_action_visual_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 29,
+      "target": "tests/suites/horizontal_pause_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/comfort_suite.gd",
+      "line": 30,
+      "target": "tests/suites/lunar_menu_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/core_suite.gd",
+      "line": 5,
+      "target": "tests/suites/save_integrity_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/core_suite.gd",
+      "line": 6,
+      "target": "tests/suites/atomic_save_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 6,
+      "target": "tests/suites/inventory_transaction_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 7,
+      "target": "tests/suites/front_facing_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 8,
+      "target": "tests/suites/basement_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 9,
+      "target": "tests/suites/basement_content_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 10,
+      "target": "tests/suites/kitchen_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 11,
+      "target": "tests/suites/workshop_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 12,
+      "target": "tests/suites/artisan_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 13,
+      "target": "tests/suites/garden_crafting_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 14,
+      "target": "tests/suites/research_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 15,
+      "target": "tests/suites/furnace_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/crafting_pipeline_suite.gd",
+      "line": 16,
+      "target": "tests/suites/household_cooking_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/decoration_rules_suite.gd",
+      "line": 70,
+      "target": "tests/suites/axial_road_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/dev_cabinet_suite.gd",
+      "line": 136,
+      "target": "tests/suites/artisan_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/farm_alchemy_learning_suite.gd",
+      "line": 25,
+      "target": "tests/suites/farm_economy_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 6,
+      "target": "tests/suites/farm_economy_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 7,
+      "target": "tests/suites/farm_recycling_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 8,
+      "target": "tests/suites/farm_seasons_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 9,
+      "target": "tests/suites/farm_livestock_loop_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 10,
+      "target": "tests/suites/farm_queue_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 11,
+      "target": "tests/suites/farm_alchemy_learning_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 12,
+      "target": "tests/suites/farm_fishing_access_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 13,
+      "target": "tests/suites/production_plan_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 14,
+      "target": "tests/suites/livestock_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 15,
+      "target": "tests/suites/apiary_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/farm_life_suite.gd",
+      "line": 19,
+      "target": "tests/suites/house_furniture_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/first_chapter_suite.gd",
+      "line": 5,
+      "target": "tests/suites/first_week_route_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/fishing_suite.gd",
+      "line": 6,
+      "target": "tests/suites/water_fishing_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/foliage_uv_suite.gd",
+      "line": 6,
+      "target": "tests/suites/foliage_root_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/gameplay_suite.gd",
+      "line": 7,
+      "target": "tests/suites/dropped_loot_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/garden_soil_suite.gd",
+      "line": 5,
+      "target": "tests/suites/axial_road_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 6,
+      "target": "tests/suites/level_editor_runtime_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 7,
+      "target": "tests/suites/asset_boundary_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 8,
+      "target": "tests/suites/visual_resource_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 9,
+      "target": "tests/suites/visual_sampling_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 10,
+      "target": "tests/suites/padded_atlas_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 11,
+      "target": "tests/suites/texture_intent_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 12,
+      "target": "tests/suites/item_sizes_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/level_editor_suite.gd",
+      "line": 13,
+      "target": "tests/suites/atlas_source_geometry_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/livestock_suite.gd",
+      "line": 114,
+      "target": "tests/suites/village_clearance_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/living_world_suite.gd",
+      "line": 6,
+      "target": "tests/suites/wildlife_combat_comfort_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/living_world_suite.gd",
+      "line": 7,
+      "target": "tests/suites/inspector_query_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/menu_suite.gd",
+      "line": 9,
+      "target": "tests/suites/recovery_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/navigation_broadphase_suite.gd",
+      "line": 8,
+      "target": "tests/suites/wildlife_query_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/plaza_ground_suite.gd",
+      "line": 8,
+      "target": "tests/suites/axial_road_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/potion_suite.gd",
+      "line": 6,
+      "target": "tests/suites/alchemy_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/road_network_suite.gd",
+      "line": 8,
+      "target": "tests/suites/axial_road_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/runtime_comfort_suite.gd",
+      "line": 6,
+      "target": "tests/suites/debug_frame_budget_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/runtime_comfort_suite.gd",
+      "line": 7,
+      "target": "tests/suites/navigation_broadphase_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/save_integrity_suite.gd",
+      "line": 9,
+      "target": "tests/suites/save_catalog_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/storage_forge_suite.gd",
+      "line": 5,
+      "target": "tests/suites/storage_grid_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/storage_forge_suite.gd",
+      "line": 6,
+      "target": "tests/suites/storage_view_cache_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/storage_forge_suite.gd",
+      "line": 7,
+      "target": "tests/suites/dev_cabinet_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/storage_forge_suite.gd",
+      "line": 8,
+      "target": "tests/suites/storage_actions_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/terrain_revision_suite.gd",
+      "line": 61,
+      "target": "tests/suites/axial_road_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/ui_visual_regression_suite.gd",
+      "line": 6,
+      "target": "tests/suites/paper_theme_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/visual_assets_suite.gd",
+      "line": 11,
+      "target": "tests/suites/lazy_item_icons_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/visual_assets_suite.gd",
+      "line": 12,
+      "target": "tests/suites/prepared_pixel_cache_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/visual_assets_suite.gd",
+      "line": 13,
+      "target": "tests/suites/painted_item_icon_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/visual_assets_suite.gd",
+      "line": 14,
+      "target": "tests/suites/item_icon_contract_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/visual_assets_suite.gd",
+      "line": 15,
+      "target": "tests/suites/cave_assets_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/visual_assets_suite.gd",
+      "line": 16,
+      "target": "tests/suites/cave_boss_assets_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/wildlife_combat_comfort_suite.gd",
+      "line": 10,
+      "target": "tests/suites/editor_actor_source_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 10,
+      "target": "tests/suites/world_rng_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 11,
+      "target": "tests/suites/water_topology_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 12,
+      "target": "tests/suites/water_navigation_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 13,
+      "target": "tests/suites/world_design_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 14,
+      "target": "tests/suites/cave_location_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 15,
+      "target": "tests/suites/cave_labyrinth_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 16,
+      "target": "tests/suites/village_regions_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 17,
+      "target": "tests/suites/village_wayfinding_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 18,
+      "target": "tests/suites/npc_availability_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 19,
+      "target": "tests/suites/cave_boss_arena_suite.gd"
+    },
+    {
+      "consumer": "tests/suites/world_suite.gd",
+      "line": 26,
+      "target": "tests/suites/story_relic_arena_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 4,
+      "target": "tests/suites/architecture_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 5,
+      "target": "tests/suites/core_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 6,
+      "target": "tests/suites/comfort_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 7,
+      "target": "tests/suites/gameplay_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 8,
+      "target": "tests/suites/world_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 8,
+      "target": "tests/suites/water_visual_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 9,
+      "target": "tests/suites/buildings_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 10,
+      "target": "tests/suites/progression_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 10,
+      "target": "tests/suites/talent_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 11,
+      "target": "tests/suites/animation_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 12,
+      "target": "tests/suites/audio_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 13,
+      "target": "tests/suites/interface_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 14,
+      "target": "tests/suites/enemy_levels_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 15,
+      "target": "tests/suites/storage_forge_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 16,
+      "target": "tests/suites/contracts_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 17,
+      "target": "tests/suites/menu_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 18,
+      "target": "tests/suites/story_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 19,
+      "target": "tests/suites/fishing_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 20,
+      "target": "tests/suites/tree_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 20,
+      "target": "tests/suites/crafting_pipeline_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 21,
+      "target": "tests/suites/pirate_ship_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 22,
+      "target": "tests/suites/visual_assets_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 23,
+      "target": "tests/suites/potion_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 24,
+      "target": "tests/suites/sprite_standard_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 25,
+      "target": "tests/suites/world_events_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 26,
+      "target": "tests/suites/expansion_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 27,
+      "target": "tests/suites/adventure_polish_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 28,
+      "target": "tests/suites/enemy_animation_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 29,
+      "target": "tests/suites/living_world_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 30,
+      "target": "tests/suites/farm_life_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 30,
+      "target": "tests/suites/world_farming_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 30,
+      "target": "tests/suites/level_editor_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 30,
+      "target": "tests/suites/fence_building_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 31,
+      "target": "tests/suites/first_chapter_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 31,
+      "target": "tests/suites/spell_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 31,
+      "target": "tests/suites/ui_visual_regression_suite.gd"
+    },
+    {
+      "consumer": "tests/test_game.gd",
+      "line": 31,
+      "target": "tests/suites/combat_epic_suite.gd"
+    }
+  ],
+  "static_run_path_counts": {
+    "tests/suites/action_lifecycle_suite.gd": 1,
+    "tests/suites/adventure_polish_suite.gd": 1,
+    "tests/suites/alchemy_effects_suite.gd": 1,
+    "tests/suites/alchemy_suite.gd": 1,
+    "tests/suites/animation_suite.gd": 1,
+    "tests/suites/apiary_suite.gd": 1,
+    "tests/suites/architecture_suite.gd": 1,
+    "tests/suites/artisan_suite.gd": 1,
+    "tests/suites/asset_boundary_suite.gd": 1,
+    "tests/suites/atlas_source_geometry_suite.gd": 1,
+    "tests/suites/atomic_fault_suite.gd": 1,
+    "tests/suites/atomic_save_suite.gd": 1,
+    "tests/suites/audio_suite.gd": 1,
+    "tests/suites/axial_road_suite.gd": 1,
+    "tests/suites/basement_content_suite.gd": 1,
+    "tests/suites/basement_suite.gd": 1,
+    "tests/suites/boss_balance_suite.gd": 1,
+    "tests/suites/buildings_suite.gd": 1,
+    "tests/suites/camera_quantization_suite.gd": 1,
+    "tests/suites/cave_assets_suite.gd": 1,
+    "tests/suites/cave_boss_arena_suite.gd": 1,
+    "tests/suites/cave_boss_assets_suite.gd": 1,
+    "tests/suites/cave_boss_minions_suite.gd": 1,
+    "tests/suites/cave_boss_suite.gd": 1,
+    "tests/suites/cave_geometry_cache_suite.gd": 1,
+    "tests/suites/cave_labyrinth_suite.gd": 1,
+    "tests/suites/cave_location_suite.gd": 1,
+    "tests/suites/celestial_dial_suite.gd": 1,
+    "tests/suites/combat_epic_suite.gd": 1,
+    "tests/suites/comfort_suite.gd": 1,
+    "tests/suites/compact_dialogue_suite.gd": 1,
+    "tests/suites/compact_hud_suite.gd": 1,
+    "tests/suites/content_reference_suite.gd": 1,
+    "tests/suites/contracts_suite.gd": 1,
+    "tests/suites/coordinate_contract_suite.gd": 1,
+    "tests/suites/core_suite.gd": 1,
+    "tests/suites/crafting_pipeline_suite.gd": 1,
+    "tests/suites/debug_frame_budget_suite.gd": 1,
+    "tests/suites/decoration_rules_suite.gd": 1,
+    "tests/suites/dev_cabinet_suite.gd": 1,
+    "tests/suites/dropped_loot_suite.gd": 1,
+    "tests/suites/editor_actor_source_suite.gd": 1,
+    "tests/suites/enemy_animation_suite.gd": 1,
+    "tests/suites/enemy_levels_suite.gd": 1,
+    "tests/suites/enemy_projectile_suite.gd": 1,
+    "tests/suites/expansion_suite.gd": 1,
+    "tests/suites/farm_alchemy_learning_suite.gd": 1,
+    "tests/suites/farm_economy_suite.gd": 1,
+    "tests/suites/farm_fishing_access_suite.gd": 1,
+    "tests/suites/farm_life_suite.gd": 1,
+    "tests/suites/farm_livestock_loop_suite.gd": 1,
+    "tests/suites/farm_queue_suite.gd": 1,
+    "tests/suites/farm_recycling_suite.gd": 1,
+    "tests/suites/farm_seasons_suite.gd": 1,
+    "tests/suites/fence_building_suite.gd": 1,
+    "tests/suites/first_chapter_suite.gd": 1,
+    "tests/suites/first_week_route_suite.gd": 1,
+    "tests/suites/fishing_suite.gd": 1,
+    "tests/suites/focus_pause_suite.gd": 1,
+    "tests/suites/foliage_contact_suite.gd": 1,
+    "tests/suites/foliage_pause_suite.gd": 1,
+    "tests/suites/foliage_recovery_suite.gd": 1,
+    "tests/suites/foliage_root_suite.gd": 1,
+    "tests/suites/foliage_speed_suite.gd": 1,
+    "tests/suites/foliage_uv_suite.gd": 1,
+    "tests/suites/foliage_visibility_suite.gd": 1,
+    "tests/suites/foliage_wind_suite.gd": 1,
+    "tests/suites/front_facing_suite.gd": 1,
+    "tests/suites/furnace_suite.gd": 1,
+    "tests/suites/gameplay_suite.gd": 1,
+    "tests/suites/garden_crafting_suite.gd": 1,
+    "tests/suites/garden_soil_suite.gd": 1,
+    "tests/suites/grandmother_visual_suite.gd": 1,
+    "tests/suites/ground_edge_suite.gd": 1,
+    "tests/suites/ground_layers_suite.gd": 1,
+    "tests/suites/ground_seasons_suite.gd": 1,
+    "tests/suites/held_weapon_visibility_suite.gd": 1,
+    "tests/suites/hero_action_suite.gd": 1,
+    "tests/suites/hero_action_visual_suite.gd": 1,
+    "tests/suites/hero_combat_visual_suite.gd": 1,
+    "tests/suites/hero_visual_suite.gd": 1,
+    "tests/suites/horizontal_pause_suite.gd": 1,
+    "tests/suites/house_furniture_suite.gd": 1,
+    "tests/suites/household_cooking_suite.gd": 1,
+    "tests/suites/hud_comfort_suite.gd": 1,
+    "tests/suites/inspector_query_suite.gd": 1,
+    "tests/suites/interface_suite.gd": 1,
+    "tests/suites/inventory_transaction_suite.gd": 1,
+    "tests/suites/item_icon_contract_suite.gd": 1,
+    "tests/suites/item_sizes_suite.gd": 1,
+    "tests/suites/item_window_comfort_suite.gd": 1,
+    "tests/suites/kitchen_suite.gd": 1,
+    "tests/suites/lazy_item_icons_suite.gd": 1,
+    "tests/suites/level_editor_runtime_suite.gd": 1,
+    "tests/suites/level_editor_suite.gd": 1,
+    "tests/suites/livestock_suite.gd": 1,
+    "tests/suites/living_world_suite.gd": 1,
+    "tests/suites/lunar_menu_suite.gd": 1,
+    "tests/suites/meadow_ground_suite.gd": 1,
+    "tests/suites/menu_suite.gd": 1,
+    "tests/suites/navigation_broadphase_suite.gd": 1,
+    "tests/suites/npc_availability_suite.gd": 1,
+    "tests/suites/object_draw_command_suite.gd": 1,
+    "tests/suites/padded_atlas_suite.gd": 1,
+    "tests/suites/painted_item_icon_suite.gd": 1,
+    "tests/suites/paper_theme_suite.gd": 1,
+    "tests/suites/pilot_object_pass_suite.gd": 1,
+    "tests/suites/pirate_ship_suite.gd": 1,
+    "tests/suites/plant_depth_suite.gd": 1,
+    "tests/suites/player_contact_suite.gd": 1,
+    "tests/suites/player_corner_assist_suite.gd": 1,
+    "tests/suites/player_corner_world_suite.gd": 1,
+    "tests/suites/plaza_ground_suite.gd": 1,
+    "tests/suites/post_motion_frame_suite.gd": 1,
+    "tests/suites/potion_suite.gd": 1,
+    "tests/suites/prepared_pixel_cache_suite.gd": 1,
+    "tests/suites/presentation_pose_suite.gd": 1,
+    "tests/suites/production_plan_suite.gd": 1,
+    "tests/suites/progression_suite.gd": 1,
+    "tests/suites/qa_teleport_suite.gd": 1,
+    "tests/suites/quick_access_visual_suite.gd": 1,
+    "tests/suites/recovery_suite.gd": 1,
+    "tests/suites/reference_zoom_suite.gd": 1,
+    "tests/suites/research_suite.gd": 1,
+    "tests/suites/resident_visual_suite.gd": 1,
+    "tests/suites/road_network_suite.gd": 1,
+    "tests/suites/runtime_comfort_suite.gd": 1,
+    "tests/suites/runtime_maintenance_suite.gd": 1,
+    "tests/suites/save_catalog_suite.gd": 1,
+    "tests/suites/save_integrity_suite.gd": 1,
+    "tests/suites/spell_suite.gd": 1,
+    "tests/suites/sprite_standard_suite.gd": 1,
+    "tests/suites/storage_actions_suite.gd": 1,
+    "tests/suites/storage_forge_suite.gd": 1,
+    "tests/suites/storage_grid_suite.gd": 1,
+    "tests/suites/storage_view_cache_suite.gd": 1,
+    "tests/suites/story_relic_arena_suite.gd": 1,
+    "tests/suites/story_suite.gd": 1,
+    "tests/suites/talent_suite.gd": 1,
+    "tests/suites/terrain_revision_suite.gd": 1,
+    "tests/suites/texture_intent_suite.gd": 1,
+    "tests/suites/transient_visual_save_suite.gd": 1,
+    "tests/suites/tree_occlusion_suite.gd": 1,
+    "tests/suites/tree_suite.gd": 1,
+    "tests/suites/ui_text_metrics_cache_suite.gd": 1,
+    "tests/suites/ui_visual_regression_suite.gd": 1,
+    "tests/suites/village_bench_suite.gd": 1,
+    "tests/suites/village_board_suite.gd": 1,
+    "tests/suites/village_clearance_suite.gd": 1,
+    "tests/suites/village_fence_suite.gd": 1,
+    "tests/suites/village_lamp_suite.gd": 1,
+    "tests/suites/village_map_suite.gd": 1,
+    "tests/suites/village_regions_suite.gd": 1,
+    "tests/suites/village_street_suite.gd": 1,
+    "tests/suites/village_trade_suite.gd": 1,
+    "tests/suites/village_wayfinding_suite.gd": 1,
+    "tests/suites/visual_assets_suite.gd": 1,
+    "tests/suites/visual_camera_suite.gd": 1,
+    "tests/suites/visual_motion_suite.gd": 1,
+    "tests/suites/visual_resource_suite.gd": 1,
+    "tests/suites/visual_sampling_suite.gd": 1,
+    "tests/suites/visual_static_suite.gd": 1,
+    "tests/suites/water_fishing_suite.gd": 1,
+    "tests/suites/water_navigation_suite.gd": 1,
+    "tests/suites/water_topology_suite.gd": 1,
+    "tests/suites/water_visual_suite.gd": 1,
+    "tests/suites/wildlife_combat_comfort_suite.gd": 1,
+    "tests/suites/wildlife_query_suite.gd": 1,
+    "tests/suites/workshop_suite.gd": 1,
+    "tests/suites/world_design_suite.gd": 1,
+    "tests/suites/world_events_suite.gd": 1,
+    "tests/suites/world_farming_suite.gd": 1,
+    "tests/suites/world_rng_suite.gd": 1,
+    "tests/suites/world_suite.gd": 1
+  },
+  "cycles": [],
+  "unreached_suite_files": [],
+  "multiple_static_run_paths": {},
+  "limit": "static activation graph, not an execution trace; actual full Game result recorded separately"
+}
