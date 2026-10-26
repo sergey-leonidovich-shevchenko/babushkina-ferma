@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "task": "REFACTOR-00",
+  "own_parent": "70fe4d2fc36bcc073568db85966b73bdf7e620ed",
+  "incoming_main": "7dde012ffba227da1277ddf14dccb48553531c09",
+  "version": "0.0.339",
+  "scope": "Local checks of integration sources; exact committed head and independent CI/review are reported in PR #9.",
+  "gates": {
+    "architecture": {
+      "command": "tools/check_architecture.sh",
+      "exit_code": 0,
+      "unittest_suites": 82,
+      "cases": 1135,
+      "historical_visibility_reader": [
+        512,
+        36,
+        24
+      ],
+      "visibility_controls": 34,
+      "log": "architecture.txt"
+    },
+    "game": {
+      "command": "./run_tests.sh",
+      "exit_code": 0,
+      "passed": 53502,
+      "failed": 0,
+      "redraw_normal": [
+        90,
+        0
+      ],
+      "redraw_f10": [
+        90,
+        0
+      ],
+      "log": "game.txt"
+    },
+    "wiki_first": {
+      "command": "pnpm check",
+      "cwd": "wiki",
+      "exit_code": 0,
+      "passed": 135,
+      "failed": 0,
+      "log": "wiki-first.txt"
+    },
+    "wiki_final": {
+      "command": "pnpm check",
+      "cwd": "wiki",
+      "exit_code": 0,
+      "passed": 135,
+      "failed": 0,
+      "log": "wiki-final.txt"
+    }
+  },
+  "final_checks": [
+    {
+      "command": [
+        "python3",
+        "tools/check_documentation.py"
+      ],
+      "exit_code": 0,
+      "log": "final-0.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/project_backlog.py"
+      ],
+      "exit_code": 0,
+      "log": "final-1.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/visual_backlog.py"
+      ],
+      "exit_code": 0,
+      "log": "final-2.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/bump_version.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "final-3.txt"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "7dde012ffba227da1277ddf14dccb48553531c09"
+      ],
+      "exit_code": 0,
+      "log": "final-4.txt"
+    }
+  ],
+  "ci": "not replaced by these local logs; current-head status is in PR #9",
+  "review": "independent Team Lead review required; author does not self-approve",
+  "commit_hooks": "all mandatory gates run explicitly; duplicate pre-commit bypassed, ordinary post-commit kept",
+  "source_sha256": {
+    "AGENTS.md": "b7e9443dcd2cc481ad85fc360fca5dc2b7b4bfaf0ea5d0a93a122b29991f13d4",
+    "TESTING.md": "58eb664fe05d8fe7b9f5f8575402ad5baccae42f5b3a4117f9056c403e39e914",
+    "VERSION": "07c05699c97d2edeb07c77ed099e450fb474764d7c5d4a54a235aea289f64525",
+    "project.godot": "81661a7c6c6d85640c0da5e8cb6f1dc1f57072307607fd4fef9b65d526ff6164",
+    "Бабушкина ферма.app/Contents/Info.plist": "c522530085d2f6ddb271e97780235cdae8f07c5f2fc9276511dbc9d02a123e5a",
+    "docs/backlog/README.md": "d0edf8e764015a75dcd062d84e045ea79b55462c00e29930ffb1dd084d363c6b",
+    "docs/epics/refactoring-2026-10/README.md": "d551ae6c745824e8345159bfaa4789332d558a9b5a7b79df41a2fb7129f0dd61",
+    "docs/epics/refactoring-2026-10/TASKS.md": "a3f5e456d971c2451e3af59982f5b089b0b4a806e70deb3c77c48fa682017da7",
+    "docs/reports/refactor-00/README.md": "2f4e85fddacf522ef775b06700af77823e1c63c41901bd6b9135b4db8c81c406",
+    "wiki/articles/project-refactoring.md": "da8bfb949562da066ac8ef3f10f7e4c3f1802d7f1e0f70dbe2226ca2d0dbd07a",
+    "wiki/articles/visual-pilot.md": "b576681bc872d9f8315017dbb6b5a29f16e09de6b83198738d4604e2288b7eaa",
+    "wiki/articles/index.json": "cabeecf6e7466abeecc3c49fdf7f74e60d200e2f2f959b58308bebb4b2808765",
+    "wiki/planning/sources.json": "02bb479081c92d080b672db671e6c3ac6f6bee13e8ba3c96809e69d420b3ea7b"
+  },
+  "artifact_sha256": {
+    "wiki-final.txt": "da7606d61bbcbc63c960d0184a5fb77bd62b9f8b8bf1df4613affe42228268b0",
+    "preservation.json": "7447cbaf4350370b6c397b086004ad749d236fa503d463b5fd488c29d436663f",
+    "game.txt": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+    "README.md": "c4c1554665d03607cc79bfa0d66dee114b5e183c8d50813bafb8017d662cf558",
+    "final-4.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "final-3.txt": "8fb5a67298ef1bc5205a24ee340f5daccc49bc0c6a2dca1d8f02c020c8efe1f8",
+    "final-2.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "final-0.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "architecture.txt": "ca1b83408c591451fc07c70e4a3aa02faaab5bbe4f712d6eed44a56cb4839f8b",
+    "final-1.txt": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a",
+    "wiki-first.txt": "d68d3c621ca525d95d3a54a7cdff22a3f96b086d6a61cedbd9e6fa7b2d801dc9",
+    "browser.json": "0cfcc87b1eb5f833779f1367cbbe84d71c1ccf8b4fbff816a1179a101ecb811c"
+  }
+}

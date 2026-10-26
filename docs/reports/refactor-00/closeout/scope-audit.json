@@ -1,0 +1,24 @@
+{
+  "accepted_base": "3befe8356aa7beafd0b93c2eb7d3d3d004c9cfdd",
+  "changed_task_statuses": {
+    "REFACTOR-00": [
+      "in_progress",
+      "done"
+    ],
+    "REFACTOR-01": [
+      "blocked",
+      "ready"
+    ]
+  },
+  "other_task_contents_unchanged": true,
+  "changed_wiki_index_ids": [
+    "project-refactoring"
+  ],
+  "wiki_unique_ids": 156,
+  "accepted_own_receipts_preserved": 17,
+  "accepted_VFOLIAGE_receipts_preserved": 344,
+  "source_runtime_tools_assets_tests_hooks_workflows_planning_unchanged": true,
+  "metadata_only_delta": "0.0.340 -> 0.0.341",
+  "new_audit_or_moves_started": false,
+  "Task_Complete_refers_to_accepted_PR9": true
+}

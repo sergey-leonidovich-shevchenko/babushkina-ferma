@@ -1,0 +1,17 @@
+{
+  "command": [
+    "tmp/vfoliage-python311-venv/bin/python3",
+    "tools/test_foliage_visibility.py",
+    "FutureCandidateControls.test_inherited_hook_environment_preserves_parent_config_and_index"
+  ],
+  "exit": 0,
+  "real_parent_before": {
+    "config": "8b32312e13ded3fd3de6556404919c9342f7bed60a07f323621b402f9a990d60",
+    "index": "eaab2b50f7a4a97c031e54ef099716f3e6a55bf1777b98aba67e9ec892c82511"
+  },
+  "real_parent_after": {
+    "config": "8b32312e13ded3fd3de6556404919c9342f7bed60a07f323621b402f9a990d60",
+    "index": "eaab2b50f7a4a97c031e54ef099716f3e6a55bf1777b98aba67e9ec892c82511"
+  },
+  "unchanged": true
+}

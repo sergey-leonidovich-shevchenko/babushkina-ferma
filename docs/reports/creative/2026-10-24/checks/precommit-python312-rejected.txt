@@ -1,0 +1,123 @@
+VERSION: 0.0.334 -> 0.0.335
+VERSION: 0.0.335 synchronized
+................
+----------------------------------------------------------------------
+Ran 16 tests in 11.690s
+
+OK
+DOCUMENTATION: обязательные файлы и локальные ссылки корректны
+DOCUMENTATION TEST: свои ссылки проверяются, зависимости и сборки исключены
+WORLD SPRITE AUDIT TEST: dynamic discovery and dead preload checks are valid
+WORLD SPRITE AUDIT: 29 семейств; готово 28; открыто P1=1, P2=0, P3=0
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.035s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.041s
+
+OK
+SPRITE CLEANUP: 90 retired resources; dynamic paths and consumers preserved
+BACKLOG OK: 6 epics / 50 tasks / 6 Ready; network: 0
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.168s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.003s
+
+OK
+/Users/sergeyshevchenko/.codex/worktrees/creative-npc-review-24/my farm/tools/visual_backlog.py:139: SyntaxWarning: invalid escape sequence '\s'
+  function render(){const words=query.value.toLocaleLowerCase('ru').split(/\s+/).filter(Boolean);const found=data.filter(t=>(!epic.value||t.epic===epic.value)&&(!phase.value||t.phase===phase.value)&&words.every(w=>(t.id+' '+t.title+' '+t.goal).toLocaleLowerCase('ru').includes(w)));results.replaceChildren();for(const t of found.slice(0,limit)){const row=document.createElement('article'),heading=document.createElement('h2'),link=document.createElement('a'),meta=document.createElement('p'),goal=document.createElement('p'),deps=document.createElement('p');link.href='epics/'+t.epic.toLowerCase()+'.md#'+t.id.toLowerCase();link.textContent=t.id+' · '+t.title;heading.append(link);meta.className='meta';meta.textContent=t.priority+' · '+stateNames[t.status]+' · '+t.phase+(t.parent_owner?' · Владелец: '+t.parent_owner:'');goal.textContent=t.goal;deps.className='meta';deps.textContent='Зависимости: '+(t.depends_on.join(', ')||'нет');row.append(heading,meta,goal,deps);results.append(row)}count.textContent='Найдено '+found.length+' · показано '+Math.min(found.length,limit);more.hidden=found.length<=limit;}
+VISUAL BACKLOG: 25 epics, 1037 tasks, graph/coverage/archive/documents valid
+/Users/sergeyshevchenko/.codex/worktrees/creative-npc-review-24/my farm/tools/visual_backlog.py:139: SyntaxWarning: invalid escape sequence '\s'
+  function render(){const words=query.value.toLocaleLowerCase('ru').split(/\s+/).filter(Boolean);const found=data.filter(t=>(!epic.value||t.epic===epic.value)&&(!phase.value||t.phase===phase.value)&&words.every(w=>(t.id+' '+t.title+' '+t.goal).toLocaleLowerCase('ru').includes(w)));results.replaceChildren();for(const t of found.slice(0,limit)){const row=document.createElement('article'),heading=document.createElement('h2'),link=document.createElement('a'),meta=document.createElement('p'),goal=document.createElement('p'),deps=document.createElement('p');link.href='epics/'+t.epic.toLowerCase()+'.md#'+t.id.toLowerCase();link.textContent=t.id+' · '+t.title;heading.append(link);meta.className='meta';meta.textContent=t.priority+' · '+stateNames[t.status]+' · '+t.phase+(t.parent_owner?' · Владелец: '+t.parent_owner:'');goal.textContent=t.goal;deps.className='meta';deps.textContent='Зависимости: '+(t.depends_on.join(', ')||'нет');row.append(heading,meta,goal,deps);results.append(row)}count.textContent='Найдено '+found.length+' · показано '+Math.min(found.length,limit);more.hidden=found.length<=limit;}
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 12.567s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.738s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 2.491s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 4.035s
+
+OK
+CAMERA: valid static reference contract
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.291s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 1.694s
+
+OK
+COORDINATES: native transforms, pointer, feet, videos and artifact hashes valid
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 2.197s
+
+OK
+......................
+----------------------------------------------------------------------
+Ran 22 tests in 13.575s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 5.105s
+
+OK
+..........................
+----------------------------------------------------------------------
+Ran 26 tests in 4.349s
+
+OK
+.............................................
+----------------------------------------------------------------------
+Ran 45 tests in 1.519s
+
+OK
+/Users/sergeyshevchenko/.codex/worktrees/creative-npc-review-24/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+/Users/sergeyshevchenko/.codex/worktrees/creative-npc-review-24/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+.../Users/sergeyshevchenko/.codex/worktrees/creative-npc-review-24/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+....../Users/sergeyshevchenko/.codex/worktrees/creative-npc-review-24/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+...../Users/sergeyshevchenko/.codex/worktrees/creative-npc-review-24/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+.
+----------------------------------------------------------------------
+Ran 15 tests in 9.823s
+
+OK
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/creative-npc-review-24/my farm/tools/grass_methods.py", line 271, in <module>
+    if (REPORT/'summary.json').exists(): require(read(REPORT/'summary.json')==result,'published summary differs from raw evidence')
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/creative-npc-review-24/my farm/tools/grass_methods.py", line 29, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: published summary differs from raw evidence

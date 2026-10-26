@@ -1,0 +1,121 @@
+{
+  "task": "VFOLIAGE-010",
+  "scope": "accounting closeout of merged PR7",
+  "local_checks_complete": true,
+  "mandatory_gates": [
+    {
+      "command": "tools/check_architecture.sh",
+      "exit": 0,
+      "raw": "architecture.txt",
+      "sha256": "283bbdad70a5482a1eef1f324606c2b3493f65e71a931267a6d4e715d2048875"
+    },
+    {
+      "command": "./run_tests.sh",
+      "exit": 0,
+      "raw": "game.txt",
+      "sha256": "49b41012bede7a8c0923907ce453645758ff773f851431bbde5e9e1d0c724f70"
+    },
+    {
+      "command": "pnpm --dir wiki check",
+      "exit": 0,
+      "raw": "wiki.txt",
+      "sha256": "5385279c96374d51ce0f6b94b5eca8c3b576aaae39b74a1bfd9904cd765ab96d"
+    }
+  ],
+  "source_files": {
+    "tools/foliage_visibility_provenance.py": "ee2c962141890f02ee5d060ea8e5a4f35b3a3c0a95906c932eaa8ceea75db2b9",
+    "tools/test_foliage_visibility.py": "dcaa942f8d6c5bd0f673406a4c7c61670a7b4c2d3b623fd2d8bf9ba0485cc8cd",
+    "VERSION": "07c05699c97d2edeb07c77ed099e450fb474764d7c5d4a54a235aea289f64525",
+    "project.godot": "81661a7c6c6d85640c0da5e8cb6f1dc1f57072307607fd4fef9b65d526ff6164",
+    "Бабушкина ферма.app/Contents/Info.plist": "c522530085d2f6ddb271e97780235cdae8f07c5f2fc9276511dbc9d02a123e5a"
+  },
+  "accepted_report_files_unchanged": 296,
+  "final_document_checks": [
+    {
+      "command": [
+        "tools/visual_backlog.py"
+      ],
+      "exit": 0,
+      "raw": "final-0.txt"
+    },
+    {
+      "command": [
+        "tools/test_visual_backlog.py"
+      ],
+      "exit": 0,
+      "raw": "final-1.txt"
+    },
+    {
+      "command": [
+        "tools/check_documentation.py"
+      ],
+      "exit": 0,
+      "raw": "final-2.txt"
+    },
+    {
+      "command": [
+        "tools/test_documentation.py"
+      ],
+      "exit": 0,
+      "raw": "final-3.txt"
+    },
+    {
+      "command": [
+        "tools/bump_version.py",
+        "--check"
+      ],
+      "exit": 0,
+      "raw": "final-4.txt"
+    }
+  ],
+  "own_PR_review_and_CI_required": true,
+  "wiki_metadata_refresh": {
+    "command": "pnpm --dir wiki check",
+    "exit": 0,
+    "passed": 135,
+    "failed": 0,
+    "raw": "wiki-metadata.txt"
+  },
+  "browser": {
+    "record": "browser.json",
+    "completion_attachment_exact": true,
+    "task_done": true,
+    "foliage_progress": [
+      8,
+      10
+    ],
+    "VMAP_progress": [
+      0,
+      3
+    ]
+  },
+  "artifacts": {
+    "README.md": "7591a23aff7f16492a59b31362575a0a13faa90ae371f08e4ed31362d8e9384c",
+    "accepted-files.json": "eb9fcdacaebb134d30463baac92751dad059f701bf7298000f40943ccb81903a",
+    "architecture.txt": "283bbdad70a5482a1eef1f324606c2b3493f65e71a931267a6d4e715d2048875",
+    "backlog-refresh.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "browser-article.png": "0c49d09c16843e7379804f514e3ed3b0cb12802d30bb3ed3a25581af25b61734",
+    "browser-attachment.txt": "b70d8e5b0c3fc3f4a7eec0e5184e270fb5bb707fb082a0d5af9d5d0ba75f65f7",
+    "browser-task.png": "a2c6b60793ff2c373c6ea5b7ac098cc19b3d553d893753956104a85c1f87f10d",
+    "browser.json": "cc596f3f74df39685c15da26c8ebc01cbde52ef692ea548481000c95e9d90257",
+    "completion.json": "986bde6be83511a6f5605262f842042368c58799aec4cd108ffcdee4f81944ec",
+    "final-0.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "final-1.txt": "bb094c35d47145901048888411b7535c3d659d54525426db7b567f72aa8fe3c9",
+    "final-2.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "final-3.txt": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0",
+    "final-4.txt": "8fb5a67298ef1bc5205a24ee340f5daccc49bc0c6a2dca1d8f02c020c8efe1f8",
+    "final-documents.json": "e680d1c43f5d35c1f20b9607f91a91da42fac8c04d15acfec03b51a8d67bc294",
+    "game.txt": "49b41012bede7a8c0923907ce453645758ff773f851431bbde5e9e1d0c724f70",
+    "headless/f10/engine.txt": "3a314eeb424a31f6c05742518411d75104b17d70dc180349e056565df924f846",
+    "headless/f10/frames.jsonl": "722edb414774ad5e3f55bab5572804b843d560964adae667402746236c546fe1",
+    "headless/f10/summary.json": "77ab159458aa09df2bcaefbedcf9555926fe6adbbe38ca764fa40c2ea0d4082f",
+    "headless/normal/engine.txt": "dd4b7d80d5deff0019817841c8e05e33c635f78a7a63a85f07530400977c1672",
+    "headless/normal/frames.jsonl": "e814c41766f48a5d728ee7a26eb3e77327f0160e2e36defbcd15714c92942d64",
+    "headless/normal/summary.json": "440aed09fad89fff01c3e9cbdc4dee8b9c4441348b00c34bc508c899c7150ecc",
+    "post-backlog.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "post-documentation.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "scope-audit.json": "1816ae78a891c7d8276ad8f57981eb8545868e8d39d57c3e3efa432d39896240",
+    "wiki-metadata.txt": "a9506446621ad065160baa224027938a3665b9e5b4b82128e2b34cc0049606c3",
+    "wiki.txt": "5385279c96374d51ce0f6b94b5eca8c3b576aaae39b74a1bfd9904cd765ab96d"
+  }
+}

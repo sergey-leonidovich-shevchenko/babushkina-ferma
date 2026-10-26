@@ -1,0 +1,14 @@
+{
+  "base": "7dde012ffba227da1277ddf14dccb48553531c09",
+  "accepted_report_files_unchanged": 296,
+  "changed_task_ids": [
+    "VFOLIAGE-010"
+  ],
+  "changed_article_index_ids": [
+    "foliage-visibility"
+  ],
+  "runtime_scene_assets_tests_tools_planning_unchanged": true,
+  "metadata_only_version_delta": "0.0.338 -> 0.0.339",
+  "new_native_capture": false,
+  "new_card_started": false
+}

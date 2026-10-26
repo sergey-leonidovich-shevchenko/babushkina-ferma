@@ -1,0 +1,138 @@
+{
+  "task": "REFACTOR-00",
+  "task_status": "done",
+  "implementation_PR": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9",
+  "accepted_head": "7667c7e0ea04a9b61b458b825afcc552dd9d7fb9",
+  "accepted_base": "7dde012ffba227da1277ddf14dccb48553531c09",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9#pullrequestreview-5644081658",
+  "review_graphql_id": "PRR_kwDOTqkhCs8AAAABUGnZ-g",
+  "review_submitted_at": "2026-10-25T16:12:48Z",
+  "reviewer": "Team Lead Agent; independent of preparation author",
+  "reviewer_verdict": "APPROVED; shared-account COMMENT",
+  "merged_commit": "9e6474808da59a28a177f2d9a2c068917da2f16b",
+  "merged_at": "2026-10-25T16:16:10Z",
+  "accepted_CI": {
+    "runs": [
+      40209238928,
+      40209233770
+    ],
+    "test_jobs": [
+      121216711366,
+      121216695527
+    ],
+    "success": 8,
+    "total": 8,
+    "unittest_suites_each": 82,
+    "unittest_cases_each": 1135,
+    "game_each": [
+      53520,
+      0
+    ],
+    "redraw_normal_F10_each": [
+      90,
+      0
+    ],
+    "smoke_frames_each": 180,
+    "passing_headless_CPU_series_each": 6,
+    "wiki_each": [
+      135,
+      0
+    ]
+  },
+  "accepted_local_game": [
+    53502,
+    0
+  ],
+  "accepted_report_files_preserved": 17,
+  "previous_result": "Постановка опубликована в PR #9; исходный коммит 069abc2f9711bd1e1197c6d3bb42d0bc8cba919e прошёл architecture, Game 53371/0 и normal/F10 по 90/0. Wiki: 135/0. [Фактический отчёт](../../reports/refactor-00/README.md) отделяет этот результат от последующего head. Ожидаются CI актуального SHA и независимое ревью, которое организует Team Lead. Автор постановки её не одобряет; Task-Complete отсутствует. Принятая main после PR #7 (`7dde012f`) объединяется в эту же ветку; [сохранность и новые проверки](../../reports/refactor-00/integration-1/README.md) отделены от первого журнала.",
+  "scope": "Accounting of accepted preparation only; no tools movement, audit or gameplay implementation",
+  "closeout_branch": "codex/refactor-00-closeout",
+  "closeout_independent_review_required": true,
+  "REFACTOR_01_started": false,
+  "publication_gate": {
+    "state": "local_mandatory_gates_passed_waiting_PR_CI_and_independent_review",
+    "accepted_PR10_head": "94e8f175fa291c3daea08094e67cb5bc0488661b",
+    "accepted_PR10_merge": "3befe8356aa7beafd0b93c2eb7d3d3d004c9cfdd",
+    "fresh_closeout_checks_complete": true,
+    "note": "Final checks and independent review of this accounting head remain required before its merge."
+  },
+  "closeout_version": "0.0.341",
+  "closeout_base": "3befe8356aa7beafd0b93c2eb7d3d3d004c9cfdd",
+  "accepted_dependency": {
+    "task": "VFOLIAGE-010",
+    "implementation_PR": 7,
+    "implementation_accepted_head": "8913e2dce7fd0df424ee117bfd93c0fd11f011ee",
+    "implementation_merge": "7dde012ffba227da1277ddf14dccb48553531c09",
+    "closeout_PR": 10,
+    "closeout_accepted_head": "94e8f175fa291c3daea08094e67cb5bc0488661b",
+    "closeout_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/10#pullrequestreview-5644273915",
+    "closeout_merge": "3befe8356aa7beafd0b93c2eb7d3d3d004c9cfdd",
+    "closeout_merged_at": "2026-10-25T17:11:51Z",
+    "closeout_CI_runs": [
+      40213621139,
+      40213614958
+    ],
+    "closeout_CI": "8/8 success",
+    "canonical_status": "done"
+  },
+  "changed_task_statuses": {
+    "REFACTOR-00": [
+      "in_progress",
+      "done"
+    ],
+    "REFACTOR-01": [
+      "blocked",
+      "ready"
+    ]
+  },
+  "limits": {
+    "tools_moves_performed": false,
+    "new_gameplay": false,
+    "GPU_FPS_accepted": false,
+    "VRELEASE_003_accepted": false,
+    "VMAP_003_accepted": false
+  },
+  "closeout_checks": {
+    "architecture": {
+      "command": "tools/check_architecture.sh",
+      "exit": 0,
+      "suites": 82,
+      "cases": 1135,
+      "historical_reader": [
+        512,
+        36,
+        24
+      ],
+      "visibility_controls": 34,
+      "raw": "architecture.txt"
+    },
+    "game": {
+      "command": "./run_tests.sh",
+      "exit": 0,
+      "passed": 53502,
+      "failed": 0,
+      "normal_F10_each": [
+        90,
+        0
+      ],
+      "raw": "game.txt"
+    },
+    "wiki_first": {
+      "command": "pnpm --dir wiki check",
+      "exit": 0,
+      "passed": 135,
+      "failed": 0,
+      "raw": "wiki-first.txt"
+    },
+    "logs_sha256": {
+      "architecture.txt": "f58ad5188ffe7e5301e6664e61ec26d2c2e604c290a4614905fa16d372bbe80b",
+      "game.txt": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+      "wiki-first.txt": "884433adcc3802556cd011da80208805e4b40f35e25fe7a220609437f4736ae4"
+    },
+    "final_export_and_browser_results": "Recorded separately in checks.json after the final Wiki refresh; this receipt content is not rewritten afterward."
+  },
+  "preserved_report_files": {
+    "refactoring": 17,
+    "VFOLIAGE": 344
+  }
+}

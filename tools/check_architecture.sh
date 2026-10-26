@@ -177,6 +177,8 @@ python3 docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentat
 python3 tools/test_redraw_output.py
 python3 tools/test_foliage_pause.py
 python3 tools/foliage_pause_verify.py
+python3 tools/foliage_visibility_verify.py
+python3 tools/test_foliage_visibility.py
 python3 tools/alpha_audit.py
 python3 tools/test_alpha_audit.py
 python3 tools/test_alpha_proof.py

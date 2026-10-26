@@ -1,0 +1,36 @@
+{
+  "task": "IDEA-REVIEW-20261025",
+  "pullRequest": 8,
+  "date": "2026-10-25",
+  "mergeBase": "2fa58d3719ff89f6f61a755e531d963807762ae9",
+  "previousHead": "dcfc80850e3fb0dd505ea1f64373131e9b9069b5",
+  "acceptedMain": "206918abb963b542af8dd3faf3bba80f30b5e908",
+  "metadataBase": "0.0.341",
+  "gameplayImplemented": false,
+  "oldIdeaRange": [
+    232,
+    241
+  ],
+  "newIdeaRange": [
+    242,
+    251
+  ],
+  "reservedPR2": {
+    "head": "9592ad3f65ea5e219580fb13027d4981df4d0fbb",
+    "range": [
+      222,
+      231
+    ]
+  },
+  "expected": {
+    "ideas": 241,
+    "assessments": 80,
+    "newFutureCards": 86,
+    "wikiEditorialCards": 10,
+    "registeredPlans": 111,
+    "catalogPlans": 114,
+    "catalogEpics": 168,
+    "catalogTasks": 2044
+  },
+  "separateCloseout": "IDEA-REVIEW-20261024; not closed in this integration"
+}

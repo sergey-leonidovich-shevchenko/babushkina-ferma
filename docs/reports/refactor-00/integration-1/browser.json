@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "version": "0.0.339",
+  "surface": "IAB, local production preview, read-only planning catalog",
+  "origin": "http://127.0.0.1:4179",
+  "observations": {
+    "epic_task_count": 7,
+    "epic_url": "#/development/epics/refactoring--REFACTOR",
+    "audit_task_url": "#/development/tasks/refactoring--REFACTOR-01",
+    "audit_status": "blocked",
+    "audit_dependencies": [
+      "REFACTOR-00",
+      "VFOLIAGE-010"
+    ],
+    "audit_map_is_its_result_not_prerequisite": true,
+    "guide_url": "#/guides/project-refactoring",
+    "guide_pr_link": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9",
+    "inventory_attachment": "generated/attachments/9ae497f847e82c5d0095030e2e80fae6b5595c9853048145270846e9077677de.json",
+    "epics": 158,
+    "tasks": 2000,
+    "total_articles": 1172,
+    "desktop_card_screenshot_inspected": true,
+    "new_screenshot_file_saved": false
+  },
+  "source_sha256": {
+    "AGENTS.md": "b7e9443dcd2cc481ad85fc360fca5dc2b7b4bfaf0ea5d0a93a122b29991f13d4",
+    "TESTING.md": "58eb664fe05d8fe7b9f5f8575402ad5baccae42f5b3a4117f9056c403e39e914",
+    "VERSION": "07c05699c97d2edeb07c77ed099e450fb474764d7c5d4a54a235aea289f64525",
+    "project.godot": "81661a7c6c6d85640c0da5e8cb6f1dc1f57072307607fd4fef9b65d526ff6164",
+    "Бабушкина ферма.app/Contents/Info.plist": "c522530085d2f6ddb271e97780235cdae8f07c5f2fc9276511dbc9d02a123e5a",
+    "docs/backlog/README.md": "d0edf8e764015a75dcd062d84e045ea79b55462c00e29930ffb1dd084d363c6b",
+    "docs/epics/refactoring-2026-10/README.md": "d551ae6c745824e8345159bfaa4789332d558a9b5a7b79df41a2fb7129f0dd61",
+    "docs/epics/refactoring-2026-10/TASKS.md": "a3f5e456d971c2451e3af59982f5b089b0b4a806e70deb3c77c48fa682017da7",
+    "docs/reports/refactor-00/README.md": "2f4e85fddacf522ef775b06700af77823e1c63c41901bd6b9135b4db8c81c406",
+    "wiki/articles/project-refactoring.md": "da8bfb949562da066ac8ef3f10f7e4c3f1802d7f1e0f70dbe2226ca2d0dbd07a",
+    "wiki/articles/visual-pilot.md": "b576681bc872d9f8315017dbb6b5a29f16e09de6b83198738d4604e2288b7eaa",
+    "wiki/articles/index.json": "cabeecf6e7466abeecc3c49fdf7f74e60d200e2f2f959b58308bebb4b2808765",
+    "wiki/planning/sources.json": "02bb479081c92d080b672db671e6c3ac6f6bee13e8ba3c96809e69d420b3ea7b"
+  }
+}

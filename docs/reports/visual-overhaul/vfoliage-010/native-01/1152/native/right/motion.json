@@ -1,0 +1,10 @@
+{
+  "bitrate" : 8000000,
+  "decoded_first_frame" : "motion.decoded.png",
+  "duration" : 1.5,
+  "encoder" : "AVFoundation H.264",
+  "fps" : 24,
+  "frames" : 36,
+  "height" : 648,
+  "width" : 1152
+}

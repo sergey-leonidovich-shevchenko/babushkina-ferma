@@ -1,0 +1,43 @@
+{
+  "task": "VFOLIAGE-010",
+  "base_commit": "2fa58d3719ff89f6f61a755e531d963807762ae9",
+  "candidate_version": "0.0.335",
+  "checks": [
+    {
+      "command": "tools/check_architecture.sh",
+      "exit": 0,
+      "raw": "architecture.txt",
+      "controls": 24
+    },
+    {
+      "command": "./run_tests.sh",
+      "exit": 0,
+      "raw": "game.txt",
+      "game_passed": 53502,
+      "redraw_normal_passed": 90,
+      "redraw_f10_passed": 90
+    },
+    {
+      "command": "pnpm check (wiki)",
+      "exit": 0,
+      "raw": "wiki.txt",
+      "passed": 135
+    },
+    {
+      "command": "tools/foliage_visibility_verify.py",
+      "exit": 0,
+      "raw": "native_reader.txt",
+      "frames": 512,
+      "exact_pairs": 36,
+      "coverage_targets": 24
+    }
+  ],
+  "artifacts": {
+    "native_reader.txt": "e5423f20c7f13a5ec093ce0287f515f64c2738cb4c7eab0f7c33c89d40ce47bd",
+    "game.txt": "edda9707533ef26aef64c521edd2ad048730205f096f1f4484e2039d4c114c42",
+    "wiki.txt": "5750352c289ab685581306a79dd376e3ccb95b456fd0b41ffacc4400b849aeba",
+    "inputs.json": "9d7e770ce12c270525dccfa651fcde39b66f303170f9d1779dead009e42e69dd",
+    "architecture.txt": "60439eddbef535cc8b3c6d91745014b268df8afa2a43c36dd6d0918bd98571f4"
+  },
+  "review_state": "pending PR, exact-head review and Team Lead decision; no merge authorized yet"
+}
