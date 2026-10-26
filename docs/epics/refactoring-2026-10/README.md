@@ -2,7 +2,7 @@
 
 **Прямое поручение пользователя 25 октября 2026.** Постановка и очередь приняты через [PR #9](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9), merge `9e647480`. Учётное закрытие VFOLIAGE-010 принято через [PR #10](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/10), merge `3befe835`. [Запись приёмки постановки](../../reports/refactor-00/closeout/completion.json) отделяет завершённую подготовку от будущих переносов.
 
-**Текущая задача Developer — REFACTOR-01** на принятой main `ad60faf4` после PR #8/#11. Подготовлена [полная ведомость 779 файлов](../../reports/refactor-01/README.md),17 семейств и 9 будущих входов корня; переносы не выполнены. Карточка in_progress до независимой приёмки exact head. Затем 02→03→06, без нового игрового ID. После первого выпуска возвращается обычный маршрут первой overworld; дополнительные переносы систем выполняются адресно по принятой ведомости и решению Team Lead.
+**Текущая задача Developer — REFACTOR-01** на принятой main `da9fa07e` после PR #12. Подготовлена [полная ведомость 779 файлов](../../reports/refactor-01/integration-1/README.md),17 семейств и 9 будущих входов корня; переносы не выполнены. Карточка in_progress до независимой приёмки exact head. Затем 02→03→06, без нового игрового ID. После первого выпуска возвращается обычный маршрут первой overworld; дополнительные переносы систем выполняются адресно по принятой ведомости и решению Team Lead.
 
 [Карточки](TASKS.md) · [Wiki](../../../wiki/articles/project-refactoring.md) · [Исходная ведомость](../../reports/refactor-00/inventory.json) · [Указатель](../../backlog/README.md).
 

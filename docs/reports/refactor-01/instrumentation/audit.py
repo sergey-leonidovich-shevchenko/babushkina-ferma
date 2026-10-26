@@ -97,7 +97,7 @@ def collect(root: Path, commit: str, plan_path: Path, output: Path) -> dict:
         "plan_sha256": hashlib.sha256(plan_raw).hexdigest(),
         "verification_catalog": {
             "full-snapshot-reproduction": {
-                "command": "python3 docs/reports/refactor-01/instrumentation/audit.py check --snapshot docs/reports/refactor-01/snapshot",
+                "command": plan.get("verification_command", "python3 docs/reports/refactor-01/instrumentation/audit.py check --snapshot docs/reports/refactor-01/snapshot"),
                 "coverage": "all baseline blobs, paths, UID pairs, static references and archive member index; no execution claim",
             },
         },

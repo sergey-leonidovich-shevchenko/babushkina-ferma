@@ -1,0 +1,52 @@
+{
+  "finishedAt": "2026-10-26T05:04:03.384027+00:00",
+  "task": "IDEA-REVIEW-20261025",
+  "scope": "Separate accounting closeout of the already accepted PR8. These are new local gates; they do not approve this new PR or proposed gameplay.",
+  "command": ".githooks/pre-commit, entire unchanged repository hook",
+  "exitCode": 0,
+  "metadata": "0.0.342",
+  "architecture": {
+    "pythonSuites": 82,
+    "pythonCases": 1135
+  },
+  "game": {
+    "passed": 53502,
+    "failed": 0
+  },
+  "redraw": [
+    {
+      "passed": 90,
+      "failed": 0
+    },
+    {
+      "passed": 90,
+      "failed": 0
+    }
+  ],
+  "wiki": {
+    "build": "pass",
+    "passed": 135,
+    "failed": 0
+  },
+  "runtime": {
+    "python": "3.11.17",
+    "pillow": "11.3.0"
+  },
+  "rawSHA256": {
+    "full-hook.log.gz (decompressed)": "74a9680d8e575972146662b11968a5927d43e3e6686950b069735f7a35dc65d7",
+    "wiki.log.gz (decompressed)": "64e4f3d7f4c62721a1f4e331b5f004c58713d7dbb240da671a798028cb81dd00"
+  },
+  "capture": "Ignored external wrapper clears inherited Git-local vars, runs the original pre-commit fully, then stages only this receipt and compressed logs. Original post-commit stays active. Repo hooks and gates are not changed or bypassed.",
+  "sourceSHA256": {
+    "TESTING.md": "c408bfd308ec7c6d24258207431e83bb31b35223aa7caa90d114fd618793ef13",
+    "docs/backlog/README.md": "7426df289870a8ed33e38e485459f5e16910850919bb5c647dbcd7b0dce93872",
+    "docs/backlog/wiki-workspace-2026-10/README.md": "97ac69660ac2184a8999309a649fa91f6a5cbd37f6ea6773f7ebd3dd8508d7ee",
+    "wiki/articles/index.json": "ee36b2cc2ecc2ef1d7aac12855c338450a80ec448b8de7b7e4f84590d84b6475",
+    "VERSION": "e2b32148a288ed960d5abe75607104665d33239eb6057017dd5cdd2755b79119",
+    "project.godot": "9cd5a790db5a0d50d09dd2bf88147e9452ef02f7e7300c41f9609032207c3558",
+    "Бабушкина ферма.app/Contents/Info.plist": "a253ccbdfd4a771052ed3b76220f2081826ad9a9778527fbfef01be2fde634bf",
+    "wiki/articles/creative-review25-acceptance.md": "ce6b047785a55ee1ebaa4d6a195b2e0cd5eb3d8ee62faa95dbb0ee0ec761b95d",
+    "wiki/scripts/editorial-review25-closeout-audit.mjs": "53020214c113431a2a8ca44c255f5a39cc2be886a2aa075fd7098e69f4047252",
+    "docs/reports/creative/2026-10-26-review25-closeout/completion.json": "c254e1522298babf63db3c8069dece5d4f691f1e8c9c0fa5bbe73adc392b3e3b"
+  }
+}

@@ -1,6 +1,6 @@
 # Рефакторинг: инструменты по назначению
 
-**REFACTOR-01 в работе:** подготовлена полная карта принятой main `ad60faf4` после PR #8, 0.0.341. Все 779 файлов tools получили тематический путь либо объяснённое исключение. Переносов нет; аудит ожидает проверок и независимого exact-head ревью. [Карточка](#/development/tasks/refactoring--REFACTOR-01) · [полная карта прямо в Wiki](tools-migration-map.md) · [JSON с consumers и UID](../../docs/reports/refactor-01/snapshot/tool-map.json) · [CSV](../../docs/reports/refactor-01/snapshot/tool-map.csv).
+**REFACTOR-01 в работе:** подготовлена полная карта принятой main `da9fa07e` после PR #12, 0.0.342. Все 779 файлов tools получили тематический путь либо объяснённое исключение. Переносов нет; аудит ожидает проверок и независимого exact-head ревью. [Карточка](#/development/tasks/refactoring--REFACTOR-01) · [полная карта прямо в Wiki](tools-migration-map.md) · [JSON с consumers и UID](../../docs/reports/refactor-01/integration-1/snapshot/tool-map.json) · [CSV](../../docs/reports/refactor-01/integration-1/snapshot/tool-map.csv).
 
 Постановка принята через [PR #9](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9), учёт VFOLIAGE-010 — через [PR #10](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/10), учёт REFACTOR-00 — через [PR #11](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/11), merge `206918ab`. [Запись приёмки постановки](../../docs/reports/refactor-00/closeout/completion.json) остаётся исторической.
 
@@ -10,7 +10,7 @@
 
 Порядок: аудит ссылок и входов → общие пути/репозиторные команды → QA/asset/build/dev-пакеты → README и guard. Каждый этап имеет отдельную ветку/PR и собственную приёмку. Тесты не теряются в новых папках; новые внутренние инструменты больше не попадают автоматически в корень.
 
-Аудит проверил scripts/systems, scripts/presentation, tests/suites, helpers, reports, wiki/scripts и preview. Адресные предложения 04/05: systems/storage — 6 и furnace — 3; presentation/storage — 4 и foliage — 9 исходников; suites/foliage — 8 и storage — 4 набора. Остальные модули не включены в перенос автоматически. Helpers, reports, wiki/scripts и preview оставляем: дополнительная вложенность не оправдывает риск. [Полные имена и обоснования](../../docs/reports/refactor-01/snapshot/other-catalogs.json).
+Аудит проверил scripts/systems, scripts/presentation, tests/suites, helpers, reports, wiki/scripts и preview. Адресные предложения 04/05: systems/storage — 6 и furnace — 3; presentation/storage — 4 и foliage — 9 исходников; suites/foliage — 8 и storage — 4 набора. Остальные модули не включены в перенос автоматически. Helpers, reports, wiki/scripts и preview оставляем: дополнительная вложенность не оправдывает риск. [Полные имена и обоснования](../../docs/reports/refactor-01/integration-1/snapshot/other-catalogs.json).
 
 Главный риск — сломать импорт, preload, CI, Wiki или прежнее доказательство. Сохранённые планы, капсулы, source SHA, raw и неудачные попытки остаются неизменными; исторические readers читают свой Git base/капсулу. Старые сотни имён не превращаются в сотни пустых wrappers. Механический перенос отделяется от изменения поведения.
 
@@ -26,9 +26,9 @@
 
 Byte-identical checker из базы проходит в tools и отказывает после наивного вложения в quality: `.parent.parent` ищет неправильный корень. Настоящий метод test_shore_kit с унаследованными GIT_* меняет disposable parent config и падает; очистка окружения проходит и сохраняет config/index. Реальный репозиторий в опыте не изменён. Эти условия нужно устранить первыми в 02; исправления здесь не выполнены.
 
-У 86 Godot-исходников UID нет в Git, хотя локально sidecars существуют и ignored. Их нельзя потерять при переезде или случайно добавить вместе с установленным движком. Tracked 216 UID перемещаются с исходниками без генерации новых значений. [Локальное наблюдение](../../docs/reports/refactor-01/local-uid-observation.json).
+У 86 Godot-исходников UID нет в Git, хотя локально sidecars существуют и ignored. Их нельзя потерять при переезде или случайно добавить вместе с установленным движком. Tracked 216 UID перемещаются с исходниками без генерации новых значений. [Локальное наблюдение](../../docs/reports/refactor-01/integration-1/local-uid-observation.json).
 
-Исторические source descriptors нельзя переписывать под новые пути: выявлены 52 imports общих SOURCES/OVERLAY, а также старые prefix-фильтры. Старый reader читает закреплённые base/capsule, новый collector пишет собственную серию. Все 24056 blobs базы, семь архивов и 28 tools-members проиндексированы; link/provenance checkers остаются включены.
+Исторические source descriptors нельзя переписывать под новые пути: выявлены 52 imports общих SOURCES/OVERLAY, а также старые prefix-фильтры. Старый reader читает закреплённые base/capsule, новый collector пишет собственную серию. Все 24070 blobs базы, семь архивов и 28 tools-members проиндексированы; link/provenance checkers остаются включены.
 
 ## Как проверить и что дальше
 
@@ -36,10 +36,10 @@ Byte-identical checker из базы проходит в tools и отказыв
 
 ```sh
 python3 -m unittest discover -s docs/reports/refactor-01/instrumentation -p 'test_*.py' -v
-python3 docs/reports/refactor-01/instrumentation/audit.py check --snapshot docs/reports/refactor-01/snapshot
-python3 docs/reports/refactor-01/instrumentation/audit.py show --snapshot docs/reports/refactor-01/snapshot --path tools/performance_sampler.gd
+python3 docs/reports/refactor-01/instrumentation/audit.py check --plan docs/reports/refactor-01/integration-1/migration-plan.json --snapshot docs/reports/refactor-01/integration-1/snapshot
+python3 docs/reports/refactor-01/instrumentation/audit.py show --snapshot docs/reports/refactor-01/integration-1/snapshot --path tools/performance_sampler.gd
 ```
 
-[Свежие проверки](../../docs/reports/refactor-01/checks.json) отделены от [журналов принятой базы](../../docs/reports/refactor-01/baseline-verification.json). Статический граф 174 suites содержит 37 верхних запусков, без потери/дубля; это не замена фактическому Game. Нативная графика/GPU-FPS не переснимаются и не принимаются этим аудитом.
+[Свежие проверки](../../docs/reports/refactor-01/integration-1/checks.json) отделены от [журналов принятой базы](../../docs/reports/refactor-01/integration-1/baseline-verification.json). Статический граф 174 suites содержит 37 верхних запусков, без потери/дубля; это не замена фактическому Game. Нативная графика/GPU-FPS не переснимаются и не принимаются этим аудитом.
 
 После принятия 01: **02 — пути/Git-изоляция/quality/planning →03 — тематические инструменты →06 — README/guard**. Внутри 03 сначала учитываются взаимные imports assets/build и camera/performance, затем world/ground/foliage и совместимость. 04/05 остаются отдельными будущими работами Team Lead. Все старые raw, планы, капсулы и source SHA сохраняются; откат опубликованного пакета — git revert с теми же проверками.

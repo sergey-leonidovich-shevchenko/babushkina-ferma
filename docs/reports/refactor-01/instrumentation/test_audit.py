@@ -246,10 +246,12 @@ class GitControls(unittest.TestCase):
     def test_full_reproduction_from_different_cwd_with_spaces(self):
         plan = sample_plan()
         plan["baseline_commit"] = self.commit
+        plan["verification_command"] = "python3 audit.py check --plan scoped-plan.json --snapshot scoped-capture"
         plan_path = self.parent / "plan.json"
         plan_path.write_text(json.dumps(plan))
         output = self.parent / "capture"
-        audit.collect(self.root, self.commit, plan_path, output)
+        summary = audit.collect(self.root, self.commit, plan_path, output)
+        self.assertEqual(summary["verification_catalog"]["full-snapshot-reproduction"]["command"], plan["verification_command"])
         result = subprocess.run(
             [sys.executable, str(Path(audit.__file__).resolve()), "check", "--root", str(self.root),
              "--snapshot", str(output), "--plan", str(plan_path)],

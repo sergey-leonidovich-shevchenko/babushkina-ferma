@@ -1,12 +1,12 @@
 # Полная карта tools — REFACTOR-01
 
-Предложение по принятой базе `ad60faf4bd46faa335babb6075737694927fc61f` (0.0.341). **Все 779 файлов учтены; переносов ещё нет.** UID отдельно доступны в CSV/JSON; здесь они показаны у исходника. Текущая карточка in_progress до принятия PR.
+Предложение по принятой базе `da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff` (0.0.342). **Все 779 файлов учтены; переносов ещё нет.** UID отдельно доступны в CSV/JSON; здесь они показаны у исходника. Текущая карточка in_progress до принятия PR.
 
-[Обзор и риски](project-refactoring.md) · [карточка REFACTOR-01](#/development/tasks/refactoring--REFACTOR-01) · [полная JSON-карта с consumers](../../docs/reports/refactor-01/snapshot/tool-map.json) · [CSV](../../docs/reports/refactor-01/snapshot/tool-map.csv) · [счётчики](../../docs/reports/refactor-01/snapshot/inventory.json) · [граф suites](../../docs/reports/refactor-01/snapshot/suite-registry.json) · [другие каталоги](../../docs/reports/refactor-01/snapshot/other-catalogs.json).
+[Обзор и риски](project-refactoring.md) · [карточка REFACTOR-01](#/development/tasks/refactoring--REFACTOR-01) · [полная JSON-карта с consumers](../../docs/reports/refactor-01/integration-1/snapshot/tool-map.json) · [CSV](../../docs/reports/refactor-01/integration-1/snapshot/tool-map.csv) · [счётчики](../../docs/reports/refactor-01/integration-1/snapshot/inventory.json) · [граф suites](../../docs/reports/refactor-01/integration-1/snapshot/suite-registry.json) · [другие каталоги](../../docs/reports/refactor-01/integration-1/snapshot/other-catalogs.json).
 
 Плановый корень — девять исходников при бюджете 30: шесть публичных CLI/import-фасадов, два полных исторических anchor и один новый launcher. Нынешний корень содержит 553 исполняемых исходника; во всём tools — 558 таких исходников и 1 вложенный shader. Числа в таблицах — статические ссылки ledger, включая историю, **не число запусков**. Наличие ссылки не доказывает исполнение, её отсутствие не разрешает удаление. Точные consumer/строки раскрываются JSON-картой и командой `audit.py show`, приведённой в обзоре.
 
-Таблица ниже побайтно взята из `docs/reports/refactor-01/snapshot/tool-map.md` после его вводной части. Исходный SHA и отдельные пары UID закреплены в JSON. Разделы соответствуют 17 семействам; поиск Wiki находит конкретное имя инструмента.
+Таблица ниже побайтно взята из `docs/reports/refactor-01/integration-1/snapshot/tool-map.md` после его вводной части. Исходный SHA и отдельные пары UID закреплены в JSON. Разделы соответствуют 17 семействам; поиск Wiki находит конкретное имя инструмента.
 
 Авторские docstrings в назначении извлечены из принятой базы; это исторические описания, а не замена нынешнему процессу PR. В частности task_batch publish не является рабочим маршрутом публикации.
 
