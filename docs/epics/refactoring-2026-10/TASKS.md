@@ -34,6 +34,8 @@
 
 **Ветка:** codex/refactor-01-maintainable-layout
 
+**Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14
+
 **Результат и объём:** Назначение каждого файла tools, пары UID, импорты/публичные входы/исторические ссылки и целевая таблица путей. Отдельно оценить systems, presentation, suites, helpers и reports.
 
 **Внутренние блокеры:** REFACTOR-00, VFOLIAGE-010.
@@ -49,7 +51,7 @@
 
 **Проверка:** Read-only аудит принятой актуальной main, действующие профильные gates и проверка ведомости человеком. Реализация последующих переносов не требуется для приёмки аудита.
 
-**Подтверждения / результат:** [Полный аудит](../../reports/refactor-01/integration-1/README.md) принятой базы `da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff`: все 779 tools blobs,216 tracked UID и 86 отсутствующих в Git sidecars;17 семейств,9 будущих корневых исходников при бюджете 30. Для каждого файла — назначение/путь/CLI/consumers/проверка; сохранены SHA всех 24070 blobs, индекс семи архивов и отдельные живые/исторические ссылки. Статический runner:174 suites,37 верхних запусков, без потери/дубля. Адресные предложения 04/05 и мотивированное «оставить» перечислены отдельно. Два реальных риска воспроизведены на disposable копиях: parent-depth и inherited Git environment. [Проверки](../../reports/refactor-01/integration-1/checks.json), [Wiki-карта](../../../wiki/articles/tools-migration-map.md), [пакеты и откат](../../reports/refactor-01/migration-batches.md). Переносов 02/03 нет; после обязательных gates публикуется PR этой ветки, до принятия текущего head карточка остаётся in_progress.
+**Подтверждения / результат:** [Полный аудит](../../reports/refactor-01/integration-1/README.md) принятой базы `da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff`: все 779 tools blobs,216 tracked UID и 86 отсутствующих в Git sidecars;17 семейств,9 будущих корневых исходников при бюджете 30. Для каждого файла — назначение/путь/CLI/consumers/проверка; сохранены SHA всех 24070 blobs, индекс семи архивов и отдельные живые/исторические ссылки. Статический runner:174 suites,37 верхних запусков, без потери/дубля. Адресные предложения 04/05 и мотивированное «оставить» перечислены отдельно. Два реальных риска воспроизведены на disposable копиях: parent-depth и inherited Git environment. [Проверки](../../reports/refactor-01/integration-1/checks.json), [Wiki-карта](../../../wiki/articles/tools-migration-map.md), [пакеты и откат](../../reports/refactor-01/migration-batches.md). Переносов 02/03 нет; локальные architecture (82/1135), Game (53502/0), redraw (по90/0), Wiki (135/0) и29 профильных контролей прошли. Опубликован PR #14; ожидаются CI и независимое ревью текущего head, карточка остаётся in_progress.
 
 ## REFACTOR-02 — Разделить общую инфраструктуру и репозиторные команды tools
 
