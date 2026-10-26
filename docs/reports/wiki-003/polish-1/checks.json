@@ -1,0 +1,21 @@
+{
+  "task": "WIKI-003",
+  "version": "0.0.347",
+  "Wiki": {
+    "passed": 145,
+    "failed": 0,
+    "build_TypeScript": true
+  },
+  "browser_gap_px": 5.0,
+  "scope": "scope.json",
+  "full_Game_architecture": "prior implementation0.0.345; unchanged game/tools; current CI still required",
+  "raw_sha256": {
+    "README.md": "965d66d136c16f036245acc7938369632c7dacb085e12e2e55564ce4138db5ed",
+    "browser.json": "2b8a4c4719b8f121398c53bd4573ce8bfa97c7acf237ad3bb588e398afcb5d9b",
+    "documentation.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "history.png": "af946e1e852da720c7afa8abef9d1271cdf40bd356e16ac1742b5135e1fe0ba6",
+    "scope.json": "b724820da82f99c4df2096ac1882a32875c2ebc89f0933dc4baff9dac519223a",
+    "version.txt": "3c988b3c6f61eb8d378f5a0068193a0403f2a0c4bc10350f56609888381c7954",
+    "wiki.txt": "fd1baab7b207f5b04c7d1b525265b2312ce386e6a8b6dfa2909b65975af7385f"
+  }
+}
