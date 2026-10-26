@@ -108,6 +108,7 @@ test('registered queues reject traversal, escaping symlinks, duplicate IDs and m
 
 test('editorial links resolve only real tasks and known queue stages', () => {
   for (const href of [
+    '#/development/first-location',
     '#/development/tasks?queue=village-pilot',
     '#/development/tasks?queue=village-pilot&stage=foundation',
     '#/development/tasks/visual--VBASE-002',
@@ -115,6 +116,9 @@ test('editorial links resolve only real tasks and known queue stages', () => {
     assert.equal(developmentLink(href, catalog, [queue]), href)
   assert.equal(developmentLink('https://example.org/', catalog, [queue]), undefined)
   for (const href of [
+    '#/development/first-location/unknown',
+    '#/development/first-location?queue=village-pilot',
+    '#/development/first-location#unknown',
     '#/development/tasks/visual--UNKNOWN-001',
     '#/development/tasks?queue=unknown',
     '#/development/tasks?stage=foundation',

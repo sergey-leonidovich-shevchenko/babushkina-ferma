@@ -1,6 +1,7 @@
 import { readFile, realpath, readdir } from 'node:fs/promises'
 import { resolve, join, sep } from 'node:path'
 import { projectRoot, wikiRoot } from './runtime.mjs'
+import { completionDate, enrichCompletions } from './task-completion.mjs'
 
 export const taskStatuses = ['backlog', 'ready', 'blocked', 'in_progress', 'done']
 const idPattern = /\b[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+\b/g
@@ -115,6 +116,13 @@ export function markdownTasks(markdown, epic, plan) {
         .concat(dependencyText ? [{ title: 'Условия из плана', text: plain(dependencyText) }] : []),
       source: epic.source,
       content: `## ${id} — ${heading[2]}\n${body}`,
+      completion: {
+        date: completionDate(
+          values['Дата завершения'] ??
+            values['Завершено'] ??
+            values['Подтверждения / результат']?.match(/^(\d{4}-\d{2}-\d{2}):/)?.[1]
+        ),
+      },
     }
   })
 }
@@ -150,6 +158,14 @@ function jsonTask(task, plan) {
       })),
     source: plan.file,
     content: JSON.stringify(task, null, 2),
+    completion: {
+      date: completionDate(
+        task.completed_at ??
+          task.completedAt ??
+          task.completionDate ??
+          (typeof task.result === 'string' ? task.result.match(/^(\d{4}-\d{2}-\d{2}):/)?.[1] : null)
+      ),
+    },
   }
 }
 
@@ -306,5 +322,6 @@ export async function readPlanningCatalog({
       description: entry.summary,
       article: entry.id,
     }))
+  await enrichCompletions(tasks, root)
   return { plans, epics, tasks, ideaArticles }
 }

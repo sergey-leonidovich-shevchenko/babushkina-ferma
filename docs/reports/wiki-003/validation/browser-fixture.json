@@ -1,0 +1,20 @@
+{
+  "basis": "Actual UI branch catalog plus exact canonical REFACTOR cards from published PR14 head. Isolated QA copy, not a production status change.",
+  "published_refactor_head": "c9cea3aef393380f2abdd3c9ef126acbd58c366b",
+  "source_sha256": "bc6d4922900a8d518c307df7c1f776ad046c89c1cee5dd6275eae8483b28b8a9",
+  "active": [
+    {
+      "key": "wiki--WIKI-003",
+      "status": "in_progress"
+    },
+    {
+      "key": "wiki--IDEA-REVIEW-20261024",
+      "status": "in_progress"
+    },
+    {
+      "key": "refactoring--REFACTOR-01",
+      "status": "in_progress"
+    }
+  ],
+  "refactor01": "in_progress"
+}

@@ -1,0 +1,502 @@
+{
+  "active": [
+    {
+      "href": "#/development/tasks/refactoring--REFACTOR-01",
+      "text": "REFACTOR-01\nСоставить полную карту переносов tools и подтвердить остальные узкие места\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003."
+    },
+    {
+      "href": "#/development/tasks/wiki--WIKI-003",
+      "text": "WIKI-003\nПоказывать текущую работу и историю завершения в обзоре первой локации\nОбслуживание разработки: Wiki и прозрачный учёт работы."
+    },
+    {
+      "href": "#/development/tasks/wiki--IDEA-REVIEW-20261024",
+      "text": "IDEA-REVIEW-20261024\nПроработать десять самостоятельных NPC-историй\nДругое направление. Его статус не означает смену курса первой локации."
+    }
+  ],
+  "mapAcceptance": "До приёмки VMAP-003",
+  "pilot": "52 из 52 завершено\n100%",
+  "rows": [
+    {
+      "date": "2026-10-25",
+      "href": "#/development/tasks/visual--VFOLIAGE-010",
+      "key": "visual--VFOLIAGE-010",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-25",
+      "href": "#/development/tasks/refactoring--REFACTOR-00",
+      "key": "refactoring--REFACTOR-00",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-24",
+      "href": "#/development/tasks/visual--VFOLIAGE-006",
+      "key": "visual--VFOLIAGE-006",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-24",
+      "href": "#/development/tasks/visual--VFOLIAGE-009",
+      "key": "visual--VFOLIAGE-009",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-23",
+      "href": "#/development/tasks/visual--VFOLIAGE-004",
+      "key": "visual--VFOLIAGE-004",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-23",
+      "href": "#/development/tasks/visual--VFOLIAGE-005",
+      "key": "visual--VFOLIAGE-005",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-22",
+      "href": "#/development/tasks/visual--VRENDER-005",
+      "key": "visual--VRENDER-005",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-22",
+      "href": "#/development/tasks/visual--VRENDER-006",
+      "key": "visual--VRENDER-006",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-22",
+      "href": "#/development/tasks/visual--VRENDER-008",
+      "key": "visual--VRENDER-008",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-22",
+      "href": "#/development/tasks/visual--VFOLIAGE-001",
+      "key": "visual--VFOLIAGE-001",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-22",
+      "href": "#/development/tasks/visual--VFOLIAGE-002",
+      "key": "visual--VFOLIAGE-002",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-22",
+      "href": "#/development/tasks/visual--VFOLIAGE-003",
+      "key": "visual--VFOLIAGE-003",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-22",
+      "href": "#/development/tasks/visual--VSHADOW-001",
+      "key": "visual--VSHADOW-001",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-22",
+      "href": "#/development/tasks/visual--VCOMPAT-001",
+      "key": "visual--VCOMPAT-001",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-22",
+      "href": "#/development/tasks/visual--VPROP-002",
+      "key": "visual--VPROP-002",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-22",
+      "href": "#/development/tasks/visual--VPROP-007",
+      "key": "visual--VPROP-007",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-22",
+      "href": "#/development/tasks/visual--VRELEASE-002",
+      "key": "visual--VRELEASE-002",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VRENDER-002",
+      "key": "visual--VRENDER-002",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VRENDER-003",
+      "key": "visual--VRENDER-003",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VRENDER-004",
+      "key": "visual--VRENDER-004",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VGROUND-001",
+      "key": "visual--VGROUND-001",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VGROUND-003",
+      "key": "visual--VGROUND-003",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VGROUND-004",
+      "key": "visual--VGROUND-004",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VGROUND-005",
+      "key": "visual--VGROUND-005",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VGROUND-006",
+      "key": "visual--VGROUND-006",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VGROUND-007",
+      "key": "visual--VGROUND-007",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VGROUND-008",
+      "key": "visual--VGROUND-008",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VGROUND-009",
+      "key": "visual--VGROUND-009",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VGROUND-010",
+      "key": "visual--VGROUND-010",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VPROP-003",
+      "key": "visual--VPROP-003",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VPROP-004",
+      "key": "visual--VPROP-004",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VPROP-005",
+      "key": "visual--VPROP-005",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-21",
+      "href": "#/development/tasks/visual--VPROP-006",
+      "key": "visual--VPROP-006",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-20",
+      "href": "#/development/tasks/visual--VRENDER-001",
+      "key": "visual--VRENDER-001",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-20",
+      "href": "#/development/tasks/visual--VCAMERA-006",
+      "key": "visual--VCAMERA-006",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-20",
+      "href": "#/development/tasks/visual--VSHORE-001",
+      "key": "visual--VSHORE-001",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-20",
+      "href": "#/development/tasks/visual--VPERF-001",
+      "key": "visual--VPERF-001",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-20",
+      "href": "#/development/tasks/visual--VRELEASE-005",
+      "key": "visual--VRELEASE-005",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-19",
+      "href": "#/development/tasks/visual--VBASE-002",
+      "key": "visual--VBASE-002",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-19",
+      "href": "#/development/tasks/visual--VBASE-005",
+      "key": "visual--VBASE-005",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-19",
+      "href": "#/development/tasks/visual--VCAMERA-002",
+      "key": "visual--VCAMERA-002",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-19",
+      "href": "#/development/tasks/visual--VCAMERA-003",
+      "key": "visual--VCAMERA-003",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-19",
+      "href": "#/development/tasks/visual--VRELEASE-001",
+      "key": "visual--VRELEASE-001",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-19",
+      "href": "#/development/tasks/wiki--WIKI-002",
+      "key": "wiki--WIKI-002",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-18",
+      "href": "#/development/tasks/visual--VART-010",
+      "key": "visual--VART-010",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-18",
+      "href": "#/development/tasks/visual--VPIPELINE-001",
+      "key": "visual--VPIPELINE-001",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-18",
+      "href": "#/development/tasks/visual--VPIPELINE-002",
+      "key": "visual--VPIPELINE-002",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-18",
+      "href": "#/development/tasks/visual--VPIPELINE-005",
+      "key": "visual--VPIPELINE-005",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-18",
+      "href": "#/development/tasks/visual--VPIPELINE-006",
+      "key": "visual--VPIPELINE-006",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-18",
+      "href": "#/development/tasks/visual--VPIPELINE-007",
+      "key": "visual--VPIPELINE-007",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-18",
+      "href": "#/development/tasks/visual--VPIPELINE-008",
+      "key": "visual--VPIPELINE-008",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-18",
+      "href": "#/development/tasks/visual--VPIPELINE-009",
+      "key": "visual--VPIPELINE-009",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-18",
+      "href": "#/development/tasks/visual--VPIPELINE-010",
+      "key": "visual--VPIPELINE-010",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-18",
+      "href": "#/development/tasks/wiki--WIKI-001",
+      "key": "wiki--WIKI-001",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-17",
+      "href": "#/development/tasks/visual--VART-007",
+      "key": "visual--VART-007",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-17",
+      "href": "#/development/tasks/visual--VART-008",
+      "key": "visual--VART-008",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-17",
+      "href": "#/development/tasks/visual--VART-009",
+      "key": "visual--VART-009",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-16",
+      "href": "#/development/tasks/visual--VART-002",
+      "key": "visual--VART-002",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-16",
+      "href": "#/development/tasks/visual--VART-003",
+      "key": "visual--VART-003",
+      "unknown": false
+    },
+    {
+      "date": "2026-10-16",
+      "href": "#/development/tasks/visual--VART-004",
+      "key": "visual--VART-004",
+      "unknown": false
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/base--SAFE-01",
+      "key": "base--SAFE-01",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/base--SAFE-02",
+      "key": "base--SAFE-02",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/base--SAFE-03",
+      "key": "base--SAFE-03",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/base--SAFE-04",
+      "key": "base--SAFE-04",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/base--SAFE-05",
+      "key": "base--SAFE-05",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/base--SAFE-06",
+      "key": "base--SAFE-06",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/base--SAFE-07",
+      "key": "base--SAFE-07",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/visual--VBASE-001",
+      "key": "visual--VBASE-001",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/visual--VBASE-003",
+      "key": "visual--VBASE-003",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/visual--VBASE-004",
+      "key": "visual--VBASE-004",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/visual--VART-001",
+      "key": "visual--VART-001",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/visual--VART-005",
+      "key": "visual--VART-005",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/visual--VART-006",
+      "key": "visual--VART-006",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/visual--VCAMERA-001",
+      "key": "visual--VCAMERA-001",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/visual--VPIPELINE-003",
+      "key": "visual--VPIPELINE-003",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/visual--VPIPELINE-004",
+      "key": "visual--VPIPELINE-004",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/water--WATER-01",
+      "key": "water--WATER-01",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/water--WATER-03",
+      "key": "water--WATER-03",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/water--WATER-07",
+      "key": "water--WATER-07",
+      "unknown": true
+    },
+    {
+      "date": null,
+      "href": "#/development/tasks/water--WATER-11",
+      "key": "water--WATER-11",
+      "unknown": true
+    }
+  ],
+  "viewport": 390,
+  "width": 390
+}

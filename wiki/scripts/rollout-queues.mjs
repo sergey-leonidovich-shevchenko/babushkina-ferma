@@ -93,9 +93,9 @@ export async function readRolloutQueues(root, manifest, catalog) {
 export function developmentLink(href, catalog, queues) {
   if (!href.startsWith('#/development/')) return undefined
   const url = new URL(href.slice(1), 'https://wiki.invalid')
-  const board = url.pathname.match(/^\/development\/(epics|ideas)(?:\/([^/]+))?$/)
+  const board = url.pathname.match(/^\/development\/(epics|ideas|first-location)(?:\/([^/]+))?$/)
   if (board) {
-    if (url.hash || url.search || (board[1] === 'ideas' && board[2]))
+    if (url.hash || url.search || (board[1] !== 'epics' && board[2]))
       throw new Error('Неверная внутренняя ссылка разработки')
     if (
       board[1] === 'epics' &&

@@ -1,4 +1,5 @@
 import type { PlanEpic, PlanTask } from './planning.ts'
+import { locationSupport, supportContext } from './location-scope.ts'
 
 export const firstLocationGroups = [
   {
@@ -104,12 +105,31 @@ export function firstLocationOverview(catalog: { epics: PlanEpic[]; tasks: PlanT
     }),
   }))
   const selected = new Set(groups.flatMap((group) => group.keys))
-  const active = catalog.tasks.filter(
-    (task) =>
-      selected.has(task.epic) &&
-      task.status === 'in_progress' &&
-      firstLocationTasks(task.epic, [task]).length
-  )
+  const onRoute = (task: PlanTask) =>
+    selected.has(task.epic) && firstLocationTasks(task.epic, [task]).length > 0
+  const context = (task: PlanTask) =>
+    onRoute(task)
+      ? 'Маршрут первой локации'
+      : locationSupport(task)
+        ? supportContext(task)
+        : 'Другое направление. Его статус не означает смену курса первой локации.'
+  const active = catalog.tasks
+    .filter((task) => task.status === 'in_progress')
+    .sort((a, b) => {
+      const priority = (task: PlanTask) =>
+        task.plan === 'refactoring' ? 0 : onRoute(task) ? 1 : locationSupport(task) ? 2 : 3
+      return priority(a) - priority(b)
+    })
+    .map((task) => ({ ...task, context: context(task) }))
+  // stable sort сохраняет порядок источника для равных дат и неизвестных дат.
+  const history = catalog.tasks
+    .filter((task) => task.status === 'done' && (onRoute(task) || locationSupport(task)))
+    .map((task) => ({ ...task, context: context(task) }))
+    .sort((a, b) => {
+      const left = a.completion?.date ?? ''
+      const right = b.completion?.date ?? ''
+      return left < right ? 1 : left > right ? -1 : 0
+    })
   const milestones = firstLocationMilestones.map((gate) => ({
     ...gate,
     task: catalog.tasks.find((task) => task.plan === 'visual' && task.id === gate.id),
@@ -117,6 +137,7 @@ export function firstLocationOverview(catalog: { epics: PlanEpic[]; tasks: PlanT
   return {
     groups,
     active,
+    history,
     milestones,
     accepted: milestones.find((gate) => gate.id === 'VMAP-003')?.task?.status === 'done',
   }

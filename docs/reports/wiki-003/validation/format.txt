@@ -1,0 +1,10 @@
+scripts/task-completion.mjs 117ms
+scripts/planning-catalog.mjs 54ms
+src/lib/location-scope.ts 65ms (unchanged)
+src/lib/first-location.ts 61ms (unchanged)
+src/lib/planning.ts 35ms (unchanged)
+src/components/FirstLocationBoard.vue 189ms (unchanged)
+src/components/LocationHistory.vue 28ms
+src/first-location.css 51ms (unchanged)
+tests/first-location.test.mjs 40ms
+tests/task-completion.test.mjs 25ms

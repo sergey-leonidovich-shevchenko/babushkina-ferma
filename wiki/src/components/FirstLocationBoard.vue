@@ -5,6 +5,7 @@ import { planning, developmentPath, taskLabels } from '../lib/planning.ts'
 import { firstLocationOverview } from '../lib/first-location.ts'
 import { queueProgress, queueIssue } from '../lib/task-queue.ts'
 import WikiIcon from './WikiIcon.vue'
+import LocationHistory from './LocationHistory.vue'
 
 const overview = computed(() => firstLocationOverview(planning.value!.catalog))
 const pilot = computed(() =>
@@ -60,9 +61,10 @@ const progress = computed(() =>
           >
             <span class="planning-code">{{ task.id }}</span>
             <strong>{{ task.title }}</strong>
+            <span class="muted">{{ task.context }}</span>
           </RouterLink>
         </div>
-        <p v-else class="muted">В этих эпиках пока нет карточки со статусом «В работе».</p>
+        <p v-else class="muted">В общем каталоге сейчас нет задач со статусом «В работе».</p>
         <template v-if="progress?.next">
           <p class="muted">
             {{
@@ -115,6 +117,8 @@ const progress = computed(() =>
         </li>
       </ol>
     </section>
+
+    <LocationHistory :tasks="overview.history" />
 
     <p class="planning-notice">
       Ниже — те же эпики из общего каталога. Их счётчики читают исходные карточки. Для VBUILD,

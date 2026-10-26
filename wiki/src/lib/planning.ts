@@ -30,6 +30,11 @@ export interface PlanTask {
   sections: { title: string; text: string }[]
   source: string
   content: string
+  completion?: {
+    date: string | null
+    basis: string
+    evidence: { label: string; url: string }[]
+  }
 }
 export type IdeaStatus = 'proposed' | 'approved' | 'refining' | 'planned' | 'archived'
 export interface PlanIdea {
