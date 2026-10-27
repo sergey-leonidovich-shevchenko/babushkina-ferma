@@ -1,0 +1,293 @@
+{
+  "head": "d714c62157989c8a522c016962cab37136b558f7",
+  "reader_sha256": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113",
+  "temporary_root": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6",
+  "linked_git_file": true,
+  "source_before": {
+    "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+    "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+    "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+    "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+  },
+  "source_after": {
+    "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+    "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+    "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+    "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+  },
+  "foreign_before": {
+    "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+    "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+    "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+    "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+  },
+  "foreign_after": {
+    "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+    "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+    "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+    "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+  },
+  "parent_environment_unchanged": true,
+  "records": [
+    {
+      "case": "__main__.ScopeGitTests.test_clean_candidate_and_other_cwd",
+      "label": "clean",
+      "expected": "pass",
+      "exit": 0,
+      "stdout": "{\n  \"base\": \"58eda69fd86f6784aa5fbdcfbec4a526b212b0f4\",\n  \"preserved\": {\n    \"accepted_reports\": 585,\n    \"plan_json_archives\": 13,\n    \"uid_files\": 798\n  },\n  \"files_verified\": 1396,\n  \"changed_tasks\": [\n    \"REFACTOR-02\",\n    \"REFACTOR-03\"\n  ],\n  \"other_cards_unchanged\": 5,\n  \"runtime_tools_tests_planning_unchanged\": true,\n  \"only_wiki_index_field\": \"project-refactoring.summary\",\n  \"version\": \"0.0.356\"\n}\n",
+      "stderr": "",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    },
+    {
+      "case": "__main__.ScopeGitTests.test_clean_candidate_and_other_cwd",
+      "label": "other cwd",
+      "expected": "pass",
+      "exit": 0,
+      "stdout": "{\n  \"base\": \"58eda69fd86f6784aa5fbdcfbec4a526b212b0f4\",\n  \"preserved\": {\n    \"accepted_reports\": 585,\n    \"plan_json_archives\": 13,\n    \"uid_files\": 798\n  },\n  \"files_verified\": 1396,\n  \"changed_tasks\": [\n    \"REFACTOR-02\",\n    \"REFACTOR-03\"\n  ],\n  \"other_cards_unchanged\": 5,\n  \"runtime_tools_tests_planning_unchanged\": true,\n  \"only_wiki_index_field\": \"project-refactoring.summary\",\n  \"version\": \"0.0.356\"\n}\n",
+      "stderr": "",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    },
+    {
+      "case": "__main__.ScopeGitTests.test_clean_candidate_foreign_context",
+      "label": "clean foreign worktree/index/config",
+      "expected": "pass",
+      "exit": 0,
+      "stdout": "{\n  \"base\": \"58eda69fd86f6784aa5fbdcfbec4a526b212b0f4\",\n  \"preserved\": {\n    \"accepted_reports\": 585,\n    \"plan_json_archives\": 13,\n    \"uid_files\": 798\n  },\n  \"files_verified\": 1396,\n  \"changed_tasks\": [\n    \"REFACTOR-02\",\n    \"REFACTOR-03\"\n  ],\n  \"other_cards_unchanged\": 5,\n  \"runtime_tools_tests_planning_unchanged\": true,\n  \"only_wiki_index_field\": \"project-refactoring.summary\",\n  \"version\": \"0.0.356\"\n}\n",
+      "stderr": "",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    },
+    {
+      "case": "__main__.ScopeGitTests.test_clean_candidate_invalid_bare_override",
+      "label": "clean with invalid inherited bare config",
+      "expected": "pass",
+      "exit": 0,
+      "stdout": "{\n  \"base\": \"58eda69fd86f6784aa5fbdcfbec4a526b212b0f4\",\n  \"preserved\": {\n    \"accepted_reports\": 585,\n    \"plan_json_archives\": 13,\n    \"uid_files\": 798\n  },\n  \"files_verified\": 1396,\n  \"changed_tasks\": [\n    \"REFACTOR-02\",\n    \"REFACTOR-03\"\n  ],\n  \"other_cards_unchanged\": 5,\n  \"runtime_tools_tests_planning_unchanged\": true,\n  \"only_wiki_index_field\": \"project-refactoring.summary\",\n  \"version\": \"0.0.356\"\n}\n",
+      "stderr": "",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    },
+    {
+      "case": "__main__.ScopeGitTests.test_old_evidence_tamper_foreign_context",
+      "label": "preserved raw tamper foreign",
+      "expected": "reject",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/docs/reports/refactor-02/closeout/verify-scope.py\", line 36, in <module>\n    assert len(data) == row[\"bytes\"], row[\"path\"]\nAssertionError: docs/reports/wiki-003/closeout/completion.json\n",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    },
+    {
+      "case": "__main__.ScopeGitTests.test_staged_change_foreign_context",
+      "label": "staged foreign",
+      "expected": "reject",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/docs/reports/refactor-02/closeout/verify-scope.py\", line 66, in <module>\n    assert all(not path or path in allowed or path.startswith(prefix) for path in changed + untracked)\nAssertionError\n",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    },
+    {
+      "case": "__main__.ScopeGitTests.test_staged_new_source_foreign_context",
+      "label": "staged new source foreign",
+      "expected": "reject",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/docs/reports/refactor-02/closeout/verify-scope.py\", line 66, in <module>\n    assert all(not path or path in allowed or path.startswith(prefix) for path in changed + untracked)\nAssertionError\n",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    },
+    {
+      "case": "__main__.ScopeGitTests.test_tracked_change_config_only",
+      "label": "tracked config override",
+      "expected": "reject",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/docs/reports/refactor-02/closeout/verify-scope.py\", line 66, in <module>\n    assert all(not path or path in allowed or path.startswith(prefix) for path in changed + untracked)\nAssertionError\n",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    },
+    {
+      "case": "__main__.ScopeGitTests.test_tracked_change_foreign_context",
+      "label": "tracked foreign",
+      "expected": "reject",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/docs/reports/refactor-02/closeout/verify-scope.py\", line 66, in <module>\n    assert all(not path or path in allowed or path.startswith(prefix) for path in changed + untracked)\nAssertionError\n",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    },
+    {
+      "case": "__main__.ScopeGitTests.test_tracked_change_normal",
+      "label": "tracked",
+      "expected": "reject",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/docs/reports/refactor-02/closeout/verify-scope.py\", line 66, in <module>\n    assert all(not path or path in allowed or path.startswith(prefix) for path in changed + untracked)\nAssertionError\n",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    },
+    {
+      "case": "__main__.ScopeGitTests.test_untracked_change_config_only",
+      "label": "untracked config override",
+      "expected": "reject",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/docs/reports/refactor-02/closeout/verify-scope.py\", line 66, in <module>\n    assert all(not path or path in allowed or path.startswith(prefix) for path in changed + untracked)\nAssertionError\n",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    },
+    {
+      "case": "__main__.ScopeGitTests.test_untracked_change_foreign_context",
+      "label": "untracked foreign",
+      "expected": "reject",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/docs/reports/refactor-02/closeout/verify-scope.py\", line 66, in <module>\n    assert all(not path or path in allowed or path.startswith(prefix) for path in changed + untracked)\nAssertionError\n",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    },
+    {
+      "case": "__main__.ScopeGitTests.test_untracked_change_normal",
+      "label": "untracked",
+      "expected": "reject",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/docs/reports/refactor-02/closeout/verify-scope.py\", line 66, in <module>\n    assert all(not path or path in allowed or path.startswith(prefix) for path in changed + untracked)\nAssertionError\n",
+      "source_after": {
+        "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+        "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+        "reader": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+      },
+      "foreign_after": {
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign alternate index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/foreign config": "f6e74affb3749fe798d4a4f16fdc2742a086528066c269e19daf4dcb28ad740e",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 2dmsy7t6/candidate checkout/.git/config": "ef5f3a40d3e49a5c2bc385a5dfa97694cca6182ec06305dfc8005f434ff229dd"
+      }
+    }
+  ]
+}

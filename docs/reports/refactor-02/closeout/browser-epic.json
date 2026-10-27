@@ -1,0 +1,18 @@
+{
+  "docWidth": 1280,
+  "tasks": [
+    {
+      "href": "#/development/tasks/refactoring--REFACTOR-01",
+      "text": "REFACTOR-01Составить полную карту переносов tools и подтвердить остальные узкие места Понятная структура инструментов и модулейЗавершенаP1"
+    },
+    {
+      "href": "#/development/tasks/refactoring--REFACTOR-02",
+      "text": "REFACTOR-02Разделить общую инфраструктуру и репозиторные команды tools Понятная структура инструментов и модулейЗавершенаP1"
+    },
+    {
+      "href": "#/development/tasks/refactoring--REFACTOR-03",
+      "text": "REFACTOR-03Разнести QA, обработку ассетов, сборку и ручные стенды tools по подсистемам Понятная структура инструментов и модулейГотова к работеP1"
+    }
+  ],
+  "width": 1280
+}

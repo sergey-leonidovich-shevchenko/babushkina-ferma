@@ -1,0 +1,17 @@
+{
+  "base": "58eda69fd86f6784aa5fbdcfbec4a526b212b0f4",
+  "preserved": {
+    "accepted_reports": 585,
+    "plan_json_archives": 13,
+    "uid_files": 798
+  },
+  "files_verified": 1396,
+  "changed_tasks": [
+    "REFACTOR-02",
+    "REFACTOR-03"
+  ],
+  "other_cards_unchanged": 5,
+  "runtime_tools_tests_planning_unchanged": true,
+  "only_wiki_index_field": "project-refactoring.summary",
+  "version": "0.0.356"
+}

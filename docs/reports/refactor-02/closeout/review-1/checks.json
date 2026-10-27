@@ -1,0 +1,622 @@
+{
+  "task": "REFACTOR-02",
+  "PR": 19,
+  "version": "0.0.356",
+  "base": "58eda69fd86f6784aa5fbdcfbec4a526b212b0f4",
+  "rejected_head": "d714c62157989c8a522c016962cab37136b558f7",
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.356",
+      "environment": "normal approved engine journal access; same mandatory checks",
+      "started_at": "2026-10-27T01:20:17.869476+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T01:47:56.386953+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.356",
+      "environment": "normal approved engine journal access; same mandatory checks",
+      "started_at": "2026-10-27T01:47:56.389325+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T01:56:44.246554+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.356",
+      "environment": "normal approved engine journal access; same mandatory checks",
+      "started_at": "2026-10-27T01:56:44.247258+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T01:57:52.916231+00:00"
+    }
+  ],
+  "architecture": {
+    "suites": 83,
+    "cases": 1148
+  },
+  "game": {
+    "passed": 53502,
+    "failed": 0
+  },
+  "normal_F10": {
+    "each_passed": 90,
+    "each_failed": 0
+  },
+  "wiki": {
+    "passed": 145,
+    "failed": 0
+  },
+  "regressions": {
+    "cases_each": 12,
+    "real_reader_calls_each": 13,
+    "python311": {
+      "command": [
+        "python3",
+        "docs/reports/refactor-02/closeout/review-1/test_scope_git.py",
+        "-v"
+      ],
+      "exit": 0,
+      "test_source_sha256": "a76defa579172eba4f92933fb89a43fa29db514ed12bb81d1289f35bd16060e1",
+      "same_red_corpus": true,
+      "temporary_removed": true,
+      "source_unchanged": true,
+      "foreign_unchanged": true,
+      "probe_count": 13
+    },
+    "python39": {
+      "command": [
+        "/usr/bin/python3",
+        "docs/reports/refactor-02/closeout/review-1/test_scope_git.py",
+        "-v"
+      ],
+      "exit": 0,
+      "test_source_sha256": "a76defa579172eba4f92933fb89a43fa29db514ed12bb81d1289f35bd16060e1",
+      "same_red_corpus": true,
+      "temporary_removed": true,
+      "source_unchanged": true,
+      "foreign_unchanged": true,
+      "probe_count": 13
+    },
+    "red": {
+      "command": [
+        "python3",
+        "docs/reports/refactor-02/closeout/review-1/test_scope_git.py",
+        "-v"
+      ],
+      "exit": 1,
+      "stage": "before production fix; actual unignored new source and per-case foreign index reset",
+      "test_source_sha256": "a76defa579172eba4f92933fb89a43fa29db514ed12bb81d1289f35bd16060e1",
+      "temporary_removed": true,
+      "false_pass_labels": [
+        "staged foreign",
+        "staged new source foreign",
+        "tracked foreign",
+        "untracked foreign"
+      ]
+    }
+  },
+  "reviewer_script_green": {
+    "command": [
+      "python3",
+      "/private/tmp/pr19-d714-review/reproduce_scope_git_override.py",
+      "/Users/sergeyshevchenko/my farm"
+    ],
+    "exit": 0,
+    "stdout": "{\n  \"head\": \"d714c62157989c8a522c016962cab37136b558f7\",\n  \"normal_exit\": 1,\n  \"inherited_git_exit\": 1,\n  \"normal_stderr_tail\": \"\\n  File \\\"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope negative 6118g0xq/candidate checkout/docs/reports/refactor-02/closeout/verify-scope.py\\\", line 66, in <module>\\n    assert all(not path or path in allowed or path.startswith(prefix) for path in changed + untracked)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError\\n\",\n  \"inherited_stdout\": \"\",\n  \"source_unchanged\": true,\n  \"source_sha256\": \"903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4\"\n}\n",
+    "stderr": ""
+  },
+  "algorithm_parity": {
+    "old_reader_sha256": "88f9e7db690de178be439812a8469c1058115f079366e333e36e96343bc2edf3",
+    "new_reader_sha256": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113",
+    "unchanged_assignments": [
+      "report",
+      "baseline",
+      "base",
+      "source",
+      "old",
+      "new",
+      "allowed",
+      "changed",
+      "untracked",
+      "prefix",
+      "metadata",
+      "before",
+      "after"
+    ],
+    "all_top_level_scope_assertions_identical": true,
+    "cards_parser_baseline_hash_loop_runtime_guard_and_wiki_index_loop_identical": true,
+    "Git_args_cwd_unchanged_and_only_env_added": "accepted git_environment()",
+    "metadata_only_expected_target_version": "0.0.355 -> strict0.0.356",
+    "additional_change": "source-anchored shared project_root replaces cwd root",
+    "allowlist_and_numeric_budgets_weakened": false,
+    "metadata_guard_identical_except_strict_target_version": true
+  },
+  "preservation": {
+    "previous_head": "d714c62157989c8a522c016962cab37136b558f7",
+    "previous_files": 66,
+    "source_exception": "docs/reports/refactor-02/closeout/verify-scope.py",
+    "old_source_exact_archive": true,
+    "other_previous_files_byte_unchanged": 65,
+    "implementation_UID_plan_files_unchanged": 1396,
+    "groups": {
+      "accepted_reports": 585,
+      "plan_json_archives": 13,
+      "uid_files": 798
+    }
+  },
+  "catalog": {
+    "version": "0.0.356",
+    "source_public_dist_equal": true,
+    "history": 83,
+    "unknown": 20,
+    "accepted_VMAP": false,
+    "active": [
+      "wiki--IDEA-REVIEW-20261024"
+    ],
+    "task": {
+      "status": "done",
+      "completion": {
+        "date": "2026-10-27",
+        "basis": "\u042f\u0432\u043d\u0430\u044f \u0434\u0430\u0442\u0430 \u0432 \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0435",
+        "evidence": [
+          {
+            "label": "PR #18",
+            "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18"
+          },
+          {
+            "label": "PR #18",
+            "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18#pullrequestreview-5661046362"
+          },
+          {
+            "label": "\u0422\u043e\u0447\u043d\u0430\u044f \u043a\u0430\u0440\u0442\u0430",
+            "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/58eda69fd86f6784aa5fbdcfbec4a526b212b0f4/docs/reports/refactor-02/move/migration.json"
+          },
+          {
+            "label": "\u043e\u0442\u0447\u0451\u0442 \u0440\u0435\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u0438",
+            "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/58eda69fd86f6784aa5fbdcfbec4a526b212b0f4/docs/reports/refactor-02/move/README.md"
+          }
+        ]
+      }
+    },
+    "next_status": "ready",
+    "receipt": {
+      "attachment": "generated/attachments/632b40793369fcb3904a82fcee3b6e61781db86713eb368f27fd23ec00ed1872.json",
+      "sha256": "632b40793369fcb3904a82fcee3b6e61781db86713eb368f27fd23ec00ed1872",
+      "bytes": 2591,
+      "copies_equal": true
+    }
+  },
+  "browser": "browser.json",
+  "QA_server_stopped": {
+    "status_before": {
+      "app": "moon-valley-wiki",
+      "project": "REFACTOR-02-review1-QA",
+      "pid": 8703,
+      "planning": 1
+    },
+    "signal": "SIGTERM",
+    "own_pid_guard": 8703,
+    "stopped_at": "2026-10-27T03:39:45.142185+00:00"
+  },
+  "Task_Complete": {
+    "existing": 1,
+    "added_by_fix": 0
+  },
+  "own_exact_head_CI": "pending publication",
+  "independent_re_review_and_Team_Lead": "required; no merge or03 before acceptance",
+  "VMAP_FPS_admission": false,
+  "publication_checks": [
+    {
+      "name": "scope",
+      "command": [
+        "python3",
+        "docs/reports/refactor-02/closeout/verify-scope.py"
+      ],
+      "exit": 0,
+      "at": "2026-10-27T03:41:40.848434+00:00"
+    },
+    {
+      "name": "preservation",
+      "command": [
+        "python3",
+        "docs/reports/refactor-02/closeout/review-1/preservation.py"
+      ],
+      "exit": 0,
+      "at": "2026-10-27T03:41:41.157486+00:00"
+    },
+    {
+      "name": "documentation",
+      "command": [
+        "python3",
+        "tools/run.py",
+        "quality.check_documentation"
+      ],
+      "exit": 0,
+      "at": "2026-10-27T03:41:44.908708+00:00"
+    },
+    {
+      "name": "version",
+      "command": [
+        "python3",
+        "tools/bump_version.py",
+        "--check"
+      ],
+      "exit": 0,
+      "at": "2026-10-27T03:41:44.999034+00:00"
+    },
+    {
+      "name": "backlog",
+      "command": [
+        "python3",
+        "tools/run.py",
+        "planning.project_backlog"
+      ],
+      "exit": 0,
+      "at": "2026-10-27T03:41:45.130569+00:00"
+    }
+  ],
+  "files": [
+    {
+      "path": "PLAN.md",
+      "bytes": 3302,
+      "sha256": "e989b9d38d79967925b66d0256863e0ea677266bc54272bfdf9d5e782037fa44"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9544,
+      "sha256": "cc9213b0572e401abaafe4f4366ee13a367733783529cbe7e197e87db433108f"
+    },
+    {
+      "path": "algorithm-parity.json",
+      "bytes": 883,
+      "sha256": "f8b0426099bd99aef4fd372e06b8479d6ab601486da0b913a93c7ae767eb3a9e"
+    },
+    {
+      "path": "browser-cleanup.json",
+      "bytes": 236,
+      "sha256": "4836e05220a3092804c920957842e47d889b95a15589b3773d3b1c75e4cd1e7c"
+    },
+    {
+      "path": "browser-desktop-final.json",
+      "bytes": 3738,
+      "sha256": "ab37dbba33faa5cf69706d6bd67f824462e5452e881f74dc50eddd636731c2fe"
+    },
+    {
+      "path": "browser-desktop.json",
+      "bytes": 850,
+      "sha256": "bdfe19866880ed37d7473172761346b386997860303b8c61bbc973041a3190ed"
+    },
+    {
+      "path": "browser-desktop.png",
+      "bytes": 81336,
+      "sha256": "45c8d70aa112ad0b4671967a30735f7e204df7f1e7dc67c354478c19e13c3940"
+    },
+    {
+      "path": "browser-guide.json",
+      "bytes": 32334,
+      "sha256": "bd91bafc34b112bf630a753bb7b246634857e2ab560b57544b36f1f3a62d0a4c"
+    },
+    {
+      "path": "browser-mobile-after.json",
+      "bytes": 1980,
+      "sha256": "a42e16c6cde927c899b408808103074f55c8c1e44320f2280d02ab989f3e0055"
+    },
+    {
+      "path": "browser-mobile-before.json",
+      "bytes": 1980,
+      "sha256": "a42e16c6cde927c899b408808103074f55c8c1e44320f2280d02ab989f3e0055"
+    },
+    {
+      "path": "browser-mobile.png",
+      "bytes": 42780,
+      "sha256": "6ce0d8cee7850d83709a748d4ed9962066e2a0d31d5790d2dfa762d164e62080"
+    },
+    {
+      "path": "browser-receipt.json",
+      "bytes": 6372,
+      "sha256": "dd1e75b27f36c7c9a0fa8c5fc23a6aabe8eb9ffa7114630f11d3d3621475e1c0"
+    },
+    {
+      "path": "browser-task-final.json",
+      "bytes": 93,
+      "sha256": "927ecd6c2d72f63218e1c125247d4e31882cf8228686fe4101c068e79475bddf"
+    },
+    {
+      "path": "browser-task.json",
+      "bytes": 14299,
+      "sha256": "e1febf18a47607cd057f9e11738cd423c8be3e14234257b6f0f8a490a8438177"
+    },
+    {
+      "path": "browser.json",
+      "bytes": 11219,
+      "sha256": "6860484a625ddc69e26f287f0f196babbdf437f27fedbe386f7d25a0ae0cb3fc"
+    },
+    {
+      "path": "catalog-check.mjs",
+      "bytes": 2262,
+      "sha256": "ecf1c6630eb320d6cb151cb4d9c4a9311d7226800d51651b768e30cfe428bea1"
+    },
+    {
+      "path": "catalog.json",
+      "bytes": 1442,
+      "sha256": "6a11c43d5c54c2cde7d2940e54efd57f3f6a8f4e816ab7ab15259eef0bf1f35e"
+    },
+    {
+      "path": "final/architecture.txt",
+      "bytes": 12766,
+      "sha256": "95cdd5bf79553c19e805444248b9691155a3aef691b3af12f64f754d28fb513c"
+    },
+    {
+      "path": "final/game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "final/gate-exits.json",
+      "bytes": 982,
+      "sha256": "b61ddaf92387ed6f193f251ec75fc99b6e33c28b5f75bfd126d9fa9c7215c405"
+    },
+    {
+      "path": "final/headless/f10/engine.txt",
+      "bytes": 11063,
+      "sha256": "2a1c9dfb321d319611bda815e8f75e8c17f42bff2147fe068ae9e678bdeb0902"
+    },
+    {
+      "path": "final/headless/f10/frames.jsonl",
+      "bytes": 9172,
+      "sha256": "ce33edd1747f6f739f756aa17786fbebfa79d0ba75de06dd2ea0701f50fcd623"
+    },
+    {
+      "path": "final/headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "0f2a2fce72c2a342b9d434cb3a5153008c62adee1bd4660b68d219024e9c4a6b"
+    },
+    {
+      "path": "final/headless/normal/engine.txt",
+      "bytes": 11094,
+      "sha256": "1ee8c86085e0a9a645b83763dcc0dcea79ec51c1092fe738192b7e0e25b80ba8"
+    },
+    {
+      "path": "final/headless/normal/frames.jsonl",
+      "bytes": 9200,
+      "sha256": "511c5ad9bcf4cff3a2c6a03ff60ee7142ae0bac89ed5da2bfc0343dabe33ba1c"
+    },
+    {
+      "path": "final/headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "1c42bff071080ad143547f87a264e53ed64107143d87cbece98c8ee160ae20eb"
+    },
+    {
+      "path": "final/wiki.txt",
+      "bytes": 13806,
+      "sha256": "4024c767acd6e3dfe9d4dffd9c74fa26a00211a2dc66d64d91f014fb31305d43"
+    },
+    {
+      "path": "fixture-index-scan.json",
+      "bytes": 380,
+      "sha256": "6472afbfbfa3c5ec956ae58ec4aba6db7f4ec0cde73cf5b3f55706bb007e946d"
+    },
+    {
+      "path": "gate-driver.py",
+      "bytes": 1578,
+      "sha256": "cf9a269a03f122dc87616cbc396d3110d7deb097f410b4d94c011ccdaaaa2786"
+    },
+    {
+      "path": "inline-review.json",
+      "bytes": 2202,
+      "sha256": "d44853ff1dfba7a9be3fbbca8f17d6be6fe2243cfebe7fc719aa8dcd6d057e7e"
+    },
+    {
+      "path": "preservation.json",
+      "bytes": 396,
+      "sha256": "4173d5cb951352f3ed5642659e3badc482f77343d4ef357604c813348b727a60"
+    },
+    {
+      "path": "preservation.py",
+      "bytes": 1372,
+      "sha256": "83cb9ab04ff9365714b988e02d306c3bd80c6fceb5168744b36e91efcea15f08"
+    },
+    {
+      "path": "previous-packet.json",
+      "bytes": 16814,
+      "sha256": "2ecf0b9d0c748fb8df9942c9121323e9966ca0f2a8a0d4764302a41820cd62be"
+    },
+    {
+      "path": "profile-green-exit.json",
+      "bytes": 354,
+      "sha256": "fd7a2be5a65f774a61445c9278c332c8c5d344851a0b539105a6e08e1e1e3261"
+    },
+    {
+      "path": "profile-green.json",
+      "bytes": 26013,
+      "sha256": "3500ad16f9c8997bc8e41240fb17397b5cd80462857f3c7cf9b4df8c1b72eae6"
+    },
+    {
+      "path": "profile-green.txt",
+      "bytes": 1336,
+      "sha256": "7aa3fec020b0b2ac09e3ddbc771d7e3468ad6b6e48f26e5496ce8a59b7f2e098"
+    },
+    {
+      "path": "profile-python39-exit.json",
+      "bytes": 363,
+      "sha256": "8c93d5b7ddc81d63d9f0b85c1400f30b4576559568e5ee42bea2d88c81517595"
+    },
+    {
+      "path": "profile-python39.json",
+      "bytes": 25143,
+      "sha256": "c977b40e1e8ddfa60b4579d73fff57390a2e759e034a9c87c4de564f412ca8ce"
+    },
+    {
+      "path": "profile-python39.txt",
+      "bytes": 910,
+      "sha256": "b99b544c918c837d8f82a76476afaa67034635778617a5bb2a4f0747417d44ed"
+    },
+    {
+      "path": "profile-red-2-exit.json",
+      "bytes": 224,
+      "sha256": "15d18cb3aa367347600b546c5fc1b9f5fdd4e875059db5045fdc8c91c6a8c774"
+    },
+    {
+      "path": "profile-red-2.txt",
+      "bytes": 1343,
+      "sha256": "68c78f8cc3187ab6240ed739843daa33338d75491a1dbfeced9c4df2d942cbc2"
+    },
+    {
+      "path": "profile-red-3-exit.json",
+      "bytes": 224,
+      "sha256": "31a9b38a24c15f9d650727db44eed64a5718a51cd90c4e08d94644dd66a90bf9"
+    },
+    {
+      "path": "profile-red-3.txt",
+      "bytes": 14578,
+      "sha256": "73794e6377872ecfa2f4e30b7a28c8b6ac1304b85f74904a02adee2207a0596b"
+    },
+    {
+      "path": "profile-red-4-exit.json",
+      "bytes": 479,
+      "sha256": "ef5007f2924f9a68096cbf169d87b876d08d97a8adce4b3a336f7b357983d257"
+    },
+    {
+      "path": "profile-red-4.json",
+      "bytes": 26778,
+      "sha256": "c159dbeb909ac79b5b44a5a3bdce5cea59a92a0effa3c8f4af706be5e09692c2"
+    },
+    {
+      "path": "profile-red-4.txt",
+      "bytes": 7889,
+      "sha256": "07cf8fe87db85de3b64e82f3f4f6330c985ab1e1861b2dc422e377c1958cd2e8"
+    },
+    {
+      "path": "profile-red-exit.json",
+      "bytes": 246,
+      "sha256": "1c9911145ba33029a0e765623176e7abf96d2bc542f29de7b4615f86fc3b5718"
+    },
+    {
+      "path": "profile-red.json",
+      "bytes": 2544,
+      "sha256": "18e50a3ef7182ec713b32e17299bc346b051cd3b44007a0cbdfaee995ca0d369"
+    },
+    {
+      "path": "profile-red.txt",
+      "bytes": 17577,
+      "sha256": "c422bce5a1882424ca4e53e1b97a8b9b830881fbf99c5720c0d9d9b72ff72747"
+    },
+    {
+      "path": "publication-backlog.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "publication-documentation.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "publication-exits.json",
+      "bytes": 962,
+      "sha256": "6ca0a3a953ad881f1d44dd6616cd6a0d96a7b7b4f98e8ff7df50e0dc702afda0"
+    },
+    {
+      "path": "publication-preservation.txt",
+      "bytes": 396,
+      "sha256": "4173d5cb951352f3ed5642659e3badc482f77343d4ef357604c813348b727a60"
+    },
+    {
+      "path": "publication-scope.txt",
+      "bytes": 410,
+      "sha256": "a2c3443227e474cc034bf40f5999530b7413d3cb869c8485a290d4a956b9c63a"
+    },
+    {
+      "path": "publication-version.txt",
+      "bytes": 30,
+      "sha256": "8ae08bea14e8998b8df0fe8d0b4b1e43ea0ee73f14167c1efe1459e31b3b3e9f"
+    },
+    {
+      "path": "qa-server.mjs",
+      "bytes": 889,
+      "sha256": "65787e959808656ac10ec076b00fc192d5b3e2aedcc4a9eb280137e3ae411f00"
+    },
+    {
+      "path": "rejected-head-ci.json",
+      "bytes": 3902,
+      "sha256": "6b66e347f38541c4a109602f2c7065cca8bc089582fd82d92ee9968a468c6ac9"
+    },
+    {
+      "path": "rejected-macos-job.json",
+      "bytes": 13101,
+      "sha256": "96d3eb07b52e2d0d8149c35be7f67663ca899ce911ef086c2489bced1cab7631"
+    },
+    {
+      "path": "result.json",
+      "bytes": 2591,
+      "sha256": "632b40793369fcb3904a82fcee3b6e61781db86713eb368f27fd23ec00ed1872"
+    },
+    {
+      "path": "reviewer-negative.json",
+      "bytes": 1041,
+      "sha256": "9d075ce1447f471550423f65ef0bcf53ac2158f5416ecc8648e521d040dd602a"
+    },
+    {
+      "path": "reviewer-reproduced-green.json",
+      "bytes": 910,
+      "sha256": "b25dd049f29e7fb3b6162bf8a5905701a255099b8609586a0157add79195406c"
+    },
+    {
+      "path": "reviewer-reproduced-red.json",
+      "bytes": 1379,
+      "sha256": "36415f44a6e919784f5a39f92b5ea14c51c2105a31ce6055389d0f4ca6050066"
+    },
+    {
+      "path": "reviewer-reproduction.py.txt",
+      "bytes": 2969,
+      "sha256": "a32b2a78a21ef5dc3d49f630c0c81d207dead0a07d2ccc74509cbcd507d27789"
+    },
+    {
+      "path": "scope-before.py.txt",
+      "bytes": 3487,
+      "sha256": "88f9e7db690de178be439812a8469c1058115f079366e333e36e96343bc2edf3"
+    },
+    {
+      "path": "scope-root-result.json",
+      "bytes": 123,
+      "sha256": "9b39104e755722642ae0f8e6f01b6f0f4ab89a0e39e6473d5125f3f06c36d6df"
+    },
+    {
+      "path": "scope-root.json",
+      "bytes": 410,
+      "sha256": "a2c3443227e474cc034bf40f5999530b7413d3cb869c8485a290d4a956b9c63a"
+    },
+    {
+      "path": "test-scope-first.py.txt",
+      "bytes": 9692,
+      "sha256": "e5d81d17a9aefb4fae2c73a2470c50d281f75299b4aed706098617d9095bf206"
+    },
+    {
+      "path": "test-scope-index-build.py.txt",
+      "bytes": 10650,
+      "sha256": "ce24e40e71224963e9626a2fc1005c583f049b7ba79dbf0fc44913dfe5647c04"
+    },
+    {
+      "path": "test-scope-source-index.py.txt",
+      "bytes": 10925,
+      "sha256": "599bd40d06240f16656c3d2be33c6de8bff3c2803a7b9bcfae5ebbeb30fc3c1d"
+    },
+    {
+      "path": "test_scope_git.py",
+      "bytes": 11046,
+      "sha256": "a76defa579172eba4f92933fb89a43fa29db514ed12bb81d1289f35bd16060e1"
+    }
+  ]
+}

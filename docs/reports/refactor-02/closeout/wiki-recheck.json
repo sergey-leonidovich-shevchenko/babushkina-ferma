@@ -1,0 +1,12 @@
+{
+  "command": [
+    "pnpm",
+    "--dir",
+    "wiki",
+    "check"
+  ],
+  "reason": "Two guide-only corrections after observed README-link collision; production code and version metadata unchanged",
+  "started_at": "2026-10-27T00:01:25.509045+00:00",
+  "exit": 0,
+  "finished_at": "2026-10-27T00:02:20.250706+00:00"
+}

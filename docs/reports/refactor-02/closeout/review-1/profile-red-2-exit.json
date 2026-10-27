@@ -1,0 +1,9 @@
+{
+  "command": [
+    "python3",
+    "docs/reports/refactor-02/closeout/review-1/test_scope_git.py",
+    "-v"
+  ],
+  "exit": 1,
+  "stage": "before production fix; cached actual fixture index after original harness timeout"
+}

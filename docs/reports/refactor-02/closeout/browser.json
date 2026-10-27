@@ -1,0 +1,120 @@
+{
+  "desktop": {
+    "active": [
+      {
+        "href": "#/development/tasks/wiki--IDEA-REVIEW-20261024",
+        "text": "IDEA-REVIEW-20261024Проработать десять самостоятельных NPC-историйДругое направление. Его статус не означает смену курса первой локации."
+      }
+    ],
+    "docWidth": 1280,
+    "history": "История выполненного\n\nЗавершённые задачи маршрута и его технического обслуживания · 83. Новые даты сверху; без подтверждённой даты — в конце. Это история работы, а не процент приёмки всей карты.\n\n27.10.2026\nДата принятия completion-коммита в main\nWIKI-003\nПоказывать текущую работу и историю завершения в обзоре первой локации\n\nОбслуживание разработки: Wiki и прозрачный учёт работы.\n\nМатериалы и подтверждения · 5\n27.10.2026\nДата принятия completion-коммита в main\nREFACTOR-01\nСоставить полную карту переносов tools и подтвердить остальные узкие места\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 5\n27.10.2026\nЯвная дата в карточке\nREFACTOR-02\nРазделить общую инфраструктуру и репозиторные команды tools\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 4\n25.10.2026\nДата принятия completion-коммита в main\nVFOLIAGE-010\nПринять видимость и бюджет травы\n\nМаршрут первой локации\n\nМатериалы и подтверждения · 15\n25.10.2026\nДата принятия completion-коммита в main\nREFACTOR-00\nСохранить эпик, исходную ведомость и приоритет пользователя\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 5\n24.10.2026\nДата принятия completion-коммита в main\nVFOLIAGE-006\nДобавить мягкое восстановление\n\nМаршрут первой локации\n\nМатериалы и подтверждения · 37\n24.10.2026\nДата принятия completion-коммита в main\nVFOLIAGE-009\nЗаморозить эффекты на игровой п",
+    "progress": [
+      {
+        "max": "",
+        "value": ""
+      }
+    ],
+    "taskHref": "#/development/tasks/refactoring--REFACTOR-02",
+    "width": 1280
+  },
+  "card": {
+    "width": 1280,
+    "docWidth": 1280,
+    "done": true,
+    "date": true,
+    "pr18": true,
+    "raw_initial_single_space_probe": {
+      "date": true,
+      "docWidth": 1280,
+      "done": false,
+      "pr18": true,
+      "width": 1280,
+      "status_verified_from_visible_epic_row": {
+        "href": "#/development/tasks/refactoring--REFACTOR-02",
+        "text": "REFACTOR-02Разделить общую инфраструктуру и репозиторные команды tools Понятная структура инструментов и модулейЗавершенаP1"
+      },
+      "initial_literal_probe_valid": false,
+      "status_verified_by_AX_and_screenshot": true
+    },
+    "final_evidence": [
+      "browser-card.png; visible AX status",
+      "browser-epic.json; actual done row",
+      "browser-mobile-card.json; whitespace-aware probe"
+    ]
+  },
+  "epic": {
+    "docWidth": 1280,
+    "tasks": [
+      {
+        "href": "#/development/tasks/refactoring--REFACTOR-01",
+        "text": "REFACTOR-01Составить полную карту переносов tools и подтвердить остальные узкие места Понятная структура инструментов и модулейЗавершенаP1"
+      },
+      {
+        "href": "#/development/tasks/refactoring--REFACTOR-02",
+        "text": "REFACTOR-02Разделить общую инфраструктуру и репозиторные команды tools Понятная структура инструментов и модулейЗавершенаP1"
+      },
+      {
+        "href": "#/development/tasks/refactoring--REFACTOR-03",
+        "text": "REFACTOR-03Разнести QA, обработку ассетов, сборку и ручные стенды tools по подсистемам Понятная структура инструментов и модулейГотова к работеP1"
+      }
+    ],
+    "width": 1280
+  },
+  "guide": {
+    "currentLauncher": true,
+    "docWidth": 1280,
+    "receipt": [
+      {
+        "href": "generated/attachments/45c69211020c4477633bbe6a76737a455c64e129f4cdf289be208e46dc08478c.json",
+        "text": "Запись приёмки"
+      }
+    ],
+    "width": 1280,
+    "wrongAccountingLinkAbsent": true
+  },
+  "receipt": {
+    "href": "generated/attachments/45c69211020c4477633bbe6a76737a455c64e129f4cdf289be208e46dc08478c.json",
+    "actuallyOpened": true,
+    "acceptedMergeVisible": true
+  },
+  "mobile": {
+    "active": [
+      "IDEA-REVIEW-20261024Проработать десять самостоятельных NPC-историйДругое направление. Его статус не означает смену курса первой локации."
+    ],
+    "docWidth": 390,
+    "history": "История выполненного\n\nЗавершённые задачи маршрута и его технического обслуживания · 83. Новые даты сверху; без подтверждённой даты — в конце. Это история работы, а не процент приёмки всей карты.\n\n27.10.2026\nДата принятия completion-коммита в main\nWIKI-003\nПоказывать текущую работу и историю завершения в обзоре первой локации\n\nОбслуживание разработки: Wiki и прозрачный учёт работы.\n\nМатериалы и подтверждения · 5\n27.10.2026\nДата принятия completion-коммита в main\nREFACTOR-01\nСоставить полную карту переносов tools и подтвердить остальные узкие места\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 5\n27.10.2026\nЯвная дата в карточке\nREFACTOR-02\nРазделить общую инфраструктуру и репозиторные команды tools\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 4\n25.10.2026\nДата принятия completion-коммита в main\nVFOLIAGE-010\nПринять видимость и бюджет травы\n\nМаршрут первой локации\n\nМатериалы и подтверждения · 15\n25.10.2026\nДата принятия completion-коммита в main\nREFACTOR-00\nСохранить эпик, исходную ведомость и приоритет пользователя\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 5\n24.10.2026\nДата принятия completion-коммита в main\nVFOLIAGE-006\nДобавить мягкое восстановление\n\n",
+    "progress": [
+      {
+        "max": "52",
+        "value": "52"
+      }
+    ],
+    "unknown": 20,
+    "width": 390,
+    "mode": "Actual viewport390x844, not physical phone"
+  },
+  "mobileCard": {
+    "date": true,
+    "docWidth": 390,
+    "done": true,
+    "pr18": true,
+    "width": 390
+  },
+  "manualRefresh": {
+    "docWidth": 390,
+    "history83": true,
+    "progress": "52",
+    "unknown": 20,
+    "width": 390
+  },
+  "viewportRestored": {
+    "docWidth": 1280,
+    "width": 1280
+  },
+  "limitations": [
+    "The initial frame DOM inspection returned undefined contentDocument; it is not counted as a completed frame acceptance. Final narrow QA used the documented actual browser viewport override.",
+    "Initial desktop progress property read returned empty strings through the read-only adapter; actual value/max attributes were52/52 in the final narrow DOM and source catalog.",
+    "Initial desktop done flag used a literal single-space string and returned false across the rendered line break. The visible card AX and screenshot say Завершена; the actual epic row and final narrow regex independently confirm done. The initial JSON is preserved unchanged."
+  ],
+  "planningMutations": 0
+}

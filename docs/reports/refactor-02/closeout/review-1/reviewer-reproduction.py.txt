@@ -1,0 +1,61 @@
+"""Reproduce PR19's scope-guard false PASS using only a disposable checkout.
+
+Run with the review checkout path as the optional first argument. Source files,
+the source index, and its Git configuration are never changed.
+"""
+
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import tempfile
+
+root = Path(sys.argv[1] if len(sys.argv) > 1 else Path.cwd()).resolve()
+environment = {key: value for key, value in os.environ.items() if not key.startswith("GIT_")}
+environment["PYTHONDONTWRITEBYTECODE"] = "1"
+probe = Path("tools/common/git.py")
+original = (root / probe).read_bytes()
+
+with tempfile.TemporaryDirectory(prefix="pr19 scope negative ") as value:
+    temporary = Path(value)
+    subject = temporary / "candidate checkout"
+    subprocess.run(
+        ["git", "-c", "gc.auto=0", "clone", "-q", "--shared", "--no-checkout", str(root), str(subject)],
+        env=environment, check=True, capture_output=True,
+    )
+    head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, env=environment).decode().strip()
+    subprocess.run(["git", "-C", str(subject), "read-tree", head], env=environment, check=True)
+
+    # Read-only source links avoid copying assets. The edited probe is a separate copy.
+    names = subprocess.check_output(["git", "ls-files", "-z"], cwd=root, env=environment).decode().split("\0")
+    for name in filter(None, names):
+        source, target = root / name, subject / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if source.is_symlink():
+            target.symlink_to(os.readlink(source))
+        elif Path(name) == probe:
+            shutil.copy2(source, target)
+        else:
+            os.link(source, target)
+    (subject / probe).write_bytes(original + b"\n# disposable forbidden tools edit\n")
+    helper = subject / "docs/reports/refactor-02/closeout/verify-scope.py"
+
+    normal = subprocess.run([sys.executable, str(helper)], cwd=subject, env=environment, capture_output=True, text=True)
+    alternate_index = temporary / "alternate-index"
+    shutil.copy2(subject / ".git/index", alternate_index)
+    inherited = dict(environment, GIT_DIR=str(subject / ".git"), GIT_WORK_TREE=str(root),
+                     GIT_INDEX_FILE=str(alternate_index), GIT_OPTIONAL_LOCKS="0")
+    redirected = subprocess.run([sys.executable, str(helper)], cwd=subject, env=inherited, capture_output=True, text=True)
+    print(json.dumps({
+        "head": head, "normal_exit": normal.returncode, "inherited_git_exit": redirected.returncode,
+        "normal_stderr_tail": normal.stderr[-400:], "inherited_stdout": redirected.stdout,
+        "source_unchanged": (root / probe).read_bytes() == original,
+        "source_sha256": hashlib.sha256(original).hexdigest(),
+    }, ensure_ascii=False, indent=2))
+
+    # Both runs must reject the changed tools file once the guard is fixed.
+    assert normal.returncode != 0
+    assert (root / probe).read_bytes() == original

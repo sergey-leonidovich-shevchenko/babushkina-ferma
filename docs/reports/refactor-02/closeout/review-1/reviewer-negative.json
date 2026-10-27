@@ -1,0 +1,10 @@
+{
+  "head": "d714c62157989c8a522c016962cab37136b558f7",
+  "fixture_only": true,
+  "forbidden_edit": "tools/common/git.py",
+  "normal_exit": 1,
+  "normal_error_tail": " farm/docs/reports/refactor-02/closeout/verify-scope.py\", line 52, in <module>\n    assert all(not path or path in allowed or path.startswith(prefix) for path in changed + untracked)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "inherited_foreign_git_exit": 0,
+  "false_pass_output": "{\n  \"base\": \"58eda69fd86f6784aa5fbdcfbec4a526b212b0f4\",\n  \"preserved\": {\n    \"accepted_reports\": 585,\n    \"plan_json_archives\": 13,\n    \"uid_files\": 798\n  },\n  \"files_verified\": 1396,\n  \"changed_tasks\": [\n    \"REFACTOR-02\",\n    \"REFACTOR-03\"\n  ],\n  \"other_cards_unchanged\": 5,\n  \"runtime_tools_tests_planning_unchanged\": true,\n  \"only_wiki_index_field\": \"project-refactoring.summary\",\n  \"version\": \"0.0.355\"\n}\n",
+  "original_review_source_unchanged": true
+}
