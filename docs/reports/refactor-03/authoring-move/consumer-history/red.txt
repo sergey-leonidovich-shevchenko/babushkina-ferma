@@ -1,0 +1,155 @@
+test_foreign_git_context_is_ignored (__main__.HistoricalEvidenceTests.test_foreign_git_context_is_ignored) ... FAIL
+test_live_only_reader_needs_no_git (__main__.HistoricalEvidenceTests.test_live_only_reader_needs_no_git) ... ok
+test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) ... 
+  test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant=[]) ... FAIL
+  test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools/generator.py': {'commit': 'HEAD', 'sha256': 'e76aa3c81ad338efb04cb6036f946d7130e5e7a7fd3681eb095f57f054a089b7'}}) ... FAIL
+  test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools/generator.py': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189', 'sha256': 'bad'}}) ... FAIL
+  test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools/generator.py': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189', 'sha256': 'e76aa3c81ad338efb04cb6036f946d7130e5e7a7fd3681eb095f57f054a089b7', 'extra': True}}) ... FAIL
+  test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools/../generator.py': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189', 'sha256': 'e76aa3c81ad338efb04cb6036f946d7130e5e7a7fd3681eb095f57f054a089b7'}}) ... FAIL
+  test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'assets/game/a.png': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189', 'sha256': 'e76aa3c81ad338efb04cb6036f946d7130e5e7a7fd3681eb095f57f054a089b7'}}) ... FAIL
+  test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools//generator.py': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189', 'sha256': 'e76aa3c81ad338efb04cb6036f946d7130e5e7a7fd3681eb095f57f054a089b7'}}) ... FAIL
+  test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools/unknown.py': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189', 'sha256': 'e76aa3c81ad338efb04cb6036f946d7130e5e7a7fd3681eb095f57f054a089b7'}}) ... FAIL
+  test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools/generator.py': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189'}}) ... FAIL
+test_media_remains_live_and_changed_bytes_fail (__main__.HistoricalEvidenceTests.test_media_remains_live_and_changed_bytes_fail) ... ok
+test_missing_history_has_no_live_fallback (__main__.HistoricalEvidenceTests.test_missing_history_has_no_live_fallback) ... FAIL
+test_missing_unpinned_input_is_not_hidden (__main__.HistoricalEvidenceTests.test_missing_unpinned_input_is_not_hidden) ... ok
+test_parent_repository_is_not_borrowed (__main__.HistoricalEvidenceTests.test_parent_repository_is_not_borrowed) ... FAIL
+test_pin_snapshot_is_not_mutable (__main__.HistoricalEvidenceTests.test_pin_snapshot_is_not_mutable) ... FAIL
+test_real_rename_preserves_original_evidence (__main__.HistoricalEvidenceTests.test_real_rename_preserves_original_evidence) ... ERROR
+test_symlink_is_rejected (__main__.HistoricalEvidenceTests.test_symlink_is_rejected) ... ok
+test_wrong_digest_fails (__main__.HistoricalEvidenceTests.test_wrong_digest_fails) ... FAIL
+
+======================================================================
+ERROR: test_real_rename_preserves_original_evidence (__main__.HistoricalEvidenceTests.test_real_rename_preserves_original_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 63, in test_real_rename_preserves_original_evidence
+    self.assertEqual(working_reader(self.root, self.rules)("tools/generator.py"), self.original)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tools/asset_report.py", line 92, in read
+    return path.read_bytes()
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/asset evidence history g9khek__/repository with spaces/tools/generator.py'
+
+======================================================================
+FAIL: test_foreign_git_context_is_ignored (__main__.HistoricalEvidenceTests.test_foreign_git_context_is_ignored)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 144, in test_foreign_git_context_is_ignored
+    self.assertEqual(working_reader(self.root, self.rules)("tools/generator.py"), self.original)
+AssertionError: b'# current differs\n' != b'# original generator\n'
+
+======================================================================
+FAIL: test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 106, in test_malformed_pins_fail
+    with self.subTest(variant=variant), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools/generator.py': {'commit': 'HEAD', 'sha256': 'e76aa3c81ad338efb04cb6036f946d7130e5e7a7fd3681eb095f57f054a089b7'}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 106, in test_malformed_pins_fail
+    with self.subTest(variant=variant), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools/generator.py': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189', 'sha256': 'bad'}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 106, in test_malformed_pins_fail
+    with self.subTest(variant=variant), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools/generator.py': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189', 'sha256': 'e76aa3c81ad338efb04cb6036f946d7130e5e7a7fd3681eb095f57f054a089b7', 'extra': True}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 106, in test_malformed_pins_fail
+    with self.subTest(variant=variant), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools/../generator.py': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189', 'sha256': 'e76aa3c81ad338efb04cb6036f946d7130e5e7a7fd3681eb095f57f054a089b7'}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 106, in test_malformed_pins_fail
+    with self.subTest(variant=variant), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'assets/game/a.png': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189', 'sha256': 'e76aa3c81ad338efb04cb6036f946d7130e5e7a7fd3681eb095f57f054a089b7'}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 106, in test_malformed_pins_fail
+    with self.subTest(variant=variant), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools//generator.py': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189', 'sha256': 'e76aa3c81ad338efb04cb6036f946d7130e5e7a7fd3681eb095f57f054a089b7'}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 106, in test_malformed_pins_fail
+    with self.subTest(variant=variant), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools/unknown.py': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189', 'sha256': 'e76aa3c81ad338efb04cb6036f946d7130e5e7a7fd3681eb095f57f054a089b7'}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 106, in test_malformed_pins_fail
+    with self.subTest(variant=variant), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_malformed_pins_fail (__main__.HistoricalEvidenceTests.test_malformed_pins_fail) (variant={'tools/generator.py': {'commit': 'efee6160562d21782f344f4b68fbd9c6ce832189'}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 106, in test_malformed_pins_fail
+    with self.subTest(variant=variant), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_missing_history_has_no_live_fallback (__main__.HistoricalEvidenceTests.test_missing_history_has_no_live_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 82, in test_missing_history_has_no_live_fallback
+    with self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_parent_repository_is_not_borrowed (__main__.HistoricalEvidenceTests.test_parent_repository_is_not_borrowed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 126, in test_parent_repository_is_not_borrowed
+    with self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_pin_snapshot_is_not_mutable (__main__.HistoricalEvidenceTests.test_pin_snapshot_is_not_mutable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 155, in test_pin_snapshot_is_not_mutable
+    self.assertEqual(read("tools/generator.py"), self.original)
+AssertionError: b'# current differs\n' != b'# original generator\n'
+
+======================================================================
+FAIL: test_wrong_digest_fails (__main__.HistoricalEvidenceTests.test_wrong_digest_fails)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_asset_report_history.py", line 91, in test_wrong_digest_fails
+    with self.assertRaisesRegex(ValueError, "SHA256"):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 11 tests in 2.504s
+
+FAILED (failures=14, errors=1)

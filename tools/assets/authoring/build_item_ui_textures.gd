@@ -31,7 +31,7 @@ func _initialize() -> void:
 	var file:=FileAccess.open(FOLDER+"catalog.json",FileAccess.WRITE)
 	var data:={"schema":1,"small":SMALL,"large":LARGE,"columns":COLUMNS,"entries":entries}
 	file.store_string(JSON.stringify(data,"\t")); file.close()
-	file=FileAccess.open(FOLDER+"catalog.gd",FileAccess.WRITE); file.store_string("extends RefCounted\n\n## Автоматический индекс двух экранных размеров; пересоздаётся tools/build_item_ui_textures.gd.\nconst DATA := "+JSON.stringify(data,"\t")+"\n"); file.close()
+	file=FileAccess.open(FOLDER+"catalog.gd",FileAccess.WRITE); file.store_string("extends RefCounted\n\n## Автоматический индекс двух экранных размеров; пересоздаётся tools/assets/authoring/build_item_ui_textures.gd.\nconst DATA := "+JSON.stringify(data,"\t")+"\n"); file.close()
 	print("ITEM UI TEXTURES: %d items; %dx%d thumbnail atlas; %dpx previews"%[kinds.size(),atlas.get_width(),atlas.get_height(),LARGE])
 	game.free(); quit()
 

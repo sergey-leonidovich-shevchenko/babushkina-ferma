@@ -9,3 +9,19 @@ docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/candidate.patch -whi
 docs/reports/visual-overhaul/vfoliage-009/native-focused/1152/engine.txt -whitespace
 # Immutable native/diagnostic raw output preserves its exact trailing newline.
 docs/reports/visual-overhaul/vfoliage-010/diagnostics/vfoliage010-compile-capture.txt -whitespace
+# Preserve immutable REFACTOR-03 Godot and rejected unittest raw output byte-for-byte.
+docs/reports/refactor-03/authoring-move/consumer-history/red.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-build_clean_interior_atlas.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-build_house_furniture.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-build_item_ui_textures.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-build_painted_item_icons.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-build_prepared_pixels.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-build_village_materials.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-build_village_props.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-extract_farm_icons.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-extract_farmyard_sprites.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-extract_hero_combat_sprites.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-prepare_celestial_dial.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-prepare_character_walk.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-prepare_hero_actions.txt -whitespace
+docs/reports/refactor-03/authoring-move/godot-prepare_skeleton_v2.txt -whitespace

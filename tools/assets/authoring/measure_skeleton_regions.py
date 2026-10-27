@@ -1,9 +1,10 @@
 """Измеряет целые прозрачные фигуры без изменения пикселей исходников."""
 from pathlib import Path
+from tools.common.paths import project_root
 import json
 from PIL import Image
 
-root = Path("docs/concepts/skeleton-2026-10-12/v2")
+root = project_root(__file__) / "docs/concepts/skeleton-2026-10-12/v2"
 catalog = {}
 for name in ["walk", "actions"]:
     image = Image.open(root / "sources" / f"{name}.png").convert("RGBA")

@@ -23,7 +23,7 @@ func _initialize() -> void:
 	if sunflower.save_png(FOLDER+"sunflower.png")!=OK: push_error("Не удалось сохранить подсолнух"); quit(1); return
 	paths.sunflower=FOLDER+"sunflower.png"; mapping.sunflower={"master":"sunflower-proposal","color":"ffffff"}
 	var file:=FileAccess.open(FOLDER+"catalog.gd",FileAccess.WRITE)
-	file.store_string("extends RefCounted\n\n## Утверждённые изображения A; сборка tools/build_painted_item_icons.gd.\nconst ITEMS := "+JSON.stringify(paths,"\t")+"\n"); file.close()
+	file.store_string("extends RefCounted\n\n## Утверждённые изображения A; сборка tools/assets/authoring/build_painted_item_icons.gd.\nconst ITEMS := "+JSON.stringify(paths,"\t")+"\n"); file.close()
 	file=FileAccess.open(FOLDER+"mapping.json",FileAccess.WRITE); file.store_string(JSON.stringify(mapping,"\t")); file.close()
 	print("PAINTED ITEM ICONS: %d approved item resources at 160px"%paths.size()); quit()
 

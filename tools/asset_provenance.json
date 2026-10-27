@@ -1314,5 +1314,15 @@
         }
       ]
     }
+  },
+  "evidence_history": {
+    "tools/build_bridge_sprites.py": {
+      "commit": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "sha256": "744669810d501fc232d6740f977db0ca81aa0026e76fc4a3a067b02cb6cd06f6"
+    },
+    "tools/build_environment_sprites.py": {
+      "commit": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "sha256": "f23735d4d157a291db92fa955d7dea06f358fe94b05bf72ebaac6ca819650e9c"
+    }
   }
 }

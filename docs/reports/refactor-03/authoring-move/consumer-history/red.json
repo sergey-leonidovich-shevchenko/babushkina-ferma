@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "tools/run.py",
+    "build.test_asset_report_history",
+    "-v"
+  ],
+  "exit": 1,
+  "reader_source_sha256": "e59f21ef39d3db2196f8cda05e9b17c8a416864b26fba5db7c2a349d9d7b6140",
+  "test_sha256": "7b252055c56faa4c068c20b64638a7aae2b42cf99abc11a847ea227baeb2c032",
+  "stage": "original live-only reader extracted, before Git-history support"
+}

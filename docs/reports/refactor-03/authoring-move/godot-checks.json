@@ -1,0 +1,226 @@
+[
+  {
+    "name": "editor-import",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--editor",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--quit"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:35:58.852700+00:00"
+  },
+  {
+    "name": "build_clean_interior_atlas",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/build_clean_interior_atlas.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:35:59.252945+00:00"
+  },
+  {
+    "name": "build_house_furniture",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/build_house_furniture.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:35:59.650635+00:00"
+  },
+  {
+    "name": "build_item_ui_textures",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/build_item_ui_textures.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:36:09.894962+00:00"
+  },
+  {
+    "name": "build_painted_item_icons",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/build_painted_item_icons.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:36:10.280232+00:00"
+  },
+  {
+    "name": "build_prepared_pixels",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/build_prepared_pixels.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:36:10.872229+00:00"
+  },
+  {
+    "name": "build_village_materials",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/build_village_materials.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:36:11.249955+00:00"
+  },
+  {
+    "name": "build_village_props",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/build_village_props.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:36:11.643558+00:00"
+  },
+  {
+    "name": "extract_farm_icons",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/extract_farm_icons.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:36:12.018935+00:00"
+  },
+  {
+    "name": "extract_farmyard_sprites",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/extract_farmyard_sprites.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:36:12.386483+00:00"
+  },
+  {
+    "name": "extract_hero_combat_sprites",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/extract_hero_combat_sprites.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:36:12.806366+00:00"
+  },
+  {
+    "name": "prepare_celestial_dial",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/prepare_celestial_dial.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:36:13.234564+00:00"
+  },
+  {
+    "name": "prepare_character_walk",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/prepare_character_walk.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:36:13.647054+00:00"
+  },
+  {
+    "name": "prepare_hero_actions",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/prepare_hero_actions.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:36:14.058042+00:00"
+  },
+  {
+    "name": "prepare_skeleton_v2",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/authoring/prepare_skeleton_v2.gd"
+    ],
+    "exit": 0,
+    "engine_errors": false,
+    "at": "2026-10-27T05:36:14.428784+00:00"
+  }
+]

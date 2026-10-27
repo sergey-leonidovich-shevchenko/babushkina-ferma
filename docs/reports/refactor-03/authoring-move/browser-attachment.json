@@ -1,0 +1,37 @@
+{
+  "url": "http://127.0.0.1:4193/generated/attachments/29f408a36a012363233a2ffbd1a0a04849cc4f2b3839014d8b4dedfc6f2bbb65.json",
+  "profile": {
+    "version": "0.0.358",
+    "prepared_head": "0352c5f286dc90c5fa324347b9ceadeb6a8e9350",
+    "verified_moves": 36,
+    "compiled_python": 17,
+    "tracked_UID": 5,
+    "ignored_UID_preserved": 9,
+    "AST_GDScript_bytes_and_modes_preserved": true,
+    "real_negative_cases": 2,
+    "real_new_CLI": [
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+          "/Users/sergeyshevchenko/my farm/tools/run.py",
+          "assets.authoring.build_forest_tree_atlas",
+          "--help"
+        ],
+        "exit": 0,
+        "stdout": "usage: build_forest_tree_atlas.py [-h] [--project PROJECT]\n\noptions:\n  -h, --help         show this help message and exit\n  --project PROJECT\n"
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+          "/Users/sergeyshevchenko/my farm/tools/run.py",
+          "assets.authoring.build_level_editor_tiles",
+          "--help"
+        ],
+        "exit": 0,
+        "stdout": "usage: build_level_editor_tiles.py [-h] [--project PROJECT]\n\noptions:\n  -h, --help         show this help message and exit\n  --project PROJECT\n"
+      }
+    ],
+    "temporary_removed": true
+  },
+  "ax": "Browser tab: 1, Title: \"127.0.0.1:4193/generated/attachments/29f408a36a012363233a2ffbd1a0a04849cc4f2b3839014d8b4dedfc6f2bbb65.json\", URL: \"http://127.0.0.1:4193/generated/attachments/29f408a36a012363233a2ffbd1a0a04849cc4f2b3839014d8b4dedfc6f2bbb65.json\".\n1 AXWebArea 127.0.0.1:4193/generated/attachments/29f408a36a012363233a2ffbd1a0a04849cc4f2b3839014d8b4dedfc6f2bbb65.json\n\t2 text {\n  \"version\": \"0.0.358\",\n  \"prepared_head\": \"0352c5f286dc90c5fa324347b9ceadeb6a8e9350\",\n  \"verified_moves\": 36,\n  \"compiled_python\": 17,\n  \"tracked_UID\": 5,\n  \"ignored_UID_preserved\": 9,\n  \"AST_GDScript_bytes_and_modes_preserved\": true,\n  \"real_negative_cases\": 2,\n  \"real_new_CLI\": [\n    {\n      \"command\": [\n        \"/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3\",\n        \"/Users/sergeyshevchenko/my farm/tools/run.py\",\n        \"assets.authoring.build_forest_tree_atlas\",\n        \"--help\"\n      ],\n      \"exit\": 0,\n      \"stdout\": \"usage: build_forest_tree_atlas.py [-h] [--project PROJECT]\\n\\noptions:\\n  -h, --help         show this help message and exit\\n  --project PROJECT\\n\"\n    },\n    {\n      \"command\": [\n        \"/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3\",\n        \"/Users/sergeyshevchenko/my farm/tools/run.py\",\n        \"assets.authoring.build_level_editor_tiles\",\n        \"--help\"\n      ],\n      \"exit\": 0,\n      \"stdout\": \"usage: build_level_editor_tiles.py [-h] [--project PROJECT]\\n\\noptions:\\n  -h, --help         show this help message and exit\\n  --project PROJECT\\n\"\n    }\n  ],\n  \"temporary_removed\": true\n}\n\n\t3 container\n\t\t4 checkbox 0\n\nThe focused UI element is 1 AXWebArea 127.0.0.1:4193/generated/attachments/29f408a36a012363233a2ffbd1a0a04849cc4f2b3839014d8b4dedfc6f2bbb65.json"
+}

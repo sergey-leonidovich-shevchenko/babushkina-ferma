@@ -1,0 +1,34 @@
+{
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "version": "0.0.357",
+  "AST_and_byte_guard_files": 16,
+  "pixel_cases": 3,
+  "real_negative_cases": [
+    "Мост (0, 0, 18, 16) не помещается в холст (2, 2): (9, 8)",
+    "Пустая область моста: (0, 0, 18, 16)"
+  ],
+  "arbitrary_cwd_hostile_PYTHONPATH_GIT": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/published357 bounded replay m14tpy13/source with spaces/tools/run.py",
+        "build_forest_tree_atlas",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: build_forest_tree_atlas.py [-h] [--project PROJECT]\n\noptions:\n  -h, --help         show this help message and exit\n  --project PROJECT\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/published357 bounded replay m14tpy13/source with spaces/tools/run.py",
+        "build_level_editor_tiles",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: build_level_editor_tiles.py [-h] [--project PROJECT]\n\noptions:\n  -h, --help         show this help message and exit\n  --project PROJECT\n"
+    }
+  ],
+  "temporary_removed": true,
+  "repository_paths_unchanged": true
+}

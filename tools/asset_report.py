@@ -84,14 +84,71 @@ def csv_bytes(data):
     return out.getvalue().encode()
 
 
+def working_reader(root, rules=None):
+    """Читает живые ресурсы; только явно объявленные свидетельства генераторов берёт из точной истории."""
+    root = root.resolve()
+    rules = {} if rules is None else rules
+    if not isinstance(rules, dict) or not isinstance(rules.get('evidence_history', {}), dict):
+        raise ValueError('invalid evidence history')
+    declared = set()
+    declarations = rules.get('rules', [])
+    if not isinstance(declarations, list) or any(not isinstance(rule, dict) for rule in declarations):
+        raise ValueError('invalid provenance rules')
+    for rule in declarations:
+        evidence = rule.get('evidence', [])
+        if not isinstance(evidence, list) or any(not isinstance(name, str) for name in evidence):
+            raise ValueError('invalid evidence paths')
+        declared.update(evidence)
+    pins = {}
+    for name, entry in rules.get('evidence_history', {}).items():
+        if (not isinstance(name, str) or Path(name).parent != Path('tools')
+                or Path(name).as_posix() != name or name not in declared
+                or Path(name).suffix not in {'.py', '.gd', '.sh', '.mjs', '.swift', '.gdshader'}
+                or not isinstance(entry, dict) or set(entry) != {'commit', 'sha256'}
+                or not isinstance(entry['commit'], str) or not re.fullmatch('[0-9a-f]{40}', entry['commit'])
+                or not isinstance(entry['sha256'], str) or not re.fullmatch('[0-9a-f]{64}', entry['sha256'])):
+            raise ValueError('invalid historical evidence pin: ' + str(name))
+        pins[name] = (entry['commit'], entry['sha256'])
+    if pins:
+        try:
+            repository = Path(git_read(root, 'rev-parse', '--show-toplevel', text=True).strip()).resolve()
+        except subprocess.CalledProcessError as error:
+            raise ValueError('historical evidence requires its repository root') from error
+        if repository != root:
+            raise ValueError('historical evidence cannot borrow a parent repository')
+
+    @lru_cache(maxsize=None)
+    def historical(name):
+        """Кэширует только неизменный Git blob; текущие PNG и политика не попадают в этот кэш."""
+        commit, expected = pins[name]
+        try:
+            raw = git_bytes(root, commit, name)
+        except subprocess.CalledProcessError as error:
+            raise ValueError('historical evidence unavailable: ' + name) from error
+        if sha(raw) != expected:
+            raise ValueError('historical evidence SHA256 mismatch: ' + name)
+        return raw
+
+    def read(name):
+        """Сохраняет прежнюю защиту traversal/symlink и отказывает без общего historical fallback."""
+        if not isinstance(name, str):
+            raise ValueError('unsafe current input')
+        path = root / name
+        if (Path(name).is_absolute() or '..' in Path(name).parts or path.is_symlink()
+                or not path.resolve().is_relative_to(root)):
+            raise ValueError('unsafe current input')
+        if name in pins:
+            return historical(name)
+        return path.read_bytes()
+    return read
+
+
 def current_inventory(root):
     """Собирает актуальный каталог, не замораживая будущие согласованные рисунки историческим снимком."""
     files=git_read(root,'ls-files','--cached','--others','--exclude-standard',text=True).splitlines()
-    def read(name):
-        path=root/name
-        if Path(name).is_absolute() or '..' in Path(name).parts or path.is_symlink() or not path.resolve().is_relative_to(root.resolve()):raise ValueError('unsafe current input')
-        return path.read_bytes()
-    return build(sorted(set(files)),read,json.loads(read('tools/asset_provenance.json')),'working-tree')
+    read=working_reader(root)
+    rules=json.loads(read('tools/asset_provenance.json'))
+    return build(sorted(set(files)),working_reader(root,rules),rules,'working-tree')
 
 
 def current_errors(baseline,current):

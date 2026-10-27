@@ -1,0 +1,4 @@
+{
+  "url": "http://127.0.0.1:4193/#/development/first-location",
+  "ax": "Browser tab: 1, Title: \"Лунная долина · Wiki\", URL: \"http://127.0.0.1:4193/#/development/first-location\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n~\t\t\t34 button (disabled) Обновить\nThe focused UI element is 0 AXWebArea Лунная долина · Wiki, URL: 127.0.0.1:4193/"
+}

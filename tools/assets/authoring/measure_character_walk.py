@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 from PIL import Image
-from measure_hero_actions import components
+from tools.assets.authoring.measure_hero_actions import components
 
 from tools.common.paths import project_root
 

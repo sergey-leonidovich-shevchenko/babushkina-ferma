@@ -1,0 +1,28 @@
+{
+  "same_replay_JSON": true,
+  "initial_profile_sha256": "29f408a36a012363233a2ffbd1a0a04849cc4f2b3839014d8b4dedfc6f2bbb65",
+  "cases": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "docs/reports/refactor-03/profile-authoring-move.py",
+        "--output",
+        "/Users/sergeyshevchenko/my farm/docs/reports/refactor-03/authoring-move/profile.json"
+      ],
+      "exit": 2,
+      "stderr": "usage: profile-authoring-move.py [-h] [--output OUTPUT]\nprofile-authoring-move.py: error: \u043d\u0443\u0436\u0435\u043d \u043d\u043e\u0432\u044b\u0439 JSON \u0432\u043d\u0435 assets; \u043f\u0440\u0435\u0436\u043d\u0438\u0435 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u044b \u043d\u0435 \u043f\u0435\u0440\u0435\u0437\u0430\u043f\u0438\u0441\u044b\u0432\u0430\u044e\u0442\u0441\u044f\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "docs/reports/refactor-03/profile-authoring-move.py",
+        "--output",
+        "/Users/sergeyshevchenko/my farm/assets/game/refactor03-profile-should-not-exist.json"
+      ],
+      "exit": 2,
+      "stderr": "usage: profile-authoring-move.py [-h] [--output OUTPUT]\nprofile-authoring-move.py: error: \u043d\u0443\u0436\u0435\u043d \u043d\u043e\u0432\u044b\u0439 JSON \u0432\u043d\u0435 assets; \u043f\u0440\u0435\u0436\u043d\u0438\u0435 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u044b \u043d\u0435 \u043f\u0435\u0440\u0435\u0437\u0430\u043f\u0438\u0441\u044b\u0432\u0430\u044e\u0442\u0441\u044f\n"
+    }
+  ],
+  "old_raw_unchanged": true,
+  "runtime_file_not_created": true
+}

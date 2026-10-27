@@ -189,6 +189,7 @@ python3 tools/test_slice_proof.py
 python3 tools/asset_migration.py
 python3 tools/test_asset_migration.py
 python3 tools/test_migration_proof.py
+python3 tools/run.py build.test_asset_report_history
 python3 tools/asset_report.py
 python3 tools/test_asset_report.py
 python3 tools/test_asset_pack_proof.py

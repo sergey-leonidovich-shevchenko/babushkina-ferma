@@ -535,3 +535,24 @@ tools/planning/__pycache__/
 !tools/check_architecture.sh
 !tools/bump_version.py
 !tools/task_batch.py
+
+# REFACTOR-03: authoring sources; local generated UID/cache remain ignored.
+!tools/assets/
+tools/assets/*
+!tools/assets/__init__.py
+!tools/assets/authoring/
+tools/assets/authoring/*
+!tools/assets/authoring/__init__.py
+!tools/assets/authoring/*.py
+!tools/assets/authoring/*.gd
+!tools/assets/authoring/build_house_furniture.gd.uid
+!tools/assets/authoring/build_item_ui_textures.gd.uid
+!tools/assets/authoring/build_painted_item_icons.gd.uid
+!tools/assets/authoring/build_prepared_pixels.gd.uid
+!tools/assets/authoring/extract_hero_combat_sprites.gd.uid
+
+# REFACTOR-03: build reader regressions live with their future owner.
+!tools/build/
+tools/build/*
+!tools/build/__init__.py
+!tools/build/*.py
