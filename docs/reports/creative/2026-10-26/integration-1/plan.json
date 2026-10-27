@@ -1,0 +1,23 @@
+{
+  "task": "IDEA-REVIEW-20261026",
+  "date": "2026-10-27",
+  "base": "58eda69fd86f6784aa5fbdcfbec4a526b212b0f4",
+  "authorParent": "7851dcdd0adf901a7b5a955c6e765dc6fbf90a37",
+  "branch": "codex/idea-review-20261026-boundaries",
+  "gameplayImplemented": false,
+  "audienceTested": false,
+  "allowedExisting": [
+    "TESTING.md",
+    "VERSION",
+    "project.godot",
+    "Бабушкина ферма.app/Contents/Info.plist",
+    "docs/backlog/README.md",
+    "docs/backlog/wiki-workspace-2026-10/README.md",
+    "docs/epics/ideas/README.md",
+    "wiki/articles/idea-feature-epics.md",
+    "wiki/articles/index.json",
+    "wiki/planning/state.json",
+    "wiki/planning/sources.json",
+    "wiki/planning/assessments.json"
+  ]
+}

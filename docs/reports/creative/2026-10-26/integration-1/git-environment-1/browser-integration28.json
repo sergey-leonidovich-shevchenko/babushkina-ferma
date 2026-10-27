@@ -1,0 +1,12 @@
+{
+  "observedAt": "2026-10-27T19:33:24.320612+00:00",
+  "method": "cua_repl IAB; actual rendered DOM and visible screenshots",
+  "metadata": "0.0.357",
+  "editorialTask": "IDEA-REVIEW-20261026",
+  "readOnlyPreview": true,
+  "noPlanningWrites": true,
+  "inProgress": true,
+  "PRURLVisible": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/13",
+  "gameplayScenariosRun": 0,
+  "audienceTested": false
+}

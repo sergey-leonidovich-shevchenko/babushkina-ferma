@@ -1,0 +1,105 @@
+{
+  "task": "IDEA-REVIEW-20261026",
+  "review": 5649137003,
+  "finishedAt": "2026-10-26T09:12:39.561933+00:00",
+  "actualBase": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "reviewedParent": "828d65ac1b8711cb99d190f1274cbf88a08aab1c",
+  "command": ".githooks/pre-commit, unchanged full repository hook",
+  "exitCode": 0,
+  "metadata": "0.0.345",
+  "architecture": {
+    "pythonSuites": 82,
+    "pythonCases": 1135
+  },
+  "game": {
+    "passed": 53502,
+    "failed": 0
+  },
+  "redraw": [
+    {
+      "passed": 90,
+      "failed": 0
+    },
+    {
+      "passed": 90,
+      "failed": 0
+    }
+  ],
+  "wiki": {
+    "passed": 135,
+    "failed": 0
+  },
+  "candidateFormatting": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+        "--"
+      ],
+      "exitCode": 0,
+      "stdoutSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check",
+        "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+        "--"
+      ],
+      "exitCode": 0,
+      "stdoutSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "sourceSHA256": {
+    "TESTING.md": "c3d28906b0ff790f0e4e889976f80743290e66251f3123bb587b16edc7ae1061",
+    "VERSION": "7298bf593da59bb7942651c19ff324f51f69c0a61a24c66cecefb740b05a7905",
+    "docs/epics/ideas/idea-252/TASKS.md": "81d4d182f53769021eea552f878aaee21065bd63d851674865b8be906e4d6abb",
+    "docs/epics/ideas/idea-253/TASKS.md": "e19bc1847550b0057e1e1dea89e188c9d4772fb617967eded1f49e348e685617",
+    "docs/epics/ideas/idea-254/TASKS.md": "fdcc0db5fc9e83b351cbd715e8785afc33ac0a70abae08f11c86e855abb14275",
+    "docs/epics/ideas/idea-255/TASKS.md": "e300825a3f4c9f9ee7b1681b7eaecad72ab299de6e91bb978da1784b95863ea2",
+    "docs/epics/ideas/idea-256/TASKS.md": "15942ec0a150c348a2284edb7204bb60f263e080b813e70524ec3e630aafec2b",
+    "docs/epics/ideas/idea-257/TASKS.md": "1731fd1eec65e5eafe00e120fbf6aa35ae66b22261638692f80f170b8e69e743",
+    "docs/epics/ideas/idea-258/TASKS.md": "faf5361b89be8bd50c85e26962716d9c7b81c56812681e2db9638aca35dcfdf5",
+    "docs/epics/ideas/idea-259/TASKS.md": "ce7e210a74a3f55f5214d1502fed715b2baf90239177e7c7ef93b0089f8d09a0",
+    "docs/epics/ideas/idea-260/TASKS.md": "8dea36bd0c7740765ceacc1c35aeb8feeb894ed364116c58dce401758668a075",
+    "docs/epics/ideas/idea-261/TASKS.md": "67039e37e506496d8793e9ec52392210fdd0215303d6b556059444c8875b7ca2",
+    "docs/reports/creative/2026-10-26/review-1/README.md": "19825c0832152a932ac13c6b6d2c69b8d495bc7c2d4ddefdcf9615e3272bcfda",
+    "docs/reports/creative/2026-10-26/review-1/change.json": "2bb3b35730e21524325ce4a9a1692485a344fcd57c539624a2e2835b5a826f2d",
+    "docs/reports/creative/2026-10-26/review-1/guard-negative.json": "8df69d66a1760b8ffbd66784bd56af3d852b61574e6f1d4d4c49b18743c20fd2",
+    "docs/reports/creative/2026-10-26/review-1/guard-negative.txt.gz": "fa604529aa626e585cd75ce5fc0d17dee1f30e1456d2cb4d8500f7cbcdad6b9b",
+    "docs/reports/creative/2026-10-26/review-1/preservation.json": "6cb2d5291d6fadb5b59dad8abfe315f374595dd2fedce403966ff1b9772fc941",
+    "docs/reports/creative/2026-10-26/review-1/reviewed-range.txt.gz": "7296b789bce3648e86d0a7be00253e052f4ca49c3ac185fd937baae144dc510e",
+    "project.godot": "88744b0dea781de71bec9e03f5cae120edcad6ab294ae99d96c714de0e0aad46",
+    "wiki/articles/IDEA-252.md": "6c0c8986fa2b7c88d2ac2cef85be889605e57cb1ca750b7846b2059d75d2c462",
+    "wiki/articles/IDEA-253.md": "04b07a36ab8b0db62eff7fc9bacc9acaad0974bc6960c23b50ac258fbb7e0bac",
+    "wiki/articles/IDEA-254.md": "454fcaf574deb0b3aa0950977d7122ba53a1a73fad83cfec717093a381020d64",
+    "wiki/articles/IDEA-255.md": "7297bcd566de8dd98996f58d6c1bdbdd3c816d49df0a5fc86d93f44796bf511f",
+    "wiki/articles/IDEA-256.md": "fdf5a9e622c0da96a17c1c687903f565eb1d40ad7e150fbe36a6d562a7241d28",
+    "wiki/articles/IDEA-257.md": "96554c3b6025f34885cd27598947e6ad69307b2484746cd59f28150261230f46",
+    "wiki/articles/IDEA-258.md": "cba65484cde2d8d58bc2086cda2d89f295f072bc5a1f0db43813debe975579ee",
+    "wiki/articles/IDEA-259.md": "4ba1b70215219071642171c81071ced6ca23a954c323dfc2f718458f9cce7096",
+    "wiki/articles/IDEA-260.md": "e023cffb69dfd64d2951cb8eb53a9f19fc0323e4862d0d9c13b527f08627e97a",
+    "wiki/articles/IDEA-261.md": "3f7fcad035738a7be65484f78ae50e5d323ff87773e175c79cd408a5f35d7ccc",
+    "wiki/scripts/editorial-review26-audit.mjs": "e07c239598e72eabcaf43ab1f4eccde05a00c2c64b135434996b83968f7e9270",
+    "Бабушкина ферма.app/Contents/Info.plist": "630abaebf5141a2c5ffb4e342450955cbd3e289b7e4d1302d02f8eb940de2c78"
+  },
+  "rawSHA256": {
+    "full-hook.log": "2e3a90a5a1c7b7e314a3f2f884ce6ed5fee5cf1441803908efce53e0e264dead",
+    "wiki.log": "43496b6d13b982fa206135668df995a19316df479d1e7ac715c840b4d5649601",
+    "profile-candidate.log": "0612105141668aeeae3a05f97c2c163a34b89a8a39a35b352a7110c69146262a",
+    "documentation.log": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+  },
+  "runtime": {
+    "python": "3.11.17",
+    "pillow": "11.3.0",
+    "node": "v24.19.0",
+    "godot": "4.7.1.stable.official.a13da4feb"
+  },
+  "scope": "New candidate gates only. After commit separately run actual PR base...NEW_HEAD and base NEW_HEAD; report exact head and exit codes through PR/Tech Lead. Previous receipts/PNG/checkpoints remain historical and unchanged."
+}

@@ -1,0 +1,43 @@
+{
+  "reviewedHead": "828d65ac1b8711cb99d190f1274cbf88a08aab1c",
+  "actualBase": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "normalizedMarkdown": 20,
+  "markdownHTMLIdentical": true,
+  "parsedTasksPreserved": 2091,
+  "catalog": {
+    "plans": 124,
+    "epics": 178,
+    "tasks": 2091
+  },
+  "unchangedReviewedFiles": 24090,
+  "historicalFilesUnchanged": 17333,
+  "publishedReview26FilesUnchanged": 13,
+  "allowedExistingChanges": [
+    "docs/epics/ideas/idea-252/TASKS.md",
+    "wiki/articles/IDEA-252.md",
+    "docs/epics/ideas/idea-253/TASKS.md",
+    "wiki/articles/IDEA-253.md",
+    "docs/epics/ideas/idea-254/TASKS.md",
+    "wiki/articles/IDEA-254.md",
+    "docs/epics/ideas/idea-255/TASKS.md",
+    "wiki/articles/IDEA-255.md",
+    "docs/epics/ideas/idea-256/TASKS.md",
+    "wiki/articles/IDEA-256.md",
+    "docs/epics/ideas/idea-257/TASKS.md",
+    "wiki/articles/IDEA-257.md",
+    "docs/epics/ideas/idea-258/TASKS.md",
+    "wiki/articles/IDEA-258.md",
+    "docs/epics/ideas/idea-259/TASKS.md",
+    "wiki/articles/IDEA-259.md",
+    "docs/epics/ideas/idea-260/TASKS.md",
+    "wiki/articles/IDEA-260.md",
+    "docs/epics/ideas/idea-261/TASKS.md",
+    "wiki/articles/IDEA-261.md",
+    "TESTING.md",
+    "VERSION",
+    "project.godot",
+    "Бабушкина ферма.app/Contents/Info.plist",
+    "wiki/scripts/editorial-review26-audit.mjs"
+  ],
+  "status": "pass"
+}

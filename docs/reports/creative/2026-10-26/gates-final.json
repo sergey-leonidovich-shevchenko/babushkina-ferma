@@ -1,0 +1,98 @@
+{
+  "task": "IDEA-REVIEW-20261026",
+  "checkpoint": "final",
+  "finishedAt": "2026-10-26T07:52:29.218715+00:00",
+  "command": ".githooks/pre-commit, full unchanged repository hook",
+  "exitCode": 0,
+  "metadata": "0.0.344",
+  "architecture": {
+    "pythonSuites": 82,
+    "pythonCases": 1135
+  },
+  "game": {
+    "passed": 53502,
+    "failed": 0
+  },
+  "redraw": [
+    {
+      "passed": 90,
+      "failed": 0
+    },
+    {
+      "passed": 90,
+      "failed": 0
+    }
+  ],
+  "wiki": {
+    "passed": 135,
+    "failed": 0,
+    "scope": "build/export/links/TypeScript/Node, independent complete run"
+  },
+  "sourceSHA256": {
+    "TESTING.md": "2607141286c1874ed5cead27690f494df07397e2636167f7c10a0ff6ec718aad",
+    "VERSION": "2d958f039f8ce22a01f09fa15173332c529f378b41d3e6dbc7605b5f6e32651e",
+    "docs/backlog/README.md": "a41a877cf3e82efefd2906b2e36c325ea9e42ab2b2721b7ea021fb49dbbe539f",
+    "docs/backlog/wiki-workspace-2026-10/README.md": "009490b7a1fe45a8dce2d39c36e8af720d59be9caf43e8a46330782de22116d8",
+    "docs/epics/ideas/README.md": "80c8659e157b33235afe3d197876e16fc04ef9cdbc48b0cf22a68ace7191afd8",
+    "docs/epics/ideas/idea-252/README.md": "d5cd88582620fe8c4c873de408135ac8fd8e8f533fa905a85e5269dc9a3188a7",
+    "docs/epics/ideas/idea-252/TASKS.md": "7af45a88bbb7e667bb0b34c928bd94dd8fbf47a61adfd310bf76bac6dd650c96",
+    "docs/epics/ideas/idea-253/README.md": "0e2b810e37667ee9fe809a1b476e1f8e9abea06ce78a379c58ffb0dee6693017",
+    "docs/epics/ideas/idea-253/TASKS.md": "6c15b7b4a18702cb4ca8b0bf88519fee9882a49bf79577d5896ed558342f2d85",
+    "docs/epics/ideas/idea-254/README.md": "3f453df4244ea4102f0f6539c19f4deed2f85f2bc1a6f0c13b132875f64edd6e",
+    "docs/epics/ideas/idea-254/TASKS.md": "2f1e59e8d54060ca5ce2c5b3074285d8aceb5b62e98b810e1edab82ffd6f3e5d",
+    "docs/epics/ideas/idea-255/README.md": "79abc682f005aacc1e1ecd153aad1dc9ea8798113670aabaee7b0aa0aca6dea9",
+    "docs/epics/ideas/idea-255/TASKS.md": "468a903037229294b7c96d4d6b11c3ba7827f1e5410a89271da8a9bd4c104f47",
+    "docs/epics/ideas/idea-256/README.md": "77da0687addad8d6da168f3066f9c59d85920dbf9b746b787f5eb7cefaffc781",
+    "docs/epics/ideas/idea-256/TASKS.md": "f23f7e72d544884bc1e3977480643a4454965cbdcedbfcbc1a28f7156902b2e8",
+    "docs/epics/ideas/idea-257/README.md": "2e28b5666c707efea1bcdbbc0ff676cfe16f8bd19ac82a1ab8ea574402fbc099",
+    "docs/epics/ideas/idea-257/TASKS.md": "092252dc6c8991831f73c1a6c33b3d8d2d08991729f028d5e499e0f6a4a6e9c1",
+    "docs/epics/ideas/idea-258/README.md": "82be454958370470c8f0b9acdbd4df691ff809b3821e03ae7f7ada0ad7d4fa3b",
+    "docs/epics/ideas/idea-258/TASKS.md": "0abd9101471e9b1743390d577c4c1a233703b3aac3c9a79d722ded90ff486c28",
+    "docs/epics/ideas/idea-259/README.md": "b1b791ac26fe433a8cac27c15674f0db0fe831f28f025cb19ec005628016f9de",
+    "docs/epics/ideas/idea-259/TASKS.md": "fc53448646a3863ee887ecfaf0112565f827f18182895a327203f2583a458846",
+    "docs/epics/ideas/idea-260/README.md": "dc6f8836c8d9091caf53908866dfd33f959ca151ed002054e3e899e5187d049a",
+    "docs/epics/ideas/idea-260/TASKS.md": "e6ea94b4130b53bc67408ffa83a17a2c46edcf427ea474578c5f02effa6a7b99",
+    "docs/epics/ideas/idea-261/README.md": "25fe6da8441ba3612f87adadce57a5fba74b6565942847b0137cb246b70547f1",
+    "docs/epics/ideas/idea-261/TASKS.md": "04933bf4ffa951c4db306355e80817aa0243df31d70429e35a779e2748e779fb",
+    "docs/reports/creative/2026-10-26/README.md": "9936b22c55f193dda79b57741472064506b1ee8cfd2177ae2a35969e6f77f978",
+    "docs/reports/creative/2026-10-26/browser-final.json": "1b39e9beee843756be8c7b736d677e9fbf287c2b4bfd3f1642ff4dbf1a87b389",
+    "docs/reports/creative/2026-10-26/card-390-344.png": "665a985f30a34df496101cbb1c3319e1f659ca5da39b2f69a40116a978b080eb",
+    "docs/reports/creative/2026-10-26/full-hook-first.log.gz": "f68dbc54c81dd73a1d58160f921685dae993d1fc014d449d9e99ba48581ea5cc",
+    "docs/reports/creative/2026-10-26/gates-first.json": "dd0b94f836b8c1f87787d089bba042ceaca3dd61f7f7a904a45ef1e0ff5f73c5",
+    "docs/reports/creative/2026-10-26/idea-390-343.png": "d43802c8d8539a572b28213906f61fe2d7441c202ecf2af5292c7911dbdecee3",
+    "docs/reports/creative/2026-10-26/overview-344.png": "1975d93d3ce44a7a4f658986732f9c57360577888acd05b2bc8971ba58d9d4b0",
+    "docs/reports/creative/2026-10-26/plan.json": "56948ca2f63918f81db105d6d67929baa031f7be1a4310208e9a8a4a5fadc97b",
+    "docs/reports/creative/2026-10-26/preservation.json": "e7b78b882ab2ef0400ed6cce805328a63a3aa8a12e058b7759921d553d56df36",
+    "docs/reports/creative/2026-10-26/wiki-first.log.gz": "fb255bad2004dfe361fd73f9c88c9238628696a1d30e015d9783d8e38614abdb",
+    "project.godot": "b3ad9640957e408529af65b488d68fbed0ce82ea2a4672fd09c79700acbcfb41",
+    "wiki/articles/IDEA-252.md": "f0847ad1f6281bcaccf09cb410d4908f99de06d976ca6c4109ed970aac30dea0",
+    "wiki/articles/IDEA-253.md": "5919df3fddafc0b2e87486fd0a9ee6033bc03ee801e0ad1e82d41ed215fc6a30",
+    "wiki/articles/IDEA-254.md": "f1a648cfba3a00406fe49e05c57d5355e7f198b7f6e56f50206b42378f23d4f1",
+    "wiki/articles/IDEA-255.md": "a70b858607ce67bee3fa05bfe9cc779c90227bc888ddd60d7afba36a5566e064",
+    "wiki/articles/IDEA-256.md": "ffae0c17041663a15547fcf967f03b346f326d39f8c48ec3adee7ce6f5452297",
+    "wiki/articles/IDEA-257.md": "21eec9bf339770f51171014d5e4c2cf1a074ce4aa66e219bc552afe83046e374",
+    "wiki/articles/IDEA-258.md": "e450d0b75159088e77684c8f2b127971634d078a66c4319fdb9b6259fde83086",
+    "wiki/articles/IDEA-259.md": "ddaf107324afd25d364e5ef62f3f4ec5608c0d3563e7ae94ea3ca96f4f8db337",
+    "wiki/articles/IDEA-260.md": "5ad832721aa5abb3ae0c88ef333581f1c83ee35ca6b58f97d21bc3eee5830b06",
+    "wiki/articles/IDEA-261.md": "162d3b443ac738a7bee3c3a2165ff159aa94ff475851e5eefb714fe304052bb6",
+    "wiki/articles/creative-review-2026-10-26.md": "d0ec6ca697cc0b408e40096f6c64709126b789a50c370aafc033b96b5f14f102",
+    "wiki/articles/idea-feature-epics.md": "a4d9fcd48595a1ecc0815c2cefd3f1613d2a9b003364d4502152a25ba64e7b80",
+    "wiki/articles/index.json": "95680be5c4d68783d64c1aaa8284744ee40058602a5771d8c2726dda2ca04748",
+    "wiki/planning/assessments.json": "e72447cfb346d780af23e882143b773ce7741b1e253e8b09d924a49b0070694f",
+    "wiki/planning/sources.json": "4674ba5304625a64419d0c1d94c356fd37f7b2fe4c6b271d40ec566279d8c7e7",
+    "wiki/planning/state.json": "dddb0a30c32d3125ef74a6e8a26f0408d08dd0f1d3b89796cdb932f070e65e7b",
+    "wiki/scripts/editorial-review26-audit.mjs": "9a61fecca9e3dda5ad10caed05e064a672e395d00e1371ca863feb9d1a3d32a1",
+    "Бабушкина ферма.app/Contents/Info.plist": "ffb61a79ab34115b39347da0f6b1686f133a23d1818b5446abb6a5777dbd7899"
+  },
+  "rawSHA256": {
+    "fullHook": "c5456764fc9882831a4ae346034ae0f70a98596d3c63e808bc78b02220adb546",
+    "wiki": "1e0f09d36ee24456f78281e95af56ccdd75bb7912b78181aabf48c6a4d59cdbe"
+  },
+  "runtime": {
+    "python": "3.11.17",
+    "pillow": "11.3.0",
+    "node": "v24.19.0",
+    "godot": "4.7.1.stable.official.a13da4feb"
+  },
+  "limits": "Editorial verification only. Future gameplay F tests, audience, GPU/FPS and VMAP-003 not accepted. External ignored wrapper clears inherited Git-local vars, executes original hook, then adds only receipts/raw logs."
+}

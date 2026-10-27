@@ -1,0 +1,40 @@
+{
+  "metadata": "0.0.344",
+  "counts": {
+    "ideas": 251,
+    "epics": 178,
+    "tasks": 2091,
+    "articles": 1197,
+    "guides": 276
+  },
+  "flow": [
+    "overview → IDEA-254 full article",
+    "article → own epic, group Stories and residents",
+    "epic → IDEA-254-01, no future implementation blocker on paper stage",
+    "idea card → separate assessment and proposed status",
+    "keyboard search Садовый доктор → 2 results (idea and epic)",
+    "344 reload → corrected direct first-stage href and real task opened",
+    "overview → editorial in_progress with literal PR13 URL and separate first-checkpoint evidence"
+  ],
+  "correctedHref": "#/development/tasks/idea-254--IDEA-254-01",
+  "pullRequest": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/13",
+  "editorialStatus": "in_progress",
+  "firstCheckpoint": "52f5ea8434d69712562a84486ae3f9c3fc05e3a0",
+  "narrow": {
+    "viewport": 390,
+    "document": 390,
+    "viewportReset": true,
+    "scope": "Final344 editorial card, including long result and URL. Full article/4 tables also measured390/390 at initial343."
+  },
+  "screenshots": {
+    "overview-344.png": "1975d93d3ce44a7a4f658986732f9c57360577888acd05b2bc8971ba58d9d4b0",
+    "card-390-344.png": "665a985f30a34df496101cbb1c3319e1f659ca5da39b2f69a40116a978b080eb"
+  },
+  "observedAttachments": {
+    "plan.json": "generated/attachments/56948ca2f63918f81db105d6d67929baa031f7be1a4310208e9a8a4a5fadc97b.json",
+    "gates-first.json": "generated/attachments/dd0b94f836b8c1f87787d089bba042ceaca3dd61f7f7a904a45ef1e0ff5f73c5.json"
+  },
+  "limits": "Wiki/editorial UI only; not gameplay F-scenarios, audience results or native GPU/FPS acceptance.",
+  "localFilenameExternalLinks": 0,
+  "finalWordingChecked": true
+}

@@ -1,0 +1,18 @@
+{
+  "architecture": [
+    83,
+    1148
+  ],
+  "game": {
+    "passed": 53499,
+    "failed": 3
+  },
+  "redraw": "not reached",
+  "rawSHA256": "f840188187b177ed05a39dbef155b8393921b12d9a3bf118b87a21e6745ea0dc",
+  "failedCases": [
+    "first atomic save succeeds",
+    "preserved backup still recovers original progress (twice)"
+  ],
+  "observation": "PR13 and PR20 full Game ran concurrently; both atomic_save_suite use same user://test-atomic-save.json. PR20 passed. Runtime/test files identical to main. Collision is an inference, not a proven runtime defect.",
+  "retry": "unchanged full hook; temporary engine forwarder serializes test_game.gd, all argv and installed Godot unchanged; first waits for own cr28 checkpoint gate."
+}
