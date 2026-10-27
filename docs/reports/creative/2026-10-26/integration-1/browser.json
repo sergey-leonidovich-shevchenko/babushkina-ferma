@@ -1,0 +1,21 @@
+{
+  "tool": "cua_repl",
+  "url": "http://127.0.0.1:4185",
+  "version": "0.0.355",
+  "observed": [
+    "IDEA252 article→own epic→first task",
+    "rating and stories group visible",
+    "editorial26 in_progress, literal PR13 URL, integration section",
+    "accepted WIKI003 history, technical REFACTOR02 in current work",
+    "pilot52/52 distinguished from blockedVMAP003"
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "height": 844,
+    "screenshotVisuallyInspected": true
+  },
+  "viewportReset": true,
+  "planningWrites": false,
+  "gameplayTested": false
+}

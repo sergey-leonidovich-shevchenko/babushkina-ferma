@@ -1,0 +1,75 @@
+{
+  "prepare_commit": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+  "purpose": "Independent old/new AST and shell comparison; preserves checker algorithms and budgets",
+  "records": [
+    {
+      "path": "tools/planning/build_art_backlog.py",
+      "AST_equal_except_imports_and_advertised_CLI": true
+    },
+    {
+      "path": "tools/planning/build_optimization_matrix.py",
+      "AST_equal_except_imports_and_advertised_CLI": true
+    },
+    {
+      "path": "tools/planning/bump_version.py",
+      "AST_equal_except_imports_and_advertised_CLI": true
+    },
+    {
+      "path": "tools/quality/check_architecture.sh",
+      "shell_body_equal_after_location_normalization": true
+    },
+    {
+      "path": "tools/quality/check_documentation.py",
+      "AST_equal_except_imports_and_advertised_CLI": true
+    },
+    {
+      "path": "tools/planning/pilot_rollout.py",
+      "AST_equal_except_imports_and_advertised_CLI": true
+    },
+    {
+      "path": "tools/planning/project_backlog.py",
+      "AST_equal_except_imports_and_advertised_CLI": true
+    },
+    {
+      "path": "tools/planning/task_batch.py",
+      "AST_equal_except_imports_and_advertised_CLI": true
+    },
+    {
+      "path": "tools/quality/test_documentation.py",
+      "AST_equal_except_imports_and_advertised_CLI": true
+    },
+    {
+      "path": "tools/planning/test_pilot_rollout.py",
+      "AST_equal_except_imports_and_advertised_CLI": true
+    },
+    {
+      "path": "tools/planning/test_project_backlog.py",
+      "AST_equal_except_imports_and_advertised_CLI": true
+    },
+    {
+      "path": "tools/planning/test_task_batch.py",
+      "test_method_names_unchanged": true,
+      "fixture_CLI_adaptations_only_in": [
+        "test_inherited_hook_environment_cannot_modify_parent_repository",
+        "test_real_post_commit_hook_never_pushes"
+      ],
+      "other_methods_AST_identical": 19
+    },
+    {
+      "path": "tools/planning/test_visual_backlog.py",
+      "AST_equal_except_imports_and_advertised_CLI": true
+    },
+    {
+      "path": "tools/planning/visual_backlog.py",
+      "AST_equal_except_imports_and_advertised_CLI": true
+    },
+    {
+      "path": "tools/test_optimization_audit.py",
+      "AST_equal_except_imports_and_shared_bootstrap": true
+    },
+    {
+      "path": "tools/pilot_static_audit.py",
+      "AST_equal_except_imports_and_shared_bootstrap": true
+    }
+  ]
+}

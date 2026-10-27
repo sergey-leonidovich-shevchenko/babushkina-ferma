@@ -1,0 +1,127 @@
+{
+  "task": "REFACTOR-01",
+  "PR": 14,
+  "version": "0.0.348",
+  "reviewed_parent": "c9cea3aef393380f2abdd3c9ef126acbd58c366b",
+  "review": "5653680765; repeat exact-head review required",
+  "P2": "new proposals must be normalized direct tools source paths; reject traversal, absolute, nested, duplicate, data and blank reason",
+  "P3": "only live article terminal blank removed",
+  "red": {
+    "test_methods": 36,
+    "expected_subtest_failures": 24
+  },
+  "green": {
+    "test_methods": 36,
+    "failed": 0,
+    "original_29_preserved": true,
+    "production_plan_files": 779,
+    "production_future_root": 9
+  },
+  "full_replay": {
+    "exit": 0,
+    "cwd": [
+      "project root",
+      "/private/tmp",
+      "/private/tmp/refactor01 review1 other cwd"
+    ],
+    "baseline_blobs_each": 24070,
+    "old_data_files_byte_identical": 12,
+    "new_metadata_files_only": [
+      "inventory.json",
+      "packet.json"
+    ]
+  },
+  "mandatory": {
+    "architecture": {
+      "exit": 0,
+      "Python_suites": 82,
+      "cases": 1135
+    },
+    "Game": {
+      "exit": 0,
+      "passed": 53502,
+      "failed": 0,
+      "normal_F10_each": [
+        90,
+        0
+      ]
+    },
+    "Wiki": {
+      "exit": 0,
+      "build_TypeScript": true,
+      "passed": 135,
+      "failed": 0
+    }
+  },
+  "preservation": {
+    "old_own_report_files_unchanged": 168,
+    "main_baseline_files_checked": 24070,
+    "unexpected_changes": 0
+  },
+  "browser": {
+    "version": "0.0.348",
+    "controls": 36,
+    "green_JSON_rendered": true,
+    "new_JSON_source_public_dist_equal": 5,
+    "full_download_claim": false,
+    "initial_loading_observation_not_accepted": true
+  },
+  "CI": "new head pending after ordinary push",
+  "task_status": "in_progress",
+  "Task_Complete_added": false,
+  "raw_sha256": {
+    "validation/architecture.txt": "0cb9ceeb70ac25f54a4768b34a5a3be40f0ad4c7406d62750b8ea47ae41394ac",
+    "validation/attachment-parity.json": "842484fd121558d8374bc99467926bfdbb786ebf919de73a48d868c418c2b674",
+    "validation/backlog.txt": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a",
+    "validation/browser-links-final.json": "79a89e73ce5fa111ab5dff3c7a63bb69bc4e3b86786d4aa2205f1c184b6d17ee",
+    "validation/browser-links.json": "ab52897ba76704b0607329df7486356f20bb88a301c67212bbf6122f8f057552",
+    "validation/browser-production-plan.json": "099ad784b7a5a833a3cffe90e8abd47d25b60de49504e2473ba38bb0e56adf07",
+    "validation/collect.txt": "7a2f3bcef80e38bfdb0168ac8b7569add139622d224734e994894e329c80fa76",
+    "validation/documentation-final.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "validation/documentation-first.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "validation/documentation-publish.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "validation/documentation-report.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "validation/game.txt": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+    "validation/headless/f10/engine.txt": "a0d2f143469985f11dcd9742bf1acdd0ddfade7cf512a697f893c6bf991ee836",
+    "validation/headless/f10/frames.jsonl": "597a773e5bf8042c0780141f57643ecce6be81a7d72aabec51d2240631d6e186",
+    "validation/headless/f10/summary.json": "5df76f8a9dde9af62a18578f9753fe849771e4bd2780a05befaf306d184f480a",
+    "validation/headless/normal/engine.txt": "ffbc7f32a5362d6611e830788440112a71a68489a51dba04ae7dd94635e17774",
+    "validation/headless/normal/frames.jsonl": "5e1b0d58c6aa2b1ceebf7abded7dbdd7f0fd72f2a26ac08ca3304dba8fe74cb9",
+    "validation/headless/normal/summary.json": "c6386d82b8b23e1b315d8a31a0c4b837aea371bc929dd822ef884287bd716c09",
+    "validation/replay-other-cwd.txt": "7a2f3bcef80e38bfdb0168ac8b7569add139622d224734e994894e329c80fa76",
+    "validation/replay-root.txt": "7a2f3bcef80e38bfdb0168ac8b7569add139622d224734e994894e329c80fa76",
+    "validation/replay-spaced-cwd.txt": "7a2f3bcef80e38bfdb0168ac8b7569add139622d224734e994894e329c80fa76",
+    "validation/scope-final.json": "5ee4a85dfe79ce94df391d7f470023971b3e9da791f7c01497c0bde929479a1d",
+    "validation/scope-final.txt": "5ee4a85dfe79ce94df391d7f470023971b3e9da791f7c01497c0bde929479a1d",
+    "validation/scope.json": "0a1a840d90bc02b6b140b81349be3165bed916fa75eabe5f69b090a3ff67634a",
+    "validation/scope.txt": "0a1a840d90bc02b6b140b81349be3165bed916fa75eabe5f69b090a3ff67634a",
+    "validation/unit.txt": "c1c4c0bd922abe797ee493f543755b6d49241999dd8e070e08b1b235f81eb028",
+    "validation/version.txt": "c39b3a9044935d9b831c2861f543ffe58458b6247ade1980e7c309cb62f184e8",
+    "validation/wiki-final.txt": "8b772a5f898034521780c4a09e8b78e932a006fe2938388f0aa9879271215180",
+    "validation/wiki-review-final.png": "165f1aa44604c72c03d5fa520e8ab94d10906b448549b6c8d154c73a427eb533",
+    "validation/wiki-review.png": "165f1aa44604c72c03d5fa520e8ab94d10906b448549b6c8d154c73a427eb533",
+    "validation/wiki.txt": "da90fb866e1301deaf03ea45ff91335603310a9c2b4c9687f77666cc2db9b06c",
+    "validation/red-tests.txt.gz": "a89f4e3a35034ac76140af032e3f3f525678cc03de6372acc34d3cda054031db",
+    "validation/full-PR-whitespace.txt.gz": "3a600e3004d7eab78db64d7aba7cf6339da08bccb85bfa61fcf3d2a2319f7359",
+    "validation/whitespace.json": "1e04c87dd4c31613bb6c7187fa39e43a1d191dd09a7742cf186d5826f3303552"
+  },
+  "source_sha256": {
+    "docs/reports/refactor-01/instrumentation/archive_index.py": "9d6829ee8b0ef3732579fe8a94120886e01a92c3e9b5b6fbea63cf7335a40862",
+    "docs/reports/refactor-01/instrumentation/audit.py": "ab0e9b3666f1ac4d667014f347ef7150f17c2019e843dc5cc7d10cdb09183885",
+    "docs/reports/refactor-01/instrumentation/git_snapshot.py": "ba472987380089b1c6b522be4ade2d735c385e02cd77e64c26227691f24d682a",
+    "docs/reports/refactor-01/instrumentation/mapping.py": "a73fb5ee29b3df60105bab6cfd25bde6805b7d78973eb0abbc6aba3a71eebb6d",
+    "docs/reports/refactor-01/instrumentation/probes.py": "4a31c351c298ea21e08fc22e0a11f7c746ceacfc119031b7d9c6c683a590c953",
+    "docs/reports/refactor-01/instrumentation/references.py": "5fe6c43437f234d739794c67d93aaedc5ee686eed4de854fa4ac8c41aabdc1cd",
+    "docs/reports/refactor-01/instrumentation/suite_registry.py": "2eb345891b7e883f1bce627d38bfa67606460e9d473f4c9d41da5f028334b567",
+    "docs/reports/refactor-01/instrumentation/test_audit.py": "f661f98fa1561e70c2d9ebe0c28afcc18ec0501c4f38720a381c1d8f1d52aa49"
+  },
+  "compressed_original_sha256": {
+    "validation/red-tests.txt.gz": "2b6878418a9bc1cae1ef7f92961b25a15603a031b7c4e416972cb379755a0230"
+  },
+  "review_driver_sha256": "d8d321140ff695c8ad2f984ce69e599f3a6760a487a12a4799bdb3a294376afb",
+  "whitespace": {
+    "known_preserved_frozen_warnings": 66,
+    "new_live_source_warnings": 0,
+    "incremental_review_diff_check_exit": 0
+  }
+}

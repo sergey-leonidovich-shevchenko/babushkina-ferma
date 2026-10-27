@@ -1,0 +1,48 @@
+{
+  "baseline": "ad60faf4bd46faa335babb6075737694927fc61f",
+  "git_version": "git version 2.39.5 (Apple Git-154)",
+  "test_source_sha256": "8ce0ec8fe3a594854cf137e0192ef801e1780e18118997760813616dd83c1967",
+  "kit_source_sha256": "b129ea34974d9c446cb848e4dfc25612a177df88dbac1b7fd6d714f61398923b",
+  "results": [
+    {
+      "boundary_clears_GIT_variables": false,
+      "before": {
+        "config": "783a686a2c6250a659665e759e931a19479fbe6fa23c8fe8419e24ed453d647a",
+        "index": "fabcc27ee2e3947caeab8ea270e74a58ac1f25b0bc2bf0d3b8e944adca7d85d0"
+      },
+      "after": {
+        "config": "cae33efdb02cf774435c1ff9cb16bcc1014606908530c6e1dc727615fe3e8cda",
+        "index": "fabcc27ee2e3947caeab8ea270e74a58ac1f25b0bc2bf0d3b8e944adca7d85d0"
+      },
+      "parent_config_changed": true,
+      "parent_index_changed": false,
+      "method_error": "CalledProcessError"
+    },
+    {
+      "boundary_clears_GIT_variables": true,
+      "before": {
+        "config": "783a686a2c6250a659665e759e931a19479fbe6fa23c8fe8419e24ed453d647a",
+        "index": "bca694723eef590a2e1dc052a6c24df2fc3e220924d676dbe482846a2f718ac1"
+      },
+      "after": {
+        "config": "783a686a2c6250a659665e759e931a19479fbe6fa23c8fe8419e24ed453d647a",
+        "index": "bca694723eef590a2e1dc052a6c24df2fc3e220924d676dbe482846a2f718ac1"
+      },
+      "parent_config_changed": false,
+      "parent_index_changed": false,
+      "method_error": null
+    }
+  ],
+  "actual_repo_before": {
+    "config": "1093788d103ebdbbbf6e4da267f120163b7a2e4ea889a13eb4bb1fae07a319ab",
+    "index": "841990e02d12895c0dc9c97b42ed264454de114c047981b13d0ea704c53ee484"
+  },
+  "actual_repo_after": {
+    "config": "1093788d103ebdbbbf6e4da267f120163b7a2e4ea889a13eb4bb1fae07a319ab",
+    "index": "841990e02d12895c0dc9c97b42ed264454de114c047981b13d0ea704c53ee484"
+  },
+  "actual_repo_unchanged_observed": true,
+  "boundary_is_probe_only": true,
+  "baseline_test_shore_kit_changed": false,
+  "conclusion": "REFACTOR-02 must isolate Git environment before hook use; no production fix is performed by this audit"
+}

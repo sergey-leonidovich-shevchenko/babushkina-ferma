@@ -1,0 +1,137 @@
+{
+  "implementation": {
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14",
+    "number": 14,
+    "state": "closed",
+    "merged": true,
+    "mergeable": true,
+    "draft": false,
+    "body": "Подготовлена воспроизводимая карта всех779 tools blobs по17 тематическим семействам. Будущий корень —9 исходников при бюджете30; переносы выполняются отдельными REFACTOR-02/03/06. Учтены CLI/import/CI/hooks/Wiki, UID, исторические доказательства,174 suites/37 верхних запусков и адресные решения для остальных каталогов.\n\nИсправлено обязательное P2 из review5653680765: новые proposed-входы требуют нормализованного безопасного пути непосредственно в tools, расширения исходника, уникального имени и непустой причины. Внешний, абсолютный и вложенный путь теперь отвергаются до подсчёта корня. Действующий production-план779/9 не изменён. P3: удалена только лишняя пустая строка EOF в live Wiki-статье.\n\nПроверки версии0.0.348:\n- 36 профильных тестов, включая прежние29 и7 новых; исходный красный прогон сохранён;\n- architecture82 набора/1135 сценариев, Game53502/0, normal/F10 по90/0;\n- Wiki build/TypeScript и135 Node-сценариев; браузер проверил36 контролей и JSON с тремя отказами/корректным tools/run.py;\n- полный replay24070 blobs из корня, /private/tmp и другой cwd с пробелами;\n- source/public/dist пяти новых JSON побайтно равны; scope24070 файлов/0 неожиданных изменений.\n\nСохранены168 прежних файлов собственного отчёта по SHA; отдельно изменены два файла instrumentation. Двенадцать файлов данных нового сбора побайтно совпали с исходным пакетом; отдельно сохранены только новые inventory/packet metadata с SHA mapping.py/test_audit.py. Новый replay собирает полный disposable packet и вызывает неизменённый полный audit.check. Старые snapshot/raw и66 известных frozen whitespace-предупреждений не переписаны; новых source-предупреждений нет.\n\nОтчёт и команды: docs/reports/refactor-01/review-1/README.md; точные SHA/raw — checks.json. Старые checkpoints сохраняют свои версии и происхождение. Нативная графика/GPU-FPS не принимаются этой задачей.\n\nТочный текущий head567b05c7d032d40f243df750ea25070e86f6d678, base da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff. CI текущего head — 8/8 success: PR run 40350227679 и push run 40350212858. Независимое повторное ревью [5655708005](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14#pullrequestreview-5655708005) — APPROVED, P2/P3 закрыты. PR ready. Для слияния остаются решение Team Lead и свежая сверка head/base/CI перед действием. REFACTOR-01 остаётся in_progress с URL PR; Task-Complete отсутствует. PR15 WIKI-003 сохранён отдельно.",
+    "title": "REFACTOR-01: полная карта tools и безопасный порядок переносов",
+    "base": "main",
+    "base_sha": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+    "head": "codex/refactor-01-maintainable-layout",
+    "head_sha": "567b05c7d032d40f243df750ea25070e86f6d678",
+    "head_repo_id": 1319706890,
+    "head_repo_full_name": "sergey-leonidovich-shevchenko/babushkina-ferma",
+    "merge_commit_sha": "d43c455046bf333e145f7cd097768ec4f60dabac",
+    "user": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?v=4",
+      "id": 16123649
+    },
+    "requested_reviewers": null,
+    "requested_team_reviewers": null,
+    "diff": null,
+    "comments": null,
+    "created_at": "2026-10-26T08:38:12Z",
+    "updated_at": "2026-10-26T17:46:19Z",
+    "closed_at": "2026-10-26T17:46:18Z",
+    "merged_at": "2026-10-26T17:46:18Z",
+    "commits": 4,
+    "changed_files": 224,
+    "additions": 233765,
+    "deletions": 11,
+    "display_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14",
+    "display_title": "REFACTOR-01: полная карта tools и безопасный порядок переносов"
+  },
+  "reviews": {
+    "reviews": [
+      {
+        "id": "PRR_kwDOTqkhCs8AAAABUPxSfQ",
+        "state": "COMMENTED",
+        "body": "CHANGES REQUESTED — независимое ревью REFACTOR-01, head c9cea3aef393380f2abdd3c9ef126acbd58c366b; base da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff.\n\nОбязательное P2 замечание оставлено у mapping.py: новые предлагаемые входы обходят проверку допустимых путей и безусловно попадают в счётчик исходников корня. На настоящих sample_plan()/validate_plan() воспроизведено принятие ../outside.py, /tmp/outside.py и tools/common/nested_dispatcher.py с результатом 3. Текущий production-план содержит корректный tools/run.py; замечание относится к ложному PASS повреждённого плана, а не к уже выполненному выходу за каталог. Нужны проверка новых путей по заявленному контракту, корректный учёт корня и отрицательные контроли.\n\nP3 у статьи Wiki — необязательная нормализация EOF. 66 остальных whitespace предупреждений относятся к явно сохранённым generated/raw доказательствам; их переписывания не запрашиваю.\n\nНезависимо проверено:\n- 29/29 профильных контролей на Python 3.11.17 и 3.12.14; два полных побайтных replay, включая другую cwd с пробелами; 24 070 Git blobs / 6 720 009 394 байт.\n- Scope: 24 061 прежний файл неизменен, 9 разрешённых старых файлов изменены, неожиданных изменений нет. Реальные disposable root-depth/Git-environment probes проходят; config/index настоящего репозитория сохранены.\n- Wiki текущего head: build/TypeScript/135 сценариев проходят. В браузере видны 17 таблиц / 563 строки; на viewport 390 ширина документа 390. Полный JSON прочитан и разобран в браузере: 779 строк. Успешное сохранение через download-event не подтверждено.\n- Текущие 8/8 GitHub checks — success. В полных test-логах обеих workflow: 82/1135, Game 53520/0, normal/F10 по 90/0, smoke и шесть валидных performance-серий с budget_passed=true в каждом. Это CI, не локальная графическая приёмка. Сохранена история первоначальной отмены Linux; успешный адресный повтор не выдаётся за повтор всех уже пройденных jobs.\n\nОбщая карта, разделение действующих/исторических потребителей, сохранение UID, фактические причины фасадов и порядок 02→03→06 проверены. Нужен обычный коммит/push в тот же PR, свежие доказательства по объёму изменения и повторное независимое ревью нового head. До этого одобрение и merge не выдаются; карточка остаётся in_progress. Сводка направляется Team Lead Agent для назначения доработки.",
+        "submitted_at": "2026-10-26T14:33:14Z",
+        "author": {
+          "login": "sergey-leonidovich-shevchenko",
+          "name": "sergey-leonidovich-shevchenko",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+          "id": null
+        }
+      },
+      {
+        "id": "PRR_kwDOTqkhCs8AAAABUQsUwA",
+        "state": "COMMENTED",
+        "body": "",
+        "submitted_at": "2026-10-26T15:34:10Z",
+        "author": {
+          "login": "sergey-leonidovich-shevchenko",
+          "name": "sergey-leonidovich-shevchenko",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+          "id": null
+        }
+      },
+      {
+        "id": "PRR_kwDOTqkhCs8AAAABUQscRg",
+        "state": "COMMENTED",
+        "body": "",
+        "submitted_at": "2026-10-26T15:34:18Z",
+        "author": {
+          "login": "sergey-leonidovich-shevchenko",
+          "name": "sergey-leonidovich-shevchenko",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+          "id": null
+        }
+      },
+      {
+        "id": "PRR_kwDOTqkhCs8AAAABUQ123w",
+        "state": "COMMENTED",
+        "body": "",
+        "submitted_at": "2026-10-26T15:44:45Z",
+        "author": {
+          "login": "sergey-leonidovich-shevchenko",
+          "name": "sergey-leonidovich-shevchenko",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+          "id": null
+        }
+      },
+      {
+        "id": "PRR_kwDOTqkhCs8AAAABUQ1_Ew",
+        "state": "COMMENTED",
+        "body": "",
+        "submitted_at": "2026-10-26T15:44:52Z",
+        "author": {
+          "login": "sergey-leonidovich-shevchenko",
+          "name": "sergey-leonidovich-shevchenko",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+          "id": null
+        }
+      },
+      {
+        "id": "PRR_kwDOTqkhCs8AAAABUQ7Lcg",
+        "state": "COMMENTED",
+        "body": "SOURCE REVIEW COMPLETE; CI PENDING — повторное независимое ревью REFACTOR-01, head 567b05c7d032d40f243df750ea25070e86f6d678, base da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff. P2 и P3 исправлены и закрыты ревьюером в исходных inline threads. Новых обязательных замечаний нет. Окончательное APPROVED/merge пока не выдаются из-за незавершённого CI.\n\nНа настоящем production-плане '../outside.py', '/tmp/outside.py' и 'tools/common/nested_dispatcher.py' теперь дают отказ; tools/run.py сохраняет root count 9 и покрытие 779. На Python 3.11.17 прошли 36 тестов; все 29 прежних тестовых методов байтово прежние, добавлены 7 содержательных контролей нормализации/расширения/дубликатов/причин и правильного бюджета. Новая реконструкция пакета проверена: audit.py не менялся, SHA/побайтный контроль не ослаблен.\n\nНезависимо пройдены два полных replay — из корня и другой cwd с пробелами: каждый 24 070 blobs/6 720 009 394 байта; выводы побайтно совпали (SHA 7a2f3bce…). Scope: 24 061 прежний файл неизменен, 9 разрешённых изменений, 0 unexpected. Сравнил 168 прежних файлов собственного отчёта с c9, 34 raw SHA, 8 source SHA и decoded SHA исходного красного прогона. Старые данные/история сохранены; новое metadata отражает только mapping.py/test_audit.py. Полный diff содержит лишь 66 прежних report/raw whitespace-предупреждений, новых live/code предупреждений нет.\n\nWiki текущего head: build/TypeScript/135 Node-тестов exit 0. Пять новых JSON source/public/dist побайтно равны; в браузере проверены версия 348, 36 контролей, правильная ссылка PR14 и JSON с тремя отказами/корректным root 9. Нативную игру я не запускал. Собственное дерево ревью чистое, core.bare=false; временные вкладка/сервер/deps удалены, primary и чужие ветки не менял.\n\nPR run 40350227679 уже 4/4 success. Прочитан полный test-log 121667953325: 82 набора/1135 случаев, Game 53520/0, normal/F10 по 90/0, smoke 180, 6 valid/budget_passed performance-серий, engine errors 0. Оба Wiki-job 135/0, полные Linux/Mac fixed-input логи содержат 21+14 тестов и 411 checks с failures=[]. Но push run 40350212858 ещё не завершён: test 121667897669 выполняется, Linux 121667898973 отменён при установке fonts-noto-cjk до проверок кода; его полный исходный raw прочитан. Всего сейчас 6 success/1 cancelled/1 in_progress. Отмена не считается успехом и не скрывается; после завершения run нужен адресный повтор неуспешного job.\n\nДо полного успешного exact-head CI и решения Team Lead карточка остаётся in_progress, PR draft, main без изменений. Сводка и оставшийся CI-блокер переданы только Team Lead Agent. Отдельный PR15 одобрен для своего прежнего head/base; по решению Team Lead сначала принимается 14, затем 15 обновляется и проверяется на новом head.",
+        "submitted_at": "2026-10-26T15:50:38Z",
+        "author": {
+          "login": "sergey-leonidovich-shevchenko",
+          "name": "sergey-leonidovich-shevchenko",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+          "id": null
+        }
+      },
+      {
+        "id": "PRR_kwDOTqkhCs8AAAABURtBZQ",
+        "state": "COMMENTED",
+        "body": "APPROVED — окончательное независимое повторное ревью REFACTOR-01 для точного head 567b05c7d032d40f243df750ea25070e86f6d678 и base da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff. P2/P3 исправлены и закрыты ревьюером; новых обязательных замечаний нет. PR переведён из draft в ready после полного успешного CI, head/base не менялись.\n\nПроверка исходников и доказательств из review5654891378 завершена: 36 профильных тестов на Python3.11.17, все29 прежних методов байтово сохранены. Три дефектных пути production-плана отвергаются, tools/run.py сохраняет779/9. Два полных replay из корня и другой cwd с пробелами заново прочитали24 070 blobs /6 720 009 394 байта и дали одинаковые байты результата; reader и SHA-проверки не ослаблены. Scope24 061 неизменный +9 разрешённых изменений /0 unexpected;168 старых файлов отчёта,34 raw SHA и8 source SHA сверены. Wiki build/TypeScript/135 тестов, пять JSON source/public/dist и браузерная проверка348/36 контролей прошли. Прежние66 frozen whitespace-предупреждений сохранены, новых live/code предупреждений нет.\n\nТекущий head имеет8/8 success: PR run40350227679 и push run40350212858. Проверены полные итоговые test-логи121667953325 и121698652107: в каждом82 Python-набора/1135 случаев, Game53520/0, normal/F10 по90/0, smoke180, шесть отдельных valid/budget_passed performance-серий (три normal и три F10), engine errors0. Оба Wiki-job135/0. Полные Linux/Mac fixed-input логи содержат21+14 тестов и411 checks с failures=[]. Это CI/headless CPU gate, не локальная графическая или GPU/FPS-приёмка.\n\nПовторены адресно только неуспешные jobs. Исходный Linux121667898973 отменился при apt fonts-noto-cjk; Linux-повтор121695588701 прошёл, полный raw790035 символов прочитан. Исходный push test121667897669/наследник121695656400 отменился на45-минутном лимите после долгой установки зависимостей: его полный raw520267 символов содержит лишь3 из6 performance-серий и сохранён как неполный, не как PASS. Новый test121698652107 прошёл полностью; raw521491 символ прочитан. Успешные Wiki/Mac/PR jobs не перезапускались; новые IDs унаследованных checks не выдаются за новые измерения. Все старые неудачные результаты остаются доступными.\n\nОдобрение относится только к указанным head/base. Для обычного merge остаются решение Team Lead Agent и свежая сверка head/base/готовности/CI непосредственно перед действием. Main я не менял, Task-Complete не добавлял; карточка остаётся in_progress до фактического принятия и учёта. Нативную игру на ПК не запускал. По решению Team Lead сначала принимается14, затем Developer интегрирует принятую main в тот же PR15 обычным merge/push; новый head15 потребует отдельного ревью.",
+        "submitted_at": "2026-10-26T16:45:28Z",
+        "author": {
+          "login": "sergey-leonidovich-shevchenko",
+          "name": "sergey-leonidovich-shevchenko",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+          "id": null
+        }
+      }
+    ]
+  },
+  "observed_date": "2026-10-26",
+  "limits": "Accepted implementation receipts; historical results, not a rerun of checks for this accounting head"
+}

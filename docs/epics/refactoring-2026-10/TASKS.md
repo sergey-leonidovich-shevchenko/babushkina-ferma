@@ -30,9 +30,11 @@
 
 ## REFACTOR-01 — Составить полную карту переносов tools и подтвердить остальные узкие места
 
-**Статус:** ready · **Приоритет:** P1 · **Объём:** M · **Тип:** investigation.
+**Статус:** done · **Приоритет:** P1 · **Объём:** M · **Тип:** investigation.
 
 **Ветка:** codex/refactor-01-maintainable-layout
+
+**Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14
 
 **Результат и объём:** Назначение каждого файла tools, пары UID, импорты/публичные входы/исторические ссылки и целевая таблица путей. Отдельно оценить systems, presentation, suites, helpers и reports.
 
@@ -49,13 +51,15 @@
 
 **Проверка:** Read-only аудит принятой актуальной main, действующие профильные gates и проверка ведомости человеком. Реализация последующих переносов не требуется для приёмки аудита.
 
-**Подтверждения / результат:** Аудит не начат. Готова к передаче Developer сразу после принятия учётного PR REFACTOR-00; VFOLIAGE-010 уже закрыта принятым PR #10 (merge `3befe835`), который входит в базу учёта. Карта переносов и результаты аудита остаются будущей работой REFACTOR-01.
+**Подтверждения / результат:** Аудит принят через [PR #14](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14): точный head `567b05c7d032d40f243df750ea25070e86f6d678`, независимое [ревью Tech Lead 5655708005](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14#pullrequestreview-5655708005), CI 8/8 и фактический merge `d43c455046bf333e145f7cd097768ec4f60dabac` от 26 октября 2026. [Учёт и прежний результат](../../reports/refactor-01/closeout/completion.json) сохраняют базу `da9fa07e`, карту 779 tools blobs /17 семейств /9 будущих корневых исходников, историю P2/P3,36 профильных контролей, полный replay и прежние доказательства. Локально: architecture82/1135, Game53502/0, normal/F10 по90/0, Wiki135/0; отдельно CI Game53520/0, smoke180 и шесть CPU-серий в каждом полном test-job. Переносов tools ещё нет. Учётный PR имеет собственные проверки и независимое ревью. REFACTOR-02 готов по зависимости; его запуск следует после приёмки существующего PR #15 WIKI-003, затем 02→03→06.
 
 ## REFACTOR-02 — Разделить общую инфраструктуру и репозиторные команды tools
 
-**Статус:** blocked · **Приоритет:** P1 · **Объём:** M · **Тип:** refactor.
+**Статус:** in_progress · **Приоритет:** P1 · **Объём:** M · **Тип:** refactor.
 
 **Ветка:** codex/refactor-02-maintainable-layout
+
+**Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18
 
 **Результат и объём:** Пилотный перенос common/quality/planning по принятой ведомости; общее определение корня и сохранение публичных команд. Алгоритмы проверок не менять.
 
@@ -72,7 +76,7 @@
 
 **Проверка:** Пилотные команды и проверки отказов импорта/пути, затем TESTING.md и CI текущего SHA. Не требовать ещё не перенесённые QA-группы.
 
-**Подтверждения / результат:** Не начато.
+**Подтверждения / результат:** Пилот реализуется в [PR №18](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18) на принятой main `d603de59`. Логическая подготовка 0.0.353 отделена коммитом `f6180e7c`: корень по исходнику, настоящий unittest/argv/exit, рекурсивные лимиты и адресная Git-изоляция с сохранённым alternate index. Механический этап 0.0.354 перенёс 14 quality/planning файлов и сохранил три публичных входа, их mode и import identity. [Точная карта](../../reports/refactor-02/move/migration.json), [отчёт этапа](../../reports/refactor-02/move/README.md). Старые планы/капсулы/UID и игровой код сохраняются; первый выпуск root-бюджета завершается после 03→06. Итоговый head требует своих полных проверок, Wiki, CI, независимого ревью Tech Lead и решения Team Lead. Карточка остаётся in_progress без Task-Complete; REFACTOR-03 ещё не начинается.
 
 ## REFACTOR-03 — Разнести QA, обработку ассетов, сборку и ручные стенды tools по подсистемам
 

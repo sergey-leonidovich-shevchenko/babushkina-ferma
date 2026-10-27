@@ -1,0 +1,9 @@
+{
+  "scope": "Disposable full clone and real linked worktree, not the task branch",
+  "real_worktree_git_file": true,
+  "commands_passed": 22,
+  "fresh_import_exit": 0,
+  "fixture_tree_clean_after_import": true,
+  "preview_only": true,
+  "primary_runtime_and_git_not_a_write_target": true
+}

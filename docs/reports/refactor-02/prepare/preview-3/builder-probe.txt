@@ -1,0 +1,1 @@
+BUILDER CLI: four exact outputs, 320 planned rows; production unchanged

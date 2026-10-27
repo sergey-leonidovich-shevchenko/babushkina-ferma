@@ -1,0 +1,117 @@
+{
+  "task": "REFACTOR-01",
+  "version": "0.0.342",
+  "baseline": "ad60faf4bd46faa335babb6075737694927fc61f",
+  "state": "final local verification; PR/current-head CI and independent review still required",
+  "Wiki_final": {
+    "exit": 0,
+    "passed": 135,
+    "failed": 0,
+    "raw": "validation/wiki-final.txt"
+  },
+  "source_public_dist_attachment_parity": [
+    {
+      "source": "docs/reports/refactor-01/snapshot/tool-map.json",
+      "sha256": "b02316a994fd8f8ed7508ed39e9a8040f011412c7fad914a5ef21e9712130d8c",
+      "bytes": 1365621,
+      "extension": ".json",
+      "public_dist_equal": true
+    },
+    {
+      "source": "docs/reports/refactor-01/snapshot/tool-map.csv",
+      "sha256": "69d770ce4f35b6927441de6c7aba6bdefe9ae53d64158088eaaced9a807e5697",
+      "bytes": 208020,
+      "extension": ".csv",
+      "public_dist_equal": true
+    },
+    {
+      "source": "docs/reports/refactor-00/closeout/completion.json",
+      "sha256": "a93b8a52716af22e15932afac1f44de0c1935cc0900510b2cab1d7120f088266",
+      "bytes": 5138,
+      "extension": ".json",
+      "public_dist_equal": true
+    },
+    {
+      "source": "docs/reports/refactor-00/inventory.json",
+      "sha256": "9ae497f847e82c5d0095030e2e80fae6b5595c9853048145270846e9077677de",
+      "bytes": 4533,
+      "extension": ".json",
+      "public_dist_equal": true
+    },
+    {
+      "source": "docs/reports/refactor-01/snapshot/other-catalogs.json",
+      "sha256": "c65e9f8c5cb76d8c1da27f9ac28906b6bde1fdd94e8a4fd3cffd768f7ff38133",
+      "bytes": 128632,
+      "extension": ".json",
+      "public_dist_equal": true
+    },
+    {
+      "source": "docs/reports/refactor-01/local-uid-observation.json",
+      "sha256": "4583b1100b479d9c1f5ca9319f22014c7cbc29fe5e308a9d5a4afa1fbb6eac98",
+      "bytes": 32856,
+      "extension": ".json",
+      "public_dist_equal": true
+    },
+    {
+      "source": "docs/reports/refactor-01/checks.json",
+      "sha256": "2874ed318b37a2a04507043bbc74069d359a70d191cad544d8dd3cbcc8d7eb5a",
+      "bytes": 4173,
+      "extension": ".json",
+      "public_dist_equal": true
+    },
+    {
+      "source": "docs/reports/refactor-01/baseline-verification.json",
+      "sha256": "86e7d475710b096634ef8a5e091c480a58e29567880aae689f0ac61bbed40c10",
+      "bytes": 1549,
+      "extension": ".json",
+      "public_dist_equal": true
+    },
+    {
+      "source": "docs/reports/refactor-01/snapshot/inventory.json",
+      "sha256": "114632fd5f1b30412da77ed808abeffbef280c3a6abf9093d20bfe223ec13189",
+      "bytes": 8060,
+      "extension": ".json",
+      "public_dist_equal": true
+    },
+    {
+      "source": "docs/reports/refactor-01/snapshot/suite-registry.json",
+      "sha256": "cf3b0c810d72fedba6ecfdc3f2f2e2b6cef78fbcede21328ff1f9a7c1626fce1",
+      "bytes": 63527,
+      "extension": ".json",
+      "public_dist_equal": true
+    }
+  ],
+  "Wiki_full_table_body_identical": true,
+  "scope_source": "scope-audit.json",
+  "limits": {
+    "native_GPU_FPS": false,
+    "browser_large_download_event_not_confirmed": true,
+    "viewport_override390_not_applied_provider_actual1280": true
+  },
+  "checks_receipt_sha256": "2874ed318b37a2a04507043bbc74069d359a70d191cad544d8dd3cbcc8d7eb5a",
+  "scope_sha256": "e4ae810ce84dedd469192eab25e03a3ae761b4772eaf286233134a6e7d997f85",
+  "browser_receipt": "browser.json",
+  "browser_receipt_sha256": "477635a52d591f405df3c6aa2afe8d968767481d50ccf7e85ff1649754f906c6",
+  "source_sha256": {
+    "TESTING.md": "52a52475a84e57d73f73fb11dd1ab0b13fc22828eee50530774247d5cbd12402",
+    "VERSION": "e2b32148a288ed960d5abe75607104665d33239eb6057017dd5cdd2755b79119",
+    "docs/epics/refactoring-2026-10/README.md": "0e243fd42fba5a67ed874e21bf4e6136a6fbe655e4172a1427da44efef5b5866",
+    "docs/epics/refactoring-2026-10/TASKS.md": "c9d85c07c468010a355ef467af7d2b03b5d81405086dd2f69a8ae5f556842861",
+    "project.godot": "9cd5a790db5a0d50d09dd2bf88147e9452ef02f7e7300c41f9609032207c3558",
+    "wiki/articles/index.json": "274d9c274aec63f6b1b8e5a80d6f2481847551beada93f70b727465889093ebb",
+    "wiki/articles/project-refactoring.md": "86e7bff24742ca613d7f8dd2a86e95872305e0f7fa4823f9ea7a23ca451f01f0",
+    "wiki/articles/visual-pilot.md": "8b0fb929311ca65193f8244011751e6dd7d7ed79b36fddb16e9819eab8690b15",
+    "Бабушкина ферма.app/Contents/Info.plist": "a253ccbdfd4a771052ed3b76220f2081826ad9a9778527fbfef01be2fde634bf"
+  },
+  "audit_code_sha256": {
+    "instrumentation/archive_index.py": "9d6829ee8b0ef3732579fe8a94120886e01a92c3e9b5b6fbea63cf7335a40862",
+    "instrumentation/audit.py": "c4d211df328b9a671bb927b0581ce5edfd8096750e5c7f5a5b953e942df109db",
+    "instrumentation/git_snapshot.py": "ba472987380089b1c6b522be4ade2d735c385e02cd77e64c26227691f24d682a",
+    "instrumentation/mapping.py": "be3273e56f004f27cdb542d33e2c071adab27e154cb4a7002cc7943ebab252d6",
+    "instrumentation/probes.py": "4a31c351c298ea21e08fc22e0a11f7c746ceacfc119031b7d9c6c683a590c953",
+    "instrumentation/references.py": "5fe6c43437f234d739794c67d93aaedc5ee686eed4de854fa4ac8c41aabdc1cd",
+    "instrumentation/suite_registry.py": "2eb345891b7e883f1bce627d38bfa67606460e9d473f4c9d41da5f028334b567",
+    "instrumentation/test_audit.py": "01d8fb8c07c2c7b0c60bb693f2383b44ac01d9b9ca14394c87e6e7ae691db6e8",
+    "verify_scope.py": "dc46cfaf48b575daf63d75766f8d4f6ee456b5de9a65b904fc8f525903b56288"
+  }
+}

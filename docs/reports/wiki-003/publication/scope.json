@@ -1,0 +1,14 @@
+{
+  "task": "WIKI-003",
+  "version": "0.0.346",
+  "implementation_head": "768d507d31d44949a49a2642a9ca354ecc7ec027",
+  "PR": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/15",
+  "allowed_old_changes": {
+    "VERSION": "bbf66482b1a4c68178e64f5e884e8cda35287813a3e5b86fb88e6a69ee4823fb",
+    "docs/backlog/wiki-workspace-2026-10/README.md": "aea04a664569c64621005dec309ed6b15b08de50edccada2b0961985bf148679",
+    "project.godot": "30f316f776f63b5361d1b938856926127222bef25ca4d90583c23e2b6a4de647",
+    "Бабушкина ферма.app/Contents/Info.plist": "bc0af7f522eb1c17ad23011e13d7767194709eeeecdbddd88b703570bd68c44e"
+  },
+  "Wiki_code_game_tools_unchanged": true,
+  "new_paths_only": "docs/reports/wiki-003/publication/"
+}

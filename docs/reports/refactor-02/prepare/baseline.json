@@ -1,0 +1,112 @@
+{
+  "base": "d603de591082f19b1a9964eefd8f1d0671d38839",
+  "version": "0.0.352",
+  "pilot": [
+    {
+      "old_path": "tools/build_art_backlog.py",
+      "target": "tools/planning/build_art_backlog.py",
+      "action": "move",
+      "sha256": "81c127262a19286bc8c9240accb5e024bf7f3bf746645b323b2a9db6d6dbfa4b",
+      "git_blob": "b12dbda03ccb3df4bffe376c4f6af51e968a8fbe"
+    },
+    {
+      "old_path": "tools/build_optimization_matrix.py",
+      "target": "tools/planning/build_optimization_matrix.py",
+      "action": "move",
+      "sha256": "fe878fc47dbae702b1a4200df70bace77e2d88bfb98a8a27556e6f52464b875e",
+      "git_blob": "69e081dea93692e060e5141f48b0b548646adfd5"
+    },
+    {
+      "old_path": "tools/bump_version.py",
+      "target": "tools/planning/bump_version.py",
+      "action": "move_implementation_keep_public_facade",
+      "sha256": "94ea9326f5a9b1f70cf772095852eb3046f42b9da419c375b6692ed5f8606576",
+      "git_blob": "f27cf32da95553bac61acea55103aa179038719f"
+    },
+    {
+      "old_path": "tools/check_architecture.sh",
+      "target": "tools/quality/check_architecture.sh",
+      "action": "move_implementation_keep_public_facade",
+      "sha256": "e76d29deeae92246e073aea676ae573b02c31c80d6b273ff9e2683e3db9ff783",
+      "git_blob": "51f09832ca18ef2df8ed5d2692442ddec55cef75"
+    },
+    {
+      "old_path": "tools/check_documentation.py",
+      "target": "tools/quality/check_documentation.py",
+      "action": "move",
+      "sha256": "ea7ea7d99be00a1e4e719264c9b34bcb1e20ef27f212436bbbc238acda5afedb",
+      "git_blob": "c3329e807b1b42b66ce2e82daa58252857c859f1"
+    },
+    {
+      "old_path": "tools/pilot_rollout.py",
+      "target": "tools/planning/pilot_rollout.py",
+      "action": "move",
+      "sha256": "476f05f9ff756a5133b36eb5a125e47a9de2279ba914bf3ef27c01fd524fbbab",
+      "git_blob": "a403bc77cb2f7ba727d73c81c02635745b2a55d4"
+    },
+    {
+      "old_path": "tools/project_backlog.py",
+      "target": "tools/planning/project_backlog.py",
+      "action": "move",
+      "sha256": "5715d52c99100c24d6799db6ed8c2c5c658945918ef49a03cc65c8616147b1f5",
+      "git_blob": "3028aa103f6d713dd143744525ef205eb424b52d"
+    },
+    {
+      "old_path": "tools/task_batch.py",
+      "target": "tools/planning/task_batch.py",
+      "action": "move_implementation_keep_public_facade",
+      "sha256": "0f5ac87c50f27cd821a0513e1edd2c33f94e01a1e20214864520a68ff6391389",
+      "git_blob": "38bac92e5f63a43d893df39bafb67b1217171a91"
+    },
+    {
+      "old_path": "tools/test_documentation.py",
+      "target": "tools/quality/test_documentation.py",
+      "action": "move",
+      "sha256": "e59e915eebe90f8003194816555096bb57e09297798f03a7df8ad3735cba41a1",
+      "git_blob": "784ec428b188336a58d58146c38181ed2a4b82dc"
+    },
+    {
+      "old_path": "tools/test_pilot_rollout.py",
+      "target": "tools/planning/test_pilot_rollout.py",
+      "action": "move",
+      "sha256": "8aad31dfe512afc098d40660da906ea2160e52dcf493ae835b08cb0cbf8440a2",
+      "git_blob": "ed9b678e5583ce8a0b1eb3369a81457b85bf3839"
+    },
+    {
+      "old_path": "tools/test_project_backlog.py",
+      "target": "tools/planning/test_project_backlog.py",
+      "action": "move",
+      "sha256": "dfc30f961ebeb8d80ede4fc53c79c6ab70d5dfb89a112d50519dda9974329eb7",
+      "git_blob": "409fc91a6fb190f26dc1cff09386673a3554d4a4"
+    },
+    {
+      "old_path": "tools/test_task_batch.py",
+      "target": "tools/planning/test_task_batch.py",
+      "action": "move",
+      "sha256": "b113614341500f9d5400b1df2a3d919c5cfbdfe02082e33ea4fa5d785457984a",
+      "git_blob": "a7dea8759da8a40ccbb6b6e4a4b58cd4782de68a"
+    },
+    {
+      "old_path": "tools/test_visual_backlog.py",
+      "target": "tools/planning/test_visual_backlog.py",
+      "action": "move",
+      "sha256": "b0fbfcaa1e055147744eabe8b1b0ec393aecf758836c23fdda547bb40125a2c1",
+      "git_blob": "2b5ade9f459792ec71daed40d3dacc75a3e0db67"
+    },
+    {
+      "old_path": "tools/visual_backlog.py",
+      "target": "tools/planning/visual_backlog.py",
+      "action": "move",
+      "sha256": "509ea10d38c54647d83cd4ec93b8e4eaeb74201998639e0976e58a95fda5dcd5",
+      "git_blob": "74728843e9f0c48baf865e6121540cb919fccf97"
+    }
+  ],
+  "prior_reports_modified": false,
+  "runtime_UID_policy": "No .gd/.gd.uid in the pilot; all game runtime and UID blobs must remain unchanged",
+  "git_isolation_sources": {
+    "tools/shore_kit.py": "b129ea34974d9c446cb848e4dfc25612a177df88dbac1b7fd6d714f61398923b",
+    "tools/test_shore_kit.py": "8ce0ec8fe3a594854cf137e0192ef801e1780e18118997760813616dd83c1967",
+    "tools/task_batch.py": "0f5ac87c50f27cd821a0513e1edd2c33f94e01a1e20214864520a68ff6391389",
+    "tools/bump_version.py": "94ea9326f5a9b1f70cf772095852eb3046f42b9da419c375b6692ed5f8606576"
+  }
+}

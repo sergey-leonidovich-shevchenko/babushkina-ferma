@@ -1,0 +1,7 @@
+{
+  "source": "wiki/articles/index.json: project-refactoring.summary",
+  "observed": "Article body had new14move content but metadata summary still said moves not performed",
+  "change": "One summary only; ID/title/tags/other articles preserved",
+  "validation": "New Wiki check and final browser guide screenshot required",
+  "runtime_sources_changed": false
+}

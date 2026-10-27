@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readPlanningCatalog } from '../scripts/planning-catalog.mjs'
+import { createWikiServer, listen } from '../scripts/server.mjs'
 import {
   firstLocationGroups,
   firstLocationOverview,
@@ -70,7 +71,7 @@ test('map and release progress exclude other locations and later releases', () =
 
 // Сценарий: обновление источника меняет активную карточку и счётчики.
 // Исходное состояние: изолированный каталог без активных задач, затем VGROUND-001 последовательно в работе и завершена.
-// Ожидаемый результат: обзор показывает новое состояние без второго реестра и не включает активную задачу другой карты.
+// Ожидаемый результат: обзор показывает всю фактическую работу с контекстом, но чужая карта не меняет счётчик первой.
 test('live changes update active cards and per-epic counts', () => {
   const data = structuredClone(catalog)
   for (const task of data.tasks) task.status = 'backlog'
@@ -80,7 +81,7 @@ test('live changes update active cards and per-epic counts', () => {
   let view = firstLocationOverview(data)
   assert.deepEqual(
     view.active.map((task) => task.key),
-    [task.key]
+    [task.key, 'visual--VMAP-004']
   )
   assert.equal(
     view.groups.flatMap((group) => group.epics).find((row) => row.key === task.epic).counts
@@ -89,11 +90,85 @@ test('live changes update active cards and per-epic counts', () => {
   )
   task.status = 'done'
   view = firstLocationOverview(data)
-  assert.equal(view.active.length, 0)
+  assert.deepEqual(
+    view.active.map((task) => task.key),
+    ['visual--VMAP-004']
+  )
+  assert.match(view.active[0].context, /Другое направление/)
   assert.equal(
     view.groups.flatMap((group) => group.epics).find((row) => row.key === task.epic).counts.done,
     1
   )
+})
+
+// Реальный технический статус виден без добавления REFACTOR в22 графических эпика.
+test('current technical work is visible without accepting or inflating the map', () => {
+  const data = structuredClone(catalog)
+  for (const task of data.tasks) if (task.status === 'in_progress') task.status = 'backlog'
+  const task = data.tasks.find((task) => task.key === 'refactoring--REFACTOR-01')
+  task.status = 'in_progress'
+  const view = firstLocationOverview(data)
+  assert.deepEqual(
+    view.active.map((task) => task.key),
+    [task.key]
+  )
+  assert.match(view.active[0].context, /Технический приоритет.*tools/)
+  assert.equal(view.groups.flatMap((group) => group.epics).length, 22)
+  assert.equal(view.accepted, false)
+  assert.equal(
+    view.history.some((entry) => entry.key === task.key),
+    false
+  )
+  task.status = 'ready'
+  assert.equal(firstLocationOverview(data).active.length, 0)
+})
+
+// ID не являются хронологией; одинаковые и отсутствующие даты сохраняют порядок источника.
+test('history uses canonical done, stable dates, and bounded route/support scopes', () => {
+  const sample = catalog.tasks.find((task) => task.key === 'visual--VGROUND-001')
+  const row = (id, date, status = 'done', extra = {}) => ({
+    ...sample,
+    id,
+    key: id,
+    status,
+    completion: { date, basis: 'fixture', evidence: [] },
+    ...extra,
+  })
+  const tasks = [
+    row('VGROUND-999', null),
+    row('VGROUND-003', '2026-10-19'),
+    row('VGROUND-001', '2026-10-20'),
+    row('VGROUND-002', '2026-10-20'),
+    row('VGROUND-998', null),
+    row('VGROUND-005', '2099-01-01', 'in_progress'),
+    row('VMAP-004', '2099-01-02', 'done', { epic: 'visual--VMAP' }),
+    row('REFACTOR-00', '2026-10-21', 'done', {
+      plan: 'refactoring',
+      epic: 'refactoring--REFACTOR',
+    }),
+    row('WIKI-001', '2026-10-18', 'done', { plan: 'wiki', epic: 'wiki--WIKI' }),
+    row('IDEA-REVIEW-20261026', '2099-01-03', 'done', { plan: 'wiki', epic: 'wiki--WIKI' }),
+  ]
+  const data = { ...catalog, tasks }
+  const before = JSON.stringify(data)
+  let view = firstLocationOverview(data)
+  assert.deepEqual(
+    view.history.map((task) => task.id),
+    [
+      'REFACTOR-00',
+      'VGROUND-001',
+      'VGROUND-002',
+      'VGROUND-003',
+      'WIKI-001',
+      'VGROUND-999',
+      'VGROUND-998',
+    ]
+  )
+  assert.equal(JSON.stringify(data), before)
+  tasks[5].status = 'done'
+  view = firstLocationOverview(data)
+  assert.equal(view.active.length, 0)
+  assert.equal(view.history[0].id, 'VGROUND-005')
 })
 
 // Сценарий: подготовка и статичный показ не означают приёмку всей карты.
@@ -124,4 +199,58 @@ test('catalog-wide scopes and missing epic data remain explicit', () => {
   const data = { ...catalog, epics: catalog.epics.filter((epic) => epic.key !== 'visual--VGROUND') }
   rows = firstLocationOverview(data).groups.flatMap((group) => group.epics)
   assert.equal(rows.find((row) => row.key === 'visual--VGROUND').epic, undefined)
+})
+
+// Настоящий API повторно загружает один каталог: active/history меняются вместе, без старого done в истории.
+test('API refresh keeps active work and completion history coherent', async (t) => {
+  const data = structuredClone(catalog)
+  const task = data.tasks.find((task) => task.key === 'visual--VGROUND-001')
+  // Две даты после всего каталога сохраняют сценарий при новых настоящих completion-коммитах.
+  const latest = Math.max(
+    Date.UTC(2000, 0, 1),
+    ...data.tasks
+      .map((row) => Date.parse(`${row.completion?.date}T00:00:00Z`))
+      .filter(Number.isFinite)
+  )
+  const dayAfter = (offset) => new Date(latest + offset * 86_400_000).toISOString().slice(0, 10)
+  const previous = data.tasks.find((row) => row.key === 'refactoring--REFACTOR-00')
+  previous.status = 'done'
+  previous.completion = { date: dayAfter(1), basis: 'fixture', evidence: [] }
+  const server = createWikiServer(process.cwd(), {
+    planning: {
+      loadCatalog: async () => structuredClone(data),
+      store: { read: async () => ({ schema: 1, revision: 0, ideas: [] }) },
+    },
+  })
+  const port = await listen(server, 0)
+  t.after(() => {
+    server.closeAllConnections()
+    server.close()
+  })
+  const refresh = async () => {
+    const response = await fetch(`http://127.0.0.1:${port}/__wiki/planning`)
+    assert.equal(response.status, 200)
+    assert.equal(response.headers.get('cache-control'), 'no-store')
+    return firstLocationOverview((await response.json()).catalog)
+  }
+  task.status = 'in_progress'
+  let view = await refresh()
+  assert.ok(view.active.some((row) => row.key === task.key))
+  assert.equal(view.history[0].key, previous.key)
+  assert.equal(
+    view.history.some((row) => row.key === task.key),
+    false
+  )
+  task.status = 'done'
+  task.completion = { date: dayAfter(2), basis: 'fixture', evidence: [] }
+  view = await refresh()
+  assert.equal(
+    view.active.some((row) => row.key === task.key),
+    false
+  )
+  assert.equal(view.history[0].key, task.key)
+  assert.equal(view.history[0].completion.date, dayAfter(2))
+  assert.equal(view.history[1].key, previous.key)
+  for (const row of data.tasks) if (row.status === 'in_progress') row.status = 'backlog'
+  assert.equal((await refresh()).active.length, 0)
 })

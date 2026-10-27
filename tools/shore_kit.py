@@ -11,6 +11,8 @@ from pathlib import Path
 from PIL import Image, ImageChops
 from visual_resources import vector
 
+from common.git import git_environment
+
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = Path('docs/reports/visual-overhaul/vshore-001')
 NEW_IDS = ['stone-n', 'stone-e', 'stone-s', 'stone-w'] + [
@@ -30,13 +32,13 @@ def read(path: Path) -> dict:
 
 def historical(root: Path, commit: str, name: str, sha: str) -> bool:
     """Сверяет общие WATER-исходники по сохранённой истории, не замораживая будущую игру."""
-    result = subprocess.run(['git','-C',str(root),'show',commit+':'+name],capture_output=True,check=False)
+    result = subprocess.run(['git','-C',str(root),'show',commit+':'+name],capture_output=True,check=False,env=git_environment())
     return result.returncode == 0 and hashlib.sha256(result.stdout).hexdigest() == sha
 
 
 def tracked(root: Path, paths: list[str]) -> bool:
     """Отличает существующие локальные доказательства от действительно включённых в Git файлов."""
-    result = subprocess.run(['git','-C',str(root),'ls-files','--error-unmatch','--',*paths],capture_output=True,check=False)
+    result = subprocess.run(['git','-C',str(root),'ls-files','--error-unmatch','--',*paths],capture_output=True,check=False,env=git_environment())
     return result.returncode == 0
 
 

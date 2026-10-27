@@ -1,0 +1,1 @@
+PROBES: baseline checker depth failure and private Git hook contamination reproduced; isolated boundary passes

@@ -25,6 +25,7 @@
 }
 .location-current {
   display: grid;
+  align-items: start;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
@@ -41,6 +42,51 @@
 .location-active a {
   display: grid;
   gap: 5px;
+}
+.location-active a,
+.location-history-entry {
+  overflow-wrap: anywhere;
+}
+.location-history h2 {
+  margin-top: 0;
+}
+.location-history-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  max-height: 560px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.location-history-list > li {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 12px 20px;
+  padding: 18px 4px;
+  border-top: 1px solid var(--line);
+}
+.location-history-date,
+.location-history-entry > a {
+  display: grid;
+  gap: 5px;
+}
+.location-history-date small {
+  color: var(--muted);
+  font-size: 11px;
+}
+.location-history-date {
+  align-self: start;
+}
+.location-history-entry p {
+  margin: 8px 0;
+  font-size: 12px;
+}
+.location-history-entry summary {
+  cursor: pointer;
+  color: var(--green);
+}
+.location-history-entry ul {
+  padding-left: 20px;
 }
 .location-milestones {
   list-style: none;
@@ -90,6 +136,9 @@
   margin-top: -6px;
 }
 @media (max-width: 700px) {
+  .location-history-list > li {
+    grid-template-columns: minmax(0, 1fr);
+  }
   .location-current {
     grid-template-columns: minmax(0, 1fr);
   }

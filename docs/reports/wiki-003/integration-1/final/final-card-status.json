@@ -1,0 +1,5 @@
+{
+  "inProgressBadgeVisible": true,
+  "axStatusLine": "\t\t\t45 text WIKI-003 В работе P1 Объём M",
+  "note": "Earlier exact body substring used a space where rendered text has a newline; that false probe is retained in final-card.json."
+}

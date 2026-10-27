@@ -1,0 +1,21 @@
+✔ first location resolves all selected epics without changing the catalog (119.802703ms)
+✔ map and release progress exclude other locations and later releases (67.891008ms)
+✔ live changes update active cards and per-epic counts (137.977983ms)
+✔ current technical work is visible without accepting or inflating the map (96.44622ms)
+✔ history uses canonical done, stable dates, and bounded route/support scopes (7.976191ms)
+✔ only the canonical final acceptance completes the first location (122.611157ms)
+✔ catalog-wide scopes and missing epic data remain explicit (8.032648ms)
+✔ dates reject missing, locale guesses, calendar overflow and invalid timestamps (3.459467ms)
+✔ accepted graph uses merge acceptance date and latest accepted completion event (0.909075ms)
+✔ real Git excludes unmerged future trailers and refreshes at accepted main changes (1373.151702ms)
+✔ missing Git preserves explicit card dates, honest unknowns and canonical status (100.810862ms)
+✔ ambiguous IDs and nonexistent proof files cannot acquire another task acceptance (392.965689ms)
+✔ explicit Markdown completion date is parsed independently of unrelated result dates (3.043265ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2106.794248

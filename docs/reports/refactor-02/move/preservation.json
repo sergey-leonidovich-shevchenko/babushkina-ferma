@@ -1,0 +1,21 @@
+{
+  "prepare_commit": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+  "all_prepare_report_files_preserved": 121,
+  "previous_preservation_groups_rechecked": {
+    "previous_wiki_refactor_reports": 410,
+    "uid_files": 798,
+    "plan_json_archives": 13
+  },
+  "runtime_sources_assets_and_UID_moves": 0,
+  "planning_state_sources_byte_equal": true,
+  "root_sources_before_pilot": 555,
+  "root_sources_after_pilot": 544,
+  "root_sources_removed_in_pilot": 11,
+  "full_release_forecast": 10,
+  "full_release_budget": 30,
+  "budget_not_yet_accepted_until_REFACTOR_03_and_06": true,
+  "only_additional_unmoved_consumer_edits": [
+    "tools/test_optimization_audit.py",
+    "tools/pilot_static_audit.py"
+  ]
+}

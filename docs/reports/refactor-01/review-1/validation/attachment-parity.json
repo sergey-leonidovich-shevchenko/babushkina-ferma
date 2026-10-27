@@ -1,0 +1,37 @@
+{
+  "new_attachments": [
+    {
+      "source": "docs/reports/refactor-01/review-1/red-reproduction.json",
+      "sha256": "496387cede5b987eaeecb7b01e0e0d86ac94e0123e214d6eaf7bfe8d6513e652",
+      "bytes": 613,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-01/review-1/green-production-plan.json",
+      "sha256": "099ad784b7a5a833a3cffe90e8abd47d25b60de49504e2473ba38bb0e56adf07",
+      "bytes": 830,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-01/review-1/collection-comparison.json",
+      "sha256": "b94b94fc1186b27a9872dde4700bec4cc2db3fc0fe2f2bfca91ac96a84de337c",
+      "bytes": 1805,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-01/review-1/reproduction/inventory.json",
+      "sha256": "660e22ea57a8c55d8a3b9d8f761adb68bb060f44e2d07251452327a8feda79b7",
+      "bytes": 8140,
+      "source_public_dist_identical": true
+    },
+    {
+      "source": "docs/reports/refactor-01/review-1/reproduction/packet.json",
+      "sha256": "6723deb131a7545f68700551095a03403642e3ad893e1a209f14465abed40959",
+      "bytes": 1296,
+      "source_public_dist_identical": true
+    }
+  ],
+  "live_family_tables_identical_except_terminal_newlines": true,
+  "scope_matches_current_declared_sources": true,
+  "frozen_table_unchanged": true
+}

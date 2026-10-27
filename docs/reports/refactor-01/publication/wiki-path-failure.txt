@@ -1,0 +1,5 @@
+$ pnpm run build && pnpm run test
+$ node scripts/prepare.mjs && vue-tsc --noEmit && vite build
+sh: node: command not found
+[ELIFECYCLE] Command failed.
+[ELIFECYCLE] Command failed with exit code 1.

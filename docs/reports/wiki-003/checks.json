@@ -1,0 +1,103 @@
+{
+  "task": "WIKI-003",
+  "version": "0.0.345",
+  "status": "in_progress; exact-head CI and independent review required",
+  "base": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "architecture": {
+    "Python_suites": 82,
+    "cases": 1135,
+    "success_footer": true,
+    "session_exit": "unavailable after interruption; complete successful final footer retained"
+  },
+  "Game": {
+    "exit": 0,
+    "passed": 53502,
+    "failed": 0,
+    "normal_F10_each": [
+      90,
+      0
+    ]
+  },
+  "Wiki": {
+    "exit": 0,
+    "passed": 145,
+    "failed": 0,
+    "build_and_TypeScript": true
+  },
+  "browser": {
+    "desktop_width_document": [
+      1280,
+      1280
+    ],
+    "responsive_width_document": [
+      390,
+      390
+    ],
+    "responsive_method": "real same-origin iframe, clientHeight700; not physical phone hardware",
+    "current_refactor_card": "exact published PR14 c9cea3ae, isolated copy",
+    "history": 80,
+    "unknown_dates": 20,
+    "pilot": "52/52",
+    "VMAP003_accepted": false,
+    "automatic_technical_fixture_history": [
+      80,
+      81
+    ],
+    "manual_empty_active": 0,
+    "manual_empty_history": 81,
+    "canonical_statuses_not_modified_for_QA": true,
+    "limitations": "Direct viewport control initially did not apply. Later delayed390 parent capture labelled responsive-intermediate. Final fresh desktop session measured1280. Iframe700px corrected parent scroll hiding menu."
+  },
+  "preserved_failures": {
+    "wiki-link-rejected.txt": "strict internal route guard rejected first-location; addressed narrowly with regression",
+    "game-start-failure.txt": "lost transient environment after interruption; actual full rerun passed"
+  },
+  "no_gameplay_or_tools_moves": true,
+  "scope": "validation/scope.json",
+  "raw_sha256": {
+    "validation/architecture.txt": "05516337b95727feaa093e586ab4e87b6d0d5317021b42d6d541c9fa8b310597",
+    "validation/auto-refresh-technical.json": "bf8a0e764233cabe6d3c1df1575dfbbb2a30e89bcb4601cafc9808030758c4f9",
+    "validation/auto-refresh.json": "2de64dc9e5e59cfb828495a0e36946f38ab86e69ebee3ec2cdb333894795a488",
+    "validation/backlog-first.txt": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a",
+    "validation/backlog-publish.txt": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a",
+    "validation/browser-fixture.json": "f04d2ed85d07dd9bb5de03529ff0cade10480680a090e5bc728815a06e77e8d0",
+    "validation/desktop-current.png": "2946b34cd1278519a80416c30e2d40516888b5a1e9c836a5e629235ed40019b3",
+    "validation/desktop-final.png": "d78c34e8f81f26cccf1afd7e3d1909bd5e181324b3be2e4fa9df0a1e26db56a4",
+    "validation/desktop.png": "c00b9bcb5b9fbd497e5e3792402200ff60bf1333fa8b67139e58f81cd910a1e0",
+    "validation/documentation-final.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "validation/documentation-first.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "validation/documentation-publish.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "validation/documentation-report.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "validation/final-dom.json": "7a692d7980d4f5446a1c7dcb5ceace7874edff08fd60f4c2571fe85924a88dec",
+    "validation/final-history.png": "15a3a4e3b2dd8ed57fbb414eeeb462af478e4e5828990f525cdc869e55ee523c",
+    "validation/final-overview.png": "d78c34e8f81f26cccf1afd7e3d1909bd5e181324b3be2e4fa9df0a1e26db56a4",
+    "validation/focused-first.txt": "1cb5f4f5378eddce301b74cd75687e1ebb0dddd321d265bfb695687d579b6987",
+    "validation/format-last.txt": "b10c74c6cd6af7a71c3981e33fa31da90c44b284a46b9a5b3195d6cac2012f26",
+    "validation/format.txt": "fd3bc022fa4708ed4e3df2fbd52ee3e714718e85b6e4d390dfadf7061891d54d",
+    "validation/game-start-failure.txt": "6def63193b05cc907aedfa8e6ca804441306f190981acd39cd864ec77ada7947",
+    "validation/game.txt": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+    "validation/headless/f10/engine.txt": "98c1e20893946611019f7f3f03e03591dc1f158ab6fc4a6ac14d03c0987e413d",
+    "validation/headless/f10/frames.jsonl": "252e2e58867e7068ff76ed67ce7266ee161179b1649b748c378d5baacb3c4219",
+    "validation/headless/f10/summary.json": "9a64cf9ea433399bf835de31c9351c1fff51185b1dbd0fdaf54880e0ae06b4a4",
+    "validation/headless/normal/engine.txt": "4001798fea46e088b4b9eeeb0216c12144af87db4b7c039c8819a35728ab7d27",
+    "validation/headless/normal/frames.jsonl": "1f9bb4e7330f4008f415f10713de675beac12fff58f7b666fa3af8afc80a9e9a",
+    "validation/headless/normal/summary.json": "e6cb9e9669cdb4b2be33fd082ce30b67373c5fc3eee9ddcdd48589155f81fe9c",
+    "validation/manual-empty.png": "716db14c2acdb4ad178a52e0c7b23a0eeaa65662622b14db2c2aaa5b06dbe4bb",
+    "validation/mobile-390.png": "537424dd4080de61b5cbf2aaa1e3596879766ff39de8572c59e4eecf6162ce5a",
+    "validation/mobile-history-390.png": "1efb25686f3f101ac350fac03e8766f8aa14021aec1dc7a854550e8c0d0b21ea",
+    "validation/node-final.txt": "da90abfffabdfd99a83b0702f002c2f4e90bcbc89e6115a6e131b87bb9895674",
+    "validation/responsive-intermediate-390.json": "84b23073f227f7f1c779a5a73878b7c89ed6d72fd6f8dbe0001b460f12bc5997",
+    "validation/responsive-intermediate-390.png": "0420fb0774752ff9e94a342e1cd337f6b056e363a822323252bcd617c578ee89",
+    "validation/scope.json": "9ffa54589fe66414624969cb9d76e04dbcf491e0260e8eabd25880ac36af73d6",
+    "validation/types-final.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "validation/version-final.txt": "27e1465f169e45d22102cca254ba742b7582f59fd1f067560dbae87857e294b1",
+    "validation/wiki-current.txt": "5ec82c0b5bf39aa4c65e9f38b374e51fe06857aa62d9b109811a847ed904f0d9",
+    "validation/wiki-final.txt": "53f889a2abf283281209cd9e98d0725319ccd481ac1a6a4e5b0317b5bafd09af",
+    "validation/wiki-first.txt": "9d447480eb72bd3589f6853aa5e5ea2493b576b79fa522c4c0b50755117d1584",
+    "validation/wiki-link-rejected.txt": "00378a125e952af5b2ed40f25497cb930dc940b4dd34a28743683f201c2f8370",
+    "validation/build-final.txt.gz": "2bb1261f3a690a00184c38a67e213697333b710a5689aa6b5c1d9c6a303f77e3"
+  },
+  "compressed_original_sha256": {
+    "validation/build-final.txt.gz": "0f7f19893c273cf12c77b02302b2dfe294b817fc84d8482963575014212c50d9"
+  }
+}

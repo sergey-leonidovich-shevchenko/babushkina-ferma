@@ -1,0 +1,11 @@
+{
+  "own_tab_closed": "8",
+  "server_before": {
+    "app": "moon-valley-wiki",
+    "project": "REFACTOR-02-read-only-QA",
+    "pid": 8738,
+    "planning": 1
+  },
+  "own_server_stopped": true,
+  "unrelated_tabs_servers_worktrees_untouched": true
+}

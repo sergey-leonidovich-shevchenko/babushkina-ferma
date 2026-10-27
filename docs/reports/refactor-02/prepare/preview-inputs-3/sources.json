@@ -1,0 +1,12 @@
+[
+  {
+    "source": "/private/tmp/refactor02-move.py",
+    "saved": "docs/reports/refactor-02/prepare/preview-inputs-3/move-recipe.py.txt",
+    "sha256": "03d2d1186972822ac3eda0b359303456171cf80ff9d5e972f9fa51652a06c1a3"
+  },
+  {
+    "source": "/private/tmp/refactor02-preview.py",
+    "saved": "docs/reports/refactor-02/prepare/preview-inputs-3/preview-driver.py.txt",
+    "sha256": "80500b270b6fe85c078aa5bbfd51a6e009174fc6c359dad864eed622804d7387"
+  }
+]

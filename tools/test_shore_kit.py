@@ -8,6 +8,7 @@ import unittest
 from pathlib import Path
 
 import shore_kit as kit
+from common.git import git_environment
 
 
 class ShoreKitTests(unittest.TestCase):
@@ -57,11 +58,11 @@ class ShoreKitTests(unittest.TestCase):
         """Сценарий: журнал существует, но игнорируется Git. Исходное состояние: отдельный репозиторий. Результат: только добавленный в индекс файл проходит."""
         with tempfile.TemporaryDirectory(prefix='shore-log-index-') as value:
             root = Path(value)
-            subprocess.run(['git','init','-q',str(root)],check=True,capture_output=True)
+            subprocess.run(['git','init','-q',str(root)],check=True,capture_output=True,env=git_environment())
             (root/'.gitignore').write_text('*.log\n')
             (root/'review.log').write_text('passed')
             self.assertFalse(kit.tracked(root,['review.log']))
-            subprocess.run(['git','-C',str(root),'add','-f','review.log'],check=True,capture_output=True)
+            subprocess.run(['git','-C',str(root),'add','-f','review.log'],check=True,capture_output=True,env=git_environment())
             self.assertTrue(kit.tracked(root,['review.log']))
 
     def test_missing_part(self):

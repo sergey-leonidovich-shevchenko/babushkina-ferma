@@ -1,0 +1,124 @@
+F.FF.E.EF.F..
+======================================================================
+ERROR: test_hook_staging_keeps_its_intentional_alternate_index (__main__.InfrastructureTests.test_hook_staging_keeps_its_intentional_alternate_index)
+Изоляция readers не лишает bump --stage законного index текущего commit hook.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout mfs5556r/linked checkout with spaces/tools/common/test_infrastructure.py", line 153, in test_hook_staging_keeps_its_intentional_alternate_index
+    shutil.copy2(ROOT / "tools/bump_version.py", self.root / "tools/bump_version.py")
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 448, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout mfs5556r/linked checkout with spaces/tools/bump_version.py'
+
+======================================================================
+ERROR: test_nested_suite_still_hits_architecture_limit (__main__.InfrastructureTests.test_nested_suite_still_hits_architecture_limit)
+Вложенный набор из 351 строки обязан остановить gate до остальных команд.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout mfs5556r/linked checkout with spaces/tools/common/test_infrastructure.py", line 214, in test_nested_suite_still_hits_architecture_limit
+    shutil.copy2(source, target)
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 448, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout mfs5556r/linked checkout with spaces/tools/check_architecture.sh'
+
+======================================================================
+FAIL: test_anchor_not_cwd_selects_root_and_preserves_argv (__main__.InfrastructureTests.test_anchor_not_cwd_selects_root_and_preserves_argv)
+Чужая cwd и аргументы с пробелами не меняют проект или границы аргументов.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout mfs5556r/linked checkout with spaces/tools/common/test_infrastructure.py", line 67, in test_anchor_not_cwd_selects_root_and_preserves_argv
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary x6pwg_dr/project with spaces/tools/run.py", line 10, in <module>
+    main()
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary x6pwg_dr/project with spaces/tools/common/launch.py", line 60, in main
+    runpy.run_module(target, run_name="__main__", alter_sys=True)
+  File "<frozen runpy>", line 226, in run_module
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary x6pwg_dr/project with spaces/tools/probe.py", line 3, in <module>
+    from .paths import project_root
+ModuleNotFoundError: No module named 'tools.paths'
+
+
+======================================================================
+FAIL: test_exit_and_unknown_commands_are_not_hidden (__main__.InfrastructureTests.test_exit_and_unknown_commands_are_not_hidden)
+Ошибка команды остаётся exit 7; traversal, внешние и пропавшие модули отклоняются.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout mfs5556r/linked checkout with spaces/tools/common/test_infrastructure.py", line 74, in test_exit_and_unknown_commands_are_not_hidden
+    self.assertEqual(self.run_command("probe", "--fail").returncode, 7)
+AssertionError: 1 != 7
+
+======================================================================
+FAIL: test_external_tools_package_cannot_shadow_project (__main__.InfrastructureTests.test_external_tools_package_cannot_shadow_project)
+Внешний PYTHONPATH с пакетом tools не подменяет собственную команду.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout mfs5556r/linked checkout with spaces/tools/common/test_infrastructure.py", line 101, in test_external_tools_package_cannot_shadow_project
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary 3857wcl9/project with spaces/tools/run.py", line 10, in <module>
+    main()
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary 3857wcl9/project with spaces/tools/common/launch.py", line 60, in main
+    runpy.run_module(target, run_name="__main__", alter_sys=True)
+  File "<frozen runpy>", line 226, in run_module
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary 3857wcl9/project with spaces/tools/probe.py", line 3, in <module>
+    from .paths import project_root
+ModuleNotFoundError: No module named 'tools.paths'
+
+
+======================================================================
+FAIL: test_package_entry_and_public_api_imports (__main__.InfrastructureTests.test_package_entry_and_public_api_imports)
+Пакетный -m и публичные API работают без вручную добавленного tools в sys.path.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout mfs5556r/linked checkout with spaces/tools/common/test_infrastructure.py", line 133, in test_package_entry_and_public_api_imports
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary 73go_6vd/project with spaces/tools/run.py", line 10, in <module>
+    main()
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary 73go_6vd/project with spaces/tools/common/launch.py", line 60, in main
+    runpy.run_module(target, run_name="__main__", alter_sys=True)
+  File "<frozen runpy>", line 226, in run_module
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary 73go_6vd/project with spaces/tools/probe.py", line 3, in <module>
+    from .paths import project_root
+ModuleNotFoundError: No module named 'tools.paths'
+
+
+======================================================================
+FAIL: test_real_worktree_with_spaces (__main__.InfrastructureTests.test_real_worktree_with_spaces)
+В worktree .git является файлом; launcher выбирает его собственные исходники.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout mfs5556r/linked checkout with spaces/tools/common/test_infrastructure.py", line 125, in test_real_worktree_with_spaces
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary o026xgi8/linked checkout with spaces/tools/run.py", line 10, in <module>
+    main()
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary o026xgi8/linked checkout with spaces/tools/common/launch.py", line 60, in main
+    runpy.run_module(target, run_name="__main__", alter_sys=True)
+  File "<frozen runpy>", line 226, in run_module
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm tools boundary o026xgi8/linked checkout with spaces/tools/probe.py", line 3, in <module>
+    from .paths import project_root
+ModuleNotFoundError: No module named 'tools.paths'
+
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.568s
+
+FAILED (failures=5, errors=2)

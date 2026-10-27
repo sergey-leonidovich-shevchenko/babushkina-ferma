@@ -1,0 +1,11 @@
+{
+  "base": "c9cea3aef393380f2abdd3c9ef126acbd58c366b",
+  "method": "actual SHA256 of all prior REFACTOR-01 report files versus pinned Git blobs",
+  "unchanged_files": 168,
+  "only_mutable_existing_instrumentation": [
+    "docs/reports/refactor-01/instrumentation/mapping.py",
+    "docs/reports/refactor-01/instrumentation/test_audit.py"
+  ],
+  "unchanged_path_SHA256_stream": "a804d6e642412e52bea46c28218c481c0b1f69f4051f3872124b6632359a9455",
+  "frozen_raw_whitespace_not_rewritten": true
+}

@@ -1,0 +1,28 @@
+{
+  "base": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "plan_sha256": "8553b96ad259190ce5271af9ec124d3ce67275d9098c5d34e0c2b46e9675472f",
+  "original_plan_root_count": 9,
+  "tools": 779,
+  "cases": [
+    {
+      "path": "../outside.py",
+      "accepted": false,
+      "error": "new root entry requires normalized source directly in tools: '../outside.py'"
+    },
+    {
+      "path": "/tmp/outside.py",
+      "accepted": false,
+      "error": "new root entry requires normalized source directly in tools: '/tmp/outside.py'"
+    },
+    {
+      "path": "tools/common/nested_dispatcher.py",
+      "accepted": false,
+      "error": "new root entry requires normalized source directly in tools: 'tools/common/nested_dispatcher.py'"
+    },
+    {
+      "path": "tools/run.py",
+      "accepted": true,
+      "root_count": 9
+    }
+  ]
+}

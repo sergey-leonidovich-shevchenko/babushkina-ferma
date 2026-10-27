@@ -1,0 +1,782 @@
+{
+  "baseline_commit": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "scope": "Local ignored sidecars only; not part of accepted Git inventory, not staged or moved by REFACTOR-01",
+  "method": "git ls-tree exact base; existing source+.uid read-only SHA256; git check-ignore -v for each untracked sidecar",
+  "count": 86,
+  "files": [
+    {
+      "source": "tools/alpha_capture.gd",
+      "local_sidecar": "tools/alpha_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://5t736l84wiws",
+      "sha256": "c7056f3c166570920c497a9213b21e367d40ee2ba22dafa8ac7c23da0d79be47",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/alpha_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/asset_game_probe.gd",
+      "local_sidecar": "tools/asset_game_probe.gd.uid",
+      "exists": true,
+      "uid": "uid://b6oj1u17lylsa",
+      "sha256": "e6eb05942112d9d9e3a9d9a8f4e074daa234529512bc3240840669122bf8d8d0",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/asset_game_probe.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/asset_pack_probe.gd",
+      "local_sidecar": "tools/asset_pack_probe.gd.uid",
+      "exists": true,
+      "uid": "uid://1ic5kt3w8ef",
+      "sha256": "f72a97368e11501a80b9d2a0cfd58ff84b4e8ea1ffd4e39a72f5a65b74bbceab",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/asset_pack_probe.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/boss_balance_review.gd",
+      "local_sidecar": "tools/boss_balance_review.gd.uid",
+      "exists": true,
+      "uid": "uid://ce5k6755vw0fq",
+      "sha256": "b4f27d5941a5f8f1c50d670c88eec747c4596d0b449553c647baa28991464c72",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/boss_balance_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/build_clean_interior_atlas.gd",
+      "local_sidecar": "tools/build_clean_interior_atlas.gd.uid",
+      "exists": true,
+      "uid": "uid://cjdnskud18fbc",
+      "sha256": "fd3de202677c31a9cd28240b054918a81cf9de8754898f91ffe4e5d59b98f7e4",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/build_clean_interior_atlas.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/build_village_materials.gd",
+      "local_sidecar": "tools/build_village_materials.gd.uid",
+      "exists": true,
+      "uid": "uid://ckqo120mnir35",
+      "sha256": "2e82ab5f3c28e191f573695a19f343c43128de1541a68ad9ba93678713cea9c1",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/build_village_materials.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/build_village_props.gd",
+      "local_sidecar": "tools/build_village_props.gd.uid",
+      "exists": true,
+      "uid": "uid://op88cfb4bnb",
+      "sha256": "bf389640bc54b8fe8011dbc672d4deee8c6792a79f3cc2bb160cc36704d2c6b5",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/build_village_props.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/camera_quantization_capture.gd",
+      "local_sidecar": "tools/camera_quantization_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://bnb38c1s3wa63",
+      "sha256": "091b1c0253ae2e2f81965546e6b900a705fcc31e583bded7e3861406bf25615e",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/camera_quantization_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/camera_quantization_review.gd",
+      "local_sidecar": "tools/camera_quantization_review.gd.uid",
+      "exists": true,
+      "uid": "uid://hcvw5p3skmfp",
+      "sha256": "54175b6f02999bbee3b8183a19744b63271802afb660ab4ce8ba4329f214f96a",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/camera_quantization_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/character_polish_capture.gd",
+      "local_sidecar": "tools/character_polish_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://u5poahlqx2rg",
+      "sha256": "759199daee873f275a9408d9c7981f3d6a420569bf7430a27364599ff435740c",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/character_polish_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/compact_hud_review.gd",
+      "local_sidecar": "tools/compact_hud_review.gd.uid",
+      "exists": true,
+      "uid": "uid://cap2r167da6tg",
+      "sha256": "d7ca347692b1f543978eddfb4658bae84fd0b9569dafb423b42f192f3bcc4ac1",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/compact_hud_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/cooking_capture.gd",
+      "local_sidecar": "tools/cooking_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://bia814tn1ujxy",
+      "sha256": "5733a6422af57b61f924f6170604ce5c9844d8bc3b7aef434eab263acea4f2f5",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/cooking_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/cooking_review.gd",
+      "local_sidecar": "tools/cooking_review.gd.uid",
+      "exists": true,
+      "uid": "uid://b0b21f7s13crr",
+      "sha256": "e8ef07147d3106882018f8e1ea82d5c21cd4c7be82c1db854be5843725325899",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/cooking_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/cpu_profile_game.gd",
+      "local_sidecar": "tools/cpu_profile_game.gd.uid",
+      "exists": true,
+      "uid": "uid://bth8ylrr4oxla",
+      "sha256": "f0a30e22ae4e98c74b8f4b4d661743bda2e36efcb27e24525b9b4166b556245e",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/cpu_profile_game.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/extract_farm_icons.gd",
+      "local_sidecar": "tools/extract_farm_icons.gd.uid",
+      "exists": true,
+      "uid": "uid://bc1hlfm0bs21a",
+      "sha256": "7947a014f5bf45c2be4e822f977c039773e83132ed791e3b633c3dcb0c4c78fd",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/extract_farm_icons.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/extract_farmyard_sprites.gd",
+      "local_sidecar": "tools/extract_farmyard_sprites.gd.uid",
+      "exists": true,
+      "uid": "uid://3kjyo1crigys",
+      "sha256": "0a73a2d9d013ec067ebef179a25f1be50bc3ca6f7e8f95fa11b26b72a83e739e",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/extract_farmyard_sprites.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/farm_bounds_capture.gd",
+      "local_sidecar": "tools/farm_bounds_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://c7xka8pdimwwj",
+      "sha256": "1d7114e4903233b0dab1154d133a56023b7565f0b58ac336ceedfdc483ceffe6",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/farm_bounds_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/farm_cursor_review.gd",
+      "local_sidecar": "tools/farm_cursor_review.gd.uid",
+      "exists": true,
+      "uid": "uid://b44uis3e7pky1",
+      "sha256": "eaf52567371713d6f72a199b5319d06d69d7edc74d5ef54e0e13988e80a96310",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/farm_cursor_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/generate_adaptive_hud_previews.gd",
+      "local_sidecar": "tools/generate_adaptive_hud_previews.gd.uid",
+      "exists": true,
+      "uid": "uid://syoocokmt4kk",
+      "sha256": "cc24c7df3ed4a22133cc6fece789b86272a6302db90a111bda652f17b29808f9",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/generate_adaptive_hud_previews.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/generate_hero_pose_preview.gd",
+      "local_sidecar": "tools/generate_hero_pose_preview.gd.uid",
+      "exists": true,
+      "uid": "uid://caynwasqt2tk8",
+      "sha256": "5e0d4a555fc226286713a1dd4495be9d830c989b94728b791cf4c54213e9cb35",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/generate_hero_pose_preview.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/generate_ui_layout_audit.gd",
+      "local_sidecar": "tools/generate_ui_layout_audit.gd.uid",
+      "exists": true,
+      "uid": "uid://b2j5gvfiei8hs",
+      "sha256": "de01a791b112682af31b7f134b817ff91ab5ccfad81314e69e30cc6fc993830d",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/generate_ui_layout_audit.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/geometry_benchmark.gd",
+      "local_sidecar": "tools/geometry_benchmark.gd.uid",
+      "exists": true,
+      "uid": "uid://cw6ao1icfm3ox",
+      "sha256": "ecca6dffcdfe45c7a2be9abecbe375aac4f1f717ccad9181c0a87678c5e57429",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/geometry_benchmark.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/grandmother_animation_review.gd",
+      "local_sidecar": "tools/grandmother_animation_review.gd.uid",
+      "exists": true,
+      "uid": "uid://d3kv4w85cpbwm",
+      "sha256": "cb042222c06811ff3556ec473f0fcee098528ec3eb7ada7094c52a52a2a668df",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/grandmother_animation_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/hero_actions_capture.gd",
+      "local_sidecar": "tools/hero_actions_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://8tg3370i06ct",
+      "sha256": "e8c9fb198546ed96db13c0fc50aefecf092cbf6b7873c991e4c3e8ddda3cfab6",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/hero_actions_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/hero_actions_review.gd",
+      "local_sidecar": "tools/hero_actions_review.gd.uid",
+      "exists": true,
+      "uid": "uid://bregcjevkwn1v",
+      "sha256": "73925c55807cb5eff564188d52d845771cf63bc69237f86653e03e2a50ae5a66",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/hero_actions_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/inspector_benchmark.gd",
+      "local_sidecar": "tools/inspector_benchmark.gd.uid",
+      "exists": true,
+      "uid": "uid://bwl31jcrib5pt",
+      "sha256": "a97a67cb96087ab57ad2a0c81410da67f34497d4e873a5a39eaf5942060f0e44",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/inspector_benchmark.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/item_sizes_capture.gd",
+      "local_sidecar": "tools/item_sizes_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://cvr5lowsu4jqa",
+      "sha256": "46c2451ef064bfcd4166ad65ff9b49b9d11aa71eb861f6c79ef0233edc6bde0d",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/item_sizes_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/item_sizes_review.gd",
+      "local_sidecar": "tools/item_sizes_review.gd.uid",
+      "exists": true,
+      "uid": "uid://c6b21re25xgp4",
+      "sha256": "a4b68cc1c39b7691b781cfdc34186858e88ccbae05c7aa061cbfc1ec9854ae0f",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/item_sizes_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/item_ui_fitter.gd",
+      "local_sidecar": "tools/item_ui_fitter.gd.uid",
+      "exists": true,
+      "uid": "uid://5p6xsu6x7lf5",
+      "sha256": "3a2f9747910eb07a7cb5bcc4b4ab5c1b34657d434b59ac2a3ae8eca9c4e963ce",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/item_ui_fitter.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/livestock_review.gd",
+      "local_sidecar": "tools/livestock_review.gd.uid",
+      "exists": true,
+      "uid": "uid://c8qcgi5mhhn0b",
+      "sha256": "535be4e3213e7f14aa79eb3b59a7a7515f3cdcbf5b138216f5d382fc2177a8d9",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/livestock_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/migration_capture.gd",
+      "local_sidecar": "tools/migration_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://g6sbbs6s2muo",
+      "sha256": "aeba8e43687ee4aaf80708f957df61974f957d082dd736c8bd1a22bb05c27970",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/migration_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/padded_atlas_capture.gd",
+      "local_sidecar": "tools/padded_atlas_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://ccqoleimu4xis",
+      "sha256": "3e11f9968df4d5bf1959945a01470cf24458b7178d05c21de2fc0b1c0061c482",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/padded_atlas_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/padded_atlas_review.gd",
+      "local_sidecar": "tools/padded_atlas_review.gd.uid",
+      "exists": true,
+      "uid": "uid://mug3mwbfqox2",
+      "sha256": "425a988035a6d1ce83a7603a7fc4648e886d3f977217af05206bb1be6a2a4ba8",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/padded_atlas_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/player_contact_capture.gd",
+      "local_sidecar": "tools/player_contact_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://be6viw0ncqha4",
+      "sha256": "01a8fb0d824955883d9de75a6087a14f0d8ead2fc70a655fc3a5c1466e1b2b8a",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/player_contact_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/player_contact_review.gd",
+      "local_sidecar": "tools/player_contact_review.gd.uid",
+      "exists": true,
+      "uid": "uid://d0x735sapv5hv",
+      "sha256": "f25c5214e00700e1e7c3ef34769455214ad8c412a137da9293ca76b73ef2bde8",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/player_contact_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/prepare_celestial_dial.gd",
+      "local_sidecar": "tools/prepare_celestial_dial.gd.uid",
+      "exists": true,
+      "uid": "uid://cbsnjan2j0ejm",
+      "sha256": "55020385a3ffceb69f31adae53321c557d271646a42a5f97eeeedc7549fe2673",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/prepare_celestial_dial.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/prepare_character_walk.gd",
+      "local_sidecar": "tools/prepare_character_walk.gd.uid",
+      "exists": true,
+      "uid": "uid://by0a8nduq4qx4",
+      "sha256": "c366f4537bc695062a2ab815b7c71ff4042d6a1f320bd5753b799a4f52eb7b65",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/prepare_character_walk.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/prepare_hero_actions.gd",
+      "local_sidecar": "tools/prepare_hero_actions.gd.uid",
+      "exists": true,
+      "uid": "uid://qibr172a5gag",
+      "sha256": "438ed6a525a87986ead7600fdca8bb19dafa490175df3e1954a1e1f1aac4f93b",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/prepare_hero_actions.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/prepare_skeleton_v2.gd",
+      "local_sidecar": "tools/prepare_skeleton_v2.gd.uid",
+      "exists": true,
+      "uid": "uid://bia17i2pavkds",
+      "sha256": "520dd10f40c12b4a9c81020de33f6f1b84aba2398c60dc7863c5cd9cd25ded04",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/prepare_skeleton_v2.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/presentation_pose_capture.gd",
+      "local_sidecar": "tools/presentation_pose_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://w5x2fwkrus88",
+      "sha256": "451f1fd66f15e2ce1d72cf0b6e90347728763aa024c2cb673d47a149442224f5",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/presentation_pose_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/presentation_pose_live.gd",
+      "local_sidecar": "tools/presentation_pose_live.gd.uid",
+      "exists": true,
+      "uid": "uid://dy5c53rxl120p",
+      "sha256": "129da3fdb4ed38d99013718cddff9429478d88f8284f89da2b2d355333585b9a",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/presentation_pose_live.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/presentation_pose_review.gd",
+      "local_sidecar": "tools/presentation_pose_review.gd.uid",
+      "exists": true,
+      "uid": "uid://cgajrpt8u2etf",
+      "sha256": "44283f6b003ddbe0e9089a5fc52eb878e6c548594349d06df654ec3d249fbc2a",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/presentation_pose_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/prop_edges_capture.gd",
+      "local_sidecar": "tools/prop_edges_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://dae7ubfwoqkku",
+      "sha256": "36530220c67066564d1b9ec88fc538a6ac3b986b9edcf9e732592fb8d8eaa289",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/prop_edges_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/ranged_combat_capture.gd",
+      "local_sidecar": "tools/ranged_combat_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://dpchsnbi8bha0",
+      "sha256": "71329b657494fa91dfd1d36a35a6c710fbe3f4f4aae7eed29949a9a40dac39de",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/ranged_combat_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/ranged_combat_review.gd",
+      "local_sidecar": "tools/ranged_combat_review.gd.uid",
+      "exists": true,
+      "uid": "uid://ntr4tnwg4isc",
+      "sha256": "76180cfc28fc531c7e0f710dbe7075dbae3a64b1ebcbd40dea028b48a45cac28",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/ranged_combat_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/reference_zoom_capture.gd",
+      "local_sidecar": "tools/reference_zoom_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://rmpdh860u4hl",
+      "sha256": "85d1de57434f2ce6aa0fb229e8dd171bc1d9d461063bd08e88f9bbdd0e141291",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/reference_zoom_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/reference_zoom_live.gd",
+      "local_sidecar": "tools/reference_zoom_live.gd.uid",
+      "exists": true,
+      "uid": "uid://d3f8q7wkqypwp",
+      "sha256": "2ce36f4878b01217871ae96095520e0bfdb353ebefb90db30e5959026b647610",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/reference_zoom_live.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/reference_zoom_review.gd",
+      "local_sidecar": "tools/reference_zoom_review.gd.uid",
+      "exists": true,
+      "uid": "uid://s2384kkhcb62",
+      "sha256": "8f8b780dd38750934e2a4bb15abf7f3600cf4d4d4776fc95ce49c52f534c728a",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/reference_zoom_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/resident_review.gd",
+      "local_sidecar": "tools/resident_review.gd.uid",
+      "exists": true,
+      "uid": "uid://bp6tc755l7n4w",
+      "sha256": "e24b70ba4b73e0bacce8bc986ba3892aa1cd38a829f57f5a72354b18c55c7177",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/resident_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/runtime_comfort_review.gd",
+      "local_sidecar": "tools/runtime_comfort_review.gd.uid",
+      "exists": true,
+      "uid": "uid://cxb7t8tkxh6yn",
+      "sha256": "a7efd64968626e3cdd0a9de1befca1ceaadfab67f532bc85e61adcf83e3cc2a9",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/runtime_comfort_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/runtime_frame_review.gd",
+      "local_sidecar": "tools/runtime_frame_review.gd.uid",
+      "exists": true,
+      "uid": "uid://bnc22pdmm56rn",
+      "sha256": "83ab22f3865e9c17a883a278a04c5ef76141642cfa4d2868fe813acd8799dd7a",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/runtime_frame_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/shore_kit_canvas.gd",
+      "local_sidecar": "tools/shore_kit_canvas.gd.uid",
+      "exists": true,
+      "uid": "uid://b4gaa1w2e7l8x",
+      "sha256": "f68b7aaceba6028e7f67a6965adf758c73901e68e24499015ad12068b28eed8a",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/shore_kit_canvas.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/shore_kit_capture.gd",
+      "local_sidecar": "tools/shore_kit_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://d0njvqehhwccf",
+      "sha256": "6d56d52eff66842df2deaf80721f9262723f839320a8a9a28b1d14eae99a975f",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/shore_kit_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/shore_kit_review.gd",
+      "local_sidecar": "tools/shore_kit_review.gd.uid",
+      "exists": true,
+      "uid": "uid://cghtf6qdhb82j",
+      "sha256": "6ad837b3c095d200664d3d9f88bdb5452ad95413517c3d5d934234ead8648921",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/shore_kit_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/slice_capture.gd",
+      "local_sidecar": "tools/slice_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://blxplnujkf3sf",
+      "sha256": "02660dcfcf2d6457c10100e1eac46bb43161f5cda2877fe4f6f1d0dc402ab472",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/slice_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/slice_catalogs.gd",
+      "local_sidecar": "tools/slice_catalogs.gd.uid",
+      "exists": true,
+      "uid": "uid://dkbpo66xbicfd",
+      "sha256": "fc1aa868e72d2ca9340e22a63110f9269ff7683f5ca714531498a973d9f5e73b",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/slice_catalogs.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/slice_export.gd",
+      "local_sidecar": "tools/slice_export.gd.uid",
+      "exists": true,
+      "uid": "uid://begjpidcxkgem",
+      "sha256": "bfdb64f3fb2f8c140c25feea4c424e7c8b08db0dd2ac032a08af78d7d7c7f149",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/slice_export.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/slice_legacy_capture.gd",
+      "local_sidecar": "tools/slice_legacy_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://45qs8gap2mgj",
+      "sha256": "90b39c4440d1b86701218bc595f9336edaae845e2200b344f248e3efc75775f8",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/slice_legacy_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/slice_review.gd",
+      "local_sidecar": "tools/slice_review.gd.uid",
+      "exists": true,
+      "uid": "uid://bsi3llrhmd124",
+      "sha256": "4bceca0d651fd337a699d2bb3907fa8afc5267e564117eda5f8225240bde9d95",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/slice_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/terrain_cache_review.gd",
+      "local_sidecar": "tools/terrain_cache_review.gd.uid",
+      "exists": true,
+      "uid": "uid://dcrb1iltov4n4",
+      "sha256": "63e2dee59baad985980812994f9ba778fcd504fd5bf1468c4317fd4dbd298dea",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/terrain_cache_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/texture_data_probe.gd",
+      "local_sidecar": "tools/texture_data_probe.gd.uid",
+      "exists": true,
+      "uid": "uid://cy1qee6l3mpsw",
+      "sha256": "91f08a0ffe40082359f8882ffff9b2a39d2a59b6f5f49b14af58c6798f25ad16",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/texture_data_probe.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/texture_data_room_capture.gd",
+      "local_sidecar": "tools/texture_data_room_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://cxc6n8x00enuy",
+      "sha256": "27f3fa65bb472b355c93a8611683c999d03cc506791aa43cabf0a53fabbd0e34",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/texture_data_room_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/texture_intent_review.gd",
+      "local_sidecar": "tools/texture_intent_review.gd.uid",
+      "exists": true,
+      "uid": "uid://bvxqdow0ohiq3",
+      "sha256": "363aa87a58e0422254d221c09a9df317c5575f7b202b73679f4d7d54d4309aef",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/texture_intent_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/tree_occlusion_review.gd",
+      "local_sidecar": "tools/tree_occlusion_review.gd.uid",
+      "exists": true,
+      "uid": "uid://occpu7oxbqpu",
+      "sha256": "4955a44d200654da68e19539a978320e26fc992652934d2b84f7ab69a5953642",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/tree_occlusion_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/village_clearance_review.gd",
+      "local_sidecar": "tools/village_clearance_review.gd.uid",
+      "exists": true,
+      "uid": "uid://cm5k72l1semf3",
+      "sha256": "e561900240fd963aeeda253cc5279f2e67e001db47cf574b3ef1c8853dce1de8",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/village_clearance_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/village_map_review.gd",
+      "local_sidecar": "tools/village_map_review.gd.uid",
+      "exists": true,
+      "uid": "uid://qbyddjxvum43",
+      "sha256": "2b0a4e2414f803155350a7aeaaec13c6cf08c3eb9a0cd9f85e7e0bbea7ea3bb8",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/village_map_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_baseline.gd",
+      "local_sidecar": "tools/visual_baseline.gd.uid",
+      "exists": true,
+      "uid": "uid://bli8q2rbhgtt",
+      "sha256": "9e52efee29e5647cc1387afb214579f6aa5918464977a1d0e032c97bb3fa0d03",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_baseline.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_camera_capture.gd",
+      "local_sidecar": "tools/visual_camera_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://24m4h2w5w63o",
+      "sha256": "4f96cf69aa04cf9b0b1a628be7de9c84c48f15f5050740790c41fb0da1202268",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_camera_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_camera_points.gd",
+      "local_sidecar": "tools/visual_camera_points.gd.uid",
+      "exists": true,
+      "uid": "uid://c3w8ftwc15vnl",
+      "sha256": "a55f0a0d5f3c7282001b2948151ff688710ea135fa2583b06e91f60c92887110",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_camera_points.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_camera_review.gd",
+      "local_sidecar": "tools/visual_camera_review.gd.uid",
+      "exists": true,
+      "uid": "uid://cvarcj06tguwu",
+      "sha256": "7f62568cbeacb938ed82a062babf275641d011ac365650d5b114d07a47dde575",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_camera_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_icons_capture.gd",
+      "local_sidecar": "tools/visual_icons_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://jbed02e5y43v",
+      "sha256": "40fd61073f3a6e6edcf3f8f01c4b769a9f9fa15bdc8b46d6fc86c41a2f449d0a",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_icons_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_light_capture.gd",
+      "local_sidecar": "tools/visual_light_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://bbh5adah3fpfw",
+      "sha256": "f951f28aa914363117f37d85e217a15f397a303c6b6ea25db24257315b5869c9",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_light_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_modules_capture.gd",
+      "local_sidecar": "tools/visual_modules_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://b2mx0g8a0nt5v",
+      "sha256": "bd447d46883559816a15dc4a0b5b33faefcae849d14f792f5182d0e0aa04f7a8",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_modules_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_motion_capture.gd",
+      "local_sidecar": "tools/visual_motion_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://8uuljru6a6ym",
+      "sha256": "c59c30b54a17c9c74ade1fa047dfc61638c984602f0411586bb6eef159f988cd",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_motion_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_motion_review.gd",
+      "local_sidecar": "tools/visual_motion_review.gd.uid",
+      "exists": true,
+      "uid": "uid://cr8tnvvvkvh27",
+      "sha256": "51f2f26945d842bde82e43a42088f65e79675048563ad551f1d90fff9763c86b",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_motion_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_motion_route.gd",
+      "local_sidecar": "tools/visual_motion_route.gd.uid",
+      "exists": true,
+      "uid": "uid://cu7oghfjir47i",
+      "sha256": "71fb4260b562365d823d8d5aa36ae490d656c9d82bdb10003db1e5947d311b16",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_motion_route.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_pipeline_capture.gd",
+      "local_sidecar": "tools/visual_pipeline_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://fjcc6aqfhgr2",
+      "sha256": "0b841ea8392d5cf1eb24487b291090fc46edb31d0ca10ca41707468c8861eece",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_pipeline_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_pipeline_review.gd",
+      "local_sidecar": "tools/visual_pipeline_review.gd.uid",
+      "exists": true,
+      "uid": "uid://dfipuht11h36w",
+      "sha256": "057a044e9301ab6db911061c3dc34b0f1a7d69a61652ac33ac7230275734a193",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_pipeline_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_resource_capture.gd",
+      "local_sidecar": "tools/visual_resource_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://pk0l5la3gbt7",
+      "sha256": "4a9f29d5319d5b0053aefbe93e561d16363d67fde2b92932a081be4d94cbb37a",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_resource_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_resources_review.gd",
+      "local_sidecar": "tools/visual_resources_review.gd.uid",
+      "exists": true,
+      "uid": "uid://bgjqonqa7ncsh",
+      "sha256": "a6b717242004bc74f35c4de9c03ec5954e381ee8c420db0c33dc9bffeb700ff1",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_resources_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_reuse_capture.gd",
+      "local_sidecar": "tools/visual_reuse_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://delcwbwkjsxmc",
+      "sha256": "4e2b17b1cbc8cb9e19b7f248964415a4feb500c319f4f84013dfe17291da88f4",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_reuse_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_reuse_sources.gd",
+      "local_sidecar": "tools/visual_reuse_sources.gd.uid",
+      "exists": true,
+      "uid": "uid://omsbak28p3bs",
+      "sha256": "1e988a2fed1e65bd7ba3aa10ab9c54efe73aadf4408e5405c1d436c51b6aa178",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_reuse_sources.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_sampling_capture.gd",
+      "local_sidecar": "tools/visual_sampling_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://ddiude7j2ygvq",
+      "sha256": "e38c4dd583666caceade517a8c9a111fac5e0a50e8c676cd7a7813e5144ab08b",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_sampling_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_sampling_review.gd",
+      "local_sidecar": "tools/visual_sampling_review.gd.uid",
+      "exists": true,
+      "uid": "uid://b38jukhbtkvs7",
+      "sha256": "1950f3b94a7179c7ffd10912580bdb8c6e707e32f25f030fc0de087181993324",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_sampling_review.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/visual_static_capture.gd",
+      "local_sidecar": "tools/visual_static_capture.gd.uid",
+      "exists": true,
+      "uid": "uid://yk4pwrlrk00f",
+      "sha256": "0fe2af606c6adf926a605178db99599d61eeccc0b1a1be69e9b0565e97203d9d",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/visual_static_capture.gd.uid",
+      "tracked_at_baseline": false
+    },
+    {
+      "source": "tools/water_audit.gd",
+      "local_sidecar": "tools/water_audit.gd.uid",
+      "exists": true,
+      "uid": "uid://bv2s0ed2vg8pt",
+      "sha256": "3e613ca5cfa3761342e235c9757b333f92a0c477eac93f86624c52a0f37d9adf",
+      "ignore_rule": ".gitignore:5:tools/*\ttools/water_audit.gd.uid",
+      "tracked_at_baseline": false
+    }
+  ]
+}

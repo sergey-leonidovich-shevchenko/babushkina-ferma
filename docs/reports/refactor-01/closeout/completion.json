@@ -1,0 +1,99 @@
+{
+  "task": "REFACTOR-01",
+  "task_status": "done",
+  "implementation_PR": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14",
+  "accepted_head": "567b05c7d032d40f243df750ea25070e86f6d678",
+  "accepted_base": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14#pullrequestreview-5655708005",
+  "review_graphql_id": "PRR_kwDOTqkhCs8AAAABURtBZQ",
+  "review_submitted_at": "2026-10-26T16:45:28Z",
+  "reviewer": "Tech Lead Agent; independent of implementation author",
+  "reviewer_verdict": "APPROVED; explicit shared-account COMMENT",
+  "merged_commit": "d43c455046bf333e145f7cd097768ec4f60dabac",
+  "merged_at": "2026-10-26T17:46:18Z",
+  "verification": "GitHub merged=true, exact accepted head/base, merge Git parents; no duplicate merge by Developer",
+  "accepted_CI": {
+    "runs": [
+      40350227679,
+      40350212858
+    ],
+    "test_jobs": [
+      121667953325,
+      121698652107
+    ],
+    "success": 8,
+    "total": 8,
+    "source": "Independent final review 5655708005 read complete logs; accepted implementation checks, not new closeout executions",
+    "unittest_suites_each": 82,
+    "unittest_cases_each": 1135,
+    "game_each": [
+      53520,
+      0
+    ],
+    "redraw_normal_F10_each": [
+      90,
+      0
+    ],
+    "smoke_frames_each": 180,
+    "passing_headless_CPU_series_each": 6,
+    "wiki_each": [
+      135,
+      0
+    ],
+    "cancelled_attempts_preserved": true
+  },
+  "accepted_local": {
+    "profile": [
+      36,
+      0
+    ],
+    "architecture": [
+      82,
+      1135
+    ],
+    "game": [
+      53502,
+      0
+    ],
+    "redraw_normal_F10_each": [
+      90,
+      0
+    ],
+    "wiki": [
+      135,
+      0
+    ],
+    "full_packet_replay_cwds": 3
+  },
+  "previous_result": "[Полный аудит](../../reports/refactor-01/integration-1/README.md) принятой базы `da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff`: все 779 tools blobs,216 tracked UID и 86 отсутствующих в Git sidecars;17 семейств,9 будущих корневых исходников при бюджете 30. Для каждого файла — назначение/путь/CLI/consumers/проверка; сохранены SHA всех 24070 blobs, индекс семи архивов и отдельные живые/исторические ссылки. Статический runner:174 suites,37 верхних запусков, без потери/дубля. Адресные предложения 04/05 и мотивированное «оставить» перечислены отдельно. Два реальных риска воспроизведены на disposable копиях: parent-depth и inherited Git environment. [Проверки](../../reports/refactor-01/integration-1/checks.json), [Wiki-карта](../../../wiki/articles/tools-migration-map.md), [пакеты и откат](../../reports/refactor-01/migration-batches.md). Переносов 02/03 нет; локальные architecture (82/1135), Game (53502/0), redraw (по90/0), Wiki (135/0) и29 профильных контролей прошли. Опубликован PR #14. Ревью5653680765 потребовало исправить P2: новые proposed root-входы теперь проверяются на безопасный нормализованный путь непосредственно в tools, тип исходника, дубликаты и непустую причину.36 профильных контролей прошли; прежние пакеты не переписываются. [Доработка и полный replay](../../reports/refactor-01/review-1/README.md) сохраняются отдельно. Новые полные проверки пройдены: architecture82/1135, Game53502/0, normal/F10 по90/0, Wiki135/0; полный replay выполнен из корня и другой cwd с пробелами. Требуются CI и повторное независимое ревью точного нового head; карточка остаётся in_progress.",
+  "scope": "Accounting of accepted audit and autonomous review workflow only; no tools movement or gameplay implementation",
+  "closeout_branch": "codex/refactor-01-closeout",
+  "closeout_base": "d43c455046bf333e145f7cd097768ec4f60dabac",
+  "closeout_version": "0.0.349",
+  "changed_task_statuses": {
+    "REFACTOR-01": [
+      "in_progress",
+      "done"
+    ],
+    "REFACTOR-02": [
+      "blocked",
+      "ready"
+    ]
+  },
+  "next_queue": [
+    "WIKI-003 existing PR15 integration and acceptance",
+    "REFACTOR-02",
+    "REFACTOR-03",
+    "REFACTOR-06",
+    "first overworld route"
+  ],
+  "limits": {
+    "tools_moves_performed": false,
+    "new_gameplay": false,
+    "GPU_FPS_accepted": false,
+    "VMAP_003_accepted": false
+  },
+  "closeout_independent_review_required": true,
+  "publication_gate": "This accounting head requires fresh CI, independent exact-head review and Team Lead decision before merge; implementation acceptance is not accounting approval",
+  "closeout_checks": "Fresh actual results are recorded separately in checks.json after completion"
+}

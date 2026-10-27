@@ -1,0 +1,5 @@
+{
+  "executable": "/Library/Developer/CommandLineTools/usr/bin/python3",
+  "version": "3.9.6 (default, Apr 30 2025, 02:07:18) \n[Clang 17.0.0 (clang-1700.0.13.5)]",
+  "scope": "System python3 used by python39-path-priority.txt; no environment configuration changed"
+}

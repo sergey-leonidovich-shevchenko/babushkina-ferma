@@ -1,0 +1,25 @@
+BACKLOG OK: 6 epics / 50 tasks / 6 Ready; network: 0
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.086s
+
+OK
+VISUAL BACKLOG: 25 epics, 1037 tasks, graph/coverage/archive/documents valid
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 5.410s
+
+OK
+{
+  "selected": 52,
+  "done": 52,
+  "next": null
+}
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.759s
+
+OK
+DOCUMENTATION: обязательные файлы и локальные ссылки корректны
+DOCUMENTATION TEST: свои ссылки проверяются, зависимости и сборки исключены
+PILOT PROFILE: 8 original commands passed through launcher

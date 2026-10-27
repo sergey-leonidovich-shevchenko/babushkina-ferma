@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "task": "REFACTOR-01",
+  "task_status": "in_progress",
+  "state": "full local integration checks passed; exact-head PR CI/review still required",
+  "baseline": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "version": "0.0.343",
+  "expected_merge_parents": [
+    "7c23f6efb107728afb30929e058f4de123cbfd27",
+    "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff"
+  ],
+  "prior_complete_pass": "7c23f6efb107728afb30929e058f4de123cbfd27",
+  "mandatory_gates": {
+    "architecture": {
+      "exit": 0,
+      "suites": 82,
+      "cases": 1135,
+      "historical_reader": [
+        512,
+        36,
+        24
+      ],
+      "visibility_controls": 34,
+      "raw": "validation/architecture.txt"
+    },
+    "game": {
+      "exit": 0,
+      "passed": 53502,
+      "failed": 0,
+      "normal_F10_each": [
+        90,
+        0
+      ],
+      "raw": "validation/game.txt"
+    },
+    "wiki": {
+      "exit": 0,
+      "passed": 135,
+      "failed": 0,
+      "raw": "validation/wiki.txt"
+    }
+  },
+  "audit_checks": {
+    "controls": 29,
+    "full_replay_root": true,
+    "full_replay_other_cwd": true,
+    "Git_blobs_each": 24070,
+    "probes": "Both exact baseline functions reproduced in private fixtures; real config/index unchanged",
+    "scope_negative": "Unrelated new source rejected; owned fixture removed",
+    "verification_command_regression": "Declared scoped plan/snapshot command survives full collect/replay fixture; no execution of metadata command"
+  },
+  "final_verification": "final-verification.json",
+  "no_moves": true,
+  "no_Task_Complete_until_acceptance": true,
+  "GPU_FPS_accepted": false,
+  "commit_hooks": "Mandatory gates executed explicitly; only duplicate pre-commit skipped at commit, normal post-commit retained",
+  "raw_sha256": {
+    "validation/architecture.txt": "a3264d1687cf343a837ed5c437ea21090663a4b63a7a16b9b96e20255d743f0c",
+    "validation/collect-final.txt": "5f9933d46d517c93934b32c3cffc3c4a868923abb61453ecbe4793eb7974141f",
+    "validation/collect.txt": "05463931fafd5d5a9e147d8c8f9aaada17887d1ef65dc5cea7078a07a936f045",
+    "validation/game.txt": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+    "validation/headless/f10/engine.txt": "fac70d30aa5ae2a7808cbd13d52970505d5347db360fbcecda7195b8c9832e22",
+    "validation/headless/f10/frames.jsonl": "3c6979e0803069ca9c0ae1ea69814d0002bdfa782c93d950592e5294f69cee1d",
+    "validation/headless/f10/summary.json": "52da9027dc493a0c00976420f5bb3bdeb7cf3b4701815f36b1335143d978fc2e",
+    "validation/headless/normal/engine.txt": "8416a9b122dc3b93982c216d7b3031b319ef22f10fa099cccf7528709efabc24",
+    "validation/headless/normal/frames.jsonl": "1eaa8e5005d60d9feee3ed2c46d14f44c273cf39501141c8c6bbf02020203e70",
+    "validation/headless/normal/summary.json": "f058cf2713d7c2e27f5d99a06f4c273f31e9db209e6fae062223133880153a87",
+    "validation/probes.txt": "83511f4d21b2f46f541766327f89dbfe7c6765914aadd620bb71ab2fdba9d7f2",
+    "validation/reproduce-other-cwd.txt": "5f9933d46d517c93934b32c3cffc3c4a868923abb61453ecbe4793eb7974141f",
+    "validation/reproduce-root.txt": "5f9933d46d517c93934b32c3cffc3c4a868923abb61453ecbe4793eb7974141f",
+    "validation/scope-negative.txt": "bf3daa627f29576df75afd5a5921cc7c6e63d45c7867e25c70770a618d16d003",
+    "validation/scope.json": "2594d2a081204d08b620a22578fb8d31b061aa31c7a7ec7ea02e223637aa705a",
+    "validation/scope.txt": "2594d2a081204d08b620a22578fb8d31b061aa31c7a7ec7ea02e223637aa705a",
+    "validation/unit.txt": "b103c7f0fb3b54b800096d1f8b9e01a4632126be2ceb9e64326dd43521716b9c",
+    "validation/wiki.txt": "ab0de2cbdcd2521b827fb00e0b3f69b3d8f1e431fcddadf7416535250ac973c3"
+  }
+}

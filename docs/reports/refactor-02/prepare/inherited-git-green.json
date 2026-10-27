@@ -1,0 +1,16 @@
+{
+  "method": "Same real shore method after fix; task_batch explicit fixture and bump HEAD read under hostile parent GIT variables",
+  "before": {
+    "config": "783a686a2c6250a659665e759e931a19479fbe6fa23c8fe8419e24ed453d647a",
+    "index": "aaf9818cbf6b4f94b2cad5fbea2698a01eb1631feac0f9eb9053a15b5fa4dd4f"
+  },
+  "after": {
+    "config": "783a686a2c6250a659665e759e931a19479fbe6fa23c8fe8419e24ed453d647a",
+    "index": "aaf9818cbf6b4f94b2cad5fbea2698a01eb1631feac0f9eb9053a15b5fa4dd4f"
+  },
+  "parent_config_and_index_unchanged": true,
+  "batch_target_preserved": true,
+  "head_version_read_from_selected_project": "0.0.352",
+  "error": null,
+  "actual_repository_not_a_mutation_target": true
+}

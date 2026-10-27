@@ -1,0 +1,23 @@
+{
+  "task": "REFACTOR-01",
+  "accepted_baseline": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "accepted_version": "0.0.342",
+  "accepted_PR12": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/12",
+  "prior_accepted_baseline": "ad60faf4bd46faa335babb6075737694927fc61f",
+  "prior_passed_audit_commit": "7c23f6efb107728afb30929e058f4de123cbfd27",
+  "prior_full_checks": "../checks.json",
+  "source_identity": [],
+  "current_checks": "checks.json",
+  "limits": "Previous checks preserved as earlier pass; no new candidate acceptance from previous CI.",
+  "accepted_PR12_head": "5678add61cae773ae0841233fb20baf419d36b4f",
+  "accepted_merge_time_UTC": "2026-10-26T05:33:40Z",
+  "unchanged_roots": [
+    "tools",
+    "scripts",
+    "tests",
+    "assets",
+    ".githooks",
+    ".github"
+  ],
+  "main_version_file": "0.0.342"
+}

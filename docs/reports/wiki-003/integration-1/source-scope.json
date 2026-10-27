@@ -1,0 +1,65 @@
+{
+  "old_head": "f095a345f290464f11c0579275435b863ead73ac",
+  "accepted_main": "364acd8fd666c6bcc4227886041ff6f1f8589abc",
+  "WIKI_implementation_files_unchanged": [
+    {
+      "path": "wiki/scripts/planning-catalog.mjs",
+      "sha256": "d856109ada8a8a15852173b18493ffcfe769118df99c47e6e0925e92a9cdce5e"
+    },
+    {
+      "path": "wiki/scripts/rollout-queues.mjs",
+      "sha256": "c01fb1df0ed106348f07a3383c5ce543a8bb431858a6d4834ec3cf4095c16183"
+    },
+    {
+      "path": "wiki/scripts/task-completion.mjs",
+      "sha256": "3a06c3c6a2c1b30fd3ba466793baf1cc08ae6709a522e72abc05b4b8817cb9d9"
+    },
+    {
+      "path": "wiki/src/components/FirstLocationBoard.vue",
+      "sha256": "32594d37a36fa1902822fa9f132ebca8f5eb7b9d40e35ea0e642e8f57c131e99"
+    },
+    {
+      "path": "wiki/src/components/LocationHistory.vue",
+      "sha256": "0594891bc7374fb6d193abe37477c2c9e7e2bba33856b44aae7f36f8be7b770d"
+    },
+    {
+      "path": "wiki/src/first-location.css",
+      "sha256": "cc628a4201e83ad53b8fa999d2dbd6930c771e2ef51689c8e9f0832179bf81b6"
+    },
+    {
+      "path": "wiki/src/lib/first-location.ts",
+      "sha256": "356497394369da02f0ebe4385b1fad53726f4ca4a0443ba64b85dd12114b0ac7"
+    },
+    {
+      "path": "wiki/src/lib/location-scope.ts",
+      "sha256": "5da8e60c19feda78917a2bc621ed129e29bfe0065787ceb1c2b88bd68c3db837"
+    },
+    {
+      "path": "wiki/src/lib/planning.ts",
+      "sha256": "2adf9f545b4d22374076be45825490822f7f7b7bd2337e77e680150ee96995b4"
+    },
+    {
+      "path": "wiki/tests/first-location.test.mjs",
+      "sha256": "f21851c51c7d7dd0dbda1a3fd29519bb13dce8186fee846c509f3a2d5811f9e9"
+    },
+    {
+      "path": "wiki/tests/rollout-queues.test.mjs",
+      "sha256": "05332e0570666486dee24b58a2683a6eed85f9af0b6b1208fbe902c273a6e1dc"
+    },
+    {
+      "path": "wiki/tests/task-completion.test.mjs",
+      "sha256": "61ea4d9daa15621972388f0879d9e92c9c7ff8a7fa324e47646a455d9393e033"
+    }
+  ],
+  "production_tools_tests_assets_match_accepted_main": true,
+  "REFACTOR_canonical_cards_match_accepted_main": true,
+  "conflicts_resolved": [
+    "TESTING.md",
+    "VERSION",
+    "project.godot",
+    "wiki/articles/visual-pilot.md",
+    "launcher Info.plist"
+  ],
+  "merge_commit_needed_before_actual_completion_QA": true,
+  "no_WIKI_003_Task_Complete": true
+}

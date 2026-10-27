@@ -1,0 +1,85 @@
+{
+  "task": "REFACTOR-01",
+  "scope": "Accepted implementation accounting and explicitly authorized autonomous review workflow",
+  "tested_parent": "d43c455046bf333e145f7cd097768ec4f60dabac",
+  "version": "0.0.349",
+  "fresh_local": {
+    "architecture": {
+      "exit": 0,
+      "suites": 82,
+      "cases": 1135,
+      "historical_reader": [
+        512,
+        36,
+        24
+      ],
+      "visibility_controls": 34
+    },
+    "game": {
+      "exit": 0,
+      "passed": 53502,
+      "failed": 0,
+      "redraw_normal_F10_each": [
+        90,
+        0
+      ],
+      "engine_errors": 0,
+      "display": "headless"
+    },
+    "wiki": {
+      "exit": 0,
+      "build_TypeScript": true,
+      "passed": 135,
+      "failed": 0
+    },
+    "documentation": {
+      "exit": 0
+    },
+    "backlog": {
+      "exit": 0
+    },
+    "version_sync": {
+      "exit": 0
+    },
+    "browser": "browser.json",
+    "source_public_dist_completion_byte_equal": true
+  },
+  "preservation": {
+    "accepted_report_files": 214,
+    "all_byte_identical": true,
+    "only_changed_cards": [
+      "REFACTOR-01",
+      "REFACTOR-02"
+    ],
+    "production_tools_tests_assets_unchanged": true,
+    "planning_state_sources_unchanged": true
+  },
+  "accepted_implementation_receipts": "accepted-github.json",
+  "accepted_implementation_results_are_not_fresh_closeout_checks": true,
+  "duplicate_precommit_gate": "All mandatory gates explicitly executed before commit; only duplicate pre-commit invocation will be skipped. Normal post-commit retained.",
+  "publication": "New accounting head requires exact-head CI, independent Tech Lead review and Team Lead decision; no owner confirmation needed for ordinary accepted merge",
+  "raw_sha256": {
+    "README.md": "200f0841ce0b33a2eb5d6fc79ed938759c2205fabc69bd174aa9766157e70a5e",
+    "accepted-files.json": "c52e4fa827e84556f31ef33deab1dadbec1b15c78d2a332edf1cce04a5ef95c4",
+    "accepted-github.json": "b016346647c2fba1237a2b2a93842309e009b62c8ae8f425d36349883df80c0b",
+    "architecture.txt": "0a22a88fe805c539703bd62e6903f3ba8706caf7d3fa964b5d5e030ff8b37e82",
+    "backlog.txt": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a",
+    "browser.json": "c5cb16a28f73784b65e8339be71d51992e2b72a6fdcf4599ab92ec503c90f742",
+    "card.png": "d4f06178d50c1cb3b813c8b4637d6de769db5c1a348c96f549109e015021f41b",
+    "catalog.json": "2a894b663600ff24defed73909d7f49912ee5d90b38e572740bdcfa838904f6e",
+    "completion.json": "0071444c86b59039c29bd9de3140a01ecd2cbf55348158fcb4fee93b42e62032",
+    "completion.png": "e5c71719ff950851ea730dac33c2b0695b97fbc77deaf8cbfbb7961801fd01f8",
+    "documentation.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "game.txt": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+    "guide.png": "594fbc64ff78bb5a9dca57cf577518633579fd05a157d00bdb991b3be0f88bb6",
+    "headless/f10/engine.txt": "e2b858ac61fc6c2ee493038b612dc4f62b97596d5e921e927e4727772e2cf4fb",
+    "headless/f10/frames.jsonl": "9a36675c2569388b96d0529af66bdb39c059e302a9834a939786a9fd972f1d98",
+    "headless/f10/summary.json": "1867833e1367f954d4ca142d4eb0749c4c62babffa8614ec023800e58ced0fb5",
+    "headless/normal/engine.txt": "c4a3fd578519de237b862861ea845e32d221f9be7010eb1cbb173e712eb40e5e",
+    "headless/normal/frames.jsonl": "f1f951785a3ccf43178464e8705ceb653f45a7d967c88dc9b0aabb452445a8a9",
+    "headless/normal/summary.json": "9318c9ddd93f1985cd86d3e46fd7cf78590478f1a02840ea73d1229e8eb3020c",
+    "preservation.json": "a43b57556c84bae0142d9cd686fe96371c83f9e21e61dcd41080530699c8a171",
+    "version.txt": "53747e01e9b9cd6aadfdc6548d1f7906fef3f058a0e0faa5348274952e54603b",
+    "wiki.txt": "f68f0aa1136807533f4251286e0c7f70c8fa5ccc59bf0048082d35c7fefa216a"
+  }
+}

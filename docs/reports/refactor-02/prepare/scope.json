@@ -1,0 +1,35 @@
+{
+  "base": "d603de591082f19b1a9964eefd8f1d0671d38839",
+  "version": "0.0.353",
+  "changed_tracked_files": [
+    ".gitignore",
+    "TESTING.md",
+    "VERSION",
+    "docs/epics/refactoring-2026-10/TASKS.md",
+    "project.godot",
+    "tools/build_art_backlog.py",
+    "tools/build_optimization_matrix.py",
+    "tools/bump_version.py",
+    "tools/check_architecture.sh",
+    "tools/check_documentation.py",
+    "tools/pilot_rollout.py",
+    "tools/project_backlog.py",
+    "tools/shore_kit.py",
+    "tools/task_batch.py",
+    "tools/test_shore_kit.py",
+    "tools/test_task_batch.py",
+    "tools/visual_backlog.py",
+    "\u0411\u0430\u0431\u0443\u0448\u043a\u0438\u043d\u0430 \u0444\u0435\u0440\u043c\u0430.app/Contents/Info.plist"
+  ],
+  "only_changed_task": "REFACTOR-02 ready -> in_progress",
+  "other_refactor_cards_unchanged": 6,
+  "task_complete_trailers": 0,
+  "runtime_and_uid_moves": 0,
+  "preserved_group_counts": {
+    "previous_wiki_refactor_reports": 410,
+    "uid_files": 798,
+    "plan_json_archives": 13
+  },
+  "old_reports_unmodified": true,
+  "planning_state_sources_unchanged": true
+}
