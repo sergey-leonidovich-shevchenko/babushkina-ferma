@@ -1,0 +1,42 @@
+{
+  "observedAt": "2026-10-27T19:33:24.322002+00:00",
+  "method": "cua_repl IAB; actual rendered DOM and visible screenshots",
+  "metadata": "0.0.357",
+  "editorialTask": "IDEA-REVIEW-20261028",
+  "readOnlyPreview": true,
+  "noPlanningWrites": true,
+  "inProgress": true,
+  "PRURLVisible": "not created yet; checkpoint only",
+  "gameplayScenariosRun": 0,
+  "audienceTested": false,
+  "articles": [
+    272,
+    273,
+    274,
+    275,
+    276,
+    277,
+    278,
+    279,
+    280,
+    281
+  ],
+  "eachArticle": {
+    "twoWrittenDialogNodes": true,
+    "futureTestsMarkedUnrun": true,
+    "saveSection": true,
+    "writtenConsequences": true,
+    "fourRenderedTables": true
+  },
+  "navigation": "IDEA-281 article→own epic (4 backlog tasks)→IDEA-281-03; HURT-07/PERK-04/VMAP-003 visible",
+  "ratings": "IDEA-275 six axes, group Trade/Services, proposed and linked own epic",
+  "search": "Честная мера returns IDEA-275 alongside older partial term matches",
+  "mobile": {
+    "innerWidth": 390,
+    "documentScrollWidth": 390,
+    "mainWidth": 390,
+    "visual": "final screenshot after responsive transition shows closed drawer, readable card and menu; no stored PNG",
+    "viewportReset": true
+  },
+  "unchangedCatalog": "251 ideas/90 assessments,178 epics/2086 tasks; other open PR reservations not imported"
+}
