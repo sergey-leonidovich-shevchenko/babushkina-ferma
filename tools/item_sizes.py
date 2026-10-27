@@ -6,10 +6,12 @@ import json
 import re
 import subprocess
 from pathlib import Path
+from common.paths import project_root
+from common.git import git_environment
 from PIL import Image, ImageChops
 from visual_resources import parse
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=project_root(__file__)
 CATALOG='assets/game/items/ui/catalog.json'
 FOLDER='assets/game/items/ui'
 REPORT='docs/reports/visual-overhaul/vpipeline-006'
@@ -135,7 +137,7 @@ def proof_errors(root: Path) -> list[str]:
 def main() -> None:
     """Запускает текущие проверки ассетов и полноту исторического пакета в Git index."""
     errors=validate(ROOT)+proof_errors(ROOT)
-    tracked=set(subprocess.check_output(['git','-C',str(ROOT),'ls-files','-z']).decode().split('\0'))
+    tracked=set(subprocess.check_output(['git','-C',str(ROOT),'ls-files','-z'],env=git_environment()).decode().split('\0'))
     for name in read(ROOT/REPORT/'proof.json')['files']:
         if REPORT+'/'+name not in tracked:errors.append('proof input missing from Git index: '+name)
     if errors:raise SystemExit('\n'.join(errors))

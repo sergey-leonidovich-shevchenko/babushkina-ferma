@@ -8,10 +8,12 @@ import json
 import re
 import subprocess
 from pathlib import Path
+from common.paths import project_root
+from common.git import git_environment
 from PIL import Image
 from PIL import ImageChops
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root(__file__)
 POLICY = "tools/visual_asset_policy.json"
 REPORT = "docs/reports/visual-overhaul/vpipeline-001"
 REFERENCES = re.compile(r'''["'](res://[^"']+)["']''')
@@ -148,7 +150,7 @@ def main() -> None:
     parser.add_argument("--record-after", action="store_true")
     args = parser.parse_args()
     policy = json.loads((ROOT / POLICY).read_text())
-    files = subprocess.check_output(["git", "ls-files", "-z"], cwd=ROOT).decode().split("\0")
+    files = subprocess.check_output(["git", "ls-files", "-z"], cwd=ROOT, env=git_environment()).decode().split("\0")
     errors = validate(ROOT, policy, files)
     if errors: raise SystemExit("\n".join(errors))
     verify_evidence(ROOT / REPORT)

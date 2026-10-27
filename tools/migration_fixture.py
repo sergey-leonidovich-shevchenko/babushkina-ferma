@@ -3,6 +3,7 @@
 from __future__ import annotations
 import json
 from pathlib import Path
+from common.paths import project_root
 import re
 import shutil
 from migration_inventory import git_bytes,git_read
@@ -67,7 +68,7 @@ def create(root:Path, target:Path, baseline=None):
 def phase(target:Path, name:str):
     """Меняет только собственную копию: staging, два отрицательных контроля и точный откат."""
     target=target.resolve()
-    if target.is_relative_to(Path(__file__).resolve().parents[1]) or 'config/name="VPIPELINE-009 isolated fixture"' not in (target/'project.godot').read_text():raise ValueError('not an external isolated fixture')
+    if target.is_relative_to(project_root(__file__)) or 'config/name="VPIPELINE-009 isolated fixture"' not in (target/'project.godot').read_text():raise ValueError('not an external isolated fixture')
     case=json.loads((target/CASE).read_text())
     if name not in ['baseline','dual','unadapted','retired','rollback']:raise ValueError('unknown fixture phase')
     catalog=json.loads(json.dumps(case['catalog_before']))

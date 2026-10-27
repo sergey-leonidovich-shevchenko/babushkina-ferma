@@ -9,6 +9,8 @@ import json
 import os
 import platform
 from pathlib import Path
+from common.paths import project_root
+from common.git import git_environment
 import re
 import subprocess
 import sys
@@ -16,7 +18,7 @@ import sys
 from PIL import Image
 import PIL
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root(__file__)
 FIXTURE = Path("tests/fixtures/preview_portability/manifest.json")
 IDS = ("wood_dowel", "wax_candle", "compost", "fishing_bait")
 LOCALES = ("ru", "en", "es", "de", "fr", "zh")
@@ -356,10 +358,10 @@ def capture(output: Path, godot: str, ui: bool) -> None:
     context = {
         "version": (ROOT / "VERSION").read_text().strip(),
         "source_revision_at_capture": subprocess.check_output(
-            ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
+            ["git", "rev-parse", "HEAD"], cwd=ROOT, env=git_environment(), text=True
         ).strip(),
         "tracked_worktree_changes": subprocess.check_output(
-            ["git", "diff", "HEAD", "--name-only"], cwd=ROOT, text=True
+            ["git", "diff", "HEAD", "--name-only"], cwd=ROOT, env=git_environment(), text=True
         ).splitlines(),
         "workflow_revision": os.environ.get("GITHUB_SHA", ""),
         "engine_executable_file_sha256": sha(Path(godot).read_bytes()),

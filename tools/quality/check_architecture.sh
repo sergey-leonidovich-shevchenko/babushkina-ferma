@@ -36,6 +36,7 @@ python3 tools/run.py planning.bump_version --check
 python3 tools/run.py common.test_infrastructure
 python3 tools/run.py common.test_history
 python3 tools/run.py qa.art.test_current_paths
+python3 tools/run.py assets.migration.test_scanner_history
 python3 tools/run.py planning.test_task_batch
 
 if rg -n '^func draw_' scripts/game.gd >/dev/null; then

@@ -7,9 +7,10 @@ import json
 import math
 import re
 from pathlib import Path
+from common.paths import project_root
 from PIL import Image, ImageChops
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root(__file__)
 MANIFEST = "assets/game/visual_resources.json"
 REPORT = ROOT / "docs/reports/visual-overhaul/vpipeline-002"
 SIDES = {"south", "west", "east"}

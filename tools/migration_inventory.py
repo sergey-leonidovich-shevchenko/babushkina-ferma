@@ -5,6 +5,8 @@ import hashlib
 import json
 import os
 from pathlib import Path
+from common.history import pinned_sha
+from common.paths import project_root
 import re
 import subprocess
 from visual_pipeline import ignored
@@ -14,11 +16,26 @@ TEXT={'.gd','.tscn','.tres','.json','.mjs','.ts','.vue','.py','.sh','.godot','.c
 QUOTED=re.compile(r'''["'`]((?:res://)?assets/game/[^"'`\n]+)["'`]''')
 SLOT=re.compile(r'\$?\{[^{}\n]*\}|%(?:\([^)]+\))?[-+ #0]*\d*(?:\.\d+)?[sdiufxX]')
 ROOTS=('scripts/','tests/','wiki/scripts/','wiki/src/','tools/','level_designs/','assets/game/')
+# У прежних inventory нет режима источника; их scanner остаётся точным Git blob до переноса.
+LEGACY_SCANNER = (
+    'tools/migration_inventory.py',
+    'd609ab4fa6d82d6d013265183f018b8836abf7cc',
+    '4b9cc690faef431b6e93ef2040600c2f078e27c5f50820e4baf3d373a246916c',
+)
 
 
 def sha(raw):
     """Привязывает снимок к точным байтам без изменения файлов."""
     return hashlib.sha256(raw).hexdigest()
+
+
+def scanner_digest(inventory: dict) -> str:
+    """Различает прежний Git-инструмент и свежий текущий код без пути из metadata."""
+    if 'scanner_source_mode' not in inventory:
+        return pinned_sha(project_root(__file__), *LEGACY_SCANNER)
+    if inventory['scanner_source_mode'] == 'current':
+        return sha(Path(__file__).read_bytes())
+    raise ValueError('unknown migration scanner source mode')
 
 
 def git_bytes(root, commit, name):
@@ -86,7 +103,7 @@ def build(root:Path, commit:str):
         for index,line in enumerate(text.splitlines(),1):
             if re.search(r'\b(?:load|preload|ResourceLoader\.load|Image\.load_from_file)\s*\(\s*[a-zA-Z_]',line):unresolved.append({'source':name,'line':index,'expression':line.strip()[:240]})
     for record in records.values():record['consumers'].sort(key=lambda row:(row['source'],row['kind']))
-    return {'schema_version':1,'base_commit':commit,'kind':'potential-consumers-not-runtime-usage','deletion_authorized':False,'files':records,'sources':sources,'unresolved_calls':unresolved,'duplicate_uids':{uid:paths for uid,paths in uids.items() if len(set(paths))>1},'scanner_sha256':sha(Path(__file__).read_bytes())}
+    return {'schema_version':1,'base_commit':commit,'kind':'potential-consumers-not-runtime-usage','deletion_authorized':False,'files':records,'sources':sources,'unresolved_calls':unresolved,'duplicate_uids':{uid:paths for uid,paths in uids.items() if len(set(paths))>1},'scanner_source_mode':'current','scanner_sha256':sha(Path(__file__).read_bytes())}
 
 
 def historical_errors(root:Path, inventory:dict):
@@ -99,7 +116,11 @@ def historical_errors(root:Path, inventory:dict):
     files=set(runtime_names(tracked,policy))
     sources={name for name in tracked if Path(name).suffix in TEXT and (name.startswith(ROOTS) or name in ['project.godot','main.tscn']) and (not name.startswith('assets/game/') or name in files)}
     if files!=set(inventory['files']) or sources!=set(inventory['sources']):errors.append('historical migration inventory coverage differs')
-    if inventory.get('scanner_sha256')!=sha(Path(__file__).read_bytes()):errors.append('migration scanner changed: review historical snapshot adapter')
+    try:
+        if inventory.get('scanner_sha256') != scanner_digest(inventory):
+            errors.append('migration scanner changed: review historical snapshot adapter')
+    except (OSError, RuntimeError, ValueError) as error:
+        errors.append('migration scanner source unavailable: ' + str(error))
     texts={};uids={}
     for name in set(inventory['files'])&set(inventory['sources']):
         if inventory['files'][name]['sha256']!=inventory['sources'][name]['sha256']:errors.append('inconsistent runtime/source signature: '+name)

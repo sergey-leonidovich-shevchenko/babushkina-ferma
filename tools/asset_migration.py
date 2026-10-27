@@ -4,11 +4,12 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+from common.paths import project_root
 import subprocess
 from migration_inventory import build, historical_errors, sha, git_bytes, git_read
 from visual_resources import parse
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=project_root(__file__)
 REPORT='docs/reports/visual-overhaul/vpipeline-009'
 BASE='1621d49502cd244c1036168f9d235561b708b33a'
 STEP_IDS=['snapshot','stage','register','rebuild','compatibility','wiki','compare','rollback','retire']
@@ -101,9 +102,9 @@ def main():
     """Создаёт одноразовый снимок либо проверяет уже сохранённый план без команд применения к игре."""
     parser=argparse.ArgumentParser();parser.add_argument('--record',action='store_true');args=parser.parse_args()
     if args.record:
-        base=subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip()
-        if base!=BASE or subprocess.check_output(['git','diff',base,'--name-only','--','scripts','assets/game','wiki/scripts','level_designs'],text=True).strip():raise SystemExit('initial migration snapshot requires unchanged VPIPELINE-008 base')
-        if subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','scripts','assets/game','wiki/scripts','level_designs'],text=True).strip():raise SystemExit('untracked runtime cannot enter migration snapshot')
+        base=git_read(ROOT,'rev-parse','HEAD',text=True).strip()
+        if base!=BASE or git_read(ROOT,'diff',base,'--name-only','--','scripts','assets/game','wiki/scripts','level_designs',text=True).strip():raise SystemExit('initial migration snapshot requires unchanged VPIPELINE-008 base')
+        if git_read(ROOT,'ls-files','--others','--exclude-standard','--','scripts','assets/game','wiki/scripts','level_designs',text=True).strip():raise SystemExit('untracked runtime cannot enter migration snapshot')
         report=ROOT/REPORT;report.mkdir(parents=True,exist_ok=True)
         inventory=build(ROOT,base)
         with (report/'inventory.json').open('x') as file:json.dump(inventory,file,ensure_ascii=False,separators=(',',':'));file.write('\n')

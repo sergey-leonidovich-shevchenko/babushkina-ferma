@@ -2,6 +2,7 @@
 """Портит отдельные копии GPU-пакета, не трогая игру или принятые кадры."""
 import json
 from pathlib import Path
+from common.paths import project_root
 import shutil
 import tempfile
 import unittest
@@ -9,7 +10,7 @@ from PIL import Image
 from migration_inventory import sha
 from migration_proof import REPORT,comparisons,validate,fixture_bytes
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=project_root(__file__)
 
 
 class MigrationProofTests(unittest.TestCase):

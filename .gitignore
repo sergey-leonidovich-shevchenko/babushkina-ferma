@@ -562,6 +562,11 @@ tools/build/*
 tools/assets/audio/*
 !tools/assets/audio/*.py
 
+# REFACTOR-03: migration source-history controls; cache and local UID stay ignored.
+!tools/assets/migration/
+tools/assets/migration/*
+!tools/assets/migration/*.py
+
 # REFACTOR-03: independent art review tools and one original tracked UID.
 !tools/dev/
 tools/dev/*

@@ -1,0 +1,107 @@
+[
+  {
+    "path": "tools/artist_packet.py",
+    "before_sha256": "be5513cd80319fe13a0819080467ff5ac1aef153836f899238eb124b1b81eaa4",
+    "after_sha256": "78a4cb1d85d6c1e97c9ecf1349823b7612384f7641a716aefdaa0edc1ac20b88",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/asset_migration.py",
+    "before_sha256": "2adb4f900eb76ac4482e96db2b1d36fba3d1eb2549a9a59005e044279d34b4dd",
+    "after_sha256": "92868197cd37bb4e08b43af59477f7c4d0f4eb2115291b00b69df17dc83e98fc",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/asset_report.py",
+    "before_sha256": "10b2bc02c6d7c5b39e3879567c534ee5df51d4bbe42d0c0d6b325cd569939d5c",
+    "after_sha256": "1083143bc4a9b1c9d6644b169e409e5284004acb4a83425cde8df33b780e49a5",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/check_sprite_cleanup.py",
+    "before_sha256": "c81e0b4f291d4cece76ce93c6ac6215d58faf813d77aa1d5df9b959d11a09db4",
+    "after_sha256": "ad7fef5d00fe1dc393ad72022cef301db6ff57294fedbdfdbdc29f78d9868661",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/check_world_sprite_manifest.py",
+    "before_sha256": "daab999be07977008e808791e895616e0caa0e0b8aae507235a2b27a0b9ff1d9",
+    "after_sha256": "f85e71bea471e087408a96d0331352cd3ebfab3b006cd625d1852f6dea6d7445",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/item_sizes.py",
+    "before_sha256": "bb1e420bdc0b8cf366b7a8ab3872c3e4d5861875124666dfb05207b55e602727",
+    "after_sha256": "f460ee49e6fb6e627040a0ab9438cf6ca15368e6418cb3cfbc7dabfe3650ddb5",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/migration_fixture.py",
+    "before_sha256": "bb5591b99aa3558ce3b1b8a11e00c7bfe7fe14da717e7d041932ec9a5ceae0cc",
+    "after_sha256": "f0572ec053a015cc54eda71749fe7df45f5c2f45e39806e1436c2408da68d4cc",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/padded_atlases.py",
+    "before_sha256": "70c2fe442eb7cc22f94ff71b785d359cb18ccbaca371db873e3d424d297029d0",
+    "after_sha256": "83bad766bd292038af9fe2e243e19e0a1210f94d05a88a69e4cd3524c898fb2c",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/preview_portability.py",
+    "before_sha256": "dd3f924dee70e08372b64b104cb9c79c8c14657556b1814460da446ac573f20b",
+    "after_sha256": "52ee97a2da0f3cef27fc301b523d09d18d897b9be414e345bcef9bd02bd86572",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/test_asset_migration.py",
+    "before_sha256": "a7ecf2a1e3c93cc03653fe78ffa51f9df440490610d36aa0c76411d1106813f2",
+    "after_sha256": "685900ce95bceed4a94b95867b2b030f7ea08295a5dd7ffb5c36c874b1d9d646",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/test_migration_proof.py",
+    "before_sha256": "ad7835153715325f9b6d678f98b5010aad9fe20817f4266350f129e4fb02b936",
+    "after_sha256": "61f6bf9df3a83637f4288999aad9b23307b6b04e07840eb530520012f5485021",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/texture_intents.py",
+    "before_sha256": "386ac01afc5456ed4e8103db9834fb78e81b258af4f88c34fee590fbcb98e86e",
+    "after_sha256": "3845b778fb5d10caf8d19d73fdb649b00712d88bcc16b679443bdfabb394a7c0",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/visual_icons.py",
+    "before_sha256": "f2cb4dd47132d9a5e92c28db22722e31a3fab77b2c09f613ffdb5ba233d8781c",
+    "after_sha256": "e69ae9df9ea9c54bd77ad589769a206e501470904cd5dd068fcad692bc341762",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/visual_pipeline.py",
+    "before_sha256": "3506254370995a381050b823d7ca7c3f029007bc6d47a12e6980d7aeb66c4973",
+    "after_sha256": "04fdbee7639e98e71559f9b0500344b914a2292adda5fd161b9308c02bf523cc",
+    "mode": 420,
+    "physically_moved": false
+  },
+  {
+    "path": "tools/visual_resources.py",
+    "before_sha256": "221ac4287a2f82799b9d9e96e05882991a521953724362c44069076e06bd13df",
+    "after_sha256": "437a62906b84a2a38072dedb31f43f5bcd2ee36068954677a0b0e0e0a0339fe0",
+    "mode": 420,
+    "physically_moved": false
+  }
+]

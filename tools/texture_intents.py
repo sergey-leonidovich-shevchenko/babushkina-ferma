@@ -10,9 +10,11 @@ import re
 import shutil
 import subprocess
 from pathlib import Path
+from common.paths import project_root
+from common.git import git_environment
 from PIL import Image, ImageChops
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root(__file__)
 POLICY = "assets/game/visual_texture_intents.json"
 HELPER = "scripts/presentation/texture_intent_system.gd"
 REPORT = "docs/reports/visual-overhaul/vpipeline-005"
@@ -229,7 +231,7 @@ def main() -> None:
     parser=argparse.ArgumentParser(); parser.add_argument("--fixtures",type=Path); parser.add_argument("--record",type=Path); args=parser.parse_args()
     if args.fixtures: fixtures(args.fixtures); print("TEXTURE FIXTURES: "+str(args.fixtures)); return
     if args.record: record(args.record); print("TEXTURE NUMERIC PROOF: recorded"); return
-    tracked=set(subprocess.check_output(["git","-C",str(ROOT),"ls-files","-z"]).decode().split("\0"))
+    tracked=set(subprocess.check_output(["git","-C",str(ROOT),"ls-files","-z"],env=git_environment()).decode().split("\0"))
     errors=validate(ROOT)+proof_errors(ROOT)+bundle_errors(ROOT,tracked)
     if errors: raise SystemExit("\n".join(errors))
     print("TEXTURE INTENTS: color/data imports, full RGBA and native GPU matrix are valid")

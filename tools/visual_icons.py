@@ -13,7 +13,7 @@ from common.paths import project_root
 prepare_imports(project_root(__file__))
 from tools.qa.art.visual_reuse import baseline_bytes
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=project_root(__file__)
 REPORT=ROOT/'docs/reports/visual-overhaul/vart-010'
 IDS={'bread','iron_ore','herbs','healing_potion','axe','travel_boots'}
 

@@ -4,6 +4,7 @@ import copy
 import json
 import os
 from pathlib import Path
+from common.paths import project_root
 import subprocess
 import tempfile
 import unittest
@@ -21,7 +22,7 @@ class MigrationPlanTests(unittest.TestCase):
         self.manifest={'entries':[{'id':'WS-002','family':'Second','assets':[{'path':'assets/game/shared.png'}]},{'id':'WS-001','family':'First','assets':[{'path':'assets/game/shared.png'}]}]}
         self.decisions={'families':[{'id':'WS-001','decision':'reuse','owner_epics':['VPIPELINE']},{'id':'WS-002','decision':'redraw','owner_epics':['VGROUND']}]}
         self.plan=default_plan(self.inventory,self.manifest,self.decisions)
-        self.before=json.loads((Path(__file__).resolve().parents[1]/'assets/game/visual_resources.json').read_text())
+        self.before=json.loads((project_root(__file__)/'assets/game/visual_resources.json').read_text())
         self.after=copy.deepcopy(self.before);self.old=[row['file'] for row in self.before['textures'].values()]
         for row in self.after['textures'].values():row['file']=row['file'].replace('/furniture_a/','/migration_pilot/')
         self.available=set(self.old)|{row['file'] for row in self.after['textures'].values()}
@@ -95,7 +96,7 @@ class MigrationPlanTests(unittest.TestCase):
 
     def test_fixture_mutation_cannot_run_inside_repository(self):
         """Операции стенда отказывают на корне настоящего проекта до записи каких-либо файлов."""
-        with self.assertRaisesRegex(ValueError,'external isolated'):phase(Path(__file__).resolve().parents[1],'retired')
+        with self.assertRaisesRegex(ValueError,'external isolated'):phase(project_root(__file__),'retired')
 
 
 class ConsumerGraphTests(unittest.TestCase):

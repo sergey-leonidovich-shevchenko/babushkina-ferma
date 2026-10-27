@@ -5,8 +5,10 @@ import json
 import re
 import subprocess
 from pathlib import Path
+from common.paths import project_root
+from common.git import git_environment
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root(__file__)
 REPORT = ROOT / "docs/reports/sprite-cleanup-2026-10-14"
 TEXT_EXTENSIONS = {".gd", ".py", ".sh", ".mjs", ".js", ".ts", ".vue", ".json", ".md", ".tres", ".tscn", ".cfg", ".godot", ".txt", ".html"}
 QUOTED_PATH = re.compile(r'''["'`]((?:res://)?assets/[^"'`\n]+\.(?:png|jpg|jpeg|webp|tres))['"`]''')
@@ -15,7 +17,7 @@ FORMAT_SLOT = re.compile(r"\$?\{[^{}\n]*\}|%(?:\([^)]+\))?[-+ #0]*\d*(?:\.\d+)?[
 
 def source_texts(root):
     """Читает игровые потребители, Wiki, тесты и локальные сборщики; исторические отчёты не являются загрузчиками."""
-    names = subprocess.check_output(["git", "-C", str(root), "ls-files", "-z"], text=True).split("\0")
+    names = subprocess.check_output(["git", "-C", str(root), "ls-files", "-z"], env=git_environment(), text=True).split("\0")
     names += [str(p.relative_to(root)) for p in (root/"tools").glob("*") if p.is_file()]
     result = {}
     for name in sorted(set(names)):

@@ -1,0 +1,15 @@
+{
+  "task": "REFACTOR-03",
+  "package_version": "0.0.363",
+  "head": "8579b883b36dfb94f7f088515863185df0a212f0",
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "source_thread": "01a14c6e-9afd-7d33-a968-2c72339fce8d",
+  "decision": "intermediate package accepted; continue only current REFACTOR-03",
+  "independent_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5675903250",
+  "followup_P3": "copyable qa.art.visual_reuse and test_visual_reuse launcher commands in next ordinary commit",
+  "merge_whole03_authorized": false,
+  "root_sources": 481,
+  "full_task03_accepted": false,
+  "stop_after_full03": true,
+  "REFACTOR06_started": false
+}

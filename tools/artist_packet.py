@@ -9,10 +9,11 @@ import json
 import re
 import subprocess
 from pathlib import Path
+from common.paths import project_root
 
 from common.git import git_environment
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root(__file__)
 REPORT = Path('docs/reports/visual-overhaul/vrelease-005')
 ART = Path('docs/reports/visual-overhaul')
 # Этот текст — версия инструкции в принятом комплекте; живой CLI развивается отдельно.

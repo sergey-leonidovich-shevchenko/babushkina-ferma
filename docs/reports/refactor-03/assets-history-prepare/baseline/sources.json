@@ -1,0 +1,76 @@
+{
+  "base": "8579b883b36dfb94f7f088515863185df0a212f0",
+  "version": "0.0.363",
+  "sources": {
+    "tools/artist_packet.py": {
+      "sha256": "be5513cd80319fe13a0819080467ff5ac1aef153836f899238eb124b1b81eaa4",
+      "mode": 420
+    },
+    "tools/asset_migration.py": {
+      "sha256": "2adb4f900eb76ac4482e96db2b1d36fba3d1eb2549a9a59005e044279d34b4dd",
+      "mode": 420
+    },
+    "tools/asset_report.py": {
+      "sha256": "10b2bc02c6d7c5b39e3879567c534ee5df51d4bbe42d0c0d6b325cd569939d5c",
+      "mode": 420
+    },
+    "tools/check_sprite_cleanup.py": {
+      "sha256": "c81e0b4f291d4cece76ce93c6ac6215d58faf813d77aa1d5df9b959d11a09db4",
+      "mode": 420
+    },
+    "tools/check_world_sprite_manifest.py": {
+      "sha256": "daab999be07977008e808791e895616e0caa0e0b8aae507235a2b27a0b9ff1d9",
+      "mode": 420
+    },
+    "tools/item_sizes.py": {
+      "sha256": "bb1e420bdc0b8cf366b7a8ab3872c3e4d5861875124666dfb05207b55e602727",
+      "mode": 420
+    },
+    "tools/migration_fixture.py": {
+      "sha256": "bb5591b99aa3558ce3b1b8a11e00c7bfe7fe14da717e7d041932ec9a5ceae0cc",
+      "mode": 420
+    },
+    "tools/padded_atlases.py": {
+      "sha256": "70c2fe442eb7cc22f94ff71b785d359cb18ccbaca371db873e3d424d297029d0",
+      "mode": 420
+    },
+    "tools/preview_portability.py": {
+      "sha256": "dd3f924dee70e08372b64b104cb9c79c8c14657556b1814460da446ac573f20b",
+      "mode": 420
+    },
+    "tools/test_asset_migration.py": {
+      "sha256": "a7ecf2a1e3c93cc03653fe78ffa51f9df440490610d36aa0c76411d1106813f2",
+      "mode": 420
+    },
+    "tools/test_migration_proof.py": {
+      "sha256": "ad7835153715325f9b6d678f98b5010aad9fe20817f4266350f129e4fb02b936",
+      "mode": 420
+    },
+    "tools/texture_intents.py": {
+      "sha256": "386ac01afc5456ed4e8103db9834fb78e81b258af4f88c34fee590fbcb98e86e",
+      "mode": 420
+    },
+    "tools/visual_icons.py": {
+      "sha256": "f2cb4dd47132d9a5e92c28db22722e31a3fab77b2c09f613ffdb5ba233d8781c",
+      "mode": 420
+    },
+    "tools/visual_pipeline.py": {
+      "sha256": "3506254370995a381050b823d7ca7c3f029007bc6d47a12e6980d7aeb66c4973",
+      "mode": 420
+    },
+    "tools/visual_resources.py": {
+      "sha256": "221ac4287a2f82799b9d9e96e05882991a521953724362c44069076e06bd13df",
+      "mode": 420
+    },
+    "tools/migration_inventory.py": {
+      "sha256": "4b9cc690faef431b6e93ef2040600c2f078e27c5f50820e4baf3d373a246916c",
+      "mode": 420
+    }
+  },
+  "root_sources": 481,
+  "legacy_scanner": {
+    "commit": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "path": "tools/migration_inventory.py",
+    "sha256": "4b9cc690faef431b6e93ef2040600c2f078e27c5f50820e4baf3d373a246916c"
+  }
+}

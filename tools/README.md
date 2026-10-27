@@ -1,5 +1,7 @@
 # Инструменты проекта
 
+Подготовка assets/build0.0.364 внутри текущей REFACTOR-03:15 Python source-root,9 изолированных Git-read и отдельная граница старого/свежего scanner. `python3 tools/run.py assets.migration.test_scanner_history` выполняет12 настоящих контролей. Физического переноса ещё нет, текущий root481,03 in_progress; [профиль](../docs/reports/refactor-03/assets-history-prepare/profile.json) и старые inventory не переподписываются. Пакет363 принят промежуточным review5675903250/Team Lead; это не merge всей03.
+
 Пакет art-standard0.0.363 перемещает23 исходника/3 tracked UID в `tools/qa/art` (root481). Команды: `python3 tools/run.py qa.art.visual_scale verify`, `python3 tools/run.py qa.art.visual_modules`, `python3 tools/run.py qa.art.test_current_paths`. Новые capture идут по `res://tools/qa/art/…`; сохранённые VART-доказательства остаются на своих Git/SHA. Логические SOURCES/ORIGINAL не переписываются: свежие scale/pilot collectors записывают известный `source_paths`. [Отчёт](../docs/reports/refactor-03/art-standard-move/README.md) сохраняет точную карту и проверки.
 
 После полного завершения текущей REFACTOR-03 действует остановка пользователя28.10.2026:06 и другие новые задачи требуют новой прямой команды. Текущую03 доводим до полного принятого результата; отдельный пакет не закрывает бюджет≤30.

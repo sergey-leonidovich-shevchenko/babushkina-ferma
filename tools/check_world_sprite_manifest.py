@@ -10,6 +10,7 @@ import struct
 import sys
 from collections import Counter
 from pathlib import Path
+from common.paths import project_root
 
 
 REQUIRED_FIELDS = {
@@ -173,7 +174,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--json-report", action="store_true")
     arguments = parser.parse_args()
-    root = Path(__file__).resolve().parent.parent
+    root = project_root(__file__)
     manifest_path = root / "assets/game/world_sprite_manifest.json"
     try:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))

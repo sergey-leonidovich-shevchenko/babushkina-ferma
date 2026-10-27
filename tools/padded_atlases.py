@@ -6,11 +6,12 @@ import hashlib
 import json
 import math
 from pathlib import Path
+from common.paths import project_root
 from PIL import Image
 from PIL import ImageChops
 from visual_resources import parse
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=project_root(__file__)
 FOLDER=Path('assets/game/items/ui/padded')
 SOURCE=Path('assets/game/items/ui/thumbnails.png')
 CATALOG=Path('assets/game/items/ui/catalog.json')

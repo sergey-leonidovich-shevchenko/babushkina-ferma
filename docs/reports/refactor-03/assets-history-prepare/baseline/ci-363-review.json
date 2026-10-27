@@ -1,0 +1,13 @@
+{
+  "id": "PRR_kwDOTqkhCs8AAAABUlFTfw",
+  "state": "COMMENTED",
+  "body": "CI CONFIRMED — exact head `8579b883b36dfb94f7f088515863185df0a212f0` (art-standard 0.0.363), дополнение к промежуточному ревью5675903250.\n\nНезависимо подтверждены все 8/8 completed/success: PR run40602767296 и push run40602761727. Прочитаны полные журналы [PR test122534745041](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40602767296/job/122534745041) и [push test122534725577](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40602761727/job/122534725577). В каждом: architecture86 suites/1192 cases, Game53520/0, normal/F10 REDRAW по90/0, SMOKE180 кадров. Все шесть отдельных performance folders/profiles: valid=true, budget_passed=true, status=passed, окно10000000us и10 samples.\n\nСвежие метаданные сохраняют этот head, base d609ab4fa6d82d6d013265183f018b8836abf7cc и open/draft. Проверены удалённые журналы; игру на ПК ревьюер не запускал.\n\nP3 ручной QA-инструкции пока относится к опубликованному8579; заявленное исправление в dirty364 будет проверено после публикации нового SHA. CI363 не заменяет проверки будущего364. Промежуточный перенос подтверждён, но полного APPROVED REFACTOR-03 и разрешения merge нет: root481 при бюджете≤30, задача in_progress. После полного закрытия03 действует остановка пользователя.",
+  "submitted_at": "2026-10-27T23:54:13Z",
+  "author": {
+    "login": "sergey-leonidovich-shevchenko",
+    "name": "sergey-leonidovich-shevchenko",
+    "email": null,
+    "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+    "id": null
+  }
+}

@@ -8,13 +8,14 @@ import io
 import json
 import os
 from pathlib import Path
+from common.paths import project_root
 import re
 import sys
 import subprocess
 from asset_costs import names,measure,origin,summarize,sha,rgba_bytes
 from migration_inventory import git_bytes,git_read
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=project_root(__file__)
 REPORT='docs/reports/visual-overhaul/vpipeline-010'
 BASE='6ade4a2c8a2fac640109d3365c69bd4b6ccadfc4'
 
