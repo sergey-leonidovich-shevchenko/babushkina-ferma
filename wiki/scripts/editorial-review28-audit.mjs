@@ -135,6 +135,7 @@ for (const idea of plan.ideas) {
 }
 assert.equal(taskCount, 40)
 assert.equal(byId.get(plan.task).status, 'in_progress')
+assert(byId.get(plan.task).content.includes(plan.prURL), 'canonical PR URL missing')
 const formatting = process.argv.includes('--committed-range')
   ? [
       ['diff', '--check', `${plan.base}...HEAD`],

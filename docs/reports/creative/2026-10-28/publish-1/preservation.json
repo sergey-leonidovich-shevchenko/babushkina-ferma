@@ -1,0 +1,16 @@
+{
+  "observedAt": "2026-10-27T20:16:33.053679+00:00",
+  "firstHead": "709a32fbc5b2a375c3a95446892918739e5d4385",
+  "immutableCheckpointFiles": {
+    "docs/reports/creative/2026-10-28/checkpoint-1/browser-integration28.json": "802a660ddba1506ffad533b7a4c006a5c270e16490355a8cbd0291dbe4f13130",
+    "docs/reports/creative/2026-10-28/checkpoint-1/full-hook.log.gz": "fcf9a0c39f6a24ed6ded98919b7985b7ed8edec4f265a8ea2f34260f91b8f0ff",
+    "docs/reports/creative/2026-10-28/checkpoint-1/gates.json": "a9a03cc4e77cbcdcf84917e2d88112ca05b35ede6cdaa34125e5733fb3d7df64",
+    "docs/reports/creative/2026-10-28/checkpoint-1/pr21-read-only-scope.json": "61ca1351d7763ae3a977a4519049b2bb62de32fad9905a73979f24776fc29789",
+    "docs/reports/creative/2026-10-28/checkpoint-1/profile.json": "b7382588353e1ac281699b1e4716d451f1146b8542b7db3ea80e3326f914c123",
+    "docs/reports/creative/2026-10-28/checkpoint-1/published-refs.json": "5c2bf7b17bff2b2572ba4fce706978bec0eeb1c5c675d45a1b5f088a9aef7556",
+    "docs/reports/creative/2026-10-28/checkpoint-1/wiki.log.gz": "1fdb190b655173ebed3305464a68b8062b65a0bc52dc41aa02b995a0d436677c"
+  },
+  "previousPlanSHA256": "06e96f6d03db626b3c5f307e19d7fbc9e6ba4bf00eb1404500c626a5402a9d4a",
+  "result": "all immutable proof bytes identical; edited prose remains in Git at firstHead",
+  "oldGameplayAndWikiDecisions": "checked separately by active full-base audit"
+}
