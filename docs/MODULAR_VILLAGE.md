@@ -44,8 +44,8 @@
 Воспроизведение нарезки из корня проекта:
 
 ```sh
-tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/build_village_materials.gd
-tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/build_village_props.gd
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/assets/authoring/build_village_materials.gd
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/assets/authoring/build_village_props.gd
 tools/Godot.app/Contents/MacOS/Godot --headless --editor --path . --quit
 ```
 

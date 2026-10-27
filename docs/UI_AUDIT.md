@@ -55,7 +55,7 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-storage
 tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-forge
 tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-context-hud
 tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/generate_adaptive_hud_previews.gd
-python3 tools/update_ui_visual_manifest.py
+python3 tools/run.py assets.authoring.update_ui_visual_manifest
 ```
 
 После исправления нельзя вручную менять `passed/failed` в JSON: отчёт пересоздаётся командой выше. Утилита manifest требует Pillow и обновляет exact SHA только для диагностики, а CI принимает решение по устойчивому perceptual-отпечатку. Новая поверхность сначала добавляется в `UiLayoutAuditSystem`, затем получает тест и контрольный кадр.

@@ -2,10 +2,16 @@
 """Проверяет целостность передачи художнику на отдельных временных копиях."""
 import copy
 import json
+import hashlib
+import os
 import shutil
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
+
+from common.git import git_environment
 
 import artist_packet as packet
 
@@ -70,6 +76,49 @@ class ArtistPacketTests(unittest.TestCase):
         """Сценарий: нет истории. Исходное состояние: commit отсутствует. Результат: текущие файлы не заменяют источник."""
         self.data['source_commit'] = '0'*40
         self.assertTrue(any('differs from Git source' in e for e in self.errors()))
+        self.assertTrue(any('differs from Git source: docs/SPRITE_STANDARD.md' in e for e in self.errors()))
+
+    def test_live_document_can_evolve(self):
+        """Живая команда меняется; принятый комплект всё ещё проверяет точную историческую редакцию."""
+        (self.root/'docs/SPRITE_STANDARD.md').write_text('Current supported authoring command\n')
+        self.assertEqual(self.errors(), [])
+
+    def test_resigned_document_still_requires_history(self):
+        """Подпись текущего текста не заменяет закреплённую версию документа в Git."""
+        path = self.root/'docs/SPRITE_STANDARD.md'
+        path.write_bytes(b'New live documentation')
+        row = next(row for row in self.data['references'] if row['file'] == 'docs/SPRITE_STANDARD.md')
+        row['sha256'] = hashlib.sha256(path.read_bytes()).hexdigest()
+        self.assertTrue(any('differs from Git source: docs/SPRITE_STANDARD.md' in e for e in self.errors()))
+
+    def test_document_symlink_cannot_escape(self):
+        """Исторический якорь не разрешает ссылку текущего checkout за границу проекта."""
+        with tempfile.TemporaryDirectory(prefix='foreign artist document ') as folder:
+            outside = Path(folder)/'document.md'
+            outside.write_text('foreign')
+            path = self.root/'docs/SPRITE_STANDARD.md'
+            path.unlink()
+            path.symlink_to(outside)
+            self.assertTrue(any('reference escapes project: docs/SPRITE_STANDARD.md' in e for e in self.errors()))
+
+    def test_foreign_git_context_cannot_choose_history(self):
+        """Чужой настоящий репозиторий/index/config не выбирает источник и не меняется читателем."""
+        foreign = self.root/'foreign repository'
+        foreign.mkdir()
+        subprocess.run(['git', 'init', str(foreign)], check=True, capture_output=True, env=git_environment())
+        (foreign/'sentinel').write_text('preserve index')
+        subprocess.run(['git', '-C', str(foreign), 'add', 'sentinel'], check=True, capture_output=True, env=git_environment())
+        index = foreign/'.git/index'
+        config = foreign/'.git/config'
+        before = (index.read_bytes(), config.read_bytes())
+        overrides = {'GIT_DIR': str(foreign/'.git'), 'GIT_WORK_TREE': str(foreign),
+                     'GIT_INDEX_FILE': str(index), 'GIT_CONFIG_COUNT': '1',
+                     'GIT_CONFIG_KEY_0': 'core.bare', 'GIT_CONFIG_VALUE_0': 'true'}
+        with patch.dict(os.environ, overrides):
+            environment = dict(os.environ)
+            self.assertEqual(self.errors(), [])
+            self.assertEqual(dict(os.environ), environment)
+        self.assertEqual((index.read_bytes(), config.read_bytes()), before)
 
     def test_derived_files_cannot_drift(self):
         """Сценарий: ручная смена размеров или цветов. Исходное состояние: источники прежние. Результат: производные устарели."""

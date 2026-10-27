@@ -10,9 +10,13 @@ import re
 import subprocess
 from pathlib import Path
 
+from common.git import git_environment
+
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = Path('docs/reports/visual-overhaul/vrelease-005')
 ART = Path('docs/reports/visual-overhaul')
+# Этот текст — версия инструкции в принятом комплекте; живой CLI развивается отдельно.
+HISTORICAL_DOCUMENTS = frozenset({'docs/SPRITE_STANDARD.md'})
 
 
 def read(root: Path, path: Path) -> dict:
@@ -113,11 +117,12 @@ def verify(root: Path = ROOT, manifest: dict | None = None) -> list[str]:
             path = Path(row['file'])
             if path.is_absolute() or '..' in path.parts or not (root/path).resolve().is_relative_to(root.resolve()):
                 errors.append('reference escapes project: '+str(path)); continue
-            raw = (root/path).read_bytes()
-            if hashlib.sha256(raw).hexdigest() != row['sha256']:
-                errors.append('reference SHA256 mismatch: '+str(path))
+            if path.as_posix() not in HISTORICAL_DOCUMENTS:
+                raw = (root/path).read_bytes()
+                if hashlib.sha256(raw).hexdigest() != row['sha256']:
+                    errors.append('reference SHA256 mismatch: '+str(path))
             old = subprocess.run(['git', '-C', str(root), 'show', commit+':'+path.as_posix()],
-                                 capture_output=True, check=False)
+                                 capture_output=True, check=False, env=git_environment())
             if old.returncode or hashlib.sha256(old.stdout).hexdigest() != row['sha256']:
                 errors.append('reference differs from Git source: '+str(path))
         for name, expected in [('palette.svg', palette_svg(root)), ('modules.csv', module_csv(root))]:

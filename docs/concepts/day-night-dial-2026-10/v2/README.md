@@ -6,4 +6,4 @@
 
 [Лист положений и лунных фаз](clock-strip.png) снят игровым рендером в Godot. Снимки физических форматов: [16:9, русский](16x9_ru.png), [16:10, немецкий](16x10_de.png), [широкий, китайский](ultrawide_zh.png). Это реальные кадры, без увеличения готового PNG. Рамка в сравнительном листе показана также крупнее для осмотра деталей.
 
-Подготовка ресурсов: `Godot --headless --path . --script tools/prepare_celestial_dial.gd`, затем импорт через редактор. Захват: `Godot --path . --windowed --resolution 1152x648 --script docs/concepts/day-night-dial-2026-10/v2/capture.gd`. Исходные изображения сохраняются отдельно от игровых ресурсов.
+Подготовка ресурсов: `Godot --headless --path . --script res://tools/assets/authoring/prepare_celestial_dial.gd`, затем импорт через редактор. Захват: `Godot --path . --windowed --resolution 1152x648 --script docs/concepts/day-night-dial-2026-10/v2/capture.gd`. Исходные изображения сохраняются отдельно от игровых ресурсов.

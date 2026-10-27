@@ -1,0 +1,29 @@
+{
+  "final_24_document_profile_protected": true,
+  "raw_sha256": "e38491fdf42fcc0e7664dbea7a57d37483a77ec303c2b46eb765c5444ac83480",
+  "asset_path_not_created": true,
+  "refusals": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "docs/reports/refactor-03/authoring-docs/check-consumers.py",
+        "--output",
+        "docs/reports/refactor-03/authoring-docs/consumers-final.json"
+      ],
+      "exit": 2,
+      "stdout": "",
+      "stderr": "usage: check-consumers.py [-h] [--output OUTPUT]\ncheck-consumers.py: error: нужен новый JSON вне assets; прежние данные не перезаписываются\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "docs/reports/refactor-03/authoring-docs/check-consumers.py",
+        "--output",
+        "assets/refactor03-final-docs-should-not-exist.json"
+      ],
+      "exit": 2,
+      "stdout": "",
+      "stderr": "usage: check-consumers.py [-h] [--output OUTPUT]\ncheck-consumers.py: error: нужен новый JSON вне assets; прежние данные не перезаписываются\n"
+    }
+  ]
+}

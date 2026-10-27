@@ -1,0 +1,12 @@
+{
+  "version": "0.0.359",
+  "source_public_dist_equal": true,
+  "states": {
+    "02": "done",
+    "03": "in_progress",
+    "06": "blocked"
+  },
+  "history": 83,
+  "accepted_VMAP": false,
+  "planning_status_unchanged": true
+}

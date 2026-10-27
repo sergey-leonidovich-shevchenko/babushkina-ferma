@@ -1,0 +1,1 @@
+ARTIST PACKET: Git-pinned sources, palette, 28 modules and handoff example valid; runtime gates remain open

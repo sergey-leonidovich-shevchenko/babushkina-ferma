@@ -9,7 +9,7 @@ Runtime не режет лист приблизительно: `InteriorRenderer
 `village_interior_atlas_v2.png` воспроизводимо строится из исходного `world_polish/village_polish_atlas.png` командой:
 
 ```bash
-tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/build_clean_interior_atlas.gd
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/assets/authoring/build_clean_interior_atlas.gd
 ```
 
 Скрипт меняет только связанную с прозрачным фоном пурпурную кайму пяти интерьерных ячеек на полупрозрачную тёпло-коричневую контактную тень. Внутренние цвета, оружие, эффекты и магический портал не затрагиваются.

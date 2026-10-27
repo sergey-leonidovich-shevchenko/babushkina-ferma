@@ -1,0 +1,127 @@
+{
+  "review": "5671433003",
+  "head_before": "f02481b275a76192564b2ab57b80316579b95634",
+  "documents": [
+    {
+      "path": "TESTING.md",
+      "old_sha256": "5ab6995aca8055adb884a553d83af78091e5e73b35c31d0788e7d29d0718a2bf",
+      "new_sha256": "c95d0c834a0cce46e06e8f3dd03c80aa00ad63bd5355439eb79e50794050ac38"
+    },
+    {
+      "path": "QA_CHECKLIST.md",
+      "old_sha256": "d778649dcbd689774d8039ac95f4056a7ea78ffcdfe09ca56c902c337b73e10e",
+      "new_sha256": "76e1284ecc87fd0353fb03cf510707d5d4cf9d76670ab83632feea5888793e1c"
+    },
+    {
+      "path": "UI_VISUAL_PLAN.md",
+      "old_sha256": "d07b15f32bbf5931d83d70451b1db6a5ef9d8b05becca236030ac8e9d02a1ceb",
+      "new_sha256": "81fe837ac809da5239381d8e98fbf54ae7d89eba00bbc2042770b305afa90081"
+    },
+    {
+      "path": "docs/DEVELOPMENT.md",
+      "old_sha256": "a0ee065a132e1c3ae836ba450aef31d5e73606ec9370091b999a1f98e52d9903",
+      "new_sha256": "1f360448df75bb3bc3baf53f1fe04e5b1455cd2db9023e113e721eb35891bbd7"
+    },
+    {
+      "path": "docs/LEVEL_EDITOR.md",
+      "old_sha256": "79c4cb8fdcf6ec3e63ce0febb535dbbc504a8c76fcb920462f20bcee40cdd215",
+      "new_sha256": "e3560e3a11433ebedd92bb3c9608c0f387a5df7b01e0889fb3cd45c00b3f1c70"
+    },
+    {
+      "path": "docs/UI_AUDIT.md",
+      "old_sha256": "8f3220a1adcea1ffc43a8ab2ffd67811f4224d8d64f3ad3a3c7ae38b9324dcb4",
+      "new_sha256": "1c5f5303e67bd8b50e8984d4f84cc375aad4aec2046dc6112b12cb1e006be2a2"
+    },
+    {
+      "path": "docs/UI_GUIDE.md",
+      "old_sha256": "b9b4c338c22d3f722f04dc58be5e1385da2385ebf43c8d1475dec941d00706c8",
+      "new_sha256": "1d0deb7f848942684fb79a07780e2b1ecc59e56c1bf5ccae104cff05cefdd9a2"
+    },
+    {
+      "path": "docs/SPRITE_STANDARD.md",
+      "old_sha256": "d25d35a8e4afa0adbd623206f9d3b2df5cc4a57ebe54bd54221bff11b3d34797",
+      "new_sha256": "a4b15044fb3ec45b7a12c960ede453df2b8cc232df0620f355fd60288c24154a"
+    },
+    {
+      "path": "docs/MODULAR_VILLAGE.md",
+      "old_sha256": "0103f012c90f3741248842603844aa571dd011c89a49b1126014125c5f081d59",
+      "new_sha256": "8262f5af8a05297dfac492541206acbaa846925658e68c5ae9251287615202a3"
+    },
+    {
+      "path": "assets/game/environment/BUILDABLE_FENCE_ATLAS.md",
+      "old_sha256": "a72a3b6dd44024e06e2b4e3ff3215439459675fac0881695c203a68ab9b658b9",
+      "new_sha256": "c101d3f518f760d8b49ba3e658cd1121061297a10fb7f29cfd5a953e90fb06fa"
+    },
+    {
+      "path": "assets/game/interiors/README.md",
+      "old_sha256": "65f9b601fdd39b8c062d08181db42e767821af57c8eed72dd3e6079ee2e66aba",
+      "new_sha256": "39ed245f87d35afc0312da4e19ba5387c9d3f0f28256d5535830de09f4cb8eb3"
+    },
+    {
+      "path": "assets/game/tiles/editor/README.md",
+      "old_sha256": "e7bd73aa8e517652699e1d8ed3d777c896491181abee5b6abf80940f589485b5",
+      "new_sha256": "43538a4b2a5d7441d54df677ec582ee984a45c9b2a71b37a41695ea28919725b"
+    },
+    {
+      "path": "assets/game/ui/celestial_dial_v1/README.md",
+      "old_sha256": "8e3df2d62d7932af5e30c3fcabb23a0e036b878924e64028001a035b4b1dfd94",
+      "new_sha256": "709fd4cc6003a877a03262abdd9009ca49437340d3a68f2ce1fc54c5532f26b6"
+    },
+    {
+      "path": "docs/design/artisan-expansion-2026-10-13/README.md",
+      "old_sha256": "29529a43e578c3dc1f1704d6dc4cce1d4714caaa185ce49db3e0e7ff39b4e038",
+      "new_sha256": "319a22bd065b1797a52cd9ced66efed95e1c20ea29623e5c9f7c65c38df0dbfd"
+    },
+    {
+      "path": "docs/design/cellar-workshop/README.md",
+      "old_sha256": "1bd4325addc5f9533b93202a14b355a625bd992e0bd8e4cc191a2d8b52f2e7f0",
+      "new_sha256": "3b964efa9ffe03abff37c329a5d6d626d6ea2ed9884d3132b9a4aaba2b95ace6"
+    },
+    {
+      "path": "docs/concepts/character-polish-2026-10-12/README.md",
+      "old_sha256": "78b5982961b0e1c4e9c6b007bc957e875ca2bb8787324d5a1e1b6cf1fcb940c6",
+      "new_sha256": "50847d4bbcd3624b474aeca9301e66c634aa2003999f8febd4ee32ddd471deb0"
+    },
+    {
+      "path": "docs/concepts/day-night-dial-2026-10/v2/README.md",
+      "old_sha256": "509327228cdecec837fc9af5c51480905e298b2da37ee422ed4f966305e01061",
+      "new_sha256": "bf7aeea8ddc469288a20d866157eab062054f6907257ecd92e00690aad0fb32f"
+    },
+    {
+      "path": "docs/concepts/farmyard-2026-10/v1/README.md",
+      "old_sha256": "a17c140c5c421cac05649e6bdc64867cef441bb8c26c1f143a1e1a0c94baff6b",
+      "new_sha256": "b590bfad9452114443f7ca99a1359c780abd975b71411f5e2763dc7997f79faf"
+    },
+    {
+      "path": "docs/concepts/hero-actions-2026-10-12/v2/README.md",
+      "old_sha256": "4a4eae3a3918d780197e6e94958434cf5ba832c8a6f2daa73ab76eaa0cf80edb",
+      "new_sha256": "949ca7109e8eca595bfb39796fce14570aafda71faef4388994aec44fa66a0d0"
+    },
+    {
+      "path": "docs/concepts/hero-combat-2026-10/v1/README.md",
+      "old_sha256": "8437c78b4bc964a51feb9abca2f4ebf994f8b5695ee6bd96ff86545b4b6ce107",
+      "new_sha256": "aeac45128cd4a6d612c0af22389ba7e5f1f6e67b612436f941b1559da2752057"
+    },
+    {
+      "path": "docs/concepts/hero-combat-2026-10/v2/README.md",
+      "old_sha256": "0cbd3d9b6010650e82a21eb9c758e9b648c9f56a9ca2a7c69f9a7be519863efb",
+      "new_sha256": "51115c7eb54261560157e7df4a6a07675da9bf9d8e5060619f3201845d79d1dd"
+    },
+    {
+      "path": "docs/concepts/house-furniture-2026-10-14/v1/README.md",
+      "old_sha256": "3f5761faf49c8de695a699217a674e0004f435025998d647af8639423afef463",
+      "new_sha256": "f354f82c1e8a22ecc94ccaca6096d52350bd86847289f52dad2f44cd8a74413e"
+    },
+    {
+      "path": "docs/concepts/skeleton-2026-10-12/v2/README.md",
+      "old_sha256": "2a0abd60345dd94f3d6e25a7aa22fe63f033f4b81fca7c12317d1591754ed84e",
+      "new_sha256": "e858baa0f0acae323245f7928e04c92a6d46f7bcc292532187080dc97ece6b36"
+    },
+    {
+      "path": "docs/concepts/storage-art-2026-10-13/v1/README.md",
+      "old_sha256": "dc087f00d557f3ebe6a54a0fd088ab6625b8ac028fef813a0f23c691ec3f1fea",
+      "new_sha256": "09f210369f37b8b579f29bb234ed68fbe391d1d33bc3660b5ec73d61a97256b6"
+    }
+  ],
+  "scope": "Final24 live documents, including TESTING history-boundary regression controls; original/expanded snapshots preserved"
+}

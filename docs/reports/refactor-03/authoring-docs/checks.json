@@ -1,0 +1,304 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "P2 live authoring documentation and historical reader boundary",
+  "review": "5671433003",
+  "head_before": "f02481b275a76192564b2ab57b80316579b95634",
+  "version": "0.0.359",
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.359",
+      "started_at": "2026-10-27T15:52:14.994882+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T16:12:28.798408+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.359",
+      "started_at": "2026-10-27T16:12:28.799402+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T16:18:53.468202+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.359",
+      "started_at": "2026-10-27T16:18:53.469513+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T16:19:44.605768+00:00"
+    }
+  ],
+  "architecture_suites": 84,
+  "architecture_cases": 1163,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "live_documents": 24,
+  "resolved_sources": 31,
+  "historical_reference_files_preserved": 48,
+  "real_CLI_cases": 5,
+  "Godot_parse_only": 14,
+  "artist_tests": 12,
+  "artist_same_red_green_source": true,
+  "scope": "reader-scope.json",
+  "browser": "browser.json",
+  "Task_Complete_added": false,
+  "root_tools_sources": 513,
+  "full_task03_accepted": false,
+  "VMAP_FPS_admission": false,
+  "source_SHA256": {
+    "QA_CHECKLIST.md": "76e1284ecc87fd0353fb03cf510707d5d4cf9d76670ab83632feea5888793e1c",
+    "TESTING.md": "c95d0c834a0cce46e06e8f3dd03c80aa00ad63bd5355439eb79e50794050ac38",
+    "UI_VISUAL_PLAN.md": "81fe837ac809da5239381d8e98fbf54ae7d89eba00bbc2042770b305afa90081",
+    "VERSION": "2706447c2eb3169d71c0d0881393cfbd824eb4ae5065545fd06dbf377b955a86",
+    "assets/game/environment/BUILDABLE_FENCE_ATLAS.md": "c101d3f518f760d8b49ba3e658cd1121061297a10fb7f29cfd5a953e90fb06fa",
+    "assets/game/interiors/README.md": "39ed245f87d35afc0312da4e19ba5387c9d3f0f28256d5535830de09f4cb8eb3",
+    "assets/game/tiles/editor/README.md": "43538a4b2a5d7441d54df677ec582ee984a45c9b2a71b37a41695ea28919725b",
+    "assets/game/ui/celestial_dial_v1/README.md": "709fd4cc6003a877a03262abdd9009ca49437340d3a68f2ce1fc54c5532f26b6",
+    "docs/DEVELOPMENT.md": "1f360448df75bb3bc3baf53f1fe04e5b1455cd2db9023e113e721eb35891bbd7",
+    "docs/LEVEL_EDITOR.md": "e3560e3a11433ebedd92bb3c9608c0f387a5df7b01e0889fb3cd45c00b3f1c70",
+    "docs/MODULAR_VILLAGE.md": "8262f5af8a05297dfac492541206acbaa846925658e68c5ae9251287615202a3",
+    "docs/SPRITE_STANDARD.md": "a4b15044fb3ec45b7a12c960ede453df2b8cc232df0620f355fd60288c24154a",
+    "docs/UI_AUDIT.md": "1c5f5303e67bd8b50e8984d4f84cc375aad4aec2046dc6112b12cb1e006be2a2",
+    "docs/UI_GUIDE.md": "1d0deb7f848942684fb79a07780e2b1ecc59e56c1bf5ccae104cff05cefdd9a2",
+    "docs/concepts/character-polish-2026-10-12/README.md": "50847d4bbcd3624b474aeca9301e66c634aa2003999f8febd4ee32ddd471deb0",
+    "docs/concepts/day-night-dial-2026-10/v2/README.md": "bf7aeea8ddc469288a20d866157eab062054f6907257ecd92e00690aad0fb32f",
+    "docs/concepts/farmyard-2026-10/v1/README.md": "b590bfad9452114443f7ca99a1359c780abd975b71411f5e2763dc7997f79faf",
+    "docs/concepts/hero-actions-2026-10-12/v2/README.md": "949ca7109e8eca595bfb39796fce14570aafda71faef4388994aec44fa66a0d0",
+    "docs/concepts/hero-combat-2026-10/v1/README.md": "aeac45128cd4a6d612c0af22389ba7e5f1f6e67b612436f941b1559da2752057",
+    "docs/concepts/hero-combat-2026-10/v2/README.md": "51115c7eb54261560157e7df4a6a07675da9bf9d8e5060619f3201845d79d1dd",
+    "docs/concepts/house-furniture-2026-10-14/v1/README.md": "f354f82c1e8a22ecc94ccaca6096d52350bd86847289f52dad2f44cd8a74413e",
+    "docs/concepts/skeleton-2026-10-12/v2/README.md": "e858baa0f0acae323245f7928e04c92a6d46f7bcc292532187080dc97ece6b36",
+    "docs/concepts/storage-art-2026-10-13/v1/README.md": "09f210369f37b8b579f29bb234ed68fbe391d1d33bc3660b5ec73d61a97256b6",
+    "docs/design/artisan-expansion-2026-10-13/README.md": "319a22bd065b1797a52cd9ced66efed95e1c20ea29623e5c9f7c65c38df0dbfd",
+    "docs/design/cellar-workshop/README.md": "3b964efa9ffe03abff37c329a5d6d626d6ea2ed9884d3132b9a4aaba2b95ace6",
+    "project.godot": "a363b402251689f7fb7d1b4e952774b55806b5f52f6453bb5c0d4090a8d9a090",
+    "tools/artist_packet.py": "be5513cd80319fe13a0819080467ff5ac1aef153836f899238eb124b1b81eaa4",
+    "tools/test_artist_packet.py": "33df51d0cb2b8feeb7f716bae88da4ffbb94d28e5210fe4822f876959aedce6f",
+    "Бабушкина ферма.app/Contents/Info.plist": "9103c5ab0917a6a2b071cb7a50ed3d02e990e1f80e04c0eec057ed0fff26aa47"
+  },
+  "report_files": [
+    {
+      "path": "README.md",
+      "sha256": "3b161fb782ef7c5a9603622039f0988795b5d80351369ac4f08819f4f73926d8",
+      "bytes": 8316
+    },
+    {
+      "path": "artist-green-production.txt",
+      "sha256": "23fddad2afab775684c5961ddbefb39b18d6cf7b999616af277f9854503d123e",
+      "bytes": 108
+    },
+    {
+      "path": "artist-green-tests.txt",
+      "sha256": "2c5dcc926bee5593313941fbad38bf8ef301c288d65f335e6f08f836f0a9e9d3",
+      "bytes": 3488
+    },
+    {
+      "path": "artist-green.json",
+      "sha256": "6009323ebaa4909d1b99d7969373290ce621ccb6c5c872c8f601d2886c496efb",
+      "bytes": 507
+    },
+    {
+      "path": "artist-packet-before.py.txt",
+      "sha256": "3f2199f420fead8b03e54bc773426cc74ba82b59d7f833818069732707c4d8bf",
+      "bytes": 9207
+    },
+    {
+      "path": "artist-red.json",
+      "sha256": "4931f60f4d5e8ed8ff0d14a4b5645b233517d8ac0af78d70b1d6b465589c3ea8",
+      "bytes": 235
+    },
+    {
+      "path": "artist-red.txt",
+      "sha256": "1231e716b8cffcef5fc4366f5065a24b9e4b150c5a4456e26562218a95ea1932",
+      "bytes": 6173
+    },
+    {
+      "path": "artist-tests-before.py.txt",
+      "sha256": "1f0cf557fe7d019f04f85c9cd4f661d1cc485c27963a88e7c328c676264ba067",
+      "bytes": 5654
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "8012651051486fe9e6317e761507221485c6fb70f2e79efdcfd943d71b594b67",
+      "bytes": 223
+    },
+    {
+      "path": "browser.json",
+      "sha256": "91297365cf4392c320d9235bee14e5cbce9e8b2a80a297ac8344cdd8637dc87f",
+      "bytes": 496
+    },
+    {
+      "path": "browser.png",
+      "sha256": "073509edc2a651d84eea14cfb9b345915eaa3456e3ab37bf9187bd48ed283c82",
+      "bytes": 79473
+    },
+    {
+      "path": "catalog-check.mjs",
+      "sha256": "3d9b436f34d6b105db516d7290414e2211268b6371bee6c394e37804121940c0",
+      "bytes": 1457
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "fe743950a73895c799ee36832212051fad70f1af8700c8088bf427077eae6052",
+      "bytes": 225
+    },
+    {
+      "path": "check-consumers.py",
+      "sha256": "72a22a623d125839451769fcfdbe56ff67a0cf1b72062ea987bd833a3be17076",
+      "bytes": 9486
+    },
+    {
+      "path": "consumers-final.json",
+      "sha256": "e38491fdf42fcc0e7664dbea7a57d37483a77ec303c2b46eb765c5444ac83480",
+      "bytes": 319951
+    },
+    {
+      "path": "consumers-replay.json",
+      "sha256": "2113d699d3a5cc23cb898639c6358db368d3f40dab56afe84989df4e2f4bcb3b",
+      "bytes": 323621
+    },
+    {
+      "path": "consumers-with-history.json",
+      "sha256": "574127cfbad47a7562098c4b0dda3000dfac97a2dbe6f6aa16ac4559482c5d9d",
+      "bytes": 319951
+    },
+    {
+      "path": "consumers.json",
+      "sha256": "7f1339c8795804e80158e2ca0b66f5956f34152e6b08766ffbfe3958b05edf88",
+      "bytes": 323621
+    },
+    {
+      "path": "documents.json",
+      "sha256": "78fe1960fba447c91c3360301a3e8056cbd894aff289a449dbb1f78211f40e50",
+      "bytes": 3722
+    },
+    {
+      "path": "expanded-documents.json",
+      "sha256": "92ff39f23b8a9804ef710c7b67e56ea714e09869a2361a86a5e1ff4f85635fe8",
+      "bytes": 6002
+    },
+    {
+      "path": "final-documents.json",
+      "sha256": "c33657741e03928ed1e905bf5ac476e5b17de100fd44ad838920c1f8fbfa9711",
+      "bytes": 6021
+    },
+    {
+      "path": "final-output-guards.json",
+      "sha256": "5bb9829aedf174417903e275af9d79e93952e294f54b8884d786a0d505e991e1",
+      "bytes": 1232
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "a168ea68d6a2a29ea2a6cf3322ac8d04207726ae27f32e283c6ca420d5d63e41",
+      "bytes": 12397
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "e923a2d6931325120bce85619e3b5bcba93c0773e643e197e2219a8bae02e40d",
+      "bytes": 249
+    },
+    {
+      "path": "gates-02/architecture.txt",
+      "sha256": "05705c62854a33488e3c6c6aa0ac7709dbc33c8fa9675c238b3e33786bb85e1a",
+      "bytes": 12878
+    },
+    {
+      "path": "gates-02/game.txt",
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+      "bytes": 1804
+    },
+    {
+      "path": "gates-02/gate-exits.json",
+      "sha256": "930a5720a0c35d71759ae2b235c5cba78be2414a9abdd154721b120989297dcf",
+      "bytes": 733
+    },
+    {
+      "path": "gates-02/headless/f10/engine.txt",
+      "sha256": "5ea5d877f3fcff3beaa775b94b8bb681e8606df4c56628d9d6b508b8b0274e8f",
+      "bytes": 11035
+    },
+    {
+      "path": "gates-02/headless/f10/frames.jsonl",
+      "sha256": "1bc7ccdd2de4e5cb72ae9b89e02d3903f31b0d0e5438d92440c7639e925482ae",
+      "bytes": 9144
+    },
+    {
+      "path": "gates-02/headless/f10/summary.json",
+      "sha256": "c7e89dbafda8be745d73b736cbe17024e84b6e412e4952ffcc4a00070fe8f0f5",
+      "bytes": 1743
+    },
+    {
+      "path": "gates-02/headless/normal/engine.txt",
+      "sha256": "7f0c005b5353dfef236d473659166874af464142c9616272ebc7fa6467cdc3bb",
+      "bytes": 11016
+    },
+    {
+      "path": "gates-02/headless/normal/frames.jsonl",
+      "sha256": "7867be4011a1ec431dacec1eb6212ae88298f3300811ea6473843cbf5d05325d",
+      "bytes": 9122
+    },
+    {
+      "path": "gates-02/headless/normal/summary.json",
+      "sha256": "2144e07028641e54a89fc8ad13212f393f9c8ff9cf2e135ab5c08fb374f6c5f2",
+      "bytes": 1746
+    },
+    {
+      "path": "gates-02/wiki.txt",
+      "sha256": "43096648b2e9afed55c7d0d76f941090de4ad7d227b9976834154fc08d6889af",
+      "bytes": 13816
+    },
+    {
+      "path": "moved-profile.json",
+      "sha256": "9b53a6869f35dbfc37addd75c5c34bb6f8785049480cba9453977b23c1e11eae",
+      "bytes": 1186
+    },
+    {
+      "path": "profile-24-before-history.py.txt",
+      "sha256": "e4c1967cb62d0ccd71ed747065abde655bd0d1ee735cbaf7a10f95eeed984946",
+      "bytes": 9402
+    },
+    {
+      "path": "profile-initial.py.txt",
+      "sha256": "b86b766c1b32e6ca2481b853e70bfa7a51bf3105c79c9429fea5f5e96ad632c9",
+      "bytes": 8816
+    },
+    {
+      "path": "profile-replay-15.py.txt",
+      "sha256": "3ec5cff6b82e95b75f0450926cedb1d52af96907b7930fc44107059fc8446d11",
+      "bytes": 9387
+    },
+    {
+      "path": "publication-final.json",
+      "sha256": "e9486e81452c73a26c207916d4011ea0419ab0e41892b6520c2af8d989b4c5cc",
+      "bytes": 729
+    },
+    {
+      "path": "publication.json",
+      "sha256": "e9486e81452c73a26c207916d4011ea0419ab0e41892b6520c2af8d989b4c5cc",
+      "bytes": 729
+    },
+    {
+      "path": "reader-scope.json",
+      "sha256": "70bb52e748f974f282e8ba80c94820b0235fd1bb152de9769a1737147f78c9f6",
+      "bytes": 1894
+    },
+    {
+      "path": "replay-and-output-guards.json",
+      "sha256": "9de23d7b0f31c78a3ce057f42df4ee15e441722598b9080e31b35794a3ad2d16",
+      "bytes": 1269
+    }
+  ]
+}
