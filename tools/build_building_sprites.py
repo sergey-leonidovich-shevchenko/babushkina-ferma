@@ -5,6 +5,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from tools.common.paths import project_root
+
 
 BASE_CELL = 24
 GROUND_GAP = 24
@@ -67,7 +69,7 @@ def build(source_path: Path, destination: Path) -> dict[str, tuple[int, int]]:
 
 def main() -> None:
     """Собирает отдельные runtime-фасады из путей относительно корня проекта."""
-    root = Path(__file__).resolve().parents[1]
+    root = project_root(__file__)
     sizes = build(
         root / "assets/game/buildings/building_atlas.png",
         root / "assets/game/buildings/exteriors",

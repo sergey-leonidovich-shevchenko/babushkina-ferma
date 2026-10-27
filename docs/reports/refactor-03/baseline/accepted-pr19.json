@@ -1,0 +1,151 @@
+{
+  "PR": {
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/19",
+    "number": 19,
+    "state": "closed",
+    "merged": true,
+    "mergeable": true,
+    "draft": false,
+    "body": "REFACTOR-02 is accepted through PR18 (merge `58eda69fd86f6784aa5fbdcfbec4a526b212b0f4`, independent review5661046362, implementation CI8/8). This separate PR records that acceptance:02done,03ready, canonical date2026-10-27, preserved card/history and updated Wiki. REFACTOR-03 has not started.\n\nThe mandatory P2 in the first accounting head is fixed. An inherited Git worktree/index/config could make the scope reader inspect a clean neighbor and falsely accept a forbidden tools edit. Every Git read now uses the accepted `tools.common.git.git_environment()`; the root is anchored to the reader source through common `project_root`. The allowlist, byte/SHA guards, budgets and inspection algorithms are unchanged. Metadata is strictly checked against version0.0.356.\n\nCurrent head: `6dd6c3bb4d77bb7d2eddcb23199aff2f698221aa`.\nBase: `58eda69fd86f6784aa5fbdcfbec4a526b212b0f4`.\nP2 thread: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/19#discussion_r4384617589\n\nValidation on0.0.356:\n- 12 real regression cases on both Python3.11 and3.9,13 reader subprocesses per run, including actual clone/linked worktree with spaces and tracked/staged/untracked/new-staged corruption. The identical red corpus exposed four false PASS before the fix. Source/foreign index/config, files and parent environment stayed unchanged; disposable fixtures were removed.\n- The reviewer's exact reproduction now rejects both ordinary and inherited-Git corruption (exit1/1 versus1/0). Source-root and unrelated cwd controls pass.\n- Fresh complete `tools/check_architecture.sh`:83 suites/1148 cases; `./run_tests.sh`:53502/0 and actual-main headless normal/F10:90/0 each; `pnpm --dir wiki check`: export/TypeScript/build/145 tests passed.\n- Byte preservation:585 accepted reports,798UID,13 plans/archives. Of66 files in rejected d714 packet,65 are unchanged; the corrected reader's original bytes are archived exactly. Old raw/checks and failed attempts are retained.\n- Wiki browser: desktop1280 and390CSSpx, history83/unknown20, accepted date27 and equal-date source order,02done/03ready, pilot52/52, manual refresh, actual P2 JSON and matching source/public/dist. Own read-only server/tab closed, viewport reset.\n- Final scope, preservation, documentation, version, backlog and staged whitespace checks passed.70 new evidence files sealed by SHA in `review-1/checks.json`.\n\nEvidence: `docs/reports/refactor-02/closeout/review-1/README.md`, `checks.json`, real red/green/reviewer reproduction, final gate logs and browser JSON/PNG. Reader SHA256 `37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113`; same regression corpus `a76defa579172eba4f92933fb89a43fa29db514ed12bb81d1289f35bd16060e1`.\n\nExactly one existing `Task-Complete: REFACTOR-02` is retained; the P2 commit adds none. Runtime/tools/tests/assets/scenes/planning state and sources are unchanged. Root544 / future forecast10 / limit30 remain separate; no FPS/VMAP acceptance. Full mandatory gates were completed before commit; `--no-verify` avoided only their redundant long hook rerun, and the ordinary post-commit hook ran.\n\nRejected d714 had7/8 CI: macOS failed during Git checkout (curl56/earlyEOF), before tests; its log is retained separately. Neither those checks nor accepted implementation CI approve this new head. This draft requires its own exact-head CI, independent Tech Lead re-review and Team Lead decision before merge or03.",
+    "title": "REFACTOR-02: record accepted pilot completion",
+    "base": "main",
+    "base_sha": "58eda69fd86f6784aa5fbdcfbec4a526b212b0f4",
+    "head": "codex/refactor-02-closeout",
+    "head_sha": "6dd6c3bb4d77bb7d2eddcb23199aff2f698221aa",
+    "head_repo_id": 1319706890,
+    "head_repo_full_name": "sergey-leonidovich-shevchenko/babushkina-ferma",
+    "merge_commit_sha": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "user": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?v=4",
+      "id": 16123649
+    },
+    "requested_reviewers": null,
+    "requested_team_reviewers": null,
+    "diff": null,
+    "comments": null,
+    "created_at": "2026-10-27T02:19:09Z",
+    "updated_at": "2026-10-27T06:30:47Z",
+    "closed_at": "2026-10-27T06:28:04Z",
+    "merged_at": "2026-10-27T06:28:04Z",
+    "commits": 2,
+    "changed_files": 146,
+    "additions": 19057,
+    "deletions": 17,
+    "display_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/19",
+    "display_title": "REFACTOR-02: record accepted pilot completion"
+  },
+  "reviews": {
+    "reviews": [
+      {
+        "id": "PRR_kwDOTqkhCs8AAAABUXYS3A",
+        "state": "COMMENTED",
+        "body": "CHANGES REQUESTED — независимое ревью head d714c62157989c8a522c016962cab37136b558f7 / base58eda69fd86f6784aa5fbdcfbec4a526b212b0f4. Найден обязательный P2 в новом verify-scope.py: унаследованные Git overrides перенаправляют проверку diff/index в другой checkout, хотя byte-level часть читает текущую папку. Получается ложный PASS требования о неизменном runtime/tools.\n\nВ disposable clone этого head добавлен только комментарий в tools/common/git.py. С обычным окружением helper отклоняет изменение (exit1). При GIT_DIR/GIT_WORK_TREE/GIT_INDEX_FILE чистого Git-контекста того же исходного head он возвращает exit0 и runtime_tools_tests_planning_unchanged=true. Изменение сделано только во временной копии; исходный review checkout и общий каталог не менялись. Точный результат и воспроизводимый script сохранены отдельно для передачи через Team Lead. Нужна изоляция Git-окружения общей git_environment() и регрессионный контроль, который отвергает такой изменённый checkout также при наследуемых worktree/index/config overrides.\n\nНе связанные с дефектом факты уже проверены:65 raw SHA;1396 записей baseline (585 принятых отчётов,798 UID,13 планов/архивов); фактический diff ограничен редакционным учётом и metadata. Пять других refactor-карточек сохранены,03 меняет только blocked→ready,02 имеет дату27.10; новых gameplay/tools/tests изменений в самом опубликованном кандидате не обнаружено. Исправление валидации не требует менять эти принятые данные или переписывать прежние raw.\n\nОтдельно PR macOS job121970364047 упал до тестов на сетевом checkout: RPC/curl56, early EOF/connection reset, затем отсутствие ещё не созданных артефактов. Полный raw12885 символов прочитан; это не функциональный FAIL кода и не PASS проверки. Остальные CI ещё сверяются, старый CI PR18 не засчитан за этот head. После исправления нужен обычный push в тот же PR, отдельные доказательства отрицательного/зелёного guard, актуальные проверки/CI и повторное независимое ревью нового SHA. До этого merge и старт REFACTOR-03 не разрешены. Сводка идёт только Team Lead Agent.",
+        "submitted_at": "2026-10-27T02:47:34Z",
+        "author": {
+          "login": "sergey-leonidovich-shevchenko",
+          "name": "sergey-leonidovich-shevchenko",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+          "id": null
+        }
+      },
+      {
+        "id": "PRR_kwDOTqkhCs8AAAABUYewEw",
+        "state": "COMMENTED",
+        "body": "",
+        "submitted_at": "2026-10-27T05:54:41Z",
+        "author": {
+          "login": "sergey-leonidovich-shevchenko",
+          "name": "sergey-leonidovich-shevchenko",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+          "id": null
+        }
+      },
+      {
+        "id": "PRR_kwDOTqkhCs8AAAABUYezrw",
+        "state": "COMMENTED",
+        "body": "P2 FIX VERIFIED; SOURCE REVIEW PASS; CI PENDING — exacthead6dd6c3bb4d77bb7d2eddcb23199aff2f698221aa, acceptedbase58eda69fd86f6784aa5fbdcfbec4a526b212b0f4,version0.0.356. Обязательный P24384617589 независимо исправлен и закрыт: мой исходный репродуктор даётnormal1/inherited1 вместо1/0; 12реальныхcases/13helpercalls прошли наPython3.11 и3.9, источники/чужиеиндексы/config/env не изменены, временныеfixtures удалены. Общийgit_environment иsource-root проверены;14scopeassertions/allowlist/алгоритмы/бюджеты прежние.\n\nНезависимо проверены70новыхSHA, весьпрежний66-filepacket (65прежних +точныйархивисправленногоreader),1396acceptedbaseline (585reports/798UID/13plans), runtime/tools/tests/assets/scenes/planning/hooks относительно58e прежние. Единственный Task-CompleteREFACTOR-02 сохранён вd714, новыйfix не добавляетtrailer. Оба полных диапазона git diff --check от58e exit0/пустыестримы. Clean scope/preservation выполнены самостоятельно.\n\nМой Wiki export/TypeScript/build/Node145/0; actual source/public/distcatalog совпали, JSON632b4079…(2591bytes) совпал. Браузерactual356: history83/unknown20, порядокWIKI003→REF01→REF02/date27,02done/03ready,manualrefresh,guideи реальнооткрытыйP2JSON;1280и390CSSpx/безoverflow,viewportreset/ownread-onlyserver/tab/dependenciescleanup. Пилот52/52 иVMAPfalse сохранены. Авторскиеraw83/1148,Game53502/0,normal/F1090/0 проверены какжурналы; локальнуюигру я не запускал.\n\nНовых исходных замечаний нет. Восемь CIchecks именно6dd ещё не завершены (5success/3running при последнем срезе); старыеd714/implementationgreenнепереносятся. ИтоговоеAPPROVEDиmerge пока не выдаются: после своихполныхCIнужно окончательноеexact-headревьюирешениеTeamLead. До принятияPR19 REFACTOR-03 не начинать. Сводка направленаTeamLead.",
+        "submitted_at": "2026-10-27T05:54:48Z",
+        "author": {
+          "login": "sergey-leonidovich-shevchenko",
+          "name": "sergey-leonidovich-shevchenko",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+          "id": null
+        }
+      },
+      {
+        "id": "PRR_kwDOTqkhCs8AAAABUYtR1g",
+        "state": "COMMENTED",
+        "body": "APPROVED — независимое окончательное ревью head 6dd6c3bb4d77bb7d2eddcb23199aff2f698221aa, base 58eda69fd86f6784aa5fbdcfbec4a526b212b0f4, версия 0.0.356. Все обязательные замечания закрыты; новых замечаний нет. Явный вердикт COMMENT используется по docs/CODE_REVIEW.md из-за общего GitHub-аккаунта; авторскую самоприёмку он не заменяет.\n\nP2 проверен в отдельном review-worktree. Мой исходный репродуктор на новом head даёт normal 1 / inherited 1 вместо прежнего 1/0. На Python 3.11 и 3.9 самостоятельно выполнены по 12 настоящих сценариев / 13 запусков reader; tracked, staged, untracked, новый staged-файл, чужие worktree/index/config, bare override, другая cwd и повреждённое старое доказательство проверены. Исходные файлы, индексы, config и parent env сохранены, временные fixtures удалены. Общее Git-окружение и source-root исправлены, 14 scope assertions, allowlist, SHA/byte guards и бюджеты сохранены.\n\nНезависимо проверены 70 новых SHA, прежний пакет из 66 файлов (65 прежних плюс точный архив исправленного reader), 1396 файлов принятой базы (585 reports / 798 UID / 13 plans). Runtime, tools, tests, assets, scenes, planning и hooks совпадают с принятой main. Единственный Task-Complete: REFACTOR-02 из d714 сохранён; исправляющий коммит не добавляет второй. Оба полных диапазона git diff --check от принятой базы проходят.\n\nСобственный Wiki export / TypeScript / build / Node: 145/0. Каталог и JSON 632b4079… (2591 байт) совпадают в source/public/dist. Браузер версии 356 проверен на 1280 и 390 CSS px: история 83 / неизвестных дат 20, порядок WIKI-003 → REFACTOR-01 → REFACTOR-02 и дата 27.10, 02 done / 03 ready, ручное обновление, обзор и реально открытый JSON. Пилот 52/52 отделён от VMAP-003. Собственные сервер, вкладка и зависимости убраны; viewport сброшен. Игру на ПК не запускал.\n\nНовый CI именно этого SHA: 8/8 success, без повторов и отмен. Полные журналы всех восьми jobs прочитаны. В каждом из двух test jobs: architecture 83/1148, Game 53520/0, normal/F10 по 90/0, smoke 180 кадров, шесть различных валидных 10-секундных серий с budget_passed=true. Обе Wiki-проверки: 145/0. Все четыре platform jobs: 21 + 14 тестов и 411 export checks без отказов; Linux after_issues/errors пусты. Проверки замеряют принятый CI-контракт и не принимают новый игровой FPS или VMAP.\n\nPR run 40457007805: test 122032565880, Linux 122032565684, macOS 122032565836, Wiki 122032565909.\nPush run 40457003256: test 122032552497, Linux 122032552411, macOS 122032552171, Wiki 122032552483.\n\nФактические удалённые main и head сверены. Старый отказ checkout на d714 и его журналы сохранены отдельно; старые зелёные проверки не переносились. Результат передаётся Team Lead для решения о merge. До его решения PR не вливать и REFACTOR-03 не начинать.",
+        "submitted_at": "2026-10-27T06:26:00Z",
+        "author": {
+          "login": "sergey-leonidovich-shevchenko",
+          "name": "sergey-leonidovich-shevchenko",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+          "id": null
+        }
+      }
+    ]
+  },
+  "threads": {
+    "review_threads": [
+      {
+        "id": "PRRT_kwDOTqkhCs6wh-sj",
+        "is_resolved": true,
+        "is_outdated": true,
+        "path": "docs/reports/refactor-02/closeout/verify-scope.py",
+        "line": null,
+        "diff_side": "RIGHT",
+        "start_line": null,
+        "start_diff_side": null,
+        "original_line": 16,
+        "original_start_line": null,
+        "resolved_by": {
+          "login": "sergey-leonidovich-shevchenko",
+          "name": "sergey-leonidovich-shevchenko",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+          "id": null
+        },
+        "comments": [
+          {
+            "id": "PRRC_kwDOTqkhCs8AAAABBVf0dQ",
+            "database_id": 4384617589,
+            "body": "[P2] Изолируйте Git-контекст scope-проверки. `cwd=root` не отменяет унаследованные `GIT_DIR`, `GIT_WORK_TREE` и `GIT_INDEX_FILE`: byte-level часть читает `root`, а `git diff`/`ls-files` ниже могут читать другой worktree. В disposable clone текущего head комментарий в tools/common/git.py правильно даёт exit1; с Git-контекстом чистого соседнего checkout тот же helper даёт exit0 и `runtime_tools_tests_planning_unchanged=true`. В среде нескольких worktree это маскирует запрещённое изменение tools. Передавайте очищенное окружение через уже принятую общую `git_environment()` и добавьте отрицательный контроль: tracked/untracked изменение текущего checkout должно отклоняться и при наследуемых worktree/index/config overrides. Старые raw оставьте историческими, новые red/green доказательства приложите отдельно.",
+            "created_at": "2026-10-27T02:47:34Z",
+            "updated_at": "2026-10-27T02:47:34Z",
+            "author": {
+              "login": "sergey-leonidovich-shevchenko",
+              "name": "sergey-leonidovich-shevchenko",
+              "email": null,
+              "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+              "id": null
+            },
+            "viewer_did_author": true
+          },
+          {
+            "id": "PRRC_kwDOTqkhCs8AAAABBWX6fQ",
+            "database_id": 4385536637,
+            "body": "P2 FIX VERIFIED на exacthead6dd6c3bb4d77bb7d2eddcb23199aff2f698221aa. Независимо прочитаны изменения reader и реальных fixtures; все Git-вызовы получили принятый git_environment(), source-root anchored,14 scope assertions/allowlist/байтовые проверки сохранены, metadata строго0.0.356. В моей отдельной копии 12cases/13actualreader subprocesses успешно выполнены на Python3.11 и3.9: tracked/staged/untracked/new-staged, worktree/index/config-only/bare, clean/othercwd и порча прежнегоraw. Source/foreign index/config/files и parent env прежние, оба temporaryfixture удалены. Мой исходный неизменённый репродуктор дополнительно выполнен на6dd: повреждённый tools/common/git.py теперь normal1/inherited1, источник прежнийSHA903a740a… . Новые70SHA/прежний66packet/1396baseline проверены; старыйreader точно архивирован. P2 закрываю. Это подтверждает исправление, но пока не разрешает merge: новый exact-head CI ещё выполняется; требуется его успешное завершение и решение Team Lead.",
+            "created_at": "2026-10-27T05:54:41Z",
+            "updated_at": "2026-10-27T05:54:41Z",
+            "author": {
+              "login": "sergey-leonidovich-shevchenko",
+              "name": "sergey-leonidovich-shevchenko",
+              "email": null,
+              "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+              "id": null
+            },
+            "viewer_did_author": true
+          }
+        ]
+      }
+    ]
+  }
+}

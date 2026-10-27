@@ -10,8 +10,10 @@ from pathlib import Path
 
 from PIL import Image
 
+from tools.common.paths import project_root
 
-ROOT = Path(__file__).resolve().parents[1]
+
+ROOT = project_root(__file__)
 MANIFEST = ROOT / "assets/generated/ui/visual_regression_manifest.json"
 REFERENCE_DIR = MANIFEST.parent
 GRID = (8, 8)

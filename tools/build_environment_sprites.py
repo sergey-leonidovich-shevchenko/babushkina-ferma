@@ -5,9 +5,11 @@ from pathlib import Path
 
 from PIL import Image
 
+from tools.common.paths import project_root
+
 
 BASE_CELL = 24
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = project_root(__file__)
 GENERATED = ROOT / "assets/game/generated"
 DESTINATION = ROOT / "assets/game/environment"
 

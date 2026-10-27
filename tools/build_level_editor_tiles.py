@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from tools.common.paths import project_root
+
 
 CELL_SIZE = 256
 OUTPUT_SIZE = 24
@@ -108,7 +110,7 @@ def build_preview(tile_root: Path, destination: Path) -> None:
 def main() -> None:
     """Читает пути проекта и воспроизводимо обновляет набор редакторских тайлов."""
     parser = argparse.ArgumentParser()
-    parser.add_argument("--project", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--project", type=Path, default=project_root(__file__))
     args = parser.parse_args()
     project = args.project.resolve()
     source = project / "assets/game/tiles/editor/source"

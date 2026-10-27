@@ -5,6 +5,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from tools.common.paths import project_root
+
 
 CELL = 512
 COLUMNS = 4
@@ -31,7 +33,7 @@ def build(source_path: Path, destination: Path) -> None:
 
 def main() -> None:
     """Собирает runtime-атлас из путей относительно корня репозитория."""
-    root = Path(__file__).resolve().parents[1]
+    root = project_root(__file__)
     build(
         root / "assets/game/environment/village_prop_atlas.png",
         root / "assets/game/environment/village_prop_atlas_v2.png",

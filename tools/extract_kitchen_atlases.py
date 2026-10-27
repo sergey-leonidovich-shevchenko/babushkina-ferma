@@ -2,7 +2,9 @@
 from pathlib import Path
 import json
 
-ROOT = Path(__file__).resolve().parents[1]
+from tools.common.paths import project_root
+
+ROOT = project_root(__file__)
 REGIONS = ROOT / 'docs/design/kitchen-station-2026-10-13/atlas-regions.json'
 
 

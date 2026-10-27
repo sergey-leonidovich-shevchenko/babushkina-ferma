@@ -5,8 +5,10 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 
+from tools.common.paths import project_root
 
-ROOT = Path(__file__).resolve().parents[1]
+
+ROOT = project_root(__file__)
 SOURCE = ROOT / "assets/inbox/craftpix-net-668008-free-bridges-top-down-pixel-art-asset-pack/PNG_n_Tiled/Bridges.png"
 OUTPUT = ROOT / "assets/game/environment/bridges"
 PREVIEW = ROOT / "assets/generated/level_drafts/bridge_catalog_preview.png"

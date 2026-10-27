@@ -4,7 +4,9 @@ from pathlib import Path
 from PIL import Image
 from measure_hero_actions import components
 
-ROOT=Path(__file__).resolve().parents[1]
+from tools.common.paths import project_root
+
+ROOT=project_root(__file__)
 SOURCE=ROOT/"assets/game/characters/directional"
 OUT=ROOT/"docs/concepts/character-polish-2026-10-12"
 KINDS=("npc_official","npc_herbalist","companion_mila","companion_borislav","companion_luna")

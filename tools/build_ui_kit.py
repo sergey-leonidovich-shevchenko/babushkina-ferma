@@ -5,8 +5,10 @@ from pathlib import Path
 
 from PIL import Image
 
+from tools.common.paths import project_root
 
-ROOT = Path(__file__).resolve().parents[1]
+
+ROOT = project_root(__file__)
 SOURCE = ROOT / "assets/generated/ui_sources/grandmother_ui_kit_master_v1.png"
 OUTPUT = ROOT / "assets/game/ui/kit_v1"
 

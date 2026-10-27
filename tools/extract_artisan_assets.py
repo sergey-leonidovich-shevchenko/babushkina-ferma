@@ -5,7 +5,9 @@ from pathlib import Path
 
 from PIL import Image
 
-ROOT = Path(__file__).resolve().parents[1]
+from tools.common.paths import project_root
+
+ROOT = project_root(__file__)
 DESIGN = ROOT / 'docs/design/artisan-expansion-2026-10-13'
 OUTPUT = ROOT / 'assets/game/artisan'
 

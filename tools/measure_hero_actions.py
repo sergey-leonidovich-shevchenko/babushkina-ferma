@@ -3,7 +3,9 @@ import json
 from pathlib import Path
 from PIL import Image
 
-ROOT = Path(__file__).resolve().parents[1]
+from tools.common.paths import project_root
+
+ROOT = project_root(__file__)
 SOURCE = ROOT / "docs/concepts/hero-actions-2026-10-12/v2/sources"
 KINDS = ("pickaxe", "axe", "watering", "fishing", "hammer", "staff")
 

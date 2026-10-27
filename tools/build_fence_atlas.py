@@ -5,8 +5,10 @@ from pathlib import Path
 
 from PIL import Image
 
+from tools.common.paths import project_root
 
-ROOT = Path(__file__).resolve().parent.parent
+
+ROOT = project_root(__file__)
 SOURCE = ROOT / "assets/game/environment/source/buildable_fence_atlas_v1.png"
 OUTPUT = ROOT / "assets/game/environment/buildable_fence_atlas_v1.png"
 ICON_DIRECTORY = ROOT / "assets/game/items/catalog"

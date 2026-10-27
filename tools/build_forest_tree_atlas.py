@@ -8,6 +8,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from tools.common.paths import project_root
+
 
 CELL_SIZE = 256
 STAGE_COUNT = 4
@@ -89,7 +91,7 @@ def normalize_orchard(source_path: Path, destination: Path) -> None:
 def main() -> None:
     """Разрешает переносимый запуск из любой рабочей папки проекта."""
     parser = argparse.ArgumentParser()
-    parser.add_argument("--project", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--project", type=Path, default=project_root(__file__))
     args = parser.parse_args()
     root = args.project.resolve()
     source = root / "assets/generated/sprite_sources/forest_tree_growth_source_v1.png"

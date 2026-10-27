@@ -283,7 +283,7 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --moon-glade-preview
 
 ```bash
 tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/generate_ui_layout_audit.gd
-python3 tools/update_ui_visual_manifest.py
+python3 tools/run.py update_ui_visual_manifest
 ```
 
 Результат сохраняется в `docs/reports/ui_layout_audit.json`; требования и текущая очередь описаны в [UI-аудите](UI_AUDIT.md). Обновитель визуального manifest использует Pillow, сохраняет exact SHA для диагностики и устойчивый perceptual-отпечаток для CI.
@@ -464,13 +464,13 @@ CPU-запросы можно проверить отдельно инструм
 
 `tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/basement_review.gd` запускает оба basement suite вместе с прежними Workshop/Furnace/Research регрессиями. `--script res://tools/basement_capture.gd` без `--headless` снимает реальные кадры 1152×648 в отдельной пользовательской папке: вход, пустая комната, чертёж, сетка, материалы, молоток, готовые столы и четыре направления трёх уровней. Камера и renderer обычные игровые; искусственного масштабирования снимка нет.
 
-`python3 tools/extract_basement_atlases.py` воспроизводит 172 AtlasTexture из утверждённых исходных листов. До коммита запустить импорт Godot, архитектурный gate и полный `./run_tests.sh`; автоматический Git hook также проверяет результат. Готовая задача вливается в локальную `main`, публикация идёт пакетами по 10 задач согласно [правилам](BACKLOG_WORKFLOW.md).
+`python3 tools/run.py extract_basement_atlases` воспроизводит 172 AtlasTexture из утверждённых исходных листов. До коммита запустить импорт Godot, архитектурный gate и полный `./run_tests.sh`; автоматический Git hook также проверяет результат. Готовая задача вливается в локальную `main`, публикация идёт пакетами по 10 задач согласно [правилам](BACKLOG_WORKFLOW.md).
 
 ## Проверка личной кухни
 
 `tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/kitchen_review.gd` проверяет KitchenSuite вместе с Household/Workshop/Furnace/Research/Building регрессиями и всем аудитом UI. Профильный suite подключён к CraftingPipelineSuite полного runner. Он проверяет оплату, отсутствие топлива, паузу, независимые кухни, 3 уровня, сохранение на диск, отказ подделанным партиям, возврат и ранний омлет.
 
-`--script res://tools/kitchen_capture.gd` без `--headless` снимает нативные 1152×648: кучи, 4 направления каждого уровня, очередь без топлива, RU/DE 120%, рабочий огонь и заготовки. Для стенда используются отдельный userdata, фиксированный SubViewport и настоящее строительство через чертёж. `python3 tools/extract_kitchen_atlases.py` воспроизводит 24 `.tres` по измеренным регионам. Запросы image_gen и измеренные AtlasTexture-регионы хранятся в `docs/design/kitchen-station-2026-10-13`; пиксели исходников не перерисовываются при нарезке. Перед публикацией обязательны `tools/check_architecture.sh` и `./run_tests.sh`.
+`--script res://tools/kitchen_capture.gd` без `--headless` снимает нативные 1152×648: кучи, 4 направления каждого уровня, очередь без топлива, RU/DE 120%, рабочий огонь и заготовки. Для стенда используются отдельный userdata, фиксированный SubViewport и настоящее строительство через чертёж. `python3 tools/run.py extract_kitchen_atlases` воспроизводит 24 `.tres` по измеренным регионам. Запросы image_gen и измеренные AtlasTexture-регионы хранятся в `docs/design/kitchen-station-2026-10-13`; пиксели исходников не перерисовываются при нарезке. Перед публикацией обязательны `tools/check_architecture.sh` и `./run_tests.sh`.
 
 ## Проверка пасеки
 
@@ -478,7 +478,7 @@ CPU-запросы можно проверить отдельно инструм
 
 ## Проверка пакета ремёсел
 
-Нарезка без изменения RGBA: `python3 tools/extract_artisan_assets.py`. Профильный стенд: `Godot --headless --path . --script tools/artisan_review.gd`; нативные кадры: `Godot --path . --script tools/artisan_capture.gd`. Стенд создаёт отдельный каталог пользовательских данных и отключает процесс игровой модели; очереди продвигаются явно для воспроизводимых кадров. Общий quality gate остаётся обязательным.
+Нарезка без изменения RGBA: `python3 tools/run.py extract_artisan_assets`. Профильный стенд: `Godot --headless --path . --script tools/artisan_review.gd`; нативные кадры: `Godot --path . --script tools/artisan_capture.gd`. Стенд создаёт отдельный каталог пользовательских данных и отключает процесс игровой модели; очереди продвигаются явно для воспроизводимых кадров. Общий quality gate остаётся обязательным.
 
 ## Шкаф снабжения для разработки
 

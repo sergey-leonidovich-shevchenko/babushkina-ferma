@@ -5,8 +5,10 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageEnhance
 
+from tools.common.paths import project_root
 
-ROOT = Path(__file__).resolve().parents[1]
+
+ROOT = project_root(__file__)
 TERRAIN = ROOT / "assets/game/tiles/editor/terrain"
 TRANSITIONS = ROOT / "assets/game/tiles/editor/transitions"
 PREVIEW = ROOT / "assets/generated/level_drafts/editor_transition_preview_v2.png"

@@ -3,7 +3,9 @@
 from pathlib import Path
 from PIL import Image
 import shutil, json
-root=Path(__file__).resolve().parents[1]
+
+from tools.common.paths import project_root
+root=project_root(__file__)
 out=root/'assets/game/basement'; out.mkdir(parents=True,exist_ok=True)
 sources=root/'docs/design/cellar-workshop'
 cuts={
