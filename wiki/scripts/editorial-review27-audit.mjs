@@ -1,17 +1,16 @@
 import assert from 'node:assert/strict'
-import { execFileSync } from 'node:child_process'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import MarkdownIt from 'markdown-it'
 import { projectRoot } from './runtime.mjs'
 import { readPlanningCatalog } from './planning-catalog.mjs'
+import { editorialGit } from './editorial-git.mjs'
 
 const directory = 'docs/reports/creative/2026-10-27'
 const read = (path) => readFile(join(projectRoot, path), 'utf8')
 const json = async (path) => JSON.parse(await read(path))
 const plan = await json(`${directory}/plan.json`)
-const git = (...args) =>
-  execFileSync('git', args, { cwd: projectRoot, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 })
+const git = (...args) => editorialGit(projectRoot, ...args)
 const previous = (path) => JSON.parse(git('show', `${plan.base}:${path}`))
 const preserve = (oldRows, rows, key) => {
   const byId = new Map(rows.map((row) => [row[key], row]))
@@ -24,7 +23,7 @@ const oldState = previous('wiki/planning/state.json')
 preserve(oldState.ideas, state.ideas, 'id')
 assert.deepEqual(state.groups, oldState.groups)
 assert.deepEqual(state.epicGroups, oldState.epicGroups)
-assert.equal(state.revision, oldState.revision + 1)
+assert.equal(state.revision, oldState.revision + (plan.planningRevisionDelta ?? 1))
 assert.equal(state.ideas.length, oldState.ideas.length + 10)
 const ratings = await json('wiki/planning/assessments.json')
 const oldRatings = previous('wiki/planning/assessments.json')

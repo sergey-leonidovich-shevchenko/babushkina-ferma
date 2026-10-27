@@ -1,0 +1,50 @@
+[
+  {
+    "name": "scope",
+    "command": [
+      "python3",
+      "docs/reports/refactor-02/closeout/verify-scope.py"
+    ],
+    "exit": 0,
+    "at": "2026-10-27T03:41:40.848434+00:00"
+  },
+  {
+    "name": "preservation",
+    "command": [
+      "python3",
+      "docs/reports/refactor-02/closeout/review-1/preservation.py"
+    ],
+    "exit": 0,
+    "at": "2026-10-27T03:41:41.157486+00:00"
+  },
+  {
+    "name": "documentation",
+    "command": [
+      "python3",
+      "tools/run.py",
+      "quality.check_documentation"
+    ],
+    "exit": 0,
+    "at": "2026-10-27T03:41:44.908708+00:00"
+  },
+  {
+    "name": "version",
+    "command": [
+      "python3",
+      "tools/bump_version.py",
+      "--check"
+    ],
+    "exit": 0,
+    "at": "2026-10-27T03:41:44.999034+00:00"
+  },
+  {
+    "name": "backlog",
+    "command": [
+      "python3",
+      "tools/run.py",
+      "planning.project_backlog"
+    ],
+    "exit": 0,
+    "at": "2026-10-27T03:41:45.130569+00:00"
+  }
+]

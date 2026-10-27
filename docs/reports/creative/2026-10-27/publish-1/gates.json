@@ -1,0 +1,101 @@
+{
+  "candidate": {
+    "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "parent": "c5b57e1b1c2a1371db43418644d0667fbbedf850",
+    "output": "docs/reports/creative/2026-10-27/publish-1",
+    "profile": "wiki/scripts/editorial-review27-audit.mjs",
+    "wikiLog": ".godot/creative-runtime/integration28-wiki.log",
+    "label": "pr20-integration28",
+    "sourceSHA256": {
+      "TESTING.md": "fc6c0107d684070b4a09593ce84fbc52fd52a578afdd04642d459b71c87c3636",
+      "VERSION": "fe22e593e7c334f09e11034865016dcdd95d8ec61f7063f4929afe4b01c44aae",
+      "docs/backlog/README.md": "cbe596f236dab1da1bfae16dc0ac3dd08e31884008a756194280ba7b34fb84cd",
+      "docs/backlog/wiki-workspace-2026-10/README.md": "fe3a8f187ec3b63085971c7ca2f765742691f315266ba507c0a04a8b9da36753",
+      "docs/epics/ideas/README.md": "94918a8f093cbd9484cfaa78a89ca56218031ae597274a7fa29f0caa824accc0",
+      "docs/epics/ideas/idea-262/README.md": "a06e382a44e09a63577bec0b7d7d73c7a85ca255255e625207cd7df5ce631d92",
+      "docs/epics/ideas/idea-262/TASKS.md": "e68dad5a39773384a954c0c05223c2d24623cfa34bc8b3d716d1434cdd948a67",
+      "docs/epics/ideas/idea-263/README.md": "df09c223a6c7bb0826fe2656bb11740be63a75288f84060dcac51b5b066ec679",
+      "docs/epics/ideas/idea-263/TASKS.md": "1f4f29c2aca3c3215be300ef8367fd589c42da1f34d357b3763d10e961d21167",
+      "docs/epics/ideas/idea-264/README.md": "eff5131933a584e04e77667fb2c2d77d558a3fd7b9d0ddaeb3bfd53b4114aae7",
+      "docs/epics/ideas/idea-264/TASKS.md": "1b5f872a50313e4a8a92225acfa83ce11cc5091a124ceab042249c488ba4787b",
+      "docs/epics/ideas/idea-265/README.md": "fa1ce4eeffeea0f6d87e21bd7269459a6c71eb980cb3bac28ba444c696c73787",
+      "docs/epics/ideas/idea-265/TASKS.md": "36fd3eadae942abf514ab2cb3ab33a900abbb43a08900715c8601a4aea9b5615",
+      "docs/epics/ideas/idea-266/README.md": "3fe033f60df1ebb48fa41fe7f419347be22a53e788ca5f8d0daed4b78e309900",
+      "docs/epics/ideas/idea-266/TASKS.md": "9144d6723dad7e4699f89be1e8d1fecc0535e2f5a790b8394dc5edadeb59c5ce",
+      "docs/epics/ideas/idea-267/README.md": "ab5e3356e6a3d6a81eb223dcbd4c7ec7780ab2b79aac0c88ebb04c952630cbe2",
+      "docs/epics/ideas/idea-267/TASKS.md": "240c0b46458de52c7e294d4c20a02e4eb3f272196ac5d43a559f10312e09faf0",
+      "docs/epics/ideas/idea-268/README.md": "0d83473397b662d7fa4714207961262ea3d2a7270780939b499dc061e0db0496",
+      "docs/epics/ideas/idea-268/TASKS.md": "5a5f912d563e23c0668612dc8bb1a3653e1dcba7b1d996d115b782a8ac776f33",
+      "docs/epics/ideas/idea-269/README.md": "fa811495a7254f9e1a440b76438559b68798442737df977d47bd0350a0802bbd",
+      "docs/epics/ideas/idea-269/TASKS.md": "b465999f63a161ce5e04715d5b8ac7008024a4768d78e4ca57d5be9627e2746e",
+      "docs/epics/ideas/idea-270/README.md": "e9accd881a09c9bec75a16bde2930b329bda11c9ff4696852ce28e7c17cbbcb3",
+      "docs/epics/ideas/idea-270/TASKS.md": "191bfa1227e79d6d4d7d04babe8c9bd8e9d1b9434357839cc9e8aa6607fcd0b1",
+      "docs/epics/ideas/idea-271/README.md": "6a269ba0c894a3981be773db8d8875c28923746db4e63742ff7cd02f5a83678a",
+      "docs/epics/ideas/idea-271/TASKS.md": "a9b7f6f1d028c8562e0303a908a88d70473c5511b2f494f4c40af05efd316563",
+      "docs/reports/creative/2026-10-27/README.md": "73d833cec985973ee08ddb047406ecd561f49575b4a09bc1e051c696e98f50e6",
+      "docs/reports/creative/2026-10-27/browser.json": "0b04ac6f0e4a1e9341aed8856f4fb8baae5e1d70d664cad929d028bfd78070f2",
+      "docs/reports/creative/2026-10-27/full-hook.log.gz": "f364e40bc0a5493be22d0b4115d86167fee4568d866b1787dd29fc99d50be8e8",
+      "docs/reports/creative/2026-10-27/gates.json": "6de4449d08a33102f35d54eb6e24d34acc86947d479a37b91d426909f072256f",
+      "docs/reports/creative/2026-10-27/plan.json": "1f4192712eed0dac382f70d5078eba2aa47565c33b0f8c3105a475afbeecb95a",
+      "docs/reports/creative/2026-10-27/profile.json": "83f23a6adfbfe2061f239dcade81caecdf127560f5039b47b5cf6d8b89638774",
+      "docs/reports/creative/2026-10-27/published-refs.json": "d0a696b93cd47211f7f40a02a6823682742cede3b481f0a64045d512d720ce0b",
+      "docs/reports/creative/2026-10-27/wiki.log.gz": "1c883811f7fad4abbb2b488d75d6652de755f8d4a16246f359f9867a585fc1f3",
+      "project.godot": "4b8b2453b720d19626da246d2c7d94e86d92f9e2b4bb023c9bf36f929e2177da",
+      "wiki/articles/IDEA-262.md": "6cc91bb41a953494b2dce21038e0e9ffc54c10a891fde5b695aece8b397b2cac",
+      "wiki/articles/IDEA-263.md": "1be167f3eda94e6860a8566f46c93796e79c99fd86a86bfd3b8212b19715da8d",
+      "wiki/articles/IDEA-264.md": "f43322653a2999c20f21b9101764d67b7e7ada1151e01314078ab5b5da547fed",
+      "wiki/articles/IDEA-265.md": "17c6dd6a64e9f46f02f36f032fc289851fa68d37d889cb193ffb8c9289d25229",
+      "wiki/articles/IDEA-266.md": "ef0334c1478089778f80aa5a9150a37517f8fba9cab4bb0e26039d6f84a5f27e",
+      "wiki/articles/IDEA-267.md": "1114c3ca0893ef7cb6df6562ceb901c593376719f7b6c48dcd5c2c0c8208bd11",
+      "wiki/articles/IDEA-268.md": "8047bd40b854761080b04bda13db3f9dacb504baaaab9440f677b58fbac150dd",
+      "wiki/articles/IDEA-269.md": "690c483649abe4954bd99688fe0a91185b74d463f558738426db705c858663a1",
+      "wiki/articles/IDEA-270.md": "6b8e20fad623030a5b7b411abf5d3580218257a74b15a4e6ce74fe6d5fcee339",
+      "wiki/articles/IDEA-271.md": "0fd2e33da206356aeb3c862714a4dd06afd638950ca40b287e4116092bc45a2d",
+      "wiki/articles/creative-review-2026-10-27.md": "b358ad3194514af42acaea2dd8b1b9f7600fc6f16c5aa130017b4d343cf3686d",
+      "wiki/articles/idea-feature-epics.md": "fb984d48facb513b1758a15586aeda560e2d038979f3da76e7860a9cbb9a80f1",
+      "wiki/articles/index.json": "86b328f397fae7331e8483369f31df9faf899ebbf122eeb34b0293030747b88e",
+      "wiki/planning/assessments.json": "a0ef126e339a7deded6b363a9727f29cdfabe669891b405d0d19a4f153e744b2",
+      "wiki/planning/sources.json": "f4ac8f385b5e315055d210edc9b5c6f21f47584c761a0b673d1fca8c23c703b6",
+      "wiki/planning/state.json": "1005693312d3bf21bdc065add3ddc5056e42efb4ec838fb090242fa6440ac09e",
+      "wiki/scripts/editorial-git.mjs": "4a818484979295eea8550e89988eb4e52c863ded5f44c2d7f38f6c34bec73f02",
+      "wiki/scripts/editorial-review27-audit.mjs": "07065c02ba1fb47df9b9a4ede41ee72de7a124cab6e36e90891091ffcfe7af1d",
+      "wiki/tests/editorial-git.test.mjs": "58b9e9c923b51133047c2cb51c1276c475330ecd79f428939e667e73c230c555",
+      "Бабушкина ферма.app/Contents/Info.plist": "342ef9fa420cbc48936fd67e97e0a79abd02df9958e84d90082d695731effb11"
+    }
+  },
+  "metadata": "0.0.358",
+  "completedAt": "2026-10-27T19:45:33.176955+00:00",
+  "command": ".githooks/pre-commit unchanged via capture-only external wrapper",
+  "exitCode": 0,
+  "architecture": {
+    "pythonSuites": 83,
+    "cases": 1148
+  },
+  "game": [
+    [
+      "53502",
+      "0"
+    ]
+  ],
+  "redraw": [
+    [
+      "90",
+      "0"
+    ],
+    [
+      "90",
+      "0"
+    ]
+  ],
+  "wiki": {
+    "passed": 146,
+    "failed": 0
+  },
+  "rawSHA256": {
+    "full-hook": "02838f80a16515f75ad0f3372f205fc435c288e1d4f25a8ef71b09ca1a58bc41",
+    "wiki": "3e666052fdc7b212ecd04407549791c7fd33363bc05637052929059c1b4c3361"
+  },
+  "gameplayImplemented": false,
+  "futureGameplayScenariosRun": 0,
+  "audienceTested": false
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "gate": "architecture",
+    "command": [
+      "tools/check_architecture.sh"
+    ],
+    "version": "0.0.355",
+    "environment": "approved normal engine journal access; test source and assertions unchanged",
+    "started_at": "2026-10-26T23:26:48.861985+00:00",
+    "exit": 0,
+    "finished_at": "2026-10-26T23:49:12.324283+00:00"
+  },
+  {
+    "gate": "game",
+    "command": [
+      "./run_tests.sh"
+    ],
+    "version": "0.0.355",
+    "environment": "approved normal engine journal access; test source and assertions unchanged",
+    "started_at": "2026-10-26T23:49:12.325512+00:00",
+    "exit": 0,
+    "finished_at": "2026-10-26T23:55:34.587965+00:00"
+  },
+  {
+    "gate": "wiki",
+    "command": [
+      "pnpm",
+      "--dir",
+      "wiki",
+      "check"
+    ],
+    "version": "0.0.355",
+    "environment": "approved normal engine journal access; test source and assertions unchanged",
+    "started_at": "2026-10-26T23:55:34.589196+00:00",
+    "exit": 0,
+    "finished_at": "2026-10-26T23:56:27.625119+00:00"
+  }
+]

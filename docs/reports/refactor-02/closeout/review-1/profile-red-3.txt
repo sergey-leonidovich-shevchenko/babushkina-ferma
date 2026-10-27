@@ -1,0 +1,176 @@
+test_clean_candidate_and_other_cwd (__main__.ScopeGitTests.test_clean_candidate_and_other_cwd) ... FAIL
+test_clean_candidate_foreign_context (__main__.ScopeGitTests.test_clean_candidate_foreign_context) ... FAIL
+test_clean_candidate_invalid_bare_override (__main__.ScopeGitTests.test_clean_candidate_invalid_bare_override) ... FAIL
+test_old_evidence_tamper_foreign_context (__main__.ScopeGitTests.test_old_evidence_tamper_foreign_context) ... FAIL
+test_staged_change_foreign_context (__main__.ScopeGitTests.test_staged_change_foreign_context) ... FAIL
+test_staged_new_source_foreign_context (__main__.ScopeGitTests.test_staged_new_source_foreign_context) ... ERROR
+test_tracked_change_config_only (__main__.ScopeGitTests.test_tracked_change_config_only) ... FAIL
+test_tracked_change_foreign_context (__main__.ScopeGitTests.test_tracked_change_foreign_context) ... FAIL
+test_tracked_change_normal (__main__.ScopeGitTests.test_tracked_change_normal) ... FAIL
+test_untracked_change_config_only (__main__.ScopeGitTests.test_untracked_change_config_only) ... FAIL
+test_untracked_change_foreign_context (__main__.ScopeGitTests.test_untracked_change_foreign_context) ... FAIL
+test_untracked_change_normal (__main__.ScopeGitTests.test_untracked_change_normal) ... FAIL
+tearDownClass (__main__.ScopeGitTests) ... ERROR
+
+======================================================================
+ERROR: test_staged_new_source_foreign_context (__main__.ScopeGitTests.test_staged_new_source_foreign_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 198, in test_staged_new_source_foreign_context
+    self.untracked_probe(stage=True)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 141, in untracked_probe
+    self.command("add", str(NEW_FILE), cwd=self.subject)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 32, in command
+    return subprocess.check_output(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'add', 'tools/forbidden_scope_probe.py']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: tearDownClass (__main__.ScopeGitTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 221, in tearDownClass
+    assert cls.foreign_state() == cls.foreign_before
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+======================================================================
+FAIL: test_clean_candidate_and_other_cwd (__main__.ScopeGitTests.test_clean_candidate_and_other_cwd)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 172, in test_clean_candidate_and_other_cwd
+    self.run_reader("other cwd", self.clean, cwd=self.other_cwd)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 167, in run_reader
+    self.assertEqual(process.returncode, 0, stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 9dr_m4q1/candidate checkout/docs/reports/refactor-02/closeout/verify-scope.py", line 11, in <module>
+    baseline = json.loads((report / "baseline.json").read_text())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1058, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git 9dr_m4q1/unrelated cwd/docs/reports/refactor-02/closeout/baseline.json'
+
+
+======================================================================
+FAIL: test_clean_candidate_foreign_context (__main__.ScopeGitTests.test_clean_candidate_foreign_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 175, in test_clean_candidate_foreign_context
+    self.run_reader("clean foreign worktree/index/config", self.hostile())
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 163, in run_reader
+    self.assertEqual(self.foreign_state(), self.foreign_before)
+AssertionError: {'/pr[308 chars]x': 'eda9332f1f0727c5a43060aeec48f9c1c14f176e2[354 chars]9dd'} != {'/pr[308 chars]x': '6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef0[354 chars]9dd'}
+Diff is 901 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_clean_candidate_invalid_bare_override (__main__.ScopeGitTests.test_clean_candidate_invalid_bare_override)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 212, in test_clean_candidate_invalid_bare_override
+    self.run_reader("clean with invalid inherited bare config", environment)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 163, in run_reader
+    self.assertEqual(self.foreign_state(), self.foreign_before)
+AssertionError: {'/pr[308 chars]x': 'eda9332f1f0727c5a43060aeec48f9c1c14f176e2[354 chars]9dd'} != {'/pr[308 chars]x': '6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef0[354 chars]9dd'}
+Diff is 901 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_old_evidence_tamper_foreign_context (__main__.ScopeGitTests.test_old_evidence_tamper_foreign_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 216, in test_old_evidence_tamper_foreign_context
+    self.run_reader("preserved raw tamper foreign", self.hostile(), rejected=True)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 163, in run_reader
+    self.assertEqual(self.foreign_state(), self.foreign_before)
+AssertionError: {'/pr[308 chars]x': 'eda9332f1f0727c5a43060aeec48f9c1c14f176e2[354 chars]9dd'} != {'/pr[308 chars]x': '6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef0[354 chars]9dd'}
+Diff is 901 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_staged_change_foreign_context (__main__.ScopeGitTests.test_staged_change_foreign_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 187, in test_staged_change_foreign_context
+    self.run_reader("staged foreign", self.hostile(), rejected=True)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 163, in run_reader
+    self.assertEqual(self.foreign_state(), self.foreign_before)
+AssertionError: {'/pr[308 chars]x': 'eda9332f1f0727c5a43060aeec48f9c1c14f176e2[354 chars]9dd'} != {'/pr[308 chars]x': '6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef0[354 chars]9dd'}
+Diff is 901 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_tracked_change_config_only (__main__.ScopeGitTests.test_tracked_change_config_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 203, in test_tracked_change_config_only
+    self.run_reader("tracked config override", self.config_only(), rejected=True)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 163, in run_reader
+    self.assertEqual(self.foreign_state(), self.foreign_before)
+AssertionError: {'/pr[308 chars]x': 'eda9332f1f0727c5a43060aeec48f9c1c14f176e2[354 chars]9dd'} != {'/pr[308 chars]x': '6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef0[354 chars]9dd'}
+Diff is 901 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_tracked_change_foreign_context (__main__.ScopeGitTests.test_tracked_change_foreign_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 183, in test_tracked_change_foreign_context
+    self.run_reader("tracked foreign", self.hostile(), rejected=True)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 163, in run_reader
+    self.assertEqual(self.foreign_state(), self.foreign_before)
+AssertionError: {'/pr[308 chars]x': 'eda9332f1f0727c5a43060aeec48f9c1c14f176e2[354 chars]9dd'} != {'/pr[308 chars]x': '6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef0[354 chars]9dd'}
+Diff is 901 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_tracked_change_normal (__main__.ScopeGitTests.test_tracked_change_normal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 179, in test_tracked_change_normal
+    self.run_reader("tracked", self.clean, rejected=True)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 163, in run_reader
+    self.assertEqual(self.foreign_state(), self.foreign_before)
+AssertionError: {'/pr[308 chars]x': 'eda9332f1f0727c5a43060aeec48f9c1c14f176e2[354 chars]9dd'} != {'/pr[308 chars]x': '6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef0[354 chars]9dd'}
+Diff is 901 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_untracked_change_config_only (__main__.ScopeGitTests.test_untracked_change_config_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 207, in test_untracked_change_config_only
+    self.run_reader("untracked config override", self.config_only(), rejected=True)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 163, in run_reader
+    self.assertEqual(self.foreign_state(), self.foreign_before)
+AssertionError: {'/pr[308 chars]x': 'eda9332f1f0727c5a43060aeec48f9c1c14f176e2[354 chars]9dd'} != {'/pr[308 chars]x': '6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef0[354 chars]9dd'}
+Diff is 901 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_untracked_change_foreign_context (__main__.ScopeGitTests.test_untracked_change_foreign_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 195, in test_untracked_change_foreign_context
+    self.run_reader("untracked foreign", self.hostile(), rejected=True)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 163, in run_reader
+    self.assertEqual(self.foreign_state(), self.foreign_before)
+AssertionError: {'/pr[308 chars]x': 'eda9332f1f0727c5a43060aeec48f9c1c14f176e2[354 chars]9dd'} != {'/pr[308 chars]x': '6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef0[354 chars]9dd'}
+Diff is 901 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_untracked_change_normal (__main__.ScopeGitTests.test_untracked_change_normal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 191, in test_untracked_change_normal
+    self.run_reader("untracked", self.clean, rejected=True)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 163, in run_reader
+    self.assertEqual(self.foreign_state(), self.foreign_before)
+AssertionError: {'/pr[308 chars]x': 'eda9332f1f0727c5a43060aeec48f9c1c14f176e2[354 chars]9dd'} != {'/pr[308 chars]x': '6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef0[354 chars]9dd'}
+Diff is 901 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 12 tests in 68.574s
+
+FAILED (failures=11, errors=2)

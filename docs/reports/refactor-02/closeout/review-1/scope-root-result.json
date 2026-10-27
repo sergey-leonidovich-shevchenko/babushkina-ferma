@@ -1,0 +1,8 @@
+{
+  "command": [
+    "python3",
+    "docs/reports/refactor-02/closeout/verify-scope.py"
+  ],
+  "exit": 0,
+  "stderr": ""
+}

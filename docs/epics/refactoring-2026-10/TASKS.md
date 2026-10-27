@@ -55,11 +55,13 @@
 
 ## REFACTOR-02 — Разделить общую инфраструктуру и репозиторные команды tools
 
-**Статус:** in_progress · **Приоритет:** P1 · **Объём:** M · **Тип:** refactor.
+**Статус:** done · **Приоритет:** P1 · **Объём:** M · **Тип:** refactor.
 
 **Ветка:** codex/refactor-02-maintainable-layout
 
 **Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18
+
+**Дата завершения:** 2026-10-27
 
 **Результат и объём:** Пилотный перенос common/quality/planning по принятой ведомости; общее определение корня и сохранение публичных команд. Алгоритмы проверок не менять.
 
@@ -76,11 +78,11 @@
 
 **Проверка:** Пилотные команды и проверки отказов импорта/пути, затем TESTING.md и CI текущего SHA. Не требовать ещё не перенесённые QA-группы.
 
-**Подтверждения / результат:** Пилот реализуется в [PR №18](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18) на принятой main `d603de59`. Логическая подготовка 0.0.353 отделена коммитом `f6180e7c`: корень по исходнику, настоящий unittest/argv/exit, рекурсивные лимиты и адресная Git-изоляция с сохранённым alternate index. Механический этап 0.0.354 перенёс 14 quality/planning файлов и сохранил три публичных входа, их mode и import identity. [Точная карта](../../reports/refactor-02/move/migration.json), [отчёт этапа](../../reports/refactor-02/move/README.md). Старые планы/капсулы/UID и игровой код сохраняются; первый выпуск root-бюджета завершается после 03→06. Итоговый head требует своих полных проверок, Wiki, CI, независимого ревью Tech Lead и решения Team Lead. Карточка остаётся in_progress без Task-Complete; REFACTOR-03 ещё не начинается.
+**Подтверждения / результат:** Пилот принят и влит через [PR №18](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18): точный head `a1444f1c36207f7a1057cca3a70dde7763d82434`, base `d603de591082f19b1a9964eefd8f1d0671d38839`, независимое [ревью 5661046362](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18#pullrequestreview-5661046362), CI 8/8 и фактический merge `58eda69fd86f6784aa5fbdcfbec4a526b212b0f4` от 27 октября 2026. Подготовка `f6180e7c` и 14 переносов `a1444f1c` разделены; три публичных входа, их mode/import identity, алгоритмы и прежние отрицательные проверки сохранены. [Точная карта](../../reports/refactor-02/move/migration.json), [отчёт реализации](../../reports/refactor-02/move/README.md) и [запись приёмки](../../reports/refactor-02/closeout/completion.json) сохраняют все прежние результаты и отказы. Локальные проверки реализации: architecture83/1148, Game53502/0, normal/F10 по90/0, Wiki145/0; отдельно CI Game53520/0, smoke180 и шесть CPU-серий в каждом полном test-job. Корень tools — 544 исходника; прогноз полного выпуска10 при лимите30 ещё принимается в 03→06. Учётный PR требует своих проверок и независимой приёмки; до неё REFACTOR-03 не начинается. Нового допуска FPS или VMAP-003 нет.
 
 ## REFACTOR-03 — Разнести QA, обработку ассетов, сборку и ручные стенды tools по подсистемам
 
-**Статус:** blocked · **Приоритет:** P1 · **Объём:** L · **Тип:** refactor.
+**Статус:** ready · **Приоритет:** P1 · **Объём:** L · **Тип:** refactor.
 
 **Ветка:** codex/refactor-03-maintainable-layout
 

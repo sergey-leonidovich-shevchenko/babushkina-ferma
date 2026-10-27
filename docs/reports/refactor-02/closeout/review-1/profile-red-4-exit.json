@@ -1,0 +1,17 @@
+{
+  "command": [
+    "python3",
+    "docs/reports/refactor-02/closeout/review-1/test_scope_git.py",
+    "-v"
+  ],
+  "exit": 1,
+  "stage": "before production fix; actual unignored new source and per-case foreign index reset",
+  "test_source_sha256": "a76defa579172eba4f92933fb89a43fa29db514ed12bb81d1289f35bd16060e1",
+  "temporary_removed": true,
+  "false_pass_labels": [
+    "staged foreign",
+    "staged new source foreign",
+    "tracked foreign",
+    "untracked foreign"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "observed_at_host_utc": "2026-10-26T23:22:52.877669+00:00",
+  "already_available_accepted_GitHub_merge": "2026-10-27T01:02:17Z",
+  "accepted_Git_committer_date": "2026-10-27T06:02:17+05:00",
+  "cross_clock_absolute_order_not_assumed": true,
+  "host_gate_logs_preserved_without_retiming": true,
+  "canonical_date_source": "Accepted merge Git %cI, not host clock. Accepted objects and merge/review/check responses were verified before starting candidate gates."
+}

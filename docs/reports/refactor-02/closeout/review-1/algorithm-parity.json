@@ -1,0 +1,26 @@
+{
+  "old_reader_sha256": "88f9e7db690de178be439812a8469c1058115f079366e333e36e96343bc2edf3",
+  "new_reader_sha256": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113",
+  "unchanged_assignments": [
+    "report",
+    "baseline",
+    "base",
+    "source",
+    "old",
+    "new",
+    "allowed",
+    "changed",
+    "untracked",
+    "prefix",
+    "metadata",
+    "before",
+    "after"
+  ],
+  "all_top_level_scope_assertions_identical": true,
+  "cards_parser_baseline_hash_loop_runtime_guard_and_wiki_index_loop_identical": true,
+  "Git_args_cwd_unchanged_and_only_env_added": "accepted git_environment()",
+  "metadata_only_expected_target_version": "0.0.355 -> strict0.0.356",
+  "additional_change": "source-anchored shared project_root replaces cwd root",
+  "allowlist_and_numeric_budgets_weakened": false,
+  "metadata_guard_identical_except_strict_target_version": true
+}

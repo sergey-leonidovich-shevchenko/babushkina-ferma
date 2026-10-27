@@ -1,0 +1,11 @@
+{
+  "branch": "codex/refactor-02-maintainable-layout",
+  "accepted_merge": "58eda69fd86f6784aa5fbdcfbec4a526b212b0f4",
+  "deleted_head": "a1444f1c36207f7a1057cca3a70dde7763d82434",
+  "worktree_guard": "No worktree uses the branch; detached review HEAD left untouched",
+  "local_exit": 0,
+  "local_output": "Deleted branch codex/refactor-02-maintainable-layout (was a1444f1c).",
+  "remote_exit": 0,
+  "remote_output": "To https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma.git\n - [deleted]           codex/refactor-02-maintainable-layout",
+  "other_branches_or_worktrees_changed": false
+}
