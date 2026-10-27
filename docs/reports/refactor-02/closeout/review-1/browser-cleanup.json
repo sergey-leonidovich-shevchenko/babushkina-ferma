@@ -1,0 +1,11 @@
+{
+  "status_before": {
+    "app": "moon-valley-wiki",
+    "project": "REFACTOR-02-review1-QA",
+    "pid": 8703,
+    "planning": 1
+  },
+  "signal": "SIGTERM",
+  "own_pid_guard": 8703,
+  "stopped_at": "2026-10-27T03:39:45.142185+00:00"
+}

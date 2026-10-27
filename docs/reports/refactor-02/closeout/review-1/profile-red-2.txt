@@ -1,0 +1,22 @@
+setUpClass (__main__.ScopeGitTests) ... ERROR
+
+======================================================================
+ERROR: setUpClass (__main__.ScopeGitTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 95, in setUpClass
+    cls.command("add", "-u", cwd=cls.subject)
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/closeout/review-1/test_scope_git.py", line 32, in command
+    return subprocess.check_output(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'add', '-u']' died with <Signals.SIGTERM: 15>.
+
+----------------------------------------------------------------------
+Ran 0 tests in 327.102s
+
+FAILED (errors=1)

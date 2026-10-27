@@ -5,15 +5,29 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import sys
 
-root = Path.cwd()
+# Bootstrap the accepted common package from this source, even outside the repository cwd.
+anchor = Path(__file__).resolve()
+import_root = next(parent for parent in anchor.parents
+                   if (parent / "project.godot").is_file()
+                   and (parent / "VERSION").is_file()
+                   and (parent / "tools/common/git.py").is_file())
+sys.path.insert(0, str(import_root))
+
+from tools.common.git import git_environment
+from tools.common.paths import project_root
+
+root = project_root(anchor)
 report = root / "docs/reports/refactor-02/closeout"
 baseline = json.loads((report / "baseline.json").read_text())
 base = baseline["base"]
+version = "0.0.356"
 
 
 def git(*args):
-    return subprocess.check_output(["git", *args], cwd=root)
+    # cwd alone cannot override an inherited worktree, alternate index or config context.
+    return subprocess.check_output(["git", *args], cwd=root, env=git_environment())
 
 
 # Frozen reports, UID and plans are checked from the recorded byte-level snapshot.
@@ -57,7 +71,7 @@ for path in ("tools", "scripts", "tests", "assets", "scenes", "level_designs", "
 metadata = [path for path in allowed if path in ("VERSION", "project.godot") or path.endswith("Info.plist")]
 for path in metadata:
     before = git("show", base + ":" + path)
-    assert (root / path).read_bytes() == before.replace(b"0.0.354", b"0.0.355"), path
+    assert (root / path).read_bytes() == before.replace(b"0.0.354", version.encode("ascii")), path
 before = json.loads(git("show", base + ":wiki/articles/index.json"))
 after = json.loads((root / "wiki/articles/index.json").read_text())
 assert [item["id"] for item in before] == [item["id"] for item in after]
@@ -72,5 +86,5 @@ print(json.dumps({
     "base": base, "preserved": baseline["counts"], "files_verified": len(baseline["files"]),
     "changed_tasks": ["REFACTOR-02", "REFACTOR-03"], "other_cards_unchanged": 5,
     "runtime_tools_tests_planning_unchanged": True,
-    "only_wiki_index_field": "project-refactoring.summary", "version": "0.0.355",
+    "only_wiki_index_field": "project-refactoring.summary", "version": version,
 }, indent=2))

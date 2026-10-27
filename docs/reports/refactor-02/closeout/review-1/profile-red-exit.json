@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "docs/reports/refactor-02/closeout/review-1/test_scope_git.py",
+    "-v"
+  ],
+  "exit": 1,
+  "stage": "before fix; failure expected and not acceptance",
+  "temporary_removed": true,
+  "false_pass_labels": []
+}

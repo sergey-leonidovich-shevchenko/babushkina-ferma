@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "docs/reports/refactor-02/closeout/review-1/test_scope_git.py",
+    "-v"
+  ],
+  "exit": 0,
+  "test_source_sha256": "a76defa579172eba4f92933fb89a43fa29db514ed12bb81d1289f35bd16060e1",
+  "same_red_corpus": true,
+  "temporary_removed": true,
+  "source_unchanged": true,
+  "foreign_unchanged": true,
+  "probe_count": 13
+}

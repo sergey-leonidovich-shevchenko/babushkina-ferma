@@ -1,0 +1,32 @@
+{
+  "head": "d714c62157989c8a522c016962cab37136b558f7",
+  "reader_sha256": "88f9e7db690de178be439812a8469c1058115f079366e333e36e96343bc2edf3",
+  "temporary_root": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git i7nspanq",
+  "linked_git_file": true,
+  "source_before": {
+    "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+    "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+    "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+    "reader": "88f9e7db690de178be439812a8469c1058115f079366e333e36e96343bc2edf3"
+  },
+  "source_after": {
+    "config": "61e779a95af7262fefe7ca8839c558a6971090cf8b87b9ee18751432f6f4fae4",
+    "index": "6e0e88a49d529b0e113f1b253d6bcc10dd6ba1ef01d006e274ea5e96990a4461",
+    "probe": "903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4",
+    "reader": "88f9e7db690de178be439812a8469c1058115f079366e333e36e96343bc2edf3"
+  },
+  "foreign_before": {
+    "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git i7nspanq/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "e4879024bb26fb5ee9d5b048a122b9c0f5400dcff4bd5b2489e63450b6a8ac83",
+    "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git i7nspanq/foreign alternate index": "e4879024bb26fb5ee9d5b048a122b9c0f5400dcff4bd5b2489e63450b6a8ac83",
+    "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git i7nspanq/foreign config": "4a6c0cfa08b9c6186d365b6f602f969587eafd35e19ec902891b6374de49cb70",
+    "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git i7nspanq/candidate checkout/.git/config": "378739cee44d2f65ae455df8451585d8b3fb1535682a11e6856ab3f9db828f7b"
+  },
+  "foreign_after": {
+    "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git i7nspanq/candidate checkout/.git/worktrees/foreign-linked-worktree/index": "e4879024bb26fb5ee9d5b048a122b9c0f5400dcff4bd5b2489e63450b6a8ac83",
+    "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git i7nspanq/foreign alternate index": "e4879024bb26fb5ee9d5b048a122b9c0f5400dcff4bd5b2489e63450b6a8ac83",
+    "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git i7nspanq/foreign config": "4a6c0cfa08b9c6186d365b6f602f969587eafd35e19ec902891b6374de49cb70",
+    "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope git i7nspanq/candidate checkout/.git/config": "378739cee44d2f65ae455df8451585d8b3fb1535682a11e6856ab3f9db828f7b"
+  },
+  "parent_environment_unchanged": true,
+  "records": []
+}

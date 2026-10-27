@@ -1,0 +1,13 @@
+{
+  "previous_head": "d714c62157989c8a522c016962cab37136b558f7",
+  "previous_files": 66,
+  "source_exception": "docs/reports/refactor-02/closeout/verify-scope.py",
+  "old_source_exact_archive": true,
+  "other_previous_files_byte_unchanged": 65,
+  "implementation_UID_plan_files_unchanged": 1396,
+  "groups": {
+    "accepted_reports": 585,
+    "plan_json_archives": 13,
+    "uid_files": 798
+  }
+}
