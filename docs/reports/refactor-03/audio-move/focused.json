@@ -1,0 +1,36 @@
+[
+  {
+    "name": "production-provenance",
+    "command": [
+      "python3",
+      "tools/asset_report.py"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "provenance-controls",
+    "command": [
+      "python3",
+      "tools/test_asset_report.py"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "history-controls",
+    "command": [
+      "python3",
+      "tools/run.py",
+      "build.test_asset_report_history"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "documentation",
+    "command": [
+      "python3",
+      "tools/run.py",
+      "quality.check_documentation"
+    ],
+    "exit": 0
+  }
+]

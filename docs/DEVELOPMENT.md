@@ -348,7 +348,7 @@ Git hook `pre-commit` повторяет quality gate, а `post-commit` толь
 Саундтрек и сигналы генерируются без сторонних семплов:
 
 ```bash
-python3 tools/generate_audio_assets.py
+python3 tools/run.py assets.audio.generate_audio_assets
 ```
 
 После регенерации запустите тесты и вручную проверьте громкость, зацикливание и смену музыки между локациями.

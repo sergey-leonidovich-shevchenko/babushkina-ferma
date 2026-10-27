@@ -1,0 +1,851 @@
+[
+  {
+    "path": "assets/game/audio/README.md",
+    "hits": [
+      {
+        "line": 16,
+        "text": "python3 tools/generate_audio_assets.py"
+      },
+      {
+        "line": 17,
+        "text": "python3 tools/audit_audio_assets.py"
+      },
+      {
+        "line": 20,
+        "text": "Генератор разделён на партитуру `tools/audio_composer.py`, эффекты `tools/audio_sound_effects.py` и аудит `tools/audit_audio_assets.py`. Вторая команда только измеряет файлы, не изменяя аудио. Она обновляет JSON-отчёт с SHA-256 каждого файла и завершается ошибкой при нарушении контракта."
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/initial-206918ab/snapshot/hazards.json",
+    "hits": [
+      {
+        "line": 2943,
+        "text": "    \"consumer\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 2949,
+        "text": "    \"consumer\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 2955,
+        "text": "    \"consumer\": \"tools/audit_audio_assets.py\","
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/initial-206918ab/snapshot/migration-plan-copy.json",
+    "hits": [
+      {
+        "line": 319,
+        "text": "    \"tools/audio_composer.py\": {"
+      },
+      {
+        "line": 324,
+        "text": "    \"tools/audio_sound_effects.py\": {"
+      },
+      {
+        "line": 329,
+        "text": "    \"tools/audit_audio_assets.py\": {"
+      },
+      {
+        "line": 1458,
+        "text": "    \"tools/generate_audio_assets.py\": {"
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/initial-206918ab/snapshot/tool-map.json",
+    "hits": [
+      {
+        "line": 1763,
+        "text": "    \"old_path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 1873,
+        "text": "    \"old_path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 1947,
+        "text": "    \"old_path\": \"tools/audit_audio_assets.py\","
+      },
+      {
+        "line": 16288,
+        "text": "    \"old_path\": \"tools/generate_audio_assets.py\","
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/initial-206918ab/snapshot/tool-map.md",
+    "hits": [
+      {
+        "line": 166,
+        "text": "| `tools/audio_composer.py` | `tools/assets/audio/audio_composer.py` | Подготовка и аудит аудио: вход или вспомогательный модуль семейства. Оригинальная партитура фермы: нейлоновые струны, мягкое фортепиано, флейта и камерный фон. | 77 |"
+      },
+      {
+        "line": 167,
+        "text": "| `tools/audio_sound_effects.py` | `tools/assets/audio/audio_sound_effects.py` | Подготовка и аудит аудио: вход или вспомогательный модуль семейства. Мягкие предметные эффекты: дерево, земля, воздух и короткие музыкальные подтверждения. | 41 |"
+      },
+      {
+        "line": 168,
+        "text": "| `tools/audit_audio_assets.py` | `tools/assets/audio/audit_audio_assets.py` | Подготовка и аудит аудио: вход или вспомогательный модуль семейства. Проверяет экспортированные WAV: реальные отсчёты, запас пиков, RMS, DC, границы петли и спектр. | 6 |"
+      },
+      {
+        "line": 169,
+        "text": "| `tools/generate_audio_assets.py` | `tools/assets/audio/generate_audio_assets.py` | Подготовка и аудит аудио: подготовка ресурсов или эталонов. Воспроизводимо создаёт оригинальные камерные темы и мягкие эффекты фермы; требуется NumPy. | 40 |"
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/integration-1/migration-plan.json",
+    "hits": [
+      {
+        "line": 319,
+        "text": "    \"tools/audio_composer.py\": {"
+      },
+      {
+        "line": 324,
+        "text": "    \"tools/audio_sound_effects.py\": {"
+      },
+      {
+        "line": 329,
+        "text": "    \"tools/audit_audio_assets.py\": {"
+      },
+      {
+        "line": 1458,
+        "text": "    \"tools/generate_audio_assets.py\": {"
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/integration-1/snapshot/hazards.json",
+    "hits": [
+      {
+        "line": 2943,
+        "text": "    \"consumer\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 2949,
+        "text": "    \"consumer\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 2955,
+        "text": "    \"consumer\": \"tools/audit_audio_assets.py\","
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/integration-1/snapshot/migration-plan-copy.json",
+    "hits": [
+      {
+        "line": 319,
+        "text": "    \"tools/audio_composer.py\": {"
+      },
+      {
+        "line": 324,
+        "text": "    \"tools/audio_sound_effects.py\": {"
+      },
+      {
+        "line": 329,
+        "text": "    \"tools/audit_audio_assets.py\": {"
+      },
+      {
+        "line": 1458,
+        "text": "    \"tools/generate_audio_assets.py\": {"
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/integration-1/snapshot/tool-map.json",
+    "hits": [
+      {
+        "line": 1763,
+        "text": "    \"old_path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 1873,
+        "text": "    \"old_path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 1947,
+        "text": "    \"old_path\": \"tools/audit_audio_assets.py\","
+      },
+      {
+        "line": 16288,
+        "text": "    \"old_path\": \"tools/generate_audio_assets.py\","
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/integration-1/snapshot/tool-map.md",
+    "hits": [
+      {
+        "line": 166,
+        "text": "| `tools/audio_composer.py` | `tools/assets/audio/audio_composer.py` | Подготовка и аудит аудио: вход или вспомогательный модуль семейства. Оригинальная партитура фермы: нейлоновые струны, мягкое фортепиано, флейта и камерный фон. | 77 |"
+      },
+      {
+        "line": 167,
+        "text": "| `tools/audio_sound_effects.py` | `tools/assets/audio/audio_sound_effects.py` | Подготовка и аудит аудио: вход или вспомогательный модуль семейства. Мягкие предметные эффекты: дерево, земля, воздух и короткие музыкальные подтверждения. | 41 |"
+      },
+      {
+        "line": 168,
+        "text": "| `tools/audit_audio_assets.py` | `tools/assets/audio/audit_audio_assets.py` | Подготовка и аудит аудио: вход или вспомогательный модуль семейства. Проверяет экспортированные WAV: реальные отсчёты, запас пиков, RMS, DC, границы петли и спектр. | 6 |"
+      },
+      {
+        "line": 169,
+        "text": "| `tools/generate_audio_assets.py` | `tools/assets/audio/generate_audio_assets.py` | Подготовка и аудит аудио: подготовка ресурсов или эталонов. Воспроизводимо создаёт оригинальные камерные темы и мягкие эффекты фермы; требуется NumPy. | 40 |"
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/migration-plan.json",
+    "hits": [
+      {
+        "line": 319,
+        "text": "    \"tools/audio_composer.py\": {"
+      },
+      {
+        "line": 324,
+        "text": "    \"tools/audio_sound_effects.py\": {"
+      },
+      {
+        "line": 329,
+        "text": "    \"tools/audit_audio_assets.py\": {"
+      },
+      {
+        "line": 1458,
+        "text": "    \"tools/generate_audio_assets.py\": {"
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/snapshot/hazards.json",
+    "hits": [
+      {
+        "line": 2943,
+        "text": "    \"consumer\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 2949,
+        "text": "    \"consumer\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 2955,
+        "text": "    \"consumer\": \"tools/audit_audio_assets.py\","
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/snapshot/migration-plan-copy.json",
+    "hits": [
+      {
+        "line": 319,
+        "text": "    \"tools/audio_composer.py\": {"
+      },
+      {
+        "line": 324,
+        "text": "    \"tools/audio_sound_effects.py\": {"
+      },
+      {
+        "line": 329,
+        "text": "    \"tools/audit_audio_assets.py\": {"
+      },
+      {
+        "line": 1458,
+        "text": "    \"tools/generate_audio_assets.py\": {"
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/snapshot/tool-map.json",
+    "hits": [
+      {
+        "line": 1763,
+        "text": "    \"old_path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 1873,
+        "text": "    \"old_path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 1947,
+        "text": "    \"old_path\": \"tools/audit_audio_assets.py\","
+      },
+      {
+        "line": 16288,
+        "text": "    \"old_path\": \"tools/generate_audio_assets.py\","
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-01/snapshot/tool-map.md",
+    "hits": [
+      {
+        "line": 166,
+        "text": "| `tools/audio_composer.py` | `tools/assets/audio/audio_composer.py` | Подготовка и аудит аудио: вход или вспомогательный модуль семейства. Оригинальная партитура фермы: нейлоновые струны, мягкое фортепиано, флейта и камерный фон. | 77 |"
+      },
+      {
+        "line": 167,
+        "text": "| `tools/audio_sound_effects.py` | `tools/assets/audio/audio_sound_effects.py` | Подготовка и аудит аудио: вход или вспомогательный модуль семейства. Мягкие предметные эффекты: дерево, земля, воздух и короткие музыкальные подтверждения. | 41 |"
+      },
+      {
+        "line": 168,
+        "text": "| `tools/audit_audio_assets.py` | `tools/assets/audio/audit_audio_assets.py` | Подготовка и аудит аудио: вход или вспомогательный модуль семейства. Проверяет экспортированные WAV: реальные отсчёты, запас пиков, RMS, DC, границы петли и спектр. | 6 |"
+      },
+      {
+        "line": 169,
+        "text": "| `tools/generate_audio_assets.py` | `tools/assets/audio/generate_audio_assets.py` | Подготовка и аудит аудио: подготовка ресурсов или эталонов. Воспроизводимо создаёт оригинальные камерные темы и мягкие эффекты фермы; требуется NumPy. | 40 |"
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/refactor-03/baseline/migration.json",
+    "hits": [
+      {
+        "line": 60,
+        "text": "      \"owner\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 517,
+        "text": "      \"owner\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 522,
+        "text": "      \"owner\": \"tools/audit_audio_assets.py\","
+      },
+      {
+        "line": 737,
+        "text": "      \"owner\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 742,
+        "text": "      \"owner\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 747,
+        "text": "      \"owner\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 2123,
+        "text": "      \"old_path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 2133,
+        "text": "      \"old_path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 2143,
+        "text": "      \"old_path\": \"tools/audit_audio_assets.py\","
+      },
+      {
+        "line": 4273,
+        "text": "      \"old_path\": \"tools/generate_audio_assets.py\","
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/visual-overhaul/vfoliage-010/checks/inputs.json",
+    "hits": [
+      {
+        "line": 4160,
+        "text": "  \"tools/audio_composer.py\": \"d067fb5c1cb9d847602dc06be7884fa5ddeb39c1365d3f48ee1f07341325176b\","
+      },
+      {
+        "line": 4161,
+        "text": "  \"tools/audio_sound_effects.py\": \"634bc713e33610e4ce21d2a35c182427537bfc5c533d06676b8de78670501941\","
+      },
+      {
+        "line": 4162,
+        "text": "  \"tools/audit_audio_assets.py\": \"1836a33c695b0e85aaa335caa426d982da5256e38def40793ec9334fdeef52b6\","
+      },
+      {
+        "line": 4368,
+        "text": "  \"tools/generate_audio_assets.py\": \"7ee569d6c1bed1c0501afaf441fb09f29fba6c7e14c8c509afe6e07458472332\","
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/visual-overhaul/vpipeline-009/inventory.json",
+    "hits": [
+      {
+        "line": 1,
+        "text": "{\"schema_version\":1,\"base_commit\":\"1621d49502cd244c1036168f9d235561b708b33a\",\"kind\":\"potential-consumers-not-runtime-usage\",\"deletion_authorized\":false,\"files\":{\"assets/game/apiary/apiary_atlas_a.png\":{\"sha256\":\"2dda0950c056685258c23edb5037bf9f43637f9b80816e5634516842930cb989\",\"bytes\":1469547,\"consumers\":[{\"source\":\"assets/game/apiary/bees.tres\",\"kind\":\"literal\",\"scope\":\"metadata\"},{\"source\":\"assets/game/apiary/beeswax.tres\",\"kind\":\"literal\",\"scope\":\"metadata\"},{\"source\":\"assets/game/apiary/hive_1.tres\",\"kind\":\"literal\",\"scope\":\"metadata\"},{\"source\":\"assets/game/apiary/hive_2.tres\",\"kind\":\"literal\",\"scope\":\"metadata\"},{\"source\":\"assets/game/apiary/hive_3.tres\",\"kind\":\"literal\",\"scope\":\"metad"
+      }
+    ]
+  },
+  {
+    "path": "docs/reports/visual-overhaul/vpipeline-010/inventory.json",
+    "hits": [
+      {
+        "line": 88,
+        "text": "          \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 89,
+        "text": "          \"tools/audio_composer.py\","
+      },
+      {
+        "line": 90,
+        "text": "          \"tools/audio_sound_effects.py\""
+      },
+      {
+        "line": 4463,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 4467,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 4471,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 4520,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 4524,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 4528,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 4577,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 4581,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 4585,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 4634,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 4638,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 4642,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 4691,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 4695,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 4699,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 4748,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 4752,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 4756,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 4805,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 4809,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 4813,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 4862,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 4866,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 4870,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 4919,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 4923,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 4927,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 4976,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 4980,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 4984,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5033,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5037,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5041,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5090,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5094,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5098,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5147,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5151,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5155,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5204,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5208,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5212,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5261,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5265,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5269,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5318,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5322,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5326,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5375,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5379,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5383,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5432,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5436,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5440,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5489,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5493,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5497,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5546,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5550,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5554,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5603,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5607,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5611,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5660,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5664,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5668,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5717,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5721,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5725,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5774,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5778,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5782,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5831,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5835,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5839,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5888,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5892,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5896,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 5945,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 5949,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 5953,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 6002,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 6006,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 6010,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 6059,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 6063,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 6067,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 6116,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 6120,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 6124,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 6173,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 6177,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 6181,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 6230,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 6234,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 6238,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 6287,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 6291,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 6295,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      },
+      {
+        "line": 6344,
+        "text": "            \"path\": \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 6348,
+        "text": "            \"path\": \"tools/audio_composer.py\","
+      },
+      {
+        "line": 6352,
+        "text": "            \"path\": \"tools/audio_sound_effects.py\","
+      }
+    ]
+  },
+  {
+    "path": "tools/asset_provenance.json",
+    "hits": [
+      {
+        "line": 83,
+        "text": "        \"tools/generate_audio_assets.py\","
+      },
+      {
+        "line": 84,
+        "text": "        \"tools/audio_composer.py\","
+      },
+      {
+        "line": 85,
+        "text": "        \"tools/audio_sound_effects.py\""
+      },
+      {
+        "line": 1327,
+        "text": "    \"tools/generate_audio_assets.py\": {"
+      },
+      {
+        "line": 1331,
+        "text": "    \"tools/audio_composer.py\": {"
+      },
+      {
+        "line": 1335,
+        "text": "    \"tools/audio_sound_effects.py\": {"
+      }
+    ]
+  },
+  {
+    "path": "wiki/articles/tools-migration-map.md",
+    "hits": [
+      {
+        "line": 174,
+        "text": "| `tools/audio_composer.py` | `tools/assets/audio/audio_composer.py` | Подготовка и аудит аудио: вход или вспомогательный модуль семейства. Оригинальная партитура фермы: нейлоновые струны, мягкое фортепиано, флейта и камерный фон. | 77 |"
+      },
+      {
+        "line": 175,
+        "text": "| `tools/audio_sound_effects.py` | `tools/assets/audio/audio_sound_effects.py` | Подготовка и аудит аудио: вход или вспомогательный модуль семейства. Мягкие предметные эффекты: дерево, земля, воздух и короткие музыкальные подтверждения. | 41 |"
+      },
+      {
+        "line": 176,
+        "text": "| `tools/audit_audio_assets.py` | `tools/assets/audio/audit_audio_assets.py` | Подготовка и аудит аудио: вход или вспомогательный модуль семейства. Проверяет экспортированные WAV: реальные отсчёты, запас пиков, RMS, DC, границы петли и спектр. | 6 |"
+      },
+      {
+        "line": 177,
+        "text": "| `tools/generate_audio_assets.py` | `tools/assets/audio/generate_audio_assets.py` | Подготовка и аудит аудио: подготовка ресурсов или эталонов. Воспроизводимо создаёт оригинальные камерные темы и мягкие эффекты фермы; требуется NumPy. | 40 |"
+      }
+    ]
+  }
+]

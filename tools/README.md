@@ -1,6 +1,8 @@
 # Инструменты проекта
 
-REFACTOR-03 в работе на базе `d609ab4f`. Первый authoring-пакет перемещён в `tools/assets/authoring`:31 исходник и5 tracked UID;9 локальных UID сохраняют ignored-состояние. Корень tools уменьшен544→513, итоговый бюджет≤30 ещё не достигнут. Команда из любой cwd: `python3 /полный/путь/tools/run.py assets.authoring.build_forest_tree_atlas --help`. Связанные генераторы используют общий source-root и прежние аргументы. Генератор без `--help` может записывать ресурсы; проверка импорта не исполняет его main. Карта и проверки этапа находятся в `docs/reports/refactor-03/authoring-move/`.
+REFACTOR-03 в работе на базе `d609ab4f`. Первый authoring-пакет перемещён в `tools/assets/authoring`:31 исходник и5 tracked UID;9 локальных UID сохраняют ignored-состояние. Первый пакет уменьшил корень544→513; итоговый бюджет≤30 ещё не достигнут. Команда из любой cwd: `python3 /полный/путь/tools/run.py assets.authoring.build_forest_tree_atlas --help`. Связанные генераторы используют общий source-root и прежние аргументы. Генератор без `--help` может записывать ресурсы; проверка импорта не исполняет его main. Карта и проверки этапа находятся в `docs/reports/refactor-03/authoring-move/`.
+
+Четыре офлайн-аудио-инструмента теперь находятся в `tools/assets/audio`: композитор, эффекты, аудит и общий запуск. Поддерживаемая команда: `python3 tools/run.py assets.audio.generate_audio_assets` в среде с NumPy. Корень tools теперь509; функции, WAV и прежний CLI сохранены. Проверки чисел и записывающего audit выполняются только на временных копиях, результаты — в `docs/reports/refactor-03/audio-move/`.
 
 Пилот REFACTOR-02 разделяет `common` (границы запуска), `quality` (проверки репозитория) и `planning` (планы/служебный учёт). Перенесены 14 назначений принятой ведомости. QA/asset/build-переносы остаются REFACTOR-03; движок `tools/Godot.app` сохраняет прежнее место.
 

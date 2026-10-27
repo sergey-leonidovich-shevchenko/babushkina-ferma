@@ -1,0 +1,28 @@
+{
+  "profile_unchanged": true,
+  "asset_path_not_created": true,
+  "refusals": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "docs/reports/refactor-03/audio-move/profile.py",
+        "--output",
+        "docs/reports/refactor-03/audio-move/profile.json"
+      ],
+      "exit": 2,
+      "stdout": "",
+      "stderr": "usage: profile.py [-h] [--output OUTPUT]\nprofile.py: error: нужен новый JSON вне assets; прежние данные не перезаписываются\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "docs/reports/refactor-03/audio-move/profile.py",
+        "--output",
+        "assets/refactor03-audio-output-must-not-exist.json"
+      ],
+      "exit": 2,
+      "stdout": "",
+      "stderr": "usage: profile.py [-h] [--output OUTPUT]\nprofile.py: error: нужен новый JSON вне assets; прежние данные не перезаписываются\n"
+    }
+  ]
+}

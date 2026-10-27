@@ -1,0 +1,288 @@
+{
+  "stale_live_commands": 0,
+  "retained_historical_references": [
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/hazards.json",
+      "lines": [
+        2943,
+        2949,
+        2955
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/migration-plan-copy.json",
+      "lines": [
+        319,
+        324,
+        329,
+        1458
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/tool-map.json",
+      "lines": [
+        1763,
+        1873,
+        1947,
+        16288
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/initial-206918ab/snapshot/tool-map.md",
+      "lines": [
+        166,
+        167,
+        168,
+        169
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/migration-plan.json",
+      "lines": [
+        319,
+        324,
+        329,
+        1458
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/hazards.json",
+      "lines": [
+        2943,
+        2949,
+        2955
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/migration-plan-copy.json",
+      "lines": [
+        319,
+        324,
+        329,
+        1458
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/tool-map.json",
+      "lines": [
+        1763,
+        1873,
+        1947,
+        16288
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/integration-1/snapshot/tool-map.md",
+      "lines": [
+        166,
+        167,
+        168,
+        169
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/migration-plan.json",
+      "lines": [
+        319,
+        324,
+        329,
+        1458
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/hazards.json",
+      "lines": [
+        2943,
+        2949,
+        2955
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/migration-plan-copy.json",
+      "lines": [
+        319,
+        324,
+        329,
+        1458
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/tool-map.json",
+      "lines": [
+        1763,
+        1873,
+        1947,
+        16288
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-01/snapshot/tool-map.md",
+      "lines": [
+        166,
+        167,
+        168,
+        169
+      ]
+    },
+    {
+      "path": "docs/reports/refactor-03/baseline/migration.json",
+      "lines": [
+        60,
+        517,
+        522,
+        737,
+        742,
+        747,
+        2123,
+        2133,
+        2143,
+        4273
+      ]
+    },
+    {
+      "path": "docs/reports/visual-overhaul/vfoliage-010/checks/inputs.json",
+      "lines": [
+        4160,
+        4161,
+        4162,
+        4368
+      ]
+    },
+    {
+      "path": "docs/reports/visual-overhaul/vpipeline-009/inventory.json",
+      "lines": [
+        1
+      ]
+    },
+    {
+      "path": "docs/reports/visual-overhaul/vpipeline-010/inventory.json",
+      "lines": [
+        88,
+        89,
+        90,
+        4463,
+        4467,
+        4471,
+        4520,
+        4524,
+        4528,
+        4577,
+        4581,
+        4585,
+        4634,
+        4638,
+        4642,
+        4691,
+        4695,
+        4699,
+        4748,
+        4752,
+        4756,
+        4805,
+        4809,
+        4813,
+        4862,
+        4866,
+        4870,
+        4919,
+        4923,
+        4927,
+        4976,
+        4980,
+        4984,
+        5033,
+        5037,
+        5041,
+        5090,
+        5094,
+        5098,
+        5147,
+        5151,
+        5155,
+        5204,
+        5208,
+        5212,
+        5261,
+        5265,
+        5269,
+        5318,
+        5322,
+        5326,
+        5375,
+        5379,
+        5383,
+        5432,
+        5436,
+        5440,
+        5489,
+        5493,
+        5497,
+        5546,
+        5550,
+        5554,
+        5603,
+        5607,
+        5611,
+        5660,
+        5664,
+        5668,
+        5717,
+        5721,
+        5725,
+        5774,
+        5778,
+        5782,
+        5831,
+        5835,
+        5839,
+        5888,
+        5892,
+        5896,
+        5945,
+        5949,
+        5953,
+        6002,
+        6006,
+        6010,
+        6059,
+        6063,
+        6067,
+        6116,
+        6120,
+        6124,
+        6173,
+        6177,
+        6181,
+        6230,
+        6234,
+        6238,
+        6287,
+        6291,
+        6295,
+        6344,
+        6348,
+        6352
+      ]
+    },
+    {
+      "path": "tools/asset_provenance.json",
+      "lines": [
+        83,
+        84,
+        85,
+        1327,
+        1331,
+        1335
+      ]
+    },
+    {
+      "path": "wiki/articles/tools-migration-map.md",
+      "lines": [
+        174,
+        175,
+        176,
+        177
+      ]
+    }
+  ]
+}

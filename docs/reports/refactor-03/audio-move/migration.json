@@ -1,0 +1,43 @@
+{
+  "base": "5ba619a3f2ce39845b4b71eee34d267ead05201e",
+  "from_version": "0.0.359",
+  "moves": [
+    {
+      "old_path": "tools/audio_composer.py",
+      "target": "tools/assets/audio/audio_composer.py",
+      "old_sha256": "d067fb5c1cb9d847602dc06be7884fa5ddeb39c1365d3f48ee1f07341325176b",
+      "new_sha256": "b1d787d4b483cf8099945d7b16d9ecf68cacea06fd2a9e7f31d4ecfa28543f58",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/audio_sound_effects.py",
+      "target": "tools/assets/audio/audio_sound_effects.py",
+      "old_sha256": "634bc713e33610e4ce21d2a35c182427537bfc5c533d06676b8de78670501941",
+      "new_sha256": "e55e28c030ea184b8a04b38731b220c29eca7111d897a5d152a9a3142a014c8c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/audit_audio_assets.py",
+      "target": "tools/assets/audio/audit_audio_assets.py",
+      "old_sha256": "1836a33c695b0e85aaa335caa426d982da5256e38def40793ec9334fdeef52b6",
+      "new_sha256": "b1a31e64fb5b9aa9ed5a3065899652a405d9852e608d3c39e8a988d53dc1742b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/generate_audio_assets.py",
+      "target": "tools/assets/audio/generate_audio_assets.py",
+      "old_sha256": "7ee569d6c1bed1c0501afaf441fb09f29fba6c7e14c8c509afe6e07458472332",
+      "new_sha256": "e5e405e9136db38a662a3fb5a898a0c6b4261fed2bd185d82611e4ee80911673",
+      "mode": 420
+    }
+  ],
+  "new_historical_pins": 3,
+  "UID_moves": 0,
+  "algorithms_AST_preserved": true,
+  "deferred_assignment": {
+    "old_path": "tools/import_pixabay_assets.py",
+    "effective_target": "tools/assets/authoring/import_pixabay_assets.py",
+    "reason": "PIL image importer belongs to authoring; separate later asset-processing package"
+  },
+  "full_task03_accepted": false
+}

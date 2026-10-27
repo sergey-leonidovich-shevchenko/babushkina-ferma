@@ -13,10 +13,10 @@
 Offline-генератору нужен Python с NumPy 2.3.5. Игре Python и NumPy не требуются: она загружает готовые WAV.
 
 ```sh
-python3 tools/generate_audio_assets.py
-python3 tools/audit_audio_assets.py
+python3 tools/run.py assets.audio.generate_audio_assets
+python3 tools/run.py assets.audio.audit_audio_assets
 ```
 
-Генератор разделён на партитуру `tools/audio_composer.py`, эффекты `tools/audio_sound_effects.py` и аудит `tools/audit_audio_assets.py`. Вторая команда только измеряет файлы, не изменяя аудио. Она обновляет JSON-отчёт с SHA-256 каждого файла и завершается ошибкой при нарушении контракта.
+Генератор разделён на партитуру `tools/assets/audio/audio_composer.py`, эффекты `tools/assets/audio/audio_sound_effects.py` и аудит `tools/assets/audio/audit_audio_assets.py`. Вторая команда только измеряет файлы, не изменяя аудио. Она обновляет JSON-отчёт с SHA-256 каждого файла и завершается ошибкой при нарушении контракта.
 
 [Результаты, уровни громкости и маршрут проверки](../../../docs/AUDIO_REDESIGN.md).

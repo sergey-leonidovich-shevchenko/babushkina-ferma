@@ -556,3 +556,8 @@ tools/assets/authoring/*
 tools/build/*
 !tools/build/__init__.py
 !tools/build/*.py
+
+# REFACTOR-03: offline audio sources; cache remains ignored.
+!tools/assets/audio/
+tools/assets/audio/*
+!tools/assets/audio/*.py

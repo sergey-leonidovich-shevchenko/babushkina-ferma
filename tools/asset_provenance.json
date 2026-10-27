@@ -1323,6 +1323,18 @@
     "tools/build_environment_sprites.py": {
       "commit": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
       "sha256": "f23735d4d157a291db92fa955d7dea06f358fe94b05bf72ebaac6ca819650e9c"
+    },
+    "tools/generate_audio_assets.py": {
+      "commit": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "sha256": "7ee569d6c1bed1c0501afaf441fb09f29fba6c7e14c8c509afe6e07458472332"
+    },
+    "tools/audio_composer.py": {
+      "commit": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "sha256": "d067fb5c1cb9d847602dc06be7884fa5ddeb39c1365d3f48ee1f07341325176b"
+    },
+    "tools/audio_sound_effects.py": {
+      "commit": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "sha256": "634bc713e33610e4ce21d2a35c182427537bfc5c533d06676b8de78670501941"
     }
   }
 }

@@ -1,0 +1,318 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "four offline audio tools; full task in_progress",
+  "head_before": "5ba619a3f2ce39845b4b71eee34d267ead05201e",
+  "version": "0.0.360",
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.360",
+      "started_at": "2026-10-27T16:59:56.775499+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T17:19:51.488177+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.360",
+      "started_at": "2026-10-27T17:19:51.489359+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T17:26:11.930795+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.360",
+      "started_at": "2026-10-27T17:26:11.932821+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T17:27:02.977976+00:00"
+    }
+  ],
+  "architecture_suites": 84,
+  "architecture_cases": 1163,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "profile": "profile.json",
+  "actual_audio_files": 33,
+  "audio_checks": 201,
+  "protected_WAV": 36,
+  "corrupt_WAV_cases_each": 4,
+  "scope": "scope.json",
+  "previous_P2_review_and_Team_accepted": true,
+  "previous_exact_head_CI": "8/8 success",
+  "root_tracked_sources": 509,
+  "physical_moves": 4,
+  "UID_moves": 0,
+  "Task_Complete_added": false,
+  "full_task03_accepted": false,
+  "VMAP_FPS_admission": false,
+  "source_SHA256": {
+    ".gitignore": "c5b791265a61718846c023bde07e12928ec12fb8c9f8e5b2f033541fb05f1e4b",
+    "TESTING.md": "73a2f013c8ffb0d6096d0d61a1404175f8f5a5a9574fd070fbf9f8078febea72",
+    "VERSION": "b3c8a8fef736baf8deb4b3079f54e2614f84923ac06c302f75c648733ccad662",
+    "assets/game/audio/README.md": "221694fd2cbf41577ba7a504259b356693a860dff90ade71400366ca0183031f",
+    "docs/DEVELOPMENT.md": "9a01b74be434d04bdff28ee0644c0020ea28736fea2ccd75797b0e01bfebbb03",
+    "docs/epics/refactoring-2026-10/README.md": "33e06dbec2a2a615306dd51c8df614115fcd000b4605b025085b19ee000d0425",
+    "docs/epics/refactoring-2026-10/TASKS.md": "2799f4a01039d8d9342a0b4f9011a9e4a36941a4fce7df12380afa686acfb49a",
+    "project.godot": "ce47a826bd08e983a4316b989f284a41894a3958a268749dcdeb64e5c7d49b25",
+    "tools/README.md": "f2d60bc9e89d9ca37d5620748cbd71c227965494a69a65f103d5843c224ba39b",
+    "tools/asset_provenance.json": "9432152bfd9058595804a98e34629c49f27d89f897c3c3cb66588ea0d8f7831c",
+    "tools/assets/audio/__init__.py": "7d1ab928fb1807384ff49a9ceab08235eae3e7ade9ccce09a84b35e4387c288d",
+    "tools/assets/audio/audio_composer.py": "b1d787d4b483cf8099945d7b16d9ecf68cacea06fd2a9e7f31d4ecfa28543f58",
+    "tools/assets/audio/audio_sound_effects.py": "e55e28c030ea184b8a04b38731b220c29eca7111d897a5d152a9a3142a014c8c",
+    "tools/assets/audio/audit_audio_assets.py": "b1a31e64fb5b9aa9ed5a3065899652a405d9852e608d3c39e8a988d53dc1742b",
+    "tools/assets/audio/generate_audio_assets.py": "e5e405e9136db38a662a3fb5a898a0c6b4261fed2bd185d82611e4ee80911673",
+    "wiki/articles/project-refactoring.md": "7bedf4be6efd719f38d63537bb4f0780fffb8d1c46ee046188d09fa5c032f2c8",
+    "wiki/articles/visual-pilot.md": "43558ef488a142949a8f37d525550ce44c955244a09db567c4029eb08f359f5c",
+    "Бабушкина ферма.app/Contents/Info.plist": "10e1914f44dc3c5d8e9f57d1df02694d570d24b6f4439f1721755f26c5779f7c"
+  },
+  "report_files": [
+    {
+      "path": "README.md",
+      "sha256": "9c37fb200b4144369056ef9bd76df3684047b0abe98531356150acd16416241b",
+      "bytes": 6538
+    },
+    {
+      "path": "baseline/ci-359-final.json",
+      "sha256": "9b71354ab7ad7b35ac845ceeabc3912e3f7d0a1c06416b18bc3090bcb9fcc405",
+      "bytes": 3901
+    },
+    {
+      "path": "baseline/ci-359-initial.json",
+      "sha256": "78ec1b1078120722d38f8ca82731e91e5d19e92b3aeace13c966019bd7f89a80",
+      "bytes": 3892
+    },
+    {
+      "path": "baseline/p2-review.json",
+      "sha256": "c4951f0dfde62cc680776b1efe0b9d9dce7869466ee8f58124240c076a5249fb",
+      "bytes": 4756
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "72b9b095f63806c817600234133c613ae0c7cb306bb750c738db27914fda22d2",
+      "bytes": 126
+    },
+    {
+      "path": "browser-guide.json",
+      "sha256": "61b3813c1e7c7ba6968e568ec2531db6a1350b959e9fa3a0d5a1c4dfc51f245d",
+      "bytes": 21914
+    },
+    {
+      "path": "browser-guide.png",
+      "sha256": "ac924656e5ce43e530c0ae3c1dbc5efca0fe0f46978d5beb09bef2a15f8deaed",
+      "bytes": 139031
+    },
+    {
+      "path": "browser-mobile.json",
+      "sha256": "a6f27bc36fd4a2bacb5d4f797c32e34fcd64cd4ea33b07ad917652cf8854c633",
+      "bytes": 5445
+    },
+    {
+      "path": "browser-mobile.png",
+      "sha256": "61802debb8e47a60fbbf7671dc94b2df8e8876448d5c67095e444c8761dc61ac",
+      "bytes": 60718
+    },
+    {
+      "path": "browser-profile.json",
+      "sha256": "b7eb0e315008f1ab80eb5d25435f9949f8bfa87f1587a33a3847e7affaba42d5",
+      "bytes": 24517
+    },
+    {
+      "path": "browser-route.json",
+      "sha256": "914a89b732d169d5870549e5a12da06e7fa48189004ee993c51702da67baa607",
+      "bytes": 61163
+    },
+    {
+      "path": "browser-task.json",
+      "sha256": "46e3a5595331e158f23d443e288157ee0025db021164b38a623154ff4c640d0a",
+      "bytes": 9304
+    },
+    {
+      "path": "catalog-check.mjs",
+      "sha256": "a6e4c20c5a77af58cf48e0a5ea4f34351d974daf7daa416aee86642619f3f737",
+      "bytes": 1831
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "0bda010fcfbb3dcff4658804ea01387726e5c4cb5f9358a6a2ae76c0d1596d05",
+      "bytes": 253
+    },
+    {
+      "path": "focused-documentation.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "bytes": 105
+    },
+    {
+      "path": "focused-history-controls.txt",
+      "sha256": "6bcbc2ad92e502dbdea59e87873925d56ba37189bd42e4c123740ea05d622360",
+      "bytes": 110
+    },
+    {
+      "path": "focused-production-provenance.txt",
+      "sha256": "89eeea35d5e4878b7333ec57931029f6580156559e3255c08cecf59f84b75259",
+      "bytes": 122
+    },
+    {
+      "path": "focused-provenance-controls.txt",
+      "sha256": "4b855e87500830498564647ca3840ba01bef45cdfa9cb61963fe6b1e241e3ebf",
+      "bytes": 116
+    },
+    {
+      "path": "focused.json",
+      "sha256": "1cab1f3f47f5e78150ab053972a328ddba4d4a3384ff55ab79e3960eebd486ce",
+      "bytes": 577
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "50509ac68bbd48c9ec23d82da4a64a60a54125bbc54e958fd153dfe3223337b0",
+      "bytes": 12878
+    },
+    {
+      "path": "gates-01/game.txt",
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+      "bytes": 1804
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "fb5c90432e41fcc6b612a4420368aa33bd161edc9cbbfdef781168e65d492f66",
+      "bytes": 733
+    },
+    {
+      "path": "gates-01/headless/f10/engine.txt",
+      "sha256": "dc95be849042bab7d3e1332fb0963f1e6930d2146dbde6ac905c4426c99f0d56",
+      "bytes": 10983
+    },
+    {
+      "path": "gates-01/headless/f10/frames.jsonl",
+      "sha256": "a8b6dd855839bcdcd649734b2ceefec5b5d40078b00124895738ac2ef29fe664",
+      "bytes": 9092
+    },
+    {
+      "path": "gates-01/headless/f10/summary.json",
+      "sha256": "f41032c3e64c4ec15b029c9ed1a2c16ea7b9874e03d10c06befedb1f32b70d0e",
+      "bytes": 1743
+    },
+    {
+      "path": "gates-01/headless/normal/engine.txt",
+      "sha256": "22bfc18b5826299d345d71ff8298260d9e50a1acdbb5e194f7e02f12e0fb8e70",
+      "bytes": 11081
+    },
+    {
+      "path": "gates-01/headless/normal/frames.jsonl",
+      "sha256": "c65bc90771c3f1a0ac63fe787e1c341530c4c4d7768e8e73d90df7cfa5eb2713",
+      "bytes": 9187
+    },
+    {
+      "path": "gates-01/headless/normal/summary.json",
+      "sha256": "b6e27405922edffca1692a717ebccb564c505b7fbfd85424a65e5b1f478e54c6",
+      "bytes": 1746
+    },
+    {
+      "path": "gates-01/wiki.txt",
+      "sha256": "0e976e7007b1878bb74688510b7cca17a840d37c925360f725dfb9b6c7c2255f",
+      "bytes": 13823
+    },
+    {
+      "path": "inputs/asset-provenance.json",
+      "sha256": "2f7c84e37530932935ce14bdcdbbee28790cbf9d1260e0e30c4422512d166951",
+      "bytes": 97749
+    },
+    {
+      "path": "inputs/audio-readme.md.txt",
+      "sha256": "78bba155c910138ca012a28e70ec34124d2607608cd6b9f72ab1d492f4289800",
+      "bytes": 2554
+    },
+    {
+      "path": "inputs/audio_composer.py.txt",
+      "sha256": "d067fb5c1cb9d847602dc06be7884fa5ddeb39c1365d3f48ee1f07341325176b",
+      "bytes": 9629
+    },
+    {
+      "path": "inputs/audio_sound_effects.py.txt",
+      "sha256": "634bc713e33610e4ce21d2a35c182427537bfc5c533d06676b8de78670501941",
+      "bytes": 6431
+    },
+    {
+      "path": "inputs/audit_audio_assets.py.txt",
+      "sha256": "1836a33c695b0e85aaa335caa426d982da5256e38def40793ec9334fdeef52b6",
+      "bytes": 4764
+    },
+    {
+      "path": "inputs/generate_audio_assets.py.txt",
+      "sha256": "7ee569d6c1bed1c0501afaf441fb09f29fba6c7e14c8c509afe6e07458472332",
+      "bytes": 608
+    },
+    {
+      "path": "inputs/gitignore.txt",
+      "sha256": "fb204b2886e10d8361ef48fe216acceade3aba0a409e5a5feb774ff40303f0eb",
+      "bytes": 19486
+    },
+    {
+      "path": "live-reference-final.json",
+      "sha256": "c461ade4ddfa27beb4b938bf810126eef44af9ee0ed3480741cc1eb46ddb6a67",
+      "bytes": 4784
+    },
+    {
+      "path": "live-reference-scan.json",
+      "sha256": "07e21bf50ecde0cfd2617dbaa36ccf2523e769e5e1e79d06d0fb49c19355735c",
+      "bytes": 28606
+    },
+    {
+      "path": "migrate.py",
+      "sha256": "866fe69aff1d15037466dc6f22d5c1be85bfe01ef698d023fb9cd8bf88aed37b",
+      "bytes": 6108
+    },
+    {
+      "path": "migration.json",
+      "sha256": "0cbfb2cd7a0840ae3397b63099e90367b5cc924ea37919e894bbd4bd8155f07f",
+      "bytes": 1736
+    },
+    {
+      "path": "output-guards.json",
+      "sha256": "063868acf64b9ac0b135075d6d471cc02cbde34542a2c87b44c292757557eecb",
+      "bytes": 1118
+    },
+    {
+      "path": "preview/probe.py.txt",
+      "sha256": "3a33228004c9b2926a3e4feb0b8c8f0d6589b093dc98fc3d3c98b24621402ba7",
+      "bytes": 8118
+    },
+    {
+      "path": "preview/result.json",
+      "sha256": "531540fd5b94f595ee49d92dc77ec29ea40efecdcf6a9910fa102b863883b612",
+      "bytes": 13495
+    },
+    {
+      "path": "profile.json",
+      "sha256": "971b6f95dec23a84f6ca029c776ccb8a962ef034510e5f15bcac3c4e72ff1396",
+      "bytes": 22441
+    },
+    {
+      "path": "profile.py",
+      "sha256": "656e565161b197a7530c87290e59ce14190a4f7440ff26ba6f79edccf34a18d4",
+      "bytes": 9774
+    },
+    {
+      "path": "publication.json",
+      "sha256": "21f83bbd1362a8b73c2d2b0a3f5b8ec8235cab9f058d15bcd0b0ea7bc04a3385",
+      "bytes": 729
+    },
+    {
+      "path": "scope.json",
+      "sha256": "838e480394e76e2cfb2f0f55284268d0e7a52fe1267c85e78dfc66356a747e97",
+      "bytes": 1406
+    }
+  ]
+}
