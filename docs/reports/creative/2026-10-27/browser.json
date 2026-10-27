@@ -1,0 +1,99 @@
+{
+  "tool": "cua_repl",
+  "origin": "http://127.0.0.1:4188",
+  "metadata": "0.0.356",
+  "allArticles": [
+    {
+      "id": "IDEA-262",
+      "tables": 4,
+      "proposal": true,
+      "futureTestsUnrun": true
+    },
+    {
+      "id": "IDEA-263",
+      "tables": 4,
+      "proposal": true,
+      "futureTestsUnrun": true
+    },
+    {
+      "id": "IDEA-264",
+      "tables": 4,
+      "proposal": true,
+      "futureTestsUnrun": true
+    },
+    {
+      "id": "IDEA-265",
+      "tables": 4,
+      "proposal": true,
+      "futureTestsUnrun": true
+    },
+    {
+      "id": "IDEA-266",
+      "tables": 4,
+      "proposal": true,
+      "futureTestsUnrun": true
+    },
+    {
+      "id": "IDEA-267",
+      "tables": 4,
+      "proposal": true,
+      "futureTestsUnrun": true
+    },
+    {
+      "id": "IDEA-268",
+      "tables": 4,
+      "proposal": true,
+      "futureTestsUnrun": true
+    },
+    {
+      "id": "IDEA-269",
+      "tables": 4,
+      "proposal": true,
+      "futureTestsUnrun": true
+    },
+    {
+      "id": "IDEA-270",
+      "tables": 4,
+      "proposal": true,
+      "futureTestsUnrun": true
+    },
+    {
+      "id": "IDEA-271",
+      "tables": 4,
+      "proposal": true,
+      "futureTestsUnrun": true
+    }
+  ],
+  "transitions": [
+    "report→all10articles",
+    "IDEA271→own epic→task01",
+    "global search IDEA265 +Enter→1idea/1epic/4tasks",
+    "search→idea265→read article"
+  ],
+  "assessment": {
+    "idea": "IDEA-265",
+    "group": "Торговля и услуги",
+    "usefulness": 3,
+    "interest": 4,
+    "fit": 5,
+    "synergy": 4,
+    "cost": 3,
+    "risk": 3,
+    "confidence": "hypothesis",
+    "linkedEpic": "idea-265--IDEA-265"
+  },
+  "mobile": {
+    "width": 390,
+    "documentWidth": 390,
+    "height": 844,
+    "views": [
+      "idea265 detail",
+      "IDEA265 article"
+    ],
+    "finalScreenshotVisuallyInspected": true,
+    "initialResizeScreenshot": "captured during CSS sidebar transition; settled view separately inspected, not a layout failure"
+  },
+  "viewportReset": true,
+  "planningWrites": false,
+  "gameplayMeasured": false
+}
