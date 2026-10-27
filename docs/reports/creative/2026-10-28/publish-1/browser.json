@@ -1,0 +1,28 @@
+{
+  "observedAt": "2026-10-27T20:02:13.157723+00:00",
+  "method": "cua_repl actual IAB DOM/screenshot after intentional reload of newly built content",
+  "metadata": "0.0.358",
+  "task": "IDEA-REVIEW-20261028",
+  "status": "in_progress / В работе",
+  "prURLVisible": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/22",
+  "registry": {
+    "renderedRows": 10,
+    "linkedGeometryCards": 10,
+    "plannedNotImplemented": true,
+    "logical48AndDecorative24Distinguished": true
+  },
+  "spotChecks": {
+    "272SafeReturnAndDifferenceFrom198": true,
+    "277NeutralRevealAndObserverCondition": true
+  },
+  "mobile": {
+    "innerWidth": 390,
+    "documentScrollWidth": 390,
+    "visibleCard": "closed navigation drawer, title and in_progress badge readable",
+    "viewportReset": true
+  },
+  "oldCheckpointBrowser": "retained unchanged in checkpoint-1",
+  "futureGameplayScenariosRun": 0,
+  "audienceTested": false,
+  "storedPNG": false
+}
