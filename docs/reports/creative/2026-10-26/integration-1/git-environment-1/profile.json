@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "authorParent": "7851dcdd0adf901a7b5a955c6e765dc6fbf90a37",
+  "ideas": 251,
+  "assessments": 90,
+  "plans": 124,
+  "epics": 178,
+  "tasks": 2092,
+  "acceptedExistingFilesPreserved": 24799,
+  "historicalAuthorProofsChanged": 0,
+  "formatting": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+        "--"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check",
+        "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+        "--"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "gameplayImplemented": false,
+  "audienceTested": false
+}

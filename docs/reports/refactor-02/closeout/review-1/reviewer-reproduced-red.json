@@ -1,0 +1,10 @@
+{
+  "command": [
+    "python3",
+    "/private/tmp/pr19-d714-review/reproduce_scope_git_override.py",
+    "/Users/sergeyshevchenko/my farm"
+  ],
+  "exit": 0,
+  "stdout": "{\n  \"head\": \"d714c62157989c8a522c016962cab37136b558f7\",\n  \"normal_exit\": 1,\n  \"inherited_git_exit\": 0,\n  \"normal_stderr_tail\": \"Traceback (most recent call last):\\n  File \\\"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/pr19 scope negative jq3qa7ow/candidate checkout/docs/reports/refactor-02/closeout/verify-scope.py\\\", line 52, in <module>\\n    assert all(not path or path in allowed or path.startswith(prefix) for path in changed + untracked)\\nAssertionError\\n\",\n  \"inherited_stdout\": \"{\\n  \\\"base\\\": \\\"58eda69fd86f6784aa5fbdcfbec4a526b212b0f4\\\",\\n  \\\"preserved\\\": {\\n    \\\"accepted_reports\\\": 585,\\n    \\\"plan_json_archives\\\": 13,\\n    \\\"uid_files\\\": 798\\n  },\\n  \\\"files_verified\\\": 1396,\\n  \\\"changed_tasks\\\": [\\n    \\\"REFACTOR-02\\\",\\n    \\\"REFACTOR-03\\\"\\n  ],\\n  \\\"other_cards_unchanged\\\": 5,\\n  \\\"runtime_tools_tests_planning_unchanged\\\": true,\\n  \\\"only_wiki_index_field\\\": \\\"project-refactoring.summary\\\",\\n  \\\"version\\\": \\\"0.0.355\\\"\\n}\\n\",\n  \"source_unchanged\": true,\n  \"source_sha256\": \"903a740a59d4f86ae5e588a34a583c0285a2c34bccb8fcf9e74a1417b0b038c4\"\n}\n",
+  "stderr": ""
+}

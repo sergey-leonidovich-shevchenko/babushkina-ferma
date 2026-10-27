@@ -1,0 +1,659 @@
+{
+  "task": "REFACTOR-02",
+  "phase": "Accepted implementation completion accounting only",
+  "base": "58eda69fd86f6784aa5fbdcfbec4a526b212b0f4",
+  "version": "0.0.355",
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.355",
+      "environment": "approved normal engine journal access; test source and assertions unchanged",
+      "started_at": "2026-10-26T23:26:48.861985+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-26T23:49:12.324283+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.355",
+      "environment": "approved normal engine journal access; test source and assertions unchanged",
+      "started_at": "2026-10-26T23:49:12.325512+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-26T23:55:34.587965+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.355",
+      "environment": "approved normal engine journal access; test source and assertions unchanged",
+      "started_at": "2026-10-26T23:55:34.589196+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-26T23:56:27.625119+00:00"
+    }
+  ],
+  "architecture": {
+    "suites": 83,
+    "cases": 1148,
+    "exit": 0
+  },
+  "game": {
+    "passed": 53502,
+    "failed": 0,
+    "exit": 0
+  },
+  "redraw": {
+    "normal": [
+      90,
+      0
+    ],
+    "f10": [
+      90,
+      0
+    ],
+    "display": "headless"
+  },
+  "Wiki": {
+    "tests": 145,
+    "passed": 145,
+    "failed": 0,
+    "exit": 0,
+    "guide_only_recheck": {
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "reason": "Two guide-only corrections after observed README-link collision; production code and version metadata unchanged",
+      "started_at": "2026-10-27T00:01:25.509045+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T00:02:20.250706+00:00"
+    }
+  },
+  "scope": {
+    "base": "58eda69fd86f6784aa5fbdcfbec4a526b212b0f4",
+    "preserved": {
+      "accepted_reports": 585,
+      "plan_json_archives": 13,
+      "uid_files": 798
+    },
+    "files_verified": 1396,
+    "changed_tasks": [
+      "REFACTOR-02",
+      "REFACTOR-03"
+    ],
+    "other_cards_unchanged": 5,
+    "runtime_tools_tests_planning_unchanged": true,
+    "only_wiki_index_field": "project-refactoring.summary",
+    "version": "0.0.355"
+  },
+  "browser": {
+    "desktop": {
+      "active": [
+        {
+          "href": "#/development/tasks/wiki--IDEA-REVIEW-20261024",
+          "text": "IDEA-REVIEW-20261024Проработать десять самостоятельных NPC-историйДругое направление. Его статус не означает смену курса первой локации."
+        }
+      ],
+      "docWidth": 1280,
+      "history": "История выполненного\n\nЗавершённые задачи маршрута и его технического обслуживания · 83. Новые даты сверху; без подтверждённой даты — в конце. Это история работы, а не процент приёмки всей карты.\n\n27.10.2026\nДата принятия completion-коммита в main\nWIKI-003\nПоказывать текущую работу и историю завершения в обзоре первой локации\n\nОбслуживание разработки: Wiki и прозрачный учёт работы.\n\nМатериалы и подтверждения · 5\n27.10.2026\nДата принятия completion-коммита в main\nREFACTOR-01\nСоставить полную карту переносов tools и подтвердить остальные узкие места\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 5\n27.10.2026\nЯвная дата в карточке\nREFACTOR-02\nРазделить общую инфраструктуру и репозиторные команды tools\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 4\n25.10.2026\nДата принятия completion-коммита в main\nVFOLIAGE-010\nПринять видимость и бюджет травы\n\nМаршрут первой локации\n\nМатериалы и подтверждения · 15\n25.10.2026\nДата принятия completion-коммита в main\nREFACTOR-00\nСохранить эпик, исходную ведомость и приоритет пользователя\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 5\n24.10.2026\nДата принятия completion-коммита в main\nVFOLIAGE-006\nДобавить мягкое восстановление\n\nМаршрут первой локации\n\nМатериалы и подтверждения · 37\n24.10.2026\nДата принятия completion-коммита в main\nVFOLIAGE-009\nЗаморозить эффекты на игровой п",
+      "progress": [
+        {
+          "max": "",
+          "value": ""
+        }
+      ],
+      "taskHref": "#/development/tasks/refactoring--REFACTOR-02",
+      "width": 1280
+    },
+    "card": {
+      "width": 1280,
+      "docWidth": 1280,
+      "done": true,
+      "date": true,
+      "pr18": true,
+      "raw_initial_single_space_probe": {
+        "date": true,
+        "docWidth": 1280,
+        "done": false,
+        "pr18": true,
+        "width": 1280,
+        "status_verified_from_visible_epic_row": {
+          "href": "#/development/tasks/refactoring--REFACTOR-02",
+          "text": "REFACTOR-02Разделить общую инфраструктуру и репозиторные команды tools Понятная структура инструментов и модулейЗавершенаP1"
+        },
+        "initial_literal_probe_valid": false,
+        "status_verified_by_AX_and_screenshot": true
+      },
+      "final_evidence": [
+        "browser-card.png; visible AX status",
+        "browser-epic.json; actual done row",
+        "browser-mobile-card.json; whitespace-aware probe"
+      ]
+    },
+    "epic": {
+      "docWidth": 1280,
+      "tasks": [
+        {
+          "href": "#/development/tasks/refactoring--REFACTOR-01",
+          "text": "REFACTOR-01Составить полную карту переносов tools и подтвердить остальные узкие места Понятная структура инструментов и модулейЗавершенаP1"
+        },
+        {
+          "href": "#/development/tasks/refactoring--REFACTOR-02",
+          "text": "REFACTOR-02Разделить общую инфраструктуру и репозиторные команды tools Понятная структура инструментов и модулейЗавершенаP1"
+        },
+        {
+          "href": "#/development/tasks/refactoring--REFACTOR-03",
+          "text": "REFACTOR-03Разнести QA, обработку ассетов, сборку и ручные стенды tools по подсистемам Понятная структура инструментов и модулейГотова к работеP1"
+        }
+      ],
+      "width": 1280
+    },
+    "guide": {
+      "currentLauncher": true,
+      "docWidth": 1280,
+      "receipt": [
+        {
+          "href": "generated/attachments/45c69211020c4477633bbe6a76737a455c64e129f4cdf289be208e46dc08478c.json",
+          "text": "Запись приёмки"
+        }
+      ],
+      "width": 1280,
+      "wrongAccountingLinkAbsent": true
+    },
+    "receipt": {
+      "href": "generated/attachments/45c69211020c4477633bbe6a76737a455c64e129f4cdf289be208e46dc08478c.json",
+      "actuallyOpened": true,
+      "acceptedMergeVisible": true
+    },
+    "mobile": {
+      "active": [
+        "IDEA-REVIEW-20261024Проработать десять самостоятельных NPC-историйДругое направление. Его статус не означает смену курса первой локации."
+      ],
+      "docWidth": 390,
+      "history": "История выполненного\n\nЗавершённые задачи маршрута и его технического обслуживания · 83. Новые даты сверху; без подтверждённой даты — в конце. Это история работы, а не процент приёмки всей карты.\n\n27.10.2026\nДата принятия completion-коммита в main\nWIKI-003\nПоказывать текущую работу и историю завершения в обзоре первой локации\n\nОбслуживание разработки: Wiki и прозрачный учёт работы.\n\nМатериалы и подтверждения · 5\n27.10.2026\nДата принятия completion-коммита в main\nREFACTOR-01\nСоставить полную карту переносов tools и подтвердить остальные узкие места\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 5\n27.10.2026\nЯвная дата в карточке\nREFACTOR-02\nРазделить общую инфраструктуру и репозиторные команды tools\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 4\n25.10.2026\nДата принятия completion-коммита в main\nVFOLIAGE-010\nПринять видимость и бюджет травы\n\nМаршрут первой локации\n\nМатериалы и подтверждения · 15\n25.10.2026\nДата принятия completion-коммита в main\nREFACTOR-00\nСохранить эпик, исходную ведомость и приоритет пользователя\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 5\n24.10.2026\nДата принятия completion-коммита в main\nVFOLIAGE-006\nДобавить мягкое восстановление\n\n",
+      "progress": [
+        {
+          "max": "52",
+          "value": "52"
+        }
+      ],
+      "unknown": 20,
+      "width": 390,
+      "mode": "Actual viewport390x844, not physical phone"
+    },
+    "mobileCard": {
+      "date": true,
+      "docWidth": 390,
+      "done": true,
+      "pr18": true,
+      "width": 390
+    },
+    "manualRefresh": {
+      "docWidth": 390,
+      "history83": true,
+      "progress": "52",
+      "unknown": 20,
+      "width": 390
+    },
+    "viewportRestored": {
+      "docWidth": 1280,
+      "width": 1280
+    },
+    "limitations": [
+      "The initial frame DOM inspection returned undefined contentDocument; it is not counted as a completed frame acceptance. Final narrow QA used the documented actual browser viewport override.",
+      "Initial desktop progress property read returned empty strings through the read-only adapter; actual value/max attributes were52/52 in the final narrow DOM and source catalog.",
+      "Initial desktop done flag used a literal single-space string and returned false across the rendered line break. The visible card AX and screenshot say Завершена; the actual epic row and final narrow regex independently confirm done. The initial JSON is preserved unchanged."
+    ],
+    "planningMutations": 0
+  },
+  "catalog": {
+    "source_public_dist_equal": true,
+    "receipt": {
+      "attachment": "generated/attachments/45c69211020c4477633bbe6a76737a455c64e129f4cdf289be208e46dc08478c.json",
+      "sha256": "45c69211020c4477633bbe6a76737a455c64e129f4cdf289be208e46dc08478c",
+      "bytes": 6216,
+      "copies_equal": true
+    },
+    "history": 83,
+    "unknown": 20,
+    "accepted_VMAP": false
+  },
+  "cleanup": {
+    "verified_status": {
+      "app": "moon-valley-wiki",
+      "project": "REFACTOR-02-closeout-QA",
+      "pid": 56507,
+      "planning": 1
+    },
+    "owned_server_stopped": true,
+    "own_tab9_closed": true,
+    "browser_inventory_after_close": [],
+    "viewport_restored": {
+      "width": 1280,
+      "docWidth": 1280,
+      "reset_called": true
+    },
+    "QA_harness_removed": "wiki/dist/refactor02-closeout-mobile.html",
+    "harness_sha256": "39aabf35f53ebcf857df9206c3f48fc9da8f74ae1e1dac3f9cd6fdb7002439d9",
+    "foreign_servers_tabs_worktrees_changed": false
+  },
+  "accepted_implementation_evidence": "accepted-pr/reviews/ci.json and completion.json; not fresh accounting CI",
+  "publication": "Own exact-head CI and independent Tech/Team acceptance still required; no03 yet",
+  "trailer": "No previous Task-Complete in accepted main; exactly one planned in meaningful author commit, checked again after commit",
+  "commit_policy": "Full gates explicitly run before publication; --no-verify avoids duplicating those completed long precommit gates; normal postcommit retained",
+  "failures_preserved": [
+    "architecture.txt and gate-exits.json: initial sandbox engine-log failure; Game/Wiki never started",
+    "environment-retry: identical profile21/0 with approved normal engine access",
+    "date-first-observation.json: new card punctuation corrected, strict parser unchanged",
+    "browser-guide-first files: README link collision corrected, Wiki rechecked",
+    "browser.json limitations: iframe adapter read and initial literal status probe excluded from final acceptance",
+    "staging-whitespace-first.json: raw AX trailing spaces; exact payloads preserved in JSON/base64, no commit created before repair"
+  ],
+  "time_sources": "Host timestamps retained as recorded; accepted Git/GitHub times separate; see clock-observation.json",
+  "limits": {
+    "runtime_tools_tests_changed": false,
+    "full_root_budget_accepted": false,
+    "root_sources": 544,
+    "full_release_forecast": 10,
+    "limit": 30,
+    "REFACTOR_03_started": false,
+    "new_native_FPS_or_VMAP_accepted": false
+  },
+  "publication_checks": [
+    {
+      "name": "scope",
+      "command": [
+        "python3",
+        "docs/reports/refactor-02/closeout/verify-scope.py"
+      ],
+      "exit": 0,
+      "output": "scope-verified.json"
+    },
+    {
+      "name": "documentation",
+      "command": [
+        "python3",
+        "tools/run.py",
+        "quality.check_documentation"
+      ],
+      "exit": 0,
+      "output": "documentation-verified.txt"
+    },
+    {
+      "name": "version",
+      "command": [
+        "python3",
+        "tools/bump_version.py",
+        "--check"
+      ],
+      "exit": 0,
+      "output": "version-verified.txt"
+    },
+    {
+      "name": "backlog",
+      "command": [
+        "python3",
+        "tools/run.py",
+        "planning.project_backlog"
+      ],
+      "exit": 0,
+      "output": "backlog-verified.txt"
+    }
+  ],
+  "raw_files": [
+    {
+      "path": "PLAN.md",
+      "bytes": 4342,
+      "sha256": "ef61ca767d071b4adbd55789997923e088169b2c02efd329f3685d1b15b266db"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10379,
+      "sha256": "1646f4d85df9b5b9f93a8aace1afd9ef2088f74c0994027b04bc2297aeeac9b5"
+    },
+    {
+      "path": "accepted-ci.json",
+      "bytes": 3901,
+      "sha256": "ebd92fe1680e54be95411cd2ffcaa8f93b0d005e0323b7c853210d5f9174f0b6"
+    },
+    {
+      "path": "accepted-pr.json",
+      "bytes": 364,
+      "sha256": "bcdd7b1a062e5d1bcb9fdc4c28d20ef43538e16c6273581ef7ef2228fa589e70"
+    },
+    {
+      "path": "accepted-reviews.json",
+      "bytes": 10023,
+      "sha256": "fd5bf3b4d752543ca5c452636677fcc287d8346b85e103c68077aa69fb3e1319"
+    },
+    {
+      "path": "architecture.txt",
+      "bytes": 10989,
+      "sha256": "f054653c4af1d33e85ebd3406fb703b283436d3a29eab08a1d358175b4859bce"
+    },
+    {
+      "path": "backlog-final.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "backlog-verified.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "baseline.json",
+      "bytes": 385745,
+      "sha256": "7c04355ce0c70ac4bfc4ef81f958e23042157824843a203b6d11e121c338611e"
+    },
+    {
+      "path": "branch-cleanup.json",
+      "bytes": 604,
+      "sha256": "b2f40db67dd4f1f79450f3bf6b55a7d3ffe004d37ba2d7937418ed51d045ce5f"
+    },
+    {
+      "path": "browser-card.json",
+      "bytes": 89,
+      "sha256": "e05a4bb55140f79b65a1c95804fb17fe10c45e441001fe922c8efd9697f169e3"
+    },
+    {
+      "path": "browser-card.png",
+      "bytes": 77507,
+      "sha256": "db55cca4965cd648e7408364db139703b08dabbd34240cdd3e0fc858bd705f89"
+    },
+    {
+      "path": "browser-desktop.json",
+      "bytes": 3256,
+      "sha256": "53e0a9f4b99ab311cab6a7fb98fbcc94736dbdfefd3889824e3cf20d2de6a38c"
+    },
+    {
+      "path": "browser-desktop.png",
+      "bytes": 81336,
+      "sha256": "45c8d70aa112ad0b4671967a30735f7e204df7f1e7dc67c354478c19e13c3940"
+    },
+    {
+      "path": "browser-epic.json",
+      "bytes": 1045,
+      "sha256": "b7a2cc4225313ff319fd8e4230758c9fdcbe2f9fba2114d5af5f231f8eba7d75"
+    },
+    {
+      "path": "browser-guide-first-ax.json",
+      "bytes": 24411,
+      "sha256": "ffb81d67ab3f96964c47c5a0848e97ebb8a7df2afc824639c0fdcf576e3d8b00"
+    },
+    {
+      "path": "browser-guide-first.json",
+      "bytes": 422,
+      "sha256": "616dde5f138f2772c432ea8e787d6b388583468bf662a5003a0ad3591fac6d02"
+    },
+    {
+      "path": "browser-guide-first.png",
+      "bytes": 133628,
+      "sha256": "81cab417fae52d5cae0ed6b49a823b698759b34c89d5888dadce3ed37d29f9f9"
+    },
+    {
+      "path": "browser-guide.json",
+      "bytes": 289,
+      "sha256": "ed7ed8b526576d2052540fd896dbfa539c2e37b4fcbec85a3eb84718c767b389"
+    },
+    {
+      "path": "browser-guide.png",
+      "bytes": 133108,
+      "sha256": "d263b2e9228541c1f485343532dbd0b55c1e392581afac76a8c105f56be13efc"
+    },
+    {
+      "path": "browser-mobile-card.json",
+      "bytes": 86,
+      "sha256": "ef0601645e25c3da1f433d7601118b156af929b7670f585f128932c1bbd9fb34"
+    },
+    {
+      "path": "browser-mobile-card.png",
+      "bytes": 44856,
+      "sha256": "7eadd18b1687c2b1e41ee88028b469759309b0f1a0574db30e244945abc5bdf6"
+    },
+    {
+      "path": "browser-mobile.json",
+      "bytes": 2954,
+      "sha256": "fdcb87472af9608c088b5db9a4111c05b16aade050e4bd9612caefdb93d27151"
+    },
+    {
+      "path": "browser-mobile.png",
+      "bytes": 42780,
+      "sha256": "6ce0d8cee7850d83709a748d4ed9962066e2a0d31d5790d2dfa762d164e62080"
+    },
+    {
+      "path": "browser-next-ax.json",
+      "bytes": 6887,
+      "sha256": "fa70fbfee38e3fb45848505ec2a987ab871987d1504ac1e49cb2c9c5e59cc6b3"
+    },
+    {
+      "path": "browser-receipt-click.txt",
+      "bytes": 358,
+      "sha256": "3ffba2aabc5b169a008dfe1fef9cd2bc6c6fada3172cd371475d403896825558"
+    },
+    {
+      "path": "browser-receipt.txt",
+      "bytes": 6772,
+      "sha256": "40e8e4d9a1fe34df1e93356ecc82f784579d80e0ae6af9d388e3f05fe54ed76e"
+    },
+    {
+      "path": "browser-refresh.json",
+      "bytes": 96,
+      "sha256": "0e8f224203a859a5b1753c22c3b78a04db0ff9c955b0b2187e0cf4960d9a4e69"
+    },
+    {
+      "path": "browser.json",
+      "bytes": 9811,
+      "sha256": "4784091ca3ed1fd319fb08c702ab2a11e88593c80931c739ad0f709b38837a0d"
+    },
+    {
+      "path": "catalog-check.mjs",
+      "bytes": 2819,
+      "sha256": "77d82355c2f58b3dced830b12cb9ef6139dc83091675e808a0f3735447e873d5"
+    },
+    {
+      "path": "catalog.json",
+      "bytes": 15765,
+      "sha256": "65a78294979d34da108d984a656e1f8188bd94696b732fed276e0fcc50afbf07"
+    },
+    {
+      "path": "clock-observation.json",
+      "bytes": 466,
+      "sha256": "40e522e24fc3b71d4d8808104f624fbaae9173d22cb368cade65501b369b21d0"
+    },
+    {
+      "path": "completion.json",
+      "bytes": 6216,
+      "sha256": "45c69211020c4477633bbe6a76737a455c64e129f4cdf289be208e46dc08478c"
+    },
+    {
+      "path": "date-first-observation.json",
+      "bytes": 1216,
+      "sha256": "fd46eb3502cb482f85ca79be2a4174be147ffce42b384bf279a2106af729157c"
+    },
+    {
+      "path": "documentation-final.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "documentation-verified.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "environment-retry/preview.txt",
+      "bytes": 121,
+      "sha256": "ae71eeb735dbd3a1a09beafae3b06b9167601adce172a8241f91a6f41793b7cf"
+    },
+    {
+      "path": "environment-retry/result.json",
+      "bytes": 280,
+      "sha256": "46a61b4c93cf08868625a230e69326a68ad4bdc530d4751a742d5f4a86f918a9"
+    },
+    {
+      "path": "final/architecture.txt",
+      "bytes": 12764,
+      "sha256": "a21583b1ebef7aef372326a35a3d3fdf2294c3dee984e6a93df304485613141b"
+    },
+    {
+      "path": "final/game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "final/gate-exits.json",
+      "bytes": 1027,
+      "sha256": "50be7600b90871b60b0a3e151357cd62827f14544fd080556ed4aba82363458d"
+    },
+    {
+      "path": "final/headless/f10/engine.txt",
+      "bytes": 11141,
+      "sha256": "1ef845e878fc294ede97b5739644e32754a9d70473ddd0642ef8fab8598464c3"
+    },
+    {
+      "path": "final/headless/f10/frames.jsonl",
+      "bytes": 9250,
+      "sha256": "f4196a3d69ad4ceb20070395b5a611709e9b5d9e12718b64939dc26f2d1bc8c6"
+    },
+    {
+      "path": "final/headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "7ac3185ed3b88e2ee9af0caeed5665b168147cceb131ca64743ea409e5a29b86"
+    },
+    {
+      "path": "final/headless/normal/engine.txt",
+      "bytes": 11064,
+      "sha256": "1df0ac7a30339bc36826c274c24c97d2edf83d79a4857dc65aef355246ee0e6e"
+    },
+    {
+      "path": "final/headless/normal/frames.jsonl",
+      "bytes": 9170,
+      "sha256": "750764b173163a081368c40fef3fdd679779ac731dc70ea7af0f6edefd603280"
+    },
+    {
+      "path": "final/headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "15ff9a5d0332623f8c670e2f6e1f1edfddae9af67f71acbe2efc3c009da1806c"
+    },
+    {
+      "path": "final/wiki.txt",
+      "bytes": 13818,
+      "sha256": "5dd5683e0f88a7f7f3a9c35f1930f39e9ef37b5d480edcae30067176c601bc94"
+    },
+    {
+      "path": "gate-driver-first.py.txt",
+      "bytes": 1612,
+      "sha256": "47c2c1afd8c1cb2e4849f83c92072720efe52626ffc1d44b5b89c3ac6233865a"
+    },
+    {
+      "path": "gate-driver.py",
+      "bytes": 1735,
+      "sha256": "bd9774566d1ce51cdbda753506b881c2d1bd9cbe79d8d5e95d30034e88753eb3"
+    },
+    {
+      "path": "gate-exits.json",
+      "bytes": 249,
+      "sha256": "cfc4b43e1d4724ddec08e989a8081a1b8dbad42a57eab9086e2ea61f883995fc"
+    },
+    {
+      "path": "mobile-harness.html",
+      "bytes": 527,
+      "sha256": "39aabf35f53ebcf857df9206c3f48fc9da8f74ae1e1dac3f9cd6fdb7002439d9"
+    },
+    {
+      "path": "publication-checks.json",
+      "bytes": 730,
+      "sha256": "7fbb0f7cef235b6c949b31f960d47771e4c1142b8da486e0134c109cb865b62d"
+    },
+    {
+      "path": "qa-cleanup.json",
+      "bytes": 542,
+      "sha256": "d8a625ffba283a665562fc22c0a2bd6d447dc43fe26642f8ef23aa5231eb79e6"
+    },
+    {
+      "path": "qa-server.mjs",
+      "bytes": 906,
+      "sha256": "5f20c1ed5650e551e65fb8c4e8c964cefcbbd95f6b8f38d9ce0e770ecd06c336"
+    },
+    {
+      "path": "raw-storage.json",
+      "bytes": 504,
+      "sha256": "1e6426d42c2a18579e810b75e9448bef9528c03ed439fd31e5b6ee52bd578608"
+    },
+    {
+      "path": "scope-final.json",
+      "bytes": 410,
+      "sha256": "9c38916b9945591195cd60f34323183a5ad727c7540ea5659a95c01ef485b776"
+    },
+    {
+      "path": "scope-first.json",
+      "bytes": 410,
+      "sha256": "9c38916b9945591195cd60f34323183a5ad727c7540ea5659a95c01ef485b776"
+    },
+    {
+      "path": "scope-verified.json",
+      "bytes": 410,
+      "sha256": "9c38916b9945591195cd60f34323183a5ad727c7540ea5659a95c01ef485b776"
+    },
+    {
+      "path": "staging-whitespace-first.json",
+      "bytes": 8152,
+      "sha256": "2816184f9eace3ee91d623d4a1c22ff8441d1e377a47068cbd33825a516246f0"
+    },
+    {
+      "path": "verify-scope.py",
+      "bytes": 3487,
+      "sha256": "88f9e7db690de178be439812a8469c1058115f079366e333e36e96343bc2edf3"
+    },
+    {
+      "path": "version-final.txt",
+      "bytes": 30,
+      "sha256": "dfb2836489f2eefa5a0d027c3a7143cea4728500e527395cd9cab2521794f587"
+    },
+    {
+      "path": "version-verified.txt",
+      "bytes": 30,
+      "sha256": "dfb2836489f2eefa5a0d027c3a7143cea4728500e527395cd9cab2521794f587"
+    },
+    {
+      "path": "wiki-recheck.json",
+      "bytes": 317,
+      "sha256": "9294926947f32b360e2eed547f68c10774fa5fa88926cce63f0d4fbdbcac4d47"
+    },
+    {
+      "path": "wiki-recheck.txt",
+      "bytes": 13806,
+      "sha256": "0b1b28f79d48463b586f6ef71aa4a42fcaad40700fe8f0a4c9d3509638a733b1"
+    }
+  ],
+  "raw_AX_storage": {
+    "wrapped": [
+      {
+        "from": "browser-guide-first.txt",
+        "to": "browser-guide-first-ax.json",
+        "sha256": "b88f5f14aba903103fc4d6e21152fdaab4b1dcb174e2a03a6ea8925a830066c8",
+        "bytes_preserved": true
+      },
+      {
+        "from": "browser-next.txt",
+        "to": "browser-next-ax.json",
+        "sha256": "9154549882d66b0e6dda4893c570ff1e22be3d9e5b989338d7441aeb4711322e",
+        "bytes_preserved": true
+      }
+    ],
+    "accepted_old_reports_changed": 0,
+    "whitespace_rules_changed": false
+  }
+}

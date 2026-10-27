@@ -1,0 +1,34 @@
+{
+  "review_threads": [
+    {
+      "id": "PRRT_kwDOTqkhCs6wh-sj",
+      "is_resolved": false,
+      "is_outdated": false,
+      "path": "docs/reports/refactor-02/closeout/verify-scope.py",
+      "line": 16,
+      "diff_side": "RIGHT",
+      "start_line": 16,
+      "start_diff_side": null,
+      "original_line": 16,
+      "original_start_line": null,
+      "resolved_by": null,
+      "comments": [
+        {
+          "id": "PRRC_kwDOTqkhCs8AAAABBVf0dQ",
+          "database_id": 4384617589,
+          "body": "[P2] Изолируйте Git-контекст scope-проверки. `cwd=root` не отменяет унаследованные `GIT_DIR`, `GIT_WORK_TREE` и `GIT_INDEX_FILE`: byte-level часть читает `root`, а `git diff`/`ls-files` ниже могут читать другой worktree. В disposable clone текущего head комментарий в tools/common/git.py правильно даёт exit1; с Git-контекстом чистого соседнего checkout тот же helper даёт exit0 и `runtime_tools_tests_planning_unchanged=true`. В среде нескольких worktree это маскирует запрещённое изменение tools. Передавайте очищенное окружение через уже принятую общую `git_environment()` и добавьте отрицательный контроль: tracked/untracked изменение текущего checkout должно отклоняться и при наследуемых worktree/index/config overrides. Старые raw оставьте историческими, новые red/green доказательства приложите отдельно.",
+          "created_at": "2026-10-27T02:47:34Z",
+          "updated_at": "2026-10-27T02:47:34Z",
+          "author": {
+            "login": "sergey-leonidovich-shevchenko",
+            "name": "sergey-leonidovich-shevchenko",
+            "email": null,
+            "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+            "id": null
+          },
+          "viewer_did_author": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+test_clean_candidate_and_other_cwd (__main__.ScopeGitTests.test_clean_candidate_and_other_cwd) ... ok
+test_clean_candidate_foreign_context (__main__.ScopeGitTests.test_clean_candidate_foreign_context) ... ok
+test_clean_candidate_invalid_bare_override (__main__.ScopeGitTests.test_clean_candidate_invalid_bare_override) ... ok
+test_old_evidence_tamper_foreign_context (__main__.ScopeGitTests.test_old_evidence_tamper_foreign_context) ... ok
+test_staged_change_foreign_context (__main__.ScopeGitTests.test_staged_change_foreign_context) ... ok
+test_staged_new_source_foreign_context (__main__.ScopeGitTests.test_staged_new_source_foreign_context) ... ok
+test_tracked_change_config_only (__main__.ScopeGitTests.test_tracked_change_config_only) ... ok
+test_tracked_change_foreign_context (__main__.ScopeGitTests.test_tracked_change_foreign_context) ... ok
+test_tracked_change_normal (__main__.ScopeGitTests.test_tracked_change_normal) ... ok
+test_untracked_change_config_only (__main__.ScopeGitTests.test_untracked_change_config_only) ... ok
+test_untracked_change_foreign_context (__main__.ScopeGitTests.test_untracked_change_foreign_context) ... ok
+test_untracked_change_normal (__main__.ScopeGitTests.test_untracked_change_normal) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 74.302s
+
+OK

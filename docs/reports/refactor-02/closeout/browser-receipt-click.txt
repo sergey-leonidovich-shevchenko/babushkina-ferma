@@ -1,0 +1,3 @@
+Browser tab: 9, Title: "Лунная долина · Wiki", URL: "http://127.0.0.1:4192/#/guides/project-refactoring".
+There has been no change in the accessibility tree.
+The focused UI element is 54 link Description: Запись приёмки, URL: 127.0.0.1:4192/generated/attachments/45c69211020c4477633bbe6a76737a455c64e129f4cdf289be208e46dc08478c.json

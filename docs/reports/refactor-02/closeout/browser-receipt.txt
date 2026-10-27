@@ -1,0 +1,108 @@
+Browser tab: 9, Title: "127.0.0.1:4192/generated/attachments/45c69211020c4477633bbe6a76737a455c64e129f4cdf289be208e46dc08478c.json", URL: "http://127.0.0.1:4192/generated/attachments/45c69211020c4477633bbe6a76737a455c64e129f4cdf289be208e46dc08478c.json".
+1 AXWebArea 127.0.0.1:4192/generated/attachments/45c69211020c4477633bbe6a76737a455c64e129f4cdf289be208e46dc08478c.json
+	2 text {
+  "task": "REFACTOR-02",
+  "task_status": "done",
+  "implementation_PR": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18",
+  "accepted_head": "a1444f1c36207f7a1057cca3a70dde7763d82434",
+  "accepted_base": "d603de591082f19b1a9964eefd8f1d0671d38839",
+  "merged_commit": "58eda69fd86f6784aa5fbdcfbec4a526b212b0f4",
+  "merged_at": "2026-10-27T01:02:17Z",
+  "git_committer_date": "2026-10-27T06:02:17+05:00",
+  "canonical_card_date": "2026-10-27",
+  "date_source": "Calendar part of accepted implementation merge Git %cI, one explicit canonical-card field; unpublished completion trailer is not accepted history",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18#pullrequestreview-5661046362",
+  "review_graphql_id": "PRR_kwDOTqkhCs8AAAABUWy2Wg",
+  "review_submitted_at": "2026-10-27T01:00:00Z",
+  "reviewer_verdict": "APPROVED; explicit independent shared-account COMMENT",
+  "accepted_CI": {
+    "head": "a1444f1c36207f7a1057cca3a70dde7763d82434",
+    "success": 8,
+    "total": 8,
+    "runs": [
+      40425384358,
+      40425378779
+    ],
+    "test_jobs": [
+      121929701446,
+      121929682026
+    ],
+    "architecture_each": [
+      83,
+      1148
+    ],
+    "game_each": [
+      53520,
+      0
+    ],
+    "redraw_normal_F10_each": [
+      90,
+      0
+    ],
+    "smoke_frames_each": 180,
+    "passing_headless_CPU_series_each": 6,
+    "wiki_each": [
+      145,
+      0
+    ],
+    "source": "Accepted implementation CI; full logs independently read in review5661046362, not fresh closeout results"
+  },
+  "accepted_local": {
+    "architecture": [
+      83,
+      1148
+    ],
+    "game": [
+      53502,
+      0
+    ],
+    "redraw_each": [
+      90,
+      0
+    ],
+    "wiki": [
+      145,
+      0
+    ]
+  },
+  "previous_card": "## REFACTOR-02 — Разделить общую инфраструктуру и репозиторные команды tools\n\n**Статус:** in_progress · **Приоритет:** P1 · **Объём:** M · **Тип:** refactor.\n\n**Ветка:** codex/refactor-02-maintainable-layout\n\n**Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18\n\n**Результат и объём:** Пилотный перенос common/quality/planning по принятой ведомости; общее определение корня и сохранение публичных команд. Алгоритмы проверок не менять.\n\n**Внутренние блокеры:** REFACTOR-01.\n\n**Условия запуска:** Зависимости приняты и done; актуальная main и принятая карта путей. VMAP-003 не является блокером заказанного технического первого выпуска.\n\n**Приёмка:**\n\n- Команды пилотного пакета работают из корня, другой cwd, worktree с пробелами и чистого CI; импорты не зависят от старого parents[1].\n- Hooks/Actions/run_tests/документация вызывают принятые пути; разрешённые wrappers перечислены и не дублируют реализацию.\n- Число реально запущенных проверок и отрицательные сценарии сохранены; новое расположение читается рекурсивными сканерами.\n- Старые планы/капсулы/SHA и runtime побайтно прежние; механические перемещения отделены от логических изменений.\n\n**Проверка:** Пилотные команды и проверки отказов импорта/пути, затем TESTING.md и CI текущего SHA. Не требовать ещё не перенесённые QA-группы.\n\n**Подтверждения / результат:** Пилот реализуется в [PR №18](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18) на принятой main `d603de59`. Логическая подготовка 0.0.353 отделена коммитом `f6180e7c`: корень по исходнику, настоящий unittest/argv/exit, рекурсивные лимиты и адресная Git-изоляция с сохранённым alternate index. Механический этап 0.0.354 перенёс 14 quality/planning файлов и сохранил три публичных входа, их mode и import identity. [Точная карта](../../reports/refactor-02/move/migration.json), [отчёт этапа](../../reports/refactor-02/move/README.md). Старые планы/капсулы/UID и игровой код сохраняются; первый выпуск root-бюджета завершается после 03→06. Итоговый head требует своих полных проверок, Wiki, CI, независимого ревью Tech Lead и решения Team Lead. Карточка остаётся in_progress без Task-Complete; REFACTOR-03 ещё не начинается.\n",
+  "closeout_branch": "codex/refactor-02-closeout",
+  "closeout_base": "58eda69fd86f6784aa5fbdcfbec4a526b212b0f4",
+  "closeout_version": "0.0.355",
+  "changed_task_statuses": {
+    "REFACTOR-02": [
+      "in_progress",
+      "done"
+    ],
+    "REFACTOR-03": [
+      "blocked",
+      "ready"
+    ]
+  },
+  "limits": {
+    "pilot_files_moved_in_implementation": 14,
+    "root_sources_current": 544,
+    "full_release_forecast": 10,
+    "full_release_budget": 30,
+    "root_budget_accepted": false,
+    "REFACTOR_03_started": false,
+    "VMAP_003_accepted": false,
+    "new_native_FPS_accepted": false
+  },
+  "preservation": {
+    "accepted_reports": 585,
+    "plan_json_archives": 13,
+    "uid_files": 798
+  },
+  "publication_gate": "Own exact-head CI, independent Tech Lead review and Team Lead decision before closeout merge; implementation acceptance is separate",
+  "next_queue": [
+    "REFACTOR-03 after closeout acceptance",
+    "REFACTOR-06",
+    "first overworld route"
+  ]
+}
+
+	3 container
+		4 checkbox 0
+
+The focused UI element is 1 AXWebArea 127.0.0.1:4192/generated/attachments/45c69211020c4477633bbe6a76737a455c64e129f4cdf289be208e46dc08478c.json

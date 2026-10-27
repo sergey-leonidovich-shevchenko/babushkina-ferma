@@ -1,15 +1,19 @@
 import assert from 'node:assert/strict'
-import { execFileSync } from 'node:child_process'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { projectRoot } from './runtime.mjs'
 import { readPlanningCatalog } from './planning-catalog.mjs'
+import { editorialGit } from './editorial-git.mjs'
 
 const directory = 'docs/reports/creative/2026-10-26/integration-1'
 const read = (path) => readFile(join(projectRoot, path), 'utf8')
-const plan = JSON.parse(await read(`${directory}/plan.json`))
-const git = (...args) =>
-  execFileSync('git', args, { cwd: projectRoot, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 })
+let plan = JSON.parse(await read(`${directory}/plan.json`))
+try {
+  plan = { ...plan, ...JSON.parse(await read(`${directory}/git-environment-1/current-main.json`)) }
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error
+}
+const git = (...args) => editorialGit(projectRoot, ...args)
 const previous = (base, path) => JSON.parse(git('show', `${base}:${path}`))
 const rowsPreserved = (oldRows, rows, key) => {
   const byId = new Map(rows.map((row) => [row[key], row]))

@@ -1,0 +1,76 @@
+{
+  "task": "REFACTOR-02",
+  "PR": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/19",
+  "rejected_head": "d714c62157989c8a522c016962cab37136b558f7",
+  "accepted_base": "58eda69fd86f6784aa5fbdcfbec4a526b212b0f4",
+  "review_thread": "PRRT_kwDOTqkhCs6wh-sj",
+  "fix_version": "0.0.356",
+  "scope_fix": {
+    "all_Git_calls_use_accepted_git_environment": true,
+    "source_root_uses_common_project_root": true,
+    "allowed_paths_and_SHA_guards_unchanged": true,
+    "metadata_expected_version_only": "0.0.355 -> 0.0.356",
+    "reader_sha256": "37671ee4fa62ea6939c1a224349e41d96cea789db0e9e798d82644aef21bc113"
+  },
+  "red": {
+    "real_cases": 12,
+    "false_pass_labels": [
+      "staged foreign",
+      "staged new source foreign",
+      "tracked foreign",
+      "untracked foreign"
+    ],
+    "fixture_removed": true
+  },
+  "green": {
+    "python311": {
+      "command": [
+        "python3",
+        "docs/reports/refactor-02/closeout/review-1/test_scope_git.py",
+        "-v"
+      ],
+      "exit": 0,
+      "test_source_sha256": "a76defa579172eba4f92933fb89a43fa29db514ed12bb81d1289f35bd16060e1",
+      "same_red_corpus": true,
+      "temporary_removed": true,
+      "source_unchanged": true,
+      "foreign_unchanged": true,
+      "probe_count": 13
+    },
+    "python39": {
+      "command": [
+        "/usr/bin/python3",
+        "docs/reports/refactor-02/closeout/review-1/test_scope_git.py",
+        "-v"
+      ],
+      "exit": 0,
+      "test_source_sha256": "a76defa579172eba4f92933fb89a43fa29db514ed12bb81d1289f35bd16060e1",
+      "same_red_corpus": true,
+      "temporary_removed": true,
+      "source_unchanged": true,
+      "foreign_unchanged": true,
+      "probe_count": 13
+    },
+    "cases_each": 12,
+    "actual_reader_runs_each": 13,
+    "same_test_corpus_sha256": "a76defa579172eba4f92933fb89a43fa29db514ed12bb81d1289f35bd16060e1"
+  },
+  "preservation": {
+    "previous_packet_files": 66,
+    "old_source_exact_archive": "scope-before.py.txt",
+    "other_previous_files_byte_unchanged": 65,
+    "accepted_implementation_reports": 585,
+    "UID": 798,
+    "plan_archives": 13
+  },
+  "publication_gate": "Fresh full gates are recorded separately in review-1/checks.json; own exact-head CI and independent Tech/Team acceptance required before merge or03",
+  "Task_Complete_policy": "Existing single d714 trailer is retained; review fix must not add another",
+  "root_budget": {
+    "current": 544,
+    "forecast": 10,
+    "limit": 30,
+    "full_acceptance": false
+  },
+  "runtime_tools_tests_planning_changes": false,
+  "VMAP_or_FPS_admission": false
+}

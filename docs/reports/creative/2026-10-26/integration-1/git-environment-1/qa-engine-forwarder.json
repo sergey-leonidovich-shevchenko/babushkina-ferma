@@ -1,0 +1,7 @@
+{
+  "sha256": "e7c88aad4eff83eb3c0416cd0c9caf9e06d2c961a5d2a87f3ce5109baadd51b9",
+  "scope": "local validation only; not installed or used by CI",
+  "engine": "installed Godot4.7.1 a13da4feb; argv unchanged",
+  "serializedScript": "res://tests/test_game.gd",
+  "otherInvocations": "exec installed Godot with same PID"
+}

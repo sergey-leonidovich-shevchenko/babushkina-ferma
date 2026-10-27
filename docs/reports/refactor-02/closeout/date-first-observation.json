@@ -1,0 +1,32 @@
+{
+  "history": 83,
+  "unknown": 21,
+  "task": "refactoring--REFACTOR-02",
+  "completion": {
+    "date": null,
+    "basis": "Дата не указана",
+    "evidence": [
+      {
+        "label": "PR #18",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18"
+      },
+      {
+        "label": "PR #18",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18#pullrequestreview-5661046362"
+      },
+      {
+        "label": "Точная карта",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/58eda69fd86f6784aa5fbdcfbec4a526b212b0f4/docs/reports/refactor-02/move/migration.json"
+      },
+      {
+        "label": "отчёт реализации",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/58eda69fd86f6784aa5fbdcfbec4a526b212b0f4/docs/reports/refactor-02/move/README.md"
+      }
+    ]
+  },
+  "section": {
+    "title": "Дата завершения",
+    "text": "2026-10-27."
+  },
+  "reason": "Trailing punctuation in the newly authored canonical date field; rejected as a strict date. Observation preserved before removing only that punctuation."
+}

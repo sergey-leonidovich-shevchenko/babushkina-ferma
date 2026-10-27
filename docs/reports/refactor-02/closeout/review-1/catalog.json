@@ -1,0 +1,42 @@
+{
+  "version": "0.0.356",
+  "source_public_dist_equal": true,
+  "history": 83,
+  "unknown": 20,
+  "accepted_VMAP": false,
+  "active": [
+    "wiki--IDEA-REVIEW-20261024"
+  ],
+  "task": {
+    "status": "done",
+    "completion": {
+      "date": "2026-10-27",
+      "basis": "Явная дата в карточке",
+      "evidence": [
+        {
+          "label": "PR #18",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18"
+        },
+        {
+          "label": "PR #18",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/18#pullrequestreview-5661046362"
+        },
+        {
+          "label": "Точная карта",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/58eda69fd86f6784aa5fbdcfbec4a526b212b0f4/docs/reports/refactor-02/move/migration.json"
+        },
+        {
+          "label": "отчёт реализации",
+          "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/58eda69fd86f6784aa5fbdcfbec4a526b212b0f4/docs/reports/refactor-02/move/README.md"
+        }
+      ]
+    }
+  },
+  "next_status": "ready",
+  "receipt": {
+    "attachment": "generated/attachments/632b40793369fcb3904a82fcee3b6e61781db86713eb368f27fd23ec00ed1872.json",
+    "sha256": "632b40793369fcb3904a82fcee3b6e61781db86713eb368f27fd23ec00ed1872",
+    "bytes": 2591,
+    "copies_equal": true
+  }
+}

@@ -1,0 +1,235 @@
+"""Exercise the real scope reader in disposable linked worktrees, not mocked Git calls."""
+
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import signal
+import subprocess
+import sys
+import tempfile
+import unittest
+
+
+ROOT = next(parent for parent in Path(__file__).resolve().parents
+            if (parent / "project.godot").is_file() and (parent / "tools").is_dir())
+READER = Path("docs/reports/refactor-02/closeout/verify-scope.py")
+PROBE = Path("tools/common/git.py")
+NEW_FILE = Path("tools/forbidden_scope_probe.py")
+EVIDENCE = Path("docs/reports/wiki-003/closeout/completion.json")
+
+
+def digest(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+class ScopeGitTests(unittest.TestCase):
+    """Foreign Git overrides must neither hide local edits nor reject a clean candidate."""
+
+    @classmethod
+    def command(cls, *args, cwd=None):
+        return subprocess.check_output(
+            ["git", *args], cwd=cwd or ROOT, env=cls.clean, stderr=subprocess.PIPE,
+        ).decode().strip()
+
+    @classmethod
+    def source_state(cls):
+        return {
+            "config": digest(cls.source_config), "index": digest(cls.source_index),
+            "probe": digest(ROOT / PROBE), "reader": digest(ROOT / READER),
+        }
+
+    @classmethod
+    def foreign_state(cls):
+        return {str(path): digest(path) for path in (
+            cls.foreign_index, cls.alternate, cls.config, cls.subject / ".git/config",
+        )}
+
+    @classmethod
+    def populate(cls, destination):
+        # All large inputs are read-only hard links; every deliberately edited file is a copy.
+        for name in cls.names:
+            source, target = ROOT / name, destination / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if source.is_symlink():
+                target.symlink_to(os.readlink(source))
+            elif Path(name) in (PROBE, EVIDENCE):
+                shutil.copy2(source, target)
+            else:
+                os.link(source, target)
+
+    @classmethod
+    def setUpClass(cls):
+        cls.parent_environment = dict(os.environ)
+        cls.clean = {key: value for key, value in os.environ.items() if not key.startswith("GIT_")}
+        cls.clean["PYTHONDONTWRITEBYTECODE"] = "1"
+        cls.head = cls.command("rev-parse", "HEAD")
+        cls.source_config = Path(cls.command("rev-parse", "--git-path", "config"))
+        cls.source_index = Path(cls.command("rev-parse", "--git-path", "index"))
+        if not cls.source_config.is_absolute():
+            cls.source_config = ROOT / cls.source_config
+        if not cls.source_index.is_absolute():
+            cls.source_index = ROOT / cls.source_index
+        cls.before = cls.source_state()
+        cls.temporary = tempfile.TemporaryDirectory(prefix="pr19 scope git ")
+        cls.addClassCleanup(cls.temporary.cleanup)
+        cls.directory = Path(cls.temporary.name)
+        cls.subject = cls.directory / "candidate checkout"
+        cls.foreign = cls.directory / "foreign linked worktree"
+        cls.other_cwd = cls.directory / "unrelated cwd"
+        cls.other_cwd.mkdir()
+        cls.command("-c", "gc.auto=0", "clone", "-q", "--shared", "--no-checkout",
+                    str(ROOT), str(cls.subject))
+        cls.command("read-tree", cls.head, cwd=cls.subject)
+        cls.names = list(filter(None, subprocess.check_output(
+            ["git", "ls-files", "-z"], cwd=ROOT, env=cls.clean,
+        ).decode().split("\0")))
+        cls.populate(cls.subject)
+        cls.command("worktree", "add", "--detach", "--no-checkout", str(cls.foreign),
+                    cls.head, cwd=cls.subject)
+        cls.command("read-tree", cls.head, cwd=cls.foreign)
+        cls.populate(cls.foreign)
+        cls.subject_index = cls.subject / ".git/index"
+        cls.foreign_git = Path(cls.command("rev-parse", "--absolute-git-dir", cwd=cls.foreign))
+        cls.foreign_index = cls.foreign_git / "index"
+        # Hard links retain real inode/mtime/bytes but update ctime. Reuse the actual source
+        # index and ignore only that metadata change in this disposable clone. No skip-worktree
+        # or assume-unchanged bits are added; actual tracked/staged/untracked edits still differ.
+        cls.command("config", "core.trustctime", "false", cwd=cls.subject)
+        cls.clean_index = cls.directory / "candidate clean index"
+        shutil.copy2(cls.source_index, cls.clean_index)
+        shutil.copy2(cls.clean_index, cls.subject_index)
+        shutil.copy2(cls.clean_index, cls.foreign_index)
+        assert cls.command("ls-files", "-v", str(PROBE), cwd=cls.subject).startswith("H ")
+        cls.alternate = cls.directory / "foreign alternate index"
+        shutil.copy2(cls.foreign_index, cls.alternate)
+        cls.config = cls.directory / "foreign config"
+        cls.config.write_text("[core]\nworktree = " + json.dumps(str(cls.foreign)) + "\nbare = false\n")
+        cls.original_probe = (ROOT / PROBE).read_bytes()
+        cls.original_evidence = (ROOT / EVIDENCE).read_bytes()
+        cls.records = []
+        cls.foreign_before = cls.foreign_state()
+
+    def setUp(self):
+        (self.subject / PROBE).write_bytes(self.original_probe)
+        (self.subject / EVIDENCE).write_bytes(self.original_evidence)
+        (self.subject / NEW_FILE).unlink(missing_ok=True)
+        shutil.copy2(self.clean_index, self.subject_index)
+
+    def hostile(self):
+        return dict(self.clean, GIT_DIR=str(self.foreign_git),
+                    GIT_COMMON_DIR=str(self.subject / ".git"), GIT_WORK_TREE=str(self.foreign),
+                    GIT_INDEX_FILE=str(self.alternate), GIT_OPTIONAL_LOCKS="0",
+                    GIT_CONFIG_GLOBAL=str(self.config), GIT_CONFIG_NOSYSTEM="1",
+                    GIT_CONFIG_COUNT="2", GIT_CONFIG_KEY_0="core.worktree",
+                    GIT_CONFIG_VALUE_0=str(self.foreign), GIT_CONFIG_KEY_1="core.bare",
+                    GIT_CONFIG_VALUE_1="false")
+
+    def config_only(self):
+        return dict(self.clean, GIT_CONFIG_GLOBAL=str(self.config), GIT_CONFIG_COUNT="1",
+                    GIT_CONFIG_KEY_0="core.worktree", GIT_CONFIG_VALUE_0=str(self.foreign))
+
+    def changed_probe(self, stage=False):
+        (self.subject / PROBE).write_bytes(self.original_probe + b"\n# forbidden disposable edit\n")
+        if stage:
+            self.command("add", str(PROBE), cwd=self.subject)
+
+    def untracked_probe(self, stage=False):
+        (self.subject / NEW_FILE).write_text("# forbidden disposable source\n")
+        if stage:
+            self.command("add", str(NEW_FILE), cwd=self.subject)
+
+    def run_reader(self, label, environment, *, rejected=False, cwd=None):
+        process = subprocess.Popen(
+            [sys.executable, str(self.subject / READER)], cwd=cwd or self.subject,
+            env=environment, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+            start_new_session=True,
+        )
+        try:
+            stdout, stderr = process.communicate(timeout=60)
+        except subprocess.TimeoutExpired:
+            # Stop only this disposable reader and its Git children; do not leave an index lock.
+            os.killpg(process.pid, signal.SIGKILL)
+            stdout, stderr = process.communicate()
+            (self.subject / ".git/index.lock").unlink(missing_ok=True)
+            self.fail("Disposable reader timeout: " + stdout + stderr)
+        self.records.append({
+            "case": self.id(), "label": label, "expected": "reject" if rejected else "pass",
+            "exit": process.returncode, "stdout": stdout, "stderr": stderr,
+            "source_after": self.source_state(), "foreign_after": self.foreign_state(),
+        })
+        self.assertEqual(self.source_state(), self.before)
+        self.assertEqual(self.foreign_state(), self.foreign_before)
+        if rejected:
+            self.assertNotEqual(process.returncode, 0, stdout)
+        else:
+            self.assertEqual(process.returncode, 0, stderr)
+            self.assertTrue(json.loads(stdout)["runtime_tools_tests_planning_unchanged"])
+
+    def test_clean_candidate_and_other_cwd(self):
+        self.run_reader("clean", self.clean)
+        self.run_reader("other cwd", self.clean, cwd=self.other_cwd)
+
+    def test_clean_candidate_foreign_context(self):
+        self.run_reader("clean foreign worktree/index/config", self.hostile())
+
+    def test_tracked_change_normal(self):
+        self.changed_probe()
+        self.run_reader("tracked", self.clean, rejected=True)
+
+    def test_tracked_change_foreign_context(self):
+        self.changed_probe()
+        self.run_reader("tracked foreign", self.hostile(), rejected=True)
+
+    def test_staged_change_foreign_context(self):
+        self.changed_probe(stage=True)
+        self.run_reader("staged foreign", self.hostile(), rejected=True)
+
+    def test_untracked_change_normal(self):
+        self.untracked_probe()
+        self.run_reader("untracked", self.clean, rejected=True)
+
+    def test_untracked_change_foreign_context(self):
+        self.untracked_probe()
+        self.run_reader("untracked foreign", self.hostile(), rejected=True)
+
+    def test_staged_new_source_foreign_context(self):
+        self.untracked_probe(stage=True)
+        self.run_reader("staged new source foreign", self.hostile(), rejected=True)
+
+    def test_tracked_change_config_only(self):
+        self.changed_probe()
+        self.run_reader("tracked config override", self.config_only(), rejected=True)
+
+    def test_untracked_change_config_only(self):
+        self.untracked_probe()
+        self.run_reader("untracked config override", self.config_only(), rejected=True)
+
+    def test_clean_candidate_invalid_bare_override(self):
+        environment = dict(self.clean, GIT_CONFIG_COUNT="1",
+                           GIT_CONFIG_KEY_0="core.bare", GIT_CONFIG_VALUE_0="true")
+        self.run_reader("clean with invalid inherited bare config", environment)
+
+    def test_old_evidence_tamper_foreign_context(self):
+        (self.subject / EVIDENCE).write_bytes(self.original_evidence + b" ")
+        self.run_reader("preserved raw tamper foreign", self.hostile(), rejected=True)
+
+    @classmethod
+    def tearDownClass(cls):
+        assert cls.source_state() == cls.before
+        assert cls.foreign_state() == cls.foreign_before
+        assert dict(os.environ) == cls.parent_environment
+        output = os.environ.get("SCOPE_PROBE_OUTPUT")
+        if output:
+            Path(output).write_text(json.dumps({
+                "head": cls.head, "reader_sha256": cls.before["reader"],
+                "temporary_root": str(cls.directory), "linked_git_file": True,
+                "source_before": cls.before, "source_after": cls.source_state(),
+                "foreign_before": cls.foreign_before, "foreign_after": cls.foreign_state(),
+                "parent_environment_unchanged": True, "records": cls.records,
+            }, ensure_ascii=False, indent=2) + "\n")
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -1,0 +1,7 @@
+{
+  "pid": 89563,
+  "expected_parent": 88410,
+  "observed": "88410 /Users/sergeyshevchenko/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/../../native/git/bin/git add -u",
+  "stopped": true,
+  "reason": "Disposable fixture full git add scan; replace with real source index snapshot and metadata-only ctime tolerance, never skip-worktree/assume-unchanged"
+}

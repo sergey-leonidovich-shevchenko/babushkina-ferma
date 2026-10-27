@@ -1,0 +1,12 @@
+{
+  "tool": "cua_repl",
+  "url": "http://127.0.0.1:4185/#/development/tasks/wiki--IDEA-REVIEW-20261026",
+  "metadata": "0.0.356",
+  "observed": {
+    "in_progress": true,
+    "literalPR13": true
+  },
+  "uiChanges": "metadata only; previous integrated UI paths preserved",
+  "viewportReset": true,
+  "planningWrites": false
+}

@@ -1,0 +1,12 @@
+{
+  "reviewedHead": "14227c2ff625d711cd46ecffbd50bb5faa598667",
+  "oldCreativeReportFilesUnchanged": 100,
+  "newReplaySHA256": {
+    "pr13-git-env-tests.log": "d47bfa51e2921345bbcfa3e6a5578c52c91a26bbc316cf3a72e3e7b45c68b309",
+    "pr13-git-env-replay.log": "05a325db293fe4a160e1ed253d142fc3dead7c29aff386842232eaba7f6da26a",
+    "pr13-git-env-final-replay.log": "1c5a771bd0087cfa692a8d6472e1e425bfc8f4ff1141f110257a400d07af3517"
+  },
+  "gameplayChanges": false,
+  "metadata": "0.0.356",
+  "callerEnvironmentUnchanged": true
+}
