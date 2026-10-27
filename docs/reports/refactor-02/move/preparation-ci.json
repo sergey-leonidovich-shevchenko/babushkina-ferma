@@ -1,0 +1,125 @@
+{
+  "scope": "Published preparation head f618 only. Eight successful checks are not final moved-head CI or independent approval.",
+  "headRevision": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+  "checks": [
+    {
+      "id": 121908858097,
+      "name": "test",
+      "head_sha": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40419136213/job/121908858097",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2
+      }
+    },
+    {
+      "id": 121908857817,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40419136213/job/121908857817",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 121908857780,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40419136213/job/121908857780",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 121908857518,
+      "name": "Wiki quality gate",
+      "head_sha": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40419136213/job/121908857518",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2
+      }
+    },
+    {
+      "id": 121908819913,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40419124949/job/121908819913",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 121908819788,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40419124949/job/121908819788",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 121908819743,
+      "name": "test",
+      "head_sha": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40419124949/job/121908819743",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2
+      }
+    },
+    {
+      "id": 121908819408,
+      "name": "Wiki quality gate",
+      "head_sha": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40419124949/job/121908819408",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2
+      }
+    }
+  ],
+  "statuses": [],
+  "annotations": [],
+  "hasMore": false,
+  "job": null,
+  "jobs": [],
+  "log": null,
+  "logTruncated": false
+}

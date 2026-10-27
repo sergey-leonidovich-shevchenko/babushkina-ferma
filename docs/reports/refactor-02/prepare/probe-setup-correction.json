@@ -1,0 +1,7 @@
+{
+  "attempt": "initial reproduction omitted the accepted audit core.bare=true sentinel",
+  "observed_method_error": "CalledProcessError: nested add returned 128",
+  "observed_config_change": false,
+  "harness_assertion": "incorrectly required config change without setting the trap",
+  "correction": "Repeat exact accepted audit fixture with sentinel index and core.bare=true; no production fix yet"
+}

@@ -1,0 +1,14 @@
+{
+  "dist_harness_removed": true,
+  "harness_source_preserved": "mobile-harness.html",
+  "recipe_driver_archived_before_removal": true,
+  "removed_owned_temporary_files": [
+    "/private/tmp/refactor02-move.py",
+    "/private/tmp/refactor02-preview.py",
+    "/private/tmp/refactor02-project-intro.txt",
+    "/private/tmp/refactor02-pilot-queue.txt",
+    "/private/tmp/refactor02-pilot-history.txt",
+    "/private/tmp/refactor02-epic-intro.txt"
+  ],
+  "unrelated_temporary_files_untouched": true
+}

@@ -1,0 +1,499 @@
+{
+  "task": "REFACTOR-02",
+  "version": "0.0.354",
+  "stage": "mechanical pilot after prepared f618",
+  "base_main": "d603de591082f19b1a9964eefd8f1d0671d38839",
+  "prepare_commit": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+  "authoritative_final_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.354",
+      "started_at": "2026-10-26T21:41:08.764853+00:00",
+      "finished_at": "2026-10-26T22:03:46.559287+00:00",
+      "exit": 0
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.354",
+      "started_at": "2026-10-26T22:03:46.559883+00:00",
+      "finished_at": "2026-10-26T22:10:14.040679+00:00",
+      "exit": 0
+    }
+  ],
+  "architecture": {
+    "suites": 83,
+    "cases": 1148,
+    "exit": 0
+  },
+  "Game": {
+    "passed": 53502,
+    "failed": 0,
+    "exit": 0
+  },
+  "redraw": {
+    "normal": {
+      "passed": 90,
+      "failed": 0,
+      "display": "headless"
+    },
+    "f10": {
+      "passed": 90,
+      "failed": 0,
+      "display": "headless"
+    }
+  },
+  "Wiki": {
+    "export_typescript_build": true,
+    "tests": 145,
+    "passed": 145,
+    "failed": 0,
+    "exit": 0,
+    "summary_recheck": true
+  },
+  "profiles": {
+    "infrastructure_python311": 13,
+    "infrastructure_python39": 13,
+    "old_task_batch": 16,
+    "optimization_cases": 9,
+    "canonical_commands": 9,
+    "direct_consumer_contexts": [
+      "root",
+      "/private/tmp"
+    ],
+    "four_builder_outputs_identical": true
+  },
+  "preservation": {
+    "prepare_commit": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+    "all_prepare_report_files_preserved": 121,
+    "previous_preservation_groups_rechecked": {
+      "previous_wiki_refactor_reports": 410,
+      "uid_files": 798,
+      "plan_json_archives": 13
+    },
+    "runtime_sources_assets_and_UID_moves": 0,
+    "planning_state_sources_byte_equal": true,
+    "root_sources_before_pilot": 555,
+    "root_sources_after_pilot": 544,
+    "root_sources_removed_in_pilot": 11,
+    "full_release_forecast": 10,
+    "full_release_budget": 30,
+    "budget_not_yet_accepted_until_REFACTOR_03_and_06": true,
+    "only_additional_unmoved_consumer_edits": [
+      "tools/test_optimization_audit.py",
+      "tools/pilot_static_audit.py"
+    ]
+  },
+  "browser": {
+    "desktop": {
+      "active": [
+        {
+          "href": "#/development/tasks/refactoring--REFACTOR-02",
+          "text": "REFACTOR-02Разделить общую инфраструктуру и репозиторные команды toolsТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003."
+        },
+        {
+          "href": "#/development/tasks/wiki--IDEA-REVIEW-20261024",
+          "text": "IDEA-REVIEW-20261024Проработать десять самостоятельных NPC-историйДругое направление. Его статус не означает смену курса первой локации."
+        }
+      ],
+      "docWidth": 1280,
+      "firstHistory": [
+        {
+          "key": "wiki--WIKI-003",
+          "text": "27.10.2026\nДата принятия completion-коммита в main\nWIKI-003\nПоказывать текущую работу и историю завершения в обзоре первой локации\n\nОбслуживание разработки: Wiki и прозрачный учёт работы.\n\nМатериалы и подтверждения · 5"
+        },
+        {
+          "key": "refactoring--REFACTOR-01",
+          "text": "27.10.2026\nДата принятия completion-коммита в main\nREFACTOR-01\nСоставить полную карту переносов tools и подтвердить остальные узкие места\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 5"
+        }
+      ],
+      "history": 82,
+      "progress": [
+        {
+          "max": "52",
+          "value": "52"
+        }
+      ],
+      "width": 1280
+    },
+    "card": {
+      "status": "\t\t\t52 text REFACTOR-02 В работе P1 Объём M",
+      "dependency": "\t\t\t\t59 link Description: REFACTOR-01 Завершена, Value: 127.0.0.1:4192/#/development/tasks/refactoring--REFACTOR-01",
+      "hasPR18": true,
+      "docWidth": 1280,
+      "width": 1280
+    },
+    "guide": {
+      "width": 1280,
+      "docWidth": 1280,
+      "correctedSummary": true,
+      "oldSummaryAbsent": true
+    },
+    "migration": {
+      "href": "generated/attachments/8a58ac9887f824fd9a2d084cc35b2ca1f6ef837de90807ab0b323b2b92bf3f5d.json",
+      "actuallyOpened": true,
+      "prepareCommitPresent": true
+    },
+    "mobile": {
+      "active": [
+        {
+          "href": "#/development/tasks/refactoring--REFACTOR-02",
+          "text": "REFACTOR-02Разделить общую инфраструктуру и репозиторные команды toolsТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003."
+        },
+        {
+          "href": "#/development/tasks/wiki--IDEA-REVIEW-20261024",
+          "text": "IDEA-REVIEW-20261024Проработать десять самостоятельных NPC-историйДругое направление. Его статус не означает смену курса первой локации."
+        }
+      ],
+      "docWidth": 390,
+      "history": 82,
+      "progress": [
+        {
+          "max": "52",
+          "value": "52"
+        }
+      ],
+      "width": 390
+    },
+    "mobileCard": {
+      "width": 390,
+      "docWidth": 390,
+      "hasPR18": true
+    },
+    "manualRefresh": {
+      "width": 390,
+      "docWidth": 390,
+      "inProgressPreserved": true
+    },
+    "scope": "Read-only actual canonical catalog; 390 CSS px same-origin frame, not physical phone; no planning changes"
+  },
+  "scope": {
+    "prepare_commit": "f6180e7cc670caaa8c3ee8253d3cf0c5c579bbec",
+    "version": "0.0.354",
+    "only_changed_task": "REFACTOR-02, stays in_progress with PR18",
+    "other_refactor_cards_unchanged": 6,
+    "only_wiki_index_change": [
+      {
+        "id": "project-refactoring",
+        "fields": [
+          "summary"
+        ]
+      }
+    ],
+    "version_metadata": [
+      {
+        "path": "VERSION",
+        "only_change": "0.0.353 -> 0.0.354",
+        "sha256": "65b7cfa6789b8c85e1be89766db59888db2185b23948ef6dc2b1158c14162be9"
+      },
+      {
+        "path": "project.godot",
+        "only_change": "0.0.353 -> 0.0.354",
+        "sha256": "32fee6bf493b0f23bad65c32dab50c4ff0aac7ea250f376993d34de1898747e0"
+      },
+      {
+        "path": "Бабушкина ферма.app/Contents/Info.plist",
+        "only_change": "0.0.353 -> 0.0.354",
+        "sha256": "7a3137f6e19961298c9fb8e5758d7ff0fd6cae74540262d8539424fc1dbc960d"
+      }
+    ],
+    "production_source_moves": 14,
+    "additional_legacy_consumer_import_adaptations": 2,
+    "Task_Complete_trailer_count": 0,
+    "REFACTOR_03_started": false
+  },
+  "additional_checks": {
+    "documentation": 0,
+    "version": 0,
+    "backlog": 0,
+    "source_public_dist_planning_equal": true,
+    "source_public_dist_migration_bytes_equal": true,
+    "independent_algorithm_parity_records": 16
+  },
+  "review_status": "in_progress; no Task-Complete; final head still requires ownCI and independent Tech/Team decision",
+  "commit_policy": "Full gates explicitly executed beforecommit/push; --no-verify avoids duplicateprecommit run; normalpostcommit retained.",
+  "limitations": [
+    "Headless/import regression is not native gameplay/FPS or VMAP acceptance",
+    "390CSSpx frame is not a physical phone",
+    "Published preparation head CI8/8 is separate from future final-head CI",
+    "Root544 remains above final30 budget until03/06"
+  ],
+  "failed_attempts_preserved": [
+    "final/architecture.txt",
+    "doc-update-launch-error.json",
+    "documentation-before-checks-error.json",
+    "prepare prior/prototype failures preserved underf618"
+  ],
+  "raw_files": [
+    {
+      "path": "README.md",
+      "bytes": 8898,
+      "sha256": "ab98ad34e12bd0be75c18cfc3c742d4aff34ded8df89f6f7bcb4a11cf991a018"
+    },
+    {
+      "path": "algorithm-parity.json",
+      "bytes": 2362,
+      "sha256": "df2d0288185e3a2baea34f50c1d1a4958080cc434851d5868ca4b926d9e272bd"
+    },
+    {
+      "path": "attachment.json",
+      "bytes": 246,
+      "sha256": "2fe9e00e32d93a1672c2987c3f86b3311b6d145071bddcb572a2ff76bb241419"
+    },
+    {
+      "path": "backlog-final.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "browser-card.json",
+      "bytes": 279,
+      "sha256": "5a2ff1f474b3a3e8e8f8f35390b44f1c70d73e390563d858372c9e4225f864bb"
+    },
+    {
+      "path": "browser-card.png",
+      "bytes": 77135,
+      "sha256": "90106d070a28a857d199de0b416a066248844694aad501c938b54c898a9ca0f9"
+    },
+    {
+      "path": "browser-desktop.json",
+      "bytes": 1869,
+      "sha256": "2219560b5128d6ac3856ee29d5a8c342de9457900a8876b1c330f3fc3023e305"
+    },
+    {
+      "path": "browser-desktop.png",
+      "bytes": 78749,
+      "sha256": "3dfde5876919ff863bf1d43e1243fa6dbe5bd020ec63348f39bbf76addfdf98d"
+    },
+    {
+      "path": "browser-guide-final.json",
+      "bytes": 10903,
+      "sha256": "28dbcce084f42fc705a88167ad30f3a2455aaff3c45979d20e533218319024ff"
+    },
+    {
+      "path": "browser-guide-final.png",
+      "bytes": 134995,
+      "sha256": "91d78eff3a04a250e841fd6942dc49548f150ff6ec24fd0ae3596876072c756b"
+    },
+    {
+      "path": "browser-guide.json",
+      "bytes": 117,
+      "sha256": "1a5523d547dfec8b555083c9c378e995e2b0b77893146b607fd3c252b7568387"
+    },
+    {
+      "path": "browser-guide.png",
+      "bytes": 133701,
+      "sha256": "bb63a2882ba08c180b209a5cabacbca77174899c88a037b9928cdf63ea684565"
+    },
+    {
+      "path": "browser-migration.txt",
+      "bytes": 7391,
+      "sha256": "eea42ea9d87ecbcfe6ce708ffcffc10c60de6fd3532779092ce690e81cc12fc7"
+    },
+    {
+      "path": "browser-mobile-card.json",
+      "bytes": 4770,
+      "sha256": "177e0d315e3f2360543ce941381f4c08d285e0a7fd8aae23cf5b7936390c1ec3"
+    },
+    {
+      "path": "browser-mobile-card.png",
+      "bytes": 48306,
+      "sha256": "135f13ce28ac81b396b1ea64f06752fc22edd5d2fa13d356a6fe02f06db85c58"
+    },
+    {
+      "path": "browser-mobile.json",
+      "bytes": 870,
+      "sha256": "f768d50435604e1bdc083bf954b0e3eebe96d33c3a054f36a2db2b36cb92b9ee"
+    },
+    {
+      "path": "browser-mobile.png",
+      "bytes": 48329,
+      "sha256": "4fb9ad67d4b14875c4c3a0f358c826c297cafc30d0a29cd7ca15cf2f4b1100b4"
+    },
+    {
+      "path": "browser.json",
+      "bytes": 3778,
+      "sha256": "183f5da8999f2334c876cb4f31a43975caea6504989fe16a535d30ed29d4c2c8"
+    },
+    {
+      "path": "builder-parity.json",
+      "bytes": 2858,
+      "sha256": "e5f05e02102ebedacf8330e0e45e955a64c2f7e05243890daf43c39d1f62a64f"
+    },
+    {
+      "path": "catalog.json",
+      "bytes": 7769,
+      "sha256": "f7fca1ec0725098c320d9cbab76d160670049d240411c4543ba8d93055b0ba2f"
+    },
+    {
+      "path": "consumer-repair-profile.txt",
+      "bytes": 489,
+      "sha256": "197c9fe6df14ac5e6a777fc39a94b60aea1de4b8d27d3d5e1d6139690429a57d"
+    },
+    {
+      "path": "doc-update-launch-error.json",
+      "bytes": 261,
+      "sha256": "838fdcac535ca2cdd0f0dc5bb1fa9c141f12233f74a6f4580875dbc52a3674b2"
+    },
+    {
+      "path": "documentation-before-checks-error.json",
+      "bytes": 350,
+      "sha256": "255852afa8c0b0bed5ae427ce02cdb9db2d0f9f8e2c5055077c6d2083df53550"
+    },
+    {
+      "path": "documentation-final-passed.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "documentation-final.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/architecture.txt",
+      "bytes": 919,
+      "sha256": "2a5eb5a12a8e3ded2a23e7eaf76a02c57af7ff9608e45920a6e8b784eb0d50d4"
+    },
+    {
+      "path": "final/gate-exits.json",
+      "bytes": 249,
+      "sha256": "008054e55186da2fa58c2842b79688a3000b3d1c8cb9cf9ae87ac536b8c8b5c7"
+    },
+    {
+      "path": "final-2/architecture.txt",
+      "bytes": 12763,
+      "sha256": "28b4c2f7d5822fbb28538bc73a571ec23011aeb6829ff5f66e970dd618798e2d"
+    },
+    {
+      "path": "final-2/game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "final-2/gate-exits.json",
+      "bytes": 474,
+      "sha256": "25f78119c4fcd67efba0d25253c13a4812b83730666da6b15e53a746ca40fcf3"
+    },
+    {
+      "path": "final-2/headless/f10/engine.txt",
+      "bytes": 11056,
+      "sha256": "688227d9e307b4ff9d88d0e34d6be805ab84425e3324f153223c581cacf45554"
+    },
+    {
+      "path": "final-2/headless/f10/frames.jsonl",
+      "bytes": 9165,
+      "sha256": "6d26e742aba1bfb2520acae1a33d32b29871a8bad66a578c2f32485040890f2a"
+    },
+    {
+      "path": "final-2/headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "deb73f2ceb75956a1bf2384df17af28b99f592897a9c966e0626597ccecf001b"
+    },
+    {
+      "path": "final-2/headless/normal/engine.txt",
+      "bytes": 11055,
+      "sha256": "92758934623b85cbe1dd018a7af7221dd2b57e8fb04d89fb1e03ee0fd2ea7aa8"
+    },
+    {
+      "path": "final-2/headless/normal/frames.jsonl",
+      "bytes": 9161,
+      "sha256": "675d275272f5e9b8a26939167f5afac02fa9b29cd0ff5d68a358c77bf094bc35"
+    },
+    {
+      "path": "final-2/headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "a0df5129479a317977c473ce37c0040c1890180c84faee2d21efb3447eb56a3a"
+    },
+    {
+      "path": "infrastructure-first.txt",
+      "bytes": 112,
+      "sha256": "1344a6d2b5c1eb7f568e8346c0fd7dac74188ac8e9b415a17c5ae7e3d1a506ee"
+    },
+    {
+      "path": "migration.json",
+      "bytes": 6835,
+      "sha256": "8a58ac9887f824fd9a2d084cc35b2ca1f6ef837de90807ab0b323b2b92bf3f5d"
+    },
+    {
+      "path": "mobile-harness.html",
+      "bytes": 518,
+      "sha256": "913577582392977f167eafb38efbf621bc901ee1529811a598268a6ed3ad5831"
+    },
+    {
+      "path": "pilot-profile.txt",
+      "bytes": 905,
+      "sha256": "2005b5aed0bd5d9d3289ebe008ef23ed9eead74d17808c4e5df05ca80e5a8a39"
+    },
+    {
+      "path": "preparation-ci.json",
+      "bytes": 4030,
+      "sha256": "9f10374c5b3132823c579514024e8725966b90d6d76133d3e88f201dced51dfc"
+    },
+    {
+      "path": "preservation.json",
+      "bytes": 702,
+      "sha256": "3f14e2e9d9050a86d0a64528da81f6f6ce0bec46483f4acb8a65186b43042539"
+    },
+    {
+      "path": "preview-parity.json",
+      "bytes": 3238,
+      "sha256": "46d2ef1a50a8e409bd34db63e9c3ff91edb39b3a7992ca36c34532711062b1e7"
+    },
+    {
+      "path": "python39-infrastructure.txt",
+      "bytes": 112,
+      "sha256": "b8e688c379ae6c23238bffd54b6ec6a3a04b976d1144bfe9cdfa9790d87f7fbe"
+    },
+    {
+      "path": "qa-cleanup.json",
+      "bytes": 247,
+      "sha256": "38d65aa141720bbfd836035dab765c159cde24ed3c64f4f395048cf68430ed4d"
+    },
+    {
+      "path": "qa-file-cleanup.json",
+      "bytes": 497,
+      "sha256": "893ccdbe8170e4dc70c101c21250c1935e382fe4132886722d30ec98c0820fa7"
+    },
+    {
+      "path": "qa-server.mjs",
+      "bytes": 921,
+      "sha256": "60b0db750c7eb26417f07b47d4e263346f4b3cb3940c8652c08d0f809a7ec4d0"
+    },
+    {
+      "path": "scope.json",
+      "bytes": 1106,
+      "sha256": "685bbc0f08221110004b80959a3c73ce5da5296a2ae24d4b5d642ec774afa5bf"
+    },
+    {
+      "path": "stale-import-scan.json",
+      "bytes": 298,
+      "sha256": "e9ac46afd4bb9adba888f1ebd9e7acfd8c8bc54bb65cf1e76ec914c9a41c1ce0"
+    },
+    {
+      "path": "version-final.txt",
+      "bytes": 30,
+      "sha256": "cdae60aa03ea555e3e0fab5d6bbff89020bcc2e9da9556dd03f3083edeb225c5"
+    },
+    {
+      "path": "wiki-summary-recheck.txt",
+      "bytes": 13823,
+      "sha256": "7a3d23dbb53f13a81da5855d99e758212e8a782cd82eaa8fec09739b01915ca2"
+    },
+    {
+      "path": "wiki-summary-repair.json",
+      "bytes": 362,
+      "sha256": "1419ad5bd9116768b24fab79f2c38cafbf771a99602b23145925aa0a9031515d"
+    },
+    {
+      "path": "wiki.txt",
+      "bytes": 13821,
+      "sha256": "1ce77e9e5bf975adff714008215a42f9edfbf69bb6ae734b0c5d861e9dd1d5f8"
+    }
+  ]
+}

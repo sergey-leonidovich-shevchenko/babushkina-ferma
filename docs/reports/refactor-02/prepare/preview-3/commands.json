@@ -1,0 +1,236 @@
+[
+  {
+    "command": [
+      "git",
+      "clone",
+      "--shared",
+      "--quiet",
+      "/Users/sergeyshevchenko/my farm",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/clone with spaces"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "clone.txt"
+  },
+  {
+    "command": [
+      "git",
+      "add",
+      "--all"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/clone with spaces",
+    "exit": 0,
+    "log": "stage-prepare-fixture.txt"
+  },
+  {
+    "command": [
+      "git",
+      "commit",
+      "-qm",
+      "Disposable prepare fixture, not a project task completion"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/clone with spaces",
+    "exit": 0,
+    "log": "commit-prepare-fixture.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/move-preview.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/clone with spaces",
+    "exit": 0,
+    "log": "move-recipe.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/clone with spaces/tools/run.py",
+      "planning.project_backlog",
+      "--write"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/clone with spaces",
+    "exit": 0,
+    "log": "refresh-live-readme.txt"
+  },
+  {
+    "command": [
+      "git",
+      "add",
+      "--all"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/clone with spaces",
+    "exit": 0,
+    "log": "stage-move-fixture.txt"
+  },
+  {
+    "command": [
+      "git",
+      "commit",
+      "-qm",
+      "Disposable moved fixture, not a project task completion"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/clone with spaces",
+    "exit": 0,
+    "log": "commit-move-fixture.txt"
+  },
+  {
+    "command": [
+      "git",
+      "worktree",
+      "add",
+      "--detach",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces",
+      "HEAD"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/clone with spaces",
+    "exit": 0,
+    "log": "worktree.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/tools/run.py",
+      "common.test_infrastructure"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "common.test_infrastructure.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/tools/run.py",
+      "planning.project_backlog"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "planning.project_backlog.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/tools/run.py",
+      "planning.test_project_backlog"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "planning.test_project_backlog.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/tools/run.py",
+      "planning.visual_backlog"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "planning.visual_backlog.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/tools/run.py",
+      "planning.test_visual_backlog"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "planning.test_visual_backlog.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/tools/run.py",
+      "planning.pilot_rollout"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "planning.pilot_rollout.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/tools/run.py",
+      "planning.test_pilot_rollout"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "planning.test_pilot_rollout.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/tools/run.py",
+      "quality.check_documentation"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "quality.check_documentation.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/tools/run.py",
+      "quality.test_documentation"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "quality.test_documentation.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/tools/run.py",
+      "planning.test_task_batch"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "planning.test_task_batch.txt"
+  },
+  {
+    "command": [
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/tools/bump_version.py",
+      "--check"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "public-version.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/tools/task_batch.py",
+      "status"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "public-status.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces/docs/reports/refactor-02/builder_probe.py",
+      "--root",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces",
+      "--output",
+      "/Users/sergeyshevchenko/my farm/docs/reports/refactor-02/prepare/preview-3/builder-parity.json",
+      "--moved"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "builder-probe.txt"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--editor",
+      "--path",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l/linked checkout with spaces",
+      "--quit"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm refactor02 full layout pnlkal_l",
+    "exit": 0,
+    "log": "fresh-import.txt"
+  }
+]

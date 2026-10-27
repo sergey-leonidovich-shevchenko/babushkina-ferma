@@ -1,0 +1,91 @@
+"""Exercise the prepared move in an owned clone/worktree; never mutates the primary checkout."""
+from pathlib import Path
+import datetime
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+
+PRIMARY = Path('/Users/sergeyshevchenko/my farm')
+REPORT = PRIMARY / 'docs/reports/refactor-02/prepare/preview'
+REPORT.mkdir()
+ENV = {key: value for key, value in os.environ.items() if not key.startswith('GIT_')}
+records = []
+
+
+def command(arguments, cwd, name):
+    with (REPORT / name).open('xb') as log:
+        result = subprocess.run(arguments, cwd=cwd, env=ENV, stdout=log, stderr=subprocess.STDOUT)
+    record = {'command': list(map(str, arguments)), 'cwd': str(cwd), 'exit': result.returncode, 'log': name}
+    records.append(record)
+    (REPORT / 'commands.json').write_text(json.dumps(records, indent=2) + '\n')
+    print(json.dumps(record), flush=True)
+    if result.returncode:
+        raise RuntimeError(record)
+
+
+with tempfile.TemporaryDirectory(prefix='farm refactor02 full layout ') as temporary:
+    base = Path(temporary).resolve()
+    (base / '.owned-refactor02-fixture').write_text('disposable clone and linked worktree only\n')
+    clone = base / 'clone with spaces'
+    command(['git', 'clone', '--shared', '--quiet', str(PRIMARY), str(clone)], base, 'clone.txt')
+    for key, value in [('user.name', 'Refactor QA fixture'), ('user.email', 'refactor@example.invalid'),
+                       ('commit.gpgsign', 'false'), ('core.hooksPath', str(base / 'no hooks'))]:
+        subprocess.run(['git', '-C', str(clone), 'config', key, value], env=ENV, check=True)
+    subprocess.run(['git', '-C', str(clone), 'branch', 'main', 'origin/main'], env=ENV, check=True)
+
+    modified = subprocess.check_output(['git', '-C', str(PRIMARY), 'diff', '--name-only', '-z'], env=ENV).decode().split('\0')[:-1]
+    untracked = subprocess.check_output(['git', '-C', str(PRIMARY), 'ls-files', '--others', '--exclude-standard', '-z'], env=ENV).decode().split('\0')[:-1]
+    selected = [*modified, *[name for name in untracked if name.startswith('tools/')],
+                'docs/reports/refactor-02/PLAN.md', 'docs/reports/refactor-02/builder_probe.py',
+                'docs/reports/refactor-02/prepare/baseline.json']
+    for name in dict.fromkeys(selected):
+        source = PRIMARY / name
+        target = clone / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, target)
+    command(['git', 'add', '--all'], clone, 'stage-prepare-fixture.txt')
+    command(['git', 'commit', '-qm', 'Disposable prepare fixture, not a project task completion'], clone, 'commit-prepare-fixture.txt')
+
+    recipe = Path('/private/tmp/refactor02-move.py').read_text()
+    old = "ROOT = Path('/Users/sergeyshevchenko/my farm')"
+    assert recipe.count(old) == 1
+    recipe = recipe.replace(old, 'ROOT = Path(' + repr(str(clone)) + ')')
+    path = base / 'move-preview.py'
+    path.write_text(recipe)
+    command([sys.executable, str(path)], clone, 'move-recipe.txt')
+    shutil.copy2(clone / 'docs/reports/refactor-02/move/migration.json', REPORT / 'preview-migration.json')
+
+    # Real updated planner commands must keep the generated live README in sync.
+    command([sys.executable, str(clone / 'tools/run.py'), 'planning.project_backlog', '--write'], clone, 'refresh-live-readme.txt')
+    command(['git', 'add', '--all'], clone, 'stage-move-fixture.txt')
+    command(['git', 'commit', '-qm', 'Disposable moved fixture, not a project task completion'], clone, 'commit-move-fixture.txt')
+    checkout = base / 'linked checkout with spaces'
+    command(['git', 'worktree', 'add', '--detach', str(checkout), 'HEAD'], clone, 'worktree.txt')
+
+    commands = ['common.test_infrastructure', 'planning.project_backlog', 'planning.test_project_backlog',
+                'planning.visual_backlog', 'planning.test_visual_backlog', 'planning.pilot_rollout',
+                'planning.test_pilot_rollout', 'quality.check_documentation', 'quality.test_documentation',
+                'planning.test_task_batch']
+    for module in commands:
+        command([sys.executable, str(checkout / 'tools/run.py'), module], base, module + '.txt')
+    command([str(checkout / 'tools/bump_version.py'), '--check'], base, 'public-version.txt')
+    command([sys.executable, str(checkout / 'tools/task_batch.py'), 'status'], base, 'public-status.txt')
+    command([sys.executable, str(checkout / 'docs/reports/refactor-02/builder_probe.py'),
+             '--root', str(checkout), '--output', str(REPORT / 'builder-parity.json'), '--moved'], base, 'builder-probe.txt')
+
+    engine = ENV['FARM_GODOT_BIN']
+    command([engine, '--headless', '--editor', '--path', str(checkout), '--quit'], base, 'fresh-import.txt')
+    dirty = subprocess.check_output(['git', '-C', str(checkout), 'status', '--porcelain'], env=ENV, text=True)
+    if dirty.strip():
+        raise RuntimeError('Fresh import changed tracked/unignored fixture files: ' + dirty)
+    (REPORT / 'result.json').write_text(json.dumps({'scope': 'Disposable full clone and real linked worktree, not the task branch',
+        'real_worktree_git_file': (checkout / '.git').is_file(), 'commands_passed': len(records),
+        'fresh_import_exit': 0, 'fixture_tree_clean_after_import': True,
+        'preview_only': True, 'primary_runtime_and_git_not_a_write_target': True}, indent=2) + '\n')
+
+(REPORT / 'cleanup.json').write_text(json.dumps({'owned_fixture_root': str(base), 'removed': not base.exists(),
+    'primary_checkout_removed': False}, indent=2) + '\n')

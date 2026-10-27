@@ -1,0 +1,702 @@
+{
+  "task": "REFACTOR-02",
+  "stage": "logical preparation before14moves",
+  "base": "d603de591082f19b1a9964eefd8f1d0671d38839",
+  "version": "0.0.353",
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.353",
+      "started_at": "2026-10-26T20:44:28.048901+00:00",
+      "finished_at": "2026-10-26T21:07:52.426147+00:00",
+      "exit": 0
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.353",
+      "started_at": "2026-10-26T21:07:52.428818+00:00",
+      "finished_at": "2026-10-26T21:14:17.296547+00:00",
+      "exit": 0
+    }
+  ],
+  "architecture": {
+    "suites": 83,
+    "cases": 1147,
+    "exit": 0
+  },
+  "Game": {
+    "passed": 53502,
+    "failed": 0,
+    "exit": 0
+  },
+  "normal_F10": {
+    "normal": 90,
+    "f10": 90,
+    "failed": 0
+  },
+  "boundary_tests": {
+    "python311": 12,
+    "python39": 12,
+    "exit": 0
+  },
+  "moved_layout_preview_only": {
+    "attempt3_commands": 22,
+    "boundary_cases": 13,
+    "task_batch": 16,
+    "four_writer_outputs_equal": true,
+    "headless_editor_import_errors": 0,
+    "real_linked_worktree": true,
+    "cleanup": true
+  },
+  "preserved": {
+    "previous_wiki_refactor_reports": 410,
+    "uid_files": 798,
+    "plan_json_archives": 13
+  },
+  "scope": {
+    "base": "d603de591082f19b1a9964eefd8f1d0671d38839",
+    "version": "0.0.353",
+    "changed_tracked_files": [
+      ".gitignore",
+      "TESTING.md",
+      "VERSION",
+      "docs/epics/refactoring-2026-10/TASKS.md",
+      "project.godot",
+      "tools/build_art_backlog.py",
+      "tools/build_optimization_matrix.py",
+      "tools/bump_version.py",
+      "tools/check_architecture.sh",
+      "tools/check_documentation.py",
+      "tools/pilot_rollout.py",
+      "tools/project_backlog.py",
+      "tools/shore_kit.py",
+      "tools/task_batch.py",
+      "tools/test_shore_kit.py",
+      "tools/test_task_batch.py",
+      "tools/visual_backlog.py",
+      "Бабушкина ферма.app/Contents/Info.plist"
+    ],
+    "only_changed_task": "REFACTOR-02 ready -> in_progress",
+    "other_refactor_cards_unchanged": 6,
+    "task_complete_trailers": 0,
+    "runtime_and_uid_moves": 0,
+    "preserved_group_counts": {
+      "previous_wiki_refactor_reports": 410,
+      "uid_files": 798,
+      "plan_json_archives": 13
+    },
+    "old_reports_unmodified": true,
+    "planning_state_sources_unchanged": true
+  },
+  "no_Task_Complete": true,
+  "status": "in_progress; actual14moves and final review still pending",
+  "commit_policy": "Full gates run explicitly beforecommit/push; --no-verify avoids onlyduplicateprecommit execution. Normal postcommit retained.",
+  "raw_files": [
+    {
+      "path": "PLAN.md",
+      "bytes": 4422,
+      "sha256": "41f1ecf61a5d017bd6b8998fc63396e3016ef808c0955a1111e52860ffe8454c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2370,
+      "sha256": "5a89177a769f57ef72dea5afa580b11aa868e13bf44bf7562333a9cd5bd68638"
+    },
+    {
+      "path": "builder_probe.py",
+      "bytes": 4438,
+      "sha256": "71f43e513a5549a953fcebf719869f5541245c2e3d1f31bf09df8830d5eb47f2"
+    },
+    {
+      "path": "prepare/README.md",
+      "bytes": 7764,
+      "sha256": "dbcf1ba05ebde2cb65fb83660d78e92376a48d12757977e559e1a341678a26af"
+    },
+    {
+      "path": "prepare/architecture.txt",
+      "bytes": 12762,
+      "sha256": "c346d0a29cc7219a213c1445052581741529e2c627adfd2293eb7f4dd7dbe1dd"
+    },
+    {
+      "path": "prepare/baseline.json",
+      "bytes": 4739,
+      "sha256": "7d84dc0a3cba022ea6e63b60aa615bc64c61ca37c2628555a1ae4ff6d0ea3538"
+    },
+    {
+      "path": "prepare/builder-parity.json",
+      "bytes": 2841,
+      "sha256": "f935c4c7f6d8c5d8a0c073817b5dae10430d370e3bc100c87afbc0f24af7800c"
+    },
+    {
+      "path": "prepare/existing-path-shadow-red.json",
+      "bytes": 904,
+      "sha256": "9d622c7c3912e1f82aadc618642a7f743a709b4461ce17c8cdca318beb1e0add"
+    },
+    {
+      "path": "prepare/game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "prepare/gate-exits.json",
+      "bytes": 487,
+      "sha256": "cff577d008ec3f707c6c62b7ada23e4594160e81559fe7312f1e5f632fe9a1a6"
+    },
+    {
+      "path": "prepare/green-harness-method-error.json",
+      "bytes": 282,
+      "sha256": "04f19b9e78679b26572cd1e4c37b1df6b48011034628275b5912ea2d668ee792"
+    },
+    {
+      "path": "prepare/headless/f10/engine.txt",
+      "bytes": 11168,
+      "sha256": "c372835c381b4a6f5a14a5291ee80d1f938b0ed21ecf52712bec683d0d9d6b4e"
+    },
+    {
+      "path": "prepare/headless/f10/frames.jsonl",
+      "bytes": 9277,
+      "sha256": "fbc4dbaffcfe80276a1efc63725156c45094e167a7b5fb066191b7497afedc6b"
+    },
+    {
+      "path": "prepare/headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "e0bb605b0101b1b2375a03d3add5bd6ef519db69a3f7a74ec48b8b4c9deab66f"
+    },
+    {
+      "path": "prepare/headless/normal/engine.txt",
+      "bytes": 11045,
+      "sha256": "bc30b9aa6ac0b0da4b7312ea1b5cd643d8723375e5f16aed44dc7c6b34da483f"
+    },
+    {
+      "path": "prepare/headless/normal/frames.jsonl",
+      "bytes": 9151,
+      "sha256": "4215efe28a4eaf03565f0f69f3f4326427396c298e739ac1ecb1e67571281562"
+    },
+    {
+      "path": "prepare/headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "71c1c4ff09f1b75efac5675a24cc1a79141e4b4977f31fab737638bb6e8bece7"
+    },
+    {
+      "path": "prepare/help-forwarding.json",
+      "bytes": 331,
+      "sha256": "f68b49c747a78f0de9c9805f34b2eea64f0d0b6e5e51f6036e3592c5ee432568"
+    },
+    {
+      "path": "prepare/infrastructure-final.txt",
+      "bytes": 111,
+      "sha256": "60eadea7ed674425d40bbeb20fdcc227810dd08cc5337913f333f0734943995d"
+    },
+    {
+      "path": "prepare/infrastructure-first.txt",
+      "bytes": 98,
+      "sha256": "0022ee81eaae586301bd919619db568337b011018f4f635ccdae17bcdd457edb"
+    },
+    {
+      "path": "prepare/infrastructure-path-priority.txt",
+      "bytes": 111,
+      "sha256": "fe0058ac77efaa0856530849d4b0f78d80b79bdf891a83333f39a41c89dd4342"
+    },
+    {
+      "path": "prepare/infrastructure-second.txt",
+      "bytes": 2959,
+      "sha256": "f9dd807340e3476ba5c1ccdff80f2e96fabc31ecef210e154a45cb1193eecd40"
+    },
+    {
+      "path": "prepare/infrastructure-third.txt",
+      "bytes": 111,
+      "sha256": "e22dff97363f3d8c37098640587a1cd4264cc4fefb1f6b876a0e4e8e52009128"
+    },
+    {
+      "path": "prepare/inherited-git-green.json",
+      "bytes": 698,
+      "sha256": "2d61b70f73a4b6df201f754a990d75c757be3d5e56c97f0ef21d69cee22b8921"
+    },
+    {
+      "path": "prepare/inherited-git-red.json",
+      "bytes": 827,
+      "sha256": "0379e62fdb1d76fb2f0a7887a6e96d2de2ef9e644a1984e6fab3e034d08e975b"
+    },
+    {
+      "path": "prepare/metadata-scope.json",
+      "bytes": 1036,
+      "sha256": "95188b04f5e891b59a3a0ca6d3a99c03f088366e9f113bc08657208d8c1b7b9a"
+    },
+    {
+      "path": "prepare/path-priority/architecture.txt",
+      "bytes": 12762,
+      "sha256": "a4649cfd15519994bd36b320a8e040e2cc130e9e44268a093b9bbc8ab623c69f"
+    },
+    {
+      "path": "prepare/path-priority/game.txt",
+      "bytes": 1804,
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050"
+    },
+    {
+      "path": "prepare/path-priority/gate-exits.json",
+      "bytes": 474,
+      "sha256": "b4138494f774fd3f046b42686cbdddd3e28d3f3d696b2ede5e8b66eda4d63593"
+    },
+    {
+      "path": "prepare/path-priority/headless/f10/engine.txt",
+      "bytes": 10991,
+      "sha256": "c6355efefdd61f4b10e1c7ccf0a4e1ad70e2bb6f658dc89195e58b3fc4c7584e"
+    },
+    {
+      "path": "prepare/path-priority/headless/f10/frames.jsonl",
+      "bytes": 9100,
+      "sha256": "caf7f6ddf2d395b2f8a20978db88ad3c5bb0593757f6a426b4f7110c59a848ef"
+    },
+    {
+      "path": "prepare/path-priority/headless/f10/summary.json",
+      "bytes": 1743,
+      "sha256": "a8956846b519c1ed1710cec6f2db13735b819fad0f16204c0b1aa346a75e604e"
+    },
+    {
+      "path": "prepare/path-priority/headless/normal/engine.txt",
+      "bytes": 11002,
+      "sha256": "195ad6aac1c738e0901ee402660261a06df7764771c6f2a021f5bc8eb1d676e6"
+    },
+    {
+      "path": "prepare/path-priority/headless/normal/frames.jsonl",
+      "bytes": 9108,
+      "sha256": "f2008cfedc57ddecaa97c8a9f24a652a8df1d00a7abee18f94d9cbf736ed608f"
+    },
+    {
+      "path": "prepare/path-priority/headless/normal/summary.json",
+      "bytes": 1746,
+      "sha256": "477ec41897bac5f317e2b0c324bc4aa4f6b73f3c6611cf55c33d6b10a9e44d99"
+    },
+    {
+      "path": "prepare/pilot-checks-corrected.txt",
+      "bytes": 806,
+      "sha256": "9c5319c08defa9160ed61350395d2211f057b3165548327a9a6a8641c3b60cb5"
+    },
+    {
+      "path": "prepare/preserved-files.json",
+      "bytes": 337147,
+      "sha256": "87adfccad6a50c8601ae49d583bec8f65aa6cec06ddc0feaafbf2c102920cd31"
+    },
+    {
+      "path": "prepare/preview/cleanup.json",
+      "bytes": 218,
+      "sha256": "732bf79097f7b6ecb4809aca39773c6ae2a19761362ff8beea0218ce9d97be43"
+    },
+    {
+      "path": "prepare/preview/clone.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview/commands.json",
+      "bytes": 3292,
+      "sha256": "05953f52eb8f3b542e901e99e05e4596a3f88c8da98a4f18faf6d345a9798473"
+    },
+    {
+      "path": "prepare/preview/commit-move-fixture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview/commit-prepare-fixture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview/common.test_infrastructure.txt",
+      "bytes": 9905,
+      "sha256": "d4396cf753e952c93b52a643ee34273941f40a1388ea58f0bcfae69ac4defda9"
+    },
+    {
+      "path": "prepare/preview/move-recipe.txt",
+      "bytes": 409,
+      "sha256": "bb0c36dba8d4e59d1a292cb72cdca8d33bc3e57b60f72467cb0d824fb0068ab6"
+    },
+    {
+      "path": "prepare/preview/preview-migration.json",
+      "bytes": 6835,
+      "sha256": "9cdd7cf6bc3d15125ec19f62b83b58b0f0cc029e35cfa8c74d0a9f5c7de4e6aa"
+    },
+    {
+      "path": "prepare/preview/refresh-live-readme.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "prepare/preview/stage-move-fixture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview/stage-prepare-fixture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview/worktree.txt",
+      "bytes": 4491,
+      "sha256": "16c01e35233ff5f22323070dc5e1924806eee2e2c87a387af48061308327c33d"
+    },
+    {
+      "path": "prepare/preview-2/cleanup.json",
+      "bytes": 210,
+      "sha256": "8a514e567bae90cad87b5565f90b1fdcfcec4576b07d1300c7591ae9bcd24bf2"
+    },
+    {
+      "path": "prepare/preview-2/clone.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview-2/commands.json",
+      "bytes": 7424,
+      "sha256": "dec12383140ea0701cafe8ef28141b35793991ee1626c29054308602cd1de8d3"
+    },
+    {
+      "path": "prepare/preview-2/commit-move-fixture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview-2/commit-prepare-fixture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview-2/common.test_infrastructure.txt",
+      "bytes": 112,
+      "sha256": "5e71fb9f4654d7c478d359cc8bf9ff73f26a5f1d3004aaa74579f8fef5675e75"
+    },
+    {
+      "path": "prepare/preview-2/move-recipe.txt",
+      "bytes": 409,
+      "sha256": "25822ac5e22be2480cf6f928e387a9d8d951ea4ae1f48bc784966d764a2619f2"
+    },
+    {
+      "path": "prepare/preview-2/planning.pilot_rollout.txt",
+      "bytes": 51,
+      "sha256": "5357ac03e8bfe089c7d3dc70b68f8b031f7c262f06215f5cc12ba4153c701b8a"
+    },
+    {
+      "path": "prepare/preview-2/planning.project_backlog.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "prepare/preview-2/planning.test_pilot_rollout.txt",
+      "bytes": 114,
+      "sha256": "d136d64de95420c2f1a53ac7847848da57f9b885e50c1f9269112f980dcfaed5"
+    },
+    {
+      "path": "prepare/preview-2/planning.test_project_backlog.txt",
+      "bytes": 110,
+      "sha256": "29f90fc34edf5ff4db70aef1ad14e19c30825cce7d14945ae66b0b2214faea31"
+    },
+    {
+      "path": "prepare/preview-2/planning.test_task_batch.txt",
+      "bytes": 1388,
+      "sha256": "3e25dde0d4f38ab1ee8de0a66deb48e3697e1be8cf5e1b1ca22f46942ed394be"
+    },
+    {
+      "path": "prepare/preview-2/planning.test_visual_backlog.txt",
+      "bytes": 113,
+      "sha256": "d0839d1365e180e61f32e9fb0de6e44a82a84e6720ea09ab63ae92e235c8afc1"
+    },
+    {
+      "path": "prepare/preview-2/planning.visual_backlog.txt",
+      "bytes": 77,
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9"
+    },
+    {
+      "path": "prepare/preview-2/preview-migration.json",
+      "bytes": 6835,
+      "sha256": "44aa93a94ddc958b45145cbee9b615663480d196254b571349e3248a495500e7"
+    },
+    {
+      "path": "prepare/preview-2/quality.check_documentation.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "prepare/preview-2/quality.test_documentation.txt",
+      "bytes": 124,
+      "sha256": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0"
+    },
+    {
+      "path": "prepare/preview-2/refresh-live-readme.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "prepare/preview-2/stage-move-fixture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview-2/stage-prepare-fixture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview-2/worktree.txt",
+      "bytes": 4422,
+      "sha256": "b9cf346088b97d8c4b8256327be4baf850296f5d4e279e2b8eaf3f0ee9e72796"
+    },
+    {
+      "path": "prepare/preview-3/builder-parity.json",
+      "bytes": 2858,
+      "sha256": "e5560580e4966b31dde3f6e53cbc8ab7aa147f1a4b18c0223296c175e4ad4d2e"
+    },
+    {
+      "path": "prepare/preview-3/builder-probe.txt",
+      "bytes": 72,
+      "sha256": "3969fa7d9809515f6b00522a9af570796a8e548125d81ac9883a868c2d14a50c"
+    },
+    {
+      "path": "prepare/preview-3/cleanup.json",
+      "bytes": 180,
+      "sha256": "ee170873eb2b6c596efee7ce12e1df0b43a1e2dbc3c4eba181ac477888f9a9e8"
+    },
+    {
+      "path": "prepare/preview-3/clone.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview-3/commands.json",
+      "bytes": 9405,
+      "sha256": "84fcff81112d754d476a9f09356a4a3046b4a5e7ae5a6e6e2a5c512caa5f0788"
+    },
+    {
+      "path": "prepare/preview-3/commit-move-fixture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview-3/commit-prepare-fixture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview-3/common.test_infrastructure.txt",
+      "bytes": 112,
+      "sha256": "e4ed885c8ca9dd8e417804e645de5d4e56e98d1e83ba8344a50d7cc3018614d0"
+    },
+    {
+      "path": "prepare/preview-3/fresh-import.txt",
+      "bytes": 366283,
+      "sha256": "dad0ffff2baab8d80666ac7a12dee6377a9fa80256f97934447d313980464ccf"
+    },
+    {
+      "path": "prepare/preview-3/import-check.json",
+      "bytes": 167,
+      "sha256": "89542e7d3da901799f695bce70fb56580bbd79cae402a45d53f65adf10ead273"
+    },
+    {
+      "path": "prepare/preview-3/move-recipe.txt",
+      "bytes": 409,
+      "sha256": "d6cf9e3188269a0ab436f93df9e66bd4f609f10ead675cd097501c5272094d9e"
+    },
+    {
+      "path": "prepare/preview-3/planning.pilot_rollout.txt",
+      "bytes": 51,
+      "sha256": "5357ac03e8bfe089c7d3dc70b68f8b031f7c262f06215f5cc12ba4153c701b8a"
+    },
+    {
+      "path": "prepare/preview-3/planning.project_backlog.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "prepare/preview-3/planning.test_pilot_rollout.txt",
+      "bytes": 114,
+      "sha256": "6514324da0a9fa01323234f37612117ca4a0d945cf05dca12593c49ae2f37a8a"
+    },
+    {
+      "path": "prepare/preview-3/planning.test_project_backlog.txt",
+      "bytes": 110,
+      "sha256": "418aec6ebe01bc5e250fe43773dcbd89b4fb9797fd1b7fee78dafa3e7a9c5ec3"
+    },
+    {
+      "path": "prepare/preview-3/planning.test_task_batch.txt",
+      "bytes": 116,
+      "sha256": "0f8e2f3b0cd91d0a3580870e06821c81fd58b43ca16175bb4d3d65e2049515eb"
+    },
+    {
+      "path": "prepare/preview-3/planning.test_visual_backlog.txt",
+      "bytes": 113,
+      "sha256": "4cc1e92f8430a6a590294abb80eb38203344a293fc1b3cc9728de7ce7aec2253"
+    },
+    {
+      "path": "prepare/preview-3/planning.visual_backlog.txt",
+      "bytes": 77,
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9"
+    },
+    {
+      "path": "prepare/preview-3/preview-migration.json",
+      "bytes": 6835,
+      "sha256": "b36332a546145a8e49660c1d96bc27482045bfe6e101b8970c694decc9c4cd6d"
+    },
+    {
+      "path": "prepare/preview-3/public-status.txt",
+      "bytes": 116,
+      "sha256": "fcb62122baa07d32f3e011da702714a2a107d38f99f9bc513d1f03c491f0b081"
+    },
+    {
+      "path": "prepare/preview-3/public-version.txt",
+      "bytes": 30,
+      "sha256": "5fba09e9f767d03b7f3432c2a47fcc30ec10ee0c357ee0b057a6eea795d8fff3"
+    },
+    {
+      "path": "prepare/preview-3/quality.check_documentation.txt",
+      "bytes": 105,
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "path": "prepare/preview-3/quality.test_documentation.txt",
+      "bytes": 124,
+      "sha256": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0"
+    },
+    {
+      "path": "prepare/preview-3/refresh-live-readme.txt",
+      "bytes": 53,
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a"
+    },
+    {
+      "path": "prepare/preview-3/result.json",
+      "bytes": 291,
+      "sha256": "cbd1c368dc4fe3cfe56439428939bef6ff461a47fff20aba7f2bf83537ab481a"
+    },
+    {
+      "path": "prepare/preview-3/stage-move-fixture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview-3/stage-prepare-fixture.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prepare/preview-3/worktree.txt",
+      "bytes": 4391,
+      "sha256": "0ac6fc7ad94136215cdc90620d565ba47842433478c3d0fca22e467cc161b0a0"
+    },
+    {
+      "path": "prepare/preview-driver-2.txt",
+      "bytes": 7285,
+      "sha256": "2b3c94085c3614c9795d52c8ee4d79e5461849a06a9ee162dc72bcd18809cf9b"
+    },
+    {
+      "path": "prepare/preview-driver-3.txt",
+      "bytes": 8329,
+      "sha256": "7672881790de53e95b68e86a63b7433a7fba173f2307e957a02465fcea642c41"
+    },
+    {
+      "path": "prepare/preview-driver.txt",
+      "bytes": 3580,
+      "sha256": "223deb03a1b792999b1ead8f93e7e28f36a34e37e8919854ad3020650d53d830"
+    },
+    {
+      "path": "prepare/preview-inputs/move-recipe.py.txt",
+      "bytes": 9725,
+      "sha256": "7f7249989324a13cabc53dcac1fcfcad54dc24547c98a669fc0b9890153b79f3"
+    },
+    {
+      "path": "prepare/preview-inputs/preview-driver.py.txt",
+      "bytes": 5546,
+      "sha256": "cbb62e0ae7915afcfac2ad9940a2aae1bb14119f827c25ea790fb8e26d0cef5d"
+    },
+    {
+      "path": "prepare/preview-inputs/sources.json",
+      "bytes": 453,
+      "sha256": "9eae38af21dc18ca87c434e23e3f28c899f8e49a70877a7b8ff18f33c86e1d02"
+    },
+    {
+      "path": "prepare/preview-inputs-2/move-recipe.py.txt",
+      "bytes": 9837,
+      "sha256": "326740178a4326ecd656f0f461858e6a22a22472a5c8bf06411dabd127616622"
+    },
+    {
+      "path": "prepare/preview-inputs-2/preview-driver.py.txt",
+      "bytes": 5548,
+      "sha256": "dcdf5af59e08f426cece347594558794385d9aadca778e03d82cddbd94bc7661"
+    },
+    {
+      "path": "prepare/preview-inputs-2/sources.json",
+      "bytes": 457,
+      "sha256": "9e30f018b9bbf1921b87c8b23faf100361f79a049ea1a01cac570446ca1039b8"
+    },
+    {
+      "path": "prepare/preview-inputs-3/move-recipe.py.txt",
+      "bytes": 10077,
+      "sha256": "03d2d1186972822ac3eda0b359303456171cf80ff9d5e972f9fa51652a06c1a3"
+    },
+    {
+      "path": "prepare/preview-inputs-3/preview-driver.py.txt",
+      "bytes": 5548,
+      "sha256": "80500b270b6fe85c078aa5bbfd51a6e009174fc6c359dad864eed622804d7387"
+    },
+    {
+      "path": "prepare/preview-inputs-3/sources.json",
+      "bytes": 457,
+      "sha256": "5d20536c36aa7fc5257ecefb3c6edb292abe26c6dfa4e975e9362a657f06f051"
+    },
+    {
+      "path": "prepare/previous-branch-cleanup.json",
+      "bytes": 380,
+      "sha256": "49b3ccff11f974e21212af4f9ea232f359b96e126a3880a642b1721281ea9241"
+    },
+    {
+      "path": "prepare/probe-setup-correction.json",
+      "bytes": 403,
+      "sha256": "31fc18959e64ed7689f0432ce6a2913a1a327abeaa878383448aa9b2c677c069"
+    },
+    {
+      "path": "prepare/profile-exits.json",
+      "bytes": 1080,
+      "sha256": "501f2bdc3db4e60e807efd6d72c833ce9ddf81933f9153f2076e7230dccc7536"
+    },
+    {
+      "path": "prepare/python39-annotation-error.json",
+      "bytes": 357,
+      "sha256": "bf22f0bd5d9bb630fb4404691e8097f57d930e14428e80fad8147558bdc3c84d"
+    },
+    {
+      "path": "prepare/python39-environment.json",
+      "bytes": 268,
+      "sha256": "bdeab5cadbe3b90526e14a73e7030dae4f2748d9f53034570340de5c533f0c3d"
+    },
+    {
+      "path": "prepare/python39-path-priority.txt",
+      "bytes": 111,
+      "sha256": "f1e6226b33f2a4cd2973a0d48ba39b795ea664ab579d8e98b9c5339655182774"
+    },
+    {
+      "path": "prepare/python39-profile.txt",
+      "bytes": 111,
+      "sha256": "38a00867d6be719490aa1ac58ce9ce7e1a7892f1e52824a0ac72f137af53554b"
+    },
+    {
+      "path": "prepare/scope.json",
+      "bytes": 1101,
+      "sha256": "bf6a65eba0f1b1734f498eb6d85d1a077c9d2925823dd2a8e2f1c044dd10d605"
+    },
+    {
+      "path": "prepare/shore-kit.txt",
+      "bytes": 110,
+      "sha256": "10dfbe87c8880ea2a64a0ccf4b9d61b883ab4fb8e513d90e8bcc5248e80faa3c"
+    },
+    {
+      "path": "prepare/task-batch.txt",
+      "bytes": 116,
+      "sha256": "56f1458a2f675ae86052dc951a2dcffcac979cee099fb3e12dbe66cdfa0d88fa"
+    }
+  ]
+}

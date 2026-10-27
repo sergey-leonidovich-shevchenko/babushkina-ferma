@@ -1,0 +1,6 @@
+{
+  "exit": 1,
+  "error": "ValueError: no such test method: test_two_commits_for_one_task_count_once",
+  "effect": "Failed before setUp, no fixture or repository mutation",
+  "correction": "Use existing test_unmerged_branch_does_not_count as fixture owner; invoke only its setUp"
+}

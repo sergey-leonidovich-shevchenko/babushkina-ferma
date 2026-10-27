@@ -1,0 +1,13 @@
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.027s
+
+OK
+STATIC PILOT AUDIT: 51 canonical predecessors and exact evidence; full map/FPS remain open
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.030s
+
+OK
+STATIC PILOT AUDIT: 51 canonical predecessors and exact evidence; full map/FPS remain open
+CONSUMERS: direct legacy CLI passes from root and another cwd; 9 optimization cases retained

@@ -1,0 +1,135 @@
+{
+  "prepare_commit": "0aa2f239f5146072cd7635368f0bd06fc98c7883",
+  "pilot_files": 14,
+  "moves": [
+    {
+      "old_path": "tools/build_art_backlog.py",
+      "target": "tools/planning/build_art_backlog.py",
+      "prepare_sha256": "fe90441eeda8cc7905ba1800a74d752111114791aebd7d8598cac281373f044a",
+      "moved_sha256": "c5896ee14a1cb3b5e6a273b375381bb51c3f20de8785866fe5e92b86a4a1628d",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/build_optimization_matrix.py",
+      "target": "tools/planning/build_optimization_matrix.py",
+      "prepare_sha256": "07b2cb08f7df4f1c4ed68a6a6dc721db21bd4bbf06569daef9030d20e961e860",
+      "moved_sha256": "980347b1bb5935db693c802b1eee1ab09bc89a99788d0dc3f48fe722aca8cca8",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/bump_version.py",
+      "target": "tools/planning/bump_version.py",
+      "prepare_sha256": "7ff0e864c86a371fa0e633291f9cd01b7264fa0fb07503737b217e0b48f8de26",
+      "moved_sha256": "62d5cc796c4d54df3f3039ba624e726ba853cca6a01d241ff01236b9c8244fdf",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/check_architecture.sh",
+      "target": "tools/quality/check_architecture.sh",
+      "prepare_sha256": "9c99fbd529348fe16cff946928960c9ab326dccf4663df63746f07150d20f475",
+      "moved_sha256": "cb6dc884a070c46935262b1f3d7cbe8f225a732cc597e89c73c0709e4ce9b928",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/check_documentation.py",
+      "target": "tools/quality/check_documentation.py",
+      "prepare_sha256": "003c5f1d49fcf82ef57adb5dc1c57c7917966f91fb1de9aadb14781db9c57c50",
+      "moved_sha256": "540f6c0dc1c318e1c2a9333c38e544353fdfb12672d31fb074a5c1b9d9de1e6d",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/pilot_rollout.py",
+      "target": "tools/planning/pilot_rollout.py",
+      "prepare_sha256": "c996c6129ecd44f0bfc46e0ee12f0d3d36290fae3885fd5c5a175789934001d4",
+      "moved_sha256": "ed841184a3101365a20c1d4f07eb2b90e74332a6a2edd49c7a3a83ff21a10743",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/project_backlog.py",
+      "target": "tools/planning/project_backlog.py",
+      "prepare_sha256": "34eca55c4c2e666b057e3107b833b83ccc4fc733e29a5f4d9e97f556aa46ebfc",
+      "moved_sha256": "1994e33d8234a5d384eb9ef1795a9da2aafeb53919df89d07e03993e7e1a2cc3",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/task_batch.py",
+      "target": "tools/planning/task_batch.py",
+      "prepare_sha256": "504363e026cdb1c76ba8099adf4250b43148b1e4c0946d13031ce3e2e42c6ec5",
+      "moved_sha256": "ef143f5b3c479addaf418e32c489cee26923ddca058aa0e1fb31400c5045f1fd",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/test_documentation.py",
+      "target": "tools/quality/test_documentation.py",
+      "prepare_sha256": "e59e915eebe90f8003194816555096bb57e09297798f03a7df8ad3735cba41a1",
+      "moved_sha256": "36119032a35f1834f9a4ce64980cfe24f7e9e124e4de8b94e4329da360d834a5",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/test_pilot_rollout.py",
+      "target": "tools/planning/test_pilot_rollout.py",
+      "prepare_sha256": "8aad31dfe512afc098d40660da906ea2160e52dcf493ae835b08cb0cbf8440a2",
+      "moved_sha256": "54f1886f732bd232996784b83ddd1cfc2cbe9f01768a708f9c2f61f65032c46e",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/test_project_backlog.py",
+      "target": "tools/planning/test_project_backlog.py",
+      "prepare_sha256": "dfc30f961ebeb8d80ede4fc53c79c6ab70d5dfb89a112d50519dda9974329eb7",
+      "moved_sha256": "62e614a89831c6ad0f9f3e603210db21e57af456bd8c53071b28ce1359e6824c",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/test_task_batch.py",
+      "target": "tools/planning/test_task_batch.py",
+      "prepare_sha256": "2227831b03480e1173d397b39d87c826b59fbd7f4996feb571e4308560993023",
+      "moved_sha256": "8e64df32fbf741e5fd30d36c162d0575a414734bc1b8d2e48596c2cd112f0715",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/test_visual_backlog.py",
+      "target": "tools/planning/test_visual_backlog.py",
+      "prepare_sha256": "b0fbfcaa1e055147744eabe8b1b0ec393aecf758836c23fdda547bb40125a2c1",
+      "moved_sha256": "f51359c3f30c805c454ac457cdbee37a38a943c4b2ca08515603fa4f476960e4",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    },
+    {
+      "old_path": "tools/visual_backlog.py",
+      "target": "tools/planning/visual_backlog.py",
+      "prepare_sha256": "c7864296ab9538486e871357f823813b6c744ba55838b5817a6c1aa71ca074de",
+      "moved_sha256": "413d8cdef8b9bfbf63e978c3c42deb38b477767ae2a2e904bdedae0792e978da",
+      "changes": "Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path"
+    }
+  ],
+  "public_wrappers": [
+    "tools/bump_version.py",
+    "tools/check_architecture.sh",
+    "tools/task_batch.py"
+  ],
+  "updated_live_documents": [
+    "QA_CHECKLIST.md",
+    "TESTING.md",
+    "docs/BACKLOG_WORKFLOW.md",
+    "docs/DEVELOPMENT.md",
+    "docs/WIKI_DEVELOPMENT.md",
+    "docs/backlog/2026-10/README.md",
+    "docs/epics/fair-2026-10/ACCEPTANCE.md",
+    "docs/epics/visual-overhaul-2026-10/MVP.md",
+    "docs/epics/visual-overhaul-2026-10/README.md",
+    "wiki/articles/visual-pilot.md"
+  ],
+  "frozen_prefixes": [
+    "docs/reports/",
+    "docs/concepts/",
+    "docs/plans/",
+    "docs/epics/idea-2026-10/daily/",
+    "wiki/reports/"
+  ],
+  "frozen_files": [
+    "docs/epics/visual-overhaul-2026-10/SOURCES.md",
+    "docs/epics/visual-overhaul-2026-10/VALIDATION.md",
+    "wiki/articles/tools-migration-map.md"
+  ],
+  "runtime_and_UID_moves": 0,
+  "mass_REFACTOR_03_moves": 0
+}

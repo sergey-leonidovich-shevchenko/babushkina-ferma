@@ -1,0 +1,172 @@
+"""Run only after the independently tested prepare commit is committed and clean."""
+from pathlib import Path
+import hashlib
+import json
+import os
+import subprocess
+
+ROOT = Path('/Users/sergeyshevchenko/my farm')
+os.chdir(ROOT)
+
+
+def git(*args):
+    return subprocess.check_output(['git', *args], text=True).strip()
+
+
+assert git('branch', '--show-current') == 'codex/refactor-02-maintainable-layout'
+assert not git('status', '--porcelain'), 'Commit the successful prepare candidate first'
+assert Path('VERSION').read_text().strip() == '0.0.353'
+base = git('rev-parse', 'HEAD')
+report = Path('docs/reports/refactor-02/move')
+report.mkdir()
+rows = json.loads(Path('docs/reports/refactor-02/prepare/baseline.json').read_text())['pilot']
+public = {'tools/check_architecture.sh', 'tools/bump_version.py', 'tools/task_batch.py'}
+before = {row['old_path']: Path(row['old_path']).read_bytes() for row in rows}
+public_modes = {name: Path(name).stat().st_mode & 0o777 for name in public}
+
+# Only the two approved pilot packages become trackable; runtimes and caches stay ignored.
+ignore = Path('.gitignore')
+text = ignore.read_text()
+for row in rows:
+    if row['old_path'] not in public:
+        text = text.replace('!' + row['old_path'] + '\n', '')
+text += ('\n# REFACTOR-02 pilot packages.\n!tools/quality/\n!tools/quality/*.py\n'
+         '!tools/quality/*.sh\ntools/quality/__pycache__/\n'
+         '!tools/planning/\n!tools/planning/*.py\ntools/planning/__pycache__/\n'
+         '!tools/check_architecture.sh\n!tools/bump_version.py\n!tools/task_batch.py\n')
+ignore.write_text(text)
+for package in ('quality', 'planning'):
+    folder = Path('tools') / package
+    folder.mkdir()
+    (folder / '__init__.py').write_text('"""' + ('Проверки репозитория.' if package == 'quality' else 'Планы и служебный учёт.') + '"""\n')
+
+for row in rows:
+    subprocess.run(['git', 'mv', '--', row['old_path'], row['target']], check=True)
+
+# These substitutions only change location/import/advertised CLI; checker algorithms stay intact.
+def transform(row, source):
+    text = source.decode()
+    name = Path(row['old_path']).name
+    if name == 'check_architecture.sh':
+        text = text.replace('${0:A:h}/run.py', '${0:A:h:h}/run.py')
+        for item in rows:
+            if item['old_path'].endswith('.py'):
+                command = '.'.join(Path(item['target']).relative_to('tools').with_suffix('').parts)
+                text = text.replace('python3 ' + item['old_path'], 'python3 tools/run.py ' + command)
+    if name == 'test_documentation.py':
+        text = text.replace('from check_documentation import ', 'from tools.quality.check_documentation import ')
+    replacements = {
+        'from common.paths import ': 'from tools.common.paths import ',
+        'from common.git import ': 'from tools.common.git import ',
+        'import project_backlog as backlog': 'from tools.planning import project_backlog as backlog',
+        'import visual_backlog as backlog': 'from tools.planning import visual_backlog as backlog',
+        'import visual_backlog as plan': 'from tools.planning import visual_backlog as plan',
+        'import task_batch\n': 'from tools.planning import task_batch\n',
+        'from pilot_rollout import ': 'from tools.planning.pilot_rollout import ',
+        'python3 tools/project_backlog.py': 'python3 tools/run.py planning.project_backlog',
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    if name == 'test_task_batch.py':
+        needle = '        shutil.copy2(task_batch.ROOT / "tools" / "task_batch.py", tools / "task_batch.py")\n'
+        assert needle in text
+        text = text.replace(needle, needle +
+            '        shutil.copy2(task_batch.ROOT / "tools/__init__.py", tools / "__init__.py")\n'
+            '        planning = tools / "planning"\n'
+            '        planning.mkdir()\n'
+            '        shutil.copy2(Path(task_batch.__file__), planning / "task_batch.py")\n'
+            '        shutil.copy2(task_batch.ROOT / "tools/planning/__init__.py", planning / "__init__.py")\n')
+    return text.encode()
+
+parity = []
+for row in rows:
+    expected = transform(row, before[row['old_path']])
+    target = Path(row['target'])
+    target.write_bytes(expected)
+    parity.append({'old_path': row['old_path'], 'target': row['target'],
+                   'prepare_sha256': hashlib.sha256(before[row['old_path']]).hexdigest(),
+                   'moved_sha256': hashlib.sha256(expected).hexdigest(),
+                   'changes': 'Only enumerated package imports, fixture dependencies and advertised CLI/root-relative launcher path'})
+
+# The public wrappers delegate to one module; import aliases preserve mutable globals.
+for name in ('bump_version', 'task_batch'):
+    Path('tools', name + '.py').write_text(
+        '#!/usr/bin/env python3\n"""Публичный совместимый вход; единственная реализация в planning."""\n'
+        'if __package__:\n    from .common.launch import facade\n'
+        'else:\n    from common.launch import facade\n\n'
+        'facade(__name__, "tools.planning.' + name + '")\n')
+Path('tools/check_architecture.sh').write_text(
+    '#!/bin/zsh\n# Публичный hook/CI вход; единственная реализация находится в quality.\n'
+    'exec zsh "${0:A:h}/quality/check_architecture.sh" "$@"\n')
+for name, mode in public_modes.items():
+    Path(name).chmod(mode)
+
+# The boundary tests now copy the same wrapper/package dependencies as a clean checkout.
+launcher = Path('tools/common/launch.py')
+launcher.write_text(launcher.read_text().replace('from common.paths import project_root',
+                                               'from .paths import project_root'))
+entry = Path('tools/run.py')
+entry.write_text(entry.read_text().replace('from common.launch import main',
+    'if __package__:\n    from .common.launch import main\nelse:\n    from common.launch import main'))
+test = Path('tools/common/test_infrastructure.py')
+text = test.read_text().replace('from common.git import ', 'from tools.common.git import ').replace(
+    'from common.paths import ', 'from tools.common.paths import ')
+needle = '        shutil.copy2(ROOT / "tools/bump_version.py", self.root / "tools/bump_version.py")\n'
+assert needle in text
+text = text.replace(needle, needle +
+    '        planning = self.root / "tools/planning"\n'
+    '        planning.mkdir()\n'
+    '        for name in ("bump_version.py", "__init__.py"):\n'
+    '            shutil.copy2(ROOT / "tools/planning" / name, planning / name)\n')
+needle = '        shutil.copy2(source, target)\n'
+assert needle in text
+text = text.replace(needle, needle +
+    '        quality = self.root / "tools/quality"\n'
+    '        quality.mkdir()\n'
+    '        shutil.copy2(ROOT / "tools/quality/check_architecture.sh", quality / "check_architecture.sh")\n')
+needle = '    def test_environment_copy_clears_all_git_overrides(self):\n'
+assert needle in text
+text = text.replace(needle,
+    '    def test_package_entry_and_public_api_imports(self):\n'
+    '        """Пакетный -m и публичные API работают без вручную добавленного tools в sys.path."""\n'
+    '        result = subprocess.run([sys.executable, "-m", "tools.run", "probe", "--help"],\n'
+    '                                cwd=self.root, text=True, capture_output=True)\n'
+    '        self.assertEqual(result.returncode, 0, result.stderr)\n'
+    '        self.assertEqual(json.loads(result.stdout)["argv"], ["--help"])\n'
+    '        result = subprocess.run([sys.executable, "-c",\n'
+    '            "import tools.task_batch as public;from tools.planning import task_batch as actual;"\n'
+    '            "assert public is actual;public.BATCH_SIZE=23;assert actual.BATCH_SIZE==23;"\n'
+    '            "import tools.bump_version as public_bump;from tools.planning import bump_version;"\n'
+    '            "assert public_bump is bump_version"], cwd=ROOT, text=True, capture_output=True)\n'
+    '        self.assertEqual(result.returncode, 0, result.stderr)\n\n' + needle)
+test.write_text(text)
+
+# Update live commands/links while leaving frozen reports, source packets and historical tables intact.
+frozen_prefixes = ('docs/reports/', 'docs/concepts/', 'docs/plans/',
+                   'docs/epics/idea-2026-10/daily/', 'wiki/reports/')
+frozen_files = {'wiki/articles/tools-migration-map.md',
+                'docs/epics/visual-overhaul-2026-10/SOURCES.md',
+                'docs/epics/visual-overhaul-2026-10/VALIDATION.md'}
+updated_documents = []
+for name in subprocess.check_output(['git', 'ls-files', '-z']).decode().split('\0'):
+    if not name.endswith('.md') or name.startswith(frozen_prefixes) or name in frozen_files:
+        continue
+    path = Path(name)
+    old_text = path.read_text()
+    text = old_text
+    for row in rows:
+        if row['old_path'] in public:
+            continue
+        command = '.'.join(Path(row['target']).relative_to('tools').with_suffix('').parts)
+        text = text.replace('python3 ' + row['old_path'], 'python3 tools/run.py ' + command)
+        text = text.replace(row['old_path'], row['target'])
+    if text != old_text:
+        path.write_text(text)
+        updated_documents.append(name)
+
+record = {'prepare_commit': base, 'pilot_files': 14, 'moves': parity,
+          'public_wrappers': sorted(public), 'updated_live_documents': updated_documents,
+          'frozen_prefixes': frozen_prefixes, 'frozen_files': sorted(frozen_files),
+          'runtime_and_UID_moves': 0, 'mass_REFACTOR_03_moves': 0}
+(report / 'migration.json').write_text(json.dumps(record, ensure_ascii=False, indent=2) + '\n')
+print(json.dumps({'prepare_commit': base, 'moved': len(rows), 'live_documents': updated_documents}, ensure_ascii=False))

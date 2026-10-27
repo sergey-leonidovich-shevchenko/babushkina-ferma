@@ -1,0 +1,66 @@
+{
+  "accepted_base": "d603de591082f19b1a9964eefd8f1d0671d38839",
+  "candidate_uses_moved_paths": true,
+  "same_input_sha256": "4e176a4f09be3aa86eed1f42d80f99683b25c98146df001a9bed4f2977460a35",
+  "four_outputs_byte_identical": true,
+  "matrix_planned_rows": 320,
+  "production_plans_written": false,
+  "results": [
+    {
+      "variant": "accepted-baseline",
+      "commands": [
+        {
+          "command": [
+            "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm builder CLI parity h2raqz2c/accepted-baseline/tools/build_art_backlog.py"
+          ],
+          "exit": 0,
+          "stdout": "ART BACKLOG: 386 items in 16 complete batches\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm builder CLI parity h2raqz2c/accepted-baseline/tools/build_optimization_matrix.py"
+          ],
+          "exit": 0,
+          "stdout": "OPTIMIZATION MATRIX: 320 planned scenarios\n",
+          "stderr": ""
+        }
+      ],
+      "outputs": {
+        "docs/concepts/visual-polish-2026-10-13/v1/backlog.json": "6b74b6b40ce4e97f6eaa508715850227ca505d688164e19f7f97d90440760f70",
+        "docs/epics/optimization-2026-10/checks.json": "3e799938dff76171018531756a2fed90f47eb315628e6e000a4be3145529766a",
+        "docs/epics/optimization-2026-10/checks.csv": "91959c5a09b84c89f7d3f1adfe809b50781a8649e9f5a307ec419c6a8a8519d8",
+        "docs/epics/optimization-2026-10/index.html": "2ec0fb26fb66f6611f36b23e524b9afa6867bbb3a43eb64f7af03d46098fd30b"
+      }
+    },
+    {
+      "variant": "candidate",
+      "commands": [
+        {
+          "command": [
+            "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm builder CLI parity h2raqz2c/candidate/tools/run.py",
+            "planning.build_art_backlog"
+          ],
+          "exit": 0,
+          "stdout": "ART BACKLOG: 386 items in 16 complete batches\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm builder CLI parity h2raqz2c/candidate/tools/run.py",
+            "planning.build_optimization_matrix"
+          ],
+          "exit": 0,
+          "stdout": "OPTIMIZATION MATRIX: 320 planned scenarios\n",
+          "stderr": ""
+        }
+      ],
+      "outputs": {
+        "docs/concepts/visual-polish-2026-10-13/v1/backlog.json": "6b74b6b40ce4e97f6eaa508715850227ca505d688164e19f7f97d90440760f70",
+        "docs/epics/optimization-2026-10/checks.json": "3e799938dff76171018531756a2fed90f47eb315628e6e000a4be3145529766a",
+        "docs/epics/optimization-2026-10/checks.csv": "91959c5a09b84c89f7d3f1adfe809b50781a8649e9f5a307ec419c6a8a8519d8",
+        "docs/epics/optimization-2026-10/index.html": "2ec0fb26fb66f6611f36b23e524b9afa6867bbb3a43eb64f7af03d46098fd30b"
+      }
+    }
+  ]
+}
