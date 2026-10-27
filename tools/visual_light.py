@@ -6,7 +6,13 @@ from pathlib import Path
 import re
 from PIL import Image
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.history import pinned_sha
+
+ROOT = project_root(__file__)
+CAPTURE_SOURCE = ('tools/visual_light_capture.gd',
+    'd609ab4fa6d82d6d013265183f018b8836abf7cc',
+    '53eb8f29a2b66d7896c9e87de8f1a872dfd48f02c12c2d6e3ab0800f8064c53e')
 REPORT = ROOT / 'docs/reports/visual-overhaul/vart-007'
 
 
@@ -56,7 +62,7 @@ def verify():
     source = json.loads((REPORT/'source.json').read_text())
     errors = contract_errors(data,capture)
     if capture['profile_sha256'] != sha(REPORT/'light-profile.json'): errors.append('profile hash')
-    if capture['script_sha256'] != sha(ROOT/'tools/visual_light_capture.gd'): errors.append('script hash')
+    if capture['script_sha256'] != pinned_sha(ROOT, *CAPTURE_SOURCE): errors.append('script hash')
     for path, digest in {**source['references'],**capture['sources'],source['master']['path']:source['master']['sha256']}.items():
         if sha(REPORT/path) != digest: errors.append('source hash: '+path)
     if sha(REPORT/'prompt-ne.txt') != source['prompt_sha256']: errors.append('prompt hash')

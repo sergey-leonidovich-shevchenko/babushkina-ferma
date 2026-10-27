@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-03/art-history-prepare/git-controls.py", line 107, in <module>
+    main()
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-03/art-history-prepare/git-controls.py", line 51, in main
+    for relative in modules['new']['scale'].SOURCES:
+                    ~~~~~~~^^^^^^^
+KeyError: 'new'

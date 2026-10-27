@@ -1,0 +1,20 @@
+{
+  "head": "832964d4de4a0a0207500dd185039642738874e7",
+  "review_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5673984294",
+  "review": {
+    "id": "PRR_kwDOTqkhCs8AAAABUjIhJg",
+    "state": "COMMENTED",
+    "body": "INTERMEDIATE REVIEW PASS — пакет PIL + dev/art_review на head 832964d4de4a0a0207500dd185039642738874e7, base PR d609ab4fa6d82d6d013265183f018b8836abf7cc; граница пакета d27f688f → 832964d4, версия 0.0.361. Обязательных замечаний к этому пакету нет, actionable inline не требуется. Это не окончательное APPROVED всей REFACTOR-03 и не разрешение merge.\n\nПрочитаны все пять перемещённых исходников и профиль. Независимо сверены AST, mode, old/new SHA и точные gzip-архивы всех шести назначений. Python меняет только общий source-root и квалификацию импорта; Node — только глубину двух imports; GDScript и tracked UID побайтно прежние. Ошибочное историческое audio-назначение import_pixabay_assets сохранено в карте, фактический authoring override записан явно.\n\nСамостоятельно выполнен опубликованный profile.py с новым /tmp output на Python 3.11/PIL. Четыре реальных PNG старой/новой версии совпали по SHA; отсутствующий и повреждённый input отклонены в обеих версиях. Настоящие checker и три прежних unittest прошли в обеих версиях из foreign cwd/PYTHONPATH/GIT. Node запущен из другой cwd, проверены собственный PID/project и байты index (SHA ef414507…), затем закрыт только этот процесс. Headless editor import и --check-only экспортёра завершились успешно. Importer/exporter main и Downloads не запускались; игра на ПК не запускалась, temporary fixtures удалены.\n\nПроверены 21 source SHA / 44 raw SHA, все 18247 прежних report blobs. Artwork/data, игровой код, tests/scenes/planning и provenance прежние. Живые инструкции используют новые входы; поиск старых адресов оставляет историческую карту и прежний VALIDATION, сохранённые побайтно. QA-счётчик 386 соответствует фактическим трём тестам; исторические значения не переписываются. Root tracked sources действительно 509 → 504. Полный git diff --check от принятой main проходит, Task-Complete не добавлен. Review-worktree после импорта чистый, core.bare=false.\n\nАвторские raw собственного gates-01 проверены: architecture 84/1163, Game 53502/0, normal/F10 по 90/0 и Wiki 145/0. Это проверка журналов автора, не мой запуск Game. Новых выводов о FPS, художественной готовности или VMAP нет.\n\nCI именно 832964d4 ещё выполняется (последний срез 1 success / 7 in_progress, отказов нет); прежний CI360 не переносится на новый SHA. Остальные семейства, итоговая карта/root≤30 и финальное независимое ревью впереди. PR draft, REFACTOR-03 in_progress / REFACTOR-06 blocked. Сводка направлена Team Lead для решения по продолжению текущей задачи.",
+    "submitted_at": "2026-10-27T20:38:20Z",
+    "author": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+      "id": null
+    }
+  },
+  "team_decision": "Intermediate package accepted; continue REFACTOR-03 including historical visual SHA preparation; full task not approved, no merge",
+  "team_thread": "01a14c6e-9afd-7d33-a968-2c72339fce8d",
+  "full_task03_accepted": false
+}

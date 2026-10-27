@@ -1,0 +1,450 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "art-standard root/history preparation, no physical moves",
+  "version": "0.0.362",
+  "base": "832964d4de4a0a0207500dd185039642738874e7",
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.362",
+      "started_at": "2026-10-27T18:54:37.337299+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T19:14:58.001060+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.362",
+      "started_at": "2026-10-27T19:14:58.002854+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T19:21:31.897945+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.362",
+      "started_at": "2026-10-27T19:21:31.899054+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T19:22:26.348921+00:00"
+    }
+  ],
+  "Wiki_followup_after_evidence_link_fix": {
+    "version": "0.0.362",
+    "command": [
+      "pnpm",
+      "--dir",
+      "wiki",
+      "check"
+    ],
+    "exit": 0,
+    "tests": 145,
+    "failed": 0,
+    "raw": "wiki-link-fix.txt",
+    "reason": "Browser found TXT evidence link rewritten to search; supported JSON evidence link substituted",
+    "architecture_and_game_sources_changed": false
+  },
+  "architecture_suites": 85,
+  "architecture_cases": 1184,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "new_real_Git_cases": 21,
+  "historical_reader_cases": 4,
+  "historical_pins": 5,
+  "source_root_preparations": 8,
+  "physical_moves": 0,
+  "root_sources": 504,
+  "previous_exact_head_361_CI": "8/8 success",
+  "Task_Complete_added": false,
+  "full_task03_accepted": false,
+  "VMAP_FPS_admission": false,
+  "source_SHA256": {
+    "TESTING.md": "59da2d92b6893b4562f20547618a2af40d49124f256fb655a40e9270f482c412",
+    "VERSION": "0d310cf837e0c61104ad3aad054b6690d942d8b76c9d63c19addfcf073ec3001",
+    "docs/epics/refactoring-2026-10/README.md": "1339b289bd1f612390d53a371204b4bbcd3919edebd8b374b71bafa1a079a43b",
+    "docs/epics/refactoring-2026-10/TASKS.md": "f8b3c5f92d30de9ade32f82852407969de1dc243f52fd8775aab31018ce6343b",
+    "project.godot": "61bbfe82e4639b806bb2517d914981476a757d86cc9e9fb9582bb9472299ffaf",
+    "tools/README.md": "f40e3b393f544e9276d7f7e9ed4b1756639a445d32f528829c0168a39fc3647b",
+    "tools/common/history.py": "670748c23645cb5bab436f0878d8a274bab1591f8ff24c0bf40fea79d86d157e",
+    "tools/common/test_history.py": "037ffb38d7d9ba80d6a136bd2efffcc595e66153e2cea753770049c35b85c215",
+    "tools/quality/check_architecture.sh": "2f05769af1b9f888628b2a6e3b330339cd40f7e53087f0f848834c3e82893651",
+    "tools/visual_density.py": "82cfab0e41d53b18bfc380c6beb914a2fc89207d2e6c6bd2e41937430ccccef2",
+    "tools/visual_edges.py": "41887c01b2ed4414c28c474ad40856e753e0d7c48047a1cf3b2042edcbaaef5a",
+    "tools/visual_light.py": "15865e90968d07bd399b374ca02ea474d597803978b23b0a87cf2912b6a2018a",
+    "tools/visual_modules.py": "ba9c3033c01f16d189ca320fc1b24d3c7b0a13e8bec038283986d60f268a7812",
+    "tools/visual_palette.py": "0d46c3e102102e7f2e5043aca50c0d6d30d7634bae168d1428f69ee792eb54ca",
+    "tools/visual_perspective.py": "35f51f780cd056319f7b2a09038b5f33df607b5b2ec90a1192785c372c5bd1b4",
+    "tools/visual_reuse.py": "5deb25a32f847a058552300bd604f6c5da7b3fe92a1f3fb8371e1c1ad018828c",
+    "tools/visual_scale.py": "f1cafeda6295bf1a6ea677214feff84cc217d89fe2a0d2407c4509b258f9017b",
+    "wiki/articles/project-refactoring.md": "c768cf46993d8edff3302b4239113918378a501abcf7dc17e9b306c8d254c87b",
+    "Бабушкина ферма.app/Contents/Info.plist": "bdfca4a5515d54f85c4d3ce5828f5d7c0354bd100a4bd499296cffc6979236ca"
+  },
+  "report_files": [
+    {
+      "path": "README.md",
+      "sha256": "4dfdf54ccf9eacbd8be870bf3991bf8da3e038f5da4790793bc9df0b749e5ea9",
+      "bytes": 9936
+    },
+    {
+      "path": "audit-02.txt",
+      "sha256": "42aa2e605acae479bfebc1cee2ccc9b196ce43dec230c7db2ea78c20505d4193",
+      "bytes": 65
+    },
+    {
+      "path": "audit-final.txt",
+      "sha256": "42aa2e605acae479bfebc1cee2ccc9b196ce43dec230c7db2ea78c20505d4193",
+      "bytes": 65
+    },
+    {
+      "path": "audit.py",
+      "sha256": "aa7e3590a284924e17cddf80a77b38090f7be196c52fb2baec5fcc192493ae71",
+      "bytes": 5698
+    },
+    {
+      "path": "baseline/acceptance-361.json",
+      "sha256": "a7d122f4eab8941c2244d65a74922b487b26db3dfdee103bed58a26594304cc7",
+      "bytes": 4589
+    },
+    {
+      "path": "baseline/capture-pins.json",
+      "sha256": "4fd1a578a5e30ff7ee54a174fb5e1211f3b936024c182366b44fb7e82342016b",
+      "bytes": 1550
+    },
+    {
+      "path": "baseline/ci-361-final.json",
+      "sha256": "42ddc33ab3d1847ab5e53c117d6e92665f1bc7669aae4ccd9f8a2ed8a0e0d143",
+      "bytes": 3901
+    },
+    {
+      "path": "baseline/ci-361-initial.json",
+      "sha256": "12da2584ed9e38c17c715a8c71729143a27b16aba51eec96b06ea0034c21d2fb",
+      "bytes": 3880
+    },
+    {
+      "path": "baseline/sources.json",
+      "sha256": "09fb78dd21e3095602c048bbe7b44da80bd146b0917f15246ca15e2d8f76dab8",
+      "bytes": 888
+    },
+    {
+      "path": "browser-before-link-fix.json",
+      "sha256": "9ad1421e74971a658c5ca5fcb8ba9ad9f412e5d1e09551d10b2837a4713038d4",
+      "bytes": 254
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "348d5c7a0991a7fc22805b59640bdc3db6f191a6b74093d928082e48972be616",
+      "bytes": 163
+    },
+    {
+      "path": "browser-guide.json",
+      "sha256": "a83d48d4b63afd4c483c2ce6cf6a8eae8ba2b695f7b7a86acb09ee67984361f6",
+      "bytes": 21186
+    },
+    {
+      "path": "browser-guide.png",
+      "sha256": "74bd7b19f92e1acc84dbdf7bc46f4d561fe53f5723bc83d8dc33abef584ad13c",
+      "bytes": 146091
+    },
+    {
+      "path": "browser-history-tests.json",
+      "sha256": "b6f8a59ffbb397b489e97657ee7c93f1de07e670d8abd7d22569b538d7ac71ff",
+      "bytes": 1320
+    },
+    {
+      "path": "browser-mobile.json",
+      "sha256": "fa987e39589169a2c89da479b7b5895439639a1459c53a52d97dad1d1c6a2e1b",
+      "bytes": 40070
+    },
+    {
+      "path": "browser-mobile.png",
+      "sha256": "e5dfbabc0228ba6e6aa51a2fa02e9ffc7415daa14fc504d441d768d9f16c6b8b",
+      "bytes": 59919
+    },
+    {
+      "path": "browser-profile.json",
+      "sha256": "d91ea853f68834e72576859cc22f6e046e36eca018d70d8af44f43147fe0e061",
+      "bytes": 8559
+    },
+    {
+      "path": "browser-route.json",
+      "sha256": "0d053e52e4aaeb559756b1779dd030699bb42b02b8c5ee4ae2d5ad0c01a7189a",
+      "bytes": 92239
+    },
+    {
+      "path": "browser-task.json",
+      "sha256": "3f0e60905dae7aa73f12116141f2ae96789239c04b575470dc177b291aa97202",
+      "bytes": 15418
+    },
+    {
+      "path": "catalog-before-link-fix.json",
+      "sha256": "ceead9702264abe7c575e3331e4d936640ee0b360ec6fed6c6f89da8634cae37",
+      "bytes": 258
+    },
+    {
+      "path": "catalog-check.mjs",
+      "sha256": "c34773faadfce63b490c162af24f0630f771d983315652954772b4d1049441e7",
+      "bytes": 2128
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "ceead9702264abe7c575e3331e4d936640ee0b360ec6fed6c6f89da8634cae37",
+      "bytes": 258
+    },
+    {
+      "path": "focused-documentation.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "bytes": 105
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "e17e9f53eabad116d72c9a0bc1c97f8501b4d94f5889c949f17ede1b049c1768",
+      "bytes": 12998
+    },
+    {
+      "path": "gates-01/game.txt",
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+      "bytes": 1804
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "e99e1a0439202512ddc61fc88674da85c0a813721449080b31c4ffb6a93f1a31",
+      "bytes": 733
+    },
+    {
+      "path": "gates-01/headless/f10/engine.txt",
+      "sha256": "70cdc83211a0d48012ffcc0680c37c3be0f8ea2229ebfb9cec67cd68db6b45fa",
+      "bytes": 10988
+    },
+    {
+      "path": "gates-01/headless/f10/frames.jsonl",
+      "sha256": "9d073b93fb82b2dded4ea06b828edc6ef38ff884800d8a4e69d362ddafe92474",
+      "bytes": 9098
+    },
+    {
+      "path": "gates-01/headless/f10/summary.json",
+      "sha256": "542bd911384fe1e9c0570f4928bddc7bb8fd47f0bd14f0b5b04119fb31b6e7b0",
+      "bytes": 1742
+    },
+    {
+      "path": "gates-01/headless/normal/engine.txt",
+      "sha256": "18ce8d7efcb31ec6fbb4bdafa2211238b59c28973043830e6f5f482e48b4839e",
+      "bytes": 11065
+    },
+    {
+      "path": "gates-01/headless/normal/frames.jsonl",
+      "sha256": "d863c3289ea8386cb806239e57f1acd17c8e049e9def3c35b97c24f9052700db",
+      "bytes": 9172
+    },
+    {
+      "path": "gates-01/headless/normal/summary.json",
+      "sha256": "a8ab56b2d6f5200629e6760877def735fdb8ea976a39255130ae718e38b845e0",
+      "bytes": 1745
+    },
+    {
+      "path": "gates-01/wiki.txt",
+      "sha256": "51558977f782fb60f86749630ed6661f91e2450ea433b7950356f08f2559c316",
+      "bytes": 13816
+    },
+    {
+      "path": "git-controls-01.txt",
+      "sha256": "7b66d6a5714debe9818cf84f734c54a5eaeeac4a1d3d5612b76679e8b52cab19",
+      "bytes": 395
+    },
+    {
+      "path": "git-controls-02.txt",
+      "sha256": "841b7cdf71eb1a70a3bdcdfa4c4a543fafd5884f6e2067e1072ef0801e235a49",
+      "bytes": 236
+    },
+    {
+      "path": "git-controls-replay.json",
+      "sha256": "abe627612e97a36309e5dd0d10901a542cb0316e075cdbaa118cdde81dc03688",
+      "bytes": 2605
+    },
+    {
+      "path": "git-controls.json",
+      "sha256": "5515658330aa7c9e9fc4c1f213911e4433995908fb310df8b9570af63b1cb945",
+      "bytes": 2532
+    },
+    {
+      "path": "git-controls.py",
+      "sha256": "8898495199292a80c0bbe4e557943406900f2da6cf086a586101a485eb6b0a11",
+      "bytes": 6173
+    },
+    {
+      "path": "history-tests-01.txt",
+      "sha256": "deb0d7c3489819c553447e7fd9254dd93a55da9ef36c91d926c5e597d020a7a4",
+      "bytes": 965
+    },
+    {
+      "path": "history-tests-02.txt",
+      "sha256": "856ae1c72d98d253403ae1c4113e77bfc93af355212d0406f128b14f13a09e0d",
+      "bytes": 789
+    },
+    {
+      "path": "history-tests-03.txt",
+      "sha256": "ba90ee0a0cf6ba5175b5ead4f905d2c745604068c126f08657825b8d80d9fbeb",
+      "bytes": 120
+    },
+    {
+      "path": "history-tests.json",
+      "sha256": "1a533a4d13153d0ef2343237e199a69cea66b5c3c2b34f1a602d7ed44cded240",
+      "bytes": 525
+    },
+    {
+      "path": "inputs/visual_density.py.gz",
+      "sha256": "6e8c5ca73f6d58c5646e76b967d316e9a944f74b13d9125d40213f3b67087530",
+      "bytes": 4787
+    },
+    {
+      "path": "inputs/visual_edges.py.gz",
+      "sha256": "ffec43a1ae7103707641b0fab4858a37a15da6caa1053e3cb544cc50ba743795",
+      "bytes": 4649
+    },
+    {
+      "path": "inputs/visual_light.py.gz",
+      "sha256": "1fdfef934dc2889acd40681c24b5eac2181f111068be8eccfb7d8363e265830e",
+      "bytes": 2008
+    },
+    {
+      "path": "inputs/visual_modules.py.gz",
+      "sha256": "030fc1b70fb417e386fc29806b875964d372744d3689760e36d8fccb5f8c2cc3",
+      "bytes": 3064
+    },
+    {
+      "path": "inputs/visual_palette.py.gz",
+      "sha256": "2ebdeeb38396d21bd22a17992cf0f69d20e99266d5bfeb35ed83218f82ce7e75",
+      "bytes": 4307
+    },
+    {
+      "path": "inputs/visual_perspective.py.gz",
+      "sha256": "fc8eaebead2e89ad1c87c1eb89d421dacd6a11d9a3fbeefe581232931bd4ed05",
+      "bytes": 4138
+    },
+    {
+      "path": "inputs/visual_reuse.py.gz",
+      "sha256": "b7e9e4c0369c8659712ead51cd19f0a4427cc36f95dbe42fdb703e3dff7068a3",
+      "bytes": 4095
+    },
+    {
+      "path": "inputs/visual_scale.py.gz",
+      "sha256": "86c78431ddf3e5d8db11385768c8e178635517e095cedb7b42259592ce7a1476",
+      "bytes": 4816
+    },
+    {
+      "path": "native-parse.json",
+      "sha256": "9dd22c330b01e2d1bf10e284761337147eb300e4e211ac8d642fadfce7601257",
+      "bytes": 5519
+    },
+    {
+      "path": "output-guards.json",
+      "sha256": "c75676e81685dc73cedc106f5f7d6e1c88651655f3ca6a987d8d803177ba0ee8",
+      "bytes": 1020
+    },
+    {
+      "path": "ownership-negative/current.txt",
+      "sha256": "23479b2407842fd9c02be9c2149ac998205b8b5c4d366515fc4518c7be656a55",
+      "bytes": 120
+    },
+    {
+      "path": "ownership-negative/git.py.gz",
+      "sha256": "956c39404a9960e085307e2a7258767ddff8552590dfe58cdb6af5da67868f41",
+      "bytes": 407
+    },
+    {
+      "path": "ownership-negative/history-current.py.gz",
+      "sha256": "0070c810de964b705371c3c6cfd45227442124e16431e477fbfd553dadc4c152",
+      "bytes": 1509
+    },
+    {
+      "path": "ownership-negative/history-without-registration.py.gz",
+      "sha256": "04c7d1f525989c52584b0516bab9f3e5e0b93f83d2a94f939d5e52a77c0e809b",
+      "bytes": 1411
+    },
+    {
+      "path": "ownership-negative/replay.py",
+      "sha256": "8eea4e779e5d0435de519630370e0855167f4f5593581861ac20ca06a3597f61",
+      "bytes": 2936
+    },
+    {
+      "path": "ownership-negative/result.json",
+      "sha256": "eca143ccddcac5c1171814d67f1dbec52ce4b17576d224ccc5acf334028fc594",
+      "bytes": 687
+    },
+    {
+      "path": "ownership-negative/test_history.py.gz",
+      "sha256": "fbc75653534272a3bf0195272818cefd65401b8fb5a86378bbe0ad98f30605bf",
+      "bytes": 3737
+    },
+    {
+      "path": "ownership-negative/without-registration.txt",
+      "sha256": "69ec7581fec682b5d16a809fd6584bd13a2d278d1dd831e0b9d4c8996a9064dd",
+      "bytes": 878
+    },
+    {
+      "path": "ownership-public-replay.txt",
+      "sha256": "55eeb690f3121cea61fc2edaef3e31b18d8634ba1a902f36976ce399e58f3154",
+      "bytes": 98
+    },
+    {
+      "path": "preparation.json",
+      "sha256": "3f6e285700c3b2c8972153d9f4462c43ba6383eb86209f8fbf68365eb3692b0e",
+      "bytes": 2637
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "edd7b113028df019fc4b3d5fff7ecb744df3a8824458b88b4825af092e7a07d5",
+      "bytes": 3302
+    },
+    {
+      "path": "profile-01.txt",
+      "sha256": "6d2cedb45496e49e43a6b29acc8f64c9f45e875d8e1b1e2e35f18441055f3b42",
+      "bytes": 365
+    },
+    {
+      "path": "profile-02.txt",
+      "sha256": "244745fae452a6a5548b34113badba11846c3003eff73ad215f453996d79ca43",
+      "bytes": 80
+    },
+    {
+      "path": "profile.json",
+      "sha256": "11d138a6f01220b9d1ffb3958768bc87c6ee91249b8b0cfb51dc33cf325a9b0a",
+      "bytes": 7329
+    },
+    {
+      "path": "profile.py",
+      "sha256": "d761a44c7534dc4bbb01c51d81ef90de2fa0381036566013e0baa9182b918e4f",
+      "bytes": 10909
+    },
+    {
+      "path": "scope.json",
+      "sha256": "3820fca4b731add2a7819fc289a096e02852495d23a3e2e043927d337f6af6b7",
+      "bytes": 1391
+    },
+    {
+      "path": "seal.py",
+      "sha256": "d8f2d121f93d79e00dc90cd068fdd8b52851c1d6a7b58d5d7d177057d2125412",
+      "bytes": 3366
+    },
+    {
+      "path": "wiki-link-fix.json",
+      "sha256": "5f85afc43089159db37e104ad937f976395b9af3ce50b2a37bb057c2004eafd1",
+      "bytes": 309
+    },
+    {
+      "path": "wiki-link-fix.txt",
+      "sha256": "c542478c35807ab2cd7d27c5d7baf4e94f6b66c2a9a27773fb8997fe53520412",
+      "bytes": 13818
+    }
+  ]
+}

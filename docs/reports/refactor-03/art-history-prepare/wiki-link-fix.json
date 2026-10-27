@@ -1,0 +1,10 @@
+{
+  "version": "0.0.362",
+  "command": ["pnpm", "--dir", "wiki", "check"],
+  "exit": 0,
+  "tests": 145,
+  "failed": 0,
+  "raw": "wiki-link-fix.txt",
+  "reason": "Browser found TXT evidence link rewritten to search; supported JSON evidence link substituted",
+  "architecture_and_game_sources_changed": false
+}

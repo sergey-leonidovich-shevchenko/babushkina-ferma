@@ -11,7 +11,10 @@ import re
 import subprocess
 import uuid
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.git import git_environment
+
+ROOT = project_root(__file__)
 REPORT = ROOT/'docs/reports/visual-overhaul/vart-002'
 FIELDS = {'current': ([1152,648],1.0), 'wide': ([1440,810],0.8), 'close': ([960,540],1.2)}
 SCENES = {'plaza': [1248,744], 'farm': [744,936]}
@@ -136,8 +139,8 @@ def capture(folder: Path) -> None:
     """Запускает отдельное окно Godot, сохраняя параметры и хеши до и после съёмки."""
     if folder.exists(): raise ValueError('Нужен новый каталог; прежние результаты не перезаписываются')
     folder.mkdir(parents=True)
-    source = {'schema':1,'task':'VART-002','base_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-              'runtime_patch':subprocess.check_output(['git','diff','--','scripts','assets','project.godot'],cwd=ROOT,text=True),
+    source = {'schema':1,'task':'VART-002','base_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,env=git_environment(),text=True).strip(),
+              'runtime_patch':subprocess.check_output(['git','diff','--','scripts','assets','project.godot'],cwd=ROOT,env=git_environment(),text=True),
               'sources':{p:digest(ROOT/p) for p in SOURCES},'artifacts':{}}
     (folder/'source.json').write_text(json.dumps(source,ensure_ascii=False,indent=2)+'\n')
     godot = os.environ.get('FARM_GODOT_BIN',str(ROOT/'tools/Godot.app/Contents/MacOS/Godot'))

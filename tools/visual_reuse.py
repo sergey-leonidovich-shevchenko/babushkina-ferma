@@ -10,7 +10,17 @@ import io
 import subprocess
 from PIL import Image
 
-ROOT=Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.git import git_environment
+from common.history import pinned_sha
+
+ROOT=project_root(__file__)
+CAPTURE_SOURCE = ('tools/visual_reuse_capture.gd',
+    'd609ab4fa6d82d6d013265183f018b8836abf7cc',
+    '7f40d05788c223c92f30b299c5cb10e5dac16290035b2df3ddfc8a01ded511ba')
+ADAPTER_SOURCE = ('tools/visual_reuse_sources.gd',
+    'd609ab4fa6d82d6d013265183f018b8836abf7cc',
+    '868c354fef37aa46f0678c32f7e99607c8e8cee0e03cf50596bf157f08d3f4ab')
 REPORT=ROOT/'docs/reports/visual-overhaul/vart-009'
 LABELS={'reuse':'Сохранить','adapt':'Адаптировать','redraw':'Перерисовать'}
 
@@ -30,7 +40,7 @@ def baseline_bytes(path,expected,commit):
     path=path.resolve();relative=path.relative_to(ROOT)
     current=path.read_bytes() if path.is_file() else b''
     if hashlib.sha256(current).hexdigest()==expected:return current
-    result=subprocess.run(['git','show',commit+':'+relative.as_posix()],cwd=ROOT,capture_output=True,check=True)
+    result=subprocess.run(['git','show',commit+':'+relative.as_posix()],cwd=ROOT,env=git_environment(),capture_output=True,check=True)
     if hashlib.sha256(result.stdout).hexdigest()!=expected:raise ValueError('baseline hash mismatch: '+str(relative))
     return result.stdout
 
@@ -94,7 +104,7 @@ def verify():
     errors=contract_errors(plan,inv,capture,manifest,[e['id'] for e in backlog['epics']])
     digest=plan['manifest_sha256']
     if any(doc['manifest_sha256']!=digest for doc in [plan,inv,capture]):errors.append('manifest hash')
-    if capture['script_sha256']!=sha(ROOT/'tools/visual_reuse_capture.gd') or capture['adapter_sha256']!=sha(ROOT/'tools/visual_reuse_sources.gd'):errors.append('capture code hash')
+    if capture['script_sha256']!=pinned_sha(ROOT, *CAPTURE_SOURCE) or capture['adapter_sha256']!=pinned_sha(ROOT, *ADAPTER_SOURCE):errors.append('capture code hash')
     if capture['view_profile_sha256']!=sha(REPORT/'view-profile.json'):errors.append('view profile hash')
     for p,digest in {**plan['evidence_hashes'],**capture['sources'],**capture['owners']}.items():
         path=ROOT/(p.removeprefix('res://'))

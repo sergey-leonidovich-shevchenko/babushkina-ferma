@@ -1,0 +1,158 @@
+{
+  "base": "832964d4de4a0a0207500dd185039642738874e7",
+  "version": "0.0.362",
+  "physical_moves": 0,
+  "root_sources": 504,
+  "AST_algorithms_except_declared_addresses_equal": true,
+  "actual_readers": [
+    {
+      "family": "density",
+      "legacy_after_fixture_move": [
+        "[Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/project with spaces/tools/visual_density_capture.gd'"
+      ],
+      "prepared_before_and_after_fixture_move": "pass"
+    },
+    {
+      "family": "light",
+      "legacy_after_fixture_move": [
+        "[Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/project with spaces/tools/visual_light_capture.gd'"
+      ],
+      "prepared_before_and_after_fixture_move": "pass"
+    },
+    {
+      "family": "modules",
+      "legacy_after_fixture_move": [
+        "[Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/project with spaces/tools/visual_modules_capture.gd'"
+      ],
+      "prepared_before_and_after_fixture_move": "pass"
+    },
+    {
+      "family": "reuse",
+      "legacy_after_fixture_move": [
+        "[Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/project with spaces/tools/visual_reuse_capture.gd'"
+      ],
+      "prepared_before_and_after_fixture_move": "pass"
+    }
+  ],
+  "corrupt_capture_SHA_rejected": [
+    "density: native configuration",
+    "light: script hash",
+    "modules: script hash",
+    "reuse: capture code hash"
+  ],
+  "unavailable_history_without_live_fallback": [
+    {
+      "family": "density",
+      "error": "historical source unavailable: tools/visual_density_capture.gd"
+    },
+    {
+      "family": "light",
+      "error": "historical source unavailable: tools/visual_light_capture.gd"
+    },
+    {
+      "family": "modules",
+      "error": "historical source unavailable: tools/visual_modules_capture.gd"
+    },
+    {
+      "family": "reuse",
+      "error": "'/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/no historical commit/assets/game/world_sprite_manifest.json' is not in the subpath of '/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/no historical commit' OR one path is relative and the other is absolute."
+    }
+  ],
+  "foreign_CLI": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/visual_scale.py",
+        "verify"
+      ],
+      "cwd": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/foreign cwd",
+      "exit": 0,
+      "stdout": "VISUAL SCALE: geometry, native pixels, fixed HUD and physics valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/visual_palette.py"
+      ],
+      "cwd": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/foreign cwd",
+      "exit": 0,
+      "stdout": "VISUAL PALETTE: six motifs, 24 ramps, alpha bounds, source hashes and scale valid; choice approved\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/visual_perspective.py"
+      ],
+      "cwd": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/foreign cwd",
+      "exit": 0,
+      "stdout": "VISUAL PERSPECTIVE: three sides, nine sources, uniform reference scale, grid, anchors and browser proof valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/visual_edges.py"
+      ],
+      "cwd": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/foreign cwd",
+      "exit": 0,
+      "stdout": "VISUAL EDGES: six regions, 8 browser cases, alpha, sources and explicit choice valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/visual_density.py"
+      ],
+      "cwd": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/foreign cwd",
+      "exit": 0,
+      "stdout": "VISUAL DENSITY: five subjects, common hero, 12 browser cases, scale and source provenance valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/visual_light.py"
+      ],
+      "cwd": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/foreign cwd",
+      "exit": 0,
+      "stdout": "VART-007: approved A, 24 native frames, independent form/contact/cast, hashes valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/visual_modules.py"
+      ],
+      "cwd": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/foreign cwd",
+      "exit": 0,
+      "stdout": "VART-008: both facades approved, 28 exact crops, 19 native frames, camera and sources valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/visual_reuse.py"
+      ],
+      "cwd": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art history real clone 3ln1tevb/foreign cwd",
+      "exit": 0,
+      "stdout": "VART-009: 29 decisions, 238 declarations / 236 files, 58 comparisons + 12 overviews valid; runtime unchanged\n",
+      "stderr": ""
+    }
+  ],
+  "five_GD_and_frozen_capture_SHA_unchanged": {
+    "tools/visual_density_capture.gd": "0699ede725cd4d4c4087cdc868eef1835bf1c885bdeed62b9862659b6620e558",
+    "tools/visual_light_capture.gd": "53eb8f29a2b66d7896c9e87de8f1a872dfd48f02c12c2d6e3ab0800f8064c53e",
+    "tools/visual_modules_capture.gd": "f2bc0bf2af0f96c78e15101ca23685600d1752c5bda15e0fbd383ca22e6d5b5b",
+    "tools/visual_reuse_capture.gd": "7f40d05788c223c92f30b299c5cb10e5dac16290035b2df3ddfc8a01ded511ba",
+    "tools/visual_reuse_sources.gd": "868c354fef37aa46f0678c32f7e99607c8e8cee0e03cf50596bf157f08d3f4ab",
+    "docs/reports/visual-overhaul/vart-006/native/capture.json": "e8e76864736a70e5b036f87a85ab2908c5108ff8b6d02a3000c890bd14f40933",
+    "docs/reports/visual-overhaul/vart-007/native/capture.json": "bd188813fa0dc6f9130dccb3ce561c5863df0d8dc7ecedac9289c6bc6ba8245e",
+    "docs/reports/visual-overhaul/vart-008/native/capture.json": "806463d016cc5734c646bcc7f8e154f478e323c566951c3f06911a12ce437720",
+    "docs/reports/visual-overhaul/vart-009/native/capture.json": "37a7fa0fd045c68b94995a03876e1996edcbf091eb5a393acd37cf99e8b55726"
+  },
+  "temporary_clone_removed": true,
+  "real_GPU_capture_not_run": true,
+  "full_task03_accepted": false
+}

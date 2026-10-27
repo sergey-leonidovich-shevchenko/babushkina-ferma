@@ -1,0 +1,1 @@
+{"readers": 4, "pins": 5, "corrupt": 4, "missing_history": 4, "foreign_CLI": 8}

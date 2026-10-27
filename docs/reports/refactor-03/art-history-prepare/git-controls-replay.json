@@ -1,0 +1,47 @@
+{
+  "native_capture_accepted": false,
+  "engine_control": "/usr/bin/false; intentional rejection",
+  "expected_own_clone_HEAD": "832964d4de4a0a0207500dd185039642738874e7",
+  "own_Git_source_metadata_before_engine_refusal": {
+    "schema": 1,
+    "task": "VART-002",
+    "base_commit": "832964d4de4a0a0207500dd185039642738874e7",
+    "runtime_patch": "",
+    "sources": {
+      "project.godot": "61bbfe82e4639b806bb2517d914981476a757d86cc9e9fb9582bb9472299ffaf",
+      "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9",
+      "scripts/systems/camera_system.gd": "d394a1c8114e5d75f44141a1f7a461ce214c401eab118ec7286e55732d549ce5",
+      "scripts/systems/hero_visual_system.gd": "41020a67d6a7ee5766216d2115c7efd8f8909e465dddf09a95ef35e33d70edc8",
+      "scripts/systems/animation_renderer.gd": "3cf74910ee3288a00e2d05c5ccf03c38891de3899488f7d480770c8e3923e96a",
+      "scripts/systems/render_system.gd": "e227d03f7ee1e86dc8d4e143a9342b366b56b3a795847123a664cabdd68ff59c",
+      "scripts/systems/world_visibility_system.gd": "d6c7dd17c22eb6b2c5f5be2ce5b3ea0f4b05b32372f9fb6a3969cf382e12d604",
+      "scripts/presentation/visual_reference_mode.gd": "95919eb8ca14b9893a78220dcecf1479ad5691895646595d4482fde8e3904c8e",
+      "scripts/systems/navigation_system.gd": "651aa3cf996f745d9b45607264ce62664f37d9a7e9f5cd56973b3f1ee139d56f",
+      "scripts/game_context.gd": "4dd5e9bc4d6c05c644dec8fef4bd5bfcd4e1fb605697b04db14c81a726a0be6c",
+      "assets/game/characters/hero_v3/walk_master.png": "7f6f70fbfd80683402b51caa47d9d76299906cda129e27b289d73cee7ae3a3da",
+      "tools/visual_scale_capture.gd": "cad09a8e41cb51d9e6719c99dced3a6566c7377312758c87d0ed138894f3c01e"
+    },
+    "artifacts": {
+      "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "silhouettes": {}
+  },
+  "legacy_reuse_hostile_Git_rejected": "Command '['git', 'show', '832964d4de4a0a0207500dd185039642738874e7:tools/visual_scale.py']' returned non-zero exit status 128.",
+  "prepared_reuse_reads_own_historical_bytes": true,
+  "scale_capture_refusals": [
+    {
+      "mode": "old",
+      "error_type": "CalledProcessError",
+      "error": "Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128."
+    },
+    {
+      "mode": "new",
+      "error_type": "ValueError",
+      "error": "Нативная съёмка отклонена; паспорт и кадры отказа сохранены"
+    }
+  ],
+  "parent_environment_unchanged": true,
+  "foreign_index_not_created": true,
+  "actual_Git_call_sites_executed": 3,
+  "temporary_clone_removed": true
+}

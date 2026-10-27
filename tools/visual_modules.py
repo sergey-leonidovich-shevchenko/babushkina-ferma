@@ -6,7 +6,13 @@ from pathlib import Path
 import re
 from PIL import Image
 
-ROOT=Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.history import pinned_sha
+
+ROOT=project_root(__file__)
+CAPTURE_SOURCE = ('tools/visual_modules_capture.gd',
+    'd609ab4fa6d82d6d013265183f018b8836abf7cc',
+    'f2bc0bf2af0f96c78e15101ca23685600d1752c5bda15e0fbd383ca22e6d5b5b')
 REPORT=ROOT/'docs/reports/visual-overhaul/vart-008'
 
 
@@ -65,7 +71,7 @@ def verify():
     errors=contract_errors(data,measure,capture)
     digest=sha(REPORT/'modules.json')
     if capture['profile_sha256']!=digest or measure['profile_sha256']!=digest:errors.append('profile hash')
-    if capture['script_sha256']!=sha(ROOT/'tools/visual_modules_capture.gd'):errors.append('script hash')
+    if capture['script_sha256']!=pinned_sha(ROOT, *CAPTURE_SOURCE):errors.append('script hash')
     for path,digest in {**data['source_hashes'],**data['prompt_hashes'],**data['revision_reference_hashes'],**capture['sources']}.items():
         if sha(REPORT/path)!=digest:errors.append('source hash: '+path)
     for path,digest in source['contracts'].items():

@@ -1,0 +1,14 @@
+{
+  "base": "832964d4de4a0a0207500dd185039642738874e7",
+  "version": "0.0.361",
+  "sources": {
+    "tools/visual_scale.py": "c9de9f43e58a774682618410a760a7ae192ed15dbaf0efc16177b7bd22a22b04",
+    "tools/visual_palette.py": "bffbbbf68bf3943728091317d581083732089d7111f2c2f901f91720b0a47e20",
+    "tools/visual_perspective.py": "5c5e3f172da47b49f1422cde5cb94d3344b367b8a587410912b7db51ada09300",
+    "tools/visual_edges.py": "d2c96a1d315fb3b526a7483689e4898c44eb394b6e7a36f4e4816491a42b59ce",
+    "tools/visual_density.py": "ce2cf008d7a01a54b000584caca7eeec260def9675d349ce0af35724e01fa212",
+    "tools/visual_light.py": "d58f642add5a236a5f51752b498c81025bc6a34590a92b3fd6f8f793ba125e7b",
+    "tools/visual_modules.py": "83c757ff5fd523dc2e6d6fb3746d360769c02c1d0505473b3b151d0af722fa7d",
+    "tools/visual_reuse.py": "ad175d8c64f1e3afd513c6072e5f426ea1dcd26c5e7585093615d1cde32d0f3a"
+  }
+}

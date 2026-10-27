@@ -1,0 +1,117 @@
+{
+  "version": "0.0.362",
+  "new_GPU_capture": false,
+  "fresh_import_and_seven_parse_only": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--editor",
+        "--quit"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Повторное открытие сцен…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета центрального редактора…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета окна плагина…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Макет редактора готов.\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/visual_scale_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/visual_perspective_export.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/visual_density_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/visual_light_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/visual_modules_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/visual_reuse_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/visual_reuse_sources.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    }
+  ]
+}

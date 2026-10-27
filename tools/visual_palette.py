@@ -8,7 +8,9 @@ from pathlib import Path
 import re
 from PIL import Image
 
-ROOT=Path(__file__).resolve().parents[1]
+from common.paths import project_root
+
+ROOT=project_root(__file__)
 REPORT=ROOT/'docs/reports/visual-overhaul/vart-003'
 MATERIALS={'grass','wood','stone','earth','water','metal'}
 DATA_PATTERN=r'(<script type="application/json" id="palette-data">).*?(</script>)'

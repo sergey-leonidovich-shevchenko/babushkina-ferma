@@ -1,0 +1,2 @@
+fatal: not a git repository: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art producer Git controls xn7v7dos/foreign cwd/missing.git'
+Three actual Git call sites isolated; both capture outcomes are refusals, no native pass

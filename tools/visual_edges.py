@@ -8,7 +8,9 @@ from pathlib import Path
 import re
 from PIL import Image
 
-ROOT=Path(__file__).resolve().parents[1]
+from common.paths import project_root
+
+ROOT=project_root(__file__)
 REPORT=ROOT/'docs/reports/visual-overhaul/vart-005'
 PATTERN=r'(<script type="application/json" id="edge-data">).*?(</script>)'
 

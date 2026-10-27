@@ -7,7 +7,13 @@ from pathlib import Path
 import re
 from PIL import Image
 
-ROOT=Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.history import pinned_sha
+
+ROOT=project_root(__file__)
+CAPTURE_SOURCE = ('tools/visual_density_capture.gd',
+    'd609ab4fa6d82d6d013265183f018b8836abf7cc',
+    '0699ede725cd4d4c4087cdc868eef1835bf1c885bdeed62b9862659b6620e558')
 REPORT=ROOT/'docs/reports/visual-overhaul/vart-006'
 PATTERN=r'(<script type="application/json" id="density-data">).*?(</script>)'
 
@@ -106,7 +112,7 @@ def native_errors(proof,data):
     expected={'kind':'native-density-study','native_gameplay':False,'performance_eligible':False,'field':[960,540],'target':[1152,648],'texture_filter':'linear_with_mipmaps','hero_source':'a'}
     for key,value in expected.items():
         if proof.get(key)!=value:errors.append('native: '+key)
-    if proof.get('capture_script_sha256')!=sha(ROOT/'tools/visual_density_capture.gd') or proof.get('profile_sha256')!=sha(REPORT/'density-profile.json'):errors.append('native configuration')
+    if proof.get('capture_script_sha256')!=pinned_sha(ROOT, *CAPTURE_SOURCE) or proof.get('profile_sha256')!=sha(REPORT/'density-profile.json'):errors.append('native configuration')
     if proof.get('display_server') in ['headless','',None]:errors.append('native graphics')
     if proof.get('source_sha256')!={v:sha(REPORT/x['master']) for v,x in data['variants'].items()}:errors.append('native sources')
     frames=proof.get('frames',[])
