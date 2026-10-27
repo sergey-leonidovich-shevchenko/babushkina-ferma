@@ -3,7 +3,7 @@
 import copy
 import json
 import unittest
-from check_art_review import FOLDER, validate
+from tools.dev.art_review.check_art_review import FOLDER, validate
 
 
 class ArtReviewTests(unittest.TestCase):

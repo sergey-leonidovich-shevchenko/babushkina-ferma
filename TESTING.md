@@ -8,6 +8,8 @@ VFOLIAGE-006 P1: до production-правки сохранена отдельн�
 
 # Правила тестирования
 
+REFACTOR-03, image/review-пакет: `docs/reports/refactor-03/image-review-move/profile.py --output /tmp/новый-image.json` сравнивает четыре синтетических PNG PIL со старым Git и отклоняет отсутствующее/повреждённое изображение. Настоящие checker и три прежних unittest работают из чужой cwd/PYTHONPATH/GIT; Node-сервер проверяется по собственному PID и фактически выданному индексу. Godot выполняет свежий import и parse-only экспортёра. Downloads и main генерации не запускаются; tracked UID прежний. [Отчёт](docs/reports/refactor-03/image-review-move/README.md) хранит отдельные полные gates;03 остаётся in_progress.
+
 REFACTOR-03, аудио-пакет: `docs/reports/refactor-03/audio-move/profile.py --output /tmp/новый-audio.json` запускается в Python с NumPy. Он сравнивает четыре настоящих перемещённых модуля со старым Git: AST, mode, CLI из чужой cwd/PYTHONPATH/GIT,33 WAV/201 измерение, семь сигналов и PCM16; четыре повреждения WAV и клиппинг при экспорте отвергаются. Все36 оригинальных WAV прежние, main генерации не вызывается, audit пишет только в disposable проект. Три новых source pins не меняют другие правила provenance. [Пакет](docs/reports/refactor-03/audio-move/README.md) требует собственных полных gates;03 in_progress,06 blocked.
 
 REFACTOR-03, живые команды после P2: `python3 tools/test_artist_packet.py` сохраняет восемь прежних сценариев и добавляет четыре настоящих контроля границы истории/текущей документации. Единственный `docs/SPRITE_STANDARD.md` в комплекте VRELEASE-005 проверяется по прежнему commit/SHA; текущий текст может менять CLI. Остальные составляющие комплекта сохраняют live-проверки, переподпись/отсутствие истории/порча картинки отклоняются. Реальные foreign Git/index/config и symlink не подменяют источник; общий Git helper не меняет окружение. [Отчёт P2](docs/reports/refactor-03/authoring-docs/README.md) сохраняет начальный отказ architecture и новый полный прогон после адресной адаптации reader.
@@ -312,7 +314,7 @@ Creative Agent меняет только Markdown-постановку; новы
 
 ## Проверки отдельной wiki
 
-Общий контракт иконок проверяется `ItemIconContractSuite` в полном наборе и профильно через `tools/item_icon_contract_review.gd`. Для художественной ревизии выполнить `python3 tools/check_art_review.py` и `python3 tools/test_art_review.py`: весь реестр должен быть покрыт партиями без повторов, каждый исходный PNG имеет правильный хеш/размер, цвет и рамка валидны. Этот контроль не заменяет выбор дизайна или художественный просмотр. После новых предметов/ресурсов снимок и партии пересоздаются инструментами, указанными в плане.
+Общий контракт иконок проверяется `ItemIconContractSuite` в полном наборе и профильно через `tools/item_icon_contract_review.gd`. Для художественной ревизии выполнить `python3 tools/run.py dev.art_review.check_art_review` и `python3 tools/run.py dev.art_review.test_art_review`: весь реестр должен быть покрыт партиями без повторов, каждый исходный PNG имеет правильный хеш/размер, цвет и рамка валидны. Этот контроль не заменяет выбор дизайна или художественный просмотр. После новых предметов/ресурсов снимок и партии пересоздаются инструментами, указанными в плане.
 
 Для изменений в `wiki/` дополнительно выполните `pnpm check` в этой папке: актуальный экспорт Godot → проверка ссылок и спрайтов → TypeScript → production-сборка → Node-тесты. Игровые проверки перед commit/push также обязательны. CI содержит независимый job wiki с Godot и Node 24.
 

@@ -4,8 +4,10 @@
 from pathlib import Path
 from PIL import Image
 
+from tools.common.paths import project_root
+
 DOWNLOADS = Path.home() / "Downloads"
-OUTPUT = Path(__file__).resolve().parents[1] / "assets" / "game" / "items"
+OUTPUT = project_root(__file__) / "assets" / "game" / "items"
 
 
 # Вырезает область, удаляет однотонный фон и помещает результат в игровую ячейку 64×64.

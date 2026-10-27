@@ -1,0 +1,58 @@
+{
+  "base": "d27f688fa3ec2670a757acd14019f8ae35e0f693",
+  "from_version": "0.0.360",
+  "moves": [
+    {
+      "old_path": "tools/import_pixabay_assets.py",
+      "target": "tools/assets/authoring/import_pixabay_assets.py",
+      "before_sha256": "cda57dd2b74de1a6253cdbae6a32315b9eddbd7ab987df82d151d8102b8c7d96",
+      "after_sha256": "f80fa7edaad48d40bba6f097b1555df5664ce75f9d71ac6483e506510a643250",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/check_art_review.py",
+      "target": "tools/dev/art_review/check_art_review.py",
+      "before_sha256": "993cecabad7894cac9207ea5b572fc9189d5045ed3690206ee9d8ee43c531588",
+      "after_sha256": "69fe1294fc300059e22f563164bd516d81354a454ce5a2a5af89099a1d12acac",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_art_review.py",
+      "target": "tools/dev/art_review/test_art_review.py",
+      "before_sha256": "324f7b2b90f54d53f0c4ecc9f99f9b648eaceaaf691033b85d09467463a5b0be",
+      "after_sha256": "b436a55f0ec9a9de03516b06d48133603b26b27a932b228c5767a9ab7f7c82a6",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/art_review_export.gd",
+      "target": "tools/dev/art_review/art_review_export.gd",
+      "before_sha256": "45ff6d110878ee9854ff4fda561a05636c79b4b9b57f84cf9d0da3162b0c619a",
+      "after_sha256": "45ff6d110878ee9854ff4fda561a05636c79b4b9b57f84cf9d0da3162b0c619a",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/art_review_export.gd.uid",
+      "target": "tools/dev/art_review/art_review_export.gd.uid",
+      "before_sha256": "11c2fe73a8f1d704bf62c79510c4d7b48cd506cda37d87ce950177a40c3d80c5",
+      "after_sha256": "11c2fe73a8f1d704bf62c79510c4d7b48cd506cda37d87ce950177a40c3d80c5",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/art_review_serve.mjs",
+      "target": "tools/dev/art_review/art_review_serve.mjs",
+      "before_sha256": "2344db43e0c98b0420427bf5de6c7eff6df38052f433e26e78e9a45a2686b2de",
+      "after_sha256": "bb8cdcd16f24bc59aa378d05150eb26b28f063925d7ba56f80686668825ee42a",
+      "mode": 420
+    }
+  ],
+  "root_after": 504,
+  "tracked_UID_moves": 1,
+  "ignored_UID_moves": 0,
+  "assignment_override": {
+    "old_path": "tools/import_pixabay_assets.py",
+    "historical_target": "tools/assets/audio/import_pixabay_assets.py",
+    "actual_target": "tools/assets/authoring/import_pixabay_assets.py",
+    "reason": "PIL image importer; no audio processing"
+  },
+  "full_task03_accepted": false
+}

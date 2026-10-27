@@ -7,7 +7,7 @@
 Запустить с Node.js, который используется для Wiki:
 
 ```sh
-node tools/art_review_serve.mjs
+node tools/dev/art_review/art_review_serve.mjs
 ```
 
 Открыть напечатанный адрес, обычно `http://127.0.0.1:4184/`. Сервер работает только на localhost и отдаёт файлы этого каталога. Страница умеет искать предметы, фильтровать измеримые признаки и партии, сравнивать игровую окраску с прежним отображением Wiki, отмечать решение и выгружать его в JSON. Решения сохраняются только в браузере; они не меняют запасы, сохранения или ресурсы игры.
@@ -29,7 +29,7 @@ node tools/art_review_serve.mjs
 ## Воспроизвести
 
 ```sh
-./tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/art_review_export.gd
+./tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/dev/art_review/art_review_export.gd
 python3 tools/build_art_backlog.py
 ```
 

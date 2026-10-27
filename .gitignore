@@ -561,3 +561,14 @@ tools/build/*
 !tools/assets/audio/
 tools/assets/audio/*
 !tools/assets/audio/*.py
+
+# REFACTOR-03: independent art review tools and one original tracked UID.
+!tools/dev/
+tools/dev/*
+!tools/dev/__init__.py
+!tools/dev/art_review/
+tools/dev/art_review/*
+!tools/dev/art_review/*.py
+!tools/dev/art_review/*.gd
+!tools/dev/art_review/*.mjs
+!tools/dev/art_review/art_review_export.gd.uid

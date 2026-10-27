@@ -1,0 +1,302 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "PIL and dev/art_review; full task in_progress",
+  "head_before": "d27f688fa3ec2670a757acd14019f8ae35e0f693",
+  "version": "0.0.361",
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.361",
+      "started_at": "2026-10-27T18:01:01.809859+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T18:20:47.533577+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.361",
+      "started_at": "2026-10-27T18:20:47.534366+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T18:27:10.465905+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.361",
+      "started_at": "2026-10-27T18:27:10.467423+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T18:28:01.492477+00:00"
+    }
+  ],
+  "architecture_suites": 84,
+  "architecture_cases": 1163,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "profile": "profile.json",
+  "replay": "replay.json",
+  "scope": "scope.json",
+  "root_tracked_sources": 504,
+  "source_moves": 5,
+  "tracked_UID_moves": 1,
+  "previous_audio_exact_head_CI": "8/8 success",
+  "Task_Complete_added": false,
+  "full_task03_accepted": false,
+  "VMAP_FPS_admission": false,
+  "source_SHA256": {
+    ".gitignore": "5ecf26a9d226b3ec0ef03f362566acd896666afb56a64124fbdf50c2c37e1334",
+    "QA_CHECKLIST.md": "737cf4c3b6b1c24132e77462066e6dcd0406ee1a8bb2c6cfdb3b28fe20c48093",
+    "TESTING.md": "67ad916fcd6ee0dd1f620900cd951dc7cc95966fa6955b48ce2456ae9cbf3344",
+    "VERSION": "10180ff1e7b77206fbd7fb1729f5b9a3125a353c6e35930e36e98ae2303bf8ef",
+    "docs/DEVELOPMENT.md": "e1fb69dc840a72826dbc823de5d7ae48fe5c486c2b39b5c6d8488ee8846cb5d6",
+    "docs/concepts/visual-polish-2026-10-13/v1/README.md": "f16948cd4d91541a5c9c4baf3e88c180e5347068c49cfc2c27e32cce22de64ab",
+    "docs/epics/refactoring-2026-10/README.md": "3c212d43bf15f1d9b47c2d65e89c549f71b35265264215ed0338811544d3a362",
+    "docs/epics/refactoring-2026-10/TASKS.md": "13d83c67771e26267e212170907da04687a9e23aec14c9ab68c62a90652aec4d",
+    "project.godot": "86c93549dd06e79ecd51dffc1fe2de3ecea1691a931277cc66067194ac3fe54d",
+    "tools/README.md": "f89c36de90c5c6c71db6bc5ad02fc73eba7cb4f9467baabe4a991b3256311d55",
+    "tools/assets/authoring/import_pixabay_assets.py": "f80fa7edaad48d40bba6f097b1555df5664ce75f9d71ac6483e506510a643250",
+    "tools/dev/__init__.py": "7448899bb93c0412b7fe54ebd6ed151d2b9801071082cad7d2627421329795ef",
+    "tools/dev/art_review/__init__.py": "b24a85db616ae73a17fa572ddc6cd500f8b5b3a271ac52c2ba0268b2a602d744",
+    "tools/dev/art_review/art_review_export.gd": "45ff6d110878ee9854ff4fda561a05636c79b4b9b57f84cf9d0da3162b0c619a",
+    "tools/dev/art_review/art_review_export.gd.uid": "11c2fe73a8f1d704bf62c79510c4d7b48cd506cda37d87ce950177a40c3d80c5",
+    "tools/dev/art_review/art_review_serve.mjs": "bb8cdcd16f24bc59aa378d05150eb26b28f063925d7ba56f80686668825ee42a",
+    "tools/dev/art_review/check_art_review.py": "69fe1294fc300059e22f563164bd516d81354a454ce5a2a5af89099a1d12acac",
+    "tools/dev/art_review/test_art_review.py": "b436a55f0ec9a9de03516b06d48133603b26b27a932b228c5767a9ab7f7c82a6",
+    "wiki/articles/project-refactoring.md": "d0966b4d33bad69f6563b4b22c1544886079b38f30a6fc5f725cf22a55eea91a",
+    "wiki/articles/visual-pilot.md": "405defd7205731179f2a24ff1f629bf14435f05fa61e10f78416848e2fdf9a7c",
+    "Бабушкина ферма.app/Contents/Info.plist": "b9de94a404f9bdc92ebebd38c0e4c4286a29557669d3202caecafab168beff12"
+  },
+  "report_files": [
+    {
+      "path": "README.md",
+      "sha256": "84cf546186f03f7f852bb31fb6040c3e5507fa53050f07d4a64ad5ec8be43394",
+      "bytes": 5661
+    },
+    {
+      "path": "audit.py",
+      "sha256": "62558225b3bb19a831467226c1ae899d6923e5a1f8563ded42082edcaf0b9224",
+      "bytes": 6038
+    },
+    {
+      "path": "baseline/audio-acceptance.json",
+      "sha256": "7bacaf1cb170804e1dac0b482bb497e76440489dda38d063351202db962d48fd",
+      "bytes": 4824
+    },
+    {
+      "path": "baseline/ci-360-final.json",
+      "sha256": "59008bbee2e930cdaafb170be8e94af3e93113d365cf74ff0f14721f4cc66717",
+      "bytes": 3901
+    },
+    {
+      "path": "baseline/ci-360-initial.json",
+      "sha256": "8798455c6cb4b3d68287a58beca56339675334e6a82becc837d73f5c4a440305",
+      "bytes": 3895
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "5945fb8a05e6907cba4469ab209f7631e700a901f948eca2b0fb87a2501a28cb",
+      "bytes": 172
+    },
+    {
+      "path": "browser-guide.json",
+      "sha256": "b5f4b6163ffef1eeab306a1b6260aea8f9689bb5a70dadf29aa7f01daf6ba1f6",
+      "bytes": 38004
+    },
+    {
+      "path": "browser-guide.png",
+      "sha256": "5deef78e2279781ac1aec84a406a1fae00f28d4b0fd55362336930f5af878fa7",
+      "bytes": 144469
+    },
+    {
+      "path": "browser-mobile.json",
+      "sha256": "0b505da0a35d6a8785f9af79247f8043f29fc7970c67edfeab7f10a4b0a08af1",
+      "bytes": 15438
+    },
+    {
+      "path": "browser-mobile.png",
+      "sha256": "2d5b98fbe550b3890a6b09a21be210d7b8b48610a10314aaa1bc5f44607a2a29",
+      "bytes": 60543
+    },
+    {
+      "path": "browser-profile.json",
+      "sha256": "ca567e198880c78c81cfaa8aa48150005397ef3d9029e265c1a9571275073d6b",
+      "bytes": 6677
+    },
+    {
+      "path": "browser-route.json",
+      "sha256": "c5ac6f76d4e0af288a19c3f246cab0c60d7ebb098f295afcface13fb7662b742",
+      "bytes": 92228
+    },
+    {
+      "path": "browser-task.json",
+      "sha256": "34e3b6bcc82970b8a1045382879a5c9e975350f4ca3c945769860d5d78d77545",
+      "bytes": 14732
+    },
+    {
+      "path": "catalog-check.mjs",
+      "sha256": "1a3fcf4bd997bfda11214972239f73550c97affb80daf317faf7777f1f73aeba",
+      "bytes": 1835
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "ad8b297c5a3cd20430f5a938eebd9d5ff92c449c5127f62f31afd33fd881ad69",
+      "bytes": 253
+    },
+    {
+      "path": "focused-documentation.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "bytes": 105
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "790c2e9824f29f45a9e4a24a76ac712f938ffa18cd575da34ecadc59f10785bf",
+      "bytes": 12878
+    },
+    {
+      "path": "gates-01/game.txt",
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+      "bytes": 1804
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "3c91936918249f7b72fd59e90e089b2346be58b5ef11661a61de688618a42a83",
+      "bytes": 733
+    },
+    {
+      "path": "gates-01/headless/f10/engine.txt",
+      "sha256": "f6ee25f6439640fee807030ae1d3b56633e6e2a320cdf4c29b822abd13717bae",
+      "bytes": 11061
+    },
+    {
+      "path": "gates-01/headless/f10/frames.jsonl",
+      "sha256": "4e0019b0886cb059c244bb0007e3dd7e0b42526a09b924a9c0df7566c7c64c46",
+      "bytes": 9170
+    },
+    {
+      "path": "gates-01/headless/f10/summary.json",
+      "sha256": "b813d958fec4115e1d6f263a6322cbdfacb919ab88be7500b95362683808a51a",
+      "bytes": 1743
+    },
+    {
+      "path": "gates-01/headless/normal/engine.txt",
+      "sha256": "cdbf184d20bfddfd7c4df8d93f975a828402456ae381fc95454447643091b5bb",
+      "bytes": 11052
+    },
+    {
+      "path": "gates-01/headless/normal/frames.jsonl",
+      "sha256": "3189e7e46700aeec9088f91ebd9b357b4d88ce95da343858bab97bbd69e6d354",
+      "bytes": 9158
+    },
+    {
+      "path": "gates-01/headless/normal/summary.json",
+      "sha256": "bddf3354a63e15abf55b68b8f56cf8945228303312eca5898de3f448b071dc9f",
+      "bytes": 1746
+    },
+    {
+      "path": "gates-01/wiki.txt",
+      "sha256": "c0111809ad2c958152618cd4313b9a659e2af7ac34ce0e5ef1ebf8d0823fa834",
+      "bytes": 13815
+    },
+    {
+      "path": "inputs/art_review_export.gd.gz",
+      "sha256": "e3228902c92705ca89cea0a78180de9e059f6463ca89bd5003ca90a04a7e3a51",
+      "bytes": 2405
+    },
+    {
+      "path": "inputs/art_review_export.gd.uid.gz",
+      "sha256": "8a3546b42f32647d189116e90922b94dd99db8b0a0c0dcaccce63b55cfd38c39",
+      "bytes": 40
+    },
+    {
+      "path": "inputs/art_review_serve.mjs.gz",
+      "sha256": "03af1fd4826f1fbee95b67d7652fb2a34e568da29f41c6c5c80dafe2cabf8dbd",
+      "bytes": 459
+    },
+    {
+      "path": "inputs/check_art_review.py.gz",
+      "sha256": "115a3c0b5f95f93e6482fadc4805af08091b5f668705c9a8698c1d25b9509cd8",
+      "bytes": 1370
+    },
+    {
+      "path": "inputs/gitignore.txt.gz",
+      "sha256": "91d6e5c15ddc27b9273137a689e2b9b1e31dbeed1dfe7382598531dc4acdb4e2",
+      "bytes": 4273
+    },
+    {
+      "path": "inputs/import_pixabay_assets.py.gz",
+      "sha256": "c1bfea9b3dea2539674696bc1e01e65d57905adbaca1eda738786eabdc4e69ec",
+      "bytes": 1297
+    },
+    {
+      "path": "inputs/test_art_review.py.gz",
+      "sha256": "c6af7f4d24a0010c8f5a47ef03e6e488607cfa360804f16443d08d6ac2d93d0c",
+      "bytes": 1280
+    },
+    {
+      "path": "live-reference-final.json",
+      "sha256": "2a2c6570f39449ef67ab3b1cc8a5ecd2a99f446340bf9a92001e499667ec8361",
+      "bytes": 2085844
+    },
+    {
+      "path": "migrate.py",
+      "sha256": "f50465d84ffa13567804686a159a61333645254c28c0a44c77149d7fec23b833",
+      "bytes": 6387
+    },
+    {
+      "path": "migration.json",
+      "sha256": "6dfd8115ee1eb50f879753741a8c571e222c77c289576e81e343aac9681d713d",
+      "bytes": 2429
+    },
+    {
+      "path": "node-server.txt",
+      "sha256": "497268dccd9860573c3a4c1ad3c352811171a84b5858f06f589eff4103750714",
+      "bytes": 35
+    },
+    {
+      "path": "output-guards.json",
+      "sha256": "e9ea71e959bf3967a539836098c497d79eece91f4020224db42c6280bef1a47b",
+      "bytes": 987
+    },
+    {
+      "path": "profile.json",
+      "sha256": "66f35b41adb49b5a4d4ed1165e35902516a40fa24747f3a96cf11537addd528f",
+      "bytes": 6275
+    },
+    {
+      "path": "profile.py",
+      "sha256": "56cbbd8c10780d9cecc2d87d42d3cead14758ab9e3b93747aa1bae466d336a76",
+      "bytes": 10003
+    },
+    {
+      "path": "replay.json",
+      "sha256": "0241fa3f3388e795845e92af8d17d782232bbc80d9bf70b1ed8299d637d213e8",
+      "bytes": 6275
+    },
+    {
+      "path": "replay.node-server.txt",
+      "sha256": "497268dccd9860573c3a4c1ad3c352811171a84b5858f06f589eff4103750714",
+      "bytes": 35
+    },
+    {
+      "path": "scope.json",
+      "sha256": "69f7399bd694553b9d549e1c503c09324989aa43cdd7f69b510936a0e3ba936c",
+      "bytes": 1532
+    },
+    {
+      "path": "seal.py",
+      "sha256": "33f33993eb8cd9d4c12502cbf604e2a5bf908896f3ee4015458a1c224b2b10eb",
+      "bytes": 3090
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import { join } from "node:path";
-import { projectRoot } from "../wiki/scripts/runtime.mjs";
-import { createWikiServer, listen } from "../wiki/scripts/server.mjs";
+import { projectRoot } from "../../../wiki/scripts/runtime.mjs";
+import { createWikiServer, listen } from "../../../wiki/scripts/server.mjs";
 
 // Показывает отдельную ревизию только на localhost, сохраняя доступ к файлам внутри её каталога.
 const root = join(projectRoot, "docs/concepts/visual-polish-2026-10-13/v1");
