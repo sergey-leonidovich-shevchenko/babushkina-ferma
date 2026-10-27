@@ -1,0 +1,18 @@
+{
+  "wrapped": [
+    {
+      "from": "browser-guide-first.txt",
+      "to": "browser-guide-first-ax.json",
+      "sha256": "b88f5f14aba903103fc4d6e21152fdaab4b1dcb174e2a03a6ea8925a830066c8",
+      "bytes_preserved": true
+    },
+    {
+      "from": "browser-next.txt",
+      "to": "browser-next-ax.json",
+      "sha256": "9154549882d66b0e6dda4893c570ff1e22be3d9e5b989338d7441aeb4711322e",
+      "bytes_preserved": true
+    }
+  ],
+  "accepted_old_reports_changed": 0,
+  "whitespace_rules_changed": false
+}

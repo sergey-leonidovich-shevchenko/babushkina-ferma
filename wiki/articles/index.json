@@ -15,7 +15,7 @@
     "id": "project-refactoring",
     "file": "project-refactoring.md",
     "title": "Рефакторинг: инструменты по назначению",
-    "summary": "REFACTOR-01: принятая карта 779 файлов tools. REFACTOR-02: common/quality/planning, 14 пилотных переносов и три совместимых входа; затем приёмка 03→06 и возврат к первой overworld.",
+    "summary": "REFACTOR-02 принят через PR18: 14 переносов quality/planning, общие root/Git/launcher и три совместимых входа. Учёт проходит отдельное ревью; полный root-бюджет остаётся за REFACTOR-03/06.",
     "tags": [
       "Разработка",
       "Рефакторинг",

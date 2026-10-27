@@ -1,0 +1,10 @@
+{
+  "command": [
+    "python3",
+    "tools/test_preview_portability.py"
+  ],
+  "started_at": "2026-10-26T23:26:08.167822+00:00",
+  "sandbox": "approved normal engine access; identical test source and assertions",
+  "exit": 0,
+  "finished_at": "2026-10-26T23:26:19.485369+00:00"
+}

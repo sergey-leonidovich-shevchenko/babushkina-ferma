@@ -1,0 +1,19 @@
+{
+  "verified_status": {
+    "app": "moon-valley-wiki",
+    "project": "REFACTOR-02-closeout-QA",
+    "pid": 56507,
+    "planning": 1
+  },
+  "owned_server_stopped": true,
+  "own_tab9_closed": true,
+  "browser_inventory_after_close": [],
+  "viewport_restored": {
+    "width": 1280,
+    "docWidth": 1280,
+    "reset_called": true
+  },
+  "QA_harness_removed": "wiki/dist/refactor02-closeout-mobile.html",
+  "harness_sha256": "39aabf35f53ebcf857df9206c3f48fc9da8f74ae1e1dac3f9cd6fdb7002439d9",
+  "foreign_servers_tabs_worktrees_changed": false
+}

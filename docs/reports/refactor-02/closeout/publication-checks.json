@@ -1,0 +1,41 @@
+[
+  {
+    "name": "scope",
+    "command": [
+      "python3",
+      "docs/reports/refactor-02/closeout/verify-scope.py"
+    ],
+    "exit": 0,
+    "output": "scope-verified.json"
+  },
+  {
+    "name": "documentation",
+    "command": [
+      "python3",
+      "tools/run.py",
+      "quality.check_documentation"
+    ],
+    "exit": 0,
+    "output": "documentation-verified.txt"
+  },
+  {
+    "name": "version",
+    "command": [
+      "python3",
+      "tools/bump_version.py",
+      "--check"
+    ],
+    "exit": 0,
+    "output": "version-verified.txt"
+  },
+  {
+    "name": "backlog",
+    "command": [
+      "python3",
+      "tools/run.py",
+      "planning.project_backlog"
+    ],
+    "exit": 0,
+    "output": "backlog-verified.txt"
+  }
+]
