@@ -6,7 +6,12 @@ import json
 from pathlib import Path
 import re
 from PIL import Image
-from visual_reuse import baseline_bytes
+from common.launch import prepare_imports
+from common.paths import project_root
+
+# Сохраняет прежний плоский CLI, пока его семейство ещё ожидает своего переноса.
+prepare_imports(project_root(__file__))
+from tools.qa.art.visual_reuse import baseline_bytes
 
 ROOT=Path(__file__).resolve().parents[1]
 REPORT=ROOT/'docs/reports/visual-overhaul/vart-010'

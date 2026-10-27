@@ -572,3 +572,15 @@ tools/dev/art_review/*
 !tools/dev/art_review/*.gd
 !tools/dev/art_review/*.mjs
 !tools/dev/art_review/art_review_export.gd.uid
+
+# REFACTOR-03: art QA sources; caches and other UID remain ignored.
+!tools/qa/
+tools/qa/*
+!tools/qa/__init__.py
+!tools/qa/art/
+tools/qa/art/*
+!tools/qa/art/*.py
+!tools/qa/art/*.gd
+!tools/qa/art/visual_density_capture.gd.uid
+!tools/qa/art/visual_perspective_export.gd.uid
+!tools/qa/art/visual_scale_capture.gd.uid

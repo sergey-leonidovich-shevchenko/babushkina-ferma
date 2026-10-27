@@ -4,18 +4,29 @@ import argparse,gzip,hashlib,json,shutil,signal,subprocess,uuid
 from pathlib import Path
 from perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
 from village_trade_collect import ORIGINAL as COMMON, EXTRA as PREVIOUS_EXTRA, TRADE_ASSETS
+from common.launch import prepare_imports
+from common.git import git_environment
+prepare_imports(ROOT)
+from tools.qa.art.current_paths import captured_paths, source_path
 ORIGINAL=sorted(set(COMMON+PREVIOUS_EXTRA+TRADE_ASSETS+['tools/visual_modules_capture.gd','docs/reports/visual-overhaul/vart-008/modules.json','tests/fixtures/saves/v1-core.json']+[str(p.relative_to(ROOT)) for p in (ROOT/'docs/reports/visual-overhaul/vart-008/native/sprites').glob('*.png')]))
 EXTRA=['tools/pilot_static_capture.gd','tools/pilot_static_scene.gd','tools/pilot_static_collect.py']
+
+def archive_inputs(folder,names):
+    """Архивирует физические moved-входы под прежними логическими ключами sources."""
+    hashes={}
+    for name in names:
+        current=source_path(ROOT,name)
+        if not current.is_file():raise ValueError('missing input '+name)
+        target=folder/'inputs'/name;target.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(current,target);hashes[name]=sha(target)
+    return hashes
 
 def collect(folder,phase):
     """Preserve exact inputs and bounded real-window sessions for each independent phase."""
     if folder.exists():raise ValueError('fresh phase directory required')
     folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA))
-    source={'task':'VRELEASE-002','phase':phase,'base_commit':command(['git','rev-parse','HEAD']),'complete':False,'performance_eligible':False,'initial_jobs':initial,'sources':{},'artifacts':{}}
-    for name in sources:
-        if not (ROOT/name).is_file():
-            raise ValueError('missing input '+name)
-        target=folder/'inputs'/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,target);source['sources'][name]=sha(target)
+    base=subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],env=git_environment(),text=True).strip()
+    source={'task':'VRELEASE-002','phase':phase,'base_commit':base,'complete':False,'performance_eligible':False,'initial_jobs':initial,'sources':archive_inputs(folder,sources),'source_paths':captured_paths(sources),'artifacts':{}}
     write(folder/'source.json',source)
     for width in [1152,1280]:
         if set(jobs())-set(initial):raise ValueError('unexpected Godot appeared')
@@ -41,7 +52,7 @@ def collect(folder,phase):
             p.unlink()
         source['artifacts']={str(p.relative_to(folder)):sha(p) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'inputs' not in p.parts};write(folder/'source.json',source)
         if code or not (target/'capture.json').is_file() or json.loads((target/'capture.json').read_text())['errors'] or any(t in (target/'engine.txt').read_text() for t in ['ERROR:','SCRIPT ERROR','Parse Error']):raise ValueError('native capture failed; partial data rejected')
-        if any(sha(ROOT/n)!=h for n,h in source['sources'].items()):raise ValueError('frozen input changed')
+        if any(sha(source_path(ROOT,n))!=h for n,h in source['sources'].items()):raise ValueError('frozen input changed')
     source['complete']=True;write(folder/'source.json',source)
 
 if __name__=='__main__':

@@ -192,7 +192,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vart-005/README.md, docs/reports/visual-overhaul/vart-005/edge-profile.json, docs/reports/visual-overhaul/vart-005/source.json, docs/reports/visual-overhaul/vart-005/browser-check.json, docs/reports/visual-overhaul/vart-005/browser-artifacts.json, tools/visual_edges.py, tools/test_visual_edges.py, 17 октября 2026: прямой ответ пользователя «A — естественный край (рекомендую)»; принят стандарт без общей дополнительной обводки. Шесть модулей одного RGBA-мастера, A/B × четыре фона, неизменные область 1152×648, поле 960×540 и проекция 1.2. Это браузерная художественная приёмка; runtime и assets/game не менялись..
+Доказательства: docs/reports/visual-overhaul/vart-005/README.md, docs/reports/visual-overhaul/vart-005/edge-profile.json, docs/reports/visual-overhaul/vart-005/source.json, docs/reports/visual-overhaul/vart-005/browser-check.json, docs/reports/visual-overhaul/vart-005/browser-artifacts.json, tools/qa/art/visual_edges.py, tools/qa/art/test_visual_edges.py, 17 октября 2026: прямой ответ пользователя «A — естественный край (рекомендую)»; принят стандарт без общей дополнительной обводки. Шесть модулей одного RGBA-мастера, A/B × четыре фона, неизменные область 1152×648, поле 960×540 и проекция 1.2. Это браузерная художественная приёмка; runtime и assets/game не менялись..
 
 <a id="vart-006"></a>
 
@@ -232,7 +232,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vart-006/README.md, docs/reports/visual-overhaul/vart-006/density-profile.json, docs/reports/visual-overhaul/vart-006/source.json, docs/reports/visual-overhaul/vart-006/browser-check.json, docs/reports/visual-overhaul/vart-006/native/capture.json, docs/reports/visual-overhaul/vart-006/native/pairs.png, tools/visual_density.py, tools/test_visual_density.py, tools/visual_density_capture.gd, 17 октября 2026: пользователь выбрал «B — ремесленная фактура». Сохранены мягкий стиль VART-001 A, палитра A и край A. Пять образцов с общим героем, одинаковыми source rect/опорами и проекцией 1.2; 12 DOM-состояний, шесть настоящих GPU Image 1152×648 и парный лист 1152×960 с равными повторами. Этюды не импортированы в игру; FPS и игровые локации не принимаются..
+Доказательства: docs/reports/visual-overhaul/vart-006/README.md, docs/reports/visual-overhaul/vart-006/density-profile.json, docs/reports/visual-overhaul/vart-006/source.json, docs/reports/visual-overhaul/vart-006/browser-check.json, docs/reports/visual-overhaul/vart-006/native/capture.json, docs/reports/visual-overhaul/vart-006/native/pairs.png, tools/qa/art/visual_density.py, tools/qa/art/test_visual_density.py, tools/qa/art/visual_density_capture.gd, 17 октября 2026: пользователь выбрал «B — ремесленная фактура». Сохранены мягкий стиль VART-001 A, палитра A и край A. Пять образцов с общим героем, одинаковыми source rect/опорами и проекцией 1.2; 12 DOM-состояний, шесть настоящих GPU Image 1152×648 и парный лист 1152×960 с равными повторами. Этюды не импортированы в игру; FPS и игровые локации не принимаются..
 
 <a id="vart-007"></a>
 
@@ -270,7 +270,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vart-007/README.md, docs/reports/visual-overhaul/vart-007/light-profile.json, docs/reports/visual-overhaul/vart-007/native/capture.json, tools/visual_light.py, tools/test_visual_light.py, tools/visual_light_capture.gd.
+Доказательства: docs/reports/visual-overhaul/vart-007/README.md, docs/reports/visual-overhaul/vart-007/light-profile.json, docs/reports/visual-overhaul/vart-007/native/capture.json, tools/qa/art/visual_light.py, tools/qa/art/test_visual_light.py, tools/qa/art/visual_light_capture.gd.
 
 <a id="vart-008"></a>
 
@@ -310,7 +310,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vart-008/README.md, docs/reports/visual-overhaul/vart-008/modules.json, docs/reports/visual-overhaul/vart-008/measurements.json, docs/reports/visual-overhaul/vart-008/source.json, docs/reports/visual-overhaul/vart-008/native/capture.json, docs/reports/visual-overhaul/vart-008/browser.json, tools/visual_modules.py, tools/test_visual_modules.py, tools/visual_modules_capture.gd.
+Доказательства: docs/reports/visual-overhaul/vart-008/README.md, docs/reports/visual-overhaul/vart-008/modules.json, docs/reports/visual-overhaul/vart-008/measurements.json, docs/reports/visual-overhaul/vart-008/source.json, docs/reports/visual-overhaul/vart-008/native/capture.json, docs/reports/visual-overhaul/vart-008/browser.json, tools/qa/art/visual_modules.py, tools/qa/art/test_visual_modules.py, tools/qa/art/visual_modules_capture.gd.
 
 <a id="vart-009"></a>
 
@@ -348,7 +348,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vart-009/README.md, docs/reports/visual-overhaul/vart-009/decisions.json, docs/reports/visual-overhaul/vart-009/inventory.json, docs/reports/visual-overhaul/vart-009/native/capture.json, docs/reports/visual-overhaul/vart-009/browser.json, tools/visual_reuse.py, tools/test_visual_reuse.py, tools/visual_reuse_capture.gd, tools/visual_reuse_sources.gd.
+Доказательства: docs/reports/visual-overhaul/vart-009/README.md, docs/reports/visual-overhaul/vart-009/decisions.json, docs/reports/visual-overhaul/vart-009/inventory.json, docs/reports/visual-overhaul/vart-009/native/capture.json, docs/reports/visual-overhaul/vart-009/browser.json, tools/qa/art/visual_reuse.py, tools/qa/art/test_visual_reuse.py, tools/qa/art/visual_reuse_capture.gd, tools/qa/art/visual_reuse_sources.gd.
 
 <a id="vart-010"></a>
 

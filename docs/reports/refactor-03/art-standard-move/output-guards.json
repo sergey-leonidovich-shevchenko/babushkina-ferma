@@ -1,0 +1,27 @@
+{
+  "profile_unchanged": true,
+  "asset_output_not_created": true,
+  "cases": [
+    {
+      "arguments": [],
+      "exit": 2,
+      "stderr": "usage: profile.py [-h] [--output OUTPUT]\nprofile.py: error: нужен новый JSON вне assets; прежние данные не перезаписываются\n"
+    },
+    {
+      "arguments": [
+        "--output",
+        "/Users/sergeyshevchenko/my farm/assets/refactor363-must-not-exist.json"
+      ],
+      "exit": 2,
+      "stderr": "usage: profile.py [-h] [--output OUTPUT]\nprofile.py: error: нужен новый JSON вне assets; прежние данные не перезаписываются\n"
+    },
+    {
+      "arguments": [
+        "--output",
+        "/private/tmp/refactor363-invalid.txt"
+      ],
+      "exit": 2,
+      "stderr": "usage: profile.py [-h] [--output OUTPUT]\nprofile.py: error: нужен новый JSON вне assets; прежние данные не перезаписываются\n"
+    }
+  ]
+}

@@ -35,6 +35,7 @@ done
 python3 tools/run.py planning.bump_version --check
 python3 tools/run.py common.test_infrastructure
 python3 tools/run.py common.test_history
+python3 tools/run.py qa.art.test_current_paths
 python3 tools/run.py planning.test_task_batch
 
 if rg -n '^func draw_' scripts/game.gd >/dev/null; then
@@ -139,22 +140,22 @@ python3 tools/village_fence_verify.py >/dev/null
 python3 tools/test_village_fence.py
 python3 tools/village_lamp_verify.py >/dev/null
 python3 tools/test_village_lamp.py
-python3 tools/visual_scale.py verify
-python3 tools/test_visual_scale.py
-python3 tools/visual_palette.py
-python3 tools/test_visual_palette.py
-python3 tools/visual_perspective.py
-python3 tools/test_visual_perspective.py
-python3 tools/visual_edges.py
-python3 tools/test_visual_edges.py
-python3 tools/visual_density.py
-python3 tools/test_visual_density.py
-python3 tools/visual_light.py
-python3 tools/test_visual_light.py
-python3 tools/visual_modules.py
-python3 tools/test_visual_modules.py
-python3 tools/visual_reuse.py
-python3 tools/test_visual_reuse.py
+python3 tools/run.py qa.art.visual_scale verify
+python3 tools/run.py qa.art.test_visual_scale
+python3 tools/run.py qa.art.visual_palette
+python3 tools/run.py qa.art.test_visual_palette
+python3 tools/run.py qa.art.visual_perspective
+python3 tools/run.py qa.art.test_visual_perspective
+python3 tools/run.py qa.art.visual_edges
+python3 tools/run.py qa.art.test_visual_edges
+python3 tools/run.py qa.art.visual_density
+python3 tools/run.py qa.art.test_visual_density
+python3 tools/run.py qa.art.visual_light
+python3 tools/run.py qa.art.test_visual_light
+python3 tools/run.py qa.art.visual_modules
+python3 tools/run.py qa.art.test_visual_modules
+python3 tools/run.py qa.art.visual_reuse
+python3 tools/run.py qa.art.test_visual_reuse
 python3 tools/visual_icons.py
 python3 tools/test_visual_icons.py
 python3 tools/visual_pipeline.py

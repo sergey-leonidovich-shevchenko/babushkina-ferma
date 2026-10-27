@@ -104,7 +104,7 @@
 
 **Проверка:** По каждой группе выполнить её прежние профильные и отрицательные проверки, полный TESTING.md и Wiki check; реальные новые измерения нужны только при изменении измеряемого поведения.
 
-**Подтверждения / результат:** В работе в [draft PR21](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21) на базе `d609ab4f`. Подготовка `0352c5f2` и первый authoring-перенос `f02481b2` разделены:31 исходник/5 tracked UID/9 ignored UID, root544→513. Доработка P2 head `5ba619a3` принята независимым [ревью5672404997](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5672404997) и Team Lead; [локальные gates359](../../reports/refactor-03/authoring-docs/checks.json) —84/1163, Game53502/0, normal/F10 по90/0, Wiki145/0. Это промежуточная приёмка исправления, не merge всей03. Пакет0.0.360 (4 аудио-инструмента, root509) принят промежуточным ревью5673231328 head `d27f688f` и Team Lead; его локальные gates —84/1163, Game53502/0, normal/F10 по90/0, Wiki145/0. Пакет0.0.361 переносит5 исходников image/review и1 tracked UID; [карта](../../reports/refactor-03/image-review-move/migration.json) и [профиль](../../reports/refactor-03/image-review-move/profile.json) сохраняют PIL/CLI/Node/Godot, root504. Пакет361 принят промежуточным ревью5673984294 head `832964d4` и Team Lead. Кандидат0.0.362 готовит8 source-root и4 исторических reader /5 main source pins без перемещений; [профиль](../../reports/refactor-03/art-history-prepare/profile.json) и21 новый Git/worktree контроль проверяют границу. Root504, новый кандидат требует собственных полных gates/review. Остальные семейства, полный бюджет≤30 и окончательное ревью ещё впереди;03 in_progress,06 blocked, Task-Complete не добавляется.
+**Подтверждения / результат:** В работе в [draft PR21](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21) на базе `d609ab4f`. Подготовка `0352c5f2` и первый authoring-перенос `f02481b2` разделены:31 исходник/5 tracked UID/9 ignored UID, root544→513. Доработка P2 head `5ba619a3` принята независимым [ревью5672404997](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5672404997) и Team Lead; [локальные gates359](../../reports/refactor-03/authoring-docs/checks.json) —84/1163, Game53502/0, normal/F10 по90/0, Wiki145/0. Это промежуточная приёмка исправления, не merge всей03. Пакет0.0.360 (4 аудио-инструмента, root509) принят промежуточным ревью5673231328 head `d27f688f` и Team Lead; его локальные gates —84/1163, Game53502/0, normal/F10 по90/0, Wiki145/0. Пакет0.0.361 переносит5 исходников image/review и1 tracked UID; [карта](../../reports/refactor-03/image-review-move/migration.json) и [профиль](../../reports/refactor-03/image-review-move/profile.json) сохраняют PIL/CLI/Node/Godot, root504. Пакет361 принят промежуточным ревью5673984294 head `832964d4` и Team Lead. Кандидат0.0.362 готовит8 source-root и4 исторических reader /5 main source pins без перемещений; [профиль](../../reports/refactor-03/art-history-prepare/profile.json) и21 новый Git/worktree контроль проверяют границу. Root504, новый кандидат требует собственных полных gates/review. Кандидат0.0.363 переносит23 art-standard source/3 tracked UID, сохраняет4 ignored UID и текущие collectors через source_paths; [профиль](../../reports/refactor-03/art-standard-move/profile.json),root481. После полного принятия03 действует остановка пользователя28.10.2026. Остальные семейства, полный бюджет≤30 и окончательное ревью ещё впереди;03 in_progress,06 blocked, Task-Complete не добавляется.
 
 ## REFACTOR-04 — Сгруппировать профильные suites и helpers без потери запуска
 
@@ -162,7 +162,7 @@
 
 **Внутренние блокеры:** REFACTOR-03.
 
-**Условия запуска:** Зависимости приняты и done; актуальная main и принятая карта путей. VMAP-003 не является блокером заказанного технического первого выпуска.
+**Условия запуска:** REFACTOR-03 принята и done, актуальная main и принятая карта путей; дополнительно нужна новая прямая команда пользователя. Указание28.10.2026 требует остановиться после текущей03, поэтому06 не запускается автоматически. VMAP-003 не является техническим блокером, но не отменяет пользовательскую остановку.
 
 **Приёмка:**
 
@@ -173,4 +173,4 @@
 
 **Проверка:** Чистый checkout, штатный локальный и CI-запуск, отрицательная копия с новым ошибочно размещённым инструментом; Wiki check и независимое exact-head ревью.
 
-**Подтверждения / результат:** Не начато. Закрывает первый выпуск tools; не подменяет приёмку остальных карточек.
+**Подтверждения / результат:** Не начато. Пользовательская остановка28.10.2026: после завершения03 ждать новой прямой команды, не назначать06 автоматически. Эта запись не является реализацией06.

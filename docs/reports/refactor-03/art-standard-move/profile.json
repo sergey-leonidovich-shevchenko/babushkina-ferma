@@ -1,0 +1,735 @@
+{
+  "version": "0.0.363",
+  "base": "47d0edc5e9a24dc028b6c91638e8dc54b87aaf9f",
+  "source_moves": 23,
+  "tracked_UID_moves": 3,
+  "ignored_UID_moves": 4,
+  "root_sources": 481,
+  "AST_and_GD_bodies_except_explicit_addresses_equal": true,
+  "modes_and_UID_preserved": true,
+  "actual_CLI": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.test_visual_density"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 4.172s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.test_visual_edges"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 2.568s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.test_visual_light"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.170s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.test_visual_modules"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 3.162s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.test_visual_palette"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 1.345s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.test_visual_perspective"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.077s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.test_visual_reuse"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 2.052s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.test_visual_scale"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "",
+      "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 2.607s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.visual_density"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "VISUAL DENSITY: five subjects, common hero, 12 browser cases, scale and source provenance valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.visual_edges"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "VISUAL EDGES: six regions, 8 browser cases, alpha, sources and explicit choice valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.visual_light"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "VART-007: approved A, 24 native frames, independent form/contact/cast, hashes valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.visual_modules"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "VART-008: both facades approved, 28 exact crops, 19 native frames, camera and sources valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.visual_palette"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "VISUAL PALETTE: six motifs, 24 ramps, alpha bounds, source hashes and scale valid; choice approved\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.visual_perspective"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "VISUAL PERSPECTIVE: three sides, nine sources, uniform reference scale, grid, anchors and browser proof valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.visual_reuse"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "VART-009: 29 decisions, 238 declarations / 236 files, 58 comparisons + 12 overviews valid; runtime unchanged\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "qa.art.visual_scale",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/foreign cwd",
+      "exit": 0,
+      "stdout": "VISUAL SCALE: geometry, native pixels, fixed HUD and physics valid\n",
+      "stderr": ""
+    }
+  ],
+  "shared_icons_reuse_function_identity": true,
+  "pilot_ORIGINAL_and_EXTRA_unchanged": true,
+  "rejected_scale_current_source_metadata": {
+    "schema": 1,
+    "task": "VART-002",
+    "base_commit": "47d0edc5e9a24dc028b6c91638e8dc54b87aaf9f",
+    "runtime_patch": "diff --git a/project.godot b/project.godot\nindex b4cf301e..16f3e56a 100644\n--- a/project.godot\n+++ b/project.godot\n@@ -11,7 +11,7 @@ config_version=5\n [application]\n \n config/name=\"Бабушкина ферма: Тайна Лунной долины\"\n-config/version=\"0.0.362\"\n+config/version=\"0.0.363\"\n run/main_scene=\"res://main.tscn\"\n config/features=PackedStringArray(\"4.7\")\n config/icon=\"res://assets/app_icon.png\"\n",
+    "sources": {
+      "project.godot": "c852a78aeefc72c2dd9fbc0f0c5debfa75483c2456e01e90a013b85ead713e35",
+      "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9",
+      "scripts/systems/camera_system.gd": "d394a1c8114e5d75f44141a1f7a461ce214c401eab118ec7286e55732d549ce5",
+      "scripts/systems/hero_visual_system.gd": "41020a67d6a7ee5766216d2115c7efd8f8909e465dddf09a95ef35e33d70edc8",
+      "scripts/systems/animation_renderer.gd": "3cf74910ee3288a00e2d05c5ccf03c38891de3899488f7d480770c8e3923e96a",
+      "scripts/systems/render_system.gd": "e227d03f7ee1e86dc8d4e143a9342b366b56b3a795847123a664cabdd68ff59c",
+      "scripts/systems/world_visibility_system.gd": "d6c7dd17c22eb6b2c5f5be2ce5b3ea0f4b05b32372f9fb6a3969cf382e12d604",
+      "scripts/presentation/visual_reference_mode.gd": "95919eb8ca14b9893a78220dcecf1479ad5691895646595d4482fde8e3904c8e",
+      "scripts/systems/navigation_system.gd": "651aa3cf996f745d9b45607264ce62664f37d9a7e9f5cd56973b3f1ee139d56f",
+      "scripts/game_context.gd": "4dd5e9bc4d6c05c644dec8fef4bd5bfcd4e1fb605697b04db14c81a726a0be6c",
+      "assets/game/characters/hero_v3/walk_master.png": "7f6f70fbfd80683402b51caa47d9d76299906cda129e27b289d73cee7ae3a3da",
+      "tools/visual_scale_capture.gd": "cad09a8e41cb51d9e6719c99dced3a6566c7377312758c87d0ed138894f3c01e"
+    },
+    "source_paths": {
+      "tools/visual_scale_capture.gd": "tools/qa/art/visual_scale_capture.gd"
+    },
+    "artifacts": {
+      "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "silhouettes": {}
+  },
+  "scale_capture_accepted": false,
+  "editor_import_and_parse_only": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--editor",
+        "--quit"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Регистрация глобальных классов… (8 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  11% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  22% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  44% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  55% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  77% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Повторное открытие сцен…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета центрального редактора…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета окна плагина…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Макет редактора готов.\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/art/visual_density_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/art/visual_light_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/art/visual_modules_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/art/visual_perspective_export.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/art/visual_reuse_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/art/visual_reuse_sources.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/art/visual_scale_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/pilot_static_scene.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/pilot_static_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    }
+  ],
+  "actual_perspective_export": {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--script",
+      "res://tools/qa/art/visual_perspective_export.gd",
+      "--",
+      "--output=/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/perspective-current.json"
+    ],
+    "exit": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nPERSPECTIVE EXPORT: 3 families, 9 selected sources; metadata only\n",
+    "stderr": "",
+    "metadata": {
+      "base_grid": 24,
+      "engine": "4.7.1-stable (official)",
+      "families": [
+        {
+          "kind": "workbench",
+          "poses": [
+            {
+              "direction": 0,
+              "file": "assets/game/basement/workbench_atlas_a.png",
+              "footprint": [
+                96.0,
+                72.0
+              ],
+              "legacy_up_alias": 0,
+              "master_size": [
+                1402.0,
+                1122.0
+              ],
+              "name": "south",
+              "next": 1,
+              "previous": 3,
+              "runtime_visual_size": [
+                120.0,
+                82.5236587524414
+              ],
+              "source_rect": [
+                34.0,
+                50.0,
+                317.0,
+                218.0
+              ]
+            },
+            {
+              "direction": 1,
+              "file": "assets/game/basement/workbench_atlas_a.png",
+              "footprint": [
+                72.0,
+                96.0
+              ],
+              "legacy_up_alias": 0,
+              "master_size": [
+                1402.0,
+                1122.0
+              ],
+              "name": "west",
+              "next": 3,
+              "previous": 0,
+              "runtime_visual_size": [
+                96.0,
+                92.6462860107422
+              ],
+              "source_rect": [
+                419.0,
+                47.0,
+                229.0,
+                221.0
+              ]
+            },
+            {
+              "direction": 3,
+              "file": "assets/game/basement/workbench_atlas_a.png",
+              "footprint": [
+                72.0,
+                96.0
+              ],
+              "legacy_up_alias": 0,
+              "master_size": [
+                1402.0,
+                1122.0
+              ],
+              "name": "east",
+              "next": 0,
+              "previous": 1,
+              "runtime_visual_size": [
+                96.0,
+                97.3031692504883
+              ],
+              "source_rect": [
+                1115.0,
+                44.0,
+                221.0,
+                224.0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "rustic_table",
+          "poses": [
+            {
+              "direction": 0,
+              "file": "assets/game/interiors/furniture_a/rustic_table_south.png",
+              "footprint": [
+                72.0,
+                48.0
+              ],
+              "legacy_up_alias": 0,
+              "master_size": [
+                256.0,
+                176.0
+              ],
+              "name": "south",
+              "next": 1,
+              "previous": 3,
+              "runtime_visual_size": [
+                96.0,
+                64.0
+              ],
+              "source_rect": [
+                8.0,
+                8.0,
+                240.0,
+                160.0
+              ]
+            },
+            {
+              "direction": 1,
+              "file": "assets/game/interiors/furniture_a/rustic_table_west.png",
+              "footprint": [
+                48.0,
+                72.0
+              ],
+              "legacy_up_alias": 0,
+              "master_size": [
+                195.0,
+                256.0
+              ],
+              "name": "west",
+              "next": 3,
+              "previous": 0,
+              "runtime_visual_size": [
+                53.7000007629395,
+                72.0
+              ],
+              "source_rect": [
+                8.0,
+                8.0,
+                179.0,
+                240.0
+              ]
+            },
+            {
+              "direction": 3,
+              "file": "assets/game/interiors/furniture_a/rustic_table_east.png",
+              "footprint": [
+                48.0,
+                72.0
+              ],
+              "legacy_up_alias": 0,
+              "master_size": [
+                193.0,
+                256.0
+              ],
+              "name": "east",
+              "next": 0,
+              "previous": 1,
+              "runtime_visual_size": [
+                53.1000022888184,
+                72.0
+              ],
+              "source_rect": [
+                8.0,
+                8.0,
+                177.0,
+                240.0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "wooden_wardrobe",
+          "poses": [
+            {
+              "direction": 0,
+              "file": "assets/game/interiors/furniture_a/wooden_wardrobe_south.png",
+              "footprint": [
+                72.0,
+                48.0
+              ],
+              "legacy_up_alias": 0,
+              "master_size": [
+                196.0,
+                256.0
+              ],
+              "name": "south",
+              "next": 1,
+              "previous": 3,
+              "runtime_visual_size": [
+                90.0,
+                120.0
+              ],
+              "source_rect": [
+                8.0,
+                8.0,
+                180.0,
+                240.0
+              ]
+            },
+            {
+              "direction": 1,
+              "file": "assets/game/interiors/furniture_a/wooden_wardrobe_west.png",
+              "footprint": [
+                48.0,
+                72.0
+              ],
+              "legacy_up_alias": 0,
+              "master_size": [
+                116.0,
+                256.0
+              ],
+              "name": "west",
+              "next": 3,
+              "previous": 0,
+              "runtime_visual_size": [
+                50.0,
+                120.0
+              ],
+              "source_rect": [
+                8.0,
+                8.0,
+                100.0,
+                240.0
+              ]
+            },
+            {
+              "direction": 3,
+              "file": "assets/game/interiors/furniture_a/wooden_wardrobe_east.png",
+              "footprint": [
+                48.0,
+                72.0
+              ],
+              "legacy_up_alias": 0,
+              "master_size": [
+                116.0,
+                256.0
+              ],
+              "name": "east",
+              "next": 0,
+              "previous": 1,
+              "runtime_visual_size": [
+                50.0,
+                120.0
+              ],
+              "source_rect": [
+                8.0,
+                8.0,
+                100.0,
+                240.0
+              ]
+            }
+          ]
+        }
+      ],
+      "kind": "headless-resource-metadata",
+      "native_game_frame": false,
+      "profile_unchanged": true,
+      "selectable": [
+        0,
+        1,
+        3
+      ],
+      "world_workbench_common_scale": 0.302839116719243
+    },
+    "existing_output_refusal": {
+      "exit": 2,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": "ERROR: Нужен новый --output; прежний паспорт не перезаписывается\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _initialize (res://tools/qa/art/visual_perspective_export.gd:17)\n"
+    },
+    "metadata_unchanged": true
+  },
+  "actual_headless_capture_refusals": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--script",
+        "res://tools/qa/art/visual_scale_capture.gd",
+        "--",
+        "--output=/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/headless-scale",
+        "--profile=Codex-VART-002-Refactor363"
+      ],
+      "exit": 2,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": "ERROR: Нужны нативная графика и свежий профиль\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _start (res://tools/qa/art/visual_scale_capture.gd:49)\n",
+      "output_not_created": true
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--script",
+        "res://tools/qa/art/visual_density_capture.gd",
+        "--",
+        "--output=/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/headless-density",
+        "--profile=Codex-VART-006-Refactor363"
+      ],
+      "exit": 2,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": "ERROR: Нужны графический renderer и отдельный профиль\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _start (res://tools/qa/art/visual_density_capture.gd:50)\n",
+      "output_not_created": true
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--script",
+        "res://tools/qa/art/visual_light_capture.gd",
+        "--",
+        "--output=/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/headless-light",
+        "--profile=Codex-VART-007-Refactor363"
+      ],
+      "exit": 2,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": "ERROR: Нужна нативная графика\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _start (res://tools/qa/art/visual_light_capture.gd:63)\n",
+      "output_not_created": true
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--script",
+        "res://tools/qa/art/visual_modules_capture.gd",
+        "--",
+        "--output=/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/headless-modules",
+        "--profile=Codex-VART-008-Refactor363"
+      ],
+      "exit": 2,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": "ERROR: Нужна нативная графика\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _start (res://tools/qa/art/visual_modules_capture.gd:141)\n",
+      "output_not_created": true
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/my farm",
+        "--script",
+        "res://tools/qa/art/visual_reuse_capture.gd",
+        "--",
+        "--output=/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art family real CLI jdn3hyxh/headless-reuse",
+        "--profile=Codex-VART-009-Refactor363"
+      ],
+      "exit": 2,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": "ERROR: Нужна нативная графика\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _start (res://tools/qa/art/visual_reuse_capture.gd:59)\n",
+      "output_not_created": true
+    }
+  ],
+  "temporary_removed": true,
+  "new_GPU_FPS_admission": false,
+  "full_task03_accepted": false
+}

@@ -7,6 +7,8 @@ from perf_contract_collect import ROOT,sha,write
 from render_order import require,validate_draws
 from pilot_static_collect import ORIGINAL,EXTRA
 from pilot_static_audit import verify as audit
+from common.git import git_environment
+from tools.qa.art.current_paths import recorded_paths
 REPORT=ROOT/'docs/reports/visual-overhaul/vrelease-002'
 STUDIES=['study-'+s+'-'+v+'-'+m for s in ['legacy','painted'] for v in ['a','b'] for m in ['front','back','bridge','grid']]
 CONTROLS=['ordinary','rollback','normal-home-enter','normal-home-exit','old-slot-interior','old-slot-overworld']
@@ -34,10 +36,11 @@ def provenance():
     """Bind every rendering input to Git and every native artifact to exact bytes and the index."""
     folder=REPORT/'native/static';data=load(folder/'source.json');require(data['complete'] and data['task']=='VRELEASE-002' and data['performance_eligible'] is False,'incomplete source run')
     require(set(data['sources'])==set(ORIGINAL+EXTRA),'source coverage changed')
+    paths=recorded_paths(ORIGINAL+EXTRA,data.get('source_paths',{}))
     for name,digest in data['sources'].items():
         require(not Path(name).is_absolute() and '..' not in Path(name).parts and sha(folder/'inputs'/name)==digest,'archived source changed')
         if name not in EXTRA:
-            old=subprocess.run(['git','show',data['base_commit']+':'+name],cwd=ROOT,capture_output=True)
+            old=subprocess.run(['git','show',data['base_commit']+':'+paths.get(name,name)],cwd=ROOT,env=git_environment(),capture_output=True)
             require(old.returncode==0 and hashlib.sha256(old.stdout).hexdigest()==digest,'input not from Git base: '+name)
     actual={str(p.relative_to(folder)) for p in folder.rglob('*') if p.is_file() and 'inputs' not in p.parts and p.name!='source.json'};require(actual==set(data['artifacts']),'artifact coverage changed')
     for name,digest in data['artifacts'].items():require(sha(folder/name)==digest,'native artifact changed')

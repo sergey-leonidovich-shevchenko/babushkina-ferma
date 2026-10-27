@@ -1,4 +1,4 @@
-extends "res://tools/visual_modules_capture.gd".ModuleCanvas
+extends "res://tools/qa/art/visual_modules_capture.gd".ModuleCanvas
 
 const Bench:=preload("res://scripts/presentation/village_bench_visual.gd")
 const Street:=preload("res://scripts/presentation/village_street_visual.gd")
