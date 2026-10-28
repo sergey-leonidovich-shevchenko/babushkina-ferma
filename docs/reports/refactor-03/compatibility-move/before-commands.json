@@ -1,0 +1,103 @@
+[
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--editor",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--quit"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility before i0kn0ay_/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "before-001.txt",
+    "sha256": "c6df4361e92adcd6e6a92e52fe6f565a59b2f87c1266cf58aa6321e3f6936ceb"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--script",
+      "res://tools/content_reference_audit.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility before i0kn0ay_/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "before-002.txt",
+    "sha256": "6a6435e220879d394b2d7f73e1f2d61a3cfd762495f4429f4bdff3b7d6e37c58"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--script",
+      "res://tools/qa_teleport_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility before i0kn0ay_/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "before-003.txt",
+    "sha256": "99e4993a0f05f6c371f2cfede51de8d2f92e14e4c900a2f3238d48e4e4e5d9f1"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--script",
+      "res://tools/held_weapon_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility before i0kn0ay_/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "before-004.txt",
+    "sha256": "2c2e57902c889fa7f339d1fa57afdae7053ea5da8553be3ec6fa704accae74f0"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--script",
+      "res://tools/farm_review.gd",
+      "--",
+      "--output=/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility before i0kn0ay_/catalog.json"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility before i0kn0ay_/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "before-005.txt",
+    "sha256": "38749f93c6f78029cfc97cdbce72acc4f740b6611a88cf3fa50d195475de5e5a"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/farm_cycles.py",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility before i0kn0ay_/catalog.json",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility before i0kn0ay_/cycles.json"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility before i0kn0ay_/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "before-006.txt",
+    "sha256": "8e909e7112b6a309aa9a7961ffc3e98ad634a7df83b423acb5a1ff40c86c34d2"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/check_alchemy_reports.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility before i0kn0ay_/foreign cwd",
+    "expected": 0,
+    "exit": 1,
+    "log": "before-007.txt",
+    "sha256": "2a9c02aa2aee1a94d936029dce05329f7dd141c408888fbce08ed0f903f7f2e7"
+  }
+]

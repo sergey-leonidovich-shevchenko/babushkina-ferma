@@ -41,7 +41,7 @@
 ## Запуск
 
 ```bash
-tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/generate_ui_layout_audit.gd
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa/compatibility/generate_ui_layout_audit.gd
 tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-level-editor
 tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-level-editor-atlas
 tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-fishing-ui
@@ -54,7 +54,7 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-crafting
 tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-storage
 tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-forge
 tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-context-hud
-tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/generate_adaptive_hud_previews.gd
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa/compatibility/generate_adaptive_hud_previews.gd
 python3 tools/run.py assets.authoring.update_ui_visual_manifest
 ```
 

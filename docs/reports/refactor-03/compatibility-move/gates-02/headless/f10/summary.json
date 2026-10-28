@@ -1,0 +1,74 @@
+{
+  "cap": 10,
+  "display": "headless",
+  "engine": {
+    "build": "official",
+    "hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+    "hex": 263937,
+    "major": 4,
+    "minor": 7,
+    "patch": 1,
+    "status": "stable",
+    "string": "4.7.1-stable (official)",
+    "timestamp": 0
+  },
+  "failed": 0,
+  "max_catchup": 8,
+  "mode": "f10",
+  "passed": 90,
+  "phases": [
+    {
+      "draws": 6,
+      "end_frame_exclusive": 13,
+      "first_frame": 5,
+      "label": "world",
+      "minute_after": 361.349999999999,
+      "minute_before": 360.533333333333,
+      "physics_calls": 37,
+      "steady_frames": 6
+    },
+    {
+      "draws": 4,
+      "end_frame_exclusive": 19,
+      "first_frame": 13,
+      "label": "pause",
+      "minute_after": 361.349999999999,
+      "minute_before": 361.349999999999,
+      "physics_calls": 24,
+      "steady_frames": 4
+    },
+    {
+      "draws": 4,
+      "end_frame_exclusive": 25,
+      "first_frame": 19,
+      "label": "inventory",
+      "minute_after": 361.349999999999,
+      "minute_before": 361.349999999999,
+      "physics_calls": 24,
+      "steady_frames": 4
+    },
+    {
+      "draws": 4,
+      "end_frame_exclusive": 31,
+      "first_frame": 25,
+      "label": "editor",
+      "minute_after": 361.349999999999,
+      "minute_before": 361.349999999999,
+      "physics_calls": 18,
+      "steady_frames": 4
+    },
+    {
+      "draws": 6,
+      "end_frame_exclusive": 39,
+      "first_frame": 31,
+      "label": "resumed",
+      "minute_after": 362.149999999998,
+      "minute_before": 361.349999999999,
+      "physics_calls": 36,
+      "steady_frames": 6
+    }
+  ],
+  "physics_hz": 60,
+  "profile": "Codex-Redraw-3998-385884",
+  "purpose": "functional_catchup_and_latest_UI_not_FPS_admission"
+}

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/check_alchemy_reports.py", line 40, in <module>
+    main()
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/check_alchemy_reports.py", line 14, in main
+    assert len(herbs) == 24 and len(catalog["items"]) == 148
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

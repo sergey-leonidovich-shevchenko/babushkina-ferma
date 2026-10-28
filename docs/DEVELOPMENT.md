@@ -72,7 +72,7 @@ PNG/readback вынесены за интервал измерений. [Про�
 
 Служебный курсор хранится в метаданных `runtime_maintenance`, в сохранения не входит. `statistics(game)` возвращает числовые счётчики и размеры кешей без ссылок на ресурсы. Удаляется только наша ссылка: действующий renderer или другой владелец продолжает удерживать используемый ресурс. Сам механизм подсчёта ссылок описан в [документации Godot RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html).
 
-Проверки: `Godot --headless --path . --script tools/runtime_maintenance_tests.gd`; ускоренное сравнение удержания ресурсов — `tools/runtime_cleanup_review.gd`; реальная оконная петля — `Godot --path . --script tools/runtime_cleanup_soak.gd -- --seconds=180`. Для длительной приёмки доступны 1800 и 7200 секунд; опубликованный короткий прогон не заменяет 30 мин/2 ч. Все стенды используют отдельные пользовательские каталоги. [Результаты](reports/runtime-cleanup-2026-10-15/README.md).
+Проверки: `Godot --headless --path . --script tools/qa/compatibility/runtime_maintenance_tests.gd`; ускоренное сравнение удержания ресурсов — `tools/runtime_cleanup_review.gd`; реальная оконная петля — `Godot --path . --script tools/runtime_cleanup_soak.gd -- --seconds=180`. Для длительной приёмки доступны 1800 и 7200 секунд; опубликованный короткий прогон не заменяет 30 мин/2 ч. Все стенды используют отдельные пользовательские каталоги. [Результаты](reports/runtime-cleanup-2026-10-15/README.md).
 
 ## Проекция первого мира · VCAMERA-006
 
@@ -90,7 +90,7 @@ PNG/readback вынесены за интервал измерений. [Про�
 
 Перенос сначала проверяет `RecoverySystem.safe_spawn` и точную проходимость целевой карты, не вызывая переходы с сюжетными наградами. При успехе очищает временный бой, рыбалку, эффекты заклинаний и старую карточку открытия; синхронизирует фон/камеру/музыку и отключает повторный дверной переход до выхода из триггера. Задания и HP врагов сохраняются; обычная отметка посещения области через `sync_background_location` остаётся штатной.
 
-Профильная проверка: `Godot --headless --path . --script tools/qa_teleport_review.gd`. Нативные кадры: `Godot --path . --script tools/qa_teleport_capture.gd`; отдельный каталог пользователя, фиксированный viewport1152×648, шесть языков и120% текста. Это проверка интерфейса, не замер производительности.
+Профильная проверка: `Godot --headless --path . --script tools/qa/compatibility/qa_teleport_review.gd`. Нативные кадры: `Godot --path . --script tools/qa/compatibility/qa_teleport_capture.gd`; отдельный каталог пользователя, фиксированный viewport1152×648, шесть языков и120% текста. Это проверка интерфейса, не замер производительности.
 
 ## Регистрация предметных изображений без ранней загрузки
 
@@ -102,7 +102,7 @@ PNG/readback вынесены за интервал измерений. [Про�
 
 `PreparedPixelCache` обслуживает девять проверенных источников: семь сжатых `.res` и две ссылки на неизменные оригиналы. `tools/assets/authoring/build_prepared_pixels.gd` повторяет прежние алгоритмы, сохраняет RGBA-отпечатки, размеры и области. Кеш проверяет точные пиксели и версию, не требует прямого чтения PNG в упакованной игре и возвращает прежнюю обработку при неподходящем источнике. После правки рисунка/алгоритма нужен rebuild; `PreparedPixelCacheSuite` независимо проверяет каждый выход и область. Оригиналы не редактируются. Генератор удаляет собственную производную копию, если обработка стала тождественной.
 
-`WildlifeVisualSystem.frame_area` даёт игре и сборщику одну геометрию; `measure_visible_bounds` сохраняет прежний порог и служит независимой проверкой. Кеш расположен в игровом дереве ресурсов, отчётные кадры — отдельно с `.gdignore`. Нативный стенд `tools/startup_review.gd` разделяет load/instantiate/ready/первый кадр и отдельный режим `--services`; он не открывает слоты пользователя. [Данные, границы и команды](reports/startup-perf-2026-10-14/README.md).
+`WildlifeVisualSystem.frame_area` даёт игре и сборщику одну геометрию; `measure_visible_bounds` сохраняет прежний порог и служит независимой проверкой. Кеш расположен в игровом дереве ресурсов, отчётные кадры — отдельно с `.gdignore`. Нативный стенд `tools/qa/compatibility/startup_review.gd` разделяет load/instantiate/ready/первый кадр и отдельный режим `--services`; он не открывает слоты пользователя. [Данные, границы и команды](reports/startup-perf-2026-10-14/README.md).
 
 ## Снимок отрисовки хранилищ
 
@@ -128,13 +128,13 @@ PNG/readback вынесены за интервал измерений. [Про�
 
 `EnemyAnimationLibrary.action_pose` является общим источником текстуры, области и `flip` для игрового renderer и Wiki. Ошибочный юго-западный ряд стрельбы скелета использует юго-восточные кадры с отражением; остальные ракурсы и ходьба сохраняют прежние области. `oriented_actor_rect` оставляет позицию rect неизменной: Godot отражает отрицательную ширину назначения, дополнительный перенос на ширину давал сдвиг тела от HP.
 
-Во время дальнего замаха `attack_direction` вычисляет ракурс по `action_target`, а не по направлению погони за новым положением героя. Баллистика, дальность, попадания и таймеры не меняются. `tools/ranged_combat_review.gd` включает направленные регрессии и реальные выстрелы всех шести дальних семейств. `tools/skeleton_aim_capture.gd` снимает три сценария в пещере и сравнение восьми ракурсов в отдельном профиле `Codex-Skeleton-Aim-20261014`. [Кадры и воспроизведение](reports/skeleton-aim-2026-10-14/README.md).
+Во время дальнего замаха `attack_direction` вычисляет ракурс по `action_target`, а не по направлению погони за новым положением героя. Баллистика, дальность, попадания и таймеры не меняются. `tools/qa/compatibility/ranged_combat_review.gd` включает направленные регрессии и реальные выстрелы всех шести дальних семейств. `tools/qa/compatibility/skeleton_aim_capture.gd` снимает три сценария в пещере и сравнение восьми ракурсов в отдельном профиле `Codex-Skeleton-Aim-20261014`. [Кадры и воспроизведение](reports/skeleton-aim-2026-10-14/README.md).
 
 ## Цельный обычный Хранитель глубин
 
 `EnemyAnimationLibrary.GUARDIAN_BODY` временно использует прежний `assets/game/enemies/cave_guardian.png`256×256 вместо повреждённых общих ячеек. Опора ног128,236 измерена по альфа-каналу. Выбор направления и фазы не меняет целый прямоугольник тела; `action_effect_texture/source` отдельно выбирают прежнюю кристальную вспышку. Коллизии и боевые таймеры не меняются. Реестр явно помечает `temporary_whole_pose`,1 направление и1 позу, не объявляя её полноценной анимацией. Wiki экспортирует тот же цельный рисунок с тем же pivot и поясняет ограничение.
 
-`tools/depth_guardian_review.gd` проверяет целостность, направления, ранги и обычный дальний бой. `tools/depth_guardian_capture.gd` снимает состояния и отдельные художественные макеты в профиле `Codex-Depth-Guardian-20261014` без слотов пользователя. [Исходники imagegen, запросы и кадры](concepts/depth-guardian-2026-10-14/v1/README.md). Новый рисунок и полноценные направленные серии подключаются после выбора варианта.
+`tools/qa/compatibility/depth_guardian_review.gd` проверяет целостность, направления, ранги и обычный дальний бой. `tools/qa/compatibility/depth_guardian_capture.gd` снимает состояния и отдельные художественные макеты в профиле `Codex-Depth-Guardian-20261014` без слотов пользователя. [Исходники imagegen, запросы и кадры](concepts/depth-guardian-2026-10-14/v1/README.md). Новый рисунок и полноценные направленные серии подключаются после выбора варианта.
 
 ## Восстановление без модального экрана
 
@@ -144,11 +144,11 @@ PNG/readback вынесены за интервал измерений. [Про�
 
 Настройки схемы5 сохраняют устаревший ключ `screen_shake=false` для совместимости; его старое значение игнорируется. Смещение камеры всегда нулевое, пункта настройки тряски нет. `UiKitSystem.style` возвращает кешированный `StyleBoxFlat`, в том числе для прежнего API и квадратных компонентов редактора; деревянные PNG остаются архивом.
 
-Профиль: `tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/recovery_review.gd`. Нативные кадры: тот же запуск без `--headless` со скриптом `res://tools/recovery_capture.gd`. Используется отдельный профиль `Codex-Recovery-Review-20261014`; снимки1152×648 пишутся в `/private/tmp/moon-valley-recovery/`. `FARM_RECOVERY_ONLY` ограничивает список именами через запятую. [Отчёт и реальные кадры](reports/recovery-ui-2026-10-14/README.md).
+Профиль: `tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa/compatibility/recovery_review.gd`. Нативные кадры: тот же запуск без `--headless` со скриптом `res://tools/qa/compatibility/recovery_capture.gd`. Используется отдельный профиль `Codex-Recovery-Review-20261014`; снимки1152×648 пишутся в `/private/tmp/moon-valley-recovery/`. `FARM_RECOVERY_ONLY` ограничивает список именами через запятую. [Отчёт и реальные кадры](reports/recovery-ui-2026-10-14/README.md).
 
 ## Визуальная ревизия всех локаций и окон
 
-`tools/design_audit_capture.gd` снимает30 игровых локаций,31 состояние интерфейса и отдельный кадр соседних культур в изолированном профиле без слотов пользователя. Полные изображения1152×648 пишутся в `/private/tmp/moon-valley-design-audit/before/` либо`after/` по переменной`FARM_DESIGN_PHASE`. Переменная`FARM_DESIGN_ONLY` принимает имена через запятую, например`world-village_garden,ui-kitchen,detail-crops`. `tools/design_audit_gallery.gd` собирает из снимков обзорные листы; `tools/design_audit_review.gd` запускает профиль ракурсов, дорог, подписей, количества ингредиентов и реальных производственных/навигационных сценариев. Команды и исходные кадры: [отчёт ревизии](reports/design-audit-2026-10-14/README.md).
+`tools/qa/compatibility/design_audit_capture.gd` снимает30 игровых локаций,31 состояние интерфейса и отдельный кадр соседних культур в изолированном профиле без слотов пользователя. Полные изображения1152×648 пишутся в `/private/tmp/moon-valley-design-audit/before/` либо`after/` по переменной`FARM_DESIGN_PHASE`. Переменная`FARM_DESIGN_ONLY` принимает имена через запятую, например`world-village_garden,ui-kitchen,detail-crops`. `tools/qa/compatibility/design_audit_gallery.gd` собирает из снимков обзорные листы; `tools/qa/compatibility/design_audit_review.gd` запускает профиль ракурсов, дорог, подписей, количества ингредиентов и реальных производственных/навигационных сценариев. Команды и исходные кадры: [отчёт ревизии](reports/design-audit-2026-10-14/README.md).
 
 `CardinalPathSystem` задаёт общие ортогональные маршруты для рендера и запросов поверхности. Дополнительные дороги фермы рисует только кеш земли. `WorldLabelRenderer` использует единые светлые плашки с учётом камеры и масштаба; `WorldMarkerRenderer` — компактные знаки с уменьшением движения. `RecipeInputRenderer` получает точный расход через`CraftingSystem.material_cost`, а не вычисляет собственную экономику. Обе группы станков используют общий каталог передних рисунков; исследовательский стол берёт целые согласованные передние ресурсы без захвата соседнего ряда атласа.
 
@@ -208,7 +208,7 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --inventory-preview
 tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-context-hud
 
 # Физические эталоны HUD для 16:9, 16:10 и 21:9
-tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/generate_adaptive_hud_previews.gd
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa/compatibility/generate_adaptive_hud_previews.gd
 
 # Деревенские здания без стартовых экранов
 tools/Godot.app/Contents/MacOS/Godot --path . -- --buildings-preview
@@ -282,7 +282,7 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --moon-glade-preview
 Машинный аудит геометрии восьми ключевых UI-поверхностей и инвентаризацию текстовых вызовов можно обновить отдельно:
 
 ```bash
-tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/generate_ui_layout_audit.gd
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa/compatibility/generate_ui_layout_audit.gd
 python3 tools/run.py assets.authoring.update_ui_visual_manifest
 ```
 
@@ -420,7 +420,7 @@ CPU-запросы можно проверить отдельно инструм
 
 ## Зонд обычного боя
 
-`tools/boss_balance_review.gd`: девять боёв обычного героя, лесной меч / железное копьё / лук, seeds 7/23/61. Фактическая экипировка проверяется, чтобы повторный toggle оружия не подменил копьё кулаками. [Результаты и ограничения](reports/five-priorities-2026-10-11/balance/README.md). Проверка не заменяет оценку сложности живыми игроками.
+`tools/qa/compatibility/boss_balance_review.gd`: девять боёв обычного героя, лесной меч / железное копьё / лук, seeds 7/23/61. Фактическая экипировка проверяется, чтобы повторный toggle оружия не подменил копьё кулаками. [Результаты и ограничения](reports/five-priorities-2026-10-11/balance/README.md). Проверка не заменяет оценку сложности живыми игроками.
 
 ### Контракт круглых часов
 
@@ -435,50 +435,50 @@ CPU-запросы можно проверить отдельно инструм
 
 ### Нативный контроль кадра от 12 октября
 
-Профили деревни и босса теперь идут минимум 25 секунд и сохраняют отдельно process-интервалы и реальные frame_post_draw. При on-demand перерисовке только draw_frame используется для целевого p95. Fullscreen стенд задаёт и проверяет фактический drawable ОС. Полные команды, ограничения фокуса, восемь сырых результатов и pixel QA грунта: [отчёт](reports/performance-2026-10-12/README.md). Проверки: `python3 tools/check_native_frame_reports.py` и нативный `--script tools/terrain_cache_review.gd`.
+Профили деревни и босса теперь идут минимум 25 секунд и сохраняют отдельно process-интервалы и реальные frame_post_draw. При on-demand перерисовке только draw_frame используется для целевого p95. Fullscreen стенд задаёт и проверяет фактический drawable ОС. Полные команды, ограничения фокуса, восемь сырых результатов и pixel QA грунта: [отчёт](reports/performance-2026-10-12/README.md). Проверки: `python3 tools/check_native_frame_reports.py` и нативный `--script tools/qa/compatibility/terrain_cache_review.gd`.
 
 
 ### Проверка достижимости фермы и святилища
 
-`tools/end_to_end_review.gd` создаёт новую модель игры и отдельный пользовательский каталог, планирует пути AStar, передаёт физические клавиши и вызывает обычные действия через игровой цикл. Проверка охватывает урожай, уход/кухню, древесину/руду, копьё, все шесть комнат, три стадии, награду и disk round trip. Исходные пользовательские слоты сверяются по SHA-256. `tools/end_to_end_capture.gd` загружает итоговый проверочный слот в main.tscn и снимает реальный renderer. [Полные условия и ограничения](reports/end-to-end-2026-10-12.md).
+`tools/qa/compatibility/end_to_end_review.gd` создаёт новую модель игры и отдельный пользовательский каталог, планирует пути AStar, передаёт физические клавиши и вызывает обычные действия через игровой цикл. Проверка охватывает урожай, уход/кухню, древесину/руду, копьё, все шесть комнат, три стадии, награду и disk round trip. Исходные пользовательские слоты сверяются по SHA-256. `tools/qa/compatibility/end_to_end_capture.gd` загружает итоговый проверочный слот в main.tscn и снимает реальный renderer. [Полные условия и ограничения](reports/end-to-end-2026-10-12.md).
 
 ### Каталоги и проверка алхимии
 
 Данные растений, продуктов, рецептов, торговли и переводов разделены между alchemy_*_data.gd и alchemy_locale.gd; правила — в AlchemySystem. Новые рецепты добавляются после исторических, а растения сохраняются по ID. Собственные эффекты не зависят от системных часов и не обновляются при модальном окне. Документы дизайна находятся в docs/design, контрольные кадры — в docs/reports.
 
-Профильная проверка: `Godot --headless --path . --script tools/alchemy_review.gd`. Выгрузка точного каталога: `Godot --headless --path . --script tools/alchemy_catalog_export.gd`. Нативный предпросмотр: `Godot --path . --script tools/alchemy_capture.gd`; он использует отдельный пользовательский каталог, отключённую симуляцию и явно выданные демонстрационные ингредиенты. Это визуальная модель, а не доказательство честного прохождения. Основной gate подключает AlchemySuite через PotionSuite.
+Профильная проверка: `Godot --headless --path . --script tools/qa/compatibility/alchemy_review.gd`. Выгрузка точного каталога: `Godot --headless --path . --script tools/qa/compatibility/alchemy_catalog_export.gd`. Нативный предпросмотр: `Godot --path . --script tools/qa/compatibility/alchemy_capture.gd`; он использует отдельный пользовательский каталог, отключённую симуляцию и явно выданные демонстрационные ингредиенты. Это визуальная модель, а не доказательство честного прохождения. Основной gate подключает AlchemySuite через PotionSuite.
 
 ### Проверка горна
 
-`Godot --headless --path . --script tools/furnace_review.gd` проверяет источники, топливо, уровни, очередь, паузу, результаты и загрузку реального файла. `Godot --path . --windowed --script tools/furnace_capture.gd` снимает пять кадров main.tscn в отдельной демонстрационной модели. Нативный GPU рисует сцену в SubViewport размером 1152×648; фактический Image.get_size проверяется независимо от асинхронного изменения размера окна macOS. Метаданные capture_windowed перед добавлением сцены в дерево позволяют загрузить настройки без изменения display. Изображения хранятся в docs/reports; новые игровые bitmap-ресурсы не создаются. FurnaceSuite подключён через CraftingPipelineSuite. Сохранённые работы идентифицируются каноническим ID технологии.
+`Godot --headless --path . --script tools/qa/compatibility/furnace_review.gd` проверяет источники, топливо, уровни, очередь, паузу, результаты и загрузку реального файла. `Godot --path . --windowed --script tools/qa/compatibility/furnace_capture.gd` снимает пять кадров main.tscn в отдельной демонстрационной модели. Нативный GPU рисует сцену в SubViewport размером 1152×648; фактический Image.get_size проверяется независимо от асинхронного изменения размера окна macOS. Метаданные capture_windowed перед добавлением сцены в дерево позволяют загрузить настройки без изменения display. Изображения хранятся в docs/reports; новые игровые bitmap-ресурсы не создаются. FurnaceSuite подключён через CraftingPipelineSuite. Сохранённые работы идентифицируются каноническим ID технологии.
 
 ### Проверка изучения и разборки
 
-`Godot --headless --path . --script tools/research_review.gd` запускает ResearchSuite и шестиязычный UI-аудит. Набор включён в общий CraftingPipelineSuite и проверяет реальные затраты, сохранение образца, уровни, тридцать выходов, защищённую экипировку, износ, пакетные действия, полный цикл повторной сборки, горн и настоящий файл сохранения. `Godot --path . --windowed --script tools/research_capture.gd` снимает шесть нативных кадров main.tscn в фиксированном SubViewport 1152×648 с демонстрационными запасами. `Godot --headless --path . --script tools/research_catalog_export.gd` обновляет каталог и таблицы из ResearchData. Спрайты A/B и точные промпты лежат в docs/design/research-table; до выбора пользователя они не подключаются к runtime.
+`Godot --headless --path . --script tools/qa/compatibility/research_review.gd` запускает ResearchSuite и шестиязычный UI-аудит. Набор включён в общий CraftingPipelineSuite и проверяет реальные затраты, сохранение образца, уровни, тридцать выходов, защищённую экипировку, износ, пакетные действия, полный цикл повторной сборки, горн и настоящий файл сохранения. `Godot --path . --windowed --script tools/qa/compatibility/research_capture.gd` снимает шесть нативных кадров main.tscn в фиксированном SubViewport 1152×648 с демонстрационными запасами. `Godot --headless --path . --script tools/qa/compatibility/research_catalog_export.gd` обновляет каталог и таблицы из ResearchData. Спрайты A/B и точные промпты лежат в docs/design/research-table; до выбора пользователя они не подключаются к runtime.
 
 ## Проверка ремесленной мастерской
 
-Профильный стенд: `./tools/Godot.app/Contents/MacOS/Godot --headless --path . --script tools/workshops_review.gd --log-file /private/tmp/farm-workshops-review.log`. Он проверяет новые станки, исследование, горн и языковые контракты. Каталоги экспортируются `tools/workshops_catalog_export.gd` и `tools/research_catalog_export.gd`; нативные 1152×648 кадры снимает `tools/workshops_capture.gd` с `--windowed`, без `--headless`. Скрипт использует отдельную пользовательскую папку и фиксированный SubViewport. Полный gate остаётся `tools/check_architecture.sh` и `./run_tests.sh`.
+Профильный стенд: `./tools/Godot.app/Contents/MacOS/Godot --headless --path . --script tools/qa/compatibility/workshops_review.gd --log-file /private/tmp/farm-workshops-review.log`. Он проверяет новые станки, исследование, горн и языковые контракты. Каталоги экспортируются `tools/qa/compatibility/workshops_catalog_export.gd` и `tools/qa/compatibility/research_catalog_export.gd`; нативные 1152×648 кадры снимает `tools/qa/compatibility/workshops_capture.gd` с `--windowed`, без `--headless`. Скрипт использует отдельную пользовательскую папку и фиксированный SubViewport. Полный gate остаётся `tools/check_architecture.sh` и `./run_tests.sh`.
 
 ## Проверка подвала
 
-`tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/basement_review.gd` запускает оба basement suite вместе с прежними Workshop/Furnace/Research регрессиями. `--script res://tools/basement_capture.gd` без `--headless` снимает реальные кадры 1152×648 в отдельной пользовательской папке: вход, пустая комната, чертёж, сетка, материалы, молоток, готовые столы и четыре направления трёх уровней. Камера и renderer обычные игровые; искусственного масштабирования снимка нет.
+`tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa/compatibility/basement_review.gd` запускает оба basement suite вместе с прежними Workshop/Furnace/Research регрессиями. `--script res://tools/qa/compatibility/basement_capture.gd` без `--headless` снимает реальные кадры 1152×648 в отдельной пользовательской папке: вход, пустая комната, чертёж, сетка, материалы, молоток, готовые столы и четыре направления трёх уровней. Камера и renderer обычные игровые; искусственного масштабирования снимка нет.
 
 `python3 tools/run.py assets.authoring.extract_basement_atlases` воспроизводит 172 AtlasTexture из утверждённых исходных листов. До коммита запустить импорт Godot, архитектурный gate и полный `./run_tests.sh`; автоматический Git hook также проверяет результат. Готовая задача вливается в локальную `main`, публикация идёт пакетами по 10 задач согласно [правилам](BACKLOG_WORKFLOW.md).
 
 ## Проверка личной кухни
 
-`tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/kitchen_review.gd` проверяет KitchenSuite вместе с Household/Workshop/Furnace/Research/Building регрессиями и всем аудитом UI. Профильный suite подключён к CraftingPipelineSuite полного runner. Он проверяет оплату, отсутствие топлива, паузу, независимые кухни, 3 уровня, сохранение на диск, отказ подделанным партиям, возврат и ранний омлет.
+`tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa/compatibility/kitchen_review.gd` проверяет KitchenSuite вместе с Household/Workshop/Furnace/Research/Building регрессиями и всем аудитом UI. Профильный suite подключён к CraftingPipelineSuite полного runner. Он проверяет оплату, отсутствие топлива, паузу, независимые кухни, 3 уровня, сохранение на диск, отказ подделанным партиям, возврат и ранний омлет.
 
-`--script res://tools/kitchen_capture.gd` без `--headless` снимает нативные 1152×648: кучи, 4 направления каждого уровня, очередь без топлива, RU/DE 120%, рабочий огонь и заготовки. Для стенда используются отдельный userdata, фиксированный SubViewport и настоящее строительство через чертёж. `python3 tools/run.py assets.authoring.extract_kitchen_atlases` воспроизводит 24 `.tres` по измеренным регионам. Запросы image_gen и измеренные AtlasTexture-регионы хранятся в `docs/design/kitchen-station-2026-10-13`; пиксели исходников не перерисовываются при нарезке. Перед публикацией обязательны `tools/check_architecture.sh` и `./run_tests.sh`.
+`--script res://tools/qa/compatibility/kitchen_capture.gd` без `--headless` снимает нативные 1152×648: кучи, 4 направления каждого уровня, очередь без топлива, RU/DE 120%, рабочий огонь и заготовки. Для стенда используются отдельный userdata, фиксированный SubViewport и настоящее строительство через чертёж. `python3 tools/run.py assets.authoring.extract_kitchen_atlases` воспроизводит 24 `.tres` по измеренным регионам. Запросы image_gen и измеренные AtlasTexture-регионы хранятся в `docs/design/kitchen-station-2026-10-13`; пиксели исходников не перерисовываются при нарезке. Перед публикацией обязательны `tools/check_architecture.sh` и `./run_tests.sh`.
 
 ## Проверка пасеки
 
-`tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/apiary_review.gd` проверяет пасеку, алхимию/эффекты, прежнее производство и весь аудит UI. `--script res://tools/apiary_capture.gd` без `--headless` снимает 1152×648: места, три уровня, RU/DE 120%, гнездо, разделение сот и мазь. Используются реальная оплата/крафт и отдельный userdata, пользовательские слоты не открываются. Источники и регионы — `docs/design/apiary-2026-10-13`, ресурсы — `assets/game/apiary`. Перед публикацией обязательны архитектурный gate и `./run_tests.sh`.
+`tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa/compatibility/apiary_review.gd` проверяет пасеку, алхимию/эффекты, прежнее производство и весь аудит UI. `--script res://tools/qa/compatibility/apiary_capture.gd` без `--headless` снимает 1152×648: места, три уровня, RU/DE 120%, гнездо, разделение сот и мазь. Используются реальная оплата/крафт и отдельный userdata, пользовательские слоты не открываются. Источники и регионы — `docs/design/apiary-2026-10-13`, ресурсы — `assets/game/apiary`. Перед публикацией обязательны архитектурный gate и `./run_tests.sh`.
 
 ## Проверка пакета ремёсел
 
-Нарезка без изменения RGBA: `python3 tools/run.py assets.authoring.extract_artisan_assets`. Профильный стенд: `Godot --headless --path . --script tools/artisan_review.gd`; нативные кадры: `Godot --path . --script tools/artisan_capture.gd`. Стенд создаёт отдельный каталог пользовательских данных и отключает процесс игровой модели; очереди продвигаются явно для воспроизводимых кадров. Общий quality gate остаётся обязательным.
+Нарезка без изменения RGBA: `python3 tools/run.py assets.authoring.extract_artisan_assets`. Профильный стенд: `Godot --headless --path . --script tools/qa/compatibility/artisan_review.gd`; нативные кадры: `Godot --path . --script tools/qa/compatibility/artisan_capture.gd`. Стенд создаёт отдельный каталог пользовательских данных и отключает процесс игровой модели; очереди продвигаются явно для воспроизводимых кадров. Общий quality gate остаётся обязательным.
 
 ## Шкаф снабжения для разработки
 
@@ -488,7 +488,7 @@ CPU-запросы можно проверить отдельно инструм
 
 `StorageGridLayout`, `StorageGridSystem`, `StorageGridInput` и `StorageGridRenderer` обслуживают шкаф и сундук: слева 5 колонок рюкзака, справа 7 колонок контейнера, по центру описание. По пять видимых строк. Выбор и начальная строка сторон независимы; колесо двигает строку под указателем, клавиатура раскрывает нужную строку, бегунок и свайп используют ту же геометрию. Фокус и перенос разделены. `DevCabinetRenderer` остаётся маленьким адаптером; поле `selected` каталога и публичные поля сундука сохраняют совместимость. Сортировка вычисляет локализованное имя один раз на вид; список сундука кешируется по содержимому, языку и режиму. Полное имя в центральной карточке проверяется по ширине и высоте, включая длинные немецкие слова при 120% текста.
 
-`VisualAssetSystem.item_visual` хранит канонический источник для Wiki и сборщиков. `item_draw_visual` выбирает подготовленный атлас 64px для сетки или PNG160px для превью. `PreparedItemIconSystem` держит не больше 16 больших превью; явно подменённый нестандартный источник обходит старую производную. `tools/assets/authoring/build_item_ui_textures.gd` воспроизводит весь набор с сохранением пропорций и прозрачных краёв. Индекс `catalog.gd` подключён как ресурс для упаковки игры; JSON оставлен для просмотра. Новая графика требует пересборки производных. Профильные регрессии находятся в `StorageGridSuite`, включая двухсторонний перенос, колесо, свайп, бегунок, паузу и ограниченный кеш. `tools/storage_window_capture.gd` снимает настоящий SubViewport и первый кадр; [исходные замеры и кадры](reports/storage-grid-2026-10-13/README.md).
+`VisualAssetSystem.item_visual` хранит канонический источник для Wiki и сборщиков. `item_draw_visual` выбирает подготовленный атлас 64px для сетки или PNG160px для превью. `PreparedItemIconSystem` держит не больше 16 больших превью; явно подменённый нестандартный источник обходит старую производную. `tools/assets/authoring/build_item_ui_textures.gd` воспроизводит весь набор с сохранением пропорций и прозрачных краёв. Индекс `catalog.gd` подключён как ресурс для упаковки игры; JSON оставлен для просмотра. Новая графика требует пересборки производных. Профильные регрессии находятся в `StorageGridSuite`, включая двухсторонний перенос, колесо, свайп, бегунок, паузу и ограниченный кеш. `tools/qa/compatibility/storage_window_capture.gd` снимает настоящий SubViewport и первый кадр; [исходные замеры и кадры](reports/storage-grid-2026-10-13/README.md).
 
 `project.godot`: раздел `[development]`, `supply_cabinet_enabled=true`. Для релиза установить `false`: исчезают контекстное действие, окно и возможность выдачи; существующий спрайт шкафа остаётся обычным декором, ранее выданные вещи сохраняются. Удалять игровую мебель, менять слот сохранения или переписывать реестр для выключения не нужно.
 
@@ -496,7 +496,7 @@ CPU-запросы можно проверить отдельно инструм
 
 Ввод перехватывается раньше игровых команд, геометрия кнопок общая у renderer, мыши и касаний. Открытие очищает удержанные действия; `GameLoop.gameplay_window_open` останавливает настоящую физическую симуляцию, включая производственные очереди. Локализованный поиск кэширует результаты отдельно по языку, категории и запросу.
 
-Профильная проверка: `Godot --headless --path . --script tools/dev_cabinet_review.gd`. `DevCabinetSuite` подключён через `StorageForgeSuite`: полный каталог, все выдачи, путь от входа, отключение, поиск, ввод, физическая пауза, JSON-сохранения и шесть языков с текстом 120%. Нативные кадры: `Godot --path . --script tools/dev_cabinet_capture.gd`; восемь изображений 1152×648 сохраняются в docs/reports из настоящего renderer, в отдельном userdata. Для новой серии без замены прежних снимков задайте `FARM_CABINET_CAPTURE_PREFIX`, например `dev-cabinet-icons-2026-10-13`. Проверять отсутствие всех `ERROR:` / `SCRIPT ERROR` в логе, даже если стенд напечатал PASS. Перед коммитом и push обязательны `tools/check_architecture.sh` и `./run_tests.sh`.
+Профильная проверка: `Godot --headless --path . --script tools/qa/compatibility/dev_cabinet_review.gd`. `DevCabinetSuite` подключён через `StorageForgeSuite`: полный каталог, все выдачи, путь от входа, отключение, поиск, ввод, физическая пауза, JSON-сохранения и шесть языков с текстом 120%. Нативные кадры: `Godot --path . --script tools/qa/compatibility/dev_cabinet_capture.gd`; восемь изображений 1152×648 сохраняются в docs/reports из настоящего renderer, в отдельном userdata. Для новой серии без замены прежних снимков задайте `FARM_CABINET_CAPTURE_PREFIX`, например `dev-cabinet-icons-2026-10-13`. Проверять отсутствие всех `ERROR:` / `SCRIPT ERROR` в логе, даже если стенд напечатал PASS. Перед коммитом и push обязательны `tools/check_architecture.sh` и `./run_tests.sh`.
 
 ## Общие быстрые действия хранилищ
 
@@ -506,7 +506,7 @@ CPU-запросы можно проверить отдельно инструм
 
 Кирка и удочка теперь имеют необязательные булевы поля `weapons.pickaxe` / `weapons.fishing_rod` в сохранении: это предотвращает восстановление бесплатной копии инструмента, уже лежащего в сундуке. Для старого слота владение определяется отсутствием положительного остатка инструмента в сундуке, сохраняя прежний стартовый доступ, если инструмент там не лежит. Новые поля проходят проверку типов до мутации. `InventorySystem.UNIQUE_ITEMS` задаёт пять флаговых видов для шкафа и сундука; withdraw выдаёт максимум одну отсутствующую копию и списывает источник только после успешного изменения инвентаря. Неизвестный вид или отказ счётчика не уничтожают остаток.
 
-Общая геометрия рисунка и указателя находится в `StorageActionsRenderer`. Клавиатура сундука перехватывается в приоритетном маршруте; фокус поиска шкафа обрабатывается раньше массовых клавиш. Профильный стенд `tools/dev_cabinet_review.gd` включает новый `StorageActionsSuite` через `StorageForgeSuite` и весь UI-аудит. `Godot --path . --script tools/storage_actions_capture.gd` снимает восемь нативных кадров 1152×648: сундук до/после matching/all, сортировка, шкаф с поиском, сохранение избытка и DE 120%. Отдельный userdata исключает доступ к пользовательским слотам. Полный gate перед коммитом и push остаётся обязательным.
+Общая геометрия рисунка и указателя находится в `StorageActionsRenderer`. Клавиатура сундука перехватывается в приоритетном маршруте; фокус поиска шкафа обрабатывается раньше массовых клавиш. Профильный стенд `tools/qa/compatibility/dev_cabinet_review.gd` включает новый `StorageActionsSuite` через `StorageForgeSuite` и весь UI-аудит. `Godot --path . --script tools/qa/compatibility/storage_actions_capture.gd` снимает восемь нативных кадров 1152×648: сундук до/после matching/all, сортировка, шкаф с поиском, сохранение избытка и DE 120%. Отдельный userdata исключает доступ к пользовательским слотам. Полный gate перед коммитом и push остаётся обязательным.
 
 ## Выбранные сосуды A
 
@@ -518,17 +518,17 @@ CPU-запросы можно проверить отдельно инструм
 
 `HouseFurnitureData` задаёт постоянные основания дома и рабочие точки, `HouseFurnitureLayoutSystem` — сетку24, полные пересечения, путь к услугам, предпросмотр и миграцию сохранений. Нижняя центральная опора не обязательно кратна24: у основания шириной три клетки центр имеет смещение12; на сетке должны стоять границы основания. `HouseFurnitureVisualSystem` выбирает отдельный спрайт стороны и масштабирует его равномерно. Все направления передаются также в коллизии, глубину и инспектор. Ковёр и круглый папоротник сохраняют естественное отсутствие стены/направления.
 
-Выбранные мастера и точные запросы встроенного imagegen лежат в [партии мебели](concepts/house-furniture-2026-10-14/v1/README.md); игровые текстуры нарезает `tools/assets/authoring/build_house_furniture.gd`, затем выполняются импорт Godot и `tools/assets/authoring/build_item_ui_textures.gd`. Сравнение нативных кадров и проверка — в [отчёте](reports/house-furniture-2026-10-14/README.md). `tools/house_furniture_review.gd` запускает мебель, жизнь фермы, помещения и сохранения.
+Выбранные мастера и точные запросы встроенного imagegen лежат в [партии мебели](concepts/house-furniture-2026-10-14/v1/README.md); игровые текстуры нарезает `tools/assets/authoring/build_house_furniture.gd`, затем выполняются импорт Godot и `tools/assets/authoring/build_item_ui_textures.gd`. Сравнение нативных кадров и проверка — в [отчёте](reports/house-furniture-2026-10-14/README.md). `tools/qa/compatibility/house_furniture_review.gd` запускает мебель, жизнь фермы, помещения и сохранения.
 
 ## Компактные диалоги
 
-`CompactDialogueLayout` объединяет прямоугольники рисунка и ввода. `DialogueTextLayoutSystem` использует реальные метрики шрифта и делит текст на страницы без удаления символов и уменьшения выбранного кегля. Переносы кэшируются в текущей временной реплике. `CompactDialogueRenderer` рисует выбранный светлый Б на общей палитре `PaperThemePalette`. `StoryUiRenderer` сохраняет прежние публичные точки входа. `CompactDialogueSuite` подключён через `AdventurePolishSuite`; стенд — `tools/compact_dialogue_review.gd`. [Макеты и выбор](concepts/compact-dialogue-2026-10-14/v1/README.md), [нативная проверка](reports/compact-dialogue-2026-10-14/README.md).
+`CompactDialogueLayout` объединяет прямоугольники рисунка и ввода. `DialogueTextLayoutSystem` использует реальные метрики шрифта и делит текст на страницы без удаления символов и уменьшения выбранного кегля. Переносы кэшируются в текущей временной реплике. `CompactDialogueRenderer` рисует выбранный светлый Б на общей палитре `PaperThemePalette`. `StoryUiRenderer` сохраняет прежние публичные точки входа. `CompactDialogueSuite` подключён через `AdventurePolishSuite`; стенд — `tools/qa/compatibility/compact_dialogue_review.gd`. [Макеты и выбор](concepts/compact-dialogue-2026-10-14/v1/README.md), [нативная проверка](reports/compact-dialogue-2026-10-14/README.md).
 
 ## Общая светлая тема B
 
 `PaperThemePalette` — единственный источник семантических цветов; `MoonTheme` и `UiKitSystem` оформляют новые и прежние окна общей палитрой. `ACCENT_TEXT` используется для текста, `ACCENT` — для заливки основного действия с `ON_ACCENT`. Цветные шкалы не служат фоном числовым подписям героя. Старые ID компонентов и их области ввода сохранены. `PaperThemeSuite` подключён через визуальный агрегатор, проверяет контраст всех активных ролей≥4,5:1. CSS wiki сверяется с этой палитрой Node-тестом.
 
-`tools/paper_theme_capture.gd` снимает32 окна в отдельном userdata; `FARM_PAPER_PHASE` выбирает каталог отчёта. Для обновления штатных визуальных эталонов используется `tools/paper_theme_reference_capture.gd -- --capture-…`; затем пересчитывается манифест. [Результаты и сравнение](reports/paper-ui-2026-10-14/README.md).
+`tools/qa/compatibility/paper_theme_capture.gd` снимает32 окна в отдельном userdata; `FARM_PAPER_PHASE` выбирает каталог отчёта. Для обновления штатных визуальных эталонов используется `tools/qa/compatibility/paper_theme_reference_capture.gd -- --capture-…`; затем пересчитывается манифест. [Результаты и сравнение](reports/paper-ui-2026-10-14/README.md).
 
 ## Видимость оружия героя
 
@@ -538,7 +538,7 @@ CPU-запросы можно проверить отдельно инструм
 
 `DroppedLootSystem` вызывается физическим циклом после движения героя. Радиус96px равен двум клеткам48px; скорость360px/с, контакт26px. Подшаги не длиннее8px используют существующую навигацию без динамических врагов. Дальние предметы и другие комнаты не запускают проверок навигации. Модальные состояния, язык и погибший герой блокируют автоподбор.
 
-Ручной и автоматический подбор используют одну выдачу: сначала успешное изменение инвентаря, затем уменьшение источника. Уникальные инструменты выдаются по одной отсутствующей копии; непринятый остаток сохраняется. Необязательный булев `drops[].pickup_blocked` переживает сохранение и защищает ручное выбрасывание до выхода героя из радиуса. Старые записи без поля сразу допускают притягивание. Позиция добычи сюжетного слизня отделена от его тела и очищается при подборе, новой победе и загрузке. Профиль: `tools/dropped_loot_review.gd`; `DroppedLootSuite` подключён через игровой агрегатор.
+Ручной и автоматический подбор используют одну выдачу: сначала успешное изменение инвентаря, затем уменьшение источника. Уникальные инструменты выдаются по одной отсутствующей копии; непринятый остаток сохраняется. Необязательный булев `drops[].pickup_blocked` переживает сохранение и защищает ручное выбрасывание до выхода героя из радиуса. Старые записи без поля сразу допускают притягивание. Позиция добычи сюжетного слизня отделена от его тела и очищается при подборе, новой победе и загрузке. Профиль: `tools/qa/compatibility/dropped_loot_review.gd`; `DroppedLootSuite` подключён через игровой агрегатор.
 
 ## Границы домашней фермы
 
@@ -546,7 +546,7 @@ CPU-запросы можно проверить отдельно инструм
 
 Старый массив `world_plots` остаётся допустимым в JSON. После восстановления инвентаря и домашних грядок `WorldFarmingSystem.restore` переносит растения через `FarmPlotMigration` в первые свободные клетки, исключая растущие и удобренные. Полив, рост, стадия и удобрение сохраняются. Пустая почва удаляется с возвратом удобрения. При заполнении участка незрелая культура возвращается семенами; зрелая — обычным урожаем с бонусами навыка и удобрения, многолетняя также семенами. Удобрение возвращается отдельно, опыт и энергия не меняются. Повторяющиеся мировые ключи учитываются один раз; следующий снимок содержит пустой `world_plots`, поэтому повторного возврата нет. Схема слота не меняется.
 
-`outdoor_soil_reason` сохраняет прежнюю проверку поверхности для саженцев и переноса плодовых деревьев из загонов. Она не разрешает овощные грядки. Профиль: `tools/farm_bounds_review.gd`; нативные кадры: [проверка участка](reports/farm-bounds-2026-10-14/).
+`outdoor_soil_reason` сохраняет прежнюю проверку поверхности для саженцев и переноса плодовых деревьев из загонов. Она не разрешает овощные грядки. Профиль: `tools/qa/compatibility/farm_bounds_review.gd`; нативные кадры: [проверка участка](reports/farm-bounds-2026-10-14/).
 
 ## Настоящий уличный верстак
 
@@ -554,9 +554,9 @@ CPU-запросы можно проверить отдельно инструм
 
 Ферма вызывает этот модуль из `GameRenderer`, двор содержит явный тип `workbench` в `VillageRegionData` и рисует его через `VillageRegionRenderer`. У дворового основания сохранены72×48, у фермы остаётся прежняя навигация64×44 и прежняя точка рецептов. Предмет `rustic_table` сохраняет роль домашнего стола. Новых PNG и повторных текстур не добавлено, схема сохранения не меняется.
 
-Профиль `tools/world_workbench_review.gd` проверяет рабочие ракурсы и услуги районов; без headless снимает кадры в отдельном профиле. Подробности и [кадры до/после](reports/world-workbench-2026-10-14/).
+Профиль `tools/qa/compatibility/world_workbench_review.gd` проверяет рабочие ракурсы и услуги районов; без headless снимает кадры в отдельном профиле. Подробности и [кадры до/после](reports/world-workbench-2026-10-14/).
 При нативных замерах живой симуляции явно задавать `game.settings_state.pause_on_focus_loss=false` после готовности сцены и записывать это в отчёт. В обычной игре значение по умолчанию — true. Пауза фокуса хранится отдельно от ручных меню и игрового слота; служебные кадры UI, аудио и ограниченной очистки продолжаются. Не интерпретировать замер остановленного мира как ускорение игры.
-Проверка взаимных ссылок: Godot `--headless --path . --script tools/content_reference_audit.gd`. Чистые копии данных проверяются `ContentReferenceGraph`; общий `ContentRegistry` использует его и профильные валидаторы источников мира, а Wiki вызывает этот же контракт перед экспортом. У предмета должны быть шесть имён и подготовленная иконка; пропуск, неправильный уровень станка или цикл требований миссий блокирует gate с путём владельца.
+Проверка взаимных ссылок: Godot `--headless --path . --script tools/qa/compatibility/content_reference_audit.gd`. Чистые копии данных проверяются `ContentReferenceGraph`; общий `ContentRegistry` использует его и профильные валидаторы источников мира, а Wiki вызывает этот же контракт перед экспортом. У предмета должны быть шесть имён и подготовленная иконка; пропуск, неправильный уровень станка или цикл требований миссий блокирует gate с путём владельца.
 
 ## Воспроизводимые замеры перед визуальной переделкой
 

@@ -1,4 +1,4 @@
-extends "res://tools/dev_cabinet_review.gd"
+extends "res://tools/qa/compatibility/dev_cabinet_review.gd"
 
 ## Проверяет рыбалку и её визуальные позы в отдельном профиле без пользовательских слотов.
 func _initialize() -> void:

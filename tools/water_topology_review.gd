@@ -1,4 +1,4 @@
-extends "res://tools/dev_cabinet_review.gd"
+extends "res://tools/qa/compatibility/dev_cabinet_review.gd"
 
 ## Проверяет чистый план воды без слотов пользователя, новой графики и живой сцены.
 func _initialize() -> void:

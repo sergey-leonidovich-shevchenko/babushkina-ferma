@@ -1,0 +1,1080 @@
+{
+  "base": "81bec22e0b447054a631707e9e12179e222a57c2",
+  "root_sources_after_moves": 314,
+  "physical_source_moves": 89,
+  "tracked_UID_moves": 64,
+  "ignored_UID_moves": 23,
+  "moves": [
+    {
+      "old_path": "tools/action_lifecycle_native.gd",
+      "target": "tools/qa/compatibility/action_lifecycle_native.gd",
+      "before_sha256": "6fe241d1313a8e52caf89a2499346f9e929ad413db5d1a81a3811600bfabc1c4",
+      "after_sha256": "bb041ffa6547978eeb411c234948f65bc3638813e0f4a5509a5f91e37023b172",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/action_lifecycle_native.gd.uid",
+      "target": "tools/qa/compatibility/action_lifecycle_native.gd.uid",
+      "before_sha256": "3d43a7582a77a0ad18e69457b66da8c36a66c34f2dc3c748f29055796ee6fe5d",
+      "after_sha256": "3d43a7582a77a0ad18e69457b66da8c36a66c34f2dc3c748f29055796ee6fe5d",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/alchemy_capture.gd",
+      "target": "tools/qa/compatibility/alchemy_capture.gd",
+      "before_sha256": "f2433198384107e5f653080e482e61f83053a80ed04ed294625fc7f1ba3bd624",
+      "after_sha256": "f2433198384107e5f653080e482e61f83053a80ed04ed294625fc7f1ba3bd624",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/alchemy_capture.gd.uid",
+      "target": "tools/qa/compatibility/alchemy_capture.gd.uid",
+      "before_sha256": "94fc8acd2ff885cc7ec94a22f5a63427884ce34963453ff53de1e7f088c8d0d9",
+      "after_sha256": "94fc8acd2ff885cc7ec94a22f5a63427884ce34963453ff53de1e7f088c8d0d9",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/alchemy_catalog_export.gd",
+      "target": "tools/qa/compatibility/alchemy_catalog_export.gd",
+      "before_sha256": "f6021ae262b3a8ce9e47822afe5f51b04da9ceaff47d4061d18319783e151220",
+      "after_sha256": "f6021ae262b3a8ce9e47822afe5f51b04da9ceaff47d4061d18319783e151220",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/alchemy_catalog_export.gd.uid",
+      "target": "tools/qa/compatibility/alchemy_catalog_export.gd.uid",
+      "before_sha256": "6479f7ec1673df2d2b93c1f04a44e3581903e9086b4802fdaef29a8f819f5a4e",
+      "after_sha256": "6479f7ec1673df2d2b93c1f04a44e3581903e9086b4802fdaef29a8f819f5a4e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/alchemy_review.gd",
+      "target": "tools/qa/compatibility/alchemy_review.gd",
+      "before_sha256": "f260ca1b846ca6134e4ed7acc28e306fe31a37331dc6d61de9192d5d6aee8101",
+      "after_sha256": "f260ca1b846ca6134e4ed7acc28e306fe31a37331dc6d61de9192d5d6aee8101",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/alchemy_review.gd.uid",
+      "target": "tools/qa/compatibility/alchemy_review.gd.uid",
+      "before_sha256": "3c83621924feecd5a0c5113e997dfeb456320fe07633cb2317c5bf744e8d0eb9",
+      "after_sha256": "3c83621924feecd5a0c5113e997dfeb456320fe07633cb2317c5bf744e8d0eb9",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/apiary_capture.gd",
+      "target": "tools/qa/compatibility/apiary_capture.gd",
+      "before_sha256": "b8a65331197c1a3e46ef6771991e30f9d7c8ab4d15f866f67becdfba41c40fe4",
+      "after_sha256": "b8a65331197c1a3e46ef6771991e30f9d7c8ab4d15f866f67becdfba41c40fe4",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/apiary_capture.gd.uid",
+      "target": "tools/qa/compatibility/apiary_capture.gd.uid",
+      "before_sha256": "5c2801aa595ef1bfa0fb7573bb08c1a47176a8d1babf9bd35ad0ea3f34ba029d",
+      "after_sha256": "5c2801aa595ef1bfa0fb7573bb08c1a47176a8d1babf9bd35ad0ea3f34ba029d",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/apiary_review.gd",
+      "target": "tools/qa/compatibility/apiary_review.gd",
+      "before_sha256": "7d1caaba5ddf1036fccc183007c19ab5932454553203f1280ba8886e3d8f7bbd",
+      "after_sha256": "7d1caaba5ddf1036fccc183007c19ab5932454553203f1280ba8886e3d8f7bbd",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/apiary_review.gd.uid",
+      "target": "tools/qa/compatibility/apiary_review.gd.uid",
+      "before_sha256": "9bf60b54eecad87b2e3ce6be818d6d83fa4e2ef3f1d69ceddb3a843819d476f2",
+      "after_sha256": "9bf60b54eecad87b2e3ce6be818d6d83fa4e2ef3f1d69ceddb3a843819d476f2",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/artisan_capture.gd",
+      "target": "tools/qa/compatibility/artisan_capture.gd",
+      "before_sha256": "246bdd9e5f0ffe26e37c058c742d23b2c5a575801b4ccd743a22afba3c54eca7",
+      "after_sha256": "246bdd9e5f0ffe26e37c058c742d23b2c5a575801b4ccd743a22afba3c54eca7",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/artisan_capture.gd.uid",
+      "target": "tools/qa/compatibility/artisan_capture.gd.uid",
+      "before_sha256": "3c4939fb74a77dc33597ddd68efab0a1bf935e80a220674da90473f02c0a4955",
+      "after_sha256": "3c4939fb74a77dc33597ddd68efab0a1bf935e80a220674da90473f02c0a4955",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/artisan_review.gd",
+      "target": "tools/qa/compatibility/artisan_review.gd",
+      "before_sha256": "4d3d638bbc994a76c9cb9f686b252de53aa7e30284bfa3490d52ef8b394103f3",
+      "after_sha256": "4d3d638bbc994a76c9cb9f686b252de53aa7e30284bfa3490d52ef8b394103f3",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/artisan_review.gd.uid",
+      "target": "tools/qa/compatibility/artisan_review.gd.uid",
+      "before_sha256": "b26ee13b136a20ac3b0d30668b388a493445a7de5a7f01034e47235c5491b1ae",
+      "after_sha256": "b26ee13b136a20ac3b0d30668b388a493445a7de5a7f01034e47235c5491b1ae",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/basement_capture.gd",
+      "target": "tools/qa/compatibility/basement_capture.gd",
+      "before_sha256": "69230501b72ae054ce235bb07ab606de11d68b8f479e727be2bdd230dc1a6283",
+      "after_sha256": "69230501b72ae054ce235bb07ab606de11d68b8f479e727be2bdd230dc1a6283",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/basement_capture.gd.uid",
+      "target": "tools/qa/compatibility/basement_capture.gd.uid",
+      "before_sha256": "9dc3c5f94da91032dda31637abdb10d3d822454da1fd912ae4158bf47b53a3e9",
+      "after_sha256": "9dc3c5f94da91032dda31637abdb10d3d822454da1fd912ae4158bf47b53a3e9",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/basement_review.gd",
+      "target": "tools/qa/compatibility/basement_review.gd",
+      "before_sha256": "20ead44b8d723138c2e9c2ff3d278f2de633b58c79edfed89d315003b86a8a6e",
+      "after_sha256": "20ead44b8d723138c2e9c2ff3d278f2de633b58c79edfed89d315003b86a8a6e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/basement_review.gd.uid",
+      "target": "tools/qa/compatibility/basement_review.gd.uid",
+      "before_sha256": "7ed3bdc8b4d2437e51ed9eb15ae9806783076a8c39cfab8371d28a7f3750ccbb",
+      "after_sha256": "7ed3bdc8b4d2437e51ed9eb15ae9806783076a8c39cfab8371d28a7f3750ccbb",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/basement_ui_review.gd",
+      "target": "tools/qa/compatibility/basement_ui_review.gd",
+      "before_sha256": "7d02c4afef26accdbfc9df461c8bdcc3777fe03e2b15ac6a8a498ed24f212c64",
+      "after_sha256": "7d02c4afef26accdbfc9df461c8bdcc3777fe03e2b15ac6a8a498ed24f212c64",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/basement_ui_review.gd.uid",
+      "target": "tools/qa/compatibility/basement_ui_review.gd.uid",
+      "before_sha256": "0b16d26a2347dc9ac04c98c53bb3a4bf791259a15e9410cfa13502fc2ba77ba3",
+      "after_sha256": "0b16d26a2347dc9ac04c98c53bb3a4bf791259a15e9410cfa13502fc2ba77ba3",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/boss_balance_review.gd",
+      "target": "tools/qa/compatibility/boss_balance_review.gd",
+      "before_sha256": "185ef0a39ea141cfe3dfb923d4d742390d6d9641f4ad74a3050d3e06c19fce62",
+      "after_sha256": "185ef0a39ea141cfe3dfb923d4d742390d6d9641f4ad74a3050d3e06c19fce62",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/character_polish_capture.gd",
+      "target": "tools/qa/compatibility/character_polish_capture.gd",
+      "before_sha256": "7596521e60d228cfcbb09da2ea8bb787d17bc0aa0ba9a319377c8bd8b0b0eecd",
+      "after_sha256": "7596521e60d228cfcbb09da2ea8bb787d17bc0aa0ba9a319377c8bd8b0b0eecd",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/check_alchemy_reports.py",
+      "target": "tools/qa/compatibility/check_alchemy_reports.py",
+      "before_sha256": "c1b79fbec00699f76bdb1a9c52873eef2858c5aba67a9c57c6e3ed5cda8aad37",
+      "after_sha256": "25c50b441ca17781187c1103f37c33ed703d759669060730fde3f9360b2da423",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/compact_dialogue_capture.gd",
+      "target": "tools/qa/compatibility/compact_dialogue_capture.gd",
+      "before_sha256": "2aefa9efb212de6b4d55506243c4ed2c0ae69c87d3c24a69d606adbe377ad793",
+      "after_sha256": "d21f8fbc569420307718c35feb0d8e552bdfaf3e3d3cae58ae2e4835c949d805",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/compact_dialogue_capture.gd.uid",
+      "target": "tools/qa/compatibility/compact_dialogue_capture.gd.uid",
+      "before_sha256": "9d74d0295bcd58103e713da31da4accf1a46772949bd81ae93a97d2d1981b43b",
+      "after_sha256": "9d74d0295bcd58103e713da31da4accf1a46772949bd81ae93a97d2d1981b43b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/compact_dialogue_preview.gd",
+      "target": "tools/qa/compatibility/compact_dialogue_preview.gd",
+      "before_sha256": "019970d7dd44906c38a4ea7ef96017d9fc1c684c4c5bf2156374cdab7ef7aac3",
+      "after_sha256": "019970d7dd44906c38a4ea7ef96017d9fc1c684c4c5bf2156374cdab7ef7aac3",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/compact_dialogue_preview.gd.uid",
+      "target": "tools/qa/compatibility/compact_dialogue_preview.gd.uid",
+      "before_sha256": "7c4cd6776a9369149293603af85d0456d6230396505bc94167bac1ab4bad5d13",
+      "after_sha256": "7c4cd6776a9369149293603af85d0456d6230396505bc94167bac1ab4bad5d13",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/compact_dialogue_review.gd",
+      "target": "tools/qa/compatibility/compact_dialogue_review.gd",
+      "before_sha256": "aace2488af909881cfae0fb7f6cef3caf20b7e96b3495122540a9b8c32306f0e",
+      "after_sha256": "aace2488af909881cfae0fb7f6cef3caf20b7e96b3495122540a9b8c32306f0e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/compact_dialogue_review.gd.uid",
+      "target": "tools/qa/compatibility/compact_dialogue_review.gd.uid",
+      "before_sha256": "111d5ec84fad2d1338c55ecdd1e24413d0d1af769ddd1488ea33628738de67e4",
+      "after_sha256": "111d5ec84fad2d1338c55ecdd1e24413d0d1af769ddd1488ea33628738de67e4",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/compact_hud_review.gd",
+      "target": "tools/qa/compatibility/compact_hud_review.gd",
+      "before_sha256": "30f641ab4061a14e2994065917296cd05db61e09071ae0b23c71635fe866ae0a",
+      "after_sha256": "30f641ab4061a14e2994065917296cd05db61e09071ae0b23c71635fe866ae0a",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/content_reference_audit.gd",
+      "target": "tools/qa/compatibility/content_reference_audit.gd",
+      "before_sha256": "129bbe63e6552d316f642361a5388371411c511c2f813d8ce930540550914db4",
+      "after_sha256": "129bbe63e6552d316f642361a5388371411c511c2f813d8ce930540550914db4",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/content_reference_audit.gd.uid",
+      "target": "tools/qa/compatibility/content_reference_audit.gd.uid",
+      "before_sha256": "fca244b76cfa82a304d3b93ad36fd71a5029202a2bd669ead16e8d6f800a69e6",
+      "after_sha256": "fca244b76cfa82a304d3b93ad36fd71a5029202a2bd669ead16e8d6f800a69e6",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/cooking_capture.gd",
+      "target": "tools/qa/compatibility/cooking_capture.gd",
+      "before_sha256": "1ee27fb9328189ca4db0e4f0def2027f42f06c3ee69ab49bc8e2beb55a359cef",
+      "after_sha256": "1ee27fb9328189ca4db0e4f0def2027f42f06c3ee69ab49bc8e2beb55a359cef",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/cooking_review.gd",
+      "target": "tools/qa/compatibility/cooking_review.gd",
+      "before_sha256": "5ce864e2673dbd4cf150715cc8ae3e0b79b84538b76b2be09aff4307ecd74091",
+      "after_sha256": "6dfa92451b8fe6f5875237df92b7636548a64921ad35d338e0fa8aeef712a694",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/depth_guardian_capture.gd",
+      "target": "tools/qa/compatibility/depth_guardian_capture.gd",
+      "before_sha256": "f45e820488cf9bae240de7efbc08309bed244cd9a6671ed47ab79d1fb269fecf",
+      "after_sha256": "977df53aa1ae9f6aace875ac34f34f717d14c6171e9adea3aa49f107b74cd92b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/depth_guardian_capture.gd.uid",
+      "target": "tools/qa/compatibility/depth_guardian_capture.gd.uid",
+      "before_sha256": "d18cc85b91eb1b43411249bfbf4ae1e5fc2ff2cf6dd56f6fdb83f8312f9c5e6f",
+      "after_sha256": "d18cc85b91eb1b43411249bfbf4ae1e5fc2ff2cf6dd56f6fdb83f8312f9c5e6f",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/depth_guardian_review.gd",
+      "target": "tools/qa/compatibility/depth_guardian_review.gd",
+      "before_sha256": "3ffae6bbb993982aaef7f768a5e8093de6b521b2c7ddce7bc6602b8fef0e82b8",
+      "after_sha256": "9006332cd48bc8192a567347c5baac4343f56a49aae7f917a02cbf3a09e20f77",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/depth_guardian_review.gd.uid",
+      "target": "tools/qa/compatibility/depth_guardian_review.gd.uid",
+      "before_sha256": "95b94d34767eb2c69cd5cb7210747cae49e51803e2e7fb4a922bc3c8ebd76ca6",
+      "after_sha256": "95b94d34767eb2c69cd5cb7210747cae49e51803e2e7fb4a922bc3c8ebd76ca6",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/design_audit_capture.gd",
+      "target": "tools/qa/compatibility/design_audit_capture.gd",
+      "before_sha256": "34a6192c78a2be7c45053e56490bdb54ad6fd81cfc408e5c5ef8210bef9b40b1",
+      "after_sha256": "166a06bfe693b271b13a2937af5b8a10b5474ef778355e4dbea72559bd237426",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/design_audit_capture.gd.uid",
+      "target": "tools/qa/compatibility/design_audit_capture.gd.uid",
+      "before_sha256": "47c4b841ab13eff139cd0379701e58d0e0b1bbf5f1bb24a7d3d7cb3aca9d1641",
+      "after_sha256": "47c4b841ab13eff139cd0379701e58d0e0b1bbf5f1bb24a7d3d7cb3aca9d1641",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/design_audit_gallery.gd",
+      "target": "tools/qa/compatibility/design_audit_gallery.gd",
+      "before_sha256": "f4695cbf89b625be97dff1edb2017217c25e80c893b7d9b46d8a0d047dbd4e38",
+      "after_sha256": "f4695cbf89b625be97dff1edb2017217c25e80c893b7d9b46d8a0d047dbd4e38",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/design_audit_gallery.gd.uid",
+      "target": "tools/qa/compatibility/design_audit_gallery.gd.uid",
+      "before_sha256": "cb07559657dee4461d71eac518da9a4d69910cac9a5b5410effa7a1d92f5335c",
+      "after_sha256": "cb07559657dee4461d71eac518da9a4d69910cac9a5b5410effa7a1d92f5335c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/design_audit_review.gd",
+      "target": "tools/qa/compatibility/design_audit_review.gd",
+      "before_sha256": "d8da6898bd7575684c2396caa16f01288b5c01a6a36d7b1fe46c9176b3d01772",
+      "after_sha256": "63a3f2e315c867ce28e94b149d3f3b07bed74aa6e3a0c3ffce79cf047a91353b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/design_audit_review.gd.uid",
+      "target": "tools/qa/compatibility/design_audit_review.gd.uid",
+      "before_sha256": "18eba93ffa0c3cb6df70134028396330ea185898d8d98ebdec280cd29cb0def5",
+      "after_sha256": "18eba93ffa0c3cb6df70134028396330ea185898d8d98ebdec280cd29cb0def5",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/dev_cabinet_capture.gd",
+      "target": "tools/qa/compatibility/dev_cabinet_capture.gd",
+      "before_sha256": "ee0e7c60db62a673b5c2892e442ea56e54053bf5ed2259a8bf3d7acdb34936c8",
+      "after_sha256": "ee0e7c60db62a673b5c2892e442ea56e54053bf5ed2259a8bf3d7acdb34936c8",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/dev_cabinet_capture.gd.uid",
+      "target": "tools/qa/compatibility/dev_cabinet_capture.gd.uid",
+      "before_sha256": "303b424e5b19af7e4c1a34cd14ef642df9ef7e741d5e8d41bdcce1a5caf3023c",
+      "after_sha256": "303b424e5b19af7e4c1a34cd14ef642df9ef7e741d5e8d41bdcce1a5caf3023c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/dev_cabinet_review.gd",
+      "target": "tools/qa/compatibility/dev_cabinet_review.gd",
+      "before_sha256": "5875949f64c4fbec6fdbecb1532b9f07f43dd4982115ec886c30e662147cc6ed",
+      "after_sha256": "5875949f64c4fbec6fdbecb1532b9f07f43dd4982115ec886c30e662147cc6ed",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/dev_cabinet_review.gd.uid",
+      "target": "tools/qa/compatibility/dev_cabinet_review.gd.uid",
+      "before_sha256": "3032646866c30e78e64d38220008fe27776a9482bc3231ac6370855fe36bc38d",
+      "after_sha256": "3032646866c30e78e64d38220008fe27776a9482bc3231ac6370855fe36bc38d",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/dropped_loot_capture.gd",
+      "target": "tools/qa/compatibility/dropped_loot_capture.gd",
+      "before_sha256": "cfcf3a776060a47d9acab8b4dd9ff04ee0ea5711436c63e7fa68831f310fc015",
+      "after_sha256": "cfcf3a776060a47d9acab8b4dd9ff04ee0ea5711436c63e7fa68831f310fc015",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/dropped_loot_capture.gd.uid",
+      "target": "tools/qa/compatibility/dropped_loot_capture.gd.uid",
+      "before_sha256": "9614e23368ea080be13e15895809cd2cef035f439454c7db507dcf1aade696b1",
+      "after_sha256": "9614e23368ea080be13e15895809cd2cef035f439454c7db507dcf1aade696b1",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/dropped_loot_review.gd",
+      "target": "tools/qa/compatibility/dropped_loot_review.gd",
+      "before_sha256": "42484ef3dfb0851c455123f4214077cf117348c08835f56d530068c36f1cb22f",
+      "after_sha256": "42484ef3dfb0851c455123f4214077cf117348c08835f56d530068c36f1cb22f",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/dropped_loot_review.gd.uid",
+      "target": "tools/qa/compatibility/dropped_loot_review.gd.uid",
+      "before_sha256": "dfa8f1c385b947e5babc6b6af4cd059b855af1a98616dc832a209a7e357e1fae",
+      "after_sha256": "dfa8f1c385b947e5babc6b6af4cd059b855af1a98616dc832a209a7e357e1fae",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/end_to_end_capture.gd",
+      "target": "tools/qa/compatibility/end_to_end_capture.gd",
+      "before_sha256": "194747af3647f8119e705fc983c0883359da582b072a53f32448a98158e88817",
+      "after_sha256": "194747af3647f8119e705fc983c0883359da582b072a53f32448a98158e88817",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/end_to_end_capture.gd.uid",
+      "target": "tools/qa/compatibility/end_to_end_capture.gd.uid",
+      "before_sha256": "23ed9c0558126c98d9bc7f736bb78d99a63a4c56c59f53ab77b8ec3fde1137d3",
+      "after_sha256": "23ed9c0558126c98d9bc7f736bb78d99a63a4c56c59f53ab77b8ec3fde1137d3",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/end_to_end_review.gd",
+      "target": "tools/qa/compatibility/end_to_end_review.gd",
+      "before_sha256": "0f423fac2e197414ddb611094b90d7aa392e6f982290d0628a068e48ef5a9fd1",
+      "after_sha256": "0f423fac2e197414ddb611094b90d7aa392e6f982290d0628a068e48ef5a9fd1",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/end_to_end_review.gd.uid",
+      "target": "tools/qa/compatibility/end_to_end_review.gd.uid",
+      "before_sha256": "88a8d348999d883ef312b71897ed71a2638253934761e24e6db98819db44f9ec",
+      "after_sha256": "88a8d348999d883ef312b71897ed71a2638253934761e24e6db98819db44f9ec",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/farm_bounds_capture.gd",
+      "target": "tools/qa/compatibility/farm_bounds_capture.gd",
+      "before_sha256": "0323aff52c8289393cd7d590f1f099fafe22249a5bcd6b846e81e4239e1e81d5",
+      "after_sha256": "977169331e0061e804023e6495c7970c77374f6c491310402f7e47c93ce596dc",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/farm_bounds_review.gd",
+      "target": "tools/qa/compatibility/farm_bounds_review.gd",
+      "before_sha256": "c4980068b51ecc693488fe1ca29813c537780b1cef3460746d7e4df522177e5d",
+      "after_sha256": "1c1ba9523556f2e9a3a44f8a56eaada53aa908d24272318715893825134c9001",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/farm_bounds_review.gd.uid",
+      "target": "tools/qa/compatibility/farm_bounds_review.gd.uid",
+      "before_sha256": "54f3f26ebeb08178d4d2c5434644788aeed0eb7d0221edf161863428e9b4389e",
+      "after_sha256": "54f3f26ebeb08178d4d2c5434644788aeed0eb7d0221edf161863428e9b4389e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/farm_cursor_review.gd",
+      "target": "tools/qa/compatibility/farm_cursor_review.gd",
+      "before_sha256": "a0e6a99491f0108ee5a89b2ae2014d231ebba04aac3efb0cf771968ef49663f0",
+      "after_sha256": "c92d2e7a297f6bae1ce40a0af598f8ee715219cd24593e7d75deef008b531dbd",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/farm_cycles.py",
+      "target": "tools/qa/compatibility/farm_cycles.py",
+      "before_sha256": "3c079f3be8129542819dbc636d9dac3b6f43723aa611dfd61173d696663b1404",
+      "after_sha256": "3c079f3be8129542819dbc636d9dac3b6f43723aa611dfd61173d696663b1404",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/farm_native.gd",
+      "target": "tools/qa/compatibility/farm_native.gd",
+      "before_sha256": "264cbd16dbc4739e564947c17029309bc5828957b4340be347e88fff03137eef",
+      "after_sha256": "0f7cf58edab16876bd235fc8ba310b79d87e64d1e289e8fbf11e8e1ba2b0a3bd",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/farm_native.gd.uid",
+      "target": "tools/qa/compatibility/farm_native.gd.uid",
+      "before_sha256": "a49e4d5fe46ab0e05b8c652f9d1da9aa1b56ee6a63f96bf4b6f791218676629a",
+      "after_sha256": "a49e4d5fe46ab0e05b8c652f9d1da9aa1b56ee6a63f96bf4b6f791218676629a",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/farm_review.gd",
+      "target": "tools/qa/compatibility/farm_review.gd",
+      "before_sha256": "e0510a5c10b62e0afc64908d175fdc6c26f9eb4c21e55a18e8088f16e786fada",
+      "after_sha256": "958f474733326eb526fc2cde7a4a6be8608142ac5aa152ace505b25561a0941c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/farm_review.gd.uid",
+      "target": "tools/qa/compatibility/farm_review.gd.uid",
+      "before_sha256": "9511d7db855be915775f6a257e7d51cac023b4d5e9ed36832670e9b2782e5d59",
+      "after_sha256": "9511d7db855be915775f6a257e7d51cac023b4d5e9ed36832670e9b2782e5d59",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/focus_pause_native.gd",
+      "target": "tools/qa/compatibility/focus_pause_native.gd",
+      "before_sha256": "85a0d0876dc5982e7f118cded23a0037eac9650f60b61269c22753f7403cd29c",
+      "after_sha256": "85a0d0876dc5982e7f118cded23a0037eac9650f60b61269c22753f7403cd29c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/focus_pause_native.gd.uid",
+      "target": "tools/qa/compatibility/focus_pause_native.gd.uid",
+      "before_sha256": "bcb26ff5ff0d80e1d2654bf75be5a4de8b0f140732a6b86f0351b8dac919fb57",
+      "after_sha256": "bcb26ff5ff0d80e1d2654bf75be5a4de8b0f140732a6b86f0351b8dac919fb57",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/front_facing_capture.gd",
+      "target": "tools/qa/compatibility/front_facing_capture.gd",
+      "before_sha256": "09d180e471d81cb04b81e8f9d99bfb4d7e44259acc718913a5632581815ba0ea",
+      "after_sha256": "09d180e471d81cb04b81e8f9d99bfb4d7e44259acc718913a5632581815ba0ea",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/front_facing_capture.gd.uid",
+      "target": "tools/qa/compatibility/front_facing_capture.gd.uid",
+      "before_sha256": "59d097d4a97d3117da9ac03b94a309a786cd1305c314571961c19bb2e0369938",
+      "after_sha256": "59d097d4a97d3117da9ac03b94a309a786cd1305c314571961c19bb2e0369938",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/front_facing_review.gd",
+      "target": "tools/qa/compatibility/front_facing_review.gd",
+      "before_sha256": "cb22f52105fe02c23d036c0262af6bd61a37798291c2f73a383a2935d1e501de",
+      "after_sha256": "297a5aaf5017223765d92e8c24e203d3da91b6097b6795701f8fec352dfa1f1f",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/front_facing_review.gd.uid",
+      "target": "tools/qa/compatibility/front_facing_review.gd.uid",
+      "before_sha256": "426186bc726ab10d936e783c25f596ec068c2fbf4bc9701aa00447df0ca52761",
+      "after_sha256": "426186bc726ab10d936e783c25f596ec068c2fbf4bc9701aa00447df0ca52761",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/furnace_capture.gd",
+      "target": "tools/qa/compatibility/furnace_capture.gd",
+      "before_sha256": "d9116878e247485b012f8f7f1b9df1437a7b8abae74367167bb210fe994573cd",
+      "after_sha256": "d9116878e247485b012f8f7f1b9df1437a7b8abae74367167bb210fe994573cd",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/furnace_capture.gd.uid",
+      "target": "tools/qa/compatibility/furnace_capture.gd.uid",
+      "before_sha256": "00ece6d548932b9ca26b7a0ea1c083c43e77579f97edabe0012eb338de39f6c7",
+      "after_sha256": "00ece6d548932b9ca26b7a0ea1c083c43e77579f97edabe0012eb338de39f6c7",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/furnace_review.gd",
+      "target": "tools/qa/compatibility/furnace_review.gd",
+      "before_sha256": "2adc1204409e0f77e1a4fcd1d0da240dd4ff4902dad9f319c2fff4ed401c709c",
+      "after_sha256": "2adc1204409e0f77e1a4fcd1d0da240dd4ff4902dad9f319c2fff4ed401c709c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/furnace_review.gd.uid",
+      "target": "tools/qa/compatibility/furnace_review.gd.uid",
+      "before_sha256": "997a78c160ba372b3cc5778997fc1b2fa2a1fa71d4c7e2ccf4e580f5f2d41415",
+      "after_sha256": "997a78c160ba372b3cc5778997fc1b2fa2a1fa71d4c7e2ccf4e580f5f2d41415",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/generate_adaptive_hud_previews.gd",
+      "target": "tools/qa/compatibility/generate_adaptive_hud_previews.gd",
+      "before_sha256": "f83ef73a1e9de4ac9f0000211ed4d6863fd46d6a97ab795adfbd7c2fae502b44",
+      "after_sha256": "f83ef73a1e9de4ac9f0000211ed4d6863fd46d6a97ab795adfbd7c2fae502b44",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/generate_hero_pose_preview.gd",
+      "target": "tools/qa/compatibility/generate_hero_pose_preview.gd",
+      "before_sha256": "4c466e072484d2c867388d92b864f4d879070b67222bf5dc64fc4ac54ca7709b",
+      "after_sha256": "4c466e072484d2c867388d92b864f4d879070b67222bf5dc64fc4ac54ca7709b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/generate_ui_layout_audit.gd",
+      "target": "tools/qa/compatibility/generate_ui_layout_audit.gd",
+      "before_sha256": "c6c6fca7f7b8427bf0df7ad498fd906194bdbe6bea626847f44d95f62dbf0ad3",
+      "after_sha256": "c6c6fca7f7b8427bf0df7ad498fd906194bdbe6bea626847f44d95f62dbf0ad3",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/grandmother_animation_review.gd",
+      "target": "tools/qa/compatibility/grandmother_animation_review.gd",
+      "before_sha256": "3e9764d5ccde0ab7f3401e1957c7972bda230abdd6032972288ee999137bd4c9",
+      "after_sha256": "3e9764d5ccde0ab7f3401e1957c7972bda230abdd6032972288ee999137bd4c9",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/held_weapon_capture.gd",
+      "target": "tools/qa/compatibility/held_weapon_capture.gd",
+      "before_sha256": "c00d09c4a0bca6d161358e8ab70a042d6a07071c4ad48f81b8aea41f50c6159e",
+      "after_sha256": "c00d09c4a0bca6d161358e8ab70a042d6a07071c4ad48f81b8aea41f50c6159e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/held_weapon_capture.gd.uid",
+      "target": "tools/qa/compatibility/held_weapon_capture.gd.uid",
+      "before_sha256": "53c9c72188db47ee27ca4687ca81e8b5e8d9e49f6be1909709a45f84dfe75e59",
+      "after_sha256": "53c9c72188db47ee27ca4687ca81e8b5e8d9e49f6be1909709a45f84dfe75e59",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/held_weapon_review.gd",
+      "target": "tools/qa/compatibility/held_weapon_review.gd",
+      "before_sha256": "9ab97834bb846b708bd80fc83bcf32d51f41c6c73634603d05e8aa3c31f31234",
+      "after_sha256": "656772b7d1933f5102044d5a25ccb25e6b7b86d8c6d990e84a4e21b69cdc4511",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/held_weapon_review.gd.uid",
+      "target": "tools/qa/compatibility/held_weapon_review.gd.uid",
+      "before_sha256": "db0a82aea53fe2e4b2985f51652b51b7b958e26e5c65c490b9e7d668b933d4d7",
+      "after_sha256": "db0a82aea53fe2e4b2985f51652b51b7b958e26e5c65c490b9e7d668b933d4d7",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/hero_actions_capture.gd",
+      "target": "tools/qa/compatibility/hero_actions_capture.gd",
+      "before_sha256": "c7d5ed8aa2c1b5a572311fbdebb1f4afeb127464b0d55136e233d4580996b7bd",
+      "after_sha256": "c7d5ed8aa2c1b5a572311fbdebb1f4afeb127464b0d55136e233d4580996b7bd",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/hero_actions_review.gd",
+      "target": "tools/qa/compatibility/hero_actions_review.gd",
+      "before_sha256": "5764fae04919cf2ef268b5bdcf9e060c64fa7c54d1e56672d155d40138538dfd",
+      "after_sha256": "b3aa8aa34f0e4a121b471b95451954136ca8a0e527f839e24717cf7fe3f7608c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/house_furniture_capture.gd",
+      "target": "tools/qa/compatibility/house_furniture_capture.gd",
+      "before_sha256": "09c7341f67e33ff66ca0ccf5276c0445404bd37c8db400ba7d38ec8ed9ffd399",
+      "after_sha256": "09c7341f67e33ff66ca0ccf5276c0445404bd37c8db400ba7d38ec8ed9ffd399",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/house_furniture_capture.gd.uid",
+      "target": "tools/qa/compatibility/house_furniture_capture.gd.uid",
+      "before_sha256": "46da084057b332f51577f2ebddf68254f4f1edd85df3d12195b31e6877038ac8",
+      "after_sha256": "46da084057b332f51577f2ebddf68254f4f1edd85df3d12195b31e6877038ac8",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/house_furniture_review.gd",
+      "target": "tools/qa/compatibility/house_furniture_review.gd",
+      "before_sha256": "ca2c240fc75f00a22afc932cef64f71d7821cba8390515ad0616f9aaa54da99c",
+      "after_sha256": "ca2c240fc75f00a22afc932cef64f71d7821cba8390515ad0616f9aaa54da99c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/house_furniture_review.gd.uid",
+      "target": "tools/qa/compatibility/house_furniture_review.gd.uid",
+      "before_sha256": "f33cf8fd9d64daa6a02316665e88577d7936ac2720e6e52b759584f38a816692",
+      "after_sha256": "f33cf8fd9d64daa6a02316665e88577d7936ac2720e6e52b759584f38a816692",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/kitchen_capture.gd",
+      "target": "tools/qa/compatibility/kitchen_capture.gd",
+      "before_sha256": "4ddbb0166d11c6adaab070114d829a806fe8fa5bec97fcf5048ff07e1db928c5",
+      "after_sha256": "4ddbb0166d11c6adaab070114d829a806fe8fa5bec97fcf5048ff07e1db928c5",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/kitchen_capture.gd.uid",
+      "target": "tools/qa/compatibility/kitchen_capture.gd.uid",
+      "before_sha256": "34d1442411d23c3da7e7da79ae5f854fb2984923222330773cc7a0c797b83d24",
+      "after_sha256": "34d1442411d23c3da7e7da79ae5f854fb2984923222330773cc7a0c797b83d24",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/kitchen_review.gd",
+      "target": "tools/qa/compatibility/kitchen_review.gd",
+      "before_sha256": "96e848f97b9c982c9074c6bac9a5ec2431dddd3730f04c3ca08deb954405710d",
+      "after_sha256": "96e848f97b9c982c9074c6bac9a5ec2431dddd3730f04c3ca08deb954405710d",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/kitchen_review.gd.uid",
+      "target": "tools/qa/compatibility/kitchen_review.gd.uid",
+      "before_sha256": "80fb516a7bf06335cbb93ab0a966515632ddd9ffdac5871468f937bfa06286aa",
+      "after_sha256": "80fb516a7bf06335cbb93ab0a966515632ddd9ffdac5871468f937bfa06286aa",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/lazy_item_icons_review.gd",
+      "target": "tools/qa/compatibility/lazy_item_icons_review.gd",
+      "before_sha256": "ef23ac07151503d3fd66ce1b78fa941a836ebc45cebeed710e8fa6496638482b",
+      "after_sha256": "a1e844ae9f46fb7b4f48f9eca4ebdc6d6e2231f0d7e198d1556f6cb9d68668af",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/lazy_item_icons_review.gd.uid",
+      "target": "tools/qa/compatibility/lazy_item_icons_review.gd.uid",
+      "before_sha256": "ed04fd1c7174aec4526fc2e0bac465e353e3b9ced86bc5271b2860b8bee3200b",
+      "after_sha256": "ed04fd1c7174aec4526fc2e0bac465e353e3b9ced86bc5271b2860b8bee3200b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/livestock_review.gd",
+      "target": "tools/qa/compatibility/livestock_review.gd",
+      "before_sha256": "b639af6ea44dbec9144b47297c8d3f89291f122301abd2a55aa9a0a25dfa20ec",
+      "after_sha256": "b639af6ea44dbec9144b47297c8d3f89291f122301abd2a55aa9a0a25dfa20ec",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/paper_theme_capture.gd",
+      "target": "tools/qa/compatibility/paper_theme_capture.gd",
+      "before_sha256": "48eaa79c222cd5fd5d02f8a838b18d62d454be2d4a2228bcf23bff0e74f9ae6b",
+      "after_sha256": "48eaa79c222cd5fd5d02f8a838b18d62d454be2d4a2228bcf23bff0e74f9ae6b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/paper_theme_capture.gd.uid",
+      "target": "tools/qa/compatibility/paper_theme_capture.gd.uid",
+      "before_sha256": "a703907e4e5a061fff968bd5dadaf1e943321720c4d3ba482123cf6e8cc5fd55",
+      "after_sha256": "a703907e4e5a061fff968bd5dadaf1e943321720c4d3ba482123cf6e8cc5fd55",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/paper_theme_reference_capture.gd",
+      "target": "tools/qa/compatibility/paper_theme_reference_capture.gd",
+      "before_sha256": "30eac0ba1c39fd391e0ecc77cb9db97d1614ef27acf81f97b55152932b54a750",
+      "after_sha256": "30eac0ba1c39fd391e0ecc77cb9db97d1614ef27acf81f97b55152932b54a750",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/paper_theme_reference_capture.gd.uid",
+      "target": "tools/qa/compatibility/paper_theme_reference_capture.gd.uid",
+      "before_sha256": "243f61620da487dc5c55f3d43add97ea2139b39e38442cd6d242726b0912c3a1",
+      "after_sha256": "243f61620da487dc5c55f3d43add97ea2139b39e38442cd6d242726b0912c3a1",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/paper_theme_review.gd",
+      "target": "tools/qa/compatibility/paper_theme_review.gd",
+      "before_sha256": "e1e59d42222a9f35efc2a64b40108ca8daefb2bf5199e01e404e5540814c0429",
+      "after_sha256": "e1e59d42222a9f35efc2a64b40108ca8daefb2bf5199e01e404e5540814c0429",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/paper_theme_review.gd.uid",
+      "target": "tools/qa/compatibility/paper_theme_review.gd.uid",
+      "before_sha256": "950b843c945f6cc1643a00bcc9028136c652e13f8304a2a6d2c595eeadc6050d",
+      "after_sha256": "950b843c945f6cc1643a00bcc9028136c652e13f8304a2a6d2c595eeadc6050d",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/player_contact_capture.gd",
+      "target": "tools/qa/compatibility/player_contact_capture.gd",
+      "before_sha256": "a9fea8b60623440561d633b8042ce0c4f307a87db5c9c9c130be20c455e8649e",
+      "after_sha256": "a9fea8b60623440561d633b8042ce0c4f307a87db5c9c9c130be20c455e8649e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/player_contact_review.gd",
+      "target": "tools/qa/compatibility/player_contact_review.gd",
+      "before_sha256": "fb02ee11fd9366a144e5985181048b5470b5219edc14c0f9dfa6a87d85e36db6",
+      "after_sha256": "a4ea1c6a6d7de88a15085519fc31037bc398701791eac564711a1ef8ef678611",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/prepared_pixels_review.gd",
+      "target": "tools/qa/compatibility/prepared_pixels_review.gd",
+      "before_sha256": "62ae1ccda9dcf00e1667f4e1a67f18497a12de2ddf53d5c5e905e1dbf9e7392e",
+      "after_sha256": "db6b64c121fcc4ab01ab542e3dfae7662812f7ba6cf974a9d02c6331e3c3ea67",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/prepared_pixels_review.gd.uid",
+      "target": "tools/qa/compatibility/prepared_pixels_review.gd.uid",
+      "before_sha256": "3246cce52131aa28b8ab4021b6fb299cbc6aed199b5674d39b0b4b91d6b61729",
+      "after_sha256": "3246cce52131aa28b8ab4021b6fb299cbc6aed199b5674d39b0b4b91d6b61729",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/prop_edges_capture.gd",
+      "target": "tools/qa/compatibility/prop_edges_capture.gd",
+      "before_sha256": "6619f9588a3f99ef49d3f77e16a1be144aebb7629b9ef2989ee900b834f9ad3a",
+      "after_sha256": "6619f9588a3f99ef49d3f77e16a1be144aebb7629b9ef2989ee900b834f9ad3a",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/qa_teleport_capture.gd",
+      "target": "tools/qa/compatibility/qa_teleport_capture.gd",
+      "before_sha256": "6c05cb6c0ab2fae9f801dd8cab2f997b745fe1e6ff6bd9c85d296e775076a25c",
+      "after_sha256": "6c05cb6c0ab2fae9f801dd8cab2f997b745fe1e6ff6bd9c85d296e775076a25c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/qa_teleport_capture.gd.uid",
+      "target": "tools/qa/compatibility/qa_teleport_capture.gd.uid",
+      "before_sha256": "4bbdfbd59b57a2f5de3da24c152a013551e6c93bd63d05fc1e5a55ea96dc1d7f",
+      "after_sha256": "4bbdfbd59b57a2f5de3da24c152a013551e6c93bd63d05fc1e5a55ea96dc1d7f",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/qa_teleport_review.gd",
+      "target": "tools/qa/compatibility/qa_teleport_review.gd",
+      "before_sha256": "fe225f4aec159255094c7c6e60db3cf0c1102d1a89403933c21a970e5ff35ca9",
+      "after_sha256": "d7f0ffd99eb7a0db0e2b8e22f1bff7acc3e0ac7335ccf8bdd3f52f4fa80f3aa8",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/qa_teleport_review.gd.uid",
+      "target": "tools/qa/compatibility/qa_teleport_review.gd.uid",
+      "before_sha256": "bcb68f3ef93b4c335bab023c6e76022ed3f3c56ddee90d656b9339e4a04a95fd",
+      "after_sha256": "bcb68f3ef93b4c335bab023c6e76022ed3f3c56ddee90d656b9339e4a04a95fd",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/ranged_combat_capture.gd",
+      "target": "tools/qa/compatibility/ranged_combat_capture.gd",
+      "before_sha256": "f063de6d1f6118f77548553b98fb5282c1b23af6c4a7793fce6b8f341330839f",
+      "after_sha256": "f063de6d1f6118f77548553b98fb5282c1b23af6c4a7793fce6b8f341330839f",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/ranged_combat_review.gd",
+      "target": "tools/qa/compatibility/ranged_combat_review.gd",
+      "before_sha256": "93de52cf172cd58d92c3b3318a91bc159e23e4f1d4a0c547c3dc06e356a12cc3",
+      "after_sha256": "5e100fc3c9f3f6316f61a530b04c197d7c60c3a6d60aae9d8ce8d6f8838bc253",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/recovery_capture.gd",
+      "target": "tools/qa/compatibility/recovery_capture.gd",
+      "before_sha256": "38fffa55f725cc90b76258de8502e678f7970719173c45c530714e37648cabc1",
+      "after_sha256": "3fb76899b1e7b5afe444608c0c7f622e46147336a0a0e77a88a55eb6921bc39d",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/recovery_capture.gd.uid",
+      "target": "tools/qa/compatibility/recovery_capture.gd.uid",
+      "before_sha256": "3755968dd9ea7b786d951d0068ce62de4ae59927c2d6d099bd7800f721d71c1e",
+      "after_sha256": "3755968dd9ea7b786d951d0068ce62de4ae59927c2d6d099bd7800f721d71c1e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/recovery_review.gd",
+      "target": "tools/qa/compatibility/recovery_review.gd",
+      "before_sha256": "b18c77129e68dcc9afdf1453c3ded85e4f34e57a32b5bd942ac5296a5b4bc3ff",
+      "after_sha256": "af68dc1b7d18c83594118e2bceac0626e49382d36eb4e3474af126eafe992a01",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/recovery_review.gd.uid",
+      "target": "tools/qa/compatibility/recovery_review.gd.uid",
+      "before_sha256": "373aa0e5f9def8463a4dc21f5ad3bad842585de1092585caecef47d790039ccd",
+      "after_sha256": "373aa0e5f9def8463a4dc21f5ad3bad842585de1092585caecef47d790039ccd",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/research_capture.gd",
+      "target": "tools/qa/compatibility/research_capture.gd",
+      "before_sha256": "18dbd8ee4c6d28a77fb9f1fc8231f974ed5e0ac3dd3d0f734f602036ac2142a1",
+      "after_sha256": "18dbd8ee4c6d28a77fb9f1fc8231f974ed5e0ac3dd3d0f734f602036ac2142a1",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/research_capture.gd.uid",
+      "target": "tools/qa/compatibility/research_capture.gd.uid",
+      "before_sha256": "ef2cac896b61ae8660331610eb537f0b204786a6572513a85be1f76c2606a73f",
+      "after_sha256": "ef2cac896b61ae8660331610eb537f0b204786a6572513a85be1f76c2606a73f",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/research_catalog_export.gd",
+      "target": "tools/qa/compatibility/research_catalog_export.gd",
+      "before_sha256": "b6e087633e95d57e6447128ce97eb3044d2f32916cf94e62a9aed9c210aa8894",
+      "after_sha256": "b6e087633e95d57e6447128ce97eb3044d2f32916cf94e62a9aed9c210aa8894",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/research_catalog_export.gd.uid",
+      "target": "tools/qa/compatibility/research_catalog_export.gd.uid",
+      "before_sha256": "1ccb056a2f9f3367645b60fefc3a8e0f1d4603b49c0f1ae19d154fa48292c555",
+      "after_sha256": "1ccb056a2f9f3367645b60fefc3a8e0f1d4603b49c0f1ae19d154fa48292c555",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/research_review.gd",
+      "target": "tools/qa/compatibility/research_review.gd",
+      "before_sha256": "e8897b35afc329a39c57937387fcbf2834e3032fc6d706d4a8b7f524913f6392",
+      "after_sha256": "e8897b35afc329a39c57937387fcbf2834e3032fc6d706d4a8b7f524913f6392",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/research_review.gd.uid",
+      "target": "tools/qa/compatibility/research_review.gd.uid",
+      "before_sha256": "71ace6254078c53be137bf1a762b4fcd2bfe1acb9abc323e650c4f94e566e950",
+      "after_sha256": "71ace6254078c53be137bf1a762b4fcd2bfe1acb9abc323e650c4f94e566e950",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/resident_review.gd",
+      "target": "tools/qa/compatibility/resident_review.gd",
+      "before_sha256": "34cb81ceb700a213626868468e37bfdd5706415824074fc912cc54ffa589b6d7",
+      "after_sha256": "96da6861699a108c5c0304e0d598456d284a681fb3318bbdbea55bb4d570cc24",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/runtime_comfort_review.gd",
+      "target": "tools/qa/compatibility/runtime_comfort_review.gd",
+      "before_sha256": "67e47edfad2687e2d369698230a125d8df412d604aa52abb336495986d6ea312",
+      "after_sha256": "67e47edfad2687e2d369698230a125d8df412d604aa52abb336495986d6ea312",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/runtime_maintenance_tests.gd",
+      "target": "tools/qa/compatibility/runtime_maintenance_tests.gd",
+      "before_sha256": "0c4ae023084f4fd332d7054c5f453bebb64ff67c9efcffbd0deef5f522b4393b",
+      "after_sha256": "15b93de2a97a23001f6d40856fe453b6ee206e333a64b98d5fef73bd628d6ef4",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/runtime_maintenance_tests.gd.uid",
+      "target": "tools/qa/compatibility/runtime_maintenance_tests.gd.uid",
+      "before_sha256": "57b3a9d0483a5129b11ee42a6d2ee5cfbaf21b8d2f07a0eed106770cfcb4f69f",
+      "after_sha256": "57b3a9d0483a5129b11ee42a6d2ee5cfbaf21b8d2f07a0eed106770cfcb4f69f",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/safe_review.gd",
+      "target": "tools/qa/compatibility/safe_review.gd",
+      "before_sha256": "9a65f6a279907c5234dd4588c860da29c36576d46f8e627b5a3485b6a6ada45f",
+      "after_sha256": "e1e2c3c9f465d7680414c18d08729806b73dabd96980b5162806ac3851718ed1",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/safe_review.gd.uid",
+      "target": "tools/qa/compatibility/safe_review.gd.uid",
+      "before_sha256": "5c7f94455cc284f9a48b95eb15fd3ed6f0b4d89e4a2c2253f8111697ce40b4f3",
+      "after_sha256": "5c7f94455cc284f9a48b95eb15fd3ed6f0b4d89e4a2c2253f8111697ce40b4f3",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/skeleton_aim_capture.gd",
+      "target": "tools/qa/compatibility/skeleton_aim_capture.gd",
+      "before_sha256": "340203b1b494919d325cd02fda2f00011d88bf6fba20d81e7836fd6775d34146",
+      "after_sha256": "f10edd444a1610a9f40920e14a817f7bde2be1590047ff5dfe8c5b3309b67603",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/skeleton_aim_capture.gd.uid",
+      "target": "tools/qa/compatibility/skeleton_aim_capture.gd.uid",
+      "before_sha256": "3c1fdea42c2e0339bd7d9175e3b96702dfbc8602e5d8e0122c0b59994573589b",
+      "after_sha256": "3c1fdea42c2e0339bd7d9175e3b96702dfbc8602e5d8e0122c0b59994573589b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/startup_review.gd",
+      "target": "tools/qa/compatibility/startup_review.gd",
+      "before_sha256": "6caafe91489ef2e0f9fb836e4469ea5b2eeaa0e625e0500e2b19f8b0e7a1a57f",
+      "after_sha256": "6caafe91489ef2e0f9fb836e4469ea5b2eeaa0e625e0500e2b19f8b0e7a1a57f",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/startup_review.gd.uid",
+      "target": "tools/qa/compatibility/startup_review.gd.uid",
+      "before_sha256": "9196ac5328ded622d3a15037f27d7f96e0447ea65273b8b46d254af045281f2e",
+      "after_sha256": "9196ac5328ded622d3a15037f27d7f96e0447ea65273b8b46d254af045281f2e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/storage_actions_capture.gd",
+      "target": "tools/qa/compatibility/storage_actions_capture.gd",
+      "before_sha256": "647847ae09283cdfbbab014ab1a80c5dd764166630f7d2099ce9b50cf5fc2fef",
+      "after_sha256": "647847ae09283cdfbbab014ab1a80c5dd764166630f7d2099ce9b50cf5fc2fef",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/storage_actions_capture.gd.uid",
+      "target": "tools/qa/compatibility/storage_actions_capture.gd.uid",
+      "before_sha256": "37f31f815b5bfa546a922957b00dccc12365c5fc73763da65828ce67017da97a",
+      "after_sha256": "37f31f815b5bfa546a922957b00dccc12365c5fc73763da65828ce67017da97a",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/storage_window_capture.gd",
+      "target": "tools/qa/compatibility/storage_window_capture.gd",
+      "before_sha256": "9340289cab75855a330cc381ef7976c303b9fb2689914eb7f52efa5b25b53321",
+      "after_sha256": "9340289cab75855a330cc381ef7976c303b9fb2689914eb7f52efa5b25b53321",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/storage_window_capture.gd.uid",
+      "target": "tools/qa/compatibility/storage_window_capture.gd.uid",
+      "before_sha256": "1356a8d61f6149d60035ab2b6df6318905bde8dee470c904af7771f005a08c7c",
+      "after_sha256": "1356a8d61f6149d60035ab2b6df6318905bde8dee470c904af7771f005a08c7c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/terrain_cache_review.gd",
+      "target": "tools/qa/compatibility/terrain_cache_review.gd",
+      "before_sha256": "18bdf60b897d33fef6e76c0ace9bbbf1c210e3e5b63358d9da7574774bad37e8",
+      "after_sha256": "18bdf60b897d33fef6e76c0ace9bbbf1c210e3e5b63358d9da7574774bad37e8",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/tree_occlusion_review.gd",
+      "target": "tools/qa/compatibility/tree_occlusion_review.gd",
+      "before_sha256": "b8aa3a6cbde82e847706b8bb52eb68540719c115f7c51b5bffce06309d7bf168",
+      "after_sha256": "b8aa3a6cbde82e847706b8bb52eb68540719c115f7c51b5bffce06309d7bf168",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/workshops_capture.gd",
+      "target": "tools/qa/compatibility/workshops_capture.gd",
+      "before_sha256": "ae8268c996bb6c1684ac8052cd5957e9f7394e8ec3de806e5610dd26b3c4fedf",
+      "after_sha256": "ae8268c996bb6c1684ac8052cd5957e9f7394e8ec3de806e5610dd26b3c4fedf",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/workshops_capture.gd.uid",
+      "target": "tools/qa/compatibility/workshops_capture.gd.uid",
+      "before_sha256": "ee5d869b5fd3ddfde47b658b9a737598904a76d816fc249cc2e8670ca5cfd170",
+      "after_sha256": "ee5d869b5fd3ddfde47b658b9a737598904a76d816fc249cc2e8670ca5cfd170",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/workshops_catalog_export.gd",
+      "target": "tools/qa/compatibility/workshops_catalog_export.gd",
+      "before_sha256": "cfe704a94f8351a0b8a0c643edd6a6aa2d0fbcf0f6b6a97edbe34a560f832aac",
+      "after_sha256": "cfe704a94f8351a0b8a0c643edd6a6aa2d0fbcf0f6b6a97edbe34a560f832aac",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/workshops_catalog_export.gd.uid",
+      "target": "tools/qa/compatibility/workshops_catalog_export.gd.uid",
+      "before_sha256": "2b72dfa85bf8e8194c437d91f6f38082f0a242815e3793f1f4c5b3429d009dc5",
+      "after_sha256": "2b72dfa85bf8e8194c437d91f6f38082f0a242815e3793f1f4c5b3429d009dc5",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/workshops_review.gd",
+      "target": "tools/qa/compatibility/workshops_review.gd",
+      "before_sha256": "6d111d38e037fd83608d87b7319f7ecda0cf2aeabf6b2ef7c2a1d88bcb069469",
+      "after_sha256": "6d111d38e037fd83608d87b7319f7ecda0cf2aeabf6b2ef7c2a1d88bcb069469",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/workshops_review.gd.uid",
+      "target": "tools/qa/compatibility/workshops_review.gd.uid",
+      "before_sha256": "b9583864c9e79d606eebd6f8b7a805dffd487af0e8cd4b16fd961bb68d35e022",
+      "after_sha256": "b9583864c9e79d606eebd6f8b7a805dffd487af0e8cd4b16fd961bb68d35e022",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/world_native.gd",
+      "target": "tools/qa/compatibility/world_native.gd",
+      "before_sha256": "017d9b2751ccd2013948ded5259989866ae5d7ea52986dfa9860687f1e226764",
+      "after_sha256": "0a07b48df25d89e2d29d482fc53cdd512adad57762cc10a3b849425dcc261d6a",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/world_native.gd.uid",
+      "target": "tools/qa/compatibility/world_native.gd.uid",
+      "before_sha256": "25bcbf5112c7ddd24eb12f98e509b5dd0215fd11a1a30e5cd5bafd9b8bd28389",
+      "after_sha256": "25bcbf5112c7ddd24eb12f98e509b5dd0215fd11a1a30e5cd5bafd9b8bd28389",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/world_review.gd",
+      "target": "tools/qa/compatibility/world_review.gd",
+      "before_sha256": "db1fdb0e646f8c7bf28e08720b756843daf68a66e1c07a42e92c30b3c307b725",
+      "after_sha256": "1091d61146d2201fd9cdc023bf1b53811b94117e54d9d27f6aa8f62d4532636c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/world_review.gd.uid",
+      "target": "tools/qa/compatibility/world_review.gd.uid",
+      "before_sha256": "7c1bc34db297d0d1b7191275708d6073873d1773650fecae890a4277917df8a7",
+      "after_sha256": "7c1bc34db297d0d1b7191275708d6073873d1773650fecae890a4277917df8a7",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/world_workbench_review.gd",
+      "target": "tools/qa/compatibility/world_workbench_review.gd",
+      "before_sha256": "96437d67c367131d5ad7ae39a4fed89d8bc76723d9bc62042d3378e689bc34f7",
+      "after_sha256": "69e4475b089ca65bddb805c1474aafbbc3a84f0d4e9350079dbe7d26e17fa3bd",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/world_workbench_review.gd.uid",
+      "target": "tools/qa/compatibility/world_workbench_review.gd.uid",
+      "before_sha256": "d4d09a9c9fbd1f32dbe7599408aac72cfcd100b9aa050f5628ee978cfa7d1e28",
+      "after_sha256": "d4d09a9c9fbd1f32dbe7599408aac72cfcd100b9aa050f5628ee978cfa7d1e28",
+      "mode": 420
+    }
+  ]
+}

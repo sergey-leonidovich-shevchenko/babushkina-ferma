@@ -6,7 +6,7 @@
 
 Старый `directional/npc_grandmother_walk_8dir.png` сохранён для совместимости редакторских документов и сравнения, но текущий архетип бабушки его больше не рисует. Оба каталожных пути сохраняют уникальность `npc:grandmother`. Остальные жители и напарники не перерисованы этим исправлением.
 
-Проверка: `GrandmotherVisualSuite`, редакторские регрессии, нативный `tools/grandmother_animation_review.gd`; снимки и контактный лист в `assets/generated/level_drafts/`. Сильный перекос был в пикселях старого атласа, а не в повороте runtime: движущийся NPC уже рисовался без rotation и scale.
+Проверка: `GrandmotherVisualSuite`, редакторские регрессии, нативный `tools/qa/compatibility/grandmother_animation_review.gd`; снимки и контактный лист в `assets/generated/level_drafts/`. Сильный перекос был в пикселях старого атласа, а не в повороте runtime: движущийся NPC уже рисовался без rotation и scale.
 
 ## Визуальная проверка
 

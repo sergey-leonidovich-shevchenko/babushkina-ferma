@@ -1,4 +1,4 @@
-extends "res://tools/livestock_review.gd"
+extends "res://tools/qa/compatibility/livestock_review.gd"
 
 ## Проверяет реальные источники и нечётную контрольную сетку до полного игрового набора.
 func _initialize() -> void:

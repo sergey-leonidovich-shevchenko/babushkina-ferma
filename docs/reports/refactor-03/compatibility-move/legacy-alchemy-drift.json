@@ -1,0 +1,28 @@
+{
+  "base": "81bec22e0b447054a631707e9e12179e222a57c2",
+  "files": {
+    "docs/design/alchemy-catalog.json": {
+      "sha256": "2b4df80995c12c7aa27ab40c6d0619a9588f8a8dd9e6a680b13ded6fdfe09c08",
+      "unchanged_since_base": true
+    },
+    "docs/design/alchemy-herbs.json": {
+      "sha256": "9f3bec677878bcaac65c5703cae24ccabc98965a67f490ed5a8922d5672da595",
+      "unchanged_since_base": true
+    }
+  },
+  "legacy_required": {
+    "herbs": 24,
+    "items": 148,
+    "potions": 16,
+    "recipes": 131
+  },
+  "actual": {
+    "herbs": 24,
+    "items": 161,
+    "potions": 19,
+    "recipes": 148
+  },
+  "first_rejected_check": "items148 vs161",
+  "preserved_failure": true,
+  "fixed_in_this_move": false
+}

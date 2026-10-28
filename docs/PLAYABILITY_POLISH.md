@@ -43,9 +43,9 @@
 6. Закрыть подсказку её крестиком: энергия и инструмент не должны реагировать на этот клик.
 7. Открыть F10 во время движения. Оценивать не только средний FPS, но и редкие долгие кадры.
 
-Автоматический маршрут: `tools/runtime_comfort_review.gd`. Он проходит через реальный `_input` и физический цикл `main.tscn`, проверяет дверь, мост, дорогу, меню и сохранность пользовательских файлов. Результат: [runtime_comfort_review.json](reports/runtime_comfort_review.json).
+Автоматический маршрут: `tools/qa/compatibility/runtime_comfort_review.gd`. Он проходит через реальный `_input` и физический цикл `main.tscn`, проверяет дверь, мост, дорогу, меню и сохранность пользовательских файлов. Результат: [runtime_comfort_review.json](reports/runtime_comfort_review.json).
 
-Полный набор: `./run_tests.sh`. Проверка структуры: `tools/check_architecture.sh`. Живой геометрический/языковой аудит: `tools/generate_ui_layout_audit.gd` → [ui_layout_audit.json](reports/ui_layout_audit.json).
+Полный набор: `./run_tests.sh`. Проверка структуры: `tools/check_architecture.sh`. Живой геометрический/языковой аудит: `tools/qa/compatibility/generate_ui_layout_audit.gd` → [ui_layout_audit.json](reports/ui_layout_audit.json).
 
 ## Итоги проверки
 

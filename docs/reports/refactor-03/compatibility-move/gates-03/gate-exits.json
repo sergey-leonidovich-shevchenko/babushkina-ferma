@@ -1,0 +1,27 @@
+[
+  {
+    "gate": "documentation",
+    "command": [
+      "python3",
+      "tools/run.py",
+      "quality.check_documentation"
+    ],
+    "version": "0.0.369",
+    "started_at": "2026-10-28T19:29:06.388675+00:00",
+    "exit": 0,
+    "finished_at": "2026-10-28T19:29:08.176760+00:00"
+  },
+  {
+    "gate": "wiki",
+    "command": [
+      "pnpm",
+      "--dir",
+      "wiki",
+      "check"
+    ],
+    "version": "0.0.369",
+    "started_at": "2026-10-28T19:29:08.177386+00:00",
+    "exit": 0,
+    "finished_at": "2026-10-28T19:30:03.667477+00:00"
+  }
+]

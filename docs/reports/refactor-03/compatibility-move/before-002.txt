@@ -1,0 +1,3 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+CONTENT REFERENCES: {"errors":[],"items":386,"languages":6,"missions":18,"recipes":321,"stations":18,"validation_usec":37815}
