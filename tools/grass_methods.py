@@ -17,6 +17,8 @@ from pathlib import Path
 import statistics
 import subprocess
 from PIL import Image,ImageChops,ImageStat
+from tools.common.git import git_environment
+from tools.qa.performance.source_history import LEGACY_HELPER, historical_helper
 from grass_compare_collect import ROOT,FROZEN,schedule,sha
 from tools.qa.performance.perf_contract import distribution,validate_environment,cpu_seconds
 from render_order import validate_draws
@@ -58,12 +60,13 @@ def provenance(folder,mode):
     source=read(folder/'source.json')
     require(source.get('complete') is True and source.get('task')=='VRENDER-002' and source.get('mode')==mode and source.get('schedule')==schedule(mode),'incomplete collection/schedule')
     require(set(source['sources'])==set(FROZEN),'source coverage')
-    require(subprocess.run(['git','cat-file','-e',source['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'Git base absent')
+    require(subprocess.run(['git','cat-file','-e',source['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True,env=git_environment()).returncode==0,'Git base absent')
     for name,digest in source['sources'].items():
         require((folder/'instrumentation'/name).resolve().is_relative_to(folder.resolve()),'source symlink escapes')
         require(sha(folder/'instrumentation'/name)==digest,'archived source changed: '+name)
         if name not in OVERLAY:
-            require(hashlib.sha256(subprocess.check_output(['git','show',source['base_commit']+':'+name],cwd=ROOT)).hexdigest()==digest,'production/reference differs from Git base: '+name)
+            physical = historical_helper(ROOT,source['base_commit']) if name == LEGACY_HELPER else name
+            require(hashlib.sha256(subprocess.check_output(['git','--no-replace-objects','show',source['base_commit']+':'+physical],cwd=ROOT,env=git_environment())).hexdigest()==digest,'production/reference differs from Git base: '+name)
     actual={str(p.relative_to(folder)) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'instrumentation' not in p.parts}
     require(actual==set(source['artifacts']),'artifact coverage')
     for name,digest in source['artifacts'].items():
@@ -72,7 +75,7 @@ def provenance(folder,mode):
         require(sha(folder/name)==digest,'artifact changed: '+name)
     if folder.resolve() in [(REPORT/name).resolve() for name in ['quality','bench','cpu-only']]:
         paths=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()]
-        require(subprocess.run(['git','ls-files','--error-unmatch','--',*paths],cwd=ROOT,capture_output=True).returncode==0,'native evidence missing from Git index')
+        require(subprocess.run(['git','ls-files','--error-unmatch','--',*paths],cwd=ROOT,capture_output=True,env=git_environment()).returncode==0,'native evidence missing from Git index')
     return source
 
 
@@ -141,7 +144,7 @@ def quality(folder=REPORT/'quality'):
             result['motion'][str(width)+'/'+method]=metric['changed_pixels']
         reference=REPORT/'controls'/(str(width)+'.png')
         original=f'docs/reports/visual-overhaul/vrender-001/native/{width}/village-baseline.png'
-        require(hashlib.sha256(subprocess.check_output(['git','show',source['base_commit']+':'+original],cwd=ROOT)).hexdigest()==sha(reference),'HUD reference differs from Git base')
+        require(hashlib.sha256(subprocess.check_output(['git','show',source['base_commit']+':'+original],cwd=ROOT,env=git_environment())).hexdigest()==sha(reference),'HUD reference differs from Git base')
         # Opaque HUD interiors, avoiding panel edges that intentionally reveal the world through alpha.
         scale=width/1152; boxes=[(30,24,220,73),(325,597,825,633)]
         with Image.open(reference) as baseline:

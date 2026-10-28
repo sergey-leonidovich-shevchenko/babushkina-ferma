@@ -1,0 +1,435 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "P2 surface producer repair",
+  "version": "0.0.372",
+  "base": "f134dd9b7f2cf0741a0ace939d26fc247178cbad",
+  "prior_review": 5691592934,
+  "prior_review_state": "CHANGES_REQUESTED",
+  "prior_CI_success": 8,
+  "root_sources": 285,
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.372",
+      "started_at": "2026-10-28T23:16:39.879141+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T23:39:19.593424+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.372",
+      "started_at": "2026-10-28T23:39:19.594415+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T23:45:49.987865+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.372",
+      "started_at": "2026-10-28T23:45:49.989103+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T23:46:45.832052+00:00"
+    }
+  ],
+  "architecture_suites": 95,
+  "architecture_cases": 1262,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "new_producer_tests": 9,
+  "same_test_source_red_green": {
+    "test_SHA256": "9b84921ed227955072da14309281486f22a695654a4eede7d9553f8a41f8574c",
+    "methods": 9,
+    "red": {
+      "raw": "producer-red.txt",
+      "exit": 1,
+      "failures": 2,
+      "errors_including_subtests": 9
+    },
+    "green": {
+      "raw": "producer-green-01.txt",
+      "exit": 0
+    },
+    "same_test_source": true,
+    "actual_hash_copy_Git_readers": true,
+    "native_Game_GPU_FPS_admission": false
+  },
+  "producer_reader_functions_address_only": 28,
+  "known_map_original90_exact_plus_one": true,
+  "known_map_entries": 91,
+  "historical_fields_preserved": 37,
+  "author_UID_preserved": 85,
+  "anchor_preserved": true,
+  "real_prelaunch_archive_profiles": 4,
+  "foreign_CLI_profiles": 6,
+  "native_Game_GPU_FPS_admission": false,
+  "physical_moves": 0,
+  "UID_moves": 0,
+  "full_task03_accepted": false,
+  "Task_Complete_added": false,
+  "source_SHA256": {
+    ".gitattributes": "59673470578af305751d82cc213910aa6232e6c984ed59ade759965e07b99749",
+    "QA_CHECKLIST.md": "c2efb9ad4a67bc3a46a21d162e53873721a0dd2f035975bc66addf344b6ebc83",
+    "TESTING.md": "25ec103745ab7ac5e0e70a988d123ff70a00a414bf75391d325c5e0184f7ffd4",
+    "VERSION": "0dc0495a0481ab8cd1c7370e02c3315a88b038750c4eaaf611a8ec8cccfe271b",
+    "docs/DEVELOPMENT.md": "804e934aacb7e9a07d4167cc08a9b639756a7993999df04497e95e1619b41abb",
+    "docs/epics/refactoring-2026-10/TASKS.md": "055493b7c4ee2d55b89d882babbee734d1665ff1bd6da2814cd1c0950359a300",
+    "project.godot": "6968c17150e06f928e94682aa6c1a5b7f18bdc181ff92e64a0bcf63a08fcc7fc",
+    "tools/README.md": "98ea1a8d5e44a7911eac9df9a0379994f8e3152181206adfac7dec94040a00fb",
+    "tools/assets/contracts/source_paths.py": "222e7bbea21c3851786786ec693a26b2dd459a855399473e40c0147e66cd2702",
+    "tools/assets/contracts/test_source_paths.py": "1f61100d580c5b6a7c337c1e7f1050032c35252361cc614a94dfe4cd7830cb08",
+    "tools/grass_compare_collect.py": "020f2a98cf3ca6b15118a7349d514c2874e4a7af99f5668e0b2f7d7bff7814b3",
+    "tools/grass_methods.py": "3b491de9ea4a5ecb806b602fc8e577e86a8966d0dcfdcf1983472a2cf4e6b7d6",
+    "tools/ground_layers.py": "6d1096591ea805eb265c74f912b3e9f05d50f84a3c73a4831e6e0368ead73bd9",
+    "tools/qa/performance/source_history.py": "45ae917a792c13563b0b53d0a4693015af511c5645a18fd875749d071ae84ce5",
+    "tools/qa/performance/test_surface_producers.py": "9b84921ed227955072da14309281486f22a695654a4eede7d9553f8a41f8574c",
+    "tools/quality/check_architecture.sh": "af91e9b3b33a160e104118831cc282cca423d96de201a94116366ddd2a500233",
+    "wiki/articles/project-refactoring.md": "da76bcec31217da1ce9acdd2c1f71cc3ec44430bde10ffa2f9eb1a0362c074c5",
+    "Бабушкина ферма.app/Contents/Info.plist": "d266c6eb72ab4d4029e9153f0a3e3ce4e14ba20c11443e6cdf23d55fab239899"
+  },
+  "removed_source_paths": [],
+  "report_files": [
+    {
+      "path": "README.md",
+      "sha256": "6406678666e4ecfd28b8c56dd63cfbcd130c23f8adc344f7711cac4450d6e590",
+      "bytes": 2671
+    },
+    {
+      "path": "adaptation-plan.json",
+      "sha256": "676453ece4e2cb989664b31047c2857747ebfbebb30d9ce4292948e304c60e66",
+      "bytes": 130375
+    },
+    {
+      "path": "after-grass_compare_collect-source.json",
+      "sha256": "db38f1c9caa45d75f6c174d0a8dd3d69bffd4e69a1638f64e4ee2f9d3bf22458",
+      "bytes": 2054
+    },
+    {
+      "path": "after-ground_layers-source.json",
+      "sha256": "19c5c803693cf9f782807fb1e14e9f741ba61c2ba16bdb45057df1d420f965a8",
+      "bytes": 3967
+    },
+    {
+      "path": "apply.py",
+      "sha256": "f502fd583d6f287e0f68a38fb43d19ca3d308f572c475d663e01a6a11a97428d",
+      "bytes": 5772
+    },
+    {
+      "path": "audit.py",
+      "sha256": "2c11aa2992f24850d224b393bdf3d6eec0c0e34d15644f673d444a07d12962db",
+      "bytes": 8661
+    },
+    {
+      "path": "baseline/.gitattributes.gz",
+      "sha256": "003c7e48bcb6d61533160576d08b5be2772d6289a264e82bcf0fd5e372660274",
+      "bytes": 1223
+    },
+    {
+      "path": "baseline/QA_CHECKLIST.md.gz",
+      "sha256": "069fba1c2fb48979249b1b2ee29c5e51bac0c69466d5964f4c7397285afe7f03",
+      "bytes": 113353
+    },
+    {
+      "path": "baseline/TESTING.md.gz",
+      "sha256": "f8587a88b45dc2133cfdb623d951b654b64d7a911a216195e94b2997a02c84d5",
+      "bytes": 45123
+    },
+    {
+      "path": "baseline/VERSION.gz",
+      "sha256": "307585c09516d1f6a21b3fb21d6218b9b5ea644f7236414ed4fe8d16d545e7d9",
+      "bytes": 28
+    },
+    {
+      "path": "baseline/ci371-final.json",
+      "sha256": "991d376f6e11cc920afd6d7abe4d071ebee2bb7676324921209055c6352ed230",
+      "bytes": 3326
+    },
+    {
+      "path": "baseline/docs--DEVELOPMENT.md.gz",
+      "sha256": "b3c9e356cafe77700a0845bf53f15d174a85f45ed45fc4795d39c88ead5558d3",
+      "bytes": 43572
+    },
+    {
+      "path": "baseline/docs--epics--refactoring-2026-10--TASKS.md.gz",
+      "sha256": "aff79e8491d46b703e16798293eaaae13c401ab2439a6d300688e106c26787ac",
+      "bytes": 8892
+    },
+    {
+      "path": "baseline/inventory.json",
+      "sha256": "5f186769bad51e79a139f266596e3ca938771f208a14973a08308c52f29d657a",
+      "bytes": 3256
+    },
+    {
+      "path": "baseline/project.godot.gz",
+      "sha256": "d0cfbf1531d69169331e8a84e4229f0f5c7fe9c62e772f99d4355eeaaf9c6247",
+      "bytes": 607
+    },
+    {
+      "path": "baseline/reviews371.json",
+      "sha256": "9560e0e8fb67b04b0a61049c3fd8a23e6dda6465a9ab32bd871bf7e288a9b558",
+      "bytes": 6644
+    },
+    {
+      "path": "baseline/surface-producer-test.py",
+      "sha256": "9b84921ed227955072da14309281486f22a695654a4eede7d9553f8a41f8574c",
+      "bytes": 13949
+    },
+    {
+      "path": "baseline/tools--README.md.gz",
+      "sha256": "3e4779d77caa108eeec065c00e2bda43aada339341285779be0bf0ca8323a9d4",
+      "bytes": 5664
+    },
+    {
+      "path": "baseline/tools--assets--contracts--source_paths.py.gz",
+      "sha256": "760b3dd2d1698a3e6e7f8f4ce7cc19039cb5b11b2d8db260018947891979fd2f",
+      "bytes": 2287
+    },
+    {
+      "path": "baseline/tools--assets--contracts--test_source_paths.py.gz",
+      "sha256": "16cae26a570b68760a65339627cacfe2d6616cc25df54f02f6874c987f7fc96d",
+      "bytes": 2624
+    },
+    {
+      "path": "baseline/tools--grass_compare_collect.py.gz",
+      "sha256": "ed1a55455f945c0b2dd22b9f175d077022ec8020a96e21d6bf4dd213785eb875",
+      "bytes": 2499
+    },
+    {
+      "path": "baseline/tools--grass_methods.py.gz",
+      "sha256": "77daf82b43b3500d7a3d5b7c785bb14f27c525064fc27dc9a7b57ee4e2b5268a",
+      "bytes": 7027
+    },
+    {
+      "path": "baseline/tools--ground_layers.py.gz",
+      "sha256": "7a39f53d0e913dd85cfc03390ebf8bd9635b433f9db9de335bb4920343bda0ef",
+      "bytes": 5634
+    },
+    {
+      "path": "baseline/tools--quality--check_architecture.sh.gz",
+      "sha256": "f1fe4c8068ab2fe0a3d19802b053e603e39c26bc158c394ec2615d73a38c7860",
+      "bytes": 2064
+    },
+    {
+      "path": "baseline/wiki--articles--project-refactoring.md.gz",
+      "sha256": "610559955fc071c4fb2fb712f004bfd986d86def0405057c7c65a15084626b23",
+      "bytes": 8730
+    },
+    {
+      "path": "baseline/Бабушкина ферма.app--Contents--Info.plist.gz",
+      "sha256": "90ef92968b5771b88c1fcd7d46fe3f707760a2b8fb61e0bba8e14049c0ff5249",
+      "bytes": 392
+    },
+    {
+      "path": "baseline.py",
+      "sha256": "7b40ab7334a03d0dcc202fb4e13dcd3a196df5c59184b819e5acac8775ec47ff",
+      "bytes": 2424
+    },
+    {
+      "path": "before-grass_compare_collect-source.json",
+      "sha256": "122a553d3cf7316809f4e385ab45163ceb47e52faec2e0bd64fd06a8368a64c8",
+      "bytes": 2054
+    },
+    {
+      "path": "before-ground_layers-source.json",
+      "sha256": "4084e6b8231270a421e24a23bbced5e8f92c8dd801c3b4ce252a5a23bfc2c02f",
+      "bytes": 3967
+    },
+    {
+      "path": "browser-article.json",
+      "sha256": "b02db29f0ba316e0207b525252ee61107c01c0c43e0b2e83842e7485db724fda",
+      "bytes": 261
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "1d36b48656f934ceec920030eb4d68384d23eb687b70b29b2ea4b00dd40ce749",
+      "bytes": 196
+    },
+    {
+      "path": "browser-desktop.png",
+      "sha256": "8e6b49978fe085a7b291e388ba6795314ab5f2f229eb435bd4e504e918eaf858",
+      "bytes": 197350
+    },
+    {
+      "path": "browser-mobile.json",
+      "sha256": "9145d45d19cca659d25577e46d7ba535cba1866fac30af61f6381abc07bfb728",
+      "bytes": 96
+    },
+    {
+      "path": "browser-mobile.png",
+      "sha256": "6d112f716a004663e6d85c98341d3f7a282d72a45fe4b509e2f5541e3f064a2d",
+      "bytes": 78561
+    },
+    {
+      "path": "browser-stop-request.json",
+      "sha256": "4ed10f6cbc6ffdcc1855cbca1df422a678d8c1de195e4e0bf393ce36fa358589",
+      "bytes": 287
+    },
+    {
+      "path": "browser-task.json",
+      "sha256": "daca43af674c588a0ccbbdff878fea17b52a19a62ef0c9c09d43ce0158ec06af",
+      "bytes": 144
+    },
+    {
+      "path": "browser-task.png",
+      "sha256": "39a0f1bd8751e2a6dcc98df95414acc0f39afa54c34b6ac9e83f310f995e4167",
+      "bytes": 94975
+    },
+    {
+      "path": "catalog-check.mjs",
+      "sha256": "68853258df3e771c6183d7632725d7b09095c4effc54da6364c6a950d70ed259",
+      "bytes": 2271
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "9628f67f493036c8dc370661da2a14383dfe28ba78107bad4a9f8ede9aebea4d",
+      "bytes": 435
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "9523fb9f060aad3f8a81289108b7532670ea4f1d17e4867e862ed57cc744abf4",
+      "bytes": 14315
+    },
+    {
+      "path": "gates-01/game.txt",
+      "sha256": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+      "bytes": 1356
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "def01e54f2ed33611fd577a76397a73f1edff99cebf46ef40c3d5a7a88f5bb89",
+      "bytes": 733
+    },
+    {
+      "path": "gates-01/headless/f10/engine.txt",
+      "sha256": "11636c196520dc891de116489cbeb561c57a33688a2ae6f3852711b634041747",
+      "bytes": 11028
+    },
+    {
+      "path": "gates-01/headless/f10/frames.jsonl",
+      "sha256": "5a9e41fc2197ecf244a5df0cd9bcf605acd7cb96d9f2ef7d2ac75ef0f715084e",
+      "bytes": 9137
+    },
+    {
+      "path": "gates-01/headless/f10/summary.json",
+      "sha256": "9434df0168985258670ebbca09939f40ae157653adf8e513361411646ae4e2fb",
+      "bytes": 1743
+    },
+    {
+      "path": "gates-01/headless/normal/engine.txt",
+      "sha256": "e2ac71dae2b780d9821d9b8b1dcb40e55e23f336e61a1297eab011e6bbe30dac",
+      "bytes": 11041
+    },
+    {
+      "path": "gates-01/headless/normal/frames.jsonl",
+      "sha256": "f15c55164f6d74467434dc8adb7a960f959335cdf570955287ff16ae55e9c4ca",
+      "bytes": 9147
+    },
+    {
+      "path": "gates-01/headless/normal/summary.json",
+      "sha256": "82e22ab3de7272e3457d11f2f80d28130e858601a93ba9dfa18840fe3b41c6af",
+      "bytes": 1746
+    },
+    {
+      "path": "gates-01/wiki.txt",
+      "sha256": "070bc4de2d4c932e5269f8b2c5edbd183bd9d724c6cca27755c7ba5abfa7ce3e",
+      "bytes": 13817
+    },
+    {
+      "path": "grass-reader.txt",
+      "sha256": "30fa13c74c07112dd04448bb975d5352608308b8675ed0bdd89eb486bf8bebdf",
+      "bytes": 59128
+    },
+    {
+      "path": "grass-tests.txt",
+      "sha256": "56b968f82f838f223a45c227030d9a0fbc1a7aeaeda3b6aa43d9ddfb6d1dda4b",
+      "bytes": 117
+    },
+    {
+      "path": "ground-reader.txt",
+      "sha256": "dadbf243b5c025d7a9413f4a9cb5b7f2df16449917aa77a826aca6265c64c347",
+      "bytes": 4598
+    },
+    {
+      "path": "ground-tests.txt",
+      "sha256": "b15e4352eb5cc5904beaf069e583158f7380c79ff9aaac93fd69ae95e7d63c32",
+      "bytes": 119
+    },
+    {
+      "path": "known-path-tests.txt",
+      "sha256": "0a49bbac3d453c8c76af09d6d451e48d437b3e9ad7185d7f41895ca93a5da5ca",
+      "bytes": 111
+    },
+    {
+      "path": "migration.json",
+      "sha256": "44d1f226a87755c066568739ec145618384050ad500a1fce5fa25abb0ca8a340",
+      "bytes": 145
+    },
+    {
+      "path": "producer-green-01.txt",
+      "sha256": "ce4f79de2b0466931fdaa786c3c9224367c32c57ad146f8e540d58161551fc6f",
+      "bytes": 331
+    },
+    {
+      "path": "producer-red.txt",
+      "sha256": "5a31cd61e2c174e8850e2b6255d29be8c178c2aa20c09ef13e14a3534e85ea9f",
+      "bytes": 20916
+    },
+    {
+      "path": "producer-tests.txt",
+      "sha256": "23e6ad26808a41318e2bb9b29d940af3b6b44ea06c91335d077298f4c72c60bf",
+      "bytes": 331
+    },
+    {
+      "path": "profile-commands.json",
+      "sha256": "282bb49ffb91dcbd62ad76e9cd67c808d8fccb067e271f2dd8cc5aedc1596e25",
+      "bytes": 3037
+    },
+    {
+      "path": "profile.json",
+      "sha256": "5e7e8887b733248f40e50e0c29f4021e85417a94c6f3ad302587bb4133de9dec",
+      "bytes": 5489
+    },
+    {
+      "path": "profile.py",
+      "sha256": "77e37b8e298f697f42680da4b74110f432b9f38fce359df9004e4593616e7654",
+      "bytes": 7376
+    },
+    {
+      "path": "regression.json",
+      "sha256": "f30e0f5674822de7ee2567007f36cf96b851ab1b7a805cc3980e25cf24e6c94e",
+      "bytes": 398
+    },
+    {
+      "path": "scope.json",
+      "sha256": "02bf05d69a45c31583e52e275710301f605b16b0416477ae4740bc824dd4485d",
+      "bytes": 1295
+    },
+    {
+      "path": "seal.py",
+      "sha256": "ef5ce6aa444a8a13bdb8660410b6c1a3545b73e14f320e0930cfe7ed182bda3e",
+      "bytes": 4832
+    },
+    {
+      "path": "source-freeze.json",
+      "sha256": "6ec23163cdd22975858e68e669e454c2563d8b7d440e0317e0c6684883aa94e8",
+      "bytes": 1915
+    },
+    {
+      "path": "update-docs.py",
+      "sha256": "e1bb1d0cabb3692d2470cfbda3f3c6882598f597bf60c36bd0ff8a1dafc09db7",
+      "bytes": 8462
+    }
+  ]
+}

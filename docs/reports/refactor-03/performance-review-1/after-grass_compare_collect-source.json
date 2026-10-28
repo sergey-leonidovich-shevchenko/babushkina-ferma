@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "task": "VRENDER-002",
+  "mode": "quality",
+  "base_commit": "19918b6ffdbdc5e8cffd8174401dd87933d18811",
+  "complete": true,
+  "schedule": [],
+  "sources": {
+    "tools/grass_compare/mesh_data.gd": "313fc57d4c4d07e11bbdbff738256b0e81bcc6cf21b5924c65cfee360f3e2fa1",
+    "tools/grass_compare/field.gd": "577710beeff9751232c9aea79eb93b4ac46d0c9e5521da66a7d59b41cea48d1f",
+    "tools/grass_compare/wind.gdshader": "328890ce1bd94059bc8f8b5e1df7e96a7470688b34fbcba1d51cd597bb6c22a7",
+    "tools/grass_compare/capture.gd": "c9cad50dda5ad92c04a79f331fe7daee89ca27b63de4061f757de4ec1b76a4ae",
+    "tools/grass_compare/observer.gd": "5d6134cd77cab44b07208925db00b73d02452cb0a1f352e8f27e73807b6abb05",
+    "tools/grass_compare/review.gd": "438616aace210a35b2bb6c97fecf6fb02c347672b3adb857cdac5de61ee7ec53",
+    "tools/grass_compare_collect.py": "020f2a98cf3ca6b15118a7349d514c2874e4a7af99f5668e0b2f7d7bff7814b3",
+    "tools/perf_contract_collect.py": "562a21afcb50f48cb61771dd1fdd35f676dad36a96918924e90af412939dd71e",
+    "tools/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+    "tools/render_order_game.gd": "662ad6e5af52bc95eb8d2804a7390ee5007caa88325aca2f7835873243a0000b",
+    "project.godot": "35f47727158b7e9e04ef6c60fb6391ca00729e773761d79e42831eb17e9368f9",
+    "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9",
+    "scripts/systems/render_system.gd": "e227d03f7ee1e86dc8d4e143a9342b366b56b3a795847123a664cabdd68ff59c",
+    "scripts/systems/world_projection_system.gd": "ef0a09d213489832ceceb79310114ad9e80d9ee5666ff31b34d75f26b510923a",
+    "docs/reports/visual-overhaul/vbase-002/profile.json": "cf33d1c6cd335210d5ca97f0a7a4af41e397d58df1604555e7de063b1e4e1bba",
+    "docs/reports/visual-overhaul/vart-008/modules.json": "ebb7ab17aee83fd7a56ae6d6a6722b0afbfb164cfa0716c07eca8ee4fc4d9f07",
+    "docs/reports/visual-overhaul/vart-008/native/sprites/grass-low.png": "5670e3db898b3b864a98b7ac934618ec00642f97057956986ff1c0ef76c269fc"
+  },
+  "artifacts": {}
+}

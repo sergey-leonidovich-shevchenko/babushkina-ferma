@@ -4,8 +4,9 @@ from __future__ import annotations
 from pathlib import Path, PurePosixPath
 from types import MappingProxyType
 
-# Принятый пакет71 и связанный перенос alpha/slicing19; metadata не выбирает таблицу.
-MOVED_PATHS = MappingProxyType({'tools/alpha_audit.py': 'tools/assets/alpha/alpha_audit.py',
+# Принятые asset71/alpha-slicing19 и один перенесённый performance helper; metadata не выбирает таблицу.
+MOVED_PATHS = MappingProxyType({'tools/perf_contract_collect.py': 'tools/qa/performance/perf_contract_collect.py',
+ 'tools/alpha_audit.py': 'tools/assets/alpha/alpha_audit.py',
  'tools/alpha_capture.gd': 'tools/assets/alpha/alpha_capture.gd',
  'tools/alpha_fixtures.py': 'tools/assets/alpha/alpha_fixtures.py',
  'tools/alpha_metrics.py': 'tools/assets/alpha/alpha_metrics.py',

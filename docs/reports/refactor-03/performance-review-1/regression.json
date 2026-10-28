@@ -1,0 +1,17 @@
+{
+  "test_SHA256": "9b84921ed227955072da14309281486f22a695654a4eede7d9553f8a41f8574c",
+  "methods": 9,
+  "red": {
+    "raw": "producer-red.txt",
+    "exit": 1,
+    "failures": 2,
+    "errors_including_subtests": 9
+  },
+  "green": {
+    "raw": "producer-green-01.txt",
+    "exit": 0
+  },
+  "same_test_source": true,
+  "actual_hash_copy_Git_readers": true,
+  "native_Game_GPU_FPS_admission": false
+}

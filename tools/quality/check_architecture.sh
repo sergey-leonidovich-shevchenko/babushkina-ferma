@@ -43,6 +43,7 @@ python3 tools/run.py assets.alpha.test_street_consumer
 python3 tools/run.py qa.compatibility.test_compatibility_cli
 python3 tools/run.py qa.performance.test_performance_context
 python3 tools/run.py qa.performance.test_performance_layout
+python3 tools/run.py qa.performance.test_surface_producers
 python3 tools/run.py assets.contracts.test_source_paths
 python3 tools/run.py planning.test_task_batch
 

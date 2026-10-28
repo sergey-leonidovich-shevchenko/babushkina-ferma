@@ -1,0 +1,28 @@
+[
+  {
+    "id": "PRR_kwDOTqkhCs8AAAABUz7Q5g",
+    "state": "COMMENTED",
+    "body": "CHANGES REQUESTED — exact head f134dd9b7f2cf0741a0ace939d26fc247178cbad (0.0.371). Найдена воспроизводимая P2-регрессия двух живых producer после переноса perf_contract_collect.py. Import-контексты и профильные unit cases проходят, но source-archive этап grass_compare_collect.collect и ground_layers.collect падает до source.json.\n\nПроверка без запуска игры: actual функции обоих producer на новом внешнем output дают FileNotFoundError для tools/perf_contract_collect.py. Их collect-body имеет тот же AST, что Git9a2ad81f; при исходной раскладке из настоящих Git-байтов обе функции успешно создают архив helper (SHA256 0ad2b4f4d73846c17b09af76c05cfe8cc5eefc65892118ad5c681eebc6a88e8a). Git, SHA, чтение и копирование файлов настоящие; изолированы только process inventory, пустое расписание grass и остановка ground на context до первого Popen. Game/open не запускались, временные стенды удалены.\n\nЗамечание привязано к строке PR. Сводка направляется только Team Lead Agent, доработки — через него. Требуется исправление в том же PR и повторное независимое ревью нового exact head. Полного APPROVED/merge/Task-Complete REFACTOR-03 нет; CI не подменяет этот неохваченный сценарий.",
+    "submitted_at": "2026-10-29T00:55:34Z",
+    "author": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+      "id": null
+    }
+  },
+  {
+    "id": "PRR_kwDOTqkhCs8AAAABUz-K1Q",
+    "state": "COMMENTED",
+    "body": "REVIEW COMPLETE — CHANGES REQUESTED для exact head f134dd9b7f2cf0741a0ace939d26fc247178cbad (0.0.371). P2 из review5691592934 / discussion4407644505 остаётся открытым: grass_compare_collect и ground_layers не архивируют свежие входы после удаления старого helper-пути. Независимое воспроизведение с настоящими Git/SHA/copy и остановкой до native launch описано в исходном inline замечании. Требуется исправление и повторное ревью нового SHA.\n\nДополнительный protocol facade технически обоснован. На окончательном неизменном test SHA256 f522578207ca7b750b366d506d0191e63fa3490169d8dcbec2b1aaaf820e8dac самостоятельно воспроизведены controlled red1fail/1error → green8/0, временно скрывая только этот facade в своём review-worktree и восстанавливая его в finally с точными bytes/mode. Три настоящих frozen import graph и самостоятельный snapshot сохранены; frozen observer6/0. Оба порядка protocol/gate import и все три имени (public flat, tools.public, canonical) возвращают одну реализацию; MeasurementError и mutable SAMPLER общие. Исходный ref01-план побайтно прежний; отдельная delta честно повышает прогноз10→11 при сохранённом лимите30. Это отдельная положительная оценка исключения, а не одобрение всего head с P2.\n\nПроверены116baseline Git/gzip/mode,121currentSHA/423report digests,47source+UID назначений и4ignoredUID. Все19445 прежних report blobs, protected runtime/artwork/planning, sampler/UID,37historical fields/21modules,85авторских ignoredUID+anchor и остальные6карточек сохранены; candidate7карточек.65Python bodies и113прежних test bodies/assertions сохранены с объявленными адресными нормализациями;18GD отличаются только URI,14trackedUID точны. Full diff-check0,18 точных исключений только для parse raw. Root285.\n\nСобственные проверки без Game:8layout cases на3.11/3.9;18foreign CLI с121cases, восемь сопоставимых outputs/input JSON SHA совпали с before;53 direct consumer imports,18 check-only GD parse, fresh editor import и оба import-order контекста.14 actual atomic JSON SIGKILL workers через canonical driver совпали обоим авторским профилям. Game.new, main smoke, игровой/GPU/FPS сценарий на ПК не выполнял. Temp удалены, скрытый facade восстановлен, checkout чист; один stale ignored UID моего старого стенда сохранён отдельно и заменён только у себя проверенными readonly авторскими байтами.\n\nCI CONFIRMED 8/8 SUCCESS именно для f134dd9b, без rerun. Полные actual raw PRrun40795539959/test123191014917 и pushrun40795531903/test123190990987 (526710/525553 символа) каждый подтверждают94suites/1253cases, Game53520/0, redraw90/0×2, smoke180 и шесть разных valid/budget-passed окон10s/10samples. Все4Mac/Linux дают25+14tests/411checks и artifacts; обаLinux UI after_issues/errors пусты; обеWiki145/0. Открытый P2 требует исправления при зелёном текущем CI.\n\nПолная REFACTOR-03 остаётся draft/in_progress, без итогового APPROVED/Task-Complete/merge. Итог и приоритет доработки направлены только Team Lead Agent.",
+    "submitted_at": "2026-10-29T01:03:25Z",
+    "author": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+      "id": null
+    }
+  }
+]

@@ -15,6 +15,7 @@ import signal
 import subprocess
 import time
 import uuid
+from tools.assets.contracts.source_paths import current_source
 from tools.qa.performance.perf_contract_collect import ROOT,context,command,jobs,native_pid,write,sha
 
 FROZEN=['tools/grass_compare/mesh_data.gd','tools/grass_compare/field.gd','tools/grass_compare/wind.gdshader',
@@ -42,13 +43,13 @@ def collect(folder: Path, mode: str):
     if command(['git','diff','HEAD','--','scripts','assets/game','main.tscn']).strip(): raise ValueError('production differs from Git base')
     folder.mkdir(parents=True)
     source={'schema':1,'task':'VRENDER-002','mode':mode,'base_commit':command(['git','rev-parse','HEAD']),
-        'complete':False,'schedule':schedule(mode),'sources':{name:sha(ROOT/name) for name in FROZEN},'artifacts':{}}
+        'complete':False,'schedule':schedule(mode),'sources':{name:sha(current_source(ROOT,name)) for name in FROZEN},'artifacts':{}}
     for name in FROZEN:
-        target=folder/'instrumentation'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+        target=folder/'instrumentation'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(current_source(ROOT,name),target)
     write(folder/'source.json',source)
     for item in source['schedule']:
         if jobs(): raise ValueError('another Godot process appeared')
-        if any(sha(ROOT/p)!=digest for p,digest in source['sources'].items()): raise ValueError('frozen inputs changed')
+        if any(sha(current_source(ROOT,p))!=digest for p,digest in source['sources'].items()): raise ValueError('frozen inputs changed')
         target=folder/item['name']; target.mkdir(); profile='Codex-VRENDER-002-'+uuid.uuid4().hex
         args=['open','-n','-W','-a',str(ROOT/'tools/Godot.app'),'--args','--path',str(ROOT),'--windowed','--audio-driver','Dummy',
             '--log-file',str(target/'engine.txt'),'--script','res://tools/grass_compare/capture.gd','--','--output='+str(target/'native'),
@@ -83,7 +84,7 @@ def collect(folder: Path, mode: str):
         source['artifacts']={str(p.relative_to(folder)):sha(p) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'instrumentation' not in p.parts}
         write(folder/'source.json',source)
         if child.returncode: raise ValueError('native launch failed: '+item['name'])
-        if any(sha(ROOT/p)!=digest for p,digest in source['sources'].items()): raise ValueError('inputs changed during launch')
+        if any(sha(current_source(ROOT,p))!=digest for p,digest in source['sources'].items()): raise ValueError('inputs changed during launch')
         if command(['git','diff','HEAD','--','scripts','assets/game','main.tscn']).strip(): raise ValueError('production changed during capture')
         print('RECORDED '+item['name'],flush=True)
     source['complete']=True; write(folder/'source.json',source)

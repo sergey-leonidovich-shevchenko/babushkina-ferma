@@ -60,8 +60,10 @@ class SourcePathsTests(unittest.TestCase):
         plan = json.loads((root / 'docs/reports/refactor-01/integration-1/migration-plan.json').read_text())
         expected = {old: row['target'] for old, row in plan['assignments'].items()
                     if row['family'] in {'assets-contracts', 'assets-migration', 'build', 'assets-alpha', 'assets-slicing'}}
-        self.assertEqual(dict(MOVED_PATHS), expected)
         self.assertEqual(len(expected), 90)
+        expected['tools/perf_contract_collect.py'] = 'tools/qa/performance/perf_contract_collect.py'
+        self.assertEqual(dict(MOVED_PATHS), expected)
+        self.assertEqual(len(MOVED_PATHS), 91)
         for old, target in expected.items():
             self.assertEqual(current_source(root, old), root / target)
             self.assertTrue((root / target).is_file(), target)

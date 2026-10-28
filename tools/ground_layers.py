@@ -18,6 +18,9 @@ import signal
 import subprocess
 import uuid
 from PIL import Image,ImageChops
+from tools.common.git import git_environment
+from tools.qa.performance.source_history import LEGACY_HELPER, historical_helper
+from tools.assets.contracts.source_paths import current_source
 from tools.qa.performance.perf_contract_collect import ROOT,context,jobs,command,sha,write,native_pid
 from grass_methods import require,image_difference
 from render_order import validate_draws
@@ -42,7 +45,8 @@ def load(path):
 
 def base_bytes(commit,name):
     """Reads the exact historical Git source rather than the evolving current checkout."""
-    return subprocess.check_output(['git','show',commit+':'+name],cwd=ROOT)
+    physical = historical_helper(ROOT,commit) if name == LEGACY_HELPER else name
+    return subprocess.check_output(['git','--no-replace-objects','show',commit+':'+physical],cwd=ROOT,env=git_environment())
 
 
 def collect(folder):
@@ -52,9 +56,9 @@ def collect(folder):
     require(changed<=set(OVERLAY)|{p+'.uid' for p in OVERLAY},'unrelated runtime changes')
     folder.mkdir(parents=True)
     source={'task':'VRENDER-003','schema':1,'base_commit':command(['git','rev-parse','HEAD']),'complete':False,
-        'sources':{p:sha(ROOT/p) for p in SOURCES},'base_sources':{},'artifacts':{}}
+        'sources':{p:sha(current_source(ROOT,p)) for p in SOURCES},'base_sources':{},'artifacts':{}}
     for name in SOURCES:
-        target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+        target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(current_source(ROOT,name),target)
         if name not in NEW: source['base_sources'][name]=hashlib.sha256(base_bytes(source['base_commit'],name)).hexdigest()
     write(folder/'source.json',source)
     for width in [1152,1280]:
@@ -80,7 +84,7 @@ def collect(folder):
             with gzip.GzipFile(str(path)+'.gz','wb',mtime=0) as stream: stream.write(path.read_bytes())
             path.unlink()
         require(code==0,'native process failed')
-        require(all(sha(ROOT/p)==digest for p,digest in source['sources'].items()),'frozen sources changed')
+        require(all(sha(current_source(ROOT,p))==digest for p,digest in source['sources'].items()),'frozen sources changed')
         source['artifacts']={str(p.relative_to(folder)):sha(p) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'inputs' not in p.parts}
         write(folder/'source.json',source)
     source['complete']=True; write(folder/'source.json',source)
@@ -103,7 +107,7 @@ def provenance(folder):
         require(sha(folder/name)==digest,'artifact changed')
     if folder.resolve()==(REPORT/'native').resolve():
         paths=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()]
-        require(subprocess.run(['git','ls-files','--error-unmatch','--',*paths],cwd=ROOT,capture_output=True).returncode==0,'native proof absent from Git index')
+        require(subprocess.run(['git','ls-files','--error-unmatch','--',*paths],cwd=ROOT,capture_output=True,env=git_environment()).returncode==0,'native proof absent from Git index')
     return source
 
 
