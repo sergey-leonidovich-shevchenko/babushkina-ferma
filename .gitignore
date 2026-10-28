@@ -596,11 +596,17 @@ tools/dev/art_review/*
 !tools/dev/art_review/art_review_export.gd.uid
 
 # REFACTOR-03: art QA sources; caches and other UID remain ignored.
-# REFACTOR-03: alpha/slicing history preparation, without moving the producer files yet.
+# REFACTOR-03: alpha/slicing source and policies; caches/local UID remain ignored.
 !tools/assets/alpha/
 tools/assets/alpha/*
-!tools/assets/alpha/__init__.py
-!tools/assets/alpha/test_processing_history.py
+!tools/assets/alpha/*.py
+!tools/assets/alpha/*.gd
+!tools/assets/alpha/*.json
+!tools/assets/slicing/
+tools/assets/slicing/*
+!tools/assets/slicing/*.py
+!tools/assets/slicing/*.gd
+!tools/assets/slicing/*.json
 !tools/qa/
 tools/qa/*
 !tools/qa/__init__.py

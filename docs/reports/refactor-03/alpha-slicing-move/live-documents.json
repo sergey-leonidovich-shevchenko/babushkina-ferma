@@ -1,0 +1,46 @@
+[
+  {
+    "path": "QA_CHECKLIST.md",
+    "sha256": "641f64e4e7f3cb05b4584ec0e8c4408c001cedcbf6046b601a323fc5c0ac155a"
+  },
+  {
+    "path": "TESTING.md",
+    "sha256": "68c50b8c668611c50efd46f33a31a8cbf1b2745a89a026f149e0e2aaecc9c036"
+  },
+  {
+    "path": "docs/DEVELOPMENT.md",
+    "sha256": "83eb536c3b3602ba9890ddbdd30d89003c25c04d24258cccdb357b32be856b7b"
+  },
+  {
+    "path": "docs/epics/visual-overhaul-2026-10/backlog.json",
+    "sha256": "09a2e5763cd496217ea6afe8b4f73794bdb952169a20e1ffffd1a4a5284b6bdf"
+  },
+  {
+    "path": "docs/epics/visual-overhaul-2026-10/epics/vpipeline.md",
+    "sha256": "4a3117385f7462b1630cf02147c3ca5e63e2204647f3268903913545d3e8af75"
+  },
+  {
+    "path": "wiki/articles/alpha-candidates.md",
+    "sha256": "a367c1c59402310eef14e4f043ef101f7dfbb4efa2287b53a86010a4a0d6f1a6"
+  },
+  {
+    "path": "wiki/articles/alpha-edges.md",
+    "sha256": "b4ba0362dd1b24fb725b6dd0b5af3a578adef9f036bcddb530f63c0d2c9cb8db"
+  },
+  {
+    "path": "wiki/articles/sprite-slices.md",
+    "sha256": "52a698c00846a5c54eeca4a5cda4d074f5bab06a8ef1f1b0c77c8e066705195d"
+  },
+  {
+    "path": "tools/README.md",
+    "sha256": "c91b72084b42bcd1ae7fc54b808009213ba42911731d78f537dec4ee58f272ea"
+  },
+  {
+    "path": "wiki/articles/project-refactoring.md",
+    "sha256": "da96831bcbffb0ea9b6661a19072e7531a6a590197a645f3b0d96c6f101ad02a"
+  },
+  {
+    "path": "docs/epics/refactoring-2026-10/TASKS.md",
+    "sha256": "f70b01d97a0181c3f84ff4f4e0d3e396536533135bddca5ea2ce8783901f7e82"
+  }
+]

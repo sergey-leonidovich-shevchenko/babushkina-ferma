@@ -25,3 +25,7 @@ docs/reports/refactor-03/authoring-move/godot-prepare_celestial_dial.txt -whites
 docs/reports/refactor-03/authoring-move/godot-prepare_character_walk.txt -whitespace
 docs/reports/refactor-03/authoring-move/godot-prepare_hero_actions.txt -whitespace
 docs/reports/refactor-03/authoring-move/godot-prepare_skeleton_v2.txt -whitespace
+# Preserve the rejected fresh-QA import log, including its final blank line.
+docs/reports/refactor-03/alpha-slicing-prepare/gates-01/architecture.txt -whitespace
+# Cancelled CI raw keeps timestamp-only lines and package-manager output verbatim.
+docs/reports/refactor-03/alpha-slicing-move/baseline/cancelled-linux123020343023.txt -whitespace

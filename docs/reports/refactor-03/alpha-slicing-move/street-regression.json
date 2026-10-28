@@ -1,0 +1,9 @@
+{
+  "test_sha256": "0034e0ca7bb49b502c14eebfd790f9a77d2001ab10d0b88abf7c1fb017d51ab1",
+  "producer_sha256": "a0f19aede3aa7f3a371a8dc59669f55269a6733b8ceeb9e3bb5ad82ead665491",
+  "red_exit": 1,
+  "green_exit": 0,
+  "green_producer_sha256": "dc79bb5a1e7e289c909b22ff75027f67e60dc74f03670b3bf6e4347694b16336",
+  "same_test_source": true,
+  "real_file_Git_IO": true
+}

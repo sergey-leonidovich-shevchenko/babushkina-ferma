@@ -39,6 +39,7 @@ python3 tools/run.py qa.art.test_current_paths
 python3 tools/run.py assets.migration.test_scanner_history
 python3 tools/run.py assets.migration.test_migration_fixture
 python3 tools/run.py assets.alpha.test_processing_history
+python3 tools/run.py assets.alpha.test_street_consumer
 python3 tools/run.py assets.contracts.test_source_paths
 python3 tools/run.py planning.test_task_batch
 
@@ -186,12 +187,12 @@ python3 tools/test_foliage_pause.py
 python3 tools/foliage_pause_verify.py
 python3 tools/foliage_visibility_verify.py
 python3 tools/test_foliage_visibility.py
-python3 tools/alpha_audit.py
-python3 tools/test_alpha_audit.py
-python3 tools/test_alpha_proof.py
-python3 tools/slice_audit.py
-python3 tools/test_slice_audit.py
-python3 tools/test_slice_proof.py
+python3 tools/run.py assets.alpha.alpha_audit
+python3 tools/run.py assets.alpha.test_alpha_audit
+python3 tools/run.py assets.alpha.test_alpha_proof
+python3 tools/run.py assets.slicing.slice_audit
+python3 tools/run.py assets.slicing.test_slice_audit
+python3 tools/run.py assets.slicing.test_slice_proof
 python3 tools/run.py assets.migration.asset_migration
 python3 tools/run.py assets.migration.test_asset_migration
 python3 tools/run.py assets.migration.test_migration_proof

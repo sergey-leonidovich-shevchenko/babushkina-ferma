@@ -1,0 +1,142 @@
+{
+  "base": "7dbd5b2cc003a24bbdf88e4e2f1d08637b936602",
+  "root_sources_after_moves": 403,
+  "physical_source_moves": 17,
+  "JSON_moves": 2,
+  "ignored_UID_moves": 6,
+  "moves": [
+    {
+      "old_path": "tools/alpha_audit.py",
+      "target": "tools/assets/alpha/alpha_audit.py",
+      "before_sha256": "851126b3970b67a1131a7a54b2aa8062bba6d5a6a465aa268e729ebd8d9a3a9f",
+      "after_sha256": "4ff7ba97a2958260bf8657db2bb5c23340ba75748c723f7715e9d993b05212b3",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/alpha_capture.gd",
+      "target": "tools/assets/alpha/alpha_capture.gd",
+      "before_sha256": "0a5dce5a6f558f21cb03bcdf47a0189d2639d3ebf7ed5ee0a7c6e8aba57fc81a",
+      "after_sha256": "8ac3f91f0b3395bd63114c0d8023f8517ae54f1e21f8cf6e371c248d065e485c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/alpha_fixtures.py",
+      "target": "tools/assets/alpha/alpha_fixtures.py",
+      "before_sha256": "e0a8755ec14574f27015ce3be1004da9ce196d380247ca9b2433e21cfe76b412",
+      "after_sha256": "5e42f134b0eda2fe346161297b81ef17fa5ff3c630ba5e6834138743cdd4831e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/alpha_metrics.py",
+      "target": "tools/assets/alpha/alpha_metrics.py",
+      "before_sha256": "f301d32d7ebf3d2c80a0aeb210089b78f8d06377da54751324a837a18381f17b",
+      "after_sha256": "f301d32d7ebf3d2c80a0aeb210089b78f8d06377da54751324a837a18381f17b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/alpha_policy.json",
+      "target": "tools/assets/alpha/alpha_policy.json",
+      "before_sha256": "566214f14980294d36ace4fdee5f659e8ba5de44ba8903602e2f083b5b1a7e5c",
+      "after_sha256": "566214f14980294d36ace4fdee5f659e8ba5de44ba8903602e2f083b5b1a7e5c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/alpha_proof.py",
+      "target": "tools/assets/alpha/alpha_proof.py",
+      "before_sha256": "0661b395f69c2624a5a5c1d0e8665d06e0e9c3e1131ed99efb274bf1dfe10f14",
+      "after_sha256": "60a22c28df373ec3837f80efd8e4d494323434aec7827eda8f331d94a84a4af4",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_audit.py",
+      "target": "tools/assets/slicing/slice_audit.py",
+      "before_sha256": "c1944c2e187ab922a5765e437aa9e4d235fd446bc69fc8d1d40457f9845f1d9d",
+      "after_sha256": "3426937b2f33f1eac6b78654289f1e5c1499eaab792e5765bc76e58741c4cf2b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_capture.gd",
+      "target": "tools/assets/slicing/slice_capture.gd",
+      "before_sha256": "a5784861a412f0842c9513ed751d3e99cf3fd0ea1f4d5a56ba3ab07f0b78611d",
+      "after_sha256": "cc6ee5e5daf46a88ea283e2b6a546efb82d4412a3147c6533a4b128eb487ec33",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_catalogs.gd",
+      "target": "tools/assets/slicing/slice_catalogs.gd",
+      "before_sha256": "4953f2b4dd14887826fc06f7e6ae946676a7cde9887fae13678ce70dc04dcfc8",
+      "after_sha256": "4953f2b4dd14887826fc06f7e6ae946676a7cde9887fae13678ce70dc04dcfc8",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_export.gd",
+      "target": "tools/assets/slicing/slice_export.gd",
+      "before_sha256": "f4c1bbd6ed24392b35483297d3f93f4badc575bbf3a7f1542422880879023dd0",
+      "after_sha256": "4c533353ca6f9dbe2297e1364389addd71d782dbcdfba03d39e1f8c7048200fc",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_legacy_capture.gd",
+      "target": "tools/assets/slicing/slice_legacy_capture.gd",
+      "before_sha256": "2e3df3edd52107d8a1d477109d4bec572f7d49e3a02db6c0933bd5e8c636d6ff",
+      "after_sha256": "715b1423670b5d7aa37ca0c7352b74a40017e5cf66f3d86d1c5c797edb50f619",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_metrics.py",
+      "target": "tools/assets/slicing/slice_metrics.py",
+      "before_sha256": "32dd7871ee05ee5531d90d0533005a0302afa87be658035471ac9ad4b54dde86",
+      "after_sha256": "32dd7871ee05ee5531d90d0533005a0302afa87be658035471ac9ad4b54dde86",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_policy.json",
+      "target": "tools/assets/slicing/slice_policy.json",
+      "before_sha256": "31e86a7279992cb85829be80337224dd658224a481bb10a7c474c981feed247c",
+      "after_sha256": "31e86a7279992cb85829be80337224dd658224a481bb10a7c474c981feed247c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_proof.py",
+      "target": "tools/assets/slicing/slice_proof.py",
+      "before_sha256": "0e67e1999ac302ad245a66027a4d391335063ad74fd4a96a64aa05a216673bab",
+      "after_sha256": "fdfd4c66e0b8f4f292d38c0cb613d495abadd03ab5e3d2c2c0913a9af63c3d06",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_review.gd",
+      "target": "tools/assets/slicing/slice_review.gd",
+      "before_sha256": "f5b437ed6004824ab1151f7c08b1cd5219ebf7f135f40ef646040a3a2c490123",
+      "after_sha256": "f5b437ed6004824ab1151f7c08b1cd5219ebf7f135f40ef646040a3a2c490123",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_alpha_audit.py",
+      "target": "tools/assets/alpha/test_alpha_audit.py",
+      "before_sha256": "16d8a991840e1ab5dd358678f9e4595c0087044259ebfadd45e3804831bac353",
+      "after_sha256": "a42b2b2f693bd12d9ae226b85bcfb5c83303a4962b29fdb536d8db107a027c9c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_alpha_proof.py",
+      "target": "tools/assets/alpha/test_alpha_proof.py",
+      "before_sha256": "9e5ebbc2023aa3cc0eab3f6aee1d25190fdaf59bc552ed11b60359b096868d6f",
+      "after_sha256": "ab9b645aef2cd914f5dba5b6438adbab60328b1a4de0b69953d2a5b727000a20",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_slice_audit.py",
+      "target": "tools/assets/slicing/test_slice_audit.py",
+      "before_sha256": "dcb632180c53ffccec8ca054ab8157f14c7111d465144e180300ad7da3da4b99",
+      "after_sha256": "d6aac470a3825b7554d471d87a299bb8f165357271b279a65559fd74a3d33f23",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_slice_proof.py",
+      "target": "tools/assets/slicing/test_slice_proof.py",
+      "before_sha256": "1ce6da422eb427eb9a6487e9356f3f7b0283d257041ebe6d1c793d344a68d01c",
+      "after_sha256": "f0d4f4428c79ab6f68d75499c8c5cc6362d864fdecabd8b3d2629494595fe025",
+      "mode": 420
+    }
+  ]
+}

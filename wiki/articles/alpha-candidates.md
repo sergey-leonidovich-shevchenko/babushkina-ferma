@@ -320,4 +320,4 @@
 | `assets/game/interiors/furniture_a/stairs_south.png` | белый 3 | `88948b8e0fac` |
 | `assets/game/items/ui/preview/pickled_vegetables.png` | белый 3 | `be27a11a603a` |
 
-Полные SHA256, границы областей и образцы пикселей находятся в `docs/reports/visual-overhaul/vpipeline-007/legacy-baseline.json`. Точный свежий результат одного файла: `python3 tools/alpha_audit.py --inspect <путь PNG>`. Инструмент не исправляет изображение и не создаёт задачи автоматически.
+Полные SHA256, границы областей и образцы пикселей находятся в `docs/reports/visual-overhaul/vpipeline-007/legacy-baseline.json`. Точный свежий результат одного файла: `python3 tools/run.py assets.alpha.alpha_audit --inspect <путь PNG>`. Инструмент не исправляет изображение и не создаёт задачи автоматически.

@@ -12,11 +12,12 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import alpha_proof as alpha
-import slice_proof as proof
-import slice_audit as slicing
+import tools.assets.alpha.alpha_proof as alpha
+import tools.assets.slicing.slice_proof as proof
+import tools.assets.slicing.slice_audit as slicing
 from tools.common.git import git_environment
 from tools.common.paths import project_root
+from tools.assets.contracts.source_paths import current_source
 
 ROOT = project_root(__file__)
 COMMIT = 'd609ab4fa6d82d6d013265183f018b8836abf7cc'
@@ -40,7 +41,9 @@ class ProcessingHistoryTests(unittest.TestCase):
         self.root = self.parent / 'data'
         (self.root / 'tools').mkdir(parents=True)
         for name in NAMES:
-            shutil.copyfile(ROOT / name, self.root / name)
+            target = current_source(self.root, name)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(current_source(ROOT, name), target)
         (self.root / 'scripts').mkdir()
         (self.root / 'scripts/provider.gd').write_text('live source')
         (self.root / 'assets/game').mkdir(parents=True)
@@ -62,7 +65,7 @@ class ProcessingHistoryTests(unittest.TestCase):
         """Исторический pin не разрешает изменённый текущий source в проверяемой копии."""
         for name in NAMES[:3]:
             with self.subTest(source=name):
-                path = self.root / name
+                path = current_source(self.root, name)
                 original = path.read_bytes()
                 path.write_bytes(b'changed copy')
                 with self.assertRaisesRegex(ValueError, 'implementation differs'):
@@ -76,9 +79,9 @@ class ProcessingHistoryTests(unittest.TestCase):
                        env=git_environment(), check=True, capture_output=True)
         for name in NAMES:
             raw = b'current changed source: ' + name.encode()
-            (code / name).parent.mkdir(parents=True, exist_ok=True)
-            (code / name).write_bytes(raw)
-            (self.root / name).write_bytes(raw)
+            (current_source(code, name)).parent.mkdir(parents=True, exist_ok=True)
+            (current_source(code, name)).write_bytes(raw)
+            (current_source(self.root, name)).write_bytes(raw)
         with ExitStack() as stack:
             for module in (alpha, proof, slicing):
                 stack.enter_context(patch.object(module, 'ROOT', code))
@@ -88,13 +91,21 @@ class ProcessingHistoryTests(unittest.TestCase):
             self.assertNotEqual(slicing.inputs(self.root), slicing.inputs(self.root, historical=True))
 
     def test_missing_code_history_cannot_borrow_data_history(self):
-        """Код без D609 отказывает, даже если данные находятся рядом с настоящей историей."""
+        """Код без D609 отказывает, даже если data Git действительно содержит D609."""
+        data = self.parent / 'data with history'
+        subprocess.run(['git', 'clone', '-q', '--shared', '--no-checkout', str(ROOT), str(data)],
+                       env=git_environment(), check=True, capture_output=True)
+        shutil.copytree(self.root, data, dirs_exist_ok=True)
+        self.root = data
+        for name in NAMES:
+            self.assertEqual(digest(subprocess.check_output(
+                ['git', '-C', str(data), 'show', COMMIT + ':' + name], env=git_environment())), self.expected[name])
         code = self.parent / 'no history'
         code.mkdir()
         subprocess.run(['git', 'init', '-q', str(code)], env=git_environment(), check=True)
         for name in NAMES:
-            (code / name).parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(self.root / name, code / name)
+            (current_source(code, name)).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(current_source(self.root, name), current_source(code, name))
         with ExitStack() as stack:
             for module in (alpha, proof, slicing):
                 stack.enter_context(patch.object(module, 'ROOT', code))
@@ -108,7 +119,7 @@ class ProcessingHistoryTests(unittest.TestCase):
         for old, new in slicing.PACKAGED_EXPORTERS.items():
             path = self.root / new
             path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_bytes(b'packaged current bytes: ' + old.encode())
+            path.write_bytes(current_source(ROOT, old).read_bytes())
         return {'tool_source_paths': dict(slicing.PACKAGED_EXPORTERS),
             'inputs_sha256': slicing.inputs(self.root, source_paths=slicing.PACKAGED_EXPORTERS),
             'source_sha256': digest((self.root / slicing.PACKAGED_EXPORTERS[NAMES[3]]).read_bytes())}

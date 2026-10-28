@@ -1,0 +1,328 @@
+{
+  "base": "7dbd5b2cc003a24bbdf88e4e2f1d08637b936602",
+  "version": "0.0.367",
+  "root_sources": 420,
+  "assignments": {
+    "tools/alpha_audit.py": {
+      "target": "tools/assets/alpha/alpha_audit.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_capture.gd": {
+      "target": "tools/assets/alpha/alpha_capture.gd",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_fixtures.py": {
+      "target": "tools/assets/alpha/alpha_fixtures.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_metrics.py": {
+      "target": "tools/assets/alpha/alpha_metrics.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_policy.json": {
+      "target": "tools/assets/alpha/alpha_policy.json",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_proof.py": {
+      "target": "tools/assets/alpha/alpha_proof.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/slice_audit.py": {
+      "target": "tools/assets/slicing/slice_audit.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_capture.gd": {
+      "target": "tools/assets/slicing/slice_capture.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_catalogs.gd": {
+      "target": "tools/assets/slicing/slice_catalogs.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_export.gd": {
+      "target": "tools/assets/slicing/slice_export.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_legacy_capture.gd": {
+      "target": "tools/assets/slicing/slice_legacy_capture.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_metrics.py": {
+      "target": "tools/assets/slicing/slice_metrics.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_policy.json": {
+      "target": "tools/assets/slicing/slice_policy.json",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_proof.py": {
+      "target": "tools/assets/slicing/slice_proof.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_review.gd": {
+      "target": "tools/assets/slicing/slice_review.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/test_alpha_audit.py": {
+      "target": "tools/assets/alpha/test_alpha_audit.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/test_alpha_proof.py": {
+      "target": "tools/assets/alpha/test_alpha_proof.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/test_slice_audit.py": {
+      "target": "tools/assets/slicing/test_slice_audit.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/test_slice_proof.py": {
+      "target": "tools/assets/slicing/test_slice_proof.py",
+      "family": "assets-slicing",
+      "action": "move"
+    }
+  },
+  "consumers": [
+    ".gitignore",
+    ".gitattributes",
+    "VERSION",
+    "project.godot",
+    "Бабушкина ферма.app/Contents/Info.plist",
+    "tools/assets/contracts/source_paths.py",
+    "tools/assets/contracts/test_source_paths.py",
+    "tools/assets/alpha/test_processing_history.py",
+    "tools/village_street_verify.py",
+    "tools/quality/check_architecture.sh",
+    "TESTING.md",
+    "QA_CHECKLIST.md",
+    "docs/DEVELOPMENT.md",
+    "docs/epics/visual-overhaul-2026-10/backlog.json",
+    "docs/epics/visual-overhaul-2026-10/epics/vpipeline.md",
+    "wiki/articles/alpha-candidates.md",
+    "wiki/articles/alpha-edges.md",
+    "wiki/articles/sprite-slices.md",
+    "wiki/articles/project-refactoring.md",
+    "docs/epics/refactoring-2026-10/TASKS.md",
+    "tools/README.md"
+  ],
+  "sources": {
+    ".gitattributes": {
+      "sha256": "921554fb967a3df964eff9fc8e1411f49af1d7ff27973101a18557c02cb56821",
+      "mode": 420
+    },
+    ".gitignore": {
+      "sha256": "9436a103463a7a4445da7555cc011b303326f2e72e2db20191ab438f64aa3db1",
+      "mode": 420
+    },
+    "QA_CHECKLIST.md": {
+      "sha256": "61258322285a11ed0cb0fccde38972fa3c40848f0c39ec3066f42e2da290e3bf",
+      "mode": 420
+    },
+    "TESTING.md": {
+      "sha256": "1eb4565d3c238ee59874d0a7270d62fbdeb9ebf09e68d88ed70464091ea5cc9d",
+      "mode": 420
+    },
+    "VERSION": {
+      "sha256": "f4b94b4bfb3aa9cc2b16a1ef3baff0ed4554bf56c76f0e24bd3fa0a3c10a6f57",
+      "mode": 420
+    },
+    "docs/DEVELOPMENT.md": {
+      "sha256": "1517a9835b32335e4ee76a5485ea0dc7ac85b7ac70f63abd8a2ba56d814b0d5a",
+      "mode": 420
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "sha256": "d0c9c6d70ba2b00f3f8968450c52dbbca374430180ec54db3d79d424cd527006",
+      "mode": 420
+    },
+    "docs/epics/visual-overhaul-2026-10/backlog.json": {
+      "sha256": "8d897788490d339ef7fb391843e75d5def11f0ac46723ba1c1853ffeb7267576",
+      "mode": 420
+    },
+    "docs/epics/visual-overhaul-2026-10/epics/vpipeline.md": {
+      "sha256": "2fe500831e54e5fbe891451ec313ad727f38b63e0b76f2da83cedcb29b8261a3",
+      "mode": 420
+    },
+    "project.godot": {
+      "sha256": "4551524c5efe38abe7a33ac5bd9ed2a1c3a73cf3462c4d182b62a25ef5f35c01",
+      "mode": 420
+    },
+    "tools/README.md": {
+      "sha256": "e0482c042cbc1b9e0c668c033ff21119c41a6a7d287032be7c131a543b3da44c",
+      "mode": 420
+    },
+    "tools/alpha_audit.py": {
+      "sha256": "851126b3970b67a1131a7a54b2aa8062bba6d5a6a465aa268e729ebd8d9a3a9f",
+      "mode": 420
+    },
+    "tools/alpha_capture.gd": {
+      "sha256": "0a5dce5a6f558f21cb03bcdf47a0189d2639d3ebf7ed5ee0a7c6e8aba57fc81a",
+      "mode": 420
+    },
+    "tools/alpha_fixtures.py": {
+      "sha256": "e0a8755ec14574f27015ce3be1004da9ce196d380247ca9b2433e21cfe76b412",
+      "mode": 420
+    },
+    "tools/alpha_metrics.py": {
+      "sha256": "f301d32d7ebf3d2c80a0aeb210089b78f8d06377da54751324a837a18381f17b",
+      "mode": 420
+    },
+    "tools/alpha_policy.json": {
+      "sha256": "566214f14980294d36ace4fdee5f659e8ba5de44ba8903602e2f083b5b1a7e5c",
+      "mode": 420
+    },
+    "tools/alpha_proof.py": {
+      "sha256": "0661b395f69c2624a5a5c1d0e8665d06e0e9c3e1131ed99efb274bf1dfe10f14",
+      "mode": 420
+    },
+    "tools/assets/alpha/test_processing_history.py": {
+      "sha256": "ee9c5a52cdc7cb36aa899c8d212ca8fbca878b547dbadd2d96f35c78256f38c2",
+      "mode": 420
+    },
+    "tools/assets/contracts/source_paths.py": {
+      "sha256": "b5bb6a0cafa109f45e43a1adde28f592ca00e863edb57a9a9c453e162b088989",
+      "mode": 420
+    },
+    "tools/assets/contracts/test_source_paths.py": {
+      "sha256": "11d6121e2d4613c1da8a86bac88c8de7d7f61487ae18899aeb15ff4faf4049d8",
+      "mode": 420
+    },
+    "tools/quality/check_architecture.sh": {
+      "sha256": "999a6bde6e0fc6543e16273317da0074de1b8b5a9115946e699236a40778252c",
+      "mode": 493
+    },
+    "tools/slice_audit.py": {
+      "sha256": "c1944c2e187ab922a5765e437aa9e4d235fd446bc69fc8d1d40457f9845f1d9d",
+      "mode": 420
+    },
+    "tools/slice_capture.gd": {
+      "sha256": "a5784861a412f0842c9513ed751d3e99cf3fd0ea1f4d5a56ba3ab07f0b78611d",
+      "mode": 420
+    },
+    "tools/slice_catalogs.gd": {
+      "sha256": "4953f2b4dd14887826fc06f7e6ae946676a7cde9887fae13678ce70dc04dcfc8",
+      "mode": 420
+    },
+    "tools/slice_export.gd": {
+      "sha256": "f4c1bbd6ed24392b35483297d3f93f4badc575bbf3a7f1542422880879023dd0",
+      "mode": 420
+    },
+    "tools/slice_legacy_capture.gd": {
+      "sha256": "2e3df3edd52107d8a1d477109d4bec572f7d49e3a02db6c0933bd5e8c636d6ff",
+      "mode": 420
+    },
+    "tools/slice_metrics.py": {
+      "sha256": "32dd7871ee05ee5531d90d0533005a0302afa87be658035471ac9ad4b54dde86",
+      "mode": 420
+    },
+    "tools/slice_policy.json": {
+      "sha256": "31e86a7279992cb85829be80337224dd658224a481bb10a7c474c981feed247c",
+      "mode": 420
+    },
+    "tools/slice_proof.py": {
+      "sha256": "0e67e1999ac302ad245a66027a4d391335063ad74fd4a96a64aa05a216673bab",
+      "mode": 420
+    },
+    "tools/slice_review.gd": {
+      "sha256": "f5b437ed6004824ab1151f7c08b1cd5219ebf7f135f40ef646040a3a2c490123",
+      "mode": 420
+    },
+    "tools/test_alpha_audit.py": {
+      "sha256": "16d8a991840e1ab5dd358678f9e4595c0087044259ebfadd45e3804831bac353",
+      "mode": 420
+    },
+    "tools/test_alpha_proof.py": {
+      "sha256": "9e5ebbc2023aa3cc0eab3f6aee1d25190fdaf59bc552ed11b60359b096868d6f",
+      "mode": 420
+    },
+    "tools/test_slice_audit.py": {
+      "sha256": "dcb632180c53ffccec8ca054ab8157f14c7111d465144e180300ad7da3da4b99",
+      "mode": 420
+    },
+    "tools/test_slice_proof.py": {
+      "sha256": "1ce6da422eb427eb9a6487e9356f3f7b0283d257041ebe6d1c793d344a68d01c",
+      "mode": 420
+    },
+    "tools/village_street_verify.py": {
+      "sha256": "bc0becdefd6565aad86d8732664e6bf7f0379d7371455af860d0ad27abd70ec9",
+      "mode": 420
+    },
+    "wiki/articles/alpha-candidates.md": {
+      "sha256": "57cc274003f347cccc45794d7fd442cd512b794d786e54f86745311ca8fb7da5",
+      "mode": 420
+    },
+    "wiki/articles/alpha-edges.md": {
+      "sha256": "9f9ac06ac4c7ef63784452c534350f9ccc97a7932fced86e0b029dc226ebf85b",
+      "mode": 420
+    },
+    "wiki/articles/project-refactoring.md": {
+      "sha256": "04927a6dcb0e1fa95f372587fd4d4ecd2b5e6baac6fcb59885fa917f3e858017",
+      "mode": 420
+    },
+    "wiki/articles/sprite-slices.md": {
+      "sha256": "05c2338c0b164d2fc72d909a7dbe1b7442bb77103cd052cf3ab54077999c37f3",
+      "mode": 420
+    },
+    "Бабушкина ферма.app/Contents/Info.plist": {
+      "sha256": "69c99ff0759e39c4b02553d43b8acacaf16c40f8b068800988831a917b6214a2",
+      "mode": 420
+    }
+  },
+  "local_UID": [
+    {
+      "old_path": "tools/alpha_capture.gd.uid",
+      "target": "tools/assets/alpha/alpha_capture.gd.uid",
+      "sha256": "c7056f3c166570920c497a9213b21e367d40ee2ba22dafa8ac7c23da0d79be47",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_capture.gd.uid",
+      "target": "tools/assets/slicing/slice_capture.gd.uid",
+      "sha256": "02660dcfcf2d6457c10100e1eac46bb43161f5cda2877fe4f6f1d0dc402ab472",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_catalogs.gd.uid",
+      "target": "tools/assets/slicing/slice_catalogs.gd.uid",
+      "sha256": "fc1aa868e72d2ca9340e22a63110f9269ff7683f5ca714531498a973d9f5e73b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_export.gd.uid",
+      "target": "tools/assets/slicing/slice_export.gd.uid",
+      "sha256": "bfdb64f3fb2f8c140c25feea4c424e7c8b08db0dd2ac032a08af78d7d7c7f149",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_legacy_capture.gd.uid",
+      "target": "tools/assets/slicing/slice_legacy_capture.gd.uid",
+      "sha256": "90b39c4440d1b86701218bc595f9336edaae845e2200b344f248e3efc75775f8",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/slice_review.gd.uid",
+      "target": "tools/assets/slicing/slice_review.gd.uid",
+      "sha256": "4bceca0d651fd337a699d2bb3907fa8afc5267e564117eda5f8225240bde9d95",
+      "mode": 420
+    }
+  ],
+  "source_review": 5688074197,
+  "source_review_accepted_intermediate_only": true,
+  "CI367_final_pending": true
+}
