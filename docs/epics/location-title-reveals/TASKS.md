@@ -48,7 +48,7 @@
 
 **Проверка:** Редакционная проверка по ACCEPTANCE, node wiki/scripts/title-catalog-audit.mjs, Wiki check, браузер и TESTING.md.
 
-**Подтверждения / результат:** Подготовлены контракт, каталоги, макет и будущие карточки. Проверки — в [редакционном отчёте](../../reports/title-00/README.md). Ветка `codex/title-00-location-boss-reveals`; PR будет записан после публикации. Статус in_progress, ожидается независимое ревью текущего head и решение Team Lead; игровая реализация не выполнена.
+**Подтверждения / результат:** Подготовлены контракт, каталоги, макет и будущие карточки. Проверки — в [редакционном отчёте](../../reports/title-00/README.md). Ветка `codex/title-00-location-boss-reveals`; PR №23: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/23 — открыт в main. Исходный контент проверен на `55c81f3ff7cfbdfaa99e02adf16e94488c580530`; итоговый набор публикации — `docs/reports/title-00/checkpoint-2/`. Статус in_progress, ожидается независимое ревью текущего head и решение Team Lead; игровая реализация не выполнена.
 
 ## TITLE-01 — Ввести стабильные профили и событие успешного прибытия
 

@@ -121,6 +121,11 @@ const tasks = catalog.tasks.filter((t) => t.plan === 'location-titles')
 assert.equal(tasks.length, 25)
 assert.equal(tasks[0].id, 'TITLE-00')
 assert.equal(tasks[0].status, 'in_progress')
+assert.ok(
+  tasks[0].result.includes(
+    'https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/23'
+  )
+)
 assert.ok(tasks.slice(1).every((t) => t.status === 'backlog'))
 const ids = new Set(catalog.tasks.map((t) => t.id))
 const byId = new Map(tasks.map((t) => [t.id, t]))

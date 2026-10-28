@@ -1,6 +1,6 @@
 # Названия мест и представление боссов
 
-**Это согласованная механика по прямому поручению 28 октября, не IDEA.** Подготовлен отдельный [эпик TITLE](#/development/epics/location-titles--TITLE): [постановка TITLE-00](#/development/tasks/location-titles--TITLE-00) ждёт независимого ревью, 24 игровых этапа остаются в плане. Эффект ещё не добавлен в игру.
+**Это согласованная механика по прямому поручению 28 октября, не IDEA.** Подготовлен отдельный [эпик TITLE](#/development/epics/location-titles--TITLE): [постановка TITLE-00](#/development/tasks/location-titles--TITLE-00) ждёт независимого ревью, 24 игровых этапа остаются в плане. Эффект ещё не добавлен в игру. Постановка опубликована в [PR №23](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/23).
 
 Полная постановка: `docs/epics/location-title-reveals/README.md`. [52 профиля мест](location-title-places.md) · [20 встреч с боссами](location-title-bosses.md) · [данные каталога](../../docs/reports/title-00/profiles.json).
 

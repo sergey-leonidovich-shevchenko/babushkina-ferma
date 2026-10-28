@@ -1,0 +1,19 @@
+{
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "places": 52,
+  "currentMaps": 30,
+  "futureAtlasPlaces": 20,
+  "settlements": 6,
+  "encounters": 20,
+  "futureEncounters": 15,
+  "tasks": 25,
+  "implementationBacklog": 24,
+  "preservedIdeaArticles": 90,
+  "preservedStateIdeas": 241,
+  "stateUnchanged": true,
+  "assessmentsUnchanged": true,
+  "atlasUnchanged": true,
+  "dependencyGraph": "valid",
+  "gameplayImplemented": false,
+  "futureGameplayScenariosRun": 0
+}
