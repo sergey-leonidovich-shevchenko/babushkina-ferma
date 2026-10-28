@@ -1,0 +1,35 @@
+[
+  {
+    "gate": "architecture",
+    "command": [
+      "tools/check_architecture.sh"
+    ],
+    "version": "0.0.366",
+    "started_at": "2026-10-28T08:53:19.679444+00:00",
+    "exit": 0,
+    "finished_at": "2026-10-28T11:07:15.121564+00:00"
+  },
+  {
+    "gate": "game",
+    "command": [
+      "./run_tests.sh"
+    ],
+    "version": "0.0.366",
+    "started_at": "2026-10-28T11:07:15.126048+00:00",
+    "exit": 0,
+    "finished_at": "2026-10-28T11:14:25.992159+00:00"
+  },
+  {
+    "gate": "wiki",
+    "command": [
+      "pnpm",
+      "--dir",
+      "wiki",
+      "check"
+    ],
+    "version": "0.0.366",
+    "started_at": "2026-10-28T11:14:25.995337+00:00",
+    "exit": 0,
+    "finished_at": "2026-10-28T11:15:23.395343+00:00"
+  }
+]

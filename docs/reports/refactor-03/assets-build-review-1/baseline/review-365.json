@@ -1,0 +1,31 @@
+{
+  "source_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5676955759",
+  "reviews": [
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUl94bw",
+      "state": "COMMENTED",
+      "body": "CHANGES REQUESTED — промежуточный пакет assets/build0.0.365, exact head `48ac944b5bda5a5183b3678a7a8329ed49b8f28c`.\n\nНайден обязательный P2 в настоящем producer migration_fixture.create: создание нового внешнего стенда падает до записи project.godot. Замечание оставлено у строки54. Независимое воспроизведение использует настоящие runtime-входы и новый tempfile, без запуска Godot. Точное прежнее тело create из принятого6af72 на тех же реальных зависимостях создаёт probe в прежнем namespace и проходит5 файловых фаз; текущая функция даёт FileNotFoundError для отсутствующего tools/assets/migration. Временные проекты удалены.\n\nПроверка остальных частей пакета продолжается. Ни промежуточной приёмки этого head, ни общего APPROVED03/merge нет; опубликованные успешные gates не отменяют этот отказ.",
+      "submitted_at": "2026-10-28T02:16:20Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    },
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUmAHEQ",
+      "state": "COMMENTED",
+      "body": "REVIEW COMPLETE — CHANGES REQUESTED, assets/build0.0.365, exact head `48ac944b5bda5a5183b3678a7a8329ed49b8f28c`, граница `6af72b44..48ac944b`. Единственное найденное обязательное замечание P2 сохраняется в inline review5676955759, tools/assets/migration/migration_fixture.py:54. Пакет не принят.\n\nРеальный create нового внешнего migration fixture падает с FileNotFoundError до project.godot/case/draft. Точное прежнее тело create из Git6af72, с теми же настоящими closure/Git/image I/O и побайтно тем же probe, создаёт старый namespace и проходит5 файловых фаз. Текущая функция отказала. Godot при этой причинной проверке не запускался; temp удалены. Нужна регрессия самого producer, а не только самостоятельно собранных test fixtures.\n\nОстальная независимая проверка завершена:\n- В собственном worktree повторён опубликованный profile.py:35 Python AST +7 Python consumers,28 GD bodies/parse-only,71 перемещение/mode,8 tracked UID,2 byte-identical JSON. 18 ignored UID подготовлены по frozen значениям (15 совпавших прежних reviewer UID,3 авторских read-only UID вместо локально сгенерированных копий с сохранением последних в /tmp).\n- 22 настоящих foreign CLI прошли. Fresh headless editor import и28 parse-only успешны. Реальные old/new fixed-input collectors дали одинаковые4 PNG и численные случаи, отказ перезаписи и4 metadata-подмены подтвердились. Эти проверки не создавали игровую сцену или новый native/GPU/FPS результат.\n- Новый12-case source-path suite прошёл на Python3.9; профиль также исполнил его на3.11. Отдельные25 portability cases и16 artist cases прошли. Первый portability запуск в sandbox упал в Godot при открытии user://logs с SIG11; raw сохранён. Повтор тех же проверок с тем же движком вне sandbox дал25/0; исходники/пороги не менялись.\n- Artist-document капсула независимо воспроизведена на одинаковых16 тестах: before source16/4, current16/0, без errors. Gzip SHA сверён с первым профилем, тестовый SHA — с evidence; другие live/Git reference проверки сохранены. Второй документ остаётся привязан к прежнему ed38d94c/SHA, manifest не переписан.\n- Проверены105 current source SHA,196 report digests (197 опубликованных файлов вместе с checks),93 gzip-входа против Git6af72 и все18520 прежних report blobs. Все37 исторических полей21 модуля,85 авторских локальных ignored UID/anchor и остальные6 карточек сохранены. Политики/UID побайтно прежние; runtime/artwork/plans прежние, в Game suite только2 адреса preload по карте. Три исторических документа равны Git6af72. Прежние87 architecture suites сохранены, добавлен только12-case набор;4 preview/4 artist cases добавлены к старым методам.\n- Полные авторские raw gates-02 действительно88 suites/1224, Game53502/0, normal/F10 по90/0, Wiki145/0; прежняя красная серия сохранена. Полный diff --check от main проходит. Собственный exact-head worktree чистый. Своего Game/оконной игры/браузерного прогона в этом ревью не было; игру на ПК не запускал.\n\nПоследний снимок CI48ac:6/8 success, обе test ещё in_progress. Ни успех профиля, ни зелёный CI не отменяют воспроизведённый P2 producer. После исправления нужен обычный push в этот же PR, новый точный SHA и проверки по изменению для повторного независимого ревью.\n\n03 остаётся in_progress/root420 при конечном бюджете≤30, PR open/draft, итогового APPROVED/Task-Complete/merge нет. Сводка направляется только Team Lead. После полного завершения03 сохраняется остановка пользователя;06/другие PR/графика не запускаются.",
+      "submitted_at": "2026-10-28T02:22:42Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    }
+  ]
+}

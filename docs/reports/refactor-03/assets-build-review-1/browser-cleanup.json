@@ -1,0 +1,18 @@
+{
+  "own_tab_id": "10",
+  "own_tab_closed": true,
+  "viewport_reset": true,
+  "user_tabs_untouched": true,
+  "own_server_status_before_stop": {
+    "app": "moon-valley-wiki",
+    "project": "REFACTOR-03-QA",
+    "pid": 81021,
+    "planning": 1
+  },
+  "own_server_pid": 81021,
+  "own_server_stop_signal": "SIGTERM",
+  "user_server4175_untouched": true,
+  "download_clicked": false,
+  "own_server_exit": 143,
+  "own_server_stop_confirmed": true
+}

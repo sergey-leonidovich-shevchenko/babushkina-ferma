@@ -7,7 +7,6 @@ from tools.common.paths import project_root
 import re
 import shutil
 from tools.assets.migration.migration_inventory import git_bytes, git_read
-from tools.assets.contracts.source_paths import current_source
 
 START=['scripts/systems/visual_resource_catalog.gd','scripts/editor/level_editor_document_store.gd','scripts/systems/level_editor_asset_catalog_system.gd']
 SIDES=['south','west','east']
@@ -51,7 +50,9 @@ def create(root:Path, target:Path, baseline=None):
         name=path.removeprefix('res://');destination=target/name;destination.parent.mkdir(parents=True,exist_ok=True)
         destination.write_bytes(git_bytes(root,baseline,name) if baseline else (root/name).read_bytes())
         Path(str(destination)+'.import').write_bytes(git_bytes(root,baseline,name+'.import') if baseline else Path(str(root/name)+'.import').read_bytes())
-    (target/'tools').mkdir(exist_ok=True);shutil.copyfile(Path(__file__).with_name('migration_capture.gd'),current_source(target, 'tools/migration_capture.gd'))
+    (target/'tools').mkdir(exist_ok=True)
+    # Внешний проект сохраняет собственный namespace probe; canonical относится к исходнику.
+    shutil.copyfile(Path(__file__).with_name('migration_capture.gd'), target/'tools/migration_capture.gd')
     project='config_version=5\n[application]\nconfig/name="VPIPELINE-009 isolated fixture"\n[display]\nwindow/size/viewport_width=1152\nwindow/size/viewport_height=648\n[rendering]\nrenderer/rendering_method="gl_compatibility"\ntextures/default_filters/use_nearest_mipmap_filter=false\n'
     (target/'project.godot').write_text(project)
     case={'schema_version':1,'phase':'baseline','catalog_before':catalog,'paths':paths,'copied_files':names}

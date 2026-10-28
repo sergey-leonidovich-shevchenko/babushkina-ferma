@@ -1,0 +1,1956 @@
+{
+  "version": "0.0.366",
+  "prepared_commit": "6af72b44ddd62109ba4765638b79ab86736d5eae",
+  "prepared_source_sha256": "f0572ec053a015cc54eda71749fe7df45f5c2f45e39806e1436c2408da68d4cc",
+  "source_sha256": "1ed687be451ca59c64dd3fcf9d2fd661ebea79f9d95852bf557806f566d42f73",
+  "exact_function_AST_equal": [
+    "closure",
+    "create",
+    "phase"
+  ],
+  "old_exact_create_AST_with_actual_unchanged_closure_Git_copy": true,
+  "producer_files_equal": {
+    "saved-draft.json": "6e92f0c143ea0385dc993a86310c0036ddaca31b5e0a28cadc0a27e10d28ab75",
+    "migration-case.json": "b1844d5de3ecff33179ee64a11c83fc51914be4793d5ff5cbdebc55c346b97eb",
+    "project.godot": "ded411bd3c94c7a1019b08ff111cb3d2f4ec72f7569c10a68a2196377e8a9cdf",
+    "tools/migration_capture.gd": "69ed4b0872c57161d9ff56d742a3db0bfe89eeddb1dae85aa240af54bb68f7f6",
+    "scripts/systems/resident_visual_system.gd": "e2ae1392499bf97c4292c01873ff44223a57f3445532d46998b7e61494e49572",
+    "scripts/systems/atomic_json_store.gd": "f0ad6faad3a8d94b64b594c24b2fcb5238d5faadb77973d3da6ff3b76ed2ce74",
+    "scripts/systems/hero_action_visual_system.gd": "aaa1581e8a5f8658a468c6c25d9d4f6860bb9038d8282aedde606671b31a023b",
+    "scripts/systems/wildlife_visual_system.gd": "f457e8950bbf054a77fe1f73176743683ce56e9c0e125eb966722a50869bd9e6",
+    "scripts/systems/hero_action_system.gd": "68d205f94ce4dd14682c4272d8ebedae0611fe3d67ac1d14ffee9cc4542e80fe",
+    "scripts/systems/cave_asset_system.gd": "2b37009441607797c470210c22d1e972f0363dc6751d68cbad0cd386f9acd307",
+    "scripts/systems/water_visual_system.gd": "36a6a978c3e359577ecf6b4a0dfdd25363ed09b6432ecbabe09118e7303439c6",
+    "scripts/systems/level_editor_validation_system.gd": "148ca060cb29890fde502fecc75d17fa845bb8e8f025eb2e9333a0d851f06a33",
+    "scripts/systems/sprite_matte_system.gd": "2fee92c65c9fa22e0d9cd057dbb0289be4530db32554d694e417e6fae31a5a55",
+    "scripts/systems/road_visual_system.gd": "9c42d2c091936370c81b6624d0dce9cc3ec21b98b756c195f77db3808f4d4cc6",
+    "scripts/systems/animation_asset_registry.gd": "a6090db3ee4e43b42a0479ce0a136d9f5dee2e456318239b4c6de8ae50d7e519",
+    "scripts/systems/weak_owner_cache.gd": "7487d27c2856a3df1e52885e44e539e079866b0dda31e63dde54947bd9a44cdf",
+    "scripts/systems/world_visual_profile_system.gd": "fe7b775242db53d0b14410dd72deb80ba09f259344d2705a48b3328e80d6019e",
+    "scripts/systems/grandmother_visual_system.gd": "bfbdc9a1569e638646da399b72cf398e1f770c89d976a0ce9f07797bea54982f",
+    "scripts/systems/visual_resource_catalog.gd": "886db3ce32c40cc205ea0a44f0e485b12fdb7b0355dd82f788739d2195fa3213",
+    "scripts/systems/level_editor_asset_catalog_system.gd": "abb8004d6c2341807524afedb2fcdae4a0246c390583e98200cb3d1a807a6da5",
+    "scripts/systems/spatial_grid_system.gd": "c38381aa66236f75da1eaade613ad0abd48872542bd37da1d3ecd7fece2411f0",
+    "scripts/presentation/village_ground_clock.gd": "84db09d30a8e5b6c9ff2e7daebd5b0ddbff0751da5a48dd8c5d37e30ff996ab4",
+    "scripts/presentation/prepared_pixel_cache.gd": "6cbc57b7875a40db9ff269bfa535764f177aea944431bc6548404aa79bda8926",
+    "scripts/presentation/visual_sampling_system.gd": "7c69b5cc49d387a58a21d214b00b382c1b91fc69747d3d2e953369e3debd929d",
+    "scripts/presentation/texture_intent_system.gd": "4e29b86028aa64cf1b581a78b0a7684fb2a23770cefe20f595949737ef56d6c7",
+    "scripts/presentation/visual_reference_mode.gd": "95919eb8ca14b9893a78220dcecf1479ad5691895646595d4482fde8e3904c8e",
+    "scripts/editor/level_editor_document_store.gd": "a46199b65cdbc7f7189cb26254de2666706f7ccf806d71a1f9809349cc1666d2",
+    "scripts/editor/editor_actor_source_system.gd": "a8cab5db13fd31ddb4360318b54dd41ac5c23b85ac4bea4b57f44763fe00475d",
+    "scripts/editor/editor_cave_source_system.gd": "93dd2358ea7c0584cccabae6d6d5679d4943efa4e73080a199aed39915ee68f3",
+    "assets/generated/level_drafts/water_navigation_ingame_preview.png": "3eb2ecc8ebcb2af365abd7671e6f9450c1e7ffed662cb8a9006a73e39ced09f4",
+    "assets/generated/level_drafts/water_navigation_ingame_preview.png.import": "fd5557669eaa3a93d0630eadc770588b89ea0975d265870e986fba6ae9e01a15",
+    "assets/game/visual_resources.json": "5486c6bf09da9e9ba4acc2be84aeeea01500b0780551800e5f833c6dacc82e5c",
+    "assets/game/visual_sampling.json": "6dcb752185303546f2f867bf73f3bd2adfcf1585be4e22121b41bdcf979003a7",
+    "assets/game/visual_texture_intents.json": "be4e4d8d1d5cf0d88e4084ab523d08b2df678bf06df22d02ebf0541449425e0e",
+    "assets/game/prepared_pixels/grandmother.res": "455a1c597f9ebca306d515b0fe0b48a0fbe7a156ce6a24381220202f008745e3",
+    "assets/game/prepared_pixels/hero_hoe.res": "e6e7179d77ba8466b0ffcac2deda10ed64280a6ef209a416f48877258e93ef89",
+    "assets/game/prepared_pixels/catalog.gd": "5f78d2983a72a82e556085ced98dc2484e62c69555e4605a92a8c51df3d9b024",
+    "assets/game/prepared_pixels/hero_walk.res": "19bf9bc4c72e3b45f5d6217a1ad6ffc3975dd234f34da5a4e317cb11ab2d755f",
+    "assets/game/prepared_pixels/bat.res": "6951562a0716626b2bc1a363503eebef055bf40dbf7b1025d21f656b38eab9a3",
+    "assets/game/prepared_pixels/fox.res": "13b50340a6ab00cd4cfd41e688111589a7f8b6c072bfc14ea863f3d7e4cb9abf",
+    "assets/game/prepared_pixels/lizard.res": "35686ca064ea877c3bd01b93ea1c7b2e573c65e5dc53fcb9a2e55e8ebab5c052",
+    "assets/game/prepared_pixels/portal.res": "057ff6204a5be1dfe002260422b4a0ebd0ff0417e38da831f7a9afdd88367b44",
+    "assets/game/fishing/Fish Swimming.png.import": "0fda283f4432b0b13ad72c13865a31beebf66aef4fbd667c340468823e4061e1",
+    "assets/game/fishing/Splash Effect.png": "ef0010895017722fb0e499046488a97671f9e5ea22758d56daaea165e3d2860a",
+    "assets/game/fishing/Fish Swimming.png": "b79d298193e55259429b4c74c7e936758aeea5d5cb16044a749d55630838c626",
+    "assets/game/fishing/Splash Effect.png.import": "23ae9366893f153c676ebb7778a12cbf6de8d5adc7b4be5048e1cd6058e3ad88",
+    "assets/game/fishing/Bubbles Rising.png": "907dc51b21603c80432480c8cb0bb9c074045003d0152e9df5da5f6d70b4a4f4",
+    "assets/game/fishing/Bubbles Rising.png.import": "52e481fb1927359e952475f7f8b3b49e2886b46d22e8f4e9f315d27925531f1e",
+    "assets/game/tiles/editor/water/river_corner.png.import": "6e47cde8b09c588933a04e7d5809245b882a82a47b69d61f6a1044b441acff76",
+    "assets/game/tiles/editor/water/water_clear.png": "7035f1d2d14eb295a911e8ae2534685eeae3f694d401402b8688fa89d2f83df7",
+    "assets/game/tiles/editor/water/shore_south.png": "b93801ba774633c6bb6952c63f7d90279062ef30c3dc0444d63448ac95a8bd5b",
+    "assets/game/tiles/editor/water/water_clear.png.import": "f7a567821eebf5c07eac5afcb415b575dede30ca0c2b470624b186f3efa85c3f",
+    "assets/game/tiles/editor/water/water_lilies.png": "c4b15e90754267fae384dbe04eddee0455b05de3c90d42c6472a480d77c431d9",
+    "assets/game/tiles/editor/water/water_shallow.png": "48b7ee8760aa37d89773ab97b9cca974ce3cd176ce54b345a385606e42840c65",
+    "assets/game/tiles/editor/water/shore_south.png.import": "a5d061d6b88ebf6c509a76762e9a3d98124b3bf3b594084758d295ab3b4f0993",
+    "assets/game/tiles/editor/water/shore_north.png": "5a310c41dd094d2057b122c769ce76dcf9daed984319de35882ab83b1a511265",
+    "assets/game/tiles/editor/water/river_corner.png": "55d3a2a5b4b6d7653b47510fd2628410610e9397b1283a26cc638d055b31d320",
+    "assets/game/tiles/editor/water/pond_rocky.png.import": "41cef2f86e2c9c425d6784e9255c663f24061d86c0657e6411866d43346db139",
+    "assets/game/tiles/editor/water/water_deep.png.import": "616b0785ae8a1c2f99a46d78987e5198da4a04d59f6896e86288086d0d1cb41a",
+    "assets/game/tiles/editor/water/water_sparkles.png": "b8fbc2bbe2b29877dc424d01e995f436fd51ee94b57d7026012eddbd14c91665",
+    "assets/game/tiles/editor/water/river_cross.png": "f610121647e8859e205c1dccb56baa959fd0787acf022a680e392ca643cf97e2",
+    "assets/game/tiles/editor/water/river_cross.png.import": "dc4fe36db594118f01df3944913f46fd27aeb0720715136c3196a428eeabdfaf",
+    "assets/game/tiles/editor/water/shore_outer_corner.png": "afe7a86cb197ab572d2836795f1c87df6d15afb8107ff0a1839f224813cd9a42",
+    "assets/game/tiles/editor/water/shore_east.png.import": "06ebf91274629870e8cbddaa1023c2effdc4d6751f4f02e3e2412c844451c21c",
+    "assets/game/tiles/editor/water/water_shallow.png.import": "51b36782d4066498d9c612b895154d212225dc3181aa4d1553e8c5d4fcd54c99",
+    "assets/game/tiles/editor/water/water_deep.png": "c88cc94ddb3722019623431a5221951a408a1054bc2ddcbe198d6ce39a0ff34e",
+    "assets/game/tiles/editor/water/river_end.png.import": "23d3ce153db4fb99c91a89dacc1973e833354595bb06c533760dc0fa32e68020",
+    "assets/game/tiles/editor/water/water_ripples.png.import": "e3a6c98984fe3d579e3a549a9318371b028386a7e30eb3c55e92c24d41f433e8",
+    "assets/game/tiles/editor/water/water_lilies.png.import": "4c98b17ceeb73711bc2f633149e1b2da1f2f7eccf6e572a925065e49f7f53b4a",
+    "assets/game/tiles/editor/water/river_vertical.png.import": "63acf6ef9673f7ced27f62e445d67f2f74cee643ce5bfcb908efeb8393fcb866",
+    "assets/game/tiles/editor/water/river_vertical.png": "79f72aa48c526d12084dd57a66410533d8137e2e53aac6e152b46e4ffc272b3a",
+    "assets/game/tiles/editor/water/shore_outer_corner.png.import": "41403ea8dc8cc9336ceaae7288207666078f56b6ed6d5b18397b1b64aca0138d",
+    "assets/game/tiles/editor/water/shore_inner_corner.png.import": "d0fa43f7613b6f31ffe0ac70380f43c6eca719749e5dcc1d06094022fbf34dc6",
+    "assets/game/tiles/editor/water/shore_west.png.import": "f63873c00bed67dce14fd22374e04259affc5e4aac6e64489bbb978102743ede",
+    "assets/game/tiles/editor/water/river_t_junction.png.import": "b568da124ac787c5dd03d9073da34a6c280268446db55a393419aadeb5323a08",
+    "assets/game/tiles/editor/water/shore_west.png": "67fadbfb5c26ecb3e1ffe5181f3ed66a94e05a10f51d2fbc1e614b48bd0a2adb",
+    "assets/game/tiles/editor/water/river_horizontal.png.import": "c06ef076621676fa079db2c22ac52c71c5d138075290db13fe5c2f089b255938",
+    "assets/game/tiles/editor/water/water_ripples.png": "a734203282cdc6b5811eddf5e50bc717c5f4b6197118cb8b7772ecee0093c5b4",
+    "assets/game/tiles/editor/water/river_t_junction.png": "e080659e449197cc0e97e5379c29300929b3bb2bae84af4ebcc5c552d8eeacdd",
+    "assets/game/tiles/editor/water/pond_rocky.png": "75e5656d06b11d68cc41eeb335d43647766a613a7a13e92056f16d3ecd81ea08",
+    "assets/game/tiles/editor/water/water_sparkles.png.import": "a53b6b072f83fda55c7aabb89a6e8f119702666dc685cc9ab08f771cb07bdaed",
+    "assets/game/tiles/editor/water/river_end.png": "eb76bfab02c951ce578137ce4f399f34bfcb5a6b2d0734dcc27894410ce18e76",
+    "assets/game/tiles/editor/water/shore_inner_corner.png": "1a8d1a73bf2b1ac6ef4e1d61d958fd929ed64805aafb1fb62402fd3e6c1c6499",
+    "assets/game/tiles/editor/water/shore_east.png": "fae49ac10b60f976610ffbe76fa6d6772581fb634f0ee4a1a198cd391e905d9e",
+    "assets/game/tiles/editor/water/river_horizontal.png": "28250536f22810bc5b6f11fc1a3dbc38334453f7cde88daefb511b1da446338e",
+    "assets/game/tiles/editor/water/shore_north.png.import": "0ef593fdf9b07288755de7e121df922eccb9c5ca3e08aa144dbf6be5e9ba0126",
+    "assets/game/tiles/editor/terrain/stone_road_cross.png.import": "4a01439e13efc8e6fab313a07a07e58ed1caf5f59485e994ee18bc1fd07d3324",
+    "assets/game/tiles/editor/terrain/stone_road_end.png.import": "03d7a50b1182e3c216695ea2ed04a1e3658068d42e7ddc26ce1062c1d8191e22",
+    "assets/game/tiles/editor/terrain/dirt_path_end.png.import": "3bf5d32d20236bb2d19bd50b680305d7485f8baad3c81556e32233333c2f1030",
+    "assets/game/tiles/editor/terrain/dirt_path_horizontal.png.import": "16928d9b1bb744d04ddcad3ad61bf413cc95724fba8e214b3ae0914c4d265b49",
+    "assets/game/tiles/editor/terrain/dirt_path_corner.png.import": "bfef82bb8387123cd7574573aa6a6a00b5af44a3c8cb88055c69cd7132f5b5ac",
+    "assets/game/tiles/editor/terrain/stone_road_vertical.png.import": "dbf17feb7107e0ae3ac884788702d2fb2ae370e923196939d52ae83ee147bd0f",
+    "assets/game/tiles/editor/terrain/dirt_path_corner.png": "a0439651cedda6b96e1ed9a8d0fefccc3214441f836a07e94d716626a08d9fde",
+    "assets/game/tiles/editor/terrain/dirt_path_t_junction.png.import": "1b3e2bd87a142e92bf4edef4b9b2e7b97e4665680de69ca3b036f3009412d726",
+    "assets/game/tiles/editor/terrain/stone_road_corner.png": "9e76f40c276524c2c5288aa0c0e0138962c51288d8d116c5d6d49efd669b241c",
+    "assets/game/tiles/editor/terrain/stone_road_vertical.png": "90f9684d8ffee206552c5254c8b93043992548e8196a49a79ff4adacc84a099f",
+    "assets/game/tiles/editor/terrain/stone_road_end.png": "040a7f981085e5666ef9afd5c2c422178f831c90699668af63e6a605f866349d",
+    "assets/game/tiles/editor/terrain/stone_road_t_junction.png.import": "ef73cc34951f81eda0070e1004ee65f4570c3103edc722b4e09f9a18cde8ea2f",
+    "assets/game/tiles/editor/terrain/stone_road_corner.png.import": "92e40579a73ee82048f7a8ccc8b265afd0b94d407478a7b63cf76b819f8d07be",
+    "assets/game/tiles/editor/terrain/dirt_path_cross.png.import": "21ae283e78ef20f8d4a83bdb975691524ccae8caa59b92aa1a51cc2798a43742",
+    "assets/game/tiles/editor/terrain/stone_road_horizontal.png.import": "cb76950ab58cb09f81be97c2d6e9bae91600fbb2ca5eaf2da259406193b0259c",
+    "assets/game/tiles/editor/terrain/stone_road_cross.png": "35641a888677244c37328ecb574e5f941392ee6ced8babcc6919341a641edf98",
+    "assets/game/tiles/editor/terrain/stone_road_horizontal.png": "3ef8f42a5d31ef002557f2671b724b2b06b3ebbdee2a075ac20280b5bad8224f",
+    "assets/game/tiles/editor/terrain/dirt_path_horizontal.png": "40aff2579051583408e2d4c04328562cec2d7d3a983cf84bdcb76f73c4adb82c",
+    "assets/game/tiles/editor/terrain/dirt_path_cross.png": "f94a185f0f3c8716c221feb1621190ae83678c41ae3037db9cb2c050be80a8d7",
+    "assets/game/tiles/editor/terrain/dirt_path_t_junction.png": "c83d923651fd97d1c166c24507b7f1ada38ec282a8b67a7fafad88b7d3336315",
+    "assets/game/tiles/editor/terrain/dirt_path_vertical.png": "fa98c6c535dcdb8ed5c8616a5db9e0347c324724b3bf5e68d790f70decd57159",
+    "assets/game/tiles/editor/terrain/stone_road_t_junction.png": "29099946712bb9fe08b24f60f803c86b7111284b382455d9a71d01a931a5f53c",
+    "assets/game/tiles/editor/terrain/dirt_path_vertical.png.import": "bf1e3596ad46a5e531eb4a8e77e2433fb05f863f070bd271ccd8742bd3155f5e",
+    "assets/game/tiles/editor/terrain/dirt_path_end.png": "86e167d9b91ca97113629d6d450d87b9a66d0d640e82dc18aecbabcc5dbfea73",
+    "assets/game/wildlife/directional/lizard_walk_4dir_v2.png.import": "4dfe10e1bb758f64f5a49eb8bce19878f6f40c4ac03a6b33ecc87b0b0ce774b9",
+    "assets/game/wildlife/directional/fox_walk_4dir_v2.png.import": "cd6abac4ecee8e2a378ee78afdb61a013d0ea80aaf280ae0b89425ffe4539149",
+    "assets/game/wildlife/directional/bat_flight_4dir_v2.png": "24ca6e85e4c7d4f380c8a5276c5790b04f82b835b0c3e2a92dbd917db6d54350",
+    "assets/game/wildlife/directional/boar_actions_8dir.png": "abbc7e1b94ddf6a236a6970a63ef185c22b3457e5e6a54685b23a67d68af8b2c",
+    "assets/game/wildlife/directional/lizard_walk_4dir_v2.png": "b3779aa80fa6ab65d91ef384571dc623e8602941303a3517cb20f68f9bbb03a4",
+    "assets/game/wildlife/directional/bat_flight_4dir_v2.png.import": "398ab1b518277d951bf72c19dcb6020c98bdc89be7d2e0e10969fc26a028abc1",
+    "assets/game/wildlife/directional/fox_walk_4dir_v2.png": "8f54875355697247b4da1dbae9ecc2d07ccf04d27bacc193341e317c441baffd",
+    "assets/game/wildlife/directional/deer_actions_8dir.png.import": "c5cb06bb34255aa038a4f14299ebf6b238ff8fdf908db863048cccf307e90ccd",
+    "assets/game/wildlife/directional/deer_actions_8dir.png": "8a3f704fc153daac86ad9db046c0dcf6efd3a598da9f5d7ba28bf0d3b656b504",
+    "assets/game/wildlife/directional/boar_actions_8dir.png.import": "476f011dd33541724dfc12891a4b12cba4bf3d1a2d3dc11112ad016dc490923d",
+    "assets/game/locations/cave/modular/boulder_v1.png": "f1ccc459a939e41250dd718da6c43dbf2e1ae2077204f42468129bf1782d501c",
+    "assets/game/locations/cave/modular/stalagmites_v1.png.import": "0129b4776bbe33ee6b76a5c4409722cd7b9d8442e881fb96087b3ff2e6457af7",
+    "assets/game/locations/cave/modular/wall_side_left_v1.png.import": "572bbc058a4166e734d3c49bd25e0613af835b8ba6c2f147306a081ffe51f5a5",
+    "assets/game/locations/cave/modular/ore_metal_v1.png": "5716630bc2eee141640772da6b112aa9bbaaa3ca97234be59cd908ed7a34c71a",
+    "assets/game/locations/cave/modular/wall_straight_b_v1.png.import": "cde09b13d4d5609c09b006ce922376afd154a98314592fb79a123ed1495e9726",
+    "assets/game/locations/cave/modular/boulder_v1.png.import": "47247b15e235d12e164d62e62d0d0d795bef77c5b0085f4605956ba808b02f82",
+    "assets/game/locations/cave/modular/wall_straight_a_v1.png.import": "094175e64dce2c48ad8906f5dec412e54d812ba1b0faff9c9ce186f3c5986ff3",
+    "assets/game/locations/cave/modular/wall_end_v1.png": "8661613121cbd2979b740369c4feb85017f9de0527341df8002a13607ba8e5fa",
+    "assets/game/locations/cave/modular/entrance_v1.png.import": "7d4108c8521dc1f2bad57cfb7758d1713f7e1df81c30d5706d28d48b70b288a2",
+    "assets/game/locations/cave/modular/crystal_fragments_v1.png": "84764d54bb383ba467288127c959949a337cdd6aef766df990b89a29f0425702",
+    "assets/game/locations/cave/modular/wall_straight_b_v1.png": "3b7c250cfef533adfea84c30e640ed362a9660720d7a7957e03a115318cbb535",
+    "assets/game/locations/cave/modular/wall_rim_v1.png.import": "642478e6ea11683536d1896e657ba5d0f54c382163b2e01ac3057997e3e47d89",
+    "assets/game/locations/cave/modular/wall_side_left_v1.png": "c2615d4b6f945483b078b0a7ad83656844d73f119fe01fc3011f7e55d5ada091",
+    "assets/game/locations/cave/modular/crystal_blue_v1.png": "96d26fa82205dedc45a350b1b257b51f84929ca3d5a9462b79cb116b0567fdac",
+    "assets/game/locations/cave/modular/torch_v1.png.import": "0506cf40bce4da2567238ac0ca4b3e58b8330dcd428727984f86608559bba140",
+    "assets/game/locations/cave/modular/stalagmites_v1.png": "bbb66ff50ab261a2f0916eeb199f7fa75c6c301c89cc558075e52df8f6fa466b",
+    "assets/game/locations/cave/modular/crystal_red_v1.png": "185a746b8942aeff48707cd24a5bc5736349c5b15c8f207c13dd8c96041e6904",
+    "assets/game/locations/cave/modular/corner_right_v1.png.import": "d525ccc97077afc430875afbd1559112c086a11ea72659c3991b986a814494e0",
+    "assets/game/locations/cave/modular/corner_inner_v1.png": "595d799ab93042df07a7b513e045fe8f5f04696371d91954ac3c3df14691f7f6",
+    "assets/game/locations/cave/modular/corner_inner_v1.png.import": "0f6e29906d74d5dc6e735dbfb4db54453ca1c84ac4816e7666a454480d967d25",
+    "assets/game/locations/cave/modular/rubble_v1.png.import": "6e4b94d52e4306feed311737e1b00f4dc981f6f2ee6f8960cc6806bbd73a32d7",
+    "assets/game/locations/cave/modular/crystal_green_v1.png": "6f5c01644d824b945dc5ba4ae3c5caa936e4484081fa6f2b9226aeac067ecef3",
+    "assets/game/locations/cave/modular/crystal_red_v1.png.import": "ca40024a206aa8e70357b757feb7dcfb335ec23486dce398392f6cfeb51286fc",
+    "assets/game/locations/cave/modular/crystal_green_v1.png.import": "df783c834a3d4f9ea7ae66f85088324f39fd7459f8fdabc1ac0219169ea540f6",
+    "assets/game/locations/cave/modular/crystal_blue_v1.png.import": "e8eef5e82b11ffb83e874273c8a3706a011d0fb99d7f1fed3f3ac3ccba99a012",
+    "assets/game/locations/cave/modular/corner_left_v1.png.import": "f151b56211203d2b5f4c4617e30034a4ec42813912a03370e4f0198a006f8734",
+    "assets/game/locations/cave/modular/floor_v1.png.import": "b4eab2994945ab4ad1cd5667901d2d0338d3cb6d90335feb57beba80b5ae7b8b",
+    "assets/game/locations/cave/modular/wall_side_right_v1.png": "4e0e1adb13788218c760a0d6ef752dc38c941de38d21eba73883d0f2f70de35f",
+    "assets/game/locations/cave/modular/ore_metal_v1.png.import": "b7daf6a8150924576b4df99a6d5e12ec31b0ebcb3860a33a3527ab13515c7913",
+    "assets/game/locations/cave/modular/mushrooms_v1.png.import": "296cb0cdd8c9070b1c83892faf974c11e991714daf31fe21557d271e9cae4337",
+    "assets/game/locations/cave/modular/entrance_v1.png": "a33dbe731ca81e8af3e9997ca3bdbc7497ef5052fe1336ffb0b2e850d8814040",
+    "assets/game/locations/cave/modular/corner_left_v1.png": "aa8fc79dcccd540033d17e34938c542b18e640f16f7f92cb6f3718ef9313a513",
+    "assets/game/locations/cave/modular/wall_rim_v1.png": "84c5ea3658ec291035e9eae5ce5f139dbcd81bced905acdde1fd235802b61154",
+    "assets/game/locations/cave/modular/wall_end_v1.png.import": "bb8e6e76208b375efa05b3e77547af2e1313fdc8f76d4c15ef7aada545dd9d6f",
+    "assets/game/locations/cave/modular/floor_v1.png": "ab6ef04a6fb45919ac90e2d4b8987704577321c8cec33baf74eb4d91735ad09b",
+    "assets/game/locations/cave/modular/crystal_fragments_v1.png.import": "00461b2d6b14633ffcf4414c2659b706361423a7ff0b7fd5d9b4295b5731ecf7",
+    "assets/game/locations/cave/modular/wall_straight_a_v1.png": "e134b16ec3402c3b88dcec8846218a7f6a4210f5e7f7b21c2fe0350a16a37f8e",
+    "assets/game/locations/cave/modular/mushrooms_v1.png": "432dbca9c3625ddc0ba52df4eb4c36ac2198cd4ad08e9283eba8023585247702",
+    "assets/game/locations/cave/modular/torch_v1.png": "dea449b5264600fa2d9c6af47fe1aa70cdec2351eefd786fb82e8f98dd611f7a",
+    "assets/game/locations/cave/modular/rubble_v1.png": "2c21e9879aa34154e3ca2bfeb91e913f31216232b3656b95bad44a376f610afc",
+    "assets/game/locations/cave/modular/corner_right_v1.png": "f76c4ac9388bd835b3e91e359b1d5c265d7ea2705ce26adb6b46d81c80eb5642",
+    "assets/game/locations/cave/modular/wall_side_right_v1.png.import": "6b9478ce6ac5cd32aa4d5212c3b99b0def3198b338ae6f94248617d69a834981",
+    "assets/game/locations/overworld/fences/post_v1.png": "e1230e4289195f723f80f6b9d277c5dca1cf03593885afaf8f1919e69e893f1f",
+    "assets/game/locations/overworld/fences/rail_v1.png.import": "6c9881e01840a76d79e9d598e96ff276cbb5479e6020b3a34d57d89bc1323e81",
+    "assets/game/locations/overworld/fences/depth_v1.png": "1541063b17592624d663be5f586fbe9e57951b8d56b3885b8017ff4dbd6bc959",
+    "assets/game/locations/overworld/fences/rail_v1.png": "c021acf8a6bb3e132ead8aeb5585261d0aedcdf63f453eb63184140b1b374ec1",
+    "assets/game/locations/overworld/fences/depth_v1.png.import": "be5a09c2e3ebe315c4ee85806a281bf4b1c838c35d211d0aaea2479f0df3fdd4",
+    "assets/game/locations/overworld/fences/post_v1.png.import": "68c95ec7fb777c3a8085c8d5cd015b118bb63e8983db23aa82863e0185864ebc",
+    "assets/game/locations/overworld/street_props/well_east_v1.png": "c24e241277808a1e5a24a0a9ff486ebbdc1e2bf49c7fe03170e9f13d2d07336a",
+    "assets/game/locations/overworld/street_props/cart_east_v1.png": "0b33065aec59997d4d2a25df82195f984014946fc58b5835f2ef4ff5c10ea3ad",
+    "assets/game/locations/overworld/street_props/cart_east_v1.png.import": "8510fc3afd0f7eb252547568178c6701b853be70fffc361113c06cfe7e096dbb",
+    "assets/game/locations/overworld/street_props/cart_south_v1.png": "7107b8d991d1449e5b5cc36a9c59775fcfdbbef283e45463ca618e4da95968f9",
+    "assets/game/locations/overworld/street_props/well_west_v1.png.import": "6259dda3e3f245587559d270c22edc69baf9bcef8fcc0bfb7b5e9916909d4f26",
+    "assets/game/locations/overworld/street_props/well_east_v1.png.import": "8c77253f4e29d61e6d3c6e4a995995a1b86bacee10a0d12b9be0118f9161bdcd",
+    "assets/game/locations/overworld/street_props/well_south_v1.png.import": "3a1389abddd145573a756a2024aa37893f6a2161cf45e5635009ca80002f772f",
+    "assets/game/locations/overworld/street_props/cart_west_v1.png.import": "687895e2ef9fc74d4c510af6b07575d7eeb7255cf3479eeab235cbac7b54ead4",
+    "assets/game/locations/overworld/street_props/cart_west_v1.png": "15642063de51553e4b6746bb541fb0704c034820bc900b36af20d6f1f131b744",
+    "assets/game/locations/overworld/street_props/well_west_v1.png": "cd2c231826382e2c583167a1a5d719f3d2cf669ae6ff6afeb42bcd5b95131951",
+    "assets/game/locations/overworld/street_props/well_south_v1.png": "cacfd472689c2a904e573e46cf493e446c9ad6179be09e2cd1aa852ec6014228",
+    "assets/game/locations/overworld/street_props/cart_south_v1.png.import": "2286523a9e38c31d1f13456b3aab89fdd74f4c1a42fd73170ae1999adf27b921",
+    "assets/game/locations/overworld/trade/crate_west_v1.png": "ffe300eee58b4b1e2588cc60b471501e8d7a42e56f9c26b30178c077bcce70ae",
+    "assets/game/locations/overworld/trade/stall_south_v1.png": "3fe49da9e1e79746c7e4e2f13db29b10eda3a761ef111f9b9534387bd74b574d",
+    "assets/game/locations/overworld/trade/stall_south_v1.png.import": "830630b39e6faea463b0c1d215c382a767c68af8a05ea4ba330088d81b0cd447",
+    "assets/game/locations/overworld/trade/sack_south_v1.png.import": "a860bc8b7729b0ed79997b68f13e07eae28d20b18e4489bf5994af08a7424a54",
+    "assets/game/locations/overworld/trade/crate_south_v1.png.import": "d3261c00d1fa94ff088712a374998be2d27c3144f481066ae84cd1058aaa6716",
+    "assets/game/locations/overworld/trade/stall_east_v1.png": "66e84295ed2f85b0aae12c4b70075eb54fb61ea5397cda74e9d80cfc0eef39f6",
+    "assets/game/locations/overworld/trade/stall_west_v1.png.import": "59847fc4bba6f45a8ef2970851f6eccdd1df45bc9a991f63e00e2dfcf0fc1b53",
+    "assets/game/locations/overworld/trade/crate_west_v1.png.import": "552f5896d6e1d1e79de26fb5aed9f7568b2df7abbf6c81e979abdd17b2c58fd8",
+    "assets/game/locations/overworld/trade/crate_south_v1.png": "bf388e3c713de26f6b68f081ee4968c26e2189b424c339f11104b952a153510e",
+    "assets/game/locations/overworld/trade/crate_east_v1.png.import": "2562cb4dfcec2268e2cf521c2f9f57473ad2a28b1929d5c519dfca723fe40b25",
+    "assets/game/locations/overworld/trade/sack_south_v1.png": "bf507f20bc18c6792ad9a76752924b63aab139564715e8b476179770cc5615c1",
+    "assets/game/locations/overworld/trade/stall_east_v1.png.import": "a36d557454422dfd0713c5f61e30d405f604788072ab4ca07a1b68108afb7f4a",
+    "assets/game/locations/overworld/trade/crate_east_v1.png": "fa4775a8f0e9bcb071bc8b5ea2f1f85a6778f27aab79f74a6df5b64b34d74308",
+    "assets/game/locations/overworld/trade/barrel_south_v1.png": "75871cf3dfad65e7ab32adc9e77f4ac381fd59b23b5489ffc77726826235cad8",
+    "assets/game/locations/overworld/trade/stall_west_v1.png": "c27594fbe4cb66e8de24de4b5eef375ec451384210bd3c60d0ff23dad99da37b",
+    "assets/game/locations/overworld/trade/barrel_south_v1.png.import": "5051aebbbc2061c5fc78d7af68407caec84436fc742a6dd4742e930c6a383117",
+    "assets/game/locations/overworld/lamps/lamp_west_v1.png": "18f0e0dc0004a666d9673c1203f942172ba96b28a5edb8ccd255c0e85a0d09af",
+    "assets/game/locations/overworld/lamps/lamp_west_v1.png.import": "3b2f7873731b0e805cad1db1716a9ea6d237302e13052e350d3c8cf64c2e40fd",
+    "assets/game/locations/overworld/lamps/lamp_east_v1.png.import": "5d859b3808022cbc95dabdb0d07731a5b36cfc843f35cce4297cac59c726b7a6",
+    "assets/game/locations/overworld/lamps/lamp_east_v1.png": "b53cad46f1e3b1315908fca4daacdca1b1191029e7d10b3fa30b800732a4146b",
+    "assets/game/locations/overworld/lamps/lamp_south_v1.png.import": "eca075901c269796694751ec2521cb704f252ecccc9c0a3de363d5111d5d1bd7",
+    "assets/game/locations/overworld/lamps/lamp_south_v1.png": "756c8636dbc0dcbd6d3d9c2a787637e235c6d913469907386d8a3cb61944dd1e",
+    "assets/game/locations/overworld/boards/board_south_v1.png": "e9201e136fa7b7122cb4af17a5ce0caa79e3e4e96d23fcc4264d1579f5814a9d",
+    "assets/game/locations/overworld/boards/board_west_v1.png": "03cff9800a0ec86260ea92bf98034743f858cd69dd815a11228432603fc16ee6",
+    "assets/game/locations/overworld/boards/sign_south_v1.png.import": "f0e47adb5f14b0702b52ca95b445b31bb3e1ca7f97c2753455d5401e96649b90",
+    "assets/game/locations/overworld/boards/board_east_v1.png.import": "fb328cd9d112f6e20065fde9ec52fccbbd1081ac46385e4624bd487217f4fef7",
+    "assets/game/locations/overworld/boards/sign_east_v1.png.import": "9329d792c4bdced9f25bd94498c8722b0a4ae810e51c58a3030ab062715b7741",
+    "assets/game/locations/overworld/boards/sign_south_v1.png": "e056e2978742f5a14c046e695a9e465be14f9c6b7f372d662f2894548bfba8ef",
+    "assets/game/locations/overworld/boards/board_west_v1.png.import": "95316e90635ed07898eecd6be0b1527e987b645fb6df30deb84cc915a3f2afab",
+    "assets/game/locations/overworld/boards/sign_east_v1.png": "7864602946b28ad055e0344e2ca020848105828e210b673f1b6dbf03e7d7cf83",
+    "assets/game/locations/overworld/boards/sign_west_v1.png.import": "963cdaafdee880ebb8eb31b28a46a715d822c2c5dce5f73106fed868f26410ba",
+    "assets/game/locations/overworld/boards/board_south_v1.png.import": "8857f81000c616ed66096a77307f666490ff3e21873dbb1d711dda32fae0ff2a",
+    "assets/game/locations/overworld/boards/board_east_v1.png": "bb7ce3695f744f2b449eb8d915867d625670364a2689320ee9ebdd76caffa8a2",
+    "assets/game/locations/overworld/boards/sign_west_v1.png": "216959c28a886bcb4f804e615c38b9e5eb8bf813418774153b63a6e797c24af0",
+    "assets/game/locations/overworld/benches/bench_south_v1.png.import": "9bef47ccf340fe27fd890513f0ac6ed342152c13e356f957e641e594764e7a34",
+    "assets/game/locations/overworld/benches/bench_west_v1.png": "b731c2359f3b04cada926b76674cea85b2cf5ce2d4be925f9f31dfab2e3619e7",
+    "assets/game/locations/overworld/benches/bench_east_v1.png.import": "c98bdd71c2d15f27d95a0952beaae8b34578ea10259a68eac8ed6970b0ffb99e",
+    "assets/game/locations/overworld/benches/bench_west_v1.png.import": "ea2072661877e6a1104a75c4d76bfed8ecd38292277ea5a7ae90320bbca2f9c3",
+    "assets/game/locations/overworld/benches/bench_south_v1.png": "7cb670ffecd1605d503e9b4edef4bab398aa1c188ae0ec1e2518542b8c8d096f",
+    "assets/game/locations/overworld/benches/bench_east_v1.png": "4effb0064a6e8fdbcb0fc6f421b5e3ce8303a6765b6af15591f576be13af0278",
+    "assets/game/interiors/furniture_a/rustic_table_south.png": "5a49c3222aeb1e3bc2e8ca97b2efe2173184ba18662de7fb1de070c884b15238",
+    "assets/game/interiors/furniture_a/rustic_table_west.png.import": "67094f6830ea6bd21721061c488ea0a0f86865adb45749aec79d635ce31420dd",
+    "assets/game/interiors/furniture_a/rustic_table_east.png": "d04458db38f0f6ba6f9877b69840299a3e664e117bfd5356a450727c045be618",
+    "assets/game/interiors/furniture_a/rustic_table_south.png.import": "e23d61ef1542027b837c597c821bea811670762a6d107e5f403a7f178b1aa02a",
+    "assets/game/interiors/furniture_a/rustic_table_west.png": "07852b30af6c743e8939dcddef6e2c8f50ee80a14afe877a68298addb594ea53",
+    "assets/game/interiors/furniture_a/rustic_table_east.png.import": "7c27e25de9e355b75c98229a30a1cd8af0b37203ff4d8ed4e99616091cb991d8",
+    "assets/game/items/ui/padded/level-1.png.import": "b16d2a67fd5c7883e8a60b9e9dcca71c81ae6728d656374d4d63999873c2d1a1",
+    "assets/game/items/ui/padded/level-0.png": "c0a46029edd4752cd8da67384915eace876608f41e198901e9278ae6a357ef0a",
+    "assets/game/items/ui/padded/level-1.png": "93219e75803593ab45876c4b10a03ac916f4fc815bfc663e40ea4ebe1b8758d1",
+    "assets/game/items/ui/padded/level-3.png": "c008788cfc976c2ff3181c4ebc6ae5ff0b80fb98ee11c19cbc04b0834359f47d",
+    "assets/game/items/ui/padded/level-2.png": "2f5677387141856e418a17d8352678423f548edc1b7daae87aa55183c49882d3",
+    "assets/game/items/ui/padded/level-3.png.import": "136f3d9ab24967fa8dad1121fe7af8de788a0714fb1fdc304151460e6f7bb3bb",
+    "assets/game/items/ui/padded/level-0.png.import": "75a66eaaa8b3a1f0b8c1157d49e8e183d9ca98f645351462d077e596abc2a08d",
+    "assets/game/items/ui/padded/catalog.json": "9f9143c55597e62108afcee1f7086a7ee0165f38dc2d81923b1666f8e90121e8",
+    "assets/game/items/ui/padded/level-2.png.import": "265ee4bfe62875b90b8b12e897a038c09b20545655d1b504144a53efaf095c75",
+    "assets/game/characters/grandmother_v2/walk_master.png": "6306b82428a82bceaace8d2e87e289396050db459e393a23387d27290414bcad",
+    "assets/game/characters/grandmother_v2/walk_master.png.import": "8ff48387fbf6aaf4e47cd8a74fb0108e7d273a41878dd6e849a0e03fcde25a93",
+    "assets/game/characters/hero_v3/hoe_master.png.import": "c2519769c8303ceb32bfbc140e7124925d5e406e796e4d58314e552b4e2a8a5d",
+    "assets/game/characters/hero_v3/walk_master.png": "7f6f70fbfd80683402b51caa47d9d76299906cda129e27b289d73cee7ae3a3da",
+    "assets/game/characters/hero_v3/hoe_master.png": "f824e276165f26d2b421046a4715f755dd250404ed861244fa2c03f73cd83fd7",
+    "assets/game/characters/hero_v3/walk_master.png.import": "c7639dec61b0c27ddcb4b402862a1db59ccc6899c95730ea6e1719ec386f53a9"
+  },
+  "producer_file_count": 241,
+  "native": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--editor",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--quit"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Регистрация глобальных классов… (27 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[   3% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[   7% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  14% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  21% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  25% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  28% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  32% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  35% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  39% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  42% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  46% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  53% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  57% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  64% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  67% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  71% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  75% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  78% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  85% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  89% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  92% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Started Сканирование действий… (100 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | walk_master.png\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | hoe_master.png\u001b[39m\u001b[0m\n[   1% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | walk_master.png\u001b[39m\u001b[0m\n[   2% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Bubbles Rising.png\u001b[39m\u001b[0m\n[   3% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Fish Swimming.png\u001b[39m\u001b[0m\n[   4% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Splash Effect.png\u001b[39m\u001b[0m\n[   5% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_east.png\u001b[39m\u001b[0m\n[   6% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_south.png\u001b[39m\u001b[0m\n[   7% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_west.png\u001b[39m\u001b[0m\n[   8% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | level-0.png\u001b[39m\u001b[0m\n[   9% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | level-1.png\u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | level-2.png\u001b[39m\u001b[0m\n[  11% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | level-3.png\u001b[39m\u001b[0m\n[  12% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | boulder_v1.png\u001b[39m\u001b[0m\n[  13% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | corner_inner_v1.png\u001b[39m\u001b[0m\n[  14% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | corner_left_v1.png\u001b[39m\u001b[0m\n[  15% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | corner_right_v1.png\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | crystal_blue_v1.png\u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | crystal_fragments_v1.png\u001b[39m\u001b[0m\n[  18% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | crystal_green_v1.png\u001b[39m\u001b[0m\n[  19% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | crystal_red_v1.png\u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | entrance_v1.png\u001b[39m\u001b[0m\n[  21% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | floor_v1.png\u001b[39m\u001b[0m\n[  22% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | mushrooms_v1.png\u001b[39m\u001b[0m\n[  23% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | ore_metal_v1.png\u001b[39m\u001b[0m\n[  24% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rubble_v1.png\u001b[39m\u001b[0m\n[  25% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | stalagmites_v1.png\u001b[39m\u001b[0m\n[  26% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | torch_v1.png\u001b[39m\u001b[0m\n[  27% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | wall_end_v1.png\u001b[39m\u001b[0m\n[  28% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | wall_rim_v1.png\u001b[39m\u001b[0m\n[  29% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | wall_side_left_v1.png\u001b[39m\u001b[0m\n[  30% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | wall_side_right_v1.png\u001b[39m\u001b[0m\n[  31% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | wall_straight_a_v1.png\u001b[39m\u001b[0m\n[  32% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | wall_straight_b_v1.png\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | bench_east_v1.png\u001b[39m\u001b[0m\n[  34% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | bench_south_v1.png\u001b[39m\u001b[0m\n[  35% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | bench_west_v1.png\u001b[39m\u001b[0m\n[  36% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | board_east_v1.png\u001b[39m\u001b[0m\n[  37% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | board_south_v1.png\u001b[39m\u001b[0m\n[  38% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | board_west_v1.png\u001b[39m\u001b[0m\n[  39% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | sign_east_v1.png\u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | sign_south_v1.png\u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | sign_west_v1.png\u001b[39m\u001b[0m\n[  42% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | depth_v1.png\u001b[39m\u001b[0m\n[  43% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | post_v1.png\u001b[39m\u001b[0m\n[  44% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rail_v1.png\u001b[39m\u001b[0m\n[  45% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | lamp_east_v1.png\u001b[39m\u001b[0m\n[  46% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | lamp_south_v1.png\u001b[39m\u001b[0m\n[  47% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | lamp_west_v1.png\u001b[39m\u001b[0m\n[  48% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | cart_east_v1.png\u001b[39m\u001b[0m\n[  49% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | cart_south_v1.png\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | cart_west_v1.png\u001b[39m\u001b[0m\n[  51% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | well_east_v1.png\u001b[39m\u001b[0m\n[  52% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | well_south_v1.png\u001b[39m\u001b[0m\n[  53% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | well_west_v1.png\u001b[39m\u001b[0m\n[  54% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | barrel_south_v1.png\u001b[39m\u001b[0m\n[  55% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | crate_east_v1.png\u001b[39m\u001b[0m\n[  56% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | crate_south_v1.png\u001b[39m\u001b[0m\n[  57% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | crate_west_v1.png\u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | sack_south_v1.png\u001b[39m\u001b[0m\n[  59% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | stall_east_v1.png\u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | stall_south_v1.png\u001b[39m\u001b[0m\n[  61% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | stall_west_v1.png\u001b[39m\u001b[0m\n[  62% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | dirt_path_corner.png\u001b[39m\u001b[0m\n[  63% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | dirt_path_cross.png\u001b[39m\u001b[0m\n[  64% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | dirt_path_end.png\u001b[39m\u001b[0m\n[  65% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | dirt_path_horizontal.png\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | dirt_path_t_junction.png\u001b[39m\u001b[0m\n[  67% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | dirt_path_vertical.png\u001b[39m\u001b[0m\n[  68% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | stone_road_corner.png\u001b[39m\u001b[0m\n[  69% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | stone_road_cross.png\u001b[39m\u001b[0m\n[  70% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | stone_road_end.png\u001b[39m\u001b[0m\n[  71% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | stone_road_horizontal.png\u001b[39m\u001b[0m\n[  72% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | stone_road_t_junction.png\u001b[39m\u001b[0m\n[  73% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | stone_road_vertical.png\u001b[39m\u001b[0m\n[  74% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | pond_rocky.png\u001b[39m\u001b[0m\n[  75% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | river_corner.png\u001b[39m\u001b[0m\n[  76% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | river_cross.png\u001b[39m\u001b[0m\n[  77% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | river_end.png\u001b[39m\u001b[0m\n[  78% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | river_horizontal.png\u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | river_t_junction.png\u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | river_vertical.png\u001b[39m\u001b[0m\n[  81% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | shore_east.png\u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | shore_inner_corner.png\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | shore_north.png\u001b[39m\u001b[0m\n[  84% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | shore_outer_corner.png\u001b[39m\u001b[0m\n[  85% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | shore_south.png\u001b[39m\u001b[0m\n[  86% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | shore_west.png\u001b[39m\u001b[0m\n[  87% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | water_clear.png\u001b[39m\u001b[0m\n[  88% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | water_deep.png\u001b[39m\u001b[0m\n[  89% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | water_lilies.png\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | water_ripples.png\u001b[39m\u001b[0m\n[  91% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | water_shallow.png\u001b[39m\u001b[0m\n[  92% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | water_sparkles.png\u001b[39m\u001b[0m\n[  93% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | bat_flight_4dir_v2.png\u001b[39m\u001b[0m\n[  94% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | boar_actions_8dir.png\u001b[39m\u001b[0m\n[  95% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | deer_actions_8dir.png\u001b[39m\u001b[0m\n[  96% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | fox_walk_4dir_v2.png\u001b[39m\u001b[0m\n[  97% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | lizard_walk_4dir_v2.png\u001b[39m\u001b[0m\n[  98% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | water_navigation_ingame_preview.png\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1m_update_scan_actions\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Started Импорт или повторный импорт ассетов (100 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[   1% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[   2% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[   3% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[   4% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[   5% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[   6% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[   7% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[   8% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[   9% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  11% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  12% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  13% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  14% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  15% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  18% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  19% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  21% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  22% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  23% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  24% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  25% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  26% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  27% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  28% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  29% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  30% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  31% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  32% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  34% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  35% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  36% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  37% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  38% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  39% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  42% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  43% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  44% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  45% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  46% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  47% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  48% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  49% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  51% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  52% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  53% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  54% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  55% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  56% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  57% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  59% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  61% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  62% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  63% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  64% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  65% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  67% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  68% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  69% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  70% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  71% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  72% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  73% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  74% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  75% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  76% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  77% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  78% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  81% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  84% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  85% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  86% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  87% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  88% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  89% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  91% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  92% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  93% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  94% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  95% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  96% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  97% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  98% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Выполнение предимпортных операций…\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | stone_road_vertical.png\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | stone_road_t_junction.png\u001b[39m\u001b[0m\n[   1% ] \u001b[90m\u001b[1mreimport\u001b[22m | stone_road_horizontal.png\u001b[39m\u001b[0m\n[   2% ] \u001b[90m\u001b[1mreimport\u001b[22m | stone_road_end.png\u001b[39m\u001b[0m\n[   3% ] \u001b[90m\u001b[1mreimport\u001b[22m | stone_road_cross.png\u001b[39m\u001b[0m\n[   4% ] \u001b[90m\u001b[1mreimport\u001b[22m | stone_road_corner.png\u001b[39m\u001b[0m\n[   5% ] \u001b[90m\u001b[1mreimport\u001b[22m | dirt_path_vertical.png\u001b[39m\u001b[0m\n[   6% ] \u001b[90m\u001b[1mreimport\u001b[22m | dirt_path_t_junction.png\u001b[39m\u001b[0m\n[   7% ] \u001b[90m\u001b[1mreimport\u001b[22m | dirt_path_horizontal.png\u001b[39m\u001b[0m\n[   8% ] \u001b[90m\u001b[1mreimport\u001b[22m | dirt_path_end.png\u001b[39m\u001b[0m\n[   9% ] \u001b[90m\u001b[1mreimport\u001b[22m | dirt_path_cross.png\u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mreimport\u001b[22m | dirt_path_corner.png\u001b[39m\u001b[0m\n[  11% ] \u001b[90m\u001b[1mreimport\u001b[22m | stall_west_v1.png\u001b[39m\u001b[0m\n[  12% ] \u001b[90m\u001b[1mreimport\u001b[22m | stall_south_v1.png\u001b[39m\u001b[0m\n[  13% ] \u001b[90m\u001b[1mreimport\u001b[22m | stall_east_v1.png\u001b[39m\u001b[0m\n[  14% ] \u001b[90m\u001b[1mreimport\u001b[22m | sack_south_v1.png\u001b[39m\u001b[0m\n[  15% ] \u001b[90m\u001b[1mreimport\u001b[22m | crate_west_v1.png\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mreimport\u001b[22m | crate_south_v1.png\u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1mreimport\u001b[22m | crate_east_v1.png\u001b[39m\u001b[0m\n[  18% ] \u001b[90m\u001b[1mreimport\u001b[22m | barrel_south_v1.png\u001b[39m\u001b[0m\n[  19% ] \u001b[90m\u001b[1mreimport\u001b[22m | well_west_v1.png\u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mreimport\u001b[22m | well_south_v1.png\u001b[39m\u001b[0m\n[  21% ] \u001b[90m\u001b[1mreimport\u001b[22m | well_east_v1.png\u001b[39m\u001b[0m\n[  22% ] \u001b[90m\u001b[1mreimport\u001b[22m | cart_west_v1.png\u001b[39m\u001b[0m\n[  23% ] \u001b[90m\u001b[1mreimport\u001b[22m | cart_south_v1.png\u001b[39m\u001b[0m\n[  24% ] \u001b[90m\u001b[1mreimport\u001b[22m | water_navigation_ingame_preview.png\u001b[39m\u001b[0m\n[  25% ] \u001b[90m\u001b[1mreimport\u001b[22m | lizard_walk_4dir_v2.png\u001b[39m\u001b[0m\n[  26% ] \u001b[90m\u001b[1mreimport\u001b[22m | fox_walk_4dir_v2.png\u001b[39m\u001b[0m\n[  27% ] \u001b[90m\u001b[1mreimport\u001b[22m | deer_actions_8dir.png\u001b[39m\u001b[0m\n[  28% ] \u001b[90m\u001b[1mreimport\u001b[22m | boar_actions_8dir.png\u001b[39m\u001b[0m\n[  29% ] \u001b[90m\u001b[1mreimport\u001b[22m | bat_flight_4dir_v2.png\u001b[39m\u001b[0m\n[  30% ] \u001b[90m\u001b[1mreimport\u001b[22m | water_sparkles.png\u001b[39m\u001b[0m\n[  31% ] \u001b[90m\u001b[1mreimport\u001b[22m | water_shallow.png\u001b[39m\u001b[0m\n[  32% ] \u001b[90m\u001b[1mreimport\u001b[22m | water_ripples.png\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mreimport\u001b[22m | water_lilies.png\u001b[39m\u001b[0m\n[  34% ] \u001b[90m\u001b[1mreimport\u001b[22m | water_deep.png\u001b[39m\u001b[0m\n[  35% ] \u001b[90m\u001b[1mreimport\u001b[22m | water_clear.png\u001b[39m\u001b[0m\n[  36% ] \u001b[90m\u001b[1mreimport\u001b[22m | shore_west.png\u001b[39m\u001b[0m\n[  37% ] \u001b[90m\u001b[1mreimport\u001b[22m | shore_south.png\u001b[39m\u001b[0m\n[  38% ] \u001b[90m\u001b[1mreimport\u001b[22m | shore_outer_corner.png\u001b[39m\u001b[0m\n[  39% ] \u001b[90m\u001b[1mreimport\u001b[22m | shore_north.png\u001b[39m\u001b[0m\n[  40% ] \u001b[90m\u001b[1mreimport\u001b[22m | shore_inner_corner.png\u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1mreimport\u001b[22m | shore_east.png\u001b[39m\u001b[0m\n[  42% ] \u001b[90m\u001b[1mreimport\u001b[22m | river_vertical.png\u001b[39m\u001b[0m\n[  43% ] \u001b[90m\u001b[1mreimport\u001b[22m | river_t_junction.png\u001b[39m\u001b[0m\n[  44% ] \u001b[90m\u001b[1mreimport\u001b[22m | river_horizontal.png\u001b[39m\u001b[0m\n[  45% ] \u001b[90m\u001b[1mreimport\u001b[22m | river_end.png\u001b[39m\u001b[0m\n[  46% ] \u001b[90m\u001b[1mreimport\u001b[22m | river_cross.png\u001b[39m\u001b[0m\n[  47% ] \u001b[90m\u001b[1mreimport\u001b[22m | river_corner.png\u001b[39m\u001b[0m\n[  48% ] \u001b[90m\u001b[1mreimport\u001b[22m | pond_rocky.png\u001b[39m\u001b[0m\n[  49% ] \u001b[90m\u001b[1mreimport\u001b[22m | ore_metal_v1.png\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mreimport\u001b[22m | mushrooms_v1.png\u001b[39m\u001b[0m\n[  51% ] \u001b[90m\u001b[1mreimport\u001b[22m | floor_v1.png\u001b[39m\u001b[0m\n[  52% ] \u001b[90m\u001b[1mreimport\u001b[22m | entrance_v1.png\u001b[39m\u001b[0m\n[  53% ] \u001b[90m\u001b[1mreimport\u001b[22m | crystal_red_v1.png\u001b[39m\u001b[0m\n[  54% ] \u001b[90m\u001b[1mreimport\u001b[22m | crystal_green_v1.png\u001b[39m\u001b[0m\n[  55% ] \u001b[90m\u001b[1mreimport\u001b[22m | crystal_fragments_v1.png\u001b[39m\u001b[0m\n[  56% ] \u001b[90m\u001b[1mreimport\u001b[22m | crystal_blue_v1.png\u001b[39m\u001b[0m\n[  57% ] \u001b[90m\u001b[1mreimport\u001b[22m | corner_right_v1.png\u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1mreimport\u001b[22m | corner_left_v1.png\u001b[39m\u001b[0m\n[  59% ] \u001b[90m\u001b[1mreimport\u001b[22m | corner_inner_v1.png\u001b[39m\u001b[0m\n[  60% ] \u001b[90m\u001b[1mreimport\u001b[22m | boulder_v1.png\u001b[39m\u001b[0m\n[  61% ] \u001b[90m\u001b[1mreimport\u001b[22m | level-3.png\u001b[39m\u001b[0m\n[  62% ] \u001b[90m\u001b[1mreimport\u001b[22m | level-2.png\u001b[39m\u001b[0m\n[  63% ] \u001b[90m\u001b[1mreimport\u001b[22m | level-1.png\u001b[39m\u001b[0m\n[  64% ] \u001b[90m\u001b[1mreimport\u001b[22m | level-0.png\u001b[39m\u001b[0m\n[  65% ] \u001b[90m\u001b[1mreimport\u001b[22m | rustic_table_west.png\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mreimport\u001b[22m | rustic_table_south.png\u001b[39m\u001b[0m\n[  67% ] \u001b[90m\u001b[1mreimport\u001b[22m | rustic_table_east.png\u001b[39m\u001b[0m\n[  68% ] \u001b[90m\u001b[1mreimport\u001b[22m | Splash Effect.png\u001b[39m\u001b[0m\n[  69% ] \u001b[90m\u001b[1mreimport\u001b[22m | Fish Swimming.png\u001b[39m\u001b[0m\n[  70% ] \u001b[90m\u001b[1mreimport\u001b[22m | Bubbles Rising.png\u001b[39m\u001b[0m\n[  71% ] \u001b[90m\u001b[1mreimport\u001b[22m | walk_master.png\u001b[39m\u001b[0m\n[  72% ] \u001b[90m\u001b[1mreimport\u001b[22m | hoe_master.png\u001b[39m\u001b[0m\n[  73% ] \u001b[90m\u001b[1mreimport\u001b[22m | walk_master.png\u001b[39m\u001b[0m\n[  74% ] \u001b[90m\u001b[1mreimport\u001b[22m | cart_east_v1.png\u001b[39m\u001b[0m\n[  75% ] \u001b[90m\u001b[1mreimport\u001b[22m | lamp_west_v1.png\u001b[39m\u001b[0m\n[  76% ] \u001b[90m\u001b[1mreimport\u001b[22m | lamp_south_v1.png\u001b[39m\u001b[0m\n[  77% ] \u001b[90m\u001b[1mreimport\u001b[22m | lamp_east_v1.png\u001b[39m\u001b[0m\n[  78% ] \u001b[90m\u001b[1mreimport\u001b[22m | rail_v1.png\u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1mreimport\u001b[22m | post_v1.png\u001b[39m\u001b[0m\n[  80% ] \u001b[90m\u001b[1mreimport\u001b[22m | depth_v1.png\u001b[39m\u001b[0m\n[  81% ] \u001b[90m\u001b[1mreimport\u001b[22m | sign_west_v1.png\u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1mreimport\u001b[22m | sign_south_v1.png\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mreimport\u001b[22m | sign_east_v1.png\u001b[39m\u001b[0m\n[  84% ] \u001b[90m\u001b[1mreimport\u001b[22m | board_west_v1.png\u001b[39m\u001b[0m\n[  85% ] \u001b[90m\u001b[1mreimport\u001b[22m | board_south_v1.png\u001b[39m\u001b[0m\n[  86% ] \u001b[90m\u001b[1mreimport\u001b[22m | board_east_v1.png\u001b[39m\u001b[0m\n[  87% ] \u001b[90m\u001b[1mreimport\u001b[22m | bench_west_v1.png\u001b[39m\u001b[0m\n[  88% ] \u001b[90m\u001b[1mreimport\u001b[22m | bench_south_v1.png\u001b[39m\u001b[0m\n[  89% ] \u001b[90m\u001b[1mreimport\u001b[22m | bench_east_v1.png\u001b[39m\u001b[0m\n[  90% ] \u001b[90m\u001b[1mreimport\u001b[22m | wall_straight_b_v1.png\u001b[39m\u001b[0m\n[  91% ] \u001b[90m\u001b[1mreimport\u001b[22m | wall_straight_a_v1.png\u001b[39m\u001b[0m\n[  92% ] \u001b[90m\u001b[1mreimport\u001b[22m | wall_side_right_v1.png\u001b[39m\u001b[0m\n[  93% ] \u001b[90m\u001b[1mreimport\u001b[22m | wall_side_left_v1.png\u001b[39m\u001b[0m\n[  94% ] \u001b[90m\u001b[1mreimport\u001b[22m | wall_rim_v1.png\u001b[39m\u001b[0m\n[  95% ] \u001b[90m\u001b[1mreimport\u001b[22m | wall_end_v1.png\u001b[39m\u001b[0m\n[  96% ] \u001b[90m\u001b[1mreimport\u001b[22m | torch_v1.png\u001b[39m\u001b[0m\n[  97% ] \u001b[90m\u001b[1mreimport\u001b[22m | stalagmites_v1.png\u001b[39m\u001b[0m\n[  98% ] \u001b[90m\u001b[1mreimport\u001b[22m | rubble_v1.png\u001b[39m\u001b[0m\n[  99% ] \u001b[90m\u001b[1mreimport\u001b[22m | Завершение импорта активов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mreimport\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Started Импорт или повторный импорт ассетов (100 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Выполнение операций после реимпорта…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mreimport\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--check-only",
+        "--script",
+        "res://tools/migration_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--script",
+        "res://tools/migration_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nMIGRATION FIXTURE: baseline; missing=0; unadapted=0; errors=[]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--editor",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--quit"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Started Сканирование действий… (3 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_east.png\u001b[39m\u001b[0m\n[  25% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_south.png\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_west.png\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1m_update_scan_actions\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Started Импорт или повторный импорт ассетов (3 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  25% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mreimport\u001b[22m | Подготовка файлов к повторному импорту…\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Выполнение предимпортных операций…\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | rustic_table_east.png\u001b[39m\u001b[0m\n[  25% ] \u001b[90m\u001b[1mreimport\u001b[22m | rustic_table_south.png\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mreimport\u001b[22m | rustic_table_west.png\u001b[39m\u001b[0m\n[  75% ] \u001b[90m\u001b[1mreimport\u001b[22m | Завершение импорта активов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mreimport\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Started Импорт или повторный импорт ассетов (3 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mreimport\u001b[22m | Выполнение операций после реимпорта…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mreimport\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--script",
+        "res://tools/migration_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nMIGRATION FIXTURE: dual; missing=0; unadapted=0; errors=[]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--editor",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--quit"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Started Сканирование действий… (3 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_east.png\u001b[39m\u001b[0m\n[  25% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_south.png\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_west.png\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1m_update_scan_actions\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--script",
+        "res://tools/migration_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nMIGRATION FIXTURE: unadapted; missing=0; unadapted=3; errors=[]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--editor",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--quit"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Started Сканирование действий… (3 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_east.png\u001b[39m\u001b[0m\n[  25% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_south.png\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_west.png\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1m_update_scan_actions\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--script",
+        "res://tools/migration_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nMIGRATION FIXTURE: retired; missing=3; unadapted=0; errors=[]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--editor",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--quit"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Started Сканирование действий… (3 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_east.png\u001b[39m\u001b[0m\n[  25% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_south.png\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | rustic_table_west.png\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1m_update_scan_actions\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--script",
+        "res://tools/migration_capture.gd"
+      ],
+      "exit": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nMIGRATION FIXTURE: rollback; missing=0; unadapted=0; errors=[]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--script",
+        "res://tools/migration_capture.gd"
+      ],
+      "exit": 2,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/refactor366 real producer n4dl9n62/current",
+        "--script",
+        "res://tools/migration_capture.gd"
+      ],
+      "exit": 2,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": ""
+    }
+  ],
+  "headless_actual_capture_phases": {
+    "baseline": {
+      "display_server": "headless",
+      "document": {
+        "base_location": "migration_fixture",
+        "format": "babushkina-ferma-level-draft",
+        "grid": 24,
+        "level_name": "Migration fixture",
+        "level_notes": "No player drafts are read",
+        "objects": [
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              72.0,
+              48.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 1,
+            "layer": "objects",
+            "name": "Oak table south",
+            "notes": "Preserve this note",
+            "original_position": [
+              192.0,
+              530.0
+            ],
+            "position": [
+              192.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-south",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              96.0,
+              64.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              240.0,
+              160.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          },
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              48.0,
+              72.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 2,
+            "layer": "objects",
+            "name": "Oak table west",
+            "notes": "Preserve this note",
+            "original_position": [
+              576.0,
+              530.0
+            ],
+            "position": [
+              576.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-west",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              53.7000007629395,
+              72.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              179.0,
+              240.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          },
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              48.0,
+              72.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 3,
+            "layer": "objects",
+            "name": "Oak table east",
+            "notes": "Preserve this note",
+            "original_position": [
+              960.0,
+              530.0
+            ],
+            "position": [
+              960.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-east",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              53.0999984741211,
+              72.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              177.0,
+              240.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          }
+        ],
+        "validation": {
+          "checked": 3,
+          "errors": [],
+          "valid": true,
+          "warnings": []
+        },
+        "version": 6
+      },
+      "draft_sha256": "6e92f0c143ea0385dc993a86310c0036ddaca31b5e0a28cadc0a27e10d28ab75",
+      "driver": "opengl3",
+      "engine": "4.7.1-stable (official)",
+      "errors": [],
+      "framebuffer": [
+        1152,
+        648
+      ],
+      "frames": {},
+      "method": "gl_compatibility",
+      "missing_old_paths": 0,
+      "performance_eligible": false,
+      "phase": "baseline",
+      "profile": "Codex-VPIPELINE-009-Refactor366-9e938050edd5",
+      "prototype_adapter": false,
+      "rows": [
+        {
+          "footprint": [
+            72.0,
+            48.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            96.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": true,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+          "old_profile_id": "prop.rustic_table",
+          "old_uid": "uid://cp16uen6n3c4d",
+          "path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            256.0,
+            176.0
+          ],
+          "png_sha256": "5a49c3222aeb1e3bc2e8ca97b2efe2173184ba18662de7fb1de070c884b15238",
+          "rgba_sha256": "b23c53d5e1d2b79582c1678cdd7303e73c2760ec0f1cb21255e91c340da2415d",
+          "side": "south",
+          "source": [
+            8.0,
+            8.0,
+            240.0,
+            160.0
+          ],
+          "uid": "uid://cp16uen6n3c4d"
+        },
+        {
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": true,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+          "old_profile_id": "prop.rustic_table",
+          "old_uid": "uid://b8rm1ww7t5s6",
+          "path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            195.0,
+            256.0
+          ],
+          "png_sha256": "07852b30af6c743e8939dcddef6e2c8f50ee80a14afe877a68298addb594ea53",
+          "rgba_sha256": "3980523fa2c19f45c5123d1a6003c45704f4babdef6725dbd64ba6b565621bce",
+          "side": "west",
+          "source": [
+            8.0,
+            8.0,
+            179.0,
+            240.0
+          ],
+          "uid": "uid://b8rm1ww7t5s6"
+        },
+        {
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": true,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+          "old_profile_id": "prop.rustic_table",
+          "old_uid": "uid://dsjm4w2veq25",
+          "path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            193.0,
+            256.0
+          ],
+          "png_sha256": "d04458db38f0f6ba6f9877b69840299a3e664e117bfd5356a450727c045be618",
+          "rgba_sha256": "3afdefa3983d15bad9770898b55582aa0b314c49406234ca5cf2855e140fd53a",
+          "side": "east",
+          "source": [
+            8.0,
+            8.0,
+            177.0,
+            240.0
+          ],
+          "uid": "uid://dsjm4w2veq25"
+        }
+      ],
+      "source_sha256": "69ed4b0872c57161d9ff56d742a3db0bfe89eeddb1dae85aa240af54bb68f7f6",
+      "target": "fixed_gpu_subviewport",
+      "unadapted_old_paths": 0
+    },
+    "dual": {
+      "display_server": "headless",
+      "document": {
+        "base_location": "migration_fixture",
+        "format": "babushkina-ferma-level-draft",
+        "grid": 24,
+        "level_name": "Migration fixture",
+        "level_notes": "No player drafts are read",
+        "objects": [
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              72.0,
+              48.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 1,
+            "layer": "objects",
+            "name": "Oak table south",
+            "notes": "Preserve this note",
+            "original_position": [
+              192.0,
+              530.0
+            ],
+            "position": [
+              192.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-south",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              96.0,
+              64.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              240.0,
+              160.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          },
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              48.0,
+              72.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 2,
+            "layer": "objects",
+            "name": "Oak table west",
+            "notes": "Preserve this note",
+            "original_position": [
+              576.0,
+              530.0
+            ],
+            "position": [
+              576.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-west",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              53.7000007629395,
+              72.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              179.0,
+              240.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          },
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              48.0,
+              72.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 3,
+            "layer": "objects",
+            "name": "Oak table east",
+            "notes": "Preserve this note",
+            "original_position": [
+              960.0,
+              530.0
+            ],
+            "position": [
+              960.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-east",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              53.0999984741211,
+              72.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              177.0,
+              240.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          }
+        ],
+        "validation": {
+          "checked": 3,
+          "errors": [],
+          "valid": true,
+          "warnings": []
+        },
+        "version": 6
+      },
+      "draft_sha256": "6e92f0c143ea0385dc993a86310c0036ddaca31b5e0a28cadc0a27e10d28ab75",
+      "driver": "opengl3",
+      "engine": "4.7.1-stable (official)",
+      "errors": [],
+      "framebuffer": [
+        1152,
+        648
+      ],
+      "frames": {},
+      "method": "gl_compatibility",
+      "missing_old_paths": 0,
+      "performance_eligible": false,
+      "phase": "dual",
+      "profile": "Codex-VPIPELINE-009-Refactor366-9e938050edd5",
+      "prototype_adapter": true,
+      "rows": [
+        {
+          "footprint": [
+            72.0,
+            48.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            96.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": true,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+          "old_profile_id": "prop.rustic_table",
+          "old_uid": "uid://cp16uen6n3c4d",
+          "path": "res://assets/game/interiors/migration_pilot/rustic_table_south.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            256.0,
+            176.0
+          ],
+          "png_sha256": "5a49c3222aeb1e3bc2e8ca97b2efe2173184ba18662de7fb1de070c884b15238",
+          "rgba_sha256": "b23c53d5e1d2b79582c1678cdd7303e73c2760ec0f1cb21255e91c340da2415d",
+          "side": "south",
+          "source": [
+            8.0,
+            8.0,
+            240.0,
+            160.0
+          ],
+          "uid": "uid://c7avh8b0fcgwj"
+        },
+        {
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": true,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+          "old_profile_id": "prop.rustic_table",
+          "old_uid": "uid://b8rm1ww7t5s6",
+          "path": "res://assets/game/interiors/migration_pilot/rustic_table_west.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            195.0,
+            256.0
+          ],
+          "png_sha256": "07852b30af6c743e8939dcddef6e2c8f50ee80a14afe877a68298addb594ea53",
+          "rgba_sha256": "3980523fa2c19f45c5123d1a6003c45704f4babdef6725dbd64ba6b565621bce",
+          "side": "west",
+          "source": [
+            8.0,
+            8.0,
+            179.0,
+            240.0
+          ],
+          "uid": "uid://cig8w1gc4gh5g"
+        },
+        {
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": true,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+          "old_profile_id": "prop.rustic_table",
+          "old_uid": "uid://dsjm4w2veq25",
+          "path": "res://assets/game/interiors/migration_pilot/rustic_table_east.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            193.0,
+            256.0
+          ],
+          "png_sha256": "d04458db38f0f6ba6f9877b69840299a3e664e117bfd5356a450727c045be618",
+          "rgba_sha256": "3afdefa3983d15bad9770898b55582aa0b314c49406234ca5cf2855e140fd53a",
+          "side": "east",
+          "source": [
+            8.0,
+            8.0,
+            177.0,
+            240.0
+          ],
+          "uid": "uid://cy06wdwekrpi7"
+        }
+      ],
+      "source_sha256": "69ed4b0872c57161d9ff56d742a3db0bfe89eeddb1dae85aa240af54bb68f7f6",
+      "target": "fixed_gpu_subviewport",
+      "unadapted_old_paths": 0
+    },
+    "unadapted": {
+      "display_server": "headless",
+      "document": {
+        "base_location": "migration_fixture",
+        "format": "babushkina-ferma-level-draft",
+        "grid": 24,
+        "level_name": "Migration fixture",
+        "level_notes": "No player drafts are read",
+        "objects": [
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              72.0,
+              48.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 1,
+            "layer": "objects",
+            "name": "Oak table south",
+            "notes": "Preserve this note",
+            "original_position": [
+              192.0,
+              530.0
+            ],
+            "position": [
+              192.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-south",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              96.0,
+              64.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              240.0,
+              160.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          },
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              48.0,
+              72.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 2,
+            "layer": "objects",
+            "name": "Oak table west",
+            "notes": "Preserve this note",
+            "original_position": [
+              576.0,
+              530.0
+            ],
+            "position": [
+              576.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-west",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              53.7000007629395,
+              72.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              179.0,
+              240.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          },
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              48.0,
+              72.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 3,
+            "layer": "objects",
+            "name": "Oak table east",
+            "notes": "Preserve this note",
+            "original_position": [
+              960.0,
+              530.0
+            ],
+            "position": [
+              960.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-east",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              53.0999984741211,
+              72.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              177.0,
+              240.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          }
+        ],
+        "validation": {
+          "checked": 3,
+          "errors": [],
+          "valid": true,
+          "warnings": []
+        },
+        "version": 6
+      },
+      "draft_sha256": "6e92f0c143ea0385dc993a86310c0036ddaca31b5e0a28cadc0a27e10d28ab75",
+      "driver": "opengl3",
+      "engine": "4.7.1-stable (official)",
+      "errors": [],
+      "framebuffer": [
+        1152,
+        648
+      ],
+      "frames": {},
+      "method": "gl_compatibility",
+      "missing_old_paths": 0,
+      "performance_eligible": false,
+      "phase": "unadapted",
+      "profile": "Codex-VPIPELINE-009-Refactor366-9e938050edd5",
+      "prototype_adapter": false,
+      "rows": [
+        {
+          "footprint": [
+            72.0,
+            48.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            96.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": true,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+          "old_profile_id": "",
+          "old_uid": "uid://cp16uen6n3c4d",
+          "path": "res://assets/game/interiors/migration_pilot/rustic_table_south.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            256.0,
+            176.0
+          ],
+          "png_sha256": "5a49c3222aeb1e3bc2e8ca97b2efe2173184ba18662de7fb1de070c884b15238",
+          "rgba_sha256": "b23c53d5e1d2b79582c1678cdd7303e73c2760ec0f1cb21255e91c340da2415d",
+          "side": "south",
+          "source": [
+            8.0,
+            8.0,
+            240.0,
+            160.0
+          ],
+          "uid": "uid://c7avh8b0fcgwj"
+        },
+        {
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": true,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+          "old_profile_id": "",
+          "old_uid": "uid://b8rm1ww7t5s6",
+          "path": "res://assets/game/interiors/migration_pilot/rustic_table_west.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            195.0,
+            256.0
+          ],
+          "png_sha256": "07852b30af6c743e8939dcddef6e2c8f50ee80a14afe877a68298addb594ea53",
+          "rgba_sha256": "3980523fa2c19f45c5123d1a6003c45704f4babdef6725dbd64ba6b565621bce",
+          "side": "west",
+          "source": [
+            8.0,
+            8.0,
+            179.0,
+            240.0
+          ],
+          "uid": "uid://cig8w1gc4gh5g"
+        },
+        {
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": true,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+          "old_profile_id": "",
+          "old_uid": "uid://dsjm4w2veq25",
+          "path": "res://assets/game/interiors/migration_pilot/rustic_table_east.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            193.0,
+            256.0
+          ],
+          "png_sha256": "d04458db38f0f6ba6f9877b69840299a3e664e117bfd5356a450727c045be618",
+          "rgba_sha256": "3afdefa3983d15bad9770898b55582aa0b314c49406234ca5cf2855e140fd53a",
+          "side": "east",
+          "source": [
+            8.0,
+            8.0,
+            177.0,
+            240.0
+          ],
+          "uid": "uid://cy06wdwekrpi7"
+        }
+      ],
+      "source_sha256": "69ed4b0872c57161d9ff56d742a3db0bfe89eeddb1dae85aa240af54bb68f7f6",
+      "target": "fixed_gpu_subviewport",
+      "unadapted_old_paths": 3
+    },
+    "retired": {
+      "display_server": "headless",
+      "document": {
+        "base_location": "migration_fixture",
+        "format": "babushkina-ferma-level-draft",
+        "grid": 24,
+        "level_name": "Migration fixture",
+        "level_notes": "No player drafts are read",
+        "objects": [
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              72.0,
+              48.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 1,
+            "layer": "objects",
+            "name": "Oak table south",
+            "notes": "Preserve this note",
+            "original_position": [
+              192.0,
+              530.0
+            ],
+            "position": [
+              192.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-south",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              96.0,
+              64.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              240.0,
+              160.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          },
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              48.0,
+              72.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 2,
+            "layer": "objects",
+            "name": "Oak table west",
+            "notes": "Preserve this note",
+            "original_position": [
+              576.0,
+              530.0
+            ],
+            "position": [
+              576.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-west",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              53.7000007629395,
+              72.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              179.0,
+              240.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          },
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              48.0,
+              72.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 3,
+            "layer": "objects",
+            "name": "Oak table east",
+            "notes": "Preserve this note",
+            "original_position": [
+              960.0,
+              530.0
+            ],
+            "position": [
+              960.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-east",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              53.0999984741211,
+              72.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              177.0,
+              240.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          }
+        ],
+        "validation": {
+          "checked": 3,
+          "errors": [
+            "#1 Oak table south: спрайт не найден",
+            "#2 Oak table west: спрайт не найден",
+            "#3 Oak table east: спрайт не найден"
+          ],
+          "valid": false,
+          "warnings": []
+        },
+        "version": 6
+      },
+      "draft_sha256": "6e92f0c143ea0385dc993a86310c0036ddaca31b5e0a28cadc0a27e10d28ab75",
+      "driver": "opengl3",
+      "engine": "4.7.1-stable (official)",
+      "errors": [],
+      "framebuffer": [
+        1152,
+        648
+      ],
+      "frames": {},
+      "method": "gl_compatibility",
+      "missing_old_paths": 3,
+      "performance_eligible": false,
+      "phase": "retired",
+      "profile": "Codex-VPIPELINE-009-Refactor366-9e938050edd5",
+      "prototype_adapter": true,
+      "rows": [
+        {
+          "footprint": [
+            72.0,
+            48.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            96.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": false,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+          "old_profile_id": "prop.rustic_table",
+          "old_uid": "",
+          "path": "res://assets/game/interiors/migration_pilot/rustic_table_south.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            256.0,
+            176.0
+          ],
+          "png_sha256": "5a49c3222aeb1e3bc2e8ca97b2efe2173184ba18662de7fb1de070c884b15238",
+          "rgba_sha256": "b23c53d5e1d2b79582c1678cdd7303e73c2760ec0f1cb21255e91c340da2415d",
+          "side": "south",
+          "source": [
+            8.0,
+            8.0,
+            240.0,
+            160.0
+          ],
+          "uid": "uid://c7avh8b0fcgwj"
+        },
+        {
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": false,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+          "old_profile_id": "prop.rustic_table",
+          "old_uid": "",
+          "path": "res://assets/game/interiors/migration_pilot/rustic_table_west.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            195.0,
+            256.0
+          ],
+          "png_sha256": "07852b30af6c743e8939dcddef6e2c8f50ee80a14afe877a68298addb594ea53",
+          "rgba_sha256": "3980523fa2c19f45c5123d1a6003c45704f4babdef6725dbd64ba6b565621bce",
+          "side": "west",
+          "source": [
+            8.0,
+            8.0,
+            179.0,
+            240.0
+          ],
+          "uid": "uid://cig8w1gc4gh5g"
+        },
+        {
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": false,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+          "old_profile_id": "prop.rustic_table",
+          "old_uid": "",
+          "path": "res://assets/game/interiors/migration_pilot/rustic_table_east.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            193.0,
+            256.0
+          ],
+          "png_sha256": "d04458db38f0f6ba6f9877b69840299a3e664e117bfd5356a450727c045be618",
+          "rgba_sha256": "3afdefa3983d15bad9770898b55582aa0b314c49406234ca5cf2855e140fd53a",
+          "side": "east",
+          "source": [
+            8.0,
+            8.0,
+            177.0,
+            240.0
+          ],
+          "uid": "uid://cy06wdwekrpi7"
+        }
+      ],
+      "source_sha256": "69ed4b0872c57161d9ff56d742a3db0bfe89eeddb1dae85aa240af54bb68f7f6",
+      "target": "fixed_gpu_subviewport",
+      "unadapted_old_paths": 0
+    },
+    "rollback": {
+      "display_server": "headless",
+      "document": {
+        "base_location": "migration_fixture",
+        "format": "babushkina-ferma-level-draft",
+        "grid": 24,
+        "level_name": "Migration fixture",
+        "level_notes": "No player drafts are read",
+        "objects": [
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              72.0,
+              48.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 1,
+            "layer": "objects",
+            "name": "Oak table south",
+            "notes": "Preserve this note",
+            "original_position": [
+              192.0,
+              530.0
+            ],
+            "position": [
+              192.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-south",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              96.0,
+              64.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              240.0,
+              160.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          },
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              48.0,
+              72.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 2,
+            "layer": "objects",
+            "name": "Oak table west",
+            "notes": "Preserve this note",
+            "original_position": [
+              576.0,
+              530.0
+            ],
+            "position": [
+              576.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-west",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              53.7000007629395,
+              72.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              179.0,
+              240.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          },
+          {
+            "anchor": "bottom",
+            "asset_path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+            "autotile_diagonal_mask": 0,
+            "autotile_family": "",
+            "autotile_mask": 0,
+            "catalog_category": "other",
+            "collision": true,
+            "collision_offset": [
+              0.0,
+              0.0
+            ],
+            "collision_size": [
+              48.0,
+              72.0
+            ],
+            "flip_x": false,
+            "flip_y": false,
+            "hidden": false,
+            "id": 3,
+            "layer": "objects",
+            "name": "Oak table east",
+            "notes": "Preserve this note",
+            "original_position": [
+              960.0,
+              530.0
+            ],
+            "position": [
+              960.0,
+              530.0
+            ],
+            "reference": false,
+            "rotation": 0.0,
+            "runtime_id": "table-east",
+            "runtime_role": "",
+            "scale": 1.0,
+            "size": [
+              53.0999984741211,
+              72.0
+            ],
+            "source": [
+              8.0,
+              8.0,
+              177.0,
+              240.0
+            ],
+            "surface_kind": "",
+            "transition_corner_masks": {},
+            "transition_masks": {},
+            "unique_key": ""
+          }
+        ],
+        "validation": {
+          "checked": 3,
+          "errors": [],
+          "valid": true,
+          "warnings": []
+        },
+        "version": 6
+      },
+      "draft_sha256": "6e92f0c143ea0385dc993a86310c0036ddaca31b5e0a28cadc0a27e10d28ab75",
+      "driver": "opengl3",
+      "engine": "4.7.1-stable (official)",
+      "errors": [],
+      "framebuffer": [
+        1152,
+        648
+      ],
+      "frames": {},
+      "method": "gl_compatibility",
+      "missing_old_paths": 0,
+      "performance_eligible": false,
+      "phase": "rollback",
+      "profile": "Codex-VPIPELINE-009-Refactor366-9e938050edd5",
+      "prototype_adapter": false,
+      "rows": [
+        {
+          "footprint": [
+            72.0,
+            48.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            96.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": true,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+          "old_profile_id": "prop.rustic_table",
+          "old_uid": "uid://cp16uen6n3c4d",
+          "path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            256.0,
+            176.0
+          ],
+          "png_sha256": "5a49c3222aeb1e3bc2e8ca97b2efe2173184ba18662de7fb1de070c884b15238",
+          "rgba_sha256": "b23c53d5e1d2b79582c1678cdd7303e73c2760ec0f1cb21255e91c340da2415d",
+          "side": "south",
+          "source": [
+            8.0,
+            8.0,
+            240.0,
+            160.0
+          ],
+          "uid": "uid://cp16uen6n3c4d"
+        },
+        {
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": true,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+          "old_profile_id": "prop.rustic_table",
+          "old_uid": "uid://b8rm1ww7t5s6",
+          "path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            195.0,
+            256.0
+          ],
+          "png_sha256": "07852b30af6c743e8939dcddef6e2c8f50ee80a14afe877a68298addb594ea53",
+          "rgba_sha256": "3980523fa2c19f45c5123d1a6003c45704f4babdef6725dbd64ba6b565621bce",
+          "side": "west",
+          "source": [
+            8.0,
+            8.0,
+            179.0,
+            240.0
+          ],
+          "uid": "uid://b8rm1ww7t5s6"
+        },
+        {
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "id": "prop.rustic_table",
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "new_profile_id": "prop.rustic_table",
+          "old_exists": true,
+          "old_path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+          "old_profile_id": "prop.rustic_table",
+          "old_uid": "uid://dsjm4w2veq25",
+          "path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "pixels": [
+            193.0,
+            256.0
+          ],
+          "png_sha256": "d04458db38f0f6ba6f9877b69840299a3e664e117bfd5356a450727c045be618",
+          "rgba_sha256": "3afdefa3983d15bad9770898b55582aa0b314c49406234ca5cf2855e140fd53a",
+          "side": "east",
+          "source": [
+            8.0,
+            8.0,
+            177.0,
+            240.0
+          ],
+          "uid": "uid://dsjm4w2veq25"
+        }
+      ],
+      "source_sha256": "69ed4b0872c57161d9ff56d742a3db0bfe89eeddb1dae85aa240af54bb68f7f6",
+      "target": "fixed_gpu_subviewport",
+      "unadapted_old_paths": 0
+    }
+  },
+  "actual_foreign_CLI": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.migration.test_migration_fixture"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 15.197s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.migration.test_migration_proof"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 43.111s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.migration.test_asset_migration"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "................\n----------------------------------------------------------------------\nRan 16 tests in 2.033s\n\nOK\n"
+    }
+  ],
+  "QA_only_debug_logging_disabled": true,
+  "producer_project_restored": true,
+  "temporary_projects_removed": true,
+  "native_game_frame_accepted": false,
+  "GPU_FPS_admission": false
+}

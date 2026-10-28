@@ -1,0 +1,333 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "P2 actual migration fixture producer regression",
+  "version": "0.0.366",
+  "base": "48ac944b5bda5a5183b3678a7a8329ed49b8f28c",
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.366",
+      "started_at": "2026-10-28T08:53:19.679444+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T11:07:15.121564+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.366",
+      "started_at": "2026-10-28T11:07:15.126048+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T11:14:25.992159+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.366",
+      "started_at": "2026-10-28T11:14:25.995337+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T11:15:23.395343+00:00"
+    }
+  ],
+  "architecture_suites": 89,
+  "architecture_cases": 1227,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "actual_native_headless_phases": 5,
+  "new_real_producer_cases": 3,
+  "root_sources": 420,
+  "user_stop_after_full03": true,
+  "REFACTOR06_started": false,
+  "Task_Complete_added": false,
+  "full_task03_accepted": false,
+  "GPU_FPS_admission": false,
+  "source_SHA256": {
+    "TESTING.md": "79abe0898b46aa252d6faa457272ab23c3ac29d5fce2ba9080e4debb277e3555",
+    "VERSION": "fdf616178aa3047f3fffafd7bbbf314f8d4a0f75a1cfedab4a656a16b11c8150",
+    "docs/epics/refactoring-2026-10/TASKS.md": "79dced2f674abfd93b778b6776a2f6118defd6f75f42210b50e505b47292690c",
+    "project.godot": "fba8f1ca2e0f02a20a9ee17b33dca96e665f87d3b82d5f5fc239f78ba9f83b08",
+    "tools/assets/migration/migration_fixture.py": "1ed687be451ca59c64dd3fcf9d2fd661ebea79f9d95852bf557806f566d42f73",
+    "tools/assets/migration/test_migration_fixture.py": "f27b72d94d74f4c3258624b385b27add299c9da2b1c547a09637f40ef71f63c6",
+    "tools/quality/check_architecture.sh": "b6e70162a94719d5d997428f47443eef975aeed091d1e63b3cdcd53659c1c1f1",
+    "wiki/articles/project-refactoring.md": "4fbcbd6f9e89cde7a5292fb8ca32fa069052915777e5b57ad844ac68e556b26e",
+    "Бабушкина ферма.app/Contents/Info.plist": "06855e666e7ae8475bb291d0452375946d11beae1c0a865a5a9bf8d61d1b21be"
+  },
+  "report_files": [
+    {
+      "path": "PLAN.md",
+      "sha256": "a825ba96f497ed318a6f6d553cb9bee53a4b945392ba0dfa6aa9e0f9b8d7eca9",
+      "bytes": 2776
+    },
+    {
+      "path": "README.md",
+      "sha256": "e5396c3d9478e6d4bd310dad5c2510506fb5e2ea652b0350ff6b017897a8aa30",
+      "bytes": 5486
+    },
+    {
+      "path": "audit-01.txt",
+      "sha256": "0d4ec944e2813871316242653f3e1c65dc9fc902903ba84c1d1684508c5309e2",
+      "bytes": 58
+    },
+    {
+      "path": "audit-final.txt",
+      "sha256": "0d4ec944e2813871316242653f3e1c65dc9fc902903ba84c1d1684508c5309e2",
+      "bytes": 58
+    },
+    {
+      "path": "audit.py",
+      "sha256": "9b3bf963dd55317041c4e091f220c01b81ac311de011026c3c86da862a60bc3c",
+      "bytes": 6508
+    },
+    {
+      "path": "baseline/TESTING.md.gz",
+      "sha256": "5f30b78e5b0a677a8eb5293c067dc2ad1c1a537ecc38b5ecd410920174ad817a",
+      "bytes": 43559
+    },
+    {
+      "path": "baseline/VERSION.gz",
+      "sha256": "98cfb4c80566a14d7a4679db7f9e4df3fa875d1f4e01439eb7d66183e73d6c59",
+      "bytes": 28
+    },
+    {
+      "path": "baseline/ci-365.json",
+      "sha256": "c51ad4ed5bba9d08b883c864a0ae1f5156cede52c0259c0fe02745bd104457b7",
+      "bytes": 3901
+    },
+    {
+      "path": "baseline/docs--epics--refactoring-2026-10--TASKS.md.gz",
+      "sha256": "fe27bf97002b81c1e6d44dd790e01201649b9edf3d29523fc3be3aaded16249a",
+      "bytes": 7196
+    },
+    {
+      "path": "baseline/migration-fixture-comparison.json",
+      "sha256": "4e3fdebd03b256d8d3de62461b72b0d9024ca2b64329f81741d53c9f4dc78e54",
+      "bytes": 844
+    },
+    {
+      "path": "baseline/migration-fixture-reproduction.json",
+      "sha256": "feaecd7c55f3d0fccc096eac982eca8037d60a93e08d08dc6d2f22c4d8b46ddf",
+      "bytes": 466
+    },
+    {
+      "path": "baseline/project.godot.gz",
+      "sha256": "b86b727021099d2344d533416e2cf69dd5c27c768602a5d1a28c33e1a1f63582",
+      "bytes": 606
+    },
+    {
+      "path": "baseline/regression.py.gz",
+      "sha256": "d2bacbc82c93ba6a8f66dc161d795e98a195a65ea26ec0f1fae1fa3fc26b873c",
+      "bytes": 2514
+    },
+    {
+      "path": "baseline/review-365.json",
+      "sha256": "cac70aee25d76b6ab82e84e9b96fff9d306dbf950d908e321f58fc25694f896b",
+      "bytes": 7409
+    },
+    {
+      "path": "baseline/sources.json",
+      "sha256": "a43bafaf0fe3fd75e827c26c268b849823553fc857e75f1199197ba476b86b93",
+      "bytes": 1311
+    },
+    {
+      "path": "baseline/tools--assets--migration--migration_fixture.py.gz",
+      "sha256": "1bf50662651d4db0d75ae5af7248268d33a319eefe63cedb55581bc90e0e611d",
+      "bytes": 2730
+    },
+    {
+      "path": "baseline/tools--quality--check_architecture.sh.gz",
+      "sha256": "cbe00fa2cbf8f9b708899c62d58fadffa48a6cd5f51218f0e4115eb31660e58f",
+      "bytes": 1976
+    },
+    {
+      "path": "baseline/wiki--articles--project-refactoring.md.gz",
+      "sha256": "99f26034c43d13c2635da2743e319caf90b1cc6657ad32490d6f4b4563ee4043",
+      "bytes": 6876
+    },
+    {
+      "path": "baseline/Бабушкина ферма.app--Contents--Info.plist.gz",
+      "sha256": "24fdb49b7cc03bb04875d89cd9227eb4ae57329a6f38abe8b66801a7e1c6d2db",
+      "bytes": 393
+    },
+    {
+      "path": "browser-article.json",
+      "sha256": "02448ce102a4e3bbfd0339748b97d927c3d6d2ad2b56b14cc6ceccb38a623476",
+      "bytes": 29662
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "ebbe90e6a33c24a27f858f98b4cb5f31a183a05e6a2ea592464bf318c32b04d9",
+      "bytes": 445
+    },
+    {
+      "path": "browser-desktop.png",
+      "sha256": "268ae146885cdd9272fda08b71d550de8e1299dee847b7667c109ea8ed415f5e",
+      "bytes": 189441
+    },
+    {
+      "path": "browser-mobile.json",
+      "sha256": "f763a2c810d11e4d20f0b779c1d432bee5b6d74ee40f6768ae12e695c99caa1d",
+      "bytes": 89
+    },
+    {
+      "path": "browser-mobile.png",
+      "sha256": "fe8bb88d356ec84f8bf333017b1370e50001192ec15fd739a5fcebfa9ea2a5bf",
+      "bytes": 59911
+    },
+    {
+      "path": "browser-task.json",
+      "sha256": "38fa340df19eb423a8849e9208bdb1e433f76c8b295225dfa76ae9e481090d81",
+      "bytes": 11409
+    },
+    {
+      "path": "browser-ui-cleanup.json",
+      "sha256": "9bea1831523af83915abbe01b384b075e0bc140d616d332ff39d986f6e8d6f21",
+      "bytes": 108
+    },
+    {
+      "path": "catalog-01.txt",
+      "sha256": "b3fc3f9fab46b1c6e973af62bc282e66be8708a641252836e15aa3939d5721ef",
+      "bytes": 124
+    },
+    {
+      "path": "catalog-check.mjs",
+      "sha256": "9b2aca410f4e1609e48f154a73f0ce7bd62450e8d07fd2787dcfeacbad7c80a3",
+      "bytes": 2090
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "1254301a7b2182230f2e74b40df9eb9d10f05cbffe473f952ed7c4ce13724350",
+      "bytes": 444
+    },
+    {
+      "path": "docs-01.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "bytes": 105
+    },
+    {
+      "path": "docs-seal.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "bytes": 105
+    },
+    {
+      "path": "docs-update-01.txt",
+      "sha256": "3b9ad0202d51a1331b74324e247a05b1742134754545c63d38591e7d4069400a",
+      "bytes": 22
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "a4e28ddc6797f04f374de17e7397a492a58a8c18127a53a272ad7d653a123487",
+      "bytes": 13437
+    },
+    {
+      "path": "gates-01/game.txt",
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+      "bytes": 1804
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "a4dbeda13a951c0688fdea7af900792e2f42bc53f786e3f3736595c08199c7a2",
+      "bytes": 733
+    },
+    {
+      "path": "gates-01/headless/f10/engine.txt",
+      "sha256": "8c4c08dc5bd8f320c646e339cd2a1867ab87d84185c024404d88e83b74264fe7",
+      "bytes": 11055
+    },
+    {
+      "path": "gates-01/headless/f10/frames.jsonl",
+      "sha256": "7d630db6874512879c90d98e0eb63bdec78f120648997002904fc14ebb476662",
+      "bytes": 9164
+    },
+    {
+      "path": "gates-01/headless/f10/summary.json",
+      "sha256": "e1ad4a9652b6b182461929cae45a316f230916f34e91873620c032362ceb3047",
+      "bytes": 1743
+    },
+    {
+      "path": "gates-01/headless/normal/engine.txt",
+      "sha256": "183a8adef678896d019acb0cb68697f4086a41e8afe36f9bc2fe61c731170eda",
+      "bytes": 11079
+    },
+    {
+      "path": "gates-01/headless/normal/frames.jsonl",
+      "sha256": "d6ea051fef0291bbe275f8d2e6efdb5c7f21c1260a882c3d2f81413bfe58cccd",
+      "bytes": 9185
+    },
+    {
+      "path": "gates-01/headless/normal/summary.json",
+      "sha256": "ffa425ee55dff0a06b1272fedc3ffe0705729db4c34e11369b3dd9185c0d1fb6",
+      "bytes": 1746
+    },
+    {
+      "path": "gates-01/wiki.txt",
+      "sha256": "16c491483f237478af11daa1410b3c41f9baea2e1a2e53faeb63fe46ed703c13",
+      "bytes": 13814
+    },
+    {
+      "path": "live-documents.json",
+      "sha256": "bbb11ea89189452c94c39a53e66300caa479a24c68fbb168372673defe742de8",
+      "bytes": 406
+    },
+    {
+      "path": "producer-green-01.txt",
+      "sha256": "994ee6e274bc950d8db3eded1534669c010c8e17fb56951b1d8690832d5d23e3",
+      "bytes": 102
+    },
+    {
+      "path": "producer-red-01.txt",
+      "sha256": "d6d03ad93aa2137a25573c342d8664f950ac8638f560ca53c5e40dda4558cb12",
+      "bytes": 4784
+    },
+    {
+      "path": "profile-01.txt",
+      "sha256": "fc1f8b3ff5dc47a32057cd7b91cb4d3b025ea9343a351d76c8ebbb47f70c3020",
+      "bytes": 121
+    },
+    {
+      "path": "profile.json",
+      "sha256": "0db5296b93ddc7d6b7051f8896c8ad392fb062fbc403f14380792faae95aac16",
+      "bytes": 129843
+    },
+    {
+      "path": "profile.py",
+      "sha256": "ed3aec71ae02d246905a8ef31890e93c6f48458e7e1d6c9e9eee9ee306f236f3",
+      "bytes": 8655
+    },
+    {
+      "path": "regression.json",
+      "sha256": "c9be92817cc978f012cd1c6a82fa0eea1714910a929b0be0fa1aa5218e31afdf",
+      "bytes": 596
+    },
+    {
+      "path": "scope.json",
+      "sha256": "9c9185f83d376391e1d84e108cfbf3b5d038e56beba4a350b7044ae6f186840a",
+      "bytes": 912
+    },
+    {
+      "path": "seal.py",
+      "sha256": "7e554d4822c57483b5cbd371fc155986cf1a1ba9340cb896f586b9aa44bc2f6e",
+      "bytes": 3236
+    },
+    {
+      "path": "update-docs.py",
+      "sha256": "0c39713bba2ceba8a84a9647f021230e525a9c3c830adcdc03236b288b924470",
+      "bytes": 3805
+    },
+    {
+      "path": "version-01.txt",
+      "sha256": "ad06e3d756f26b49254128a4315f15d13e9891f00003f7a94d6634db71f7fd01",
+      "bytes": 28
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "base": "48ac944b5bda5a5183b3678a7a8329ed49b8f28c",
+  "version": "0.0.366",
+  "root_sources": 420,
+  "historical_fields": 37,
+  "all_ignored_UID_preserved": 85,
+  "anchor_preserved": true,
+  "previous88_architecture_suites_preserved": true,
+  "new_real_producer_cases": 3,
+  "actual_headless_views_and_document_stable": true,
+  "other_refactor_cards_and06_hold_unchanged": true,
+  "old_reports_runtime_artwork_plans_GD_UID_policies_unchanged_by_Git_scope": true,
+  "full_task03_accepted": false,
+  "REFACTOR06_started": false,
+  "source_paths": [
+    "TESTING.md",
+    "VERSION",
+    "docs/epics/refactoring-2026-10/TASKS.md",
+    "project.godot",
+    "tools/assets/migration/migration_fixture.py",
+    "tools/assets/migration/test_migration_fixture.py",
+    "tools/quality/check_architecture.sh",
+    "wiki/articles/project-refactoring.md",
+    "Бабушкина ферма.app/Contents/Info.plist"
+  ]
+}
