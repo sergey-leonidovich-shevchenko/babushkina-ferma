@@ -10,8 +10,8 @@ import unittest
 from unittest.mock import patch
 
 import performance_gate as gate
-import perf_contract as contract
-import perf_contract_collect as collector
+from tools.qa.performance import perf_contract as contract
+from tools.qa.performance import perf_contract_collect as collector
 from tools.common.git import git_environment
 
 

@@ -121,3 +121,22 @@ docs/reports/refactor-03/compatibility-move/after-089.txt -whitespace
 docs/reports/refactor-03/compatibility-move/after-090.txt -whitespace
 docs/reports/refactor-03/compatibility-move/after-091.txt -whitespace
 docs/reports/refactor-03/compatibility-move/after-092.txt -whitespace
+# Preserve only these exact performance-move raw logs, including final engine blank lines.
+docs/reports/refactor-03/performance-move/extra-002.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-003.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-004.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-005.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-006.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-007.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-008.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-009.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-010.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-011.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-012.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-013.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-014.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-015.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-016.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-017.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-018.txt -whitespace
+docs/reports/refactor-03/performance-move/extra-019.txt -whitespace

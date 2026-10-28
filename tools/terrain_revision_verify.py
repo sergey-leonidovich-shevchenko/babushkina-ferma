@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Verify local writes to the retained GPU target, full controls and unchanged gameplay."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse
 import copy
 import gzip
@@ -9,7 +14,7 @@ import subprocess
 from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw
 from terrain_revision_collect import ROOT, SOURCES, OVERLAY
-from perf_contract_collect import sha, write
+from tools.qa.performance.perf_contract_collect import sha, write
 from render_order import require, validate_draws
 from ground_layers import cold_draws
 

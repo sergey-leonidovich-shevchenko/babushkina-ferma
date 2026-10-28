@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Freeze exact production sources and collect two fresh native wind windows."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,json,os,shutil,signal,subprocess,uuid,hashlib
 from pathlib import Path
-from perf_contract_collect import ROOT,command,context,jobs,native_pid,write,sha
+from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,write,sha
 from PIL import Image
 REPORT=ROOT/'docs/reports/visual-overhaul/vfoliage-004'
 RUNTIME=['scripts/game_core.gd','scripts/presentation/foliage_contact.gd','scripts/presentation/foliage_wind.gd','scripts/presentation/foliage_wind_batch.gd','scripts/presentation/foliage_wind.gdshader']

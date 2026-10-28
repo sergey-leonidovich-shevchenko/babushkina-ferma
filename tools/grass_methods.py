@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """Read-only VRENDER-002 evidence analysis. Frozen visual microbenchmarks never accept live gameplay FPS."""
 from __future__ import annotations
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse
 import csv
 import gzip
@@ -13,7 +18,7 @@ import statistics
 import subprocess
 from PIL import Image,ImageChops,ImageStat
 from grass_compare_collect import ROOT,FROZEN,schedule,sha
-from perf_contract import distribution,validate_environment,cpu_seconds
+from tools.qa.performance.perf_contract import distribution,validate_environment,cpu_seconds
 from render_order import validate_draws
 
 REPORT=ROOT/'docs/reports/visual-overhaul/vrender-002'

@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Collect visible static shadow-ownership controls; never claim a solar or FPS pass."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,hashlib,json,os,shutil,signal,subprocess,uuid
 from pathlib import Path
-from perf_contract_collect import ROOT,command,context,jobs,native_pid,write,sha
+from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,write,sha
 
 QA=['tools/shadow_inventory_canvas.gd','tools/shadow_inventory_capture.gd','tools/shadow_inventory_collect.py','tools/visual_camera_points.gd','tools/render_order_game.gd']
 

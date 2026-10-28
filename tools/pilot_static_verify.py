@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 """Admit a bounded static modular study and separate real-game compatibility controls."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,gzip,hashlib,json,math,subprocess
 from pathlib import Path
 from PIL import Image,ImageChops,ImageDraw
-from perf_contract_collect import ROOT,sha,write
+from tools.qa.performance.perf_contract_collect import ROOT,sha,write
 from render_order import require,validate_draws
 from pilot_static_collect import ORIGINAL,EXTRA
 from pilot_static_audit import verify as audit
-from common.git import git_environment
+from tools.common.git import git_environment
 from tools.qa.art.current_paths import recorded_paths
 REPORT=ROOT/'docs/reports/visual-overhaul/vrelease-002'
 STUDIES=['study-'+s+'-'+v+'-'+m for s in ['legacy','painted'] for v in ['a','b'] for m in ['front','back','bridge','grid']]

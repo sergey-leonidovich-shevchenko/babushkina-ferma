@@ -1,9 +1,14 @@
 """Проверка исходных водных трасс; квантили общие с эпиком OPT."""
 
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import json
 from pathlib import Path
 
-from analyze_optimization_audit import statistics
+from tools.qa.performance.analyze_optimization_audit import statistics
 
 FOLDER = Path(__file__).resolve().parents[1] / 'docs/reports/water-2026-10'
 LOCATIONS = {'overworld', 'village_river', 'cave_lake', 'moon_glade', 'pirate_ship'}

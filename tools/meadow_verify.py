@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Verify historical VGROUND-001 evidence, exact source archives and real draw snapshots."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse
 import gzip
 import hashlib
@@ -9,7 +14,7 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageStat
 from meadow_collect import ROOT, SOURCES, OVERLAY
 from render_order import require, validate_draws
-from perf_contract_collect import sha, write
+from tools.qa.performance.perf_contract_collect import sha, write
 from ground_layers import cold_draws
 
 REPORT=ROOT/'docs/reports/visual-overhaul/vground-001'

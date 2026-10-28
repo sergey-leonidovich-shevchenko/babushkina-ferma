@@ -74,7 +74,7 @@ PNG/readback вынесены за интервал измерений. [Про�
 
 Служебный курсор хранится в метаданных `runtime_maintenance`, в сохранения не входит. `statistics(game)` возвращает числовые счётчики и размеры кешей без ссылок на ресурсы. Удаляется только наша ссылка: действующий renderer или другой владелец продолжает удерживать используемый ресурс. Сам механизм подсчёта ссылок описан в [документации Godot RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html).
 
-Проверки: `Godot --headless --path . --script tools/qa/compatibility/runtime_maintenance_tests.gd`; ускоренное сравнение удержания ресурсов — `tools/runtime_cleanup_review.gd`; реальная оконная петля — `Godot --path . --script tools/runtime_cleanup_soak.gd -- --seconds=180`. Для длительной приёмки доступны 1800 и 7200 секунд; опубликованный короткий прогон не заменяет 30 мин/2 ч. Все стенды используют отдельные пользовательские каталоги. [Результаты](reports/runtime-cleanup-2026-10-15/README.md).
+Проверки: `Godot --headless --path . --script tools/qa/compatibility/runtime_maintenance_tests.gd`; ускоренное сравнение удержания ресурсов — `tools/qa/performance/runtime_cleanup_review.gd`; реальная оконная петля — `Godot --path . --script tools/qa/performance/runtime_cleanup_soak.gd -- --seconds=180`. Для длительной приёмки доступны 1800 и 7200 секунд; опубликованный короткий прогон не заменяет 30 мин/2 ч. Все стенды используют отдельные пользовательские каталоги. [Результаты](reports/runtime-cleanup-2026-10-15/README.md).
 
 ## Проекция первого мира · VCAMERA-006
 
@@ -122,7 +122,7 @@ PNG/readback вынесены за интервал измерений. [Про�
 
 Датированные папки этого аудита и эпика содержат `.gdignore`: CSV не импортируется как игровые переводы, а отчётные данные не включаются в игровой каталог ресурсов. FileAccess измерителей продолжает записывать туда отчёты; HTML/CSV открываются обычными файловыми средствами или локальным HTTP.
 
-[Аудит](reports/optimization-audit-2026-10-14/README.md) фиксирует исходную0.0.167, нативные draw-интервалы, CPU-секции и ограничения. [Эпик](epics/optimization-2026-10/README.md) содержит13 задач и320 сценариев. `python3 tools/run.py planning.build_optimization_matrix` воспроизводимо собирает JSON/CSV и автономный HTML с поиском; все статусы в начальном плане PLANNED. `python3 tools/optimization_asset_audit.py` читает буквальные preload/extends стартовой сцены и заголовки PNG, не загружает и не меняет картинки. `python3 tools/analyze_optimization_audit.py` пересчитывает raw draw-данные и помечает непригодные для приёмки пробы. Девять Python-тестов инструментов подключены к `tools/check_architecture.sh`.
+[Аудит](reports/optimization-audit-2026-10-14/README.md) фиксирует исходную0.0.167, нативные draw-интервалы, CPU-секции и ограничения. [Эпик](epics/optimization-2026-10/README.md) содержит13 задач и320 сценариев. `python3 tools/run.py planning.build_optimization_matrix` воспроизводимо собирает JSON/CSV и автономный HTML с поиском; все статусы в начальном плане PLANNED. `python3 tools/run.py qa.performance.optimization_asset_audit` читает буквальные preload/extends стартовой сцены и заголовки PNG, не загружает и не меняет картинки. `python3 tools/run.py qa.performance.analyze_optimization_audit` пересчитывает raw draw-данные и помечает непригодные для приёмки пробы. Девять Python-тестов инструментов подключены к `tools/check_architecture.sh`.
 
 Нативные команды, изолированные каталоги и фактические условия описаны в аудите. `optimization_audit_route.gd` дополняет старый маршрут120 реальными отрисовками прогрева и покадровым фокусом; `optimization_audit_boss.gd` изолирует существующий стенд босса; `optimization_audit_sweep.gd` использует настоящий `Window.mode`, публичные методы окон, безопасные позиции30 карт и необязательный `--soak-seconds=180`. Ранняя fullscreen-проба сохраняется отдельно от исправленного оконного запуска. Одновременно запускать несколько GPU-измерений или полный набор тестов нельзя: это меняет нагрузку.
 
@@ -361,9 +361,9 @@ python3 tools/run.py assets.audio.generate_audio_assets
 
 Локальные релизные ворота запускаются отдельно: `zsh tools/smoke_test.sh` проходит 180 кадров реального игрового цикла, а `zsh tools/performance_gate.sh` проверяет 480 кадров с минимальным средним значением 50 FPS. Обе команды входят в GitHub Actions после архитектурной проверки и полного набора автотестов.
 
-Для реального покадрового сравнения используйте `tools/runtime_frame_review.gd` с `-- --profile-town`; для второго режима добавьте `--benchmark-debug-overlay`. Аргумент `--report-dir=res://docs/reports/<итерация>/<до-или-после>` сохраняет все 1400 измерений отдельно от предыдущих отчётов. Запускайте normal и F10 последовательно; `--headless` для этого инструмента запрещён.
+Для реального покадрового сравнения используйте `tools/qa/performance/runtime_frame_review.gd` с `-- --profile-town`; для второго режима добавьте `--benchmark-debug-overlay`. Аргумент `--report-dir=res://docs/reports/<итерация>/<до-или-после>` сохраняет все 1400 измерений отдельно от предыдущих отчётов. Запускайте normal и F10 последовательно; `--headless` для этого инструмента запрещён.
 
-CPU-запросы можно проверить отдельно инструментами `tools/geometry_benchmark.gd` и `tools/inspector_benchmark.gd` в headless-режиме. Сохраните старые модули командой `git show <ref>:scripts/systems/<модуль>.gd` во временные файлы, затем передайте геометрии `--baseline-dir=<каталог-с-тремя-модулями>`, инспектору `--baseline=<старый-debug_object_inspector_system.gd>`. Общие аргументы: `--baseline-ref=<ref>` и `--report=<JSON>`. Каждый инструмент прогревается, чередует порядок девяти проб и проверяет совпадение результатов. Отдельный CPU-микрозамер не заменяет проверку FPS настоящего renderer-а.
+CPU-запросы можно проверить отдельно инструментами `tools/qa/performance/geometry_benchmark.gd` и `tools/qa/performance/inspector_benchmark.gd` в headless-режиме. Сохраните старые модули командой `git show <ref>:scripts/systems/<модуль>.gd` во временные файлы, затем передайте геометрии `--baseline-dir=<каталог-с-тремя-модулями>`, инспектору `--baseline=<старый-debug_object_inspector_system.gd>`. Общие аргументы: `--baseline-ref=<ref>` и `--report=<JSON>`. Каждый инструмент прогревается, чередует порядок девяти проб и проверяет совпадение результатов. Отдельный CPU-микрозамер не заменяет проверку FPS настоящего renderer-а.
 
 Для прямого визуального просмотра новых NPC, дыхания в покое и движения напарников используйте `tools/Godot.app/Contents/MacOS/Godot --path . -- --animation-preview`.
 
@@ -418,7 +418,7 @@ CPU-запросы можно проверить отдельно инструм
 
 ## Измерительный бой третьей стадии
 
-`tools/cave_boss_frame_review.gd` расширяет общий нативный стенд: 1400 кадров после 120 кадров прогрева, движение настоящими клавишами, реальные ИИ и коллизии. Измерительное восстановление HP не является настройкой игрового баланса. `tools/boss_cpu_review.gd` отдельно повторяет запросы каталога и навигации без vsync. [Полные команды и условия](reports/five-priorities-2026-10-11/performance/README.md).
+`tools/qa/performance/cave_boss_frame_review.gd` расширяет общий нативный стенд: 1400 кадров после 120 кадров прогрева, движение настоящими клавишами, реальные ИИ и коллизии. Измерительное восстановление HP не является настройкой игрового баланса. `tools/qa/performance/boss_cpu_review.gd` отдельно повторяет запросы каталога и навигации без vsync. [Полные команды и условия](reports/five-priorities-2026-10-11/performance/README.md).
 
 ## Зонд обычного боя
 

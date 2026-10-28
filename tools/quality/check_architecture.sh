@@ -42,6 +42,7 @@ python3 tools/run.py assets.alpha.test_processing_history
 python3 tools/run.py assets.alpha.test_street_consumer
 python3 tools/run.py qa.compatibility.test_compatibility_cli
 python3 tools/run.py qa.performance.test_performance_context
+python3 tools/run.py qa.performance.test_performance_layout
 python3 tools/run.py assets.contracts.test_source_paths
 python3 tools/run.py planning.test_task_batch
 
@@ -54,8 +55,8 @@ python3 tools/run.py quality.check_documentation
 python3 tools/run.py quality.test_documentation
 python3 tools/run.py assets.contracts.test_world_sprite_manifest
 python3 tools/run.py assets.contracts.check_world_sprite_manifest
-python3 tools/test_optimization_audit.py
-python3 tools/test_storage_perf.py
+python3 tools/run.py qa.performance.test_optimization_audit
+python3 tools/run.py qa.performance.test_storage_perf
 python3 tools/run.py assets.contracts.test_sprite_cleanup
 python3 tools/run.py assets.contracts.check_sprite_cleanup
 python3 tools/run.py planning.project_backlog
@@ -81,9 +82,9 @@ python3 tools/test_presentation_pose.py
 python3 tools/reference_zoom.py verify >/dev/null
 python3 tools/reference_zoom_perf.py verify >/dev/null
 python3 tools/test_reference_zoom.py
-python3 tools/test_perf_contract.py
-python3 tools/perf_contract.py >/dev/null
-python3 tools/perf_contract.py --controls --output docs/reports/visual-overhaul/vperf-001/controls >/dev/null
+python3 tools/run.py qa.performance.test_perf_contract
+python3 tools/run.py qa.performance.perf_contract >/dev/null
+python3 tools/run.py qa.performance.perf_contract --controls --output docs/reports/visual-overhaul/vperf-001/controls >/dev/null
 python3 tools/render_order.py >/dev/null
 python3 tools/test_render_order.py
 python3 tools/grass_methods.py all >/dev/null
@@ -181,10 +182,10 @@ python3 tools/run.py assets.contracts.preview_portability
 python3 tools/run.py assets.contracts.test_preview_portability
 python3 tools/run.py assets.contracts.item_export_contract
 python3 tools/run.py assets.contracts.test_item_export_contract
-python3 tools/test_performance_gate.py
+python3 tools/run.py qa.performance.test_performance_gate
 python3 docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/test_causal.py
 python3 docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/test_redraw_observer.py
-python3 tools/test_redraw_output.py
+python3 tools/run.py qa.performance.test_redraw_output
 python3 tools/test_foliage_pause.py
 python3 tools/foliage_pause_verify.py
 python3 tools/foliage_visibility_verify.py

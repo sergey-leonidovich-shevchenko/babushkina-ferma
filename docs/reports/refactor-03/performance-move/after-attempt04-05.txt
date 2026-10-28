@@ -1,0 +1,4 @@
+{
+  "resize": "rejected: requested host/framebuffer mismatch",
+  "pause": "rejected: actual modal state"
+}

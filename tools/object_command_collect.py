@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Collect isolated, source-bound VRENDER-004 native images. No FPS claims."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse
 import gzip
 import hashlib
@@ -9,7 +14,7 @@ import signal
 import subprocess
 import uuid
 from pathlib import Path
-from perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write
+from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write
 
 SOURCES = ['assets/game/basement/workbench_1_east.tres', 'assets/game/basement/workbench_1_south.tres', 'assets/game/basement/workbench_1_west.tres', 'assets/game/basement/workbench_atlas_a.png', 'assets/game/environment/forest_tree_growth_atlas_v1.png', 'docs/reports/visual-overhaul/vbase-003/camera-points.json', 'main.tscn', 'project.godot', 'scripts/game_renderer.gd', 'scripts/presentation/basement_visual_system.gd', 'scripts/presentation/object_draw_command.gd', 'scripts/presentation/object_draw_replay.gd', 'scripts/presentation/village_region_renderer.gd', 'scripts/presentation/village_terrain_canvas.gd', 'scripts/presentation/visual_reference_mode.gd', 'scripts/presentation/world_workbench_visual_system.gd', 'scripts/systems/furniture_facing_system.gd', 'scripts/systems/hero_visual_system.gd', 'scripts/systems/orchard_system.gd', 'scripts/systems/presentation_pose_system.gd', 'scripts/systems/render_system.gd', 'scripts/systems/save_system.gd', 'scripts/systems/tree_occlusion_system.gd', 'scripts/systems/tree_system.gd', 'scripts/systems/village_foreground_renderer.gd', 'scripts/systems/village_prop_renderer.gd', 'scripts/systems/village_terrain_renderer.gd', 'scripts/systems/world_projection_system.gd', 'scripts/world_background.gd', 'tests/suites/axial_road_suite.gd', 'tests/suites/object_draw_command_suite.gd', 'tools/ground_seasons_fixture.gd', 'tools/object_command_canvas.gd', 'tools/object_command_capture.gd', 'tools/object_command_collect.py', 'tools/object_command_review.gd', 'tools/render_order_game.gd', 'tools/visual_camera_points.gd']
 OVERLAY = {'project.godot', 'tools/object_command_canvas.gd', 'scripts/presentation/object_draw_command.gd', 'tools/object_command_review.gd', 'tests/suites/object_draw_command_suite.gd', 'tools/object_command_collect.py', 'tools/object_command_capture.gd', 'scripts/presentation/object_draw_replay.gd', 'scripts/presentation/world_workbench_visual_system.gd'}

@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Collect source-bound before/after native bench captures without touching ordinary Godot."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,gzip,hashlib,json,shutil,signal,subprocess,uuid
 from pathlib import Path
-from perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
+from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
 from object_command_collect import SOURCES as ORIGINAL
 
 EXTRA=['scripts/systems/village_layout_system.gd','scripts/systems/world_visual_profile_system.gd','scripts/systems/visual_resource_catalog.gd','scripts/presentation/visual_sampling_system.gd','scripts/presentation/village_bench_visual.gd','assets/game/visual_resources.json','tools/village_bench_capture.gd','tools/village_bench_gallery.gd','tools/village_bench_collect.py']

@@ -2,6 +2,11 @@
 """Collect only the predeclared VFOLIAGE-009 native windows, preserving every partial run."""
 from __future__ import annotations
 
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse
 import hashlib
 import json
@@ -12,8 +17,8 @@ import signal
 import subprocess
 import uuid
 
-from perf_contract_collect import ROOT, context, jobs, native_pid
-from performance_protocol import ANSI_ESCAPE
+from tools.qa.performance.perf_contract_collect import ROOT, context, jobs, native_pid
+from tools.qa.performance.performance_protocol import ANSI_ESCAPE
 
 REPORT = ROOT / 'docs/reports/visual-overhaul/vfoliage-009'
 PLAN = REPORT / 'plan.json'

@@ -1,0 +1,382 @@
+{
+  "base": "9a2ad81fb77282c4f52261e694653b28b21f01b8",
+  "root_sources_after_moves": 285,
+  "moves": [
+    {
+      "old_path": "tools/analyze_optimization_audit.py",
+      "target": "tools/qa/performance/analyze_optimization_audit.py",
+      "before_sha256": "83b59c6e8ee6bef01fcefafa6e60452336bf9672de251beaf45b484f86a4c975",
+      "after_sha256": "5b58e8de1418dd4ab538bda03f5751e7b193833873975596a9acdcab899c2f1e",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/analyze_storage_perf.py",
+      "target": "tools/qa/performance/analyze_storage_perf.py",
+      "before_sha256": "1f8bd88206d2ce9c923d363ea3a3742b6c110d8b69b85b21fe03db81036d9a26",
+      "after_sha256": "5646645349c6b903d57b1c5aa96acd04252cb4b1bcc25c3d4f6d1a1cdaf3542f",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/audit_save_crashes.py",
+      "target": "tools/qa/performance/audit_save_crashes.py",
+      "before_sha256": "e833bac3298073d894181db7a9e0038ddc09adfdf345f221650965ec743c8958",
+      "after_sha256": "1fc4425cbb9e4639ab2bcaecd6ecf3521de10b1dde2fd94e3cd86e58f43ad7b1",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/boss_cpu_review.gd",
+      "target": "tools/qa/performance/boss_cpu_review.gd",
+      "before_sha256": "69dcf8fb0ef9ce227a56734face52c8d8638a40dcbe2429f8b52657ec2a899fb",
+      "after_sha256": "69dcf8fb0ef9ce227a56734face52c8d8638a40dcbe2429f8b52657ec2a899fb",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/boss_cpu_review.gd.uid",
+      "target": "tools/qa/performance/boss_cpu_review.gd.uid",
+      "before_sha256": "02d1c3990498b23456cddb211363c360970977cc174a73edae31a381c242b9a9",
+      "after_sha256": "02d1c3990498b23456cddb211363c360970977cc174a73edae31a381c242b9a9",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/cave_boss_frame_review.gd",
+      "target": "tools/qa/performance/cave_boss_frame_review.gd",
+      "before_sha256": "e9bff6f13eaa9d0bc0510772ce0011e57f3d53886a562722c611a39985735f4b",
+      "after_sha256": "b6ada3f30aa5d0702e45d40d046b5c3ba97c30775fc761371af3fdb0c5c7f6de",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/cave_boss_frame_review.gd.uid",
+      "target": "tools/qa/performance/cave_boss_frame_review.gd.uid",
+      "before_sha256": "e08d864136837039e7f32879a72c3397b8848c72f07ee0327de4247ab98f4f79",
+      "after_sha256": "e08d864136837039e7f32879a72c3397b8848c72f07ee0327de4247ab98f4f79",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/cpu_profile_game.gd",
+      "target": "tools/qa/performance/cpu_profile_game.gd",
+      "before_sha256": "dd14df2746997b165e6c315a6f03ac36f66f70a6f400e8167345424313ddeed2",
+      "after_sha256": "dd14df2746997b165e6c315a6f03ac36f66f70a6f400e8167345424313ddeed2",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/geometry_benchmark.gd",
+      "target": "tools/qa/performance/geometry_benchmark.gd",
+      "before_sha256": "568e3ebc3c7df4de1a0a78f7a74e1cd82bfad236524b2ff07b9d6b4e3b633234",
+      "after_sha256": "568e3ebc3c7df4de1a0a78f7a74e1cd82bfad236524b2ff07b9d6b4e3b633234",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/inspector_benchmark.gd",
+      "target": "tools/qa/performance/inspector_benchmark.gd",
+      "before_sha256": "b62c55af1c746c59a971ed3ec177afddc4f1b69528d108e68d2be1182b15d6ae",
+      "after_sha256": "b62c55af1c746c59a971ed3ec177afddc4f1b69528d108e68d2be1182b15d6ae",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/lazy_item_storage_perf.gd",
+      "target": "tools/qa/performance/lazy_item_storage_perf.gd",
+      "before_sha256": "03882868af2882563a1a0dfe40fcfadf4667d12a2fa9695e7ed664b7844905df",
+      "after_sha256": "f282b9a7c0526a1e2175219197ec4fe61c02b1e2382dfefa2f99c1f9b074dfc4",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/lazy_item_storage_perf.gd.uid",
+      "target": "tools/qa/performance/lazy_item_storage_perf.gd.uid",
+      "before_sha256": "37d1be208edcfe3adc85ccbc599bc7bffb2196e3377adf88f7ac8fd6d39af7dc",
+      "after_sha256": "37d1be208edcfe3adc85ccbc599bc7bffb2196e3377adf88f7ac8fd6d39af7dc",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/optimization_asset_audit.py",
+      "target": "tools/qa/performance/optimization_asset_audit.py",
+      "before_sha256": "49ee8ecb54fc1e26bb532cdee67234a3c8beeca3242436548a7d375b0ea368fd",
+      "after_sha256": "1f6a0da7738afd4dd4815bcedf9fd8c9852e2e0763fc91370fafb8c9feadbc84",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/optimization_audit_boss.gd",
+      "target": "tools/qa/performance/optimization_audit_boss.gd",
+      "before_sha256": "be3a60683b37749fd0151457cd82074dee5c3039fdf8d4e1ebe5fae5a0d23297",
+      "after_sha256": "16a4b88e180524e70e440d3d300da499954800d1d1b7cacd26b0ac4ae3d5c2e9",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/optimization_audit_boss.gd.uid",
+      "target": "tools/qa/performance/optimization_audit_boss.gd.uid",
+      "before_sha256": "843fcbb2cb5bfdd8702bc8cc23af459ae248533f0545b30d6ed8bdd90ccecc2e",
+      "after_sha256": "843fcbb2cb5bfdd8702bc8cc23af459ae248533f0545b30d6ed8bdd90ccecc2e",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/optimization_audit_route.gd",
+      "target": "tools/qa/performance/optimization_audit_route.gd",
+      "before_sha256": "978a957218aa9010e0a3d2c86ddc2aba4c7fae1368e7609f44c65a4e43441373",
+      "after_sha256": "3b3df804efacdc833defff63b3a14ecc64e85dfe71a28341d10450834a556fa4",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/optimization_audit_route.gd.uid",
+      "target": "tools/qa/performance/optimization_audit_route.gd.uid",
+      "before_sha256": "d83e632322f067ae9ba2cf50a6150ecf32fb646df479421cdc1312fc51288c24",
+      "after_sha256": "d83e632322f067ae9ba2cf50a6150ecf32fb646df479421cdc1312fc51288c24",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/optimization_audit_sweep.gd",
+      "target": "tools/qa/performance/optimization_audit_sweep.gd",
+      "before_sha256": "4d07d99584f8af4282f5a1c3df9489e37fb410b9b2f4e46bca7f456885d1c572",
+      "after_sha256": "43cf9929aa019ba77c748e49d28c9b85f21588f4afb8c534afc90a00c93be226",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/optimization_audit_sweep.gd.uid",
+      "target": "tools/qa/performance/optimization_audit_sweep.gd.uid",
+      "before_sha256": "8b160fd9ae511b3b8b30fc7f717ca6a6852b06ccee28e85a696aad8abaa8d1ad",
+      "after_sha256": "8b160fd9ae511b3b8b30fc7f717ca6a6852b06ccee28e85a696aad8abaa8d1ad",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/perf_contract.py",
+      "target": "tools/qa/performance/perf_contract.py",
+      "before_sha256": "ad500749cc85272a4c57ac74178ef8e0635265771872d8a14b8d7a55582678e0",
+      "after_sha256": "9001bab28f3dc583f6bf7dedbaa901d4b5ae87cda06055e25af16571ec2638fc",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/perf_contract_capture.gd",
+      "target": "tools/qa/performance/perf_contract_capture.gd",
+      "before_sha256": "858c174ae4185a3f968dad701f4000e3a00834e9d49e86a5bb123932516db80c",
+      "after_sha256": "858c174ae4185a3f968dad701f4000e3a00834e9d49e86a5bb123932516db80c",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/perf_contract_capture.gd.uid",
+      "target": "tools/qa/performance/perf_contract_capture.gd.uid",
+      "before_sha256": "20ff8da5169e382e6b30d138cf6b44d5c20c857b7dbea1453e7f5fef21916792",
+      "after_sha256": "20ff8da5169e382e6b30d138cf6b44d5c20c857b7dbea1453e7f5fef21916792",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/perf_contract_collect.py",
+      "target": "tools/qa/performance/perf_contract_collect.py",
+      "before_sha256": "0ad2b4f4d73846c17b09af76c05cfe8cc5eefc65892118ad5c681eebc6a88e8a",
+      "after_sha256": "562a21afcb50f48cb61771dd1fdd35f676dad36a96918924e90af412939dd71e",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/performance_gate.py",
+      "target": "tools/qa/performance/performance_gate.py",
+      "before_sha256": "ab91e666e263f90fa2ed5fee717b9acbe944e41bc9ca5b20e8a979e2ce99255a",
+      "after_sha256": "7681c0e8fddeed6eba4d521e150f80c6f45f7d1b12b1fa4928d241f2c5b5db39",
+      "mode": 420,
+      "public_facade_retained": true
+    },
+    {
+      "old_path": "tools/performance_gate.sh",
+      "target": "tools/qa/performance/performance_gate.sh",
+      "before_sha256": "39925eee1a92b227df4f265281f7d3504d5a4c3601e10ac9854775dd2c551cce",
+      "after_sha256": "5f43d20aca3cd1b9f6569a9898c2b40d45023ef564084f114f28a1ce9469fe8c",
+      "mode": 493,
+      "public_facade_retained": true
+    },
+    {
+      "old_path": "tools/performance_protocol.py",
+      "target": "tools/qa/performance/performance_protocol.py",
+      "before_sha256": "d626ac5286b9d441caec02baebb92d33ffa0d5f9e365e7410183db7248e99ba3",
+      "after_sha256": "ac097a8c0720675f8fc14dba5e6d23799966671ddc0f064f93632e31be5b90b3",
+      "mode": 420,
+      "public_facade_retained": true
+    },
+    {
+      "old_path": "tools/redraw_frame_review.gd",
+      "target": "tools/qa/performance/redraw_frame_review.gd",
+      "before_sha256": "e16c4ad9a2c7613883a95c2155c1e3009a7317e3ed361dab161346474e6ace8b",
+      "after_sha256": "e16c4ad9a2c7613883a95c2155c1e3009a7317e3ed361dab161346474e6ace8b",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/redraw_frame_review.gd.uid",
+      "target": "tools/qa/performance/redraw_frame_review.gd.uid",
+      "before_sha256": "3e8c8a16098421b380820cf390f268efe39729f8675b08244d2e8b055c0814ed",
+      "after_sha256": "3e8c8a16098421b380820cf390f268efe39729f8675b08244d2e8b055c0814ed",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/runtime_cleanup_review.gd",
+      "target": "tools/qa/performance/runtime_cleanup_review.gd",
+      "before_sha256": "500db5a3ccf1efdef1ec9934f770c1aced2ebfc533db36ad6a6cc78adc9ab2e3",
+      "after_sha256": "500db5a3ccf1efdef1ec9934f770c1aced2ebfc533db36ad6a6cc78adc9ab2e3",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/runtime_cleanup_review.gd.uid",
+      "target": "tools/qa/performance/runtime_cleanup_review.gd.uid",
+      "before_sha256": "c1655659a00a2d743befd67e16b58f341a0f273705289e916d68127110dd6c5b",
+      "after_sha256": "c1655659a00a2d743befd67e16b58f341a0f273705289e916d68127110dd6c5b",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/runtime_cleanup_soak.gd",
+      "target": "tools/qa/performance/runtime_cleanup_soak.gd",
+      "before_sha256": "83c6d412c954f309c0e924127493bbda9977f09de24e6940fb5be4b7fc92783d",
+      "after_sha256": "83c6d412c954f309c0e924127493bbda9977f09de24e6940fb5be4b7fc92783d",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/runtime_cleanup_soak.gd.uid",
+      "target": "tools/qa/performance/runtime_cleanup_soak.gd.uid",
+      "before_sha256": "242050c3e291d6018d971beec56d1a9ab8544bf9acb5c490f61acb3ade0a1a2f",
+      "after_sha256": "242050c3e291d6018d971beec56d1a9ab8544bf9acb5c490f61acb3ade0a1a2f",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/runtime_frame_review.gd",
+      "target": "tools/qa/performance/runtime_frame_review.gd",
+      "before_sha256": "f96137078c4c23c0538720c3148381cff14420ff90b209d6aadc74e0f31224a8",
+      "after_sha256": "45b039d7f3e7df68e52d01047458a85f1da881de66e967579f0a826810a59868",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/save_crash_worker.gd",
+      "target": "tools/qa/performance/save_crash_worker.gd",
+      "before_sha256": "4b56545c7eba0f1a4cb0ee29d34d789fc2c2bd6eb5e4234c2563aaaf6cfa3cea",
+      "after_sha256": "4b56545c7eba0f1a4cb0ee29d34d789fc2c2bd6eb5e4234c2563aaaf6cfa3cea",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/save_crash_worker.gd.uid",
+      "target": "tools/qa/performance/save_crash_worker.gd.uid",
+      "before_sha256": "51ed8df0e6eacd5accba6b37e7e5803c5f896ad84a7901906be500317330cd11",
+      "after_sha256": "51ed8df0e6eacd5accba6b37e7e5803c5f896ad84a7901906be500317330cd11",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/smoke_test.sh",
+      "target": "tools/qa/performance/smoke_test.sh",
+      "before_sha256": "6c9644cf8fd0108277a9338d05e280cd27993760165b7c755e553de2ab821946",
+      "after_sha256": "994fe26005241d625f10815f4b697c1fbd9d4210096368c35870ec43bde68d80",
+      "mode": 493,
+      "public_facade_retained": true
+    },
+    {
+      "old_path": "tools/storage_perf_game.gd",
+      "target": "tools/qa/performance/storage_perf_game.gd",
+      "before_sha256": "45eac5d7db18f96599062ab7aacb66c35325b8ee8bc8698e9d794f88a9065939",
+      "after_sha256": "f66eb560af17584ed655e9a1389b4b140df5def8ce923385977b5963e234b0ff",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/storage_perf_game.gd.uid",
+      "target": "tools/qa/performance/storage_perf_game.gd.uid",
+      "before_sha256": "52005ca091588e37b18c43d80fbe2a46810bf58ebfdf353924e715a75cc9a2da",
+      "after_sha256": "52005ca091588e37b18c43d80fbe2a46810bf58ebfdf353924e715a75cc9a2da",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/storage_perf_review.gd",
+      "target": "tools/qa/performance/storage_perf_review.gd",
+      "before_sha256": "3402f97f00b222dcb7328861e99ddb725003e7bf04781fa4afb8d0d337663281",
+      "after_sha256": "62dcf527442b40d6dcba9306da33fd423b5dfd30f28730c47a5e15f81048b9c6",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/storage_perf_review.gd.uid",
+      "target": "tools/qa/performance/storage_perf_review.gd.uid",
+      "before_sha256": "6ef71cbcdcec7d56b6f440ac9a9d948e3b32032c826764a5f5fc409723bf6a8d",
+      "after_sha256": "6ef71cbcdcec7d56b6f440ac9a9d948e3b32032c826764a5f5fc409723bf6a8d",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/test_optimization_audit.py",
+      "target": "tools/qa/performance/test_optimization_audit.py",
+      "before_sha256": "10fb0a6884f2b7ce87f1d7a1323344a94e8d8e41a0cea95dd7b766885fb46f45",
+      "after_sha256": "bc01d952c4310ec6bfd1368505bbcbe852ceef53dac1f02e1eba3591bd773628",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/test_perf_contract.py",
+      "target": "tools/qa/performance/test_perf_contract.py",
+      "before_sha256": "431c5dc355c9bc928307e866bc9bab97ab239433af73c958665e5a96051ed9c3",
+      "after_sha256": "fc87989ffb356899ec8303e76a4186439d6942296ad571ba03902a172a641550",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/test_performance_gate.py",
+      "target": "tools/qa/performance/test_performance_gate.py",
+      "before_sha256": "e7e8ece30e1c13752ad31cd36cfc294115444808e6244f5f220ac02e03f24c13",
+      "after_sha256": "c63933f28c530ab777e840759ff4037d8016f9bd47ee7c00811ff3f3161ca7ba",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/test_redraw_output.py",
+      "target": "tools/qa/performance/test_redraw_output.py",
+      "before_sha256": "794549d1e1df33052c47321dbe3785277ec2db2a10c3f422faca981f0fdfb379",
+      "after_sha256": "faf2e95611f7644538b1f8363711e2a347ef3e34af2afa2b7266ae9c2e9bfc95",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/test_storage_perf.py",
+      "target": "tools/qa/performance/test_storage_perf.py",
+      "before_sha256": "c3e46a8731aea9b5d5a015fc922be8b12aa98baaad6ad0cff1715f2e9382951f",
+      "after_sha256": "46b39d1675a8f764101ea665813d84e87dc3bd3bf4b5372083c2d92d6188a0b4",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/wildlife_query_review.gd",
+      "target": "tools/qa/performance/wildlife_query_review.gd",
+      "before_sha256": "fea804ee5e0dbec6c173a9ce8dfe37b95fa2f8d54f28abfc795de93f9b67602a",
+      "after_sha256": "fea804ee5e0dbec6c173a9ce8dfe37b95fa2f8d54f28abfc795de93f9b67602a",
+      "mode": 420,
+      "public_facade_retained": false
+    },
+    {
+      "old_path": "tools/wildlife_query_review.gd.uid",
+      "target": "tools/qa/performance/wildlife_query_review.gd.uid",
+      "before_sha256": "c7e0005a7d4e64da0be0203d14c8ed8462a417241e1d59d04dd5bb82103fd2a8",
+      "after_sha256": "c7e0005a7d4e64da0be0203d14c8ed8462a417241e1d59d04dd5bb82103fd2a8",
+      "mode": 420,
+      "public_facade_retained": false
+    }
+  ]
+}

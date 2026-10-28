@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Collect source-bound before/after native bench captures without touching ordinary Godot."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,gzip,hashlib,json,shutil,signal,subprocess,uuid
 from pathlib import Path
-from perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
+from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
 from village_bench_collect import ORIGINAL as COMMON, EXTRA as BENCH_EXTRA
 ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))
 EXTRA=['scripts/presentation/village_street_visual.gd','tools/village_street_capture.gd','tools/village_street_gallery.gd','tools/village_street_collect.py']

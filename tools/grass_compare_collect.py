@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """Collect isolated VRENDER-002 quality frames or counter-ordered effect microbenchmarks."""
 from __future__ import annotations
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse
 import gzip
 import os
@@ -10,7 +15,7 @@ import signal
 import subprocess
 import time
 import uuid
-from perf_contract_collect import ROOT,context,command,jobs,native_pid,write,sha
+from tools.qa.performance.perf_contract_collect import ROOT,context,command,jobs,native_pid,write,sha
 
 FROZEN=['tools/grass_compare/mesh_data.gd','tools/grass_compare/field.gd','tools/grass_compare/wind.gdshader',
  'tools/grass_compare/capture.gd','tools/grass_compare/observer.gd','tools/grass_compare/review.gd',

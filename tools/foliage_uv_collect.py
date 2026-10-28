@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Capture native root passports and actual gameplay/query pairs without user saves."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,json,os,shutil,signal,subprocess,uuid
 from pathlib import Path
-from perf_contract_collect import ROOT,command,context,jobs,native_pid,write,sha
+from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,write,sha
 
 REPORT=ROOT/'docs/reports/visual-overhaul/vfoliage-002'
 RUNTIME=['scripts/presentation/foliage_uv.gd','scripts/presentation/foliage_uv.gdshader']

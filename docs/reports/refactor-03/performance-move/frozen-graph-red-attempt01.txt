@@ -1,0 +1,40 @@
+..F..ENATIVE fixture
+RECORDED fixture
+..
+======================================================================
+ERROR: test_public_import_is_same_module_and_mutable_sampler_is_shared (__main__.PerformanceLayoutTests.test_public_import_is_same_module_and_mutable_sampler_is_shared)
+The archived redraw consumer imports the old public name and assigns gate.SAMPLER.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_performance_layout.py", line 174, in test_public_import_is_same_module_and_mutable_sampler_is_shared
+    protocol = importlib.import_module('performance_protocol')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'performance_protocol'
+
+======================================================================
+FAIL: test_frozen_executable_import_graph_still_works_without_rewriting_archive (__main__.PerformanceLayoutTests.test_frozen_executable_import_graph_still_works_without_rewriting_archive)
+Actual archived consumers import the public protocol first as well as after the gate.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_performance_layout.py", line 203, in test_frozen_executable_import_graph_still_works_without_rewriting_archive
+    self.assertEqual(process.returncode, 0, name + ': ' + process.stderr)
+AssertionError: 1 != 0 : docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/verify.py: Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/verify.py", line 18, in <module>
+    from performance_protocol import validate
+ModuleNotFoundError: No module named 'performance_protocol'
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 2.439s
+
+FAILED (failures=1, errors=1)

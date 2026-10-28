@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Verify the VRENDER-004 descriptor, isolated replay and unchanged production fallback."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse
 import gzip
 import hashlib
@@ -9,7 +14,7 @@ import subprocess
 from pathlib import Path
 from PIL import Image
 from object_command_collect import ROOT,SOURCES,OVERLAY
-from perf_contract_collect import sha,write
+from tools.qa.performance.perf_contract_collect import sha,write
 from render_order import require,validate_draws
 
 REPORT=ROOT/'docs/reports/visual-overhaul/vrender-004'

@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Collect two real-window save-boundary controls with immutable Git-bound assets."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,hashlib,json,shutil,signal,subprocess,uuid
 from pathlib import Path
-from perf_contract_collect import ROOT,command,context,jobs,native_pid,write,sha
+from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,write,sha
 REPORT=ROOT/'docs/reports/visual-overhaul/vcompat-001'
 QA=['tools/visual_camera_points.gd','tools/render_order_game.gd','tools/transient_save_probe.gd','tools/transient_save_capture.gd','tools/transient_save_collect.py']
 

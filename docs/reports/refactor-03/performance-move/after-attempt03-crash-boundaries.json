@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "scope": "SIGKILL of isolated child; no power-loss or physical ENOSPC claim",
+  "godot": "4.7.1.stable.official.a13da4feb",
+  "cases": [
+    {
+      "checkpoint": "primary.before_stage",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": null
+    },
+    {
+      "checkpoint": "primary.after_open",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": null
+    },
+    {
+      "checkpoint": "primary.after_write",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": null
+    },
+    {
+      "checkpoint": "primary.after_flush",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": null
+    },
+    {
+      "checkpoint": "primary.after_validate",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": null
+    },
+    {
+      "checkpoint": "backup.before_stage",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": null
+    },
+    {
+      "checkpoint": "backup.after_open",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": null
+    },
+    {
+      "checkpoint": "backup.after_write",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": null
+    },
+    {
+      "checkpoint": "backup.after_flush",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": null
+    },
+    {
+      "checkpoint": "backup.after_validate",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": null
+    },
+    {
+      "checkpoint": "backup.before_replace",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": null
+    },
+    {
+      "checkpoint": "backup.after_replace",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": 1.0
+    },
+    {
+      "checkpoint": "primary.before_replace",
+      "exit_code": -9,
+      "primary_revision": 1,
+      "backup_revision": 1.0
+    },
+    {
+      "checkpoint": "primary.after_replace",
+      "exit_code": -9,
+      "primary_revision": 2,
+      "backup_revision": 1.0
+    }
+  ]
+}

@@ -1,0 +1,1022 @@
+{
+  "base": "9a2ad81fb77282c4f52261e694653b28b21f01b8",
+  "commands": [
+    {
+      "kind": "actual editor import",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--editor",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--quit"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-001.txt",
+      "sha256": "6ee4baa44addaafda65550abd8094da2d451bc1496438a2e1db49b43a9c8d53e"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/boss_cpu_review.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-002.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/cave_boss_frame_review.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-003.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/cpu_profile_game.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-004.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/geometry_benchmark.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-005.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/inspector_benchmark.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-006.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/lazy_item_storage_perf.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-007.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/optimization_audit_boss.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-008.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/optimization_audit_route.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-009.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/optimization_audit_sweep.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-010.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/perf_contract_capture.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-011.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/redraw_frame_review.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-012.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/runtime_cleanup_review.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-013.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/runtime_cleanup_soak.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-014.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/runtime_frame_review.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-015.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/save_crash_worker.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-016.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/storage_perf_game.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-017.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/storage_perf_review.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-018.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual canonical GD parse",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--check-only",
+        "--script",
+        "res://tools/qa/performance/wildlife_query_review.gd"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+      "exit": 0,
+      "log": "extra-019.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/analyze_visual_baseline.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/analyze_visual_baseline.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-001.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/analyze_water_audit.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/analyze_water_audit.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-002.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/axial_road_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/axial_road_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-003.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/axial_road_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/axial_road_verify.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-004.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/decoration_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/decoration_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-005.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/decoration_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/decoration_verify.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-006.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/foliage_contact_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_contact_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-007.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/foliage_pause_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_pause_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-008.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/foliage_recovery_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_recovery_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-009.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/foliage_root_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_root_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-010.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/foliage_speed_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_speed_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-011.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/foliage_uv_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_uv_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-012.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/foliage_visibility_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_visibility_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-013.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/foliage_wind_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_wind_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-014.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/garden_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/garden_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-015.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/garden_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/garden_verify.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-016.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/grass_compare_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/grass_compare_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-017.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/grass_methods.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/grass_methods.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-018.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/ground_edge_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_edge_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-019.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/ground_edge_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_edge_verify.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-020.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/ground_layers.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-021.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/ground_seasons_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_seasons_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-022.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/ground_seasons_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_seasons_verify.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-023.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/meadow_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/meadow_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-024.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/meadow_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/meadow_verify.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-025.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/object_command_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/object_command_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-026.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/object_command_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/object_command_verify.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-027.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/pilot_pass_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_pass_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-028.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/pilot_pass_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_pass_verify.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-029.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/pilot_static_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_static_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-030.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/pilot_static_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_static_verify.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-031.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/plant_depth_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/plant_depth_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-032.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/plaza_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/plaza_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-033.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/plaza_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/plaza_verify.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-034.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/post_motion_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/post_motion_collect.py',run_name=\"qa_direct_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance direct import corrected d4vms24s/foreign cwd",
+      "exit": 0,
+      "log": "consumer-035.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual canonical launcher consumer import",
+      "source": "tools/qa/performance/test_performance_context.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;from pathlib import Path;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm');from tools.common.launch import prepare_imports;prepare_imports(Path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm'));runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_performance_context.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-036.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/road_network_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/road_network_collect.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-037.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/road_network_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/road_network_verify.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-038.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/shadow_inventory_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/shadow_inventory_collect.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-039.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/terrain_revision_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/terrain_revision_collect.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-040.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/terrain_revision_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/terrain_revision_verify.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-041.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/transient_save_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/transient_save_collect.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-042.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/village_bench_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_bench_collect.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-043.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/village_bench_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_bench_verify.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-044.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/village_board_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_board_collect.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-045.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/village_board_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_board_verify.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-046.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/village_fence_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_fence_collect.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-047.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/village_fence_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_fence_verify.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-048.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/village_lamp_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_lamp_collect.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-049.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/village_lamp_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_lamp_verify.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-050.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/village_street_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_street_collect.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-051.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/village_street_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_street_verify.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-052.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/village_trade_collect.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_trade_collect.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-053.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "actual direct consumer import",
+      "source": "tools/village_trade_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "-c",
+        "import sys,runpy;sys.path.insert(0,'/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools');runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_trade_verify.py',run_name=\"qa_consumer_import\")"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance import remaining kjz42za8/foreign cwd",
+      "exit": 0,
+      "log": "consumer-final-054.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "canonical_GD_parses": 18,
+  "consumer_imports": 54,
+  "direct_root_CLI_imports": 53,
+  "canonical_launcher_imports": 1,
+  "retained_harness_failures": [
+    "extra-020.txt omitted direct script directory",
+    "consumer-036.txt omitted canonical launcher prepare_imports for existing public-name test"
+  ],
+  "temporary_HOME_XDG": true,
+  "foreign_cwd_Git": true,
+  "window_opened": false,
+  "GPU_FPS_admission": false
+}

@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Collect isolated, source-bound VGROUND-001 native images. No FPS claims."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse
 import gzip
 import hashlib
@@ -8,7 +13,7 @@ import signal
 import subprocess
 import uuid
 from pathlib import Path
-from perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write
+from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write
 
 SOURCES = ['scripts/presentation/meadow_ground.gd','scripts/presentation/village_terrain_canvas.gd',
     'scripts/systems/village_terrain_renderer.gd','scripts/world_background.gd',

@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 """Verify actual street substitutions, immutable gameplay and cardinal native galleries."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,gzip,hashlib,json,math,subprocess
 from pathlib import Path
 from PIL import Image,ImageChops,ImageDraw
-from perf_contract_collect import ROOT,sha,write
+from tools.qa.performance.perf_contract_collect import ROOT,sha,write
 from render_order import require,validate_draws
 from village_street_assets import verify as verify_assets
 from village_street_collect import ORIGINAL,EXTRA,STREET_ASSETS
-from common.launch import prepare_imports
+from tools.common.launch import prepare_imports
 prepare_imports(ROOT)
 from tools.assets.alpha.alpha_audit import inspect as inspect_alpha
 from tools.common.git import git_environment

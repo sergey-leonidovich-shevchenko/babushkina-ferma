@@ -1,0 +1,14 @@
+.............................E....
+======================================================================
+ERROR: test_policy_cannot_lower_budget_or_remove_repeats (__main__.ProtocolTests.test_policy_cannot_lower_budget_or_remove_repeats)
+Проверяет только копию; зафиксированный план опыта остаётся неизменным.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_performance_gate.py", line 240, in test_policy_cannot_lower_budget_or_remove_repeats
+    from performance_protocol import policy
+ModuleNotFoundError: No module named 'performance_protocol'
+
+----------------------------------------------------------------------
+Ran 34 tests in 2.381s
+
+FAILED (errors=1)

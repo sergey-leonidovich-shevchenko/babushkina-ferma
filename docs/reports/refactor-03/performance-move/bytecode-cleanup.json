@@ -1,0 +1,8 @@
+{
+  "generated_cache": "docs/reports/visual-overhaul/vfoliage-006/ci-performance/fixed-gate/instrumentation/__pycache__/performance_protocol.cpython-311.pyc",
+  "sha256": "2f26d0ac9bd7f3e40aaf8e75edf115e6384b31f0b9ffb44fb43c96702097d907",
+  "bytes": 15137,
+  "tracked_source_unchanged": true,
+  "cause": "test import default Python bytecode write",
+  "fix": "child PYTHONDONTWRITEBYTECODE=1 only; same assertions"
+}

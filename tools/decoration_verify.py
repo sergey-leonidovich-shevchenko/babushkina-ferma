@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Validate bounded decoration policy and source-bound native controls, never FPS."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse
 import gzip
 import hashlib
@@ -9,7 +14,7 @@ import subprocess
 from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw
 from decoration_collect import ROOT, SOURCES, OVERLAY
-from perf_contract_collect import sha, write
+from tools.qa.performance.perf_contract_collect import sha, write
 from render_order import require, validate_draws
 
 REPORT = ROOT/'docs/reports/visual-overhaul/vground-008'

@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """Verify five first-map notice/sign placements and six-locale native evidence."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,gzip,hashlib,json,math,subprocess
 from pathlib import Path
 from PIL import Image,ImageChops,ImageDraw
-from perf_contract_collect import ROOT,sha,write
+from tools.qa.performance.perf_contract_collect import ROOT,sha,write
 from render_order import require,validate_draws
 from village_board_assets import verify as verify_assets
 from village_board_collect import ORIGINAL,EXTRA,FENCE_ASSETS

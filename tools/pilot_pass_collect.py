@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Collect source-bound before/after native lamp/body and light captures without touching ordinary Godot."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,gzip,hashlib,json,shutil,signal,subprocess,uuid
 from pathlib import Path
-from perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
+from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
 from village_trade_collect import ORIGINAL as COMMON, EXTRA as PREVIOUS_EXTRA, TRADE_ASSETS
 ORIGINAL=sorted(set(COMMON+PREVIOUS_EXTRA+TRADE_ASSETS+['scripts/presentation/object_draw_command.gd','scripts/presentation/object_draw_replay.gd','scripts/systems/village_prop_renderer.gd','scripts/systems/level_editor_system.gd']))
 EXTRA=['scripts/presentation/pilot_object_pass.gd','tools/pilot_pass_game.gd','tools/pilot_pass_capture.gd','tools/pilot_pass_collect.py']

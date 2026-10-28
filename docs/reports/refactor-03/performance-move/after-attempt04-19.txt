@@ -1,0 +1,19 @@
+..F...NATIVE fixture
+RECORDED fixture
+..
+======================================================================
+FAIL: test_frozen_executable_import_graph_still_works_without_rewriting_archive (__main__.PerformanceLayoutTests.test_frozen_executable_import_graph_still_works_without_rewriting_archive)
+Actual archived consumers import the public protocol first as well as after the gate.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_performance_layout.py", line 203, in test_frozen_executable_import_graph_still_works_without_rewriting_archive
+    self.assertEqual(process.returncode, 0, name + ': ' + process.stderr)
+AssertionError: 1 != 0 : docs/reports/visual-overhaul/vfoliage-006/ci-performance/fixed-gate/instrumentation/performance_gate.py: Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'tools'
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 2.256s
+
+FAILED (failures=1)

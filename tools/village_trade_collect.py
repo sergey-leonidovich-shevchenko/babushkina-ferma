@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Collect source-bound before/after native lamp/body and light captures without touching ordinary Godot."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,gzip,hashlib,json,shutil,signal,subprocess,uuid
 from pathlib import Path
-from perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
+from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
 from village_board_collect import ORIGINAL as COMMON, EXTRA as STREET_EXTRA, FENCE_ASSETS as STREET_ASSETS
 ORIGINAL=sorted(set(COMMON+STREET_EXTRA+STREET_ASSETS+['scripts/systems/village_event_renderer.gd','scripts/systems/village_event_system.gd','scripts/systems/loot_container_system.gd','scripts/systems/world_loot_renderer.gd','scripts/systems/world_loot_visual_system.gd','scripts/systems/world_polish_renderer.gd','assets/game/world_polish/village_polish_atlas.png','assets/game/world_loot/containers/sack.png']))
 EXTRA=['scripts/presentation/village_trade_visual.gd','tools/village_trade_capture.gd','tools/village_trade_gallery.gd','tools/village_trade_collect.py']

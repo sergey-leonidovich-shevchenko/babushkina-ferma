@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """Collect source-bound before/after native lamp/body and light captures without touching ordinary Godot."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,gzip,hashlib,json,shutil,signal,subprocess,uuid
 from pathlib import Path
-from perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
+from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
 from village_trade_collect import ORIGINAL as COMMON, EXTRA as PREVIOUS_EXTRA, TRADE_ASSETS
-from common.launch import prepare_imports
-from common.git import git_environment
+from tools.common.launch import prepare_imports
+from tools.common.git import git_environment
 prepare_imports(ROOT)
 from tools.qa.art.current_paths import captured_paths, source_path
 ORIGINAL=sorted(set(COMMON+PREVIOUS_EXTRA+TRADE_ASSETS+['tools/visual_modules_capture.gd','docs/reports/visual-overhaul/vart-008/modules.json','tests/fixtures/saves/v1-core.json']+[str(p.relative_to(ROOT)) for p in (ROOT/'docs/reports/visual-overhaul/vart-008/native/sprites').glob('*.png')]))

@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Collect source-bound before/after native lamp/body and light captures without touching ordinary Godot."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import os,tempfile,argparse,gzip,hashlib,json,shutil,signal,subprocess,uuid
 from pathlib import Path
-from perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
+from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
 from pilot_pass_collect import ORIGINAL as PREVIOUS, EXTRA as PREVIOUS_EXTRA
 ORIGINAL=sorted(set(PREVIOUS+PREVIOUS_EXTRA+['scripts/core/game_loop.gd','scripts/game_core.gd','scripts/presentation/village_ground_clock.gd','scripts/systems/presentation_pose_system.gd','scripts/systems/player_system.gd','scripts/systems/location_transition_system.gd','tools/encode_coordinate_video.swift']))
 EXTRA=['scripts/presentation/post_motion_frame.gd','tools/post_motion_game.gd','tools/post_motion_capture.gd','tools/post_motion_collect.py']

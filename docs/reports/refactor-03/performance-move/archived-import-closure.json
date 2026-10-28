@@ -1,0 +1,98 @@
+{
+  "read_only": true,
+  "non_input_consumers": [
+    {
+      "source": "docs/reports/visual-overhaul/vbase-002/measurement/instrumentation/tools/analyze_visual_baseline.py",
+      "imports": [
+        "analyze_optimization_audit"
+      ],
+      "local_modules": {
+        "analyze_optimization_audit": false
+      }
+    },
+    {
+      "source": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/verify.py",
+      "imports": [
+        "performance_gate",
+        "performance_protocol"
+      ],
+      "local_modules": {
+        "performance_gate": false,
+        "performance_protocol": false
+      }
+    },
+    {
+      "source": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/redraw_compare.py",
+      "imports": [
+        "performance_gate"
+      ],
+      "local_modules": {
+        "performance_gate": false
+      }
+    },
+    {
+      "source": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/analysis/verify.py",
+      "imports": [
+        "performance_protocol"
+      ],
+      "local_modules": {
+        "performance_protocol": false
+      }
+    },
+    {
+      "source": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/causal_capture.py",
+      "imports": [
+        "performance_gate",
+        "performance_protocol"
+      ],
+      "local_modules": {
+        "performance_gate": false,
+        "performance_protocol": false
+      }
+    },
+    {
+      "source": "docs/reports/visual-overhaul/vfoliage-006/ci-performance/fixed-gate/instrumentation/performance_gate.py",
+      "imports": [
+        "performance_protocol"
+      ],
+      "local_modules": {
+        "performance_protocol": true
+      }
+    },
+    {
+      "source": "docs/reports/visual-overhaul/vrender-002/bench/instrumentation/tools/grass_compare_collect.py",
+      "imports": [
+        "perf_contract_collect"
+      ],
+      "local_modules": {
+        "perf_contract_collect": true
+      }
+    },
+    {
+      "source": "docs/reports/visual-overhaul/vrender-002/quality/instrumentation/tools/grass_compare_collect.py",
+      "imports": [
+        "perf_contract_collect"
+      ],
+      "local_modules": {
+        "perf_contract_collect": true
+      }
+    },
+    {
+      "source": "docs/reports/visual-overhaul/vrender-002/cpu-only/instrumentation/tools/grass_compare_collect.py",
+      "imports": [
+        "perf_contract_collect"
+      ],
+      "local_modules": {
+        "perf_contract_collect": true
+      }
+    }
+  ],
+  "input_snapshots": 137,
+  "unparseable": [],
+  "classification": {
+    "live_public_imports": "causal/redraw verify/capture/compare:4 source files covered by protocol/gate facades and existing frozen observer6",
+    "self_contained_snapshots": "fixed-gate protocol and vrender002 collector copies retain local implementations",
+    "measurement_source_copy": "vbase002 analyze is a stored code capsule without its own ROOT/bootstrap; live analyze_visual_baseline consumer updated canonically; not a standalone accepted CLI",
+    "all_frozen_source_bytes": "unchanged; final scope excludes all prior report edits"
+  }
+}

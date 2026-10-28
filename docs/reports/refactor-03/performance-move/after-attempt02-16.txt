@@ -1,0 +1,68 @@
+.............................EEE....
+======================================================================
+ERROR: test_policy_cannot_lower_budget_or_remove_repeats (__main__.ProtocolTests.test_policy_cannot_lower_budget_or_remove_repeats) (key='minimum_fps')
+Проверяет только копию; зафиксированный план опыта остаётся неизменным.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_performance_gate.py", line 252, in test_policy_cannot_lower_budget_or_remove_repeats
+    with patch("performance_protocol.PLAN", path):
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/unittest/mock.py", line 1430, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pkgutil.py", line 700, in resolve_name
+    mod = importlib.import_module(modname)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'performance_protocol'
+
+======================================================================
+ERROR: test_policy_cannot_lower_budget_or_remove_repeats (__main__.ProtocolTests.test_policy_cannot_lower_budget_or_remove_repeats) (key='repeats_per_mode')
+Проверяет только копию; зафиксированный план опыта остаётся неизменным.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_performance_gate.py", line 252, in test_policy_cannot_lower_budget_or_remove_repeats
+    with patch("performance_protocol.PLAN", path):
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/unittest/mock.py", line 1430, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pkgutil.py", line 700, in resolve_name
+    mod = importlib.import_module(modname)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'performance_protocol'
+
+======================================================================
+ERROR: test_policy_cannot_lower_budget_or_remove_repeats (__main__.ProtocolTests.test_policy_cannot_lower_budget_or_remove_repeats) (key='minimum_valid_samples')
+Проверяет только копию; зафиксированный план опыта остаётся неизменным.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_performance_gate.py", line 252, in test_policy_cannot_lower_budget_or_remove_repeats
+    with patch("performance_protocol.PLAN", path):
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/unittest/mock.py", line 1430, in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pkgutil.py", line 700, in resolve_name
+    mod = importlib.import_module(modname)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'performance_protocol'
+
+----------------------------------------------------------------------
+Ran 34 tests in 2.934s
+
+FAILED (errors=3)

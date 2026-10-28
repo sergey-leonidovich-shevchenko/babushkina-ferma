@@ -1,0 +1,23 @@
+{
+  "cases": 8,
+  "same_test_SHA256": "f522578207ca7b750b366d506d0191e63fa3490169d8dcbec2b1aaaf820e8dac",
+  "records": [
+    {
+      "phase": "red",
+      "exit": 1,
+      "test_sha256": "f522578207ca7b750b366d506d0191e63fa3490169d8dcbec2b1aaaf820e8dac",
+      "log": "frozen-graph-red.txt",
+      "raw_sha256": "86a9e06814a2e0e135456234b88b605a27ea0c27590c4aa79c56de815c8a67a4"
+    },
+    {
+      "phase": "green",
+      "exit": 0,
+      "test_sha256": "f522578207ca7b750b366d506d0191e63fa3490169d8dcbec2b1aaaf820e8dac",
+      "log": "frozen-graph-green.txt",
+      "raw_sha256": "657121d9c5326280e63cc17c5ff8efb2e79777be1836580dcfa58ea55189fbce"
+    }
+  ],
+  "only_new_facade_removed_for_red_then_restored": true,
+  "frozen_sources_unchanged": true,
+  "new_game_or_FPS_admission": false
+}

@@ -2,13 +2,18 @@
 """Проверяет пригодность VBASE, отдельно от соблюдения бюджета плавности. Выбросы не удаляются."""
 from __future__ import annotations
 
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse
 import collections
 import json
 import math
 from pathlib import Path
 
-from analyze_optimization_audit import statistics
+from tools.qa.performance.analyze_optimization_audit import statistics
 
 SIZE = [1152, 648]
 START = [432, 672]

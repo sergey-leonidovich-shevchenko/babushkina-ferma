@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Collect isolated, source-bound VGROUND-009 native images. No FPS claims."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse
 import gzip
 import hashlib
@@ -9,7 +14,7 @@ import signal
 import subprocess
 import uuid
 from pathlib import Path
-from perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write
+from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write
 
 SOURCES = ['assets/game/farming/crops/atlases/annual_a.png',
  'assets/game/locations/overworld/modular/bridge_modular_v1.png',

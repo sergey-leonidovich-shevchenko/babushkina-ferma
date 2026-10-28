@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Collect source-bound before/after native vegetation depth captures without touching ordinary Godot."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import os,tempfile,argparse,gzip,hashlib,json,shutil,signal,subprocess,uuid
 from pathlib import Path
-from perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
+from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
 from post_motion_collect import ORIGINAL as PREVIOUS, EXTRA as PREVIOUS_EXTRA
 ORIGINAL=sorted(set(PREVIOUS+PREVIOUS_EXTRA+['scripts/presentation/farm_renderer.gd','scripts/systems/tree_occlusion_system.gd','scripts/game_renderer.gd','scripts/systems/render_system.gd','scripts/systems/forage_system.gd','scripts/presentation/alchemy_renderer.gd']))
 EXTRA=['scripts/presentation/forage_depth_renderer.gd','tools/plant_depth_game.gd','tools/plant_depth_capture.gd','tools/plant_depth_collect.py']

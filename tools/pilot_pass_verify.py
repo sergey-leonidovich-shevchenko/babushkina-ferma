@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """Verify actual scoped production dispatch, exact legacy RGBA and atomic fallbacks."""
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse,gzip,hashlib,json,subprocess
 from pathlib import Path
 from PIL import Image
-from perf_contract_collect import ROOT,sha,write
+from tools.qa.performance.perf_contract_collect import ROOT,sha,write
 from render_order import require,validate_draws
 from pilot_pass_collect import ORIGINAL,EXTRA
 REPORT=ROOT/'docs/reports/visual-overhaul/vrender-005'

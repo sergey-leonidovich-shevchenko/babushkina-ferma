@@ -693,3 +693,22 @@ tools/qa/compatibility/*
 tools/qa/performance/*
 !tools/qa/performance/__init__.py
 !tools/qa/performance/test_performance_context.py
+
+# REFACTOR-03: performance implementations; only previously tracked UID are included.
+!tools/qa/performance/*.py
+!tools/qa/performance/*.gd
+!tools/qa/performance/*.sh
+!tools/qa/performance/boss_cpu_review.gd.uid
+!tools/qa/performance/cave_boss_frame_review.gd.uid
+!tools/qa/performance/lazy_item_storage_perf.gd.uid
+!tools/qa/performance/optimization_audit_boss.gd.uid
+!tools/qa/performance/optimization_audit_route.gd.uid
+!tools/qa/performance/optimization_audit_sweep.gd.uid
+!tools/qa/performance/perf_contract_capture.gd.uid
+!tools/qa/performance/redraw_frame_review.gd.uid
+!tools/qa/performance/runtime_cleanup_review.gd.uid
+!tools/qa/performance/runtime_cleanup_soak.gd.uid
+!tools/qa/performance/save_crash_worker.gd.uid
+!tools/qa/performance/storage_perf_game.gd.uid
+!tools/qa/performance/storage_perf_review.gd.uid
+!tools/qa/performance/wildlife_query_review.gd.uid

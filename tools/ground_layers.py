@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """VRENDER-003: native static/live separation evidence, independent of physical FPS acceptance."""
 from __future__ import annotations
+if not __package__:
+    from common.launch import prepare_imports
+    from common.paths import project_root
+    prepare_imports(project_root(__file__))
+
 import argparse
 import gzip
 import hashlib
@@ -13,7 +18,7 @@ import signal
 import subprocess
 import uuid
 from PIL import Image,ImageChops
-from perf_contract_collect import ROOT,context,jobs,command,sha,write,native_pid
+from tools.qa.performance.perf_contract_collect import ROOT,context,jobs,command,sha,write,native_pid
 from grass_methods import require,image_difference
 from render_order import validate_draws
 
