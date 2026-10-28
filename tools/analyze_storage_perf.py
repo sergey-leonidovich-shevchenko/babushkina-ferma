@@ -4,7 +4,11 @@ import json
 from pathlib import Path
 from analyze_optimization_audit import statistics
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 FOLDER = ROOT / "docs/reports/storage-perf-2026-10-14"
 
 

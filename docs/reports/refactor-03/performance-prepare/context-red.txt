@@ -1,0 +1,64 @@
+EFFFF
+======================================================================
+ERROR: test_archived_contract_provenance_uses_its_code_history (__main__.PerformanceContextTests.test_archived_contract_provenance_uses_its_code_history)
+Сценарий: старый настоящий native-пакет читается под чужими GIT переменными.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-performance-context370.py", line 85, in test_archived_contract_provenance_uses_its_code_history
+    self.assertEqual(contract.provenance(folder, contract.SCHEDULE), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/perf_contract.py", line 133, in provenance
+    require(subprocess.run(['git','-C',str(ROOT),'cat-file','-e',source['base_commit']+'^{commit}'],capture_output=True).returncode==0,'Git base missing')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/perf_contract.py", line 24, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Git base missing
+
+======================================================================
+FAIL: test_asset_state_and_revision_use_the_explicit_project (__main__.PerformanceContextTests.test_asset_state_and_revision_use_the_explicit_project)
+Сценарий: asset/revision reader запущен из чужого Git.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-performance-context370.py", line 71, in test_asset_state_and_revision_use_the_explicit_project
+    self.assertEqual(gate.asset_state(project),
+AssertionError: {'git_tree_sha1': '2e1a057bc113b7b9873db9cba0c503069c70ccc6'[18 chars]: {}} != {'git_tree_sha1': 'd3e190a0b2ad7c8e946f62ce07e8129942196d01'[189 chars]c9'}}
+- {'git_tree_sha1': '2e1a057bc113b7b9873db9cba0c503069c70ccc6',
+-  'worktree_files': {}}
++ {'git_tree_sha1': 'd3e190a0b2ad7c8e946f62ce07e8129942196d01',
++  'worktree_files': {'assets/item.txt': 'a211fcd108599c4d12883eaec9aae05bd9b882bf0ec92a2b02227ce5916882d8',
++                     'assets/new.txt': '69e8b4581f2f4f39b0158bed220289c91e9d30316352d3684e4d29d86c4f34c9'}}
+
+======================================================================
+FAIL: test_collector_git_command_uses_own_source_checkout (__main__.PerformanceContextTests.test_collector_git_command_uses_own_source_checkout)
+Сценарий: публичный collector helper получает git rev-parse из чужой cwd.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-performance-context370.py", line 96, in test_collector_git_command_uses_own_source_checkout
+    self.assertEqual(collector.command(['git', 'rev-parse', 'HEAD']), expected)
+AssertionError: 'f735b2a72598e6d3ba8d9ae25cbcc52b2562b610' != 'c6f323d821455bfcfb025a03ae18f00e8cbe0f05'
+- f735b2a72598e6d3ba8d9ae25cbcc52b2562b610
++ c6f323d821455bfcfb025a03ae18f00e8cbe0f05
+
+
+======================================================================
+FAIL: test_public_performance_shell_help_uses_own_launcher (__main__.PerformanceContextTests.test_public_performance_shell_help_uses_own_launcher)
+Сценарий: публичный shell запущен из другого проекта с одноимённым ложным инструментом.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-performance-context370.py", line 111, in test_public_performance_shell_help_uses_own_launcher
+    self.assertNotIn('FOREIGN_GATE_EXECUTED', result.stdout)
+AssertionError: 'FOREIGN_GATE_EXECUTED' unexpectedly found in 'FOREIGN_GATE_EXECUTED\n'
+
+======================================================================
+FAIL: test_public_smoke_shell_binds_own_project_with_fake_engine (__main__.PerformanceContextTests.test_public_smoke_shell_binds_own_project_with_fake_engine)
+Сценарий: shell smoke получает только изолированный fake-engine свидетель.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-performance-context370.py", line 134, in test_public_smoke_shell_binds_own_project_with_fake_engine
+    self.assertEqual(Path(data['cwd']).resolve(), gate.ROOT.resolve())
+AssertionError: PosixPath('/private/var/folders/ky/t3jq24z91jdgvtstvk[48 chars]ign') != PosixPath('/Users/sergeyshevchenko/.codex/worktrees/r[27 chars]arm')
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.364s
+
+FAILED (failures=4, errors=1)

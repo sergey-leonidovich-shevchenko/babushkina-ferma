@@ -1,0 +1,11 @@
+{
+  "version": "0.0.370",
+  "task": "REFACTOR-03",
+  "in_progress": true,
+  "current_preparation": true,
+  "stale_stop": false,
+  "dimensions": {
+    "scrollWidth": 1280,
+    "width": 1280
+  }
+}

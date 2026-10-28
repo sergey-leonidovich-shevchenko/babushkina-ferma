@@ -1,3 +1,5 @@
+REFACTOR-03 performance0.0.370: `python3 tools/run.py qa.performance.test_performance_context` проверяет5 реальных Git/CLI случаев без игрового окна. Source-root и Git-контекст привязаны к коду/явному project; shell-входы сохраняют args/stdout/exit, worker/gate budgets и все прежние тесты. Before/after CLI и14 headless save checkpoints/smoke180 — в performance-prepare; полные architecture/Game/Wiki и независимое ревью нового SHA обязательны. Пока ничего не переносится, root314,03in_progress.
+
 # Разработка
 
 VFOLIAGE-006: один `FoliageRecovery` внутри `FoliageWind` фильтрует только визуальный контакт. `last_contacts` хранит мгновенную цель, `render_contacts` — итоговый GPU-буфер. Аналитическая экспонента работает по часам симуляции, предел64, очистка при ≤0,005; переходы/невидимость/отключение очищают записи. Флаг `foliage_recovery_enabled` возвращает прежнее поведение без новых настроек. [Контракт и независимая проверка](reports/visual-overhaul/vfoliage-006/README.md).

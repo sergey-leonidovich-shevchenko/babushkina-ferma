@@ -687,3 +687,9 @@ tools/qa/compatibility/*
 !tools/qa/compatibility/world_native.gd.uid
 !tools/qa/compatibility/world_review.gd.uid
 !tools/qa/compatibility/world_workbench_review.gd.uid
+
+# REFACTOR-03: performance preparation only; the legacy producer files have not moved.
+!tools/qa/performance/
+tools/qa/performance/*
+!tools/qa/performance/__init__.py
+!tools/qa/performance/test_performance_context.py

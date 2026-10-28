@@ -1,0 +1,10 @@
+usage: perf_contract_collect.py [-h] --output OUTPUT [--smoke] [--controls]
+
+Collect VPERF-001 native protocol runs, with external RSS/CPU boundary
+samples.
+
+options:
+  -h, --help       show this help message and exit
+  --output OUTPUT
+  --smoke
+  --controls

@@ -1,3 +1,5 @@
+REFACTOR-03 performance0.0.370: `python3 tools/run.py qa.performance.test_performance_context` проверяет5 реальных Git/CLI случаев без игрового окна. Source-root и Git-контекст привязаны к коду/явному project; shell-входы сохраняют args/stdout/exit, worker/gate budgets и все прежние тесты. Before/after CLI и14 headless save checkpoints/smoke180 — в performance-prepare; полные architecture/Game/Wiki и независимое ревью нового SHA обязательны. Пока ничего не переносится, root314,03in_progress.
+
 VFOLIAGE-009: [пауза и все нативные попытки](docs/reports/visual-overhaul/vfoliage-009/README.md). Полная локальная серия 130 состояний пройдена после разблокировки дисплея и исправления QA-ожидания оконного перехода. Проверяются полный state/save, одинаковый target entered/held, свежий draw/present, фактические focus/размеры и resume на текущий delta. Три прежних отказа не изменены. Статус in_progress до CI/review текущего SHA и решения Team Lead.
 
 # Пошаговая проверка «Бабушкиной фермы»

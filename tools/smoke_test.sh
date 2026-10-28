@@ -1,7 +1,7 @@
 #!/bin/zsh
 set -e
 
-repo_root="$(git rev-parse --show-toplevel)"
+repo_root="$(python3 "${0:A:h}/run.py" --root)"
 cd "$repo_root"
 game_godot="${FARM_GODOT_BIN:-tools/Godot.app/Contents/MacOS/Godot}"
 

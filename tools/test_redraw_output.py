@@ -7,11 +7,16 @@ import os
 import shlex
 import shutil
 import subprocess
+from common.git import git_environment
 import sys
 import tempfile
 import unittest
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 FAKE_ENGINE = r'''
 from pathlib import Path
 import os, sys
@@ -207,7 +212,7 @@ class RedrawOutputTests(unittest.TestCase):
 
     def test_reviewed_old_wrapper_reproduces_overwrite(self):
         previous = subprocess.check_output(
-            ['git', 'show', '79a1a65fc3f699fe590d7eb030071bb8a809e0e2:run_tests.sh'], cwd=ROOT
+            ['git', 'show', '79a1a65fc3f699fe590d7eb030071bb8a809e0e2:run_tests.sh'], cwd=ROOT, env=git_environment()
         )
         self.runner.write_bytes(previous)
         self.make_prior()

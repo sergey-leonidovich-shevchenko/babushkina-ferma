@@ -8,7 +8,11 @@ import subprocess
 import tempfile
 import time
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 POINTS = [
     f"{phase}.{point}"
     for phase in ("primary", "backup")

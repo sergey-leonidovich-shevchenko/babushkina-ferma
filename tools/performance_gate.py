@@ -12,6 +12,7 @@ import platform
 import sys
 import shutil
 import subprocess
+from common.git import git_environment
 import tempfile
 import time
 import uuid
@@ -70,11 +71,11 @@ def runtime_sources(project: Path) -> dict:
 def asset_state(project: Path) -> dict:
     """Фиксирует Git-дерево и точные изменённые assets без повторного хеширования всего каталога."""
     tree = subprocess.check_output(
-        ["git", "rev-parse", "HEAD:assets"], cwd=project, text=True
+        ["git", "rev-parse", "HEAD:assets"], cwd=project, text=True, env=git_environment()
     ).strip()
     changed = (
         subprocess.check_output(
-            ["git", "diff", "HEAD", "--name-only", "-z", "--", "assets"], cwd=project
+            ["git", "diff", "HEAD", "--name-only", "-z", "--", "assets"], cwd=project, env=git_environment()
         )
         .decode("utf-8")
         .split("\0")
@@ -82,7 +83,7 @@ def asset_state(project: Path) -> dict:
     untracked = (
         subprocess.check_output(
             ["git", "ls-files", "--others", "--exclude-standard", "-z", "--", "assets"],
-            cwd=project,
+            cwd=project, env=git_environment(),
         )
         .decode("utf-8")
         .split("\0")
@@ -102,7 +103,7 @@ def asset_state(project: Path) -> dict:
 
 def revision(project: Path) -> str:
     return subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=project, text=True
+        ["git", "rev-parse", "HEAD"], cwd=project, text=True, env=git_environment()
     ).strip()
 
 

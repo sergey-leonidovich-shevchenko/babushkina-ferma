@@ -10,6 +10,7 @@ import re
 from pathlib import Path
 import statistics
 import subprocess
+from common.git import git_environment
 from PIL import Image
 from perf_contract_collect import ROOT, FROZEN, sha
 
@@ -130,7 +131,7 @@ def provenance(folder,schedule,complete_required=True):
     source=read(folder/'source.json')
     require(isinstance(source.get('complete'),bool) and (source['complete'] or not complete_required)
         and source.get('schedule')==schedule and source.get('task')=='VPERF-001','collection incomplete/schedule mismatch')
-    require(subprocess.run(['git','-C',str(ROOT),'cat-file','-e',source['base_commit']+'^{commit}'],capture_output=True).returncode==0,'Git base missing')
+    require(subprocess.run(['git','-C',str(ROOT),'cat-file','-e',source['base_commit']+'^{commit}'],capture_output=True, env=git_environment()).returncode==0,'Git base missing')
     require(set(source['sources'])==set(FROZEN),'collector source coverage')
     for name,digest in source['sources'].items(): require(sha(folder/'instrumentation'/name)==digest,'collector archive changed: '+name)
     actual={str(p.relative_to(folder)) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'instrumentation' not in p.parts}
@@ -203,7 +204,7 @@ def verify(folder):
     device=next(d for d in policy['devices'] if d['id']==policy['selected_device'])
     if folder.resolve()==(REPORT/'native').resolve():
         paths=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()]
-        require(subprocess.run(['git','-C',str(ROOT),'ls-files','--error-unmatch','--',*paths],capture_output=True).returncode==0,'required evidence not in Git index')
+        require(subprocess.run(['git','-C',str(ROOT),'ls-files','--error-unmatch','--',*paths],capture_output=True, env=git_environment()).returncode==0,'required evidence not in Git index')
     for name,seconds,_ in SCHEDULE:
         data,power,metric=inspect_run(folder/name,seconds,device); powers.append(power)
         result[name]=metric; profiles.append(data['profile']); pids.append(data['pid'])
@@ -228,7 +229,7 @@ def verify_controls(folder):
     provenance(folder,[['resize',30,'resize'],['pause',30,'pause']])
     if folder.resolve()==(REPORT/'controls').resolve():
         paths=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()]
-        require(subprocess.run(['git','-C',str(ROOT),'ls-files','--error-unmatch','--',*paths],capture_output=True).returncode==0,'required controls not in Git index')
+        require(subprocess.run(['git','-C',str(ROOT),'ls-files','--error-unmatch','--',*paths],capture_output=True, env=git_environment()).returncode==0,'required controls not in Git index')
     for name,fault in [('resize','resize'),('pause','pause')]:
         env=read(folder/name/'environment.json')
         require('--fault='+fault in env['command'] and 'res://tools/perf_contract_capture.gd' in env['command'],'wrong native control launch')

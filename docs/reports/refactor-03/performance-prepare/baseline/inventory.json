@@ -1,0 +1,136 @@
+{
+  "base": "c6f323d821455bfcfb025a03ae18f00e8cbe0f05",
+  "version": "0.0.369",
+  "root_sources": 314,
+  "preparation_source_paths": [
+    "tools/analyze_optimization_audit.py",
+    "tools/analyze_storage_perf.py",
+    "tools/audit_save_crashes.py",
+    "tools/optimization_asset_audit.py",
+    "tools/perf_contract_collect.py",
+    "tools/performance_protocol.py",
+    "tools/test_redraw_output.py",
+    "tools/test_optimization_audit.py",
+    "tools/performance_gate.py",
+    "tools/perf_contract.py",
+    "tools/performance_gate.sh",
+    "tools/smoke_test.sh"
+  ],
+  "consumers": [
+    ".gitignore",
+    "VERSION",
+    "project.godot",
+    "Бабушкина ферма.app/Contents/Info.plist",
+    "tools/quality/check_architecture.sh",
+    "TESTING.md",
+    "QA_CHECKLIST.md",
+    "docs/DEVELOPMENT.md",
+    "tools/README.md",
+    "wiki/articles/project-refactoring.md",
+    "docs/epics/refactoring-2026-10/TASKS.md"
+  ],
+  "sources": {
+    "tools/analyze_optimization_audit.py": {
+      "sha256": "320ec80735e7bbefd6d30a2f7b2c8d9da73ca7670b38e7e719475259203069b1",
+      "mode": 420
+    },
+    "tools/analyze_storage_perf.py": {
+      "sha256": "58aa78a53fd5b0cb65f63c99e4d0f97ffdca2796376cab9630b706d62898e486",
+      "mode": 420
+    },
+    "tools/audit_save_crashes.py": {
+      "sha256": "e0c1b04b8334ed636ba56a59841c4828bdd49cc832e84f7ac9e8478783ce7660",
+      "mode": 420
+    },
+    "tools/optimization_asset_audit.py": {
+      "sha256": "07d6054730f50f7d7af3960dfd8bb554f712da7aca4ee668df22b6b6330dd8ba",
+      "mode": 420
+    },
+    "tools/perf_contract_collect.py": {
+      "sha256": "29895694b7229a26228b4e031e446b0fc32129e0a5535a738ecca717c0fd8b63",
+      "mode": 420
+    },
+    "tools/performance_protocol.py": {
+      "sha256": "3864b7945d7d852f7b400e4b1f13792bdc43e7d1e7bd8b6a3f8f9b04f7fb90d0",
+      "mode": 420
+    },
+    "tools/test_redraw_output.py": {
+      "sha256": "322e1551fa155ebe831685619f2d474b7f84c0f98140b4e4ad33b5444fdd2dfd",
+      "mode": 420
+    },
+    "tools/test_optimization_audit.py": {
+      "sha256": "203d9b3ebe2c90b74db3ceae6141f9e02b23e21691e8db88b7ade9120028996a",
+      "mode": 420
+    },
+    "tools/performance_gate.py": {
+      "sha256": "756df1e7f99fbd48330a8bea6df90a093de2e299a66ad670290f3ca17f751fd1",
+      "mode": 420
+    },
+    "tools/perf_contract.py": {
+      "sha256": "99f624b898527aa535cc1ead8819a5ebd1b9167f3ebcda58fe54cf6945f76c9a",
+      "mode": 420
+    },
+    "tools/performance_gate.sh": {
+      "sha256": "6a7c0b8938ddd605cb47af1ed09ccc5c2f7e57490b76f72d7778fe25a36b0075",
+      "mode": 493
+    },
+    "tools/smoke_test.sh": {
+      "sha256": "be46bc936a2fedfc4ac4a599c84bd70ffae2e29609273c8a2765022a3a1f22f2",
+      "mode": 493
+    },
+    ".gitignore": {
+      "sha256": "66743b82d5125f547a58422c1f7b711c537d19e4f129b4962d5c7b8223dc643a",
+      "mode": 420
+    },
+    "VERSION": {
+      "sha256": "8eed871230e278be3d55060642d38731cd327d920f674f120da7a930e6f4b47c",
+      "mode": 420
+    },
+    "project.godot": {
+      "sha256": "c85963ec149de62114d5f4395ce9eacbb288a20b8c82694100e057edd8d883c5",
+      "mode": 420
+    },
+    "Бабушкина ферма.app/Contents/Info.plist": {
+      "sha256": "9a70c1b6037910370edb45794521408b4f2d4578855a9dd1d14d58712026537b",
+      "mode": 420
+    },
+    "tools/quality/check_architecture.sh": {
+      "sha256": "7c832279f76c4728d42229b58c79e630ad99b3d189ea444ef149f0f627d45a0c",
+      "mode": 493
+    },
+    "TESTING.md": {
+      "sha256": "7f3e299798aa1b18a7b5d7c7fb92c6793ad181ea58044c9d804447db6b1eab3a",
+      "mode": 420
+    },
+    "QA_CHECKLIST.md": {
+      "sha256": "4f768c7e9ea494f0ef778690dc993392862397918b283e4ac3692be6a5775ce5",
+      "mode": 420
+    },
+    "docs/DEVELOPMENT.md": {
+      "sha256": "6b73c6aacd159884bcb514fb8cf21ac73e551c26d45bb2ceb80f2e80df584572",
+      "mode": 420
+    },
+    "tools/README.md": {
+      "sha256": "becb1331e438c203ac1ab27f8516512aad685342207a4151e44b8749d7a9c07d",
+      "mode": 420
+    },
+    "wiki/articles/project-refactoring.md": {
+      "sha256": "8b3544be1acb050c64f56cd86087671c65d262ecd2a0aec136e70778e7c1f51f",
+      "mode": 420
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "sha256": "7cff4ca8e1a99c2c63b68d71fae9420d7e354049ca557a4846198014136ddf54",
+      "mode": 420
+    }
+  },
+  "new_tests": 5,
+  "source_root_sites": 8,
+  "Git_read_sites": 9,
+  "shell_roots": 2,
+  "source_review": 5690215352,
+  "Team_intermediate_accepted": true,
+  "CI369_success": 8,
+  "physical_moves": 0,
+  "UID_moves": 0,
+  "local_UID": []
+}

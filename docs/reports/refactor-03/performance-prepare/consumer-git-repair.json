@@ -1,0 +1,9 @@
+{
+  "source": "tools/test_redraw_output.py",
+  "before_sha256": "b612ad79a726763fdeb812bfb5c607241fe862e6a58b217712692e12fb7986f3",
+  "after_sha256": "794549d1e1df33052c47321dbe3785277ec2db2a10c3f422faca981f0fdfb379",
+  "initial_after_failure": "after-18.txt",
+  "pinned_commit_unchanged": "79a1a65fc3f699fe590d7eb030071bb8a809e0e2",
+  "test_methods_or_assertions_removed": 0,
+  "additional_git_read_site": 1
+}

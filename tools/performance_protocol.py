@@ -9,7 +9,11 @@ import math
 from pathlib import Path
 import re
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 PLAN = ROOT / "docs/reports/visual-overhaul/vfoliage-006/ci-performance/plan.json"
 PREFIX = "PERF_CAPTURE "
 ENGINE = "a13da4feb8d8aefc283c3763d33a2f170a18d541"

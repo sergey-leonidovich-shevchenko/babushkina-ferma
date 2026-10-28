@@ -11,10 +11,15 @@ import platform
 from pathlib import Path
 import shutil
 import subprocess
+from common.git import git_environment
 import time
 import uuid
 
-ROOT=Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 FROZEN=['tools/perf_contract_capture.gd','tools/perf_contract_collect.py',
         'tools/visual_camera_points.gd','project.godot','main.tscn',
         'docs/reports/visual-overhaul/vbase-003/camera-points.json',
@@ -33,7 +38,11 @@ def write(path,data):
 
 def command(args):
     """Unavailable OS information remains explicit and blocks admission later."""
-    try: return subprocess.check_output(args,text=True,stderr=subprocess.STDOUT,timeout=15).strip()
+    options = {"text": True, "stderr": subprocess.STDOUT, "timeout": 15}
+    # Только Git привязан к исходникам: системные запросы сохраняют прежний контекст.
+    if args and args[0] == "git":
+        options.update(cwd=ROOT, env=git_environment())
+    try: return subprocess.check_output(args, **options).strip()
     except (OSError,subprocess.SubprocessError) as e: return 'UNAVAILABLE: '+type(e).__name__
 
 

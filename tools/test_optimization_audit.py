@@ -81,7 +81,7 @@ class OptimizationAuditTest(unittest.TestCase):
             self.assertEqual(json.loads((folder/"checks.json").read_text()), rows)
             self.assertIn("PERF-20-16", (folder/"index.html").read_text())
             self.assertEqual(len((folder/"checks.csv").read_text(encoding="utf-8-sig").splitlines()),321)
-            committed = Path(__file__).resolve().parents[1]/"docs/epics/optimization-2026-10"
+            committed = project_root(__file__)/"docs/epics/optimization-2026-10"
             for name in ["checks.json", "checks.csv", "index.html"]:
                 self.assertEqual((folder/name).read_bytes(), (committed/name).read_bytes())
             epic = (committed/"README.md").read_text()

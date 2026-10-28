@@ -1,0 +1,15 @@
+test_archived_contract_provenance_uses_its_code_history (__main__.PerformanceContextTests.test_archived_contract_provenance_uses_its_code_history)
+Сценарий: старый настоящий native-пакет читается под чужими GIT переменными. ... ok
+test_asset_state_and_revision_use_the_explicit_project (__main__.PerformanceContextTests.test_asset_state_and_revision_use_the_explicit_project)
+Сценарий: asset/revision reader запущен из чужого Git. ... ok
+test_collector_git_command_uses_own_source_checkout (__main__.PerformanceContextTests.test_collector_git_command_uses_own_source_checkout)
+Сценарий: публичный collector helper получает git rev-parse из чужой cwd. ... ok
+test_public_performance_shell_help_uses_own_launcher (__main__.PerformanceContextTests.test_public_performance_shell_help_uses_own_launcher)
+Сценарий: публичный shell запущен из другого проекта с одноимённым ложным инструментом. ... ok
+test_public_smoke_shell_binds_own_project_with_fake_engine (__main__.PerformanceContextTests.test_public_smoke_shell_binds_own_project_with_fake_engine)
+Сценарий: shell smoke получает только изолированный fake-engine свидетель. ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.764s
+
+OK

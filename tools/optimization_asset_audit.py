@@ -5,7 +5,11 @@ import re
 import struct
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 REFERENCES = re.compile(r'(?:preload\s*\(\s*|extends\s+)[\"\'](res://[^\"\']+)[\"\']')
 SCENE_REFERENCES = re.compile(r'path\s*=\s*[\"\'](res://[^\"\']+)[\"\']')
 
