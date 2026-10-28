@@ -1,0 +1,76 @@
+{
+  "candidate": {
+    "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "parent": "55c81f3ff7cfbdfaa99e02adf16e94488c580530",
+    "output": "docs/reports/title-00/checkpoint-2",
+    "profile": "wiki/scripts/title-catalog-audit.mjs",
+    "wikiLog": ".godot/creative-runtime/title-00-wiki-2.log",
+    "label": "title-00-publication",
+    "sourceSHA256": {
+      "VERSION": "fe22e593e7c334f09e11034865016dcdd95d8ec61f7063f4929afe4b01c44aae",
+      "docs/backlog/README.md": "d90e438726841f85c1c6173f936526e3ecb054aa76021e8d7e0a84dedd4bd4af",
+      "docs/epics/location-title-reveals/ACCEPTANCE.md": "2f3fce161b3c10e934943a7dc07a8c0876324d560e2db25334ca12d0598e3fdc",
+      "docs/epics/location-title-reveals/AUDIO_BRIEF.md": "0a668d8adcf549bb42e7c41d4f6ce58069c9b177324f97aad941c566c7f78fe5",
+      "docs/epics/location-title-reveals/BOSS_CATALOG.md": "49426ac426f7f6996923197731f548c46c9fa0131b2aa38789a7502f54f2f23d",
+      "docs/epics/location-title-reveals/PLACE_CATALOG.md": "831d53bc2d75ea7ebea421bc17002a1f34da62579f95cc58b113a2b27799df9f",
+      "docs/epics/location-title-reveals/README.md": "972c4f56496e1f5be15cfbdac683b71f7d41e11145c3886aa0c96df5549c4f53",
+      "docs/epics/location-title-reveals/TASKS.md": "d112842f60ac99cf698d83bd4328431242c1c1a126cf896b038d25628860e10f",
+      "docs/reports/title-00/PUBLICATION.md": "85f82cee2f664d9b3952b34db08f66d1612136e086f3721cbfb65519029e13b4",
+      "docs/reports/title-00/README.md": "f864446fd5efd5927b1a35e0660392a6b3ab14efa0ff6d04f490c408f0dd1ef9",
+      "docs/reports/title-00/checkpoint-1/full-hook.log.gz": "b88639425b1e7088649b30ab4a73a0da1b8f86085e2e92a4e9804882da7dfd9e",
+      "docs/reports/title-00/checkpoint-1/gates.json": "0a4315f73e217c6c9273824867ffb29425ef2f3b39c31cdb7efd776e5d590089",
+      "docs/reports/title-00/checkpoint-1/profile.json": "bec6e6c08129f7a663f83fa0f0426b58dcc3db632827b09a4c39203791b1fc20",
+      "docs/reports/title-00/checkpoint-1/wiki.log.gz": "eab4769fae812c15e0026cbfdf7513a0119c581b3cfcbbe9f85c195064a4f43a",
+      "docs/reports/title-00/design-desktop.jpg": "29999d8970e13a17dd656f56675a90d2f704fa80c788165e501ed3619acf52da",
+      "docs/reports/title-00/design-narrow.jpg": "73a2e86e361cf5aa1d2dd0a7e9c23e13ece4e5c03fbca987fefcdb1d06392387",
+      "docs/reports/title-00/export-coverage-1.json": "8c764c6fe7aa6666893955e913c5f47de978869c73ba19da73ec5774990efc42",
+      "docs/reports/title-00/profiles.json": "15ff68544ed3705f33701aa0b5584653d549f85e32baf167e36fd46b2ca96ba5",
+      "docs/reports/title-00/wiki-catalog-narrow.jpg": "9dc7fd470dc68ea78816a6a4b70e195baff3afbe12bc992eac3eb323cb07bbd7",
+      "docs/reports/title-00/wiki-task-desktop.jpg": "c6f8ed85a75b6a4a51dbcac198a112c9843187e6ec64e770655eac530d27c08f",
+      "project.godot": "4b8b2453b720d19626da246d2c7d94e86d92f9e2b4bb023c9bf36f929e2177da",
+      "wiki/articles/index.json": "35edec201072e198ebfd10527ae695e1d34d04579717bc1e511fcde8f07cf534",
+      "wiki/articles/location-title-bosses.md": "101008741f572fa7fb25458316e2c255ce485a9c6cd8413964e18566a8ee397e",
+      "wiki/articles/location-title-places.md": "39263aca99cd7119cc2b16ff35bf7bf9d551ab6b70e0ccdd5716d415b7faf6a9",
+      "wiki/articles/location-title-reveals.md": "bbda4155a99edcc0abf03426f0aa1564de15d0e5e91606bde9733478348ca4bb",
+      "wiki/design/title-reveals.html": "37c23c6e2341dcfaec7a9e1a5ce30d4afbc8c94b2c528157df92590b80d0d72a",
+      "wiki/planning/sources.json": "c6ee405de509594f5769fd35722a37d596fe2b3ff8b44b2f3c2836536f11838f",
+      "wiki/scripts/title-catalog-audit.mjs": "d34c6e5ddfc0a1ae8f891a8cc354c45af1d469fcee96364976751bc44a3ac6c9",
+      "Бабушкина ферма.app/Contents/Info.plist": "342ef9fa420cbc48936fd67e97e0a79abd02df9958e84d90082d695731effb11"
+    }
+  },
+  "metadata": "0.0.358",
+  "completedAt": "2026-10-28T11:21:50.659216+00:00",
+  "command": ".githooks/pre-commit unchanged via capture-only external wrapper",
+  "exitCode": 0,
+  "architecture": {
+    "pythonSuites": 83,
+    "cases": 1148
+  },
+  "game": [
+    [
+      "53502",
+      "0"
+    ]
+  ],
+  "redraw": [
+    [
+      "90",
+      "0"
+    ],
+    [
+      "90",
+      "0"
+    ]
+  ],
+  "wiki": {
+    "passed": 145,
+    "failed": 0
+  },
+  "rawSHA256": {
+    "full-hook": "57994c63c20949440e1be3b680c0bae5a6d00b31e617e696dd4428900d83edb0",
+    "wiki": "12ecb0a79c36b83d2f9259a2e103177e4aef5a42d9f20a6ad22213c7fc5072f8"
+  },
+  "gameplayImplemented": false,
+  "futureGameplayScenariosRun": 0,
+  "audienceTested": false
+}

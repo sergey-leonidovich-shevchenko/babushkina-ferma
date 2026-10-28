@@ -1,0 +1,127 @@
+{
+  "source": "wiki/public/generated/catalog.json",
+  "sha256": "e49541c4247245a2a22dfea1bdf9364bce9c32047d0d23ba055969124e560725",
+  "maps": [
+    {
+      "id": "castle_dungeon",
+      "title": "Подземелье замка"
+    },
+    {
+      "id": "castle_hall",
+      "title": "Большой зал замка"
+    },
+    {
+      "id": "castle_upper",
+      "title": "Верхний этаж замка"
+    },
+    {
+      "id": "cave",
+      "title": "Кристальные пещеры"
+    },
+    {
+      "id": "cave_fungal",
+      "title": "Грибной зал"
+    },
+    {
+      "id": "cave_lake",
+      "title": "Подземное озеро"
+    },
+    {
+      "id": "cave_mine",
+      "title": "Старая шахта"
+    },
+    {
+      "id": "cave_moon",
+      "title": "Лунный грот"
+    },
+    {
+      "id": "cave_sanctum",
+      "title": "Забытое святилище"
+    },
+    {
+      "id": "cellar_workshop",
+      "title": "Подвал-мастерская"
+    },
+    {
+      "id": "chapel_interior",
+      "title": "Лунная часовня"
+    },
+    {
+      "id": "cottage_interior",
+      "title": "Дом бабушки"
+    },
+    {
+      "id": "cursed",
+      "title": "Проклятая земля"
+    },
+    {
+      "id": "forest",
+      "title": "Обычный лес"
+    },
+    {
+      "id": "forge_interior",
+      "title": "Кузница"
+    },
+    {
+      "id": "glassworks",
+      "title": "Мастерская стеклодува"
+    },
+    {
+      "id": "guild_interior",
+      "title": "Зал гильдии"
+    },
+    {
+      "id": "moon_glade",
+      "title": "Лунная поляна"
+    },
+    {
+      "id": "overworld",
+      "title": "Деревня и гильдия"
+    },
+    {
+      "id": "pirate_ship",
+      "title": "Корабль «Чёрная сельдь»"
+    },
+    {
+      "id": "prison_interior",
+      "title": "Тюрьма руин"
+    },
+    {
+      "id": "rocky",
+      "title": "Каменистая область"
+    },
+    {
+      "id": "ruins",
+      "title": "Орочьи руины"
+    },
+    {
+      "id": "shop_interior",
+      "title": "Сельская лавка"
+    },
+    {
+      "id": "tower_interior",
+      "title": "Башня мага"
+    },
+    {
+      "id": "village_garden",
+      "title": "Сад травницы"
+    },
+    {
+      "id": "village_market",
+      "title": "Торговая слобода"
+    },
+    {
+      "id": "village_orchard",
+      "title": "Яблоневый сад"
+    },
+    {
+      "id": "village_river",
+      "title": "Речная переправа"
+    },
+    {
+      "id": "village_workyard",
+      "title": "Ремесленный двор"
+    }
+  ],
+  "exactIDAndNameMatch": true
+}
