@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "startedAt": "2026-10-28T14:56:05Z",
+  "previousReviewCommit": "9d7bec42bfb527fa80f4c65f78e950c95bcf3b57",
+  "previousPlanSHA256": "9e49be3853e1e112f2d34868ce3c234214a58469de6e0d9240cc3ac1372654a2",
+  "newIds": [
+    "IDEA-282",
+    "IDEA-283",
+    "IDEA-284",
+    "IDEA-285",
+    "IDEA-286",
+    "IDEA-287",
+    "IDEA-288",
+    "IDEA-289",
+    "IDEA-290",
+    "IDEA-291"
+  ],
+  "expectedIdeas": 10,
+  "expectedTasks": 42,
+  "expectedDialogues": 20,
+  "expectedReplies": 60,
+  "expectedFutureTests": 60,
+  "gameplayImplemented": false,
+  "browserRequired": true,
+  "prBase": "main",
+  "reviewRequired": true
+}

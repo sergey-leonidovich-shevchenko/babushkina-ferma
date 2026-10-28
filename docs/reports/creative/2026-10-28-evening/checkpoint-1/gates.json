@@ -1,0 +1,106 @@
+{
+  "candidate": {
+    "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "parent": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "output": "docs/reports/creative/2026-10-28-evening/checkpoint-1",
+    "profile": "wiki/scripts/editorial-review28-evening-audit.mjs",
+    "wikiLog": ".godot/creative-runtime/review28e-wiki-3.log",
+    "label": "review28e-content",
+    "sourceSHA256": {
+      "TESTING.md": "4293a4f72ce0e8e6926baac119cf31bd62e5de7de12e4c11f8c43d29516ad4d2",
+      "VERSION": "3bad20e7a44d0ac54360c37d18ae03259d59473029732cb311ad0afa76d0101b",
+      "docs/backlog/README.md": "43ecaa456d135f7af6ef696e465b609d8efbb91338c4f4c2ddba37e40d5e5283",
+      "docs/backlog/wiki-workspace-2026-10/README.md": "1653e8f0c206e756431727e2c0973317a961ada49bc573455cb27578fe96aa8d",
+      "docs/epics/ideas/README.md": "8de93069bb78a49b7175bd8729ba46eeefe62438e8647709b6d501a9d83f43e3",
+      "docs/epics/ideas/idea-282/README.md": "9223789987718c8c33c8d403f9a80ff122aa6d8dab89175dc2fc0789d2358078",
+      "docs/epics/ideas/idea-282/TASKS.md": "44efdb8e25350f0438471d1e8dc701865707ad3ba09421412496c95b15bf8700",
+      "docs/epics/ideas/idea-283/README.md": "398b43bdd37b2a94ec68d2c3d845230d5a47d563d054b60145a6c430068b1936",
+      "docs/epics/ideas/idea-283/TASKS.md": "a55bb12c9768a52bc109891dca17fd2f5a4f63f641aebe31e353dd957e27bb6e",
+      "docs/epics/ideas/idea-284/README.md": "ee5b7b92f010982a5b6bcc81cfd8e0f0e800ebd7e74ec025907b2114a3bbe003",
+      "docs/epics/ideas/idea-284/TASKS.md": "0013369042b5cbbfa76033d10ccf3861e0699b6a52acaaf0378925802b3df5f7",
+      "docs/epics/ideas/idea-285/README.md": "283d16135a048a47b85c86fe642fd38012610789f8b77aa33fc28e39048664b9",
+      "docs/epics/ideas/idea-285/TASKS.md": "41d7379e18fb75198d6aae71a7ebcabfd5fbf2ab22f163675198510ec655207f",
+      "docs/epics/ideas/idea-286/README.md": "52aaea8633010fd50d56b8a17de6cd71e7645d58b56e7a5671d1a3550c1eea1a",
+      "docs/epics/ideas/idea-286/TASKS.md": "0c75e22ec27822afe626b324711f3146d97068eee4b0e8ffb0eff91b2ffa5b1c",
+      "docs/epics/ideas/idea-287/README.md": "79c6fd53dafae982683a071624b86d4cfc169daa9dc5004821b61edec6f54ca4",
+      "docs/epics/ideas/idea-287/TASKS.md": "112cd04ce6143a7c7e0d7b3f14533ffebb6f47a24f1a557b97fbac9f43d7c8d2",
+      "docs/epics/ideas/idea-288/README.md": "3b4a78c548540fd35af8d268905d5790d41329ad46612fdde346cf1a9cc881bb",
+      "docs/epics/ideas/idea-288/TASKS.md": "06986afa1e9563bc65d0ea910e4a4c33e32288bb7f274d64a502db7294afee18",
+      "docs/epics/ideas/idea-289/README.md": "d72bb041f2658d64525a99d7ec0f07c7c29bb227400f88c662ef5964e40cfc85",
+      "docs/epics/ideas/idea-289/TASKS.md": "068f85dfe007654db6d879578c109302060e5b77afd36656a051807282795dba",
+      "docs/epics/ideas/idea-290/README.md": "7a9098fb05e2670ccb8f896c4c0b3f77afba489c2981ba5c26ee0569c1a075c6",
+      "docs/epics/ideas/idea-290/TASKS.md": "daa8c06dd99285c9ac133dbb1ac8aeee850c0f0d6a464d4d220feaef65de4199",
+      "docs/epics/ideas/idea-291/README.md": "54c8323e5ce8ef26483aae283665e1d636cb8ccd40223b43e94260269813b3d5",
+      "docs/epics/ideas/idea-291/TASKS.md": "a30209bcc97e68027bc58c4c7506f9cb8a7b7360cd6992a58e730a49962c06fe",
+      "docs/reports/creative/2026-10-28-evening/README.md": "26a443f425124e7fe767c1f43f19ec878e946992a999b33f622b5c20a6bc7d45",
+      "docs/reports/creative/2026-10-28-evening/browser/browser.json": "378abfe6f0aaec17ef98db792b82dc41535373aa6b1809d36887d0f521b4a149",
+      "docs/reports/creative/2026-10-28-evening/browser/mobile-overview.jpg": "85237a6252dba5b5c0d72a2301c0afa3f18abe91f068a55bf535e797549071c9",
+      "docs/reports/creative/2026-10-28-evening/browser/mobile-search-ready.jpg": "7707e13426405ed992069279bb4e663be39b7c7566b966cad41ed33d729ca805",
+      "docs/reports/creative/2026-10-28-evening/browser/mobile-search-reload.jpg": "e0bf3ee5887d7e70dd9d009d28200ed7e51cdd8a04894e0ea2a0ea1e03b0e0b2",
+      "docs/reports/creative/2026-10-28-evening/browser/mobile-search.jpg": "210cbcf035ad1d4fc0775fa787e5d2fe48603b50414f410d6179eb977e631c4d",
+      "docs/reports/creative/2026-10-28-evening/browser/overview-final.jpg": "d5c6cb0a44b68229f7ca2fc5282176f29ac0c3c81a3e03745ecb9bba4c599b92",
+      "docs/reports/creative/2026-10-28-evening/browser/overview.jpg": "298f9a7e1c678a6cc630ef8aacb6fa97dab78bb1aa2a6147466d667b0461d7f0",
+      "docs/reports/creative/2026-10-28-evening/browser/task-282.jpg": "bb4904fbd51d9c19ffd25b1219374b5cca8d5b4bf4bf8f477f5df364299dfde7",
+      "docs/reports/creative/2026-10-28-evening/plan.json": "2b3fe3acae81a88eb98417102a52a7945b49f547c1e92e6bb8fd320280164e0b",
+      "docs/reports/creative/2026-10-28-evening/proposals.json": "c271c8b00ae9a4a607b59e7e1302d9c087238451c27d3b8e1085585f3b808093",
+      "docs/reports/creative/2026-10-28-evening/published-refs.json": "e537452ecd17b49e4d81cfb5d2b0a1394514a17b0f212de0e060742be3110d47",
+      "docs/reports/creative/2026-10-28-evening/wiki-environment-refusal.log.gz": "a6d8825b6625ec28e9982d5cc3c0b2bf07973998f17472dbca8db8fb5d9afd43",
+      "project.godot": "80b2d2134a450efa14ad537e1c04da465680c6de1aefe1bcc97ef18c7c0d090b",
+      "wiki/articles/IDEA-282.md": "3f4263076ba64543d964d5af2a111c1fe449a48240b2d9f76c76f389d2e35b6e",
+      "wiki/articles/IDEA-283.md": "7dc69726150f31283c4c86fd48947212f5e59219150bc8368c5ced66b649d30b",
+      "wiki/articles/IDEA-284.md": "bc82fadb6a18da79e25c1e531ce9f75927a365eb7477012313464b950d1eb53c",
+      "wiki/articles/IDEA-285.md": "a2280938583c9a539979168c6e2d70279e6d3358ca7382edfcb5fec244026a8b",
+      "wiki/articles/IDEA-286.md": "135f10435595a1e88c9187c2e9253258d9d385ad42e2011e18b1062814349887",
+      "wiki/articles/IDEA-287.md": "c771902f3fb31bacdec17252e153aa6643aa38ed811439166ebee7bf1bf44e6f",
+      "wiki/articles/IDEA-288.md": "b18f337f8d41d87d0b487fe36650c3011cdc2051d9d6ee1a66bab110321b8623",
+      "wiki/articles/IDEA-289.md": "6ea9645d92df725c0867498bc0eda2919e7a8930ff2bad84463d051e71749734",
+      "wiki/articles/IDEA-290.md": "c5df72e7046e6cc52f4c9afc3530db4b023946c174d0e6e2be76a4fe5c20223e",
+      "wiki/articles/IDEA-291.md": "31e3d034a01fa9087f23b23081a6b1353f5e201ad9ca4a009969708f8a4e193a",
+      "wiki/articles/creative-review-2026-10-28-evening.md": "1aff78a6e7d479611f7a1d856acf8b7b257a810e3e1570124f793f2dac7684ca",
+      "wiki/articles/idea-feature-epics.md": "27fce52f93d07cee9a10c68e69e2e959898b6585edc8c275a28cbfb80f02dfee",
+      "wiki/articles/index.json": "01aeab4eab6f501ccac1a0e4718563fea2da7c83d0525513679cfdae40d70391",
+      "wiki/articles/resident-workshops-contracts.md": "0f4d4ca8acb589b2536b005d204be7e1f008e395add179cb6fc4828f074908ce",
+      "wiki/articles/resident-workshops-register.md": "f86e74877396bce7addb9be31be3d17684d38fdbce6d434c8cf3e5e17ceb515a",
+      "wiki/planning/assessments.json": "546b7032865d09b9158f5caa6e86521eaa3db3800b65f31abcc22406aaaa4d92",
+      "wiki/planning/sources.json": "f7b8d76b97a1f76ca0281aae0225f64970060d3018a79d76211d74c3f7313a93",
+      "wiki/planning/state.json": "d4bb9ab12d0f372ab3b915f745a03627ca23ea03f2039e20baf2bcc35e1aa732",
+      "wiki/scripts/editorial-review28-evening-audit.mjs": "2ccc328271fe138258a963feaa29fb7d0714d5940ce78434fa35d22ae5860471",
+      "Бабушкина ферма.app/Contents/Info.plist": "692a4bcc58de7dd673ac59d847015c61cba6dc623dfec573deff779192cfcac3"
+    }
+  },
+  "metadata": "0.0.357",
+  "completedAt": "2026-10-28T15:54:48.603853+00:00",
+  "command": ".githooks/pre-commit unchanged via capture-only external wrapper",
+  "exitCode": 0,
+  "architecture": {
+    "pythonSuites": 83,
+    "cases": 1148
+  },
+  "game": [
+    [
+      "53502",
+      "0"
+    ]
+  ],
+  "redraw": [
+    [
+      "90",
+      "0"
+    ],
+    [
+      "90",
+      "0"
+    ]
+  ],
+  "wiki": {
+    "passed": 145,
+    "failed": 0
+  },
+  "rawSHA256": {
+    "full-hook": "87eaad1e3bd2cbaf33c9f9e178f0d7bbb78d3eb46b0b569f06c9301eaa0215cd",
+    "wiki": "e1f2c931164813660a0d790ce14859183af3e9bc6335f6fd0f2eab6bfea8c1f2"
+  },
+  "gameplayImplemented": false,
+  "futureGameplayScenariosRun": 0,
+  "audienceTested": false
+}

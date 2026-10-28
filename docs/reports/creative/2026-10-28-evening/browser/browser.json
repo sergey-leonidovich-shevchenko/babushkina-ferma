@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-10-28T15:25:19.779413+00:00",
+  "url": "http://127.0.0.1:4201/#/guides/creative-review-2026-10-28-evening",
+  "tool": "CUA native AX and screenshots, IAB browser 2 tab 4",
+  "catalog": {
+    "epics": 178,
+    "tasks": 2088,
+    "ideas": 251,
+    "guides": 279,
+    "articles": 1200
+  },
+  "allTenArticlesOpened": true,
+  "proposalStatusVerified": true,
+  "articleEpicTaskLinksVerified": "IDEA-282 → four backlog tasks → 282-04",
+  "formalDependenciesVerified": [
+    "VMAP-003",
+    "IDEA-232-04",
+    "IDEA-236-02",
+    "IDEA-236-03"
+  ],
+  "dependenciesCard": "IDEA-290-04",
+  "search": "журавль → IDEA-291, Артель и мастерские; Tab moves focus from query to status",
+  "viewport": {
+    "width": 390,
+    "height": 900,
+    "reset": true
+  },
+  "screenshotsFinal": [
+    "overview-final.jpg",
+    "task-282.jpg",
+    "mobile-search-ready.jpg",
+    "mobile-overview.jpg"
+  ],
+  "partialScreenshots": [
+    "overview.jpg before typography corrections",
+    "mobile-search.jpg transient after viewport override",
+    "mobile-search-reload.jpg loading state"
+  ],
+  "limits": "Documentation UI only. No new gameplay, audience trial, physical gamepad, CPU/GPU/FPS or future F scenarios accepted."
+}
