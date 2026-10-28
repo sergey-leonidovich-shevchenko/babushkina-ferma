@@ -1,0 +1,18 @@
+{
+  "source_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5683524122",
+  "reviews": [
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUsOyGg",
+      "state": "COMMENTED",
+      "body": "INTERMEDIATE REVIEW PASS — P2-доработка0.0.366, exact head `482ed19c8833764b96e3130cec536b2dd6790eed`, граница `48ac944b..482ed19c`. Новых замечаний нет. P2 review5676955759 независимо проверен и закрыт ответом4401236453 в исходном thread; старый отклонённый48ac задним числом не принимается.\n\nНастоящий producer снова сохраняет собственный namespace внешнего проекта: relocated source копируется в target/tools/migration_capture.gd. Closure/create/phase имеют ровно прежний AST принятой6af72 без адресного normalizer. Независимо повторён полный profile.py: old/new producer побайтно совпали по240 файлам в моём checkout; авторские241 включают ещё один локальный generated PNG.import, остальные240 SHA те же. Созданный НОВЫМ producer проект реально прошёл13 headless Godot вызовов: fresh import/legacy URI parse,5 фаз, правильные UID/source/draft/missing/unadapted, устойчивые PNG/RGBA/геометрия/документ и2 отказа без перезаписи. Игровая сцена не создавалась: WorldStub, display_server=headless, frames={}, native/GPU/FPS admission=false. Project после QA logging восстановлен, temp удалены.\n\nТри настоящих producer-теста прошли на Python3.11 и3.9. На одном неизменном test source независимо воспроизведены точный Git48ac red3/errors3 и current482e green3/0; Git/gzip/test SHA совпали, closure/Git/copy не подменялись. Три foreign CLI также подтвердили3 новых producer+11 прежних proof+16 migration случаев с посторонним Git/index/config.\n\nПроверены9 source SHA/53 raw digests и8 исходных gzip против Git48ac; вся граница ровно9 разрешённых source/doc/version путей плюс новый отчёт. Все18717 прошлых report blobs,37 полей21 модуля,85 авторских локальных ignored UID/anchor, прочие6 карточек и runtime/artwork/plans/GD/UID/policies сохранены. Старые88 suites прежние, добавлен только3-case producer suite. Полные raw автора действительно89 suites/1227, Game53502/0, normal/F10 по90/0, Wiki145/0. Diff --check от main проходит; собственный exact-head worktree чистый/core.bare=false. Своего Game/оконной игры/браузерного прогона не было; игру на ПК не запускал.\n\nПоследний CI482e:4/8 success (Linux/Wiki), обе test/macOS ещё in_progress. Предыдущие проверки не заменяют новый CI. Это промежуточная приёмка исправления и ранее проверенного связанного переноса, НЕ итоговое APPROVED REFACTOR-03 и НЕ разрешение merge: root420 при бюджете≤30,03 in_progress, PR open/draft, Task-Complete нет. Сводка направляется Team Lead; после полного закрытия03 действует остановка пользователя.",
+      "submitted_at": "2026-10-28T13:37:58Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    }
+  ]
+}

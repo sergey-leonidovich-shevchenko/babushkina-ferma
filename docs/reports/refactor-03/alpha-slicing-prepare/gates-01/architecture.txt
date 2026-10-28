@@ -1,0 +1,494 @@
+VERSION: 0.0.367 synchronized
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 3.025s
+
+OK
+.....................
+----------------------------------------------------------------------
+Ran 21 tests in 8.397s
+
+OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.048s
+
+OK
+............
+----------------------------------------------------------------------
+Ran 12 tests in 6.261s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 10.760s
+
+OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 4.059s
+
+OK
+............
+----------------------------------------------------------------------
+Ran 12 tests in 1.161s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 16.356s
+
+OK
+DOCUMENTATION: обязательные файлы и локальные ссылки корректны
+DOCUMENTATION TEST: свои ссылки проверяются, зависимости и сборки исключены
+WORLD SPRITE AUDIT TEST: dynamic discovery and dead preload checks are valid
+WORLD SPRITE AUDIT: 29 семейств; готово 28; открыто P1=1, P2=0, P3=0
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.024s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.020s
+
+OK
+SPRITE CLEANUP: 90 retired resources; dynamic paths and consumers preserved
+BACKLOG OK: 6 epics / 50 tasks / 6 Ready; network: 0
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.200s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+VISUAL BACKLOG: 25 epics, 1037 tasks, graph/coverage/archive/documents valid
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 8.870s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.404s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 5.803s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 4.116s
+
+OK
+CAMERA: valid static reference contract
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.233s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 2.735s
+
+OK
+COORDINATES: native transforms, pointer, feet, videos and artifact hashes valid
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 2.965s
+
+OK
+......................
+----------------------------------------------------------------------
+Ran 22 tests in 15.876s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 5.663s
+
+OK
+..........................
+----------------------------------------------------------------------
+Ran 26 tests in 4.599s
+
+OK
+.............................................
+----------------------------------------------------------------------
+Ran 45 tests in 1.899s
+
+OK
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 14.504s
+
+OK
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 11.367s
+
+OK
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 10.489s
+
+OK
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.012s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.011s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.009s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 2.365s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.585s
+
+OK
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.528s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 2.058s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 5.817s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 7.931s
+
+OK
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 1.147s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 2.093s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 3.013s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 2.508s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 2.096s
+
+OK
+............
+----------------------------------------------------------------------
+Ran 12 tests in 27.025s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 1.820s
+
+OK
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 40.429s
+
+OK
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 59.114s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 15.283s
+
+OK
+......................
+----------------------------------------------------------------------
+Ran 22 tests in 23.339s
+
+OK
+.....................
+----------------------------------------------------------------------
+Ran 21 tests in 19.326s
+
+OK
+...................
+----------------------------------------------------------------------
+Ran 19 tests in 0.251s
+
+OK
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 2.093s
+
+OK
+.............................
+----------------------------------------------------------------------
+Ran 29 tests in 3.824s
+
+OK
+................................
+----------------------------------------------------------------------
+Ran 32 tests in 4.247s
+
+OK
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 23.544s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 1.460s
+
+OK
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 3.290s
+
+OK
+VISUAL SCALE: geometry, native pixels, fixed HUD and physics valid
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 3.487s
+
+OK
+VISUAL PALETTE: six motifs, 24 ramps, alpha bounds, source hashes and scale valid; choice approved
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 1.149s
+
+OK
+VISUAL PERSPECTIVE: three sides, nine sources, uniform reference scale, grid, anchors and browser proof valid
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.089s
+
+OK
+VISUAL EDGES: six regions, 8 browser cases, alpha, sources and explicit choice valid
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 2.506s
+
+OK
+VISUAL DENSITY: five subjects, common hero, 12 browser cases, scale and source provenance valid
+........
+----------------------------------------------------------------------
+Ran 8 tests in 4.116s
+
+OK
+VART-007: approved A, 24 native frames, independent form/contact/cast, hashes valid
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.266s
+
+OK
+VART-008: both facades approved, 28 exact crops, 19 native frames, camera and sources valid
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 3.432s
+
+OK
+VART-009: 29 decisions, 238 declarations / 236 files, 58 comparisons + 12 overviews valid; runtime unchanged
+........
+----------------------------------------------------------------------
+Ran 8 tests in 2.115s
+
+OK
+VART-010: 12 masters, 24 independent exports, 24 native frames and browser states valid; approved
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 1.448s
+
+OK
+VISUAL PIPELINE: boundaries, development I/O, runtime images and references valid
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.429s
+
+OK
+VISUAL RESOURCES: stable IDs, geometry, alpha, variants, imports and provenance valid
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 2.277s
+
+OK
+VISUAL SAMPLING: families, real PNG/imports, native matrix and protected UI valid
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 4.719s
+
+OK
+PADDED ATLAS: all frames, RGBA gutters, independent levels and imports valid
+............
+----------------------------------------------------------------------
+Ran 12 tests in 7.779s
+
+OK
+TEXTURE INTENTS: color/data imports, full RGBA and native GPU matrix are valid
+............
+----------------------------------------------------------------------
+Ran 12 tests in 4.447s
+
+OK
+ITEM SIZES: canonical 64/160 PNGs, imports, cold cabinet and LRU proof valid
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 13.421s
+
+OK
+PREVIEW INPUTS: exact files/RGBA/bounds valid; no export acceptance claimed
+.........................
+----------------------------------------------------------------------
+Ran 25 tests in 13.303s
+
+OK
+EXPORT CONTRACT: exact source/reference files and reviewed finite outputs valid
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 18.411s
+
+OK
+..................................
+----------------------------------------------------------------------
+Ran 34 tests in 2.368s
+
+OK
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 0.008s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.570s
+
+OK
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 6.202s
+
+OK
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 15.936s
+
+OK
+{"task": "VFOLIAGE-009", "native_states": 130, "png": 260, "paused_samples": 936, "hardware_input_accepted": false, "performance_eligible": false}
+FOLIAGE VISIBILITY VERIFIED: 512 native frames, 36 exact pairs, 24 coverage targets; historical evidence; current candidate not checked; no FPS admission
+..................................
+----------------------------------------------------------------------
+Ran 34 tests in 156.216s
+
+OK
+ALPHA AUDIT: read-only; known legacy candidates 311; new matte candidates require review
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.436s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 2.677s
+
+OK
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/slice_audit.py", line 234, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/slice_audit.py", line 200, in main
+    if folder is None:folder=Path(temporary)/'export';export(ROOT,folder)
+                                                      ^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/slice_audit.py", line 188, in export
+    if process.returncode or any(s in log for s in ['ERROR:','SCRIPT ERROR','Parse Error']):raise ValueError('slice export failed: '+log[-4000:])
+                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: slice export failed: source_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/ore_metal_v1.png-f95445ca1bb185655e5e1185dc5d05fc.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/ore_metal_v1.png-f95445ca1bb185655e5e1185dc5d05fc.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/locations/cave/modular/ore_metal_v1.png.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/boulder_v1.png-2bdf44438957258542a2e3b967f1ccd9.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/boulder_v1.png-2bdf44438957258542a2e3b967f1ccd9.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/locations/cave/modular/boulder_v1.png.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/stalagmites_v1.png-d045c4a4ae9b3493fc6534a78eb10808.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/stalagmites_v1.png-d045c4a4ae9b3493fc6534a78eb10808.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/locations/cave/modular/stalagmites_v1.png.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/rubble_v1.png-06a1a722259e19fcf8a3f5e438afe3fa.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/rubble_v1.png-06a1a722259e19fcf8a3f5e438afe3fa.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/locations/cave/modular/rubble_v1.png.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/mushrooms_v1.png-bfc932dead60fd69046cf2ab405e364b.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/mushrooms_v1.png-bfc932dead60fd69046cf2ab405e364b.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/locations/cave/modular/mushrooms_v1.png.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/torch_v1.png-ccc9d49ac2ebcc70d8ea8cd4701190e9.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/torch_v1.png-ccc9d49ac2ebcc70d8ea8cd4701190e9.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/locations/cave/modular/torch_v1.png.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/crystal_fragments_v1.png-d9b608512a9604ab495a9da2df87d263.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/crystal_fragments_v1.png-d9b608512a9604ab495a9da2df87d263.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/locations/cave/modular/crystal_fragments_v1.png.
+   at: _load (core/io/resource_loader.cpp:317)
+SCRIPT ERROR: Parse Error: Could not resolve external class member "EFFECT_SHEETS".
+          at: GDScript::reload (res://tools/slice_export.gd:102)
+SCRIPT ERROR: Parse Error: Could not resolve external class member "TreeTexture".
+          at: GDScript::reload (res://tools/slice_export.gd:104)
+SCRIPT ERROR: Parse Error: Could not resolve external class member "TREE_ATLAS".
+          at: GDScript::reload (res://tools/slice_export.gd:120)
+SCRIPT ERROR: Parse Error: Could not resolve external class member "CATALOG".
+          at: GDScript::reload (res://tools/slice_export.gd:133)
+ERROR: Failed to load script "res://tools/slice_export.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+

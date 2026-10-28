@@ -1,0 +1,18 @@
+[
+  {
+    "path": "TESTING.md",
+    "sha256": "1eb4565d3c238ee59874d0a7270d62fbdeb9ebf09e68d88ed70464091ea5cc9d"
+  },
+  {
+    "path": "wiki/articles/project-refactoring.md",
+    "sha256": "04927a6dcb0e1fa95f372587fd4d4ecd2b5e6baac6fcb59885fa917f3e858017"
+  },
+  {
+    "path": "docs/epics/refactoring-2026-10/TASKS.md",
+    "sha256": "d0c9c6d70ba2b00f3f8968450c52dbbca374430180ec54db3d79d424cd527006"
+  },
+  {
+    "path": "AGENTS.md",
+    "sha256": "7458f1bd8b9a6b94d5ac4469072ce23851b810e7f6c4cdaef6aac6a7cad35a18"
+  }
+]

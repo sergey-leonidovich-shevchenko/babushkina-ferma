@@ -17,10 +17,28 @@ from common.paths import project_root
 
 prepare_imports(project_root(__file__))
 from tools.assets.contracts.visual_resources import parse
+from tools.assets.contracts.source_paths import current_source
+from tools.common.git import git_environment
+from tools.common.history import pinned_sha
 
 ROOT=project_root(__file__)
 REPORT='docs/reports/visual-overhaul/vpipeline-008'
 POLICY='tools/slice_policy.json'
+PACKAGED_EXPORTERS = {
+    'tools/slice_export.gd': 'tools/assets/slicing/slice_export.gd',
+    'tools/slice_catalogs.gd': 'tools/assets/slicing/slice_catalogs.gd',
+}
+LEGACY_EXPORTERS = {
+    'tools/slice_export.gd': ('d609ab4fa6d82d6d013265183f018b8836abf7cc', 'f4c1bbd6ed24392b35483297d3f93f4badc575bbf3a7f1542422880879023dd0'),
+    'tools/slice_catalogs.gd': ('d609ab4fa6d82d6d013265183f018b8836abf7cc', '4953f2b4dd14887826fc06f7e6ae946676a7cde9887fae13678ce70dc04dcfc8'),
+}
+
+
+def legacy_exporter_sha(root, name):
+    """Текущий input остаётся привязанным к коду, исторические байты читает только собственный Git."""
+    if current_source(root, name).read_bytes() != current_source(ROOT, name).read_bytes():
+        raise ValueError('slice exporter implementation differs')
+    return pinned_sha(ROOT, name, *LEGACY_EXPORTERS[name])
 
 
 def read(path):
@@ -38,8 +56,10 @@ def signature(frame, texture):
     return digest(json.dumps({'frame':{k:v for k,v in frame.items() if k!='image'},'texture':{k:v for k,v in texture.items() if k not in ['file','png_sha256']}},sort_keys=True).encode())
 
 
-def inputs(root):
+def inputs(root, *, historical=False, source_paths=None):
     """Связывает выгрузку с кодом поставщиков и игровыми данными; старый каталог не подменяет свежий прогон."""
+    if source_paths is not None and source_paths != PACKAGED_EXPORTERS:
+        raise ValueError('unknown slice exporter paths')
     files={}
     for directory in ['scripts','wiki/scripts','assets/game']:
         for path in (root/directory).rglob('*'):
@@ -47,9 +67,27 @@ def inputs(root):
             if path.name!='.gdignore' and any((p/'.gdignore').exists() for p in path.parents if p.is_relative_to(root)):continue
             files[path.relative_to(root).as_posix()]=digest(path.read_bytes())
     for name in ['slice_export.gd','slice_catalogs.gd']:
-        tool=root/'tools'/name
-        if tool.is_file():files['tools/'+name]=digest(tool.read_bytes())
+        logical='tools/'+name
+        tool=current_source(root, source_paths[logical]) if source_paths is not None else current_source(root, logical)
+        if tool.is_file():files[logical]=legacy_exporter_sha(root, logical) if historical else digest(tool.read_bytes())
     return digest(json.dumps(files,sort_keys=True).encode())
+
+
+def input_errors(root, inventory):
+    """Legacy использует ровно прежний exporter, свежий режим — полную известную physical map."""
+    paths = inventory.get('tool_source_paths', {})
+    if not isinstance(paths, dict) or paths not in ({}, PACKAGED_EXPORTERS):
+        return ['unknown slice exporter paths']
+    errors = []
+    if inventory.get('inputs_sha256') != inputs(root, historical=not bool(paths), source_paths=paths or None):
+        errors.append('stale slice export: code or runtime source changed')
+    name = 'tools/slice_export.gd'
+    tool = current_source(root, paths[name]) if paths else current_source(root, name)
+    if tool.is_file():
+        expected = digest(tool.read_bytes()) if paths else legacy_exporter_sha(root, name)
+        if inventory.get('source_sha256') != expected:
+            errors.append('slice exporter source SHA256 differs')
+    return errors
 
 
 def evaluate(folder):
@@ -88,7 +126,7 @@ def evaluate(folder):
 
 def check(root, folder, result):
     """Блокирует новые риски, потерю охвата и неподдержанные места нарезки; старый долг не исправляет автоматически."""
-    policy=read(root/POLICY);base=read(root/REPORT/'legacy-slices.json');errors=list(result['errors'])
+    policy=read(current_source(root, POLICY));base=read(root/REPORT/'legacy-slices.json');errors=list(result['errors'])
     known=base['warnings'];reviews=policy.get('reviews',{})
     if policy.get('schema_version')!=1 or not isinstance(reviews,dict) or base.get('baseline_commit')!=policy.get('baseline_commit'):return ['invalid slice policy/baseline']
     for id,row in result['frames'].items():
@@ -106,7 +144,7 @@ def check(root, folder, result):
     sites={str(p.relative_to(root)):len(re.findall(r'\bdraw_texture_rect_region\s*\(',p.read_text())) for p in (root/'scripts').rglob('*.gd') if 'draw_texture_rect_region' in p.read_text()}
     if sites!={path:row['calls'] for path,row in policy['call_sites'].items()}:errors.append('slice call-site coverage changed: add a provider or explain bounded procedural input')
     inventory=read(folder/'inventory.json')
-    if inventory.get('inputs_sha256')!=inputs(root):errors.append('stale slice export: code or runtime source changed')
+    errors.extend(input_errors(root, inventory))
     expected=inventory.get('expected_characters')
     if not isinstance(expected,list) or not expected:errors.append('missing independent character coverage')
     for id in expected if isinstance(expected,list) else []:
@@ -169,10 +207,10 @@ def main():
                 (target/name).write_text(json.dumps(value,separators=(',',':'))+'\n')
             shutil.copyfile(folder/'export.log',target/'export.log')
         if args.record:
-            policy=read(ROOT/POLICY)
-            if subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()!=policy['baseline_commit']:raise SystemExit('initial slice snapshot requires exact base commit')
-            if subprocess.check_output(['git','diff','HEAD','--name-only','--','assets/game','scripts','wiki/scripts'],text=True).strip():raise SystemExit('changed runtime cannot enter legacy slice debt')
-            if subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets/game','scripts','wiki/scripts'],text=True).strip():raise SystemExit('untracked runtime cannot enter legacy slice debt')
+            policy=read(current_source(ROOT, POLICY))
+            if subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,env=git_environment(),text=True).strip()!=policy['baseline_commit']:raise SystemExit('initial slice snapshot requires exact base commit')
+            if subprocess.check_output(['git','diff','HEAD','--name-only','--','assets/game','scripts','wiki/scripts'],cwd=ROOT,env=git_environment(),text=True).strip():raise SystemExit('changed runtime cannot enter legacy slice debt')
+            if subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets/game','scripts','wiki/scripts'],cwd=ROOT,env=git_environment(),text=True).strip():raise SystemExit('untracked runtime cannot enter legacy slice debt')
             if read(folder/'inventory.json').get('inputs_sha256')!=inputs(ROOT):raise SystemExit('legacy snapshot requires a fresh source-bound export')
             if sorted(result['errors'])!=sorted(policy.get('initial_geometry_issues',[])):raise SystemExit('unexpected initial geometry issues:\n'+'\n'.join(result['errors']))
             destination=ROOT/REPORT;destination.mkdir(parents=True,exist_ok=True)
@@ -186,7 +224,7 @@ def main():
             from slice_proof import validate
             errors.extend(validate(ROOT))
             proof=read(ROOT/REPORT/'proof.json')
-            tracked=set(subprocess.check_output(['git','-C',str(ROOT),'ls-files','-z']).decode().split('\0'))
+            tracked=set(subprocess.check_output(['git','-C',str(ROOT),'ls-files','-z'],cwd=ROOT,env=git_environment()).decode().split('\0'))
             for name in set(proof['files'])|{'proof.json'}:
                 if REPORT+'/'+name not in tracked:errors.append('slice proof input missing from Git index: '+name)
             if errors:raise SystemExit('\n'.join(errors))

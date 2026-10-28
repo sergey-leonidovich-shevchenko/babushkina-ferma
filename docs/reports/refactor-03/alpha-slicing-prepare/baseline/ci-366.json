@@ -1,0 +1,124 @@
+{
+  "headRevision": "482ed19c8833764b96e3130cec536b2dd6790eed",
+  "checks": [
+    {
+      "id": 122844592043,
+      "name": "Wiki quality gate",
+      "head_sha": "482ed19c8833764b96e3130cec536b2dd6790eed",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40696507725/job/122844592043",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2
+      }
+    },
+    {
+      "id": 122844591913,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "482ed19c8833764b96e3130cec536b2dd6790eed",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40696507725/job/122844591913",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 122844591805,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "482ed19c8833764b96e3130cec536b2dd6790eed",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40696507725/job/122844591805",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 122844591514,
+      "name": "test",
+      "head_sha": "482ed19c8833764b96e3130cec536b2dd6790eed",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40696507725/job/122844591514",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2
+      }
+    },
+    {
+      "id": 122844563702,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "482ed19c8833764b96e3130cec536b2dd6790eed",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40696499068/job/122844563702",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 122844563453,
+      "name": "Wiki quality gate",
+      "head_sha": "482ed19c8833764b96e3130cec536b2dd6790eed",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40696499068/job/122844563453",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2
+      }
+    },
+    {
+      "id": 122844563381,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "482ed19c8833764b96e3130cec536b2dd6790eed",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40696499068/job/122844563381",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 122844562894,
+      "name": "test",
+      "head_sha": "482ed19c8833764b96e3130cec536b2dd6790eed",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40696499068/job/122844562894",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 2
+      }
+    }
+  ],
+  "statuses": [],
+  "annotations": [],
+  "hasMore": false,
+  "job": null,
+  "jobs": [],
+  "log": null,
+  "logTruncated": false
+}

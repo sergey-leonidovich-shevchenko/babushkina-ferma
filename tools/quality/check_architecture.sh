@@ -38,6 +38,7 @@ python3 tools/run.py common.test_history
 python3 tools/run.py qa.art.test_current_paths
 python3 tools/run.py assets.migration.test_scanner_history
 python3 tools/run.py assets.migration.test_migration_fixture
+python3 tools/run.py assets.alpha.test_processing_history
 python3 tools/run.py assets.contracts.test_source_paths
 python3 tools/run.py planning.test_task_batch
 

@@ -2,8 +2,23 @@
 """Проверяет исторические GPU-пары, исправленные границы и адресные отрицательные контроли."""
 from pathlib import Path
 from PIL import Image,ImageChops
-from slice_audit import REPORT,POLICY,read,digest
+from slice_audit import ROOT,REPORT,POLICY,read,digest
 from slice_metrics import geometry
+from tools.assets.contracts.source_paths import current_source
+from tools.common.history import pinned_sha
+
+LEGACY_CAPTURES = {
+    'tools/slice_capture.gd': ('d609ab4fa6d82d6d013265183f018b8836abf7cc', 'a5784861a412f0842c9513ed751d3e99cf3fd0ea1f4d5a56ba3ab07f0b78611d'),
+    'tools/slice_legacy_capture.gd': ('d609ab4fa6d82d6d013265183f018b8836abf7cc', '2e3df3edd52107d8a1d477109d4bec572f7d49e3a02db6c0933bd5e8c636d6ff'),
+}
+
+
+def capture_sha(root: Path, name: str) -> str:
+    """История кода принадлежит checkout reader; изменённая текущая копия не проходит."""
+    commit, expected = LEGACY_CAPTURES[name]
+    if current_source(root, name).read_bytes() != current_source(ROOT, name).read_bytes():
+        raise ValueError('native slice capture implementation differs')
+    return pinned_sha(ROOT, name, commit, expected)
 
 TARGETS=['ui/sunflower/160','ui/sword/160','characters/hero/bow/east/2','characters/hero/blade/east/2','characters/hero/spear/east/2','crops/sunflower/spring/4']
 
@@ -29,7 +44,7 @@ def validate(root:Path):
     report=root/REPORT;errors=[]
     try:
         proof=read(report/'proof.json');before=read(report/'inventory.json');after=read(report/'after/inventory.json')
-        policy=read(root/POLICY);base=read(report/'legacy-slices.json')
+        policy=read(current_source(root, POLICY));base=read(report/'legacy-slices.json')
         required={'inventory.json','measurements.json','legacy-slices.json','export.log','after/inventory.json','after/measurements.json','after/export.log','profile.log','before-native.log','after-native.log','legacy-native.log','before-native/capture.json','after-native/capture.json','legacy-native/capture.json'}
         required.update(phase+'/'+mode+'-'+background+'.png' for phase in ['before-native','after-native'] for mode in ['reference','game','clipped'] for background in ['dark','light'])
         required.update('legacy-native/'+page+'-'+background+'.png' for page in ['pirate','potion'] for background in ['dark','light'])
@@ -52,7 +67,7 @@ def validate(root:Path):
         if sorted(changed)!=proof['changed_regions'] or len(changed)!=20:errors.append('integer grid correction coverage differs')
         for phase in ['before-native','after-native']:
             folder=report/phase;data=read(folder/'capture.json')
-            if data['source_sha256']!=digest((root/'tools/slice_capture.gd').read_bytes()):errors.append('native slice capture implementation differs')
+            if data['source_sha256']!=capture_sha(root, 'tools/slice_capture.gd'):errors.append('native slice capture implementation differs')
             if data['framebuffer']!=[1152,648] or data['target']!='fixed_gpu_subviewport' or data['performance_eligible'] is not False or data['method']!='gl_compatibility' or data['driver']!='opengl3':errors.append('native slice configuration differs')
             if set(data['frames'])!={mode+'-'+bg for mode in ['reference','game','clipped'] for bg in ['dark','light']}:errors.append('incomplete native slice matrix')
             if [row['id'] for row in data['targets']]!=TARGETS:errors.append('native target set differs')
@@ -79,7 +94,7 @@ def validate(root:Path):
             with Image.open(report/'before-native'/(name+'.png')) as a,Image.open(report/'after-native'/(name+'.png')) as b:
                 if ImageChops.difference(a,b).getbbox(alpha_only=False):errors.append('modern pixels changed after source grid fix: '+name)
         legacy=read(report/'legacy-native/capture.json')
-        if legacy['source_sha256']!=digest((root/'tools/slice_legacy_capture.gd').read_bytes()) or legacy['framebuffer']!=[1152,648] or legacy['performance_eligible'] is not False:errors.append('legacy replay configuration differs')
+        if legacy['source_sha256']!=capture_sha(root, 'tools/slice_legacy_capture.gd') or legacy['framebuffer']!=[1152,648] or legacy['performance_eligible'] is not False:errors.append('legacy replay configuration differs')
         if sorted(p['id'] for p in legacy['pairs'])!=sorted(changed):errors.append('legacy replay missed a corrected region')
         if set(legacy['frames'])!={page+'-'+background for page in ['pirate','potion'] for background in ['dark','light']}:errors.append('incomplete legacy replay matrix')
         for name,sha in legacy['frames'].items():

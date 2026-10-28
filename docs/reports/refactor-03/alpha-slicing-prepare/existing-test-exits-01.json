@@ -1,0 +1,18 @@
+[
+  {
+    "module": "test_alpha_audit",
+    "exit": 0
+  },
+  {
+    "module": "test_alpha_proof",
+    "exit": 0
+  },
+  {
+    "module": "test_slice_audit",
+    "exit": 0
+  },
+  {
+    "module": "test_slice_proof",
+    "exit": 0
+  }
+]

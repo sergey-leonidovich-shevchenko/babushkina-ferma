@@ -4,7 +4,20 @@ import json
 from pathlib import Path
 from PIL import Image,ImageChops
 from alpha_metrics import analyse
-from alpha_audit import REPORT,BASELINE,read,sha
+from alpha_audit import ROOT,REPORT,BASELINE,read,sha
+from tools.assets.contracts.source_paths import current_source
+from tools.common.history import pinned_sha
+
+LEGACY_CAPTURE = ('tools/alpha_capture.gd', 'd609ab4fa6d82d6d013265183f018b8836abf7cc',
+                  '0a5dce5a6f558f21cb03bcdf47a0189d2639d3ebf7ed5ee0a7c6e8aba57fc81a')
+
+
+def capture_sha(root: Path) -> str:
+    """Сверяет текущую копию source отдельно от точного Git collector исторического proof."""
+    name, commit, expected = LEGACY_CAPTURE
+    if current_source(root, name).read_bytes() != current_source(ROOT, name).read_bytes():
+        raise ValueError('native alpha capture implementation differs')
+    return pinned_sha(ROOT, name, commit, expected)
 
 BACKGROUNDS={'light':(241,234,216),'dark':(25,35,43),'green':(97,118,75),'purple':(116,85,118)}
 CASES=['clean-white-details','white-soft-matte','white-opaque-rim','magenta-soft-matte','magenta-opaque-rim','white-material','magenta-material','invisible-rgb']
@@ -34,7 +47,7 @@ def validate(root: Path) -> list[str]:
         required.update('native/'+page+'-'+background+'.png' for page in ['controls','sources'] for background in BACKGROUNDS)
         if set(proof['files'])!=required:errors.append('incomplete alpha proof file inventory')
         if proof.get('schema_version')!=1 or proof.get('performance_eligible') is not False:errors.append('invalid alpha proof contract')
-        if data['source_sha256']!=sha((root/'tools/alpha_capture.gd').read_bytes()):errors.append('native alpha capture implementation differs')
+        if data['source_sha256']!=capture_sha(root):errors.append('native alpha capture implementation differs')
         if data['method']!='gl_compatibility' or data['driver']!='opengl3' or not data['engine'].startswith('4.7.1-') or not data['profile'].startswith('Codex-VPIPELINE-007-'):errors.append('native alpha configuration differs')
         for name,expected in proof['files'].items():
             if sha((report/name).read_bytes())!=expected:errors.append('alpha proof file changed: '+name)
