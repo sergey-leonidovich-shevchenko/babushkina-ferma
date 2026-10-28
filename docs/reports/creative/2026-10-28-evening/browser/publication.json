@@ -1,0 +1,22 @@
+{
+  "version": "0.0.358",
+  "pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/24",
+  "taskStatus": "in_progress",
+  "literalPrURLVisible": true,
+  "balanceParagraphVisible": "IDEA-284: six loads, thresholds, five hypothetical readers; no actual audience results",
+  "catalog": {
+    "epics": 178,
+    "tasks": 2088,
+    "ideas": 251,
+    "articles": 1200
+  },
+  "finalScreenshots": [
+    "publication-card-ready.jpg",
+    "publication-result.jpg",
+    "overview-358.jpg"
+  ],
+  "partialScreenshot": "publication-loading.jpg",
+  "firstProofFilesPreserved": 4,
+  "foreignGitOutputIdentical": true,
+  "newGameplayAccepted": false
+}
