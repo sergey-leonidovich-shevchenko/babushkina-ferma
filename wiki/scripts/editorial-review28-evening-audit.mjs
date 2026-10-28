@@ -120,6 +120,8 @@ const headings = [
 for (const p of proposals) {
   const text = await read(`wiki/articles/${p.id}.md`)
   assert.ok(text.length > 9000, `${p.id}: insufficient detail`)
+  assert.ok(p.balanceHypothesis?.startsWith('Стартовая гипотеза баланса:'))
+  assert.ok(text.includes(p.balanceHypothesis))
   assert.ok(
     headings.every((heading) => text.includes(heading)),
     p.id
@@ -162,6 +164,12 @@ for (const p of proposals) {
 const editor = catalog.tasks.find((p) => p.id === 'IDEA-REVIEW-20261028-EVENING')
 assert.equal(editor?.status, 'in_progress')
 assert.ok(editor.source.includes('wiki-workspace'))
+const publication = await json(`${out}/publication.json`)
+assert.equal(publication.status, 'in_progress')
+assert.equal(publication.editorialTask, editor.id)
+assert.equal(publication.number, 24)
+assert.ok(editor.result.includes(publication.pr))
+assert.equal(publication.balanceHypothesesAdded, 10)
 
 // Existing sources/index entries must remain intact; the date creates no shared gameplay epic.
 const originalSources = JSON.parse(old('wiki/planning/sources.json'))

@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/24",
+  "number": 24,
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "branch": "codex/idea-review-20261028-evening-crafts",
+  "contentCommit": "5100bc89639a83f205a70f567d76eb6363f8d858",
+  "editorialTask": "IDEA-REVIEW-20261028-EVENING",
+  "status": "in_progress",
+  "review": "waiting for exact-head CI and independent Tech Lead / Team Lead decision; deferred queue does not interrupt REFACTOR-03",
+  "firstSourceHashesVerified": 59,
+  "firstRawLogsVerified": 2,
+  "forwarderSHA256": "e7c88aad4eff83eb3c0416cd0c9caf9e06d2c961a5d2a87f3ce5109baadd51b9",
+  "engine": "Godot 4.7.1 stable official a13da4feb",
+  "python": "3.11.17 with Pillow 11.3",
+  "node": "24.19.0",
+  "forwarderScope": "Local only; same installed engine/argv. Serializes only test_game.gd for cooperating own gates, not CI. No changes to tests/hooks/thresholds. CREATIVE_WAIT_FOR_GATE unset.",
+  "newGameplayImplemented": false,
+  "futureScenariosRun": 0,
+  "balanceHypothesesAdded": 10,
+  "recordedAt": "2026-10-28T15:56:52.751818+00:00"
+}
