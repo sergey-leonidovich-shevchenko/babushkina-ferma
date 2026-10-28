@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TITLE — макет названий</title>
+    <style>
+      :root {
+        font-family: system-ui, sans-serif;
+        color: #eceddf;
+        background: #192c2c;
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      main {
+        max-width: 1240px;
+        margin: auto;
+        padding: 26px;
+      }
+      .eyebrow {
+        color: #bdc8aa;
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      h1 {
+        font:
+          32px Georgia,
+          serif;
+        margin: 9px 0;
+      }
+      .note {
+        color: #c4cfbe;
+        max-width: 760px;
+        line-height: 1.6;
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        align-items: end;
+        margin: 25px 0 18px;
+      }
+      label {
+        display: grid;
+        gap: 7px;
+        font-size: 13px;
+      }
+      .check {
+        display: flex;
+        align-items: center;
+        align-self: center;
+      }
+      select,
+      button {
+        font: inherit;
+        min-height: 42px;
+        border: 1px solid #708472;
+        border-radius: 7px;
+        padding: 8px 12px;
+        background: #263e38;
+        color: #fff7db;
+      }
+      button {
+        cursor: pointer;
+      }
+      button:disabled {
+        opacity: 0.4;
+        cursor: default;
+      }
+      :focus-visible {
+        outline: 3px solid #e9c783;
+        outline-offset: 3px;
+      }
+      .stage {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16/9;
+        min-height: 260px;
+        overflow: hidden;
+        border-radius: 12px;
+        background: linear-gradient(#9daea0 0%, #6c8a76 45%, #354d3e 100%);
+        border: 1px solid #74907c;
+      }
+      .landscape {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.65;
+      }
+      .stage::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        box-shadow: inset 0 0 140px #13292270;
+      }
+      .hud {
+        position: absolute;
+        top: 16px;
+        left: 18px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        color: #fff8df;
+      }
+      .map-label {
+        position: absolute;
+        bottom: 18px;
+        left: 18px;
+        color: #e4e8ce;
+        font-size: 12px;
+      }
+      .boss-health {
+        display: none;
+        position: absolute;
+        bottom: 30px;
+        left: 26%;
+        width: 48%;
+        text-align: center;
+        font-size: 12px;
+      }
+      .boss-health::after {
+        content: '';
+        display: block;
+        height: 5px;
+        background: #b06b59;
+        margin-top: 8px;
+      }
+      .stage.boss {
+        background: linear-gradient(#4c5361, #393d48 50%, #202d32);
+      }
+      .stage.frost {
+        background: linear-gradient(#b2c8cc, #8aa6a7 60%, #4b6a6b);
+      }
+      .reveal {
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 30%;
+        transform: translate(-50%, -50%);
+        width: 72%;
+        max-width: 760px;
+        text-align: center;
+        pointer-events: none;
+        color: #fff8e4;
+      }
+      .reveal::before {
+        content: '';
+        position: absolute;
+        inset: -20px -30px;
+        background: radial-gradient(ellipse, #15231b8c, transparent 70%);
+        z-index: -1;
+      }
+      .name {
+        font-family: Georgia, serif;
+        font-size: clamp(22px, 3.2vw, 39px);
+        line-height: 1.16;
+        text-wrap: balance;
+        text-shadow: 0 2px 8px #16241c;
+      }
+      .subtitle {
+        margin-top: 10px;
+        font-size: clamp(12px, 1.5vw, 16px);
+        letter-spacing: 0.045em;
+        color: #ece4c9;
+      }
+      .ornament {
+        width: 180px;
+        height: 30px;
+        margin: 0 auto 10px;
+        color: var(--accent, #d8c994);
+        overflow: visible;
+      }
+      .ornament path,
+      .ornament circle {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .status {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 13px;
+        min-height: 28px;
+        font-size: 13px;
+        color: #c3ceba;
+      }
+      .facts {
+        padding: 17px 20px;
+        border-left: 2px solid #acb48a;
+        background: #223832;
+        margin-top: 16px;
+        line-height: 1.65;
+        color: #d9dfcb;
+      }
+      .facts p {
+        margin: 4px 0;
+      }
+      @media (max-width: 600px) {
+        main {
+          padding: 16px;
+        }
+        h1 {
+          font-size: 27px;
+        }
+        select {
+          max-width: 100%;
+        }
+        .controls > label:first-child {
+          width: 100%;
+        }
+        .reveal {
+          width: 86%;
+        }
+        .stage {
+          min-height: 285px;
+        }
+        .hud {
+          font-size: 10px;
+        }
+        .map-label {
+          font-size: 10px;
+          max-width: 65%;
+        }
+        .name {
+          font-size: 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="eyebrow">Бабушкина ферма · TITLE</div>
+      <h1>У каждого места — свой первый взгляд</h1>
+      <p class="note">
+        Интерактивный дизайн-макет. Условный фон показывает композицию и темп. Игра, её бой, пауза,
+        сохранения и FPS здесь не проверяются. Будущие деревни ещё не созданы.
+      </p>
+      <div class="controls">
+        <label>
+          Пример
+          <select id="scene"></select>
+        </label>
+        <label class="check">
+          <input id="repeat" type="checkbox" />
+          Короткий повтор
+        </label>
+        <label class="check">
+          <input id="reduced" type="checkbox" />
+          Без перемещения
+        </label>
+        <button id="play">Показать снова</button>
+        <button id="skip" disabled>Пропустить</button>
+      </div>
+      <section class="stage" id="stage" aria-label="Условное поле игры с титром в верхней трети">
+        <svg
+          class="landscape"
+          viewBox="0 0 1152 648"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+        >
+          <path d="M0 280Q130 120 300 290T630 250T960 290T1200 200V700H0Z" fill="#526f5e" />
+          <path d="M0 410Q180 280 390 420T770 360T1200 410V700H0Z" fill="#355342" />
+          <path d="M720 280Q580 380 740 490T540 690H850Q950 570 790 470T810 280Z" fill="#8eaeaa" />
+          <path
+            d="M120 500V335M80 410Q120 250 170 405M930 430V310M885 370Q930 220 980 370"
+            stroke="#243f30"
+            stroke-width="28"
+            stroke-linecap="round"
+            fill="none"
+          />
+          <path d="M325 490V408L390 365L455 408V490Z" fill="#9c9875" />
+          <path d="M305 410L390 350L475 410" stroke="#505849" stroke-width="15" fill="none" />
+          <path d="M350 490Q410 525 465 640" stroke="#a99b76" stroke-width="48" fill="none" />
+        </svg>
+        <div class="hud">♥ ♥ ♥ ♥ ♥ &nbsp; · &nbsp; HUD</div>
+        <div class="reveal" id="reveal">
+          <svg class="ornament" id="ornament" viewBox="0 0 180 30" aria-hidden="true"></svg>
+          <div class="name" id="name"></div>
+          <div class="subtitle" id="subtitle"></div>
+        </div>
+        <div class="map-label" id="map-label">Обычный вход: управление продолжается</div>
+        <div class="boss-health" id="boss-health">После представления — прежний бой</div>
+      </section>
+      <div class="status">
+        <span id="phase" aria-live="polite"></span>
+        <span id="timing"></span>
+      </div>
+      <div class="facts">
+        <p id="meaning"></p>
+        <p>
+          В игре полное представление босса разрешено только до старта боя и после приёмки общей
+          остановки симуляции. Открытая стычка получает компактный титр. Пропуск — новым нажатием
+          после 0,25 с.
+        </p>
+      </div>
+    </main>
+    <script>
+      // Design samples only: no engine imports, game state, audio or save access.
+      const samples = [
+        [
+          'Деревня и гильдия',
+          'Дорога домой',
+          'home',
+          'Нынешнее поселение. Пять районов наследуют материал и получают компактные названия.',
+        ],
+        [
+          'Ивовые Мостки',
+          'Деревня на тихой воде',
+          'willow',
+          'Будущая деревня. Ивовая ветвь и рябь; не текущий район Речная переправа.',
+        ],
+        [
+          'Медный Уступ',
+          'Где горы держат огонь',
+          'copper',
+          'Будущая деревня. Скобы и противовес, без искр и громкого удара.',
+        ],
+        [
+          'Подкоренье',
+          'Под защитой старых корней',
+          'root',
+          'Будущая деревня. Две корневые линии образуют арку.',
+        ],
+        [
+          'Соляная Пристань',
+          'На ветру солёного берега',
+          'salt',
+          'Будущая деревня. Канат и волна, без копирования интерфейса другой игры.',
+        ],
+        [
+          'Бродячий Двор',
+          'Дом, который путешествует',
+          'cloth',
+          'Будущее подвижное поселение. Одно посещение на все авторские стоянки.',
+        ],
+        [
+          'Обычный лес',
+          'Под сенью старых крон',
+          'forest',
+          'Существующая основная область. 2,6 секунды; герой продолжает идти.',
+        ],
+        [
+          'Инейный хребет',
+          'Между огнём и метелью',
+          'frost',
+          'Будущий северный район. Титр места не останавливает холод.',
+        ],
+        [
+          'Хранитель глубин',
+          '',
+          'boss',
+          'Действующая особая встреча в святилище; титр и безопасный старт пока запланированы.',
+        ],
+        [
+          'Регент Теней',
+          '',
+          'boss',
+          'Имя после принятого ритуала, не при входе в замок. Полный показ не повторяется в активном сохранённом бою.',
+        ],
+      ]
+      const paths = {
+        home: '<path d="M15 22H72M108 22H165M90 24V6M90 10L83 7M90 15L97 11M90 20L83 16"/>',
+        willow:
+          '<path d="M20 23Q45 4 73 17M160 23Q135 4 107 17M35 16L30 24M49 13L46 23M145 16L150 24M131 13L134 23M74 27Q90 21 106 27"/>',
+        copper: '<path d="M18 23H63V8H76M162 23H117V8H104M84 6V22H96V6M87 13H93"/>',
+        root: '<path d="M15 26Q35 26 52 16Q74 1 90 9Q106 1 128 16Q145 26 165 26M52 16L46 6M128 16L134 6M90 9Q78 1 82 14Q86 18 90 9"/>',
+        salt: '<path d="M15 17Q45 9 75 17T135 17T165 17M76 10Q90-2 104 10Q90 24 76 10M67 27Q80 21 93 27T119 27"/>',
+        cloth:
+          '<path d="M20 6H160L151 21H29ZM37 10L43 10M53 10L59 10M121 10L127 10M137 10L143 10M90 6V19"/><circle cx="90" cy="25" r="4"/>',
+        forest:
+          '<path d="M20 24Q47 14 75 20M160 24Q133 14 105 20M54 19Q40-2 33 12Q35 25 54 19M126 19Q140-2 147 12Q145 25 126 19"/>',
+        frost:
+          '<path d="M15 24L45 7L60 20L75 10M165 24L135 7L120 20L105 10M90 20V5M84 11L96 17M96 11L84 17"/>',
+        boss: '<path d="M15 23H63L57 9L76 15L90 3L104 15L123 9L117 23H165M73 27H107"/>',
+      }
+      const get = (id) => document.getElementById(id)
+      samples.forEach((sample, index) => get('scene').add(new Option(sample[0], index)))
+      get('scene').value = '1'
+      get('reduced').checked = matchMedia('(prefers-reduced-motion: reduce)').matches
+      let animations = [],
+        timer,
+        skipTimer,
+        started = 0,
+        active = false
+      function stop() {
+        animations.forEach((animation) => animation.cancel())
+        animations = []
+        clearTimeout(timer)
+        clearTimeout(skipTimer)
+        active = false
+        get('skip').disabled = true
+      }
+      function play() {
+        stop()
+        const [name, subtitle, family, meaning] = samples[Number(get('scene').value)]
+        const repeat = get('repeat').checked,
+          reduced = get('reduced').checked
+        const boss = family === 'boss'
+        const duration = repeat
+          ? 1050
+          : boss
+            ? 2800
+            : ['forest', 'frost'].includes(family)
+              ? 2600
+              : 3000
+        const enter = repeat ? 150 : boss ? 450 : 350
+        const leave = repeat ? 250 : boss ? 500 : 550
+        const endHold = (duration - leave) / duration
+        get('stage').className = 'stage ' + (boss ? 'boss' : family === 'frost' ? 'frost' : '')
+        get('name').textContent = name
+        get('subtitle').textContent = repeat ? '' : subtitle
+        get('ornament').innerHTML = paths[family]
+        get('meaning').textContent = meaning
+        get('reveal').style.opacity = '1'
+        get('map-label').textContent = boss
+          ? 'Макет безопасного начала · до запуска боя'
+          : 'Обычный вход: управление продолжается'
+        get('boss-health').style.display = 'none'
+        const keyframes = [
+          { opacity: 0, translate: reduced ? '0 0' : '0 14px', offset: 0 },
+          { opacity: 1, translate: '0 0', offset: enter / duration },
+          { opacity: 1, translate: '0 0', offset: endHold },
+          { opacity: 0, translate: '0 0', offset: 1 },
+        ]
+        animations.push(
+          get('reveal').animate(keyframes, { duration, fill: 'forwards', easing: 'linear' })
+        )
+        if (!reduced)
+          animations.push(
+            get('ornament').animate([{ scale: '.75 1' }, { scale: '1 1' }], {
+              duration: enter + 120,
+              easing: 'cubic-bezier(.16,1,.3,1)',
+              fill: 'both',
+            })
+          )
+        started = performance.now()
+        active = true
+        get('phase').textContent = 'Показ · ' + (reduced ? 'без перемещения' : 'мягкое раскрытие')
+        get('timing').textContent =
+          (duration / 1000).toLocaleString('ru') + ' с · ' + (repeat ? 'повтор' : 'первый вход')
+        skipTimer = setTimeout(() => {
+          if (active) get('skip').disabled = false
+        }, 250)
+        timer = setTimeout(() => finish(boss, false), duration)
+      }
+      function finish(boss, skipped) {
+        stop()
+        get('reveal').style.opacity = '0'
+        get('phase').textContent = skipped ? 'Пропущено · только макет' : 'Завершено · только макет'
+        if (boss) get('boss-health').style.display = 'block'
+      }
+      get('skip').addEventListener('click', () => {
+        if (active && performance.now() - started >= 250)
+          finish(samples[Number(get('scene').value)][2] === 'boss', true)
+      })
+      ;['scene', 'repeat', 'reduced'].forEach((id) => get(id).addEventListener('change', play))
+      get('play').addEventListener('click', play)
+      // A tab losing visibility pauses this design timeline; it does not simulate engine pause.
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stop()
+        else {
+          get('reveal').style.opacity = '0'
+          get('phase').textContent = 'Макет остановлен при смене вкладки · нажмите «Показать снова»'
+        }
+      })
+      play()
+    </script>
+  </body>
+</html>
