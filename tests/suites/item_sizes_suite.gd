@@ -74,8 +74,8 @@ func test_catalogue_has_two_roles_without_original_requests() -> void:
 ## Ожидаемый результат: игровые PNG/source побайтно сохранны; неизвестный вывод resize, даже 1/255, запрещён.
 func test_prepared_files_match_full_resolution_sources() -> void:
 	var game := make_game()
-	var fitter := preload("res://tools/item_ui_fitter.gd")
-	var contract := preload("res://tools/item_export_contract.gd")
+	var fitter := preload("res://tools/assets/contracts/item_ui_fitter.gd")
+	var contract := preload("res://tools/assets/contracts/item_export_contract.gd")
 	var manifest := contract.manifest()
 	expect(
 		contract.environment(manifest, game.InventorySystem.ITEM_DATA.keys()).is_empty(),

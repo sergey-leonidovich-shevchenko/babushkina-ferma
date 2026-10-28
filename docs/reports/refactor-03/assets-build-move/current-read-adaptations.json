@@ -1,0 +1,46 @@
+[
+  {
+    "path": "tools/build/asset_pack.py",
+    "literal_current_reads": 5
+  },
+  {
+    "path": "tools/assets/contracts/asset_report.py",
+    "literal_current_reads": 2
+  },
+  {
+    "path": "tools/assets/contracts/item_export_contract.py",
+    "literal_current_reads": 1
+  },
+  {
+    "path": "tools/assets/migration/migration_fixture.py",
+    "literal_current_reads": 1
+  },
+  {
+    "path": "tools/assets/migration/migration_proof.py",
+    "literal_current_reads": 1
+  },
+  {
+    "path": "tools/assets/contracts/test_asset_report.py",
+    "literal_current_reads": 1
+  },
+  {
+    "path": "tools/assets/migration/test_migration_proof.py",
+    "literal_current_reads": 2
+  },
+  {
+    "path": "tools/assets/contracts/test_preview_portability.py",
+    "literal_current_reads": 1
+  },
+  {
+    "path": "tools/assets/contracts/texture_intents.py",
+    "literal_current_reads": 1
+  },
+  {
+    "path": "tools/assets/contracts/visual_icons.py",
+    "literal_current_reads": 1
+  },
+  {
+    "path": "tools/alpha_audit.py",
+    "literal_current_reads": 1
+  }
+]

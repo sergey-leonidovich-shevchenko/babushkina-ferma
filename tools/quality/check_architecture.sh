@@ -37,6 +37,7 @@ python3 tools/run.py common.test_infrastructure
 python3 tools/run.py common.test_history
 python3 tools/run.py qa.art.test_current_paths
 python3 tools/run.py assets.migration.test_scanner_history
+python3 tools/run.py assets.contracts.test_source_paths
 python3 tools/run.py planning.test_task_batch
 
 if rg -n '^func draw_' scripts/game.gd >/dev/null; then
@@ -46,12 +47,12 @@ fi
 
 python3 tools/run.py quality.check_documentation
 python3 tools/run.py quality.test_documentation
-python3 tools/test_world_sprite_manifest.py
-python3 tools/check_world_sprite_manifest.py
+python3 tools/run.py assets.contracts.test_world_sprite_manifest
+python3 tools/run.py assets.contracts.check_world_sprite_manifest
 python3 tools/test_optimization_audit.py
 python3 tools/test_storage_perf.py
-python3 tools/test_sprite_cleanup.py
-python3 tools/check_sprite_cleanup.py
+python3 tools/run.py assets.contracts.test_sprite_cleanup
+python3 tools/run.py assets.contracts.check_sprite_cleanup
 python3 tools/run.py planning.project_backlog
 python3 tools/run.py planning.test_project_backlog
 python3 tools/test_water_audit.py
@@ -157,24 +158,24 @@ python3 tools/run.py qa.art.visual_modules
 python3 tools/run.py qa.art.test_visual_modules
 python3 tools/run.py qa.art.visual_reuse
 python3 tools/run.py qa.art.test_visual_reuse
-python3 tools/visual_icons.py
-python3 tools/test_visual_icons.py
-python3 tools/visual_pipeline.py
-python3 tools/test_visual_pipeline.py
-python3 tools/visual_resources.py
-python3 tools/test_visual_resources.py
-python3 tools/visual_sampling.py
-python3 tools/test_visual_sampling.py
-python3 tools/padded_atlases.py
-python3 tools/test_padded_atlases.py
-python3 tools/texture_intents.py
-python3 tools/test_texture_intents.py
-python3 tools/item_sizes.py
-python3 tools/test_item_sizes.py
-python3 tools/preview_portability.py
-python3 tools/test_preview_portability.py
-python3 tools/item_export_contract.py
-python3 tools/test_item_export_contract.py
+python3 tools/run.py assets.contracts.visual_icons
+python3 tools/run.py assets.contracts.test_visual_icons
+python3 tools/run.py assets.contracts.visual_pipeline
+python3 tools/run.py assets.contracts.test_visual_pipeline
+python3 tools/run.py assets.contracts.visual_resources
+python3 tools/run.py assets.contracts.test_visual_resources
+python3 tools/run.py assets.contracts.visual_sampling
+python3 tools/run.py assets.contracts.test_visual_sampling
+python3 tools/run.py assets.contracts.padded_atlases
+python3 tools/run.py assets.contracts.test_padded_atlases
+python3 tools/run.py assets.contracts.texture_intents
+python3 tools/run.py assets.contracts.test_texture_intents
+python3 tools/run.py assets.contracts.item_sizes
+python3 tools/run.py assets.contracts.test_item_sizes
+python3 tools/run.py assets.contracts.preview_portability
+python3 tools/run.py assets.contracts.test_preview_portability
+python3 tools/run.py assets.contracts.item_export_contract
+python3 tools/run.py assets.contracts.test_item_export_contract
 python3 tools/test_performance_gate.py
 python3 docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/test_causal.py
 python3 docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/test_redraw_observer.py
@@ -189,17 +190,17 @@ python3 tools/test_alpha_proof.py
 python3 tools/slice_audit.py
 python3 tools/test_slice_audit.py
 python3 tools/test_slice_proof.py
-python3 tools/asset_migration.py
-python3 tools/test_asset_migration.py
-python3 tools/test_migration_proof.py
+python3 tools/run.py assets.migration.asset_migration
+python3 tools/run.py assets.migration.test_asset_migration
+python3 tools/run.py assets.migration.test_migration_proof
 python3 tools/run.py build.test_asset_report_history
-python3 tools/asset_report.py
-python3 tools/test_asset_report.py
-python3 tools/test_asset_pack_proof.py
+python3 tools/run.py assets.contracts.asset_report
+python3 tools/run.py assets.contracts.test_asset_report
+python3 tools/run.py build.test_asset_pack_proof
 python3 tools/run.py planning.pilot_rollout
 python3 tools/run.py planning.test_pilot_rollout
-python3 tools/artist_packet.py
-python3 tools/test_artist_packet.py
+python3 tools/run.py build.artist_packet
+python3 tools/run.py build.test_artist_packet
 python3 tools/shore_kit.py
 python3 tools/test_shore_kit.py
 python3 tools/analyze_visual_baseline.py docs/reports/visual-overhaul/vbase-001/native >/dev/null

@@ -1,0 +1,82 @@
+[
+  {
+    "module": "build.test_artist_packet",
+    "exit": 0,
+    "raw": "unit-test_artist_packet-01.txt"
+  },
+  {
+    "module": "assets.migration.test_asset_migration",
+    "exit": 0,
+    "raw": "unit-test_asset_migration-01.txt"
+  },
+  {
+    "module": "build.test_asset_pack_proof",
+    "exit": 0,
+    "raw": "unit-test_asset_pack_proof-01.txt"
+  },
+  {
+    "module": "assets.contracts.test_asset_report",
+    "exit": 0,
+    "raw": "unit-test_asset_report-01.txt"
+  },
+  {
+    "module": "assets.contracts.test_item_export_contract",
+    "exit": 0,
+    "raw": "unit-test_item_export_contract-01.txt"
+  },
+  {
+    "module": "assets.contracts.test_item_sizes",
+    "exit": 0,
+    "raw": "unit-test_item_sizes-01.txt"
+  },
+  {
+    "module": "assets.migration.test_migration_proof",
+    "exit": 0,
+    "raw": "unit-test_migration_proof-01.txt"
+  },
+  {
+    "module": "assets.contracts.test_padded_atlases",
+    "exit": 0,
+    "raw": "unit-test_padded_atlases-01.txt"
+  },
+  {
+    "module": "assets.contracts.test_preview_portability",
+    "exit": 0,
+    "raw": "unit-test_preview_portability-01.txt"
+  },
+  {
+    "module": "assets.contracts.test_sprite_cleanup",
+    "exit": 0,
+    "raw": "unit-test_sprite_cleanup-01.txt"
+  },
+  {
+    "module": "assets.contracts.test_texture_intents",
+    "exit": 1,
+    "raw": "unit-test_texture_intents-01.txt"
+  },
+  {
+    "module": "assets.contracts.test_visual_icons",
+    "exit": 0,
+    "raw": "unit-test_visual_icons-01.txt"
+  },
+  {
+    "module": "assets.contracts.test_visual_pipeline",
+    "exit": 0,
+    "raw": "unit-test_visual_pipeline-01.txt"
+  },
+  {
+    "module": "assets.contracts.test_visual_resources",
+    "exit": 0,
+    "raw": "unit-test_visual_resources-01.txt"
+  },
+  {
+    "module": "assets.contracts.test_visual_sampling",
+    "exit": 0,
+    "raw": "unit-test_visual_sampling-01.txt"
+  },
+  {
+    "module": "assets.contracts.test_world_sprite_manifest",
+    "exit": 0,
+    "raw": "unit-test_world_sprite_manifest-01.txt"
+  }
+]

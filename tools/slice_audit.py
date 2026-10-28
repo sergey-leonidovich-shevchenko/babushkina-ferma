@@ -12,9 +12,13 @@ import subprocess
 import tempfile
 from PIL import Image
 from slice_metrics import geometry,chain_errors,measure
-from visual_resources import parse
+from common.launch import prepare_imports
+from common.paths import project_root
 
-ROOT=Path(__file__).resolve().parents[1]
+prepare_imports(project_root(__file__))
+from tools.assets.contracts.visual_resources import parse
+
+ROOT=project_root(__file__)
 REPORT='docs/reports/visual-overhaul/vpipeline-008'
 POLICY='tools/slice_policy.json'
 

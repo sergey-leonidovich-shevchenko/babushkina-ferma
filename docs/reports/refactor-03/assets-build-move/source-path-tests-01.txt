@@ -1,0 +1,17 @@
+test_logical_symlink_is_rejected_even_with_valid_new_target (__main__.SourcePathsTests.test_logical_symlink_is_rejected_even_with_valid_new_target) ... ok
+test_missing_current_target_has_no_legacy_file_fallback (__main__.SourcePathsTests.test_missing_current_target_has_no_legacy_file_fallback) ... ok
+test_missing_history_policy_is_not_replaced_by_live_new_file (__main__.SourcePathsTests.test_missing_history_policy_is_not_replaced_by_live_new_file) ... ok
+test_noncanonical_paths_are_rejected (__main__.SourcePathsTests.test_noncanonical_paths_are_rejected) ... ok
+test_only_full_known_or_legacy_metadata_is_accepted (__main__.SourcePathsTests.test_only_full_known_or_legacy_metadata_is_accepted) ... ok
+test_physical_parent_symlink_is_rejected (__main__.SourcePathsTests.test_physical_parent_symlink_is_rejected) ... ok
+test_same_commit_alias_reads_real_old_and_new_git_blobs (__main__.SourcePathsTests.test_same_commit_alias_reads_real_old_and_new_git_blobs) ... ok
+test_scanner_uses_new_policy_tree_without_rewriting_graph_contract (__main__.SourcePathsTests.test_scanner_uses_new_policy_tree_without_rewriting_graph_contract) ... ok
+test_table_and_returned_metadata_cannot_mutate_each_other (__main__.SourcePathsTests.test_table_and_returned_metadata_cannot_mutate_each_other) ... ok
+test_table_matches_accepted71_and_actual_files (__main__.SourcePathsTests.test_table_matches_accepted71_and_actual_files) ... ok
+test_two_aliases_in_one_real_commit_are_ambiguous (__main__.SourcePathsTests.test_two_aliases_in_one_real_commit_are_ambiguous) ... ok
+test_unmoved_media_stays_live_without_git (__main__.SourcePathsTests.test_unmoved_media_stays_live_without_git) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.252s
+
+OK

@@ -10,8 +10,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from tools.asset_report import working_reader
-from asset_costs import origin
+from tools.assets.contracts.asset_report import working_reader
+from tools.assets.contracts.asset_costs import origin
 from tools.common.git import git_environment
 
 

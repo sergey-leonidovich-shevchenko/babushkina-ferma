@@ -9,11 +9,15 @@ import subprocess
 from pathlib import Path
 
 from PIL import Image, ImageChops
-from visual_resources import vector
+from common.launch import prepare_imports
+from common.paths import project_root
 
-from common.git import git_environment
+prepare_imports(project_root(__file__))
+from tools.assets.contracts.visual_resources import vector
 
-ROOT = Path(__file__).resolve().parents[1]
+from tools.common.git import git_environment
+
+ROOT = project_root(__file__)
 REPORT = Path('docs/reports/visual-overhaul/vshore-001')
 NEW_IDS = ['stone-n', 'stone-e', 'stone-s', 'stone-w'] + [
     f'turn-{v}-{i}' for v in ['a', 'b'] for i in range(4)] + [

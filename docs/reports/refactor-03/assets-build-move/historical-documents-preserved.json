@@ -1,0 +1,20 @@
+{
+  "excluded_from_live_updates": [
+    {
+      "path": "wiki/articles/tools-migration-map.md",
+      "sha256": "63b9a5c917d8a83a54294876b6ca703021e98c641ed2959e47973c031b708788",
+      "historical_content_preserved": true
+    },
+    {
+      "path": "docs/concepts/visual-polish-2026-10-13/v1/README.md",
+      "sha256": "f16948cd4d91541a5c9c4baf3e88c180e5347068c49cfc2c27e32cce22de64ab",
+      "historical_content_preserved": true
+    },
+    {
+      "path": "docs/concepts/visual-polish-2026-10-13/v1/VALIDATION.md",
+      "sha256": "1c30b66af43f5c7388f785b0f48e818516c7a0b7d1544dfb58e7ae05b01786ee",
+      "historical_content_preserved": true
+    }
+  ],
+  "initial_command_rewrite_was_reverted_before_gates_and_publication": true
+}

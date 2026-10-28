@@ -1,0 +1,1696 @@
+{
+  "base": "6af72b44ddd62109ba4765638b79ab86736d5eae",
+  "version": "0.0.365",
+  "physical_sources": [
+    {
+      "old_path": "tools/artist_packet.py",
+      "target": "tools/build/artist_packet.py",
+      "sha256": "5ab8934fb7b15750fe3dd74359c2a7d25f450ebeaafb1f1eac941d5a1d481da2",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/asset_costs.py",
+      "target": "tools/assets/contracts/asset_costs.py",
+      "sha256": "aea008b2824932395e6721510ccc7d1437485f0fcf3c5bd5411a0915e2bddaee",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/asset_game_probe.gd",
+      "target": "tools/assets/contracts/asset_game_probe.gd",
+      "sha256": "79e82142b51d093c972e4a6e0bd05835ae1f14cd1fc643f57e7a21f45c90293c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/asset_migration.py",
+      "target": "tools/assets/migration/asset_migration.py",
+      "sha256": "158a3df7ee70f617417d99aa293ecb30b701469b2efc7cbb8bfbbab9c3b36158",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/asset_pack.py",
+      "target": "tools/build/asset_pack.py",
+      "sha256": "a8563d179d0c13ba11622f8d13619eaee1dc77b3beda1ef57762c46348f304b0",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/asset_pack_probe.gd",
+      "target": "tools/build/asset_pack_probe.gd",
+      "sha256": "59c3503436f7a1e6fe5220bd15fc42cc1bf3692a9e017f8d7233d117c8adc24d",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/asset_provenance.json",
+      "target": "tools/assets/contracts/asset_provenance.json",
+      "sha256": "9432152bfd9058595804a98e34629c49f27d89f897c3c3cb66588ea0d8f7831c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/asset_report.py",
+      "target": "tools/assets/contracts/asset_report.py",
+      "sha256": "5f592b402c9aaa52f6ea28ec51ecef3f2fbe5e38cd2e5be5547adbf17555507d",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/check_sprite_cleanup.py",
+      "target": "tools/assets/contracts/check_sprite_cleanup.py",
+      "sha256": "2faeb6f0e669ab50c40bc82354569ef3031b5792d6555fd47afad0feda2f8144",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/check_world_sprite_manifest.py",
+      "target": "tools/assets/contracts/check_world_sprite_manifest.py",
+      "sha256": "a296de48d33d10133ce984154a9ca0d836b97eb84bb697d7ade58b308cd1691f",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_export_contract.gd",
+      "target": "tools/assets/contracts/item_export_contract.gd",
+      "sha256": "fe5141efd263918769cf0fbd8d8aa0a3638dfac69834401b32bb56b7a0a0ca0e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_export_contract.gd.uid",
+      "target": "tools/assets/contracts/item_export_contract.gd.uid",
+      "sha256": "2390fb747925e9d219b12726b2c7308f68193de72b0bbe83776bec223f34dc0e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_export_contract.py",
+      "target": "tools/assets/contracts/item_export_contract.py",
+      "sha256": "71aaa5b87a4bb60179c0d7d6ae4f5ff0c357fa72725d9ede0a713912dc28e567",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_export_contract_review.gd",
+      "target": "tools/assets/contracts/item_export_contract_review.gd",
+      "sha256": "6fe68308b9e42c0ff1b286fd8fa8c8e15c8e36d0edc896aa736cbc189722904a",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_export_contract_review.gd.uid",
+      "target": "tools/assets/contracts/item_export_contract_review.gd.uid",
+      "sha256": "b84a8e6d271efaff6d51b06ff8f6721782afaa41dda1bbb4d4e2b9888e51cea2",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_fingerprint_capture.gd",
+      "target": "tools/assets/contracts/item_fingerprint_capture.gd",
+      "sha256": "e5457272a6aecf1d0415782be157058a9b428eeb287ef39dbef02b29bd348679",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_fingerprint_capture.gd.uid",
+      "target": "tools/assets/contracts/item_fingerprint_capture.gd.uid",
+      "sha256": "57f6863dbae9a8699edc648cb76f77bf75a43f9acbd1a323e21de7f8a56d7a73",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_icon_contract_review.gd",
+      "target": "tools/assets/contracts/item_icon_contract_review.gd",
+      "sha256": "5bf021d024629c5360442486d79c2a0d2f1b49f0c742ee0b1e03f6280c79bdbc",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_icon_contract_review.gd.uid",
+      "target": "tools/assets/contracts/item_icon_contract_review.gd.uid",
+      "sha256": "3667e3e120755ea8c92b83680cf73886a4598545e57233adb0498edf7f299418",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_sizes.py",
+      "target": "tools/assets/contracts/item_sizes.py",
+      "sha256": "6526e02ffb1b70bfa114289a06d01905b0a72a53988c11d9e6aa652ed293dfca",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_sizes_capture.gd",
+      "target": "tools/assets/contracts/item_sizes_capture.gd",
+      "sha256": "0cee990d48cd3048202af41c04b1ce6994370387e07f75aba5e6bde4d1f5ed9d",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_sizes_review.gd",
+      "target": "tools/assets/contracts/item_sizes_review.gd",
+      "sha256": "ced868911c3cbae2ab0601b75eb543a07e2f7f6fce44957a2d632dbaa4d0b8d5",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_ui_fitter.gd",
+      "target": "tools/assets/contracts/item_ui_fitter.gd",
+      "sha256": "47743787c4b31016690a8ccd9b9c886fe72b8b5312620f38510006c594aa6c7e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/migration_capture.gd",
+      "target": "tools/assets/migration/migration_capture.gd",
+      "sha256": "69ed4b0872c57161d9ff56d742a3db0bfe89eeddb1dae85aa240af54bb68f7f6",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/migration_fixture.py",
+      "target": "tools/assets/migration/migration_fixture.py",
+      "sha256": "6c7ff37faae158f862bd96de505c7c9caae3f8d7eb477775f44062faaf79044d",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/migration_inventory.py",
+      "target": "tools/assets/migration/migration_inventory.py",
+      "sha256": "8c8e40a23a3d50ec8812a7407ac5650ff30e81ef95026e0a18f0fdecf7b564f9",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/migration_proof.py",
+      "target": "tools/assets/migration/migration_proof.py",
+      "sha256": "a42fa9111573352930d8ca5ac86f43cefb4be8ca960e17f9a3670dc6967feed8",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/padded_atlas_capture.gd",
+      "target": "tools/assets/contracts/padded_atlas_capture.gd",
+      "sha256": "07fbb01aa1b15f161b56f44de1bf2282938afdb2cb42665d06fffbf14366bf53",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/padded_atlas_review.gd",
+      "target": "tools/assets/contracts/padded_atlas_review.gd",
+      "sha256": "795da799d31f6a223cf7197acc404d1e25f0c7092d166cb51694e9c0e9d47665",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/padded_atlases.py",
+      "target": "tools/assets/contracts/padded_atlases.py",
+      "sha256": "85cf3b136633656a4bd85db045cca5b153ab9b6375a23c9d60d3cbf415959ea0",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/preview_portability.py",
+      "target": "tools/assets/contracts/preview_portability.py",
+      "sha256": "37b09a2c3220257dc0d0dc15b54bfcba6da65552afe8aa5d75e92d308672e9ed",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/preview_portability_capture.gd",
+      "target": "tools/assets/contracts/preview_portability_capture.gd",
+      "sha256": "7dc6f4bc19bd318b0aff250b82be54105e09c47d056c17a69dc8bb52362ad4b1",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/preview_portability_capture.gd.uid",
+      "target": "tools/assets/contracts/preview_portability_capture.gd.uid",
+      "sha256": "06b7136f37375a2d68e06d983d5514502088760b3a320654e1114409c54a9ab6",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/sprite_usage_review.gd",
+      "target": "tools/assets/contracts/sprite_usage_review.gd",
+      "sha256": "f7e9783d605e388ae67da1e9e7faaecd7bee889249af8e3ccf8a118ad1774253",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/sprite_usage_review.gd.uid",
+      "target": "tools/assets/contracts/sprite_usage_review.gd.uid",
+      "sha256": "ae3f3a52801060754542dd20602365a7a88571950b21211385ad595c1f846d72",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_artist_packet.py",
+      "target": "tools/build/test_artist_packet.py",
+      "sha256": "555bf5164e0739455bac242f79fedd0eacaddc004e92bf56f8cb03e47e22da67",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_asset_migration.py",
+      "target": "tools/assets/migration/test_asset_migration.py",
+      "sha256": "b086f0c4be4c108e94b56053f6cb56b99bf76d13b512048f3c32f24a5a2151c2",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_asset_pack_proof.py",
+      "target": "tools/build/test_asset_pack_proof.py",
+      "sha256": "7170deb910b832d9fd6dfda77034719bebd4187e181293bcfc48877483d7c9d0",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_asset_report.py",
+      "target": "tools/assets/contracts/test_asset_report.py",
+      "sha256": "61a7dc8a9c3b5759522cfd36003bcbd497184d12148bafeaddde436cc78d33b0",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_item_export_contract.py",
+      "target": "tools/assets/contracts/test_item_export_contract.py",
+      "sha256": "648d58cd56922d4f0ce3f2b0d745c67c4acf87e6aeec5e9d51633ed80c40c09c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_item_sizes.py",
+      "target": "tools/assets/contracts/test_item_sizes.py",
+      "sha256": "ace64a84d644d1667a2570193a171062fac34db7ff66b4b2b2170fcbcca90da8",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_migration_proof.py",
+      "target": "tools/assets/migration/test_migration_proof.py",
+      "sha256": "0b8be4908bd9d8b90f439eaf43353b67cbf6b55aef2056b08dc4e2531522199a",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_padded_atlases.py",
+      "target": "tools/assets/contracts/test_padded_atlases.py",
+      "sha256": "cb3811745f24ff16ffed2fc5503ede0277e4f1de8e2795579c1caef3878c6db1",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_preview_portability.py",
+      "target": "tools/assets/contracts/test_preview_portability.py",
+      "sha256": "6f677c5ad219a15b958cfb3e9e9bd94f901dc0dec28a614e2330befd38b9eeb2",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_sprite_cleanup.py",
+      "target": "tools/assets/contracts/test_sprite_cleanup.py",
+      "sha256": "bc9626d246c13f4f7eb5c6d540ff017968f7a4656b35f2f1066b66c2f1a5dbe9",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_texture_intents.py",
+      "target": "tools/assets/contracts/test_texture_intents.py",
+      "sha256": "d4dec20f39517c6b4930db6db9fb0aa558610065c5b2a4d793635b8e24152cbe",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_visual_icons.py",
+      "target": "tools/assets/contracts/test_visual_icons.py",
+      "sha256": "004392f4c7f768df1305e484722026f470f361efdaf252718ffe53da6e5fea51",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_visual_pipeline.py",
+      "target": "tools/assets/contracts/test_visual_pipeline.py",
+      "sha256": "ded312ab88809eaa463a7279d209c8caccf8cba547e01c2d99987fc212f72e59",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_visual_resources.py",
+      "target": "tools/assets/contracts/test_visual_resources.py",
+      "sha256": "c6a0fc5f02d41ddbb36fa285c875d4cdaa83e95dd9625480616d50983da7dfac",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_visual_sampling.py",
+      "target": "tools/assets/contracts/test_visual_sampling.py",
+      "sha256": "d82666deec1074bb92e70a5801dac58f61c4cd21e923fa4ca31f0ef5c834cb2f",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_world_sprite_manifest.py",
+      "target": "tools/assets/contracts/test_world_sprite_manifest.py",
+      "sha256": "a58cff75f4bfc9bbaeee6b7fb168fc917952930bf193991a4e7c1e3147c8c4cb",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/texture_data_probe.gd",
+      "target": "tools/assets/contracts/texture_data_probe.gd",
+      "sha256": "1c02118fbcc9ca9f55e7ac8f469110692b5f060c68b26ce223618fed58f5ed54",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/texture_data_room_capture.gd",
+      "target": "tools/assets/contracts/texture_data_room_capture.gd",
+      "sha256": "f11ec6880bffdf309a786d2465d9f8d7fadbe2935746a13690556095b4c28869",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/texture_intent_review.gd",
+      "target": "tools/assets/contracts/texture_intent_review.gd",
+      "sha256": "1025c5fd3284060579475322c8cb51648b7bc3055b5d2d2d8c9b2c7f2d10f927",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/texture_intents.py",
+      "target": "tools/assets/contracts/texture_intents.py",
+      "sha256": "c3abbd1465c8976e4e8bb430defb6cbacb4b2211069b1e14f4413e7d8767566c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/ui_portability_capture.gd",
+      "target": "tools/assets/contracts/ui_portability_capture.gd",
+      "sha256": "d97f0d5ff915ae7c25bb3a069f3fa630835991f322210dfbfad4f200617aa5bd",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/ui_portability_capture.gd.uid",
+      "target": "tools/assets/contracts/ui_portability_capture.gd.uid",
+      "sha256": "2d47bf9cf8cdf0e91fa6b994917873908b26c95ff115cc7e40ab98033e4307bb",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/ui_portability_observer.gd",
+      "target": "tools/assets/contracts/ui_portability_observer.gd",
+      "sha256": "1ac2fc4eb8ffd36a07d47567fcabfda5e59fb4ad4761b725add3be820841ebcd",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/ui_portability_observer.gd.uid",
+      "target": "tools/assets/contracts/ui_portability_observer.gd.uid",
+      "sha256": "b6fdadb241f8a8da588429d744205f37d1a6ad4cbbb00355286f452ed0de6537",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_asset_policy.json",
+      "target": "tools/assets/contracts/visual_asset_policy.json",
+      "sha256": "4cc75f0782bcc80f3ba8f99e07f64dbc3da7b2e707d5bb965a0d28697334d674",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_icons.py",
+      "target": "tools/assets/contracts/visual_icons.py",
+      "sha256": "ad9d43cd8e93d86e30e5a17f644deb7bef07d1c19acff1d0db6c1ac69c25fc79",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_icons_capture.gd",
+      "target": "tools/assets/contracts/visual_icons_capture.gd",
+      "sha256": "5dcfe1a8916e7e1c7b3ef93ac0cb315e8d8252a02d2178ad1ccd026e2cad83a0",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_pipeline.py",
+      "target": "tools/assets/contracts/visual_pipeline.py",
+      "sha256": "8eee570581c8fdeac8216debb8fa033b605fdfffba4a99111502bfc0ce112495",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_pipeline_capture.gd",
+      "target": "tools/assets/contracts/visual_pipeline_capture.gd",
+      "sha256": "7038760f1d69873f138830fd189f40b1a0d53133193eef964e1053ede7b919fb",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_pipeline_review.gd",
+      "target": "tools/assets/contracts/visual_pipeline_review.gd",
+      "sha256": "37364d7934b9d595466c9cd79fd0fb8064623af084848deb1079e7e1bef07991",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_resource_capture.gd",
+      "target": "tools/assets/contracts/visual_resource_capture.gd",
+      "sha256": "63e477cb580ae5b7e5be1fbd34318ffb63168a42dd3d3c30a32da700e0a5ad03",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_resources.py",
+      "target": "tools/assets/contracts/visual_resources.py",
+      "sha256": "ccfbc2bcbb5ab7e71ed0f34c7685e87fbce816931633672fa1822e6a27660c45",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_resources_review.gd",
+      "target": "tools/assets/contracts/visual_resources_review.gd",
+      "sha256": "1c4de90bc3cdc8c0443eb6ec1ed8eeca0107936262f4c854aa3973aa37470139",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_sampling.py",
+      "target": "tools/assets/contracts/visual_sampling.py",
+      "sha256": "6ac88293146a7ade2edc07266658487a891fb4e0d33faef12d574fd3921a7670",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_sampling_capture.gd",
+      "target": "tools/assets/contracts/visual_sampling_capture.gd",
+      "sha256": "5225472cc79ec630f31990f820d8c3e6626714877dc4f0a9902f29a979f59e0b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_sampling_review.gd",
+      "target": "tools/assets/contracts/visual_sampling_review.gd",
+      "sha256": "679fcfbcb5b0e7f00ffe2a994d88d493e206744618ed5f06c2db1fbe685edf32",
+      "mode": 420
+    }
+  ],
+  "Python_modules_AST_compared": 35,
+  "bounded_fixture_adapter_exceptions": [
+    [
+      "test_alpha_audit",
+      "setUp"
+    ],
+    [
+      "test_asset_pack_proof",
+      "packet"
+    ],
+    [
+      "test_migration_proof",
+      "setUp"
+    ],
+    [
+      "test_preview_portability",
+      "setUpClass"
+    ],
+    [
+      "test_scanner_history",
+      "legacy"
+    ],
+    [
+      "test_texture_intents",
+      "setUp"
+    ]
+  ],
+  "bounded_Python_IO_adapter": [
+    "preview_portability.path_under"
+  ],
+  "all_original_test_methods_retained": {
+    "tools/test_artist_packet.py": {
+      "retained": 12,
+      "added": 0
+    },
+    "tools/test_asset_migration.py": {
+      "retained": 16,
+      "added": 0
+    },
+    "tools/test_asset_pack_proof.py": {
+      "retained": 11,
+      "added": 0
+    },
+    "tools/test_asset_report.py": {
+      "retained": 17,
+      "added": 0
+    },
+    "tools/test_item_export_contract.py": {
+      "retained": 14,
+      "added": 0
+    },
+    "tools/test_item_sizes.py": {
+      "retained": 9,
+      "added": 0
+    },
+    "tools/test_migration_proof.py": {
+      "retained": 11,
+      "added": 0
+    },
+    "tools/test_padded_atlases.py": {
+      "retained": 12,
+      "added": 0
+    },
+    "tools/test_preview_portability.py": {
+      "retained": 21,
+      "added": 4
+    },
+    "tools/test_sprite_cleanup.py": {
+      "retained": 11,
+      "added": 0
+    },
+    "tools/test_texture_intents.py": {
+      "retained": 12,
+      "added": 0
+    },
+    "tools/test_visual_icons.py": {
+      "retained": 7,
+      "added": 0
+    },
+    "tools/test_visual_pipeline.py": {
+      "retained": 11,
+      "added": 0
+    },
+    "tools/test_visual_resources.py": {
+      "retained": 13,
+      "added": 0
+    },
+    "tools/test_visual_sampling.py": {
+      "retained": 11,
+      "added": 0
+    },
+    "tools/test_world_sprite_manifest.py": {
+      "retained": 1,
+      "added": 0
+    }
+  },
+  "GD_bodies": [
+    {
+      "old_path": "tools/asset_game_probe.gd",
+      "current": "tools/assets/contracts/asset_game_probe.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/asset_pack_probe.gd",
+      "current": "tools/build/asset_pack_probe.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/item_export_contract.gd",
+      "current": "tools/assets/contracts/item_export_contract.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/item_export_contract_review.gd",
+      "current": "tools/assets/contracts/item_export_contract_review.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/item_fingerprint_capture.gd",
+      "current": "tools/assets/contracts/item_fingerprint_capture.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/item_icon_contract_review.gd",
+      "current": "tools/assets/contracts/item_icon_contract_review.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/item_sizes_capture.gd",
+      "current": "tools/assets/contracts/item_sizes_capture.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/item_sizes_review.gd",
+      "current": "tools/assets/contracts/item_sizes_review.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/item_ui_fitter.gd",
+      "current": "tools/assets/contracts/item_ui_fitter.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/migration_capture.gd",
+      "current": "tools/assets/migration/migration_capture.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/padded_atlas_capture.gd",
+      "current": "tools/assets/contracts/padded_atlas_capture.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/padded_atlas_review.gd",
+      "current": "tools/assets/contracts/padded_atlas_review.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/preview_portability_capture.gd",
+      "current": "tools/assets/contracts/preview_portability_capture.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/sprite_usage_review.gd",
+      "current": "tools/assets/contracts/sprite_usage_review.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/texture_data_probe.gd",
+      "current": "tools/assets/contracts/texture_data_probe.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/texture_data_room_capture.gd",
+      "current": "tools/assets/contracts/texture_data_room_capture.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/texture_intent_review.gd",
+      "current": "tools/assets/contracts/texture_intent_review.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/ui_portability_capture.gd",
+      "current": "tools/assets/contracts/ui_portability_capture.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/ui_portability_observer.gd",
+      "current": "tools/assets/contracts/ui_portability_observer.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/visual_icons_capture.gd",
+      "current": "tools/assets/contracts/visual_icons_capture.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/visual_pipeline_capture.gd",
+      "current": "tools/assets/contracts/visual_pipeline_capture.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/visual_pipeline_review.gd",
+      "current": "tools/assets/contracts/visual_pipeline_review.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/visual_resource_capture.gd",
+      "current": "tools/assets/contracts/visual_resource_capture.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/visual_resources_review.gd",
+      "current": "tools/assets/contracts/visual_resources_review.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/visual_sampling_capture.gd",
+      "current": "tools/assets/contracts/visual_sampling_capture.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/visual_sampling_review.gd",
+      "current": "tools/assets/contracts/visual_sampling_review.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tools/assets/authoring/build_item_ui_textures.gd",
+      "current": "tools/assets/authoring/build_item_ui_textures.gd",
+      "equal_except_declared_paths_and_metadata": true
+    },
+    {
+      "old_path": "tests/suites/item_sizes_suite.gd",
+      "current": "tests/suites/item_sizes_suite.gd",
+      "equal_except_declared_paths_and_metadata": true
+    }
+  ],
+  "actual_foreign_CLI": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "build.artist_packet",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "ARTIST PACKET: Git-pinned sources, palette, 28 modules and handoff example valid; runtime gates remain open\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.migration.asset_migration",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: asset_migration.py [-h] [--record]\n\noptions:\n  -h, --help  show this help message and exit\n  --record\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "build.asset_pack",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: asset_pack.py [-h] --output OUTPUT {fixture,inspect} path\n\npositional arguments:\n  {fixture,inspect}\n  path\n\noptions:\n  -h, --help         show this help message and exit\n  --output OUTPUT\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.asset_report",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: asset_report.py [-h] [--record] [--current-output CURRENT_OUTPUT]\n\noptions:\n  -h, --help            show this help message and exit\n  --record\n  --current-output CURRENT_OUTPUT\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.check_sprite_cleanup",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: check_sprite_cleanup.py [-h] [--phase {before,after}]\n\noptions:\n  -h, --help            show this help message and exit\n  --phase {before,after}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.check_world_sprite_manifest",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: check_world_sprite_manifest.py [-h] [--json-report]\n\noptions:\n  -h, --help     show this help message and exit\n  --json-report\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.item_export_contract",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "EXPORT CONTRACT: exact source/reference files and reviewed finite outputs valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.item_sizes",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "ITEM SIZES: canonical 64/160 PNGs, imports, cold cabinet and LRU proof valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.padded_atlases",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: padded_atlases.py [-h] [--write] [--fixtures FIXTURES]\n\noptions:\n  -h, --help           show this help message and exit\n  --write\n  --fixtures FIXTURES\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.preview_portability",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: preview_portability.py [-h] [--capture CAPTURE] [--godot GODOT] [--ui]\n                              [--report REPORT]\n\nПроверяет фиксированные RGBA/PNG и собирает одинаковый диагностический стенд\nдвух ОС.\n\noptions:\n  -h, --help         show this help message and exit\n  --capture CAPTURE\n  --godot GODOT\n  --ui\n  --report REPORT\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.texture_intents",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: texture_intents.py [-h] [--fixtures FIXTURES] [--record RECORD]\n\noptions:\n  -h, --help           show this help message and exit\n  --fixtures FIXTURES\n  --record RECORD\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.visual_icons",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: visual_icons.py [-h] [--write]\n\noptions:\n  -h, --help  show this help message and exit\n  --write\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.visual_pipeline",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: visual_pipeline.py [-h] [--quarantine-root-previews]\n                          [--quarantine-tile-previews] [--record-after]\n\noptions:\n  -h, --help            show this help message and exit\n  --quarantine-root-previews\n  --quarantine-tile-previews\n  --record-after\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.visual_resources",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "VISUAL RESOURCES: stable IDs, geometry, alpha, variants, imports and provenance valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.visual_sampling",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "VISUAL SAMPLING: families, real PNG/imports, native matrix and protected UI valid\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.test_source_paths"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 1.113s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.migration.test_scanner_history"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 4.956s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "build.test_asset_report_history"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 1.929s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "test_alpha_audit"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.368s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.migration.asset_migration"
+      ],
+      "exit": 0,
+      "stdout": "ASSET MIGRATION: 29 family plans, historical consumer graph, isolated rename/rollback and two negative controls valid; production unchanged\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.contracts.asset_report"
+      ],
+      "exit": 0,
+      "stdout": "ASSET REPORT: provenance dispositions, sizes, nominal memory and native export proof valid; release clearance not implied\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "build.artist_packet"
+      ],
+      "exit": 0,
+      "stdout": "ARTIST PACKET: Git-pinned sources, palette, 28 modules and handoff example valid; runtime gates remain open\n",
+      "stderr": ""
+    }
+  ],
+  "root_sources": 420,
+  "tracked_UID": 8,
+  "ignored_UID": 18,
+  "JSON_policies_byte_identical": true,
+  "native": {
+    "fresh_editor_import_and_parse_only": [
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--editor",
+          "--quit"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Регистрация глобальных классов… (28 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[   3% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[   6% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  10% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  13% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  17% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  20% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  24% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  27% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  31% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  34% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  37% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  41% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  44% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  48% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  51% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  55% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  58% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  62% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  65% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  68% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  72% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  75% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  79% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  82% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  86% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  89% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  93% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Повторное открытие сцен…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета центрального редактора…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета окна плагина…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Макет редактора готов.\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/asset_game_probe.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/build/asset_pack_probe.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/item_export_contract.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/item_export_contract_review.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/item_fingerprint_capture.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/item_icon_contract_review.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/item_sizes_capture.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/item_sizes_review.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/item_ui_fitter.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/migration/migration_capture.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/padded_atlas_capture.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/padded_atlas_review.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/preview_portability_capture.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/sprite_usage_review.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/texture_data_probe.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/texture_data_room_capture.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/texture_intent_review.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/ui_portability_capture.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/ui_portability_observer.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/visual_icons_capture.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/visual_pipeline_capture.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/visual_pipeline_review.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/visual_resource_capture.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/visual_resources_review.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/visual_sampling_capture.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/contracts/visual_sampling_review.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/assets/authoring/build_item_ui_textures.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tests/suites/item_sizes_suite.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      }
+    ],
+    "GD_parse_count": 28,
+    "actual_fixed_input_old_and_new": {
+      "old": {
+        "execution": {
+          "command": [
+            "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+            "--headless",
+            "--path",
+            "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/assets native old new 5wqyksoe/old",
+            "--script",
+            "res://tools/preview_portability_capture.gd",
+            "--",
+            "--output=/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/assets native old new 5wqyksoe/old/result"
+          ],
+          "exit": 0,
+          "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nPREVIEW REPRO: {\"architecture\":\"x86_64\",\"cases\":[{\"actual_bytes\":102400,\"bounds\":[41.0,30.0,175.0,206.0],\"derived_bytes\":102400,\"derived_file\":\"wood_dowel-resized.png\",\"derived_file_sha256\":\"3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6\",\"derived_png_serialized_sha256\":\"3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6\",\"derived_rgba_sha256\":\"1064b3affcabf45ccb7ea1878448a164d658a03814058a80b5c7c31543317aaa\",\"differing_bytes\":0,\"id\":\"wood_dowel\",\"max_delta\":0,\"padding\":8.0,\"reference_file_sha256\":\"3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6\",\"reference_png_serialized_sha256\":\"3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6\",\"reference_rgba_sha256\":\"1064b3affcabf45ccb7ea1878448a164d658a03814058a80b5c7c31543317aaa\",\"samples\":[],\"size\":160.0,\"source_file_sha256\":\"fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78\",\"source_png_serialized_sha256\":\"fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78\",\"source_rgba_sha256\":\"017dface12d60655a1ee24d2853b6b225dd3483078fc75b6f1b4d7697907a1a1\"},{\"actual_bytes\":102400,\"bounds\":[0.0,0.0,240.0,264.0],\"derived_bytes\":102400,\"derived_file\":\"wax_candle-resized.png\",\"derived_file_sha256\":\"87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85\",\"derived_png_serialized_sha256\":\"87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85\",\"derived_rgba_sha256\":\"eb110f05baa65a0c30ac08a25bdde3a99dc31bfa86ebb76e1965e1cbf92f72f0\",\"differing_bytes\":0,\"id\":\"wax_candle\",\"max_delta\":0,\"padding\":8.0,\"reference_file_sha256\":\"87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85\",\"reference_png_serialized_sha256\":\"87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85\",\"reference_rgba_sha256\":\"eb110f05baa65a0c30ac08a25bdde3a99dc31bfa86ebb76e1965e1cbf92f72f0\",\"samples\":[],\"size\":160.0,\"source_file_sha256\":\"2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345\",\"source_png_serialized_sha256\":\"2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345\",\"source_rgba_sha256\":\"8c80dec19eae6cb10a2536142414d7a7fc1cc67d5ad7c730894a656a99ed18c1\"},{\"actual_bytes\":102400,\"bounds\":[0.0,0.0,403.0,373.0],\"derived_bytes\":102400,\"derived_file\":\"compost-resized.png\",\"derived_file_sha256\":\"27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d\",\"derived_png_serialized_sha256\":\"27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d\",\"derived_rgba_sha256\":\"18f38fd0bfeea526b39a285efef87ccc43f9425b8ab580b396a10509d173312d\",\"differing_bytes\":0,\"id\":\"compost\",\"max_delta\":0,\"padding\":8.0,\"reference_file_sha256\":\"27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d\",\"reference_png_serialized_sha256\":\"27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d\",\"reference_rgba_sha256\":\"18f38fd0bfeea526b39a285efef87ccc43f9425b8ab580b396a10509d173312d\",\"samples\":[],\"size\":160.0,\"source_file_sha256\":\"fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba\",\"source_png_serialized_sha256\":\"fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba\",\"source_rgba_sha256\":\"e2f144f6bcb1661c479508db8b24a89f3770c5e5fa850bf79f8aa56f590a571b\"},{\"actual_bytes\":102400,\"bounds\":[0.0,0.0,333.0,241.0],\"derived_bytes\":102400,\"derived_file\":\"fishing_bait-resized.png\",\"derived_file_sha256\":\"1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c\",\"derived_png_serialized_sha256\":\"1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c\",\"derived_rgba_sha256\":\"f3d463de71d0a3ca3db8456f1b4a51b87f8507b2d753d430653c461157301e5b\",\"differing_bytes\":0,\"id\":\"fishing_bait\",\"max_delta\":0,\"padding\":8.0,\"reference_file_sha256\":\"1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c\",\"reference_png_serialized_sha256\":\"1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c\",\"reference_rgba_sha256\":\"f3d463de71d0a3ca3db8456f1b4a51b87f8507b2d753d430653c461157301e5b\",\"samples\":[],\"size\":160.0,\"source_file_sha256\":\"b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3\",\"source_png_serialized_sha256\":\"b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3\",\"source_rgba_sha256\":\"68d057aa4de3d188ad24b638699ee904ba287e003f2082fc527850526c37439a\"}],\"collector_sha256\":\"40dae9d2458dafcaa7e7ea3ac057d981e2c9c82b7dd44a2a7ad235fbbf8948b2\",\"engine\":{\"build\":\"official\",\"hash\":\"a13da4feb8d8aefc283c3763d33a2f170a18d541\",\"hex\":263937,\"major\":4,\"minor\":7,\"patch\":1,\"status\":\"stable\",\"string\":\"4.7.1-stable (official)\",\"timestamp\":0},\"fitter_sha256\":\"47743787c4b31016690a8ccd9b9c886fe72b8b5312620f38510006c594aa6c7e\",\"input_manifest_sha256\":\"d6c58526775d0f863c6b998175b636da3b7a4515656bf6a5f87358afef47b6f6\",\"os\":\"macOS\",\"purpose\":\"diagnostics_only_not_acceptance\",\"revision\":\"\",\"schema\":1}\n",
+          "stderr": ""
+        },
+        "overwrite_refusal": {
+          "command": [
+            "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+            "--headless",
+            "--path",
+            "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/assets native old new 5wqyksoe/old",
+            "--script",
+            "res://tools/preview_portability_capture.gd",
+            "--",
+            "--output=/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/assets native old new 5wqyksoe/old/result"
+          ],
+          "exit": 2,
+          "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+          "stderr": "ERROR: PREVIEW REPRO: new output directory required\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _check (res://tools/preview_portability_capture.gd:173)\n       [1] _initialize (res://tools/preview_portability_capture.gd:14)\n"
+        },
+        "report": {
+          "architecture": "x86_64",
+          "cases": [
+            {
+              "actual_bytes": 102400,
+              "bounds": [
+                41.0,
+                30.0,
+                175.0,
+                206.0
+              ],
+              "derived_bytes": 102400,
+              "derived_file": "wood_dowel-resized.png",
+              "derived_file_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+              "derived_png_serialized_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+              "derived_rgba_sha256": "1064b3affcabf45ccb7ea1878448a164d658a03814058a80b5c7c31543317aaa",
+              "differing_bytes": 0,
+              "id": "wood_dowel",
+              "max_delta": 0,
+              "padding": 8.0,
+              "reference_file_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+              "reference_png_serialized_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+              "reference_rgba_sha256": "1064b3affcabf45ccb7ea1878448a164d658a03814058a80b5c7c31543317aaa",
+              "samples": [],
+              "size": 160.0,
+              "source_file_sha256": "fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78",
+              "source_png_serialized_sha256": "fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78",
+              "source_rgba_sha256": "017dface12d60655a1ee24d2853b6b225dd3483078fc75b6f1b4d7697907a1a1"
+            },
+            {
+              "actual_bytes": 102400,
+              "bounds": [
+                0.0,
+                0.0,
+                240.0,
+                264.0
+              ],
+              "derived_bytes": 102400,
+              "derived_file": "wax_candle-resized.png",
+              "derived_file_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+              "derived_png_serialized_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+              "derived_rgba_sha256": "eb110f05baa65a0c30ac08a25bdde3a99dc31bfa86ebb76e1965e1cbf92f72f0",
+              "differing_bytes": 0,
+              "id": "wax_candle",
+              "max_delta": 0,
+              "padding": 8.0,
+              "reference_file_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+              "reference_png_serialized_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+              "reference_rgba_sha256": "eb110f05baa65a0c30ac08a25bdde3a99dc31bfa86ebb76e1965e1cbf92f72f0",
+              "samples": [],
+              "size": 160.0,
+              "source_file_sha256": "2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345",
+              "source_png_serialized_sha256": "2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345",
+              "source_rgba_sha256": "8c80dec19eae6cb10a2536142414d7a7fc1cc67d5ad7c730894a656a99ed18c1"
+            },
+            {
+              "actual_bytes": 102400,
+              "bounds": [
+                0.0,
+                0.0,
+                403.0,
+                373.0
+              ],
+              "derived_bytes": 102400,
+              "derived_file": "compost-resized.png",
+              "derived_file_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+              "derived_png_serialized_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+              "derived_rgba_sha256": "18f38fd0bfeea526b39a285efef87ccc43f9425b8ab580b396a10509d173312d",
+              "differing_bytes": 0,
+              "id": "compost",
+              "max_delta": 0,
+              "padding": 8.0,
+              "reference_file_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+              "reference_png_serialized_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+              "reference_rgba_sha256": "18f38fd0bfeea526b39a285efef87ccc43f9425b8ab580b396a10509d173312d",
+              "samples": [],
+              "size": 160.0,
+              "source_file_sha256": "fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba",
+              "source_png_serialized_sha256": "fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba",
+              "source_rgba_sha256": "e2f144f6bcb1661c479508db8b24a89f3770c5e5fa850bf79f8aa56f590a571b"
+            },
+            {
+              "actual_bytes": 102400,
+              "bounds": [
+                0.0,
+                0.0,
+                333.0,
+                241.0
+              ],
+              "derived_bytes": 102400,
+              "derived_file": "fishing_bait-resized.png",
+              "derived_file_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+              "derived_png_serialized_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+              "derived_rgba_sha256": "f3d463de71d0a3ca3db8456f1b4a51b87f8507b2d753d430653c461157301e5b",
+              "differing_bytes": 0,
+              "id": "fishing_bait",
+              "max_delta": 0,
+              "padding": 8.0,
+              "reference_file_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+              "reference_png_serialized_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+              "reference_rgba_sha256": "f3d463de71d0a3ca3db8456f1b4a51b87f8507b2d753d430653c461157301e5b",
+              "samples": [],
+              "size": 160.0,
+              "source_file_sha256": "b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3",
+              "source_png_serialized_sha256": "b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3",
+              "source_rgba_sha256": "68d057aa4de3d188ad24b638699ee904ba287e003f2082fc527850526c37439a"
+            }
+          ],
+          "collector_sha256": "40dae9d2458dafcaa7e7ea3ac057d981e2c9c82b7dd44a2a7ad235fbbf8948b2",
+          "engine": {
+            "build": "official",
+            "hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+            "hex": 263937,
+            "major": 4,
+            "minor": 7,
+            "patch": 1,
+            "status": "stable",
+            "string": "4.7.1-stable (official)",
+            "timestamp": 0
+          },
+          "fitter_sha256": "47743787c4b31016690a8ccd9b9c886fe72b8b5312620f38510006c594aa6c7e",
+          "input_manifest_sha256": "d6c58526775d0f863c6b998175b636da3b7a4515656bf6a5f87358afef47b6f6",
+          "os": "macOS",
+          "purpose": "diagnostics_only_not_acceptance",
+          "revision": "",
+          "schema": 1
+        },
+        "files": {
+          "wood_dowel-resized.png": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+          "wax_candle-resized.png": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+          "report.json": "957327267b0061062e3c98867d03750297427e40e97ca161b64fbd889a44da9d",
+          "compost-resized.png": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+          "fishing_bait-resized.png": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c"
+        },
+        "fixed_input_files_unchanged": true,
+        "exact_script_sha256": "40dae9d2458dafcaa7e7ea3ac057d981e2c9c82b7dd44a2a7ad235fbbf8948b2"
+      },
+      "new": {
+        "execution": {
+          "command": [
+            "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+            "--headless",
+            "--path",
+            "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/assets native old new 5wqyksoe/new",
+            "--script",
+            "res://tools/assets/contracts/preview_portability_capture.gd",
+            "--",
+            "--output=/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/assets native old new 5wqyksoe/new/result"
+          ],
+          "exit": 0,
+          "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nPREVIEW REPRO: {\"architecture\":\"x86_64\",\"cases\":[{\"actual_bytes\":102400,\"bounds\":[41.0,30.0,175.0,206.0],\"derived_bytes\":102400,\"derived_file\":\"wood_dowel-resized.png\",\"derived_file_sha256\":\"3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6\",\"derived_png_serialized_sha256\":\"3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6\",\"derived_rgba_sha256\":\"1064b3affcabf45ccb7ea1878448a164d658a03814058a80b5c7c31543317aaa\",\"differing_bytes\":0,\"id\":\"wood_dowel\",\"max_delta\":0,\"padding\":8.0,\"reference_file_sha256\":\"3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6\",\"reference_png_serialized_sha256\":\"3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6\",\"reference_rgba_sha256\":\"1064b3affcabf45ccb7ea1878448a164d658a03814058a80b5c7c31543317aaa\",\"samples\":[],\"size\":160.0,\"source_file_sha256\":\"fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78\",\"source_png_serialized_sha256\":\"fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78\",\"source_rgba_sha256\":\"017dface12d60655a1ee24d2853b6b225dd3483078fc75b6f1b4d7697907a1a1\"},{\"actual_bytes\":102400,\"bounds\":[0.0,0.0,240.0,264.0],\"derived_bytes\":102400,\"derived_file\":\"wax_candle-resized.png\",\"derived_file_sha256\":\"87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85\",\"derived_png_serialized_sha256\":\"87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85\",\"derived_rgba_sha256\":\"eb110f05baa65a0c30ac08a25bdde3a99dc31bfa86ebb76e1965e1cbf92f72f0\",\"differing_bytes\":0,\"id\":\"wax_candle\",\"max_delta\":0,\"padding\":8.0,\"reference_file_sha256\":\"87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85\",\"reference_png_serialized_sha256\":\"87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85\",\"reference_rgba_sha256\":\"eb110f05baa65a0c30ac08a25bdde3a99dc31bfa86ebb76e1965e1cbf92f72f0\",\"samples\":[],\"size\":160.0,\"source_file_sha256\":\"2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345\",\"source_png_serialized_sha256\":\"2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345\",\"source_rgba_sha256\":\"8c80dec19eae6cb10a2536142414d7a7fc1cc67d5ad7c730894a656a99ed18c1\"},{\"actual_bytes\":102400,\"bounds\":[0.0,0.0,403.0,373.0],\"derived_bytes\":102400,\"derived_file\":\"compost-resized.png\",\"derived_file_sha256\":\"27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d\",\"derived_png_serialized_sha256\":\"27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d\",\"derived_rgba_sha256\":\"18f38fd0bfeea526b39a285efef87ccc43f9425b8ab580b396a10509d173312d\",\"differing_bytes\":0,\"id\":\"compost\",\"max_delta\":0,\"padding\":8.0,\"reference_file_sha256\":\"27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d\",\"reference_png_serialized_sha256\":\"27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d\",\"reference_rgba_sha256\":\"18f38fd0bfeea526b39a285efef87ccc43f9425b8ab580b396a10509d173312d\",\"samples\":[],\"size\":160.0,\"source_file_sha256\":\"fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba\",\"source_png_serialized_sha256\":\"fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba\",\"source_rgba_sha256\":\"e2f144f6bcb1661c479508db8b24a89f3770c5e5fa850bf79f8aa56f590a571b\"},{\"actual_bytes\":102400,\"bounds\":[0.0,0.0,333.0,241.0],\"derived_bytes\":102400,\"derived_file\":\"fishing_bait-resized.png\",\"derived_file_sha256\":\"1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c\",\"derived_png_serialized_sha256\":\"1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c\",\"derived_rgba_sha256\":\"f3d463de71d0a3ca3db8456f1b4a51b87f8507b2d753d430653c461157301e5b\",\"differing_bytes\":0,\"id\":\"fishing_bait\",\"max_delta\":0,\"padding\":8.0,\"reference_file_sha256\":\"1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c\",\"reference_png_serialized_sha256\":\"1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c\",\"reference_rgba_sha256\":\"f3d463de71d0a3ca3db8456f1b4a51b87f8507b2d753d430653c461157301e5b\",\"samples\":[],\"size\":160.0,\"source_file_sha256\":\"b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3\",\"source_png_serialized_sha256\":\"b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3\",\"source_rgba_sha256\":\"68d057aa4de3d188ad24b638699ee904ba287e003f2082fc527850526c37439a\"}],\"collector_sha256\":\"7dc6f4bc19bd318b0aff250b82be54105e09c47d056c17a69dc8bb52362ad4b1\",\"engine\":{\"build\":\"official\",\"hash\":\"a13da4feb8d8aefc283c3763d33a2f170a18d541\",\"hex\":263937,\"major\":4,\"minor\":7,\"patch\":1,\"status\":\"stable\",\"string\":\"4.7.1-stable (official)\",\"timestamp\":0},\"fitter_sha256\":\"47743787c4b31016690a8ccd9b9c886fe72b8b5312620f38510006c594aa6c7e\",\"input_manifest_sha256\":\"d6c58526775d0f863c6b998175b636da3b7a4515656bf6a5f87358afef47b6f6\",\"os\":\"macOS\",\"purpose\":\"diagnostics_only_not_acceptance\",\"revision\":\"\",\"schema\":1,\"source_paths\":{\"tools/item_ui_fitter.gd\":\"tools/assets/contracts/item_ui_fitter.gd\",\"tools/preview_portability_capture.gd\":\"tools/assets/contracts/preview_portability_capture.gd\"}}\n",
+          "stderr": ""
+        },
+        "overwrite_refusal": {
+          "command": [
+            "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+            "--headless",
+            "--path",
+            "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/assets native old new 5wqyksoe/new",
+            "--script",
+            "res://tools/assets/contracts/preview_portability_capture.gd",
+            "--",
+            "--output=/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/assets native old new 5wqyksoe/new/result"
+          ],
+          "exit": 2,
+          "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+          "stderr": "ERROR: PREVIEW REPRO: new output directory required\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _check (res://tools/assets/contracts/preview_portability_capture.gd:180)\n       [1] _initialize (res://tools/assets/contracts/preview_portability_capture.gd:18)\n"
+        },
+        "report": {
+          "architecture": "x86_64",
+          "cases": [
+            {
+              "actual_bytes": 102400,
+              "bounds": [
+                41.0,
+                30.0,
+                175.0,
+                206.0
+              ],
+              "derived_bytes": 102400,
+              "derived_file": "wood_dowel-resized.png",
+              "derived_file_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+              "derived_png_serialized_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+              "derived_rgba_sha256": "1064b3affcabf45ccb7ea1878448a164d658a03814058a80b5c7c31543317aaa",
+              "differing_bytes": 0,
+              "id": "wood_dowel",
+              "max_delta": 0,
+              "padding": 8.0,
+              "reference_file_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+              "reference_png_serialized_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+              "reference_rgba_sha256": "1064b3affcabf45ccb7ea1878448a164d658a03814058a80b5c7c31543317aaa",
+              "samples": [],
+              "size": 160.0,
+              "source_file_sha256": "fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78",
+              "source_png_serialized_sha256": "fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78",
+              "source_rgba_sha256": "017dface12d60655a1ee24d2853b6b225dd3483078fc75b6f1b4d7697907a1a1"
+            },
+            {
+              "actual_bytes": 102400,
+              "bounds": [
+                0.0,
+                0.0,
+                240.0,
+                264.0
+              ],
+              "derived_bytes": 102400,
+              "derived_file": "wax_candle-resized.png",
+              "derived_file_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+              "derived_png_serialized_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+              "derived_rgba_sha256": "eb110f05baa65a0c30ac08a25bdde3a99dc31bfa86ebb76e1965e1cbf92f72f0",
+              "differing_bytes": 0,
+              "id": "wax_candle",
+              "max_delta": 0,
+              "padding": 8.0,
+              "reference_file_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+              "reference_png_serialized_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+              "reference_rgba_sha256": "eb110f05baa65a0c30ac08a25bdde3a99dc31bfa86ebb76e1965e1cbf92f72f0",
+              "samples": [],
+              "size": 160.0,
+              "source_file_sha256": "2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345",
+              "source_png_serialized_sha256": "2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345",
+              "source_rgba_sha256": "8c80dec19eae6cb10a2536142414d7a7fc1cc67d5ad7c730894a656a99ed18c1"
+            },
+            {
+              "actual_bytes": 102400,
+              "bounds": [
+                0.0,
+                0.0,
+                403.0,
+                373.0
+              ],
+              "derived_bytes": 102400,
+              "derived_file": "compost-resized.png",
+              "derived_file_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+              "derived_png_serialized_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+              "derived_rgba_sha256": "18f38fd0bfeea526b39a285efef87ccc43f9425b8ab580b396a10509d173312d",
+              "differing_bytes": 0,
+              "id": "compost",
+              "max_delta": 0,
+              "padding": 8.0,
+              "reference_file_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+              "reference_png_serialized_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+              "reference_rgba_sha256": "18f38fd0bfeea526b39a285efef87ccc43f9425b8ab580b396a10509d173312d",
+              "samples": [],
+              "size": 160.0,
+              "source_file_sha256": "fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba",
+              "source_png_serialized_sha256": "fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba",
+              "source_rgba_sha256": "e2f144f6bcb1661c479508db8b24a89f3770c5e5fa850bf79f8aa56f590a571b"
+            },
+            {
+              "actual_bytes": 102400,
+              "bounds": [
+                0.0,
+                0.0,
+                333.0,
+                241.0
+              ],
+              "derived_bytes": 102400,
+              "derived_file": "fishing_bait-resized.png",
+              "derived_file_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+              "derived_png_serialized_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+              "derived_rgba_sha256": "f3d463de71d0a3ca3db8456f1b4a51b87f8507b2d753d430653c461157301e5b",
+              "differing_bytes": 0,
+              "id": "fishing_bait",
+              "max_delta": 0,
+              "padding": 8.0,
+              "reference_file_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+              "reference_png_serialized_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+              "reference_rgba_sha256": "f3d463de71d0a3ca3db8456f1b4a51b87f8507b2d753d430653c461157301e5b",
+              "samples": [],
+              "size": 160.0,
+              "source_file_sha256": "b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3",
+              "source_png_serialized_sha256": "b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3",
+              "source_rgba_sha256": "68d057aa4de3d188ad24b638699ee904ba287e003f2082fc527850526c37439a"
+            }
+          ],
+          "collector_sha256": "7dc6f4bc19bd318b0aff250b82be54105e09c47d056c17a69dc8bb52362ad4b1",
+          "engine": {
+            "build": "official",
+            "hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+            "hex": 263937,
+            "major": 4,
+            "minor": 7,
+            "patch": 1,
+            "status": "stable",
+            "string": "4.7.1-stable (official)",
+            "timestamp": 0
+          },
+          "fitter_sha256": "47743787c4b31016690a8ccd9b9c886fe72b8b5312620f38510006c594aa6c7e",
+          "input_manifest_sha256": "d6c58526775d0f863c6b998175b636da3b7a4515656bf6a5f87358afef47b6f6",
+          "os": "macOS",
+          "purpose": "diagnostics_only_not_acceptance",
+          "revision": "",
+          "schema": 1,
+          "source_paths": {
+            "tools/item_ui_fitter.gd": "tools/assets/contracts/item_ui_fitter.gd",
+            "tools/preview_portability_capture.gd": "tools/assets/contracts/preview_portability_capture.gd"
+          }
+        },
+        "files": {
+          "wood_dowel-resized.png": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+          "wax_candle-resized.png": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+          "report.json": "0798d8c4bcfe72996112f166385946f0dff16af5c13b6a4ef0acf0cf2acbb012",
+          "compost-resized.png": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+          "fishing_bait-resized.png": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c"
+        },
+        "fixed_input_files_unchanged": true,
+        "exact_script_sha256": "7dc6f4bc19bd318b0aff250b82be54105e09c47d056c17a69dc8bb52362ad4b1"
+      }
+    },
+    "all_four_PNG_and_case_metrics_equal": true,
+    "actual_current_metadata_mutations_rejected": [
+      {
+        "kind": "missing-map",
+        "errors": [
+          "experiment source differs: collector_sha256"
+        ]
+      },
+      {
+        "kind": "partial-map",
+        "errors": [
+          "invalid diagnostic report: invalid recorded source paths"
+        ]
+      },
+      {
+        "kind": "old-sha-on-current-map",
+        "errors": [
+          "experiment source differs: collector_sha256"
+        ]
+      },
+      {
+        "kind": "unknown-map",
+        "errors": [
+          "invalid diagnostic report: invalid recorded source paths"
+        ]
+      }
+    ],
+    "temporary_projects_removed": true,
+    "native_game_frame_accepted": false,
+    "GPU_FPS_admission": false
+  },
+  "physical_source_moves": 61,
+  "full_task03_accepted": false,
+  "REFACTOR06_started": false
+}

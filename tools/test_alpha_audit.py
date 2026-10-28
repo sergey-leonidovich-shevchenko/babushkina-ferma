@@ -9,6 +9,7 @@ from PIL import Image
 from alpha_metrics import analyse
 from alpha_fixtures import controls,create
 from alpha_audit import ROOT,POLICY,BASELINE,inspect,scan,check,sha,write_report
+from tools.assets.contracts.source_paths import current_source
 
 
 class AlphaTests(unittest.TestCase):
@@ -18,7 +19,10 @@ class AlphaTests(unittest.TestCase):
         """Готовит минимальный проект с одним неизменным чистым спрайтом и настоящим алгоритмом."""
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup);self.root=Path(self.temp.name)
         (self.root/'assets/game').mkdir(parents=True);(self.root/'tools').mkdir()
-        for name in ['alpha_metrics.py','visual_asset_policy.json']:shutil.copyfile(ROOT/'tools'/name,self.root/'tools'/name)
+        for name in ['alpha_metrics.py','visual_asset_policy.json']:
+            target = current_source(self.root, 'tools/' + name)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(current_source(ROOT, 'tools/' + name), target)
         self.data=controls();self.path=self.root/'assets/game/clean.png';self.data['clean-white-details'].save(self.path)
         self.policy={'schema_version':1,'baseline_commit':'a'*40,'reviews':{},'data_masks':{}}
         self.write_policy();base=scan(self.root);(self.root/BASELINE).parent.mkdir(parents=True);(self.root/BASELINE).write_text(json.dumps(base))
@@ -84,7 +88,7 @@ class AlphaTests(unittest.TestCase):
     def test_data_import_must_match_numeric_contract(self):
         """Объявление data не позволяет молча выключить проверку картинки с цветовым импортом."""
         self.policy['data_masks']['assets/game/clean.png']='data_rgba8';self.write_policy()
-        from texture_intents import DATA_IMPORT
+        from tools.assets.contracts.texture_intents import DATA_IMPORT
         imports=dict(DATA_IMPORT);imports['process/fix_alpha_border']=True
         Path(str(self.path)+'.import').write_text('\n'.join(k+'='+json.dumps(v) for k,v in imports.items()))
         self.assertTrue(any('import mismatch' in e for e in check(self.root)))

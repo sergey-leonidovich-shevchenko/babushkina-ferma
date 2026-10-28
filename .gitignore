@@ -566,6 +566,23 @@ tools/assets/audio/*
 !tools/assets/migration/
 tools/assets/migration/*
 !tools/assets/migration/*.py
+!tools/assets/migration/*.gd
+
+# REFACTOR-03: source contracts and exact policy JSON; only original tracked UID are opened.
+!tools/assets/contracts/
+tools/assets/contracts/*
+!tools/assets/contracts/*.py
+!tools/assets/contracts/*.gd
+!tools/assets/contracts/*.json
+!tools/assets/contracts/item_export_contract.gd.uid
+!tools/assets/contracts/item_export_contract_review.gd.uid
+!tools/assets/contracts/item_fingerprint_capture.gd.uid
+!tools/assets/contracts/item_icon_contract_review.gd.uid
+!tools/assets/contracts/preview_portability_capture.gd.uid
+!tools/assets/contracts/sprite_usage_review.gd.uid
+!tools/assets/contracts/ui_portability_capture.gd.uid
+!tools/assets/contracts/ui_portability_observer.gd.uid
+!tools/build/*.gd
 
 # REFACTOR-03: independent art review tools and one original tracked UID.
 !tools/dev/

@@ -7,12 +7,14 @@ import subprocess
 import tempfile
 import types
 import unittest
+import sys
 from unittest.mock import patch
 
 from tools.common.git import git_environment
 from tools.common.history import read_git_blob
 from tools.common.paths import project_root
-from tools import migration_inventory as scanner
+import tools.assets.migration.migration_inventory as scanner
+from tools.assets.contracts import visual_pipeline
 
 
 class ScannerHistoryTests(unittest.TestCase):
@@ -55,7 +57,9 @@ class ScannerHistoryTests(unittest.TestCase):
         path.write_bytes(raw)
         module = types.ModuleType('fixture_legacy_scanner')
         module.__file__ = str(path)
-        exec(compile(raw, str(path), 'exec'), module.__dict__)
+        # Прежние байты импортируют bare dependency; alias действует только во время исполнения fixture.
+        with patch.dict(sys.modules, {'visual_pipeline': visual_pipeline}):
+            exec(compile(raw, str(path), 'exec'), module.__dict__)
         return module.build(self.root, self.commit)
 
     def test_fresh_record_binds_actual_current_code(self):

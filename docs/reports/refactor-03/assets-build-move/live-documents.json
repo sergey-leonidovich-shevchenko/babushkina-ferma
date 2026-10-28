@@ -1,0 +1,82 @@
+[
+  {
+    "path": "TESTING.md",
+    "before_sha256": "64223d4504279ebcbfc5082743804ad2112e7180f3b2bc49002b527bee1e54b8",
+    "after_sha256": "c52460898e968d0963a13bc87c8778a14b81ff0c0918e22c8e3959a0c50dce89"
+  },
+  {
+    "path": "QA_CHECKLIST.md",
+    "before_sha256": "9b32217aa89d6ae0fa2afa70e5744c83542ae1dad079b09333f7aca7328c4fda",
+    "after_sha256": "61258322285a11ed0cb0fccde38972fa3c40848f0c39ec3066f42e2da290e3bf"
+  },
+  {
+    "path": "SPRITE_AUDIT.md",
+    "before_sha256": "bf0e6e7d0f4aa7f6e84cc0df51fdcefe81601d98a0ed79a4b75800f22da241c6",
+    "after_sha256": "6d207c4248c1e33845afc893d2f0814606e8032ac69e7553dde7811b3fa75f18"
+  },
+  {
+    "path": "wiki/articles/padded-atlases.md",
+    "before_sha256": "f248f80a3b71789f00438b4b8f157a576d6a2575b447c4c5ccb4b59b0ad3f25a",
+    "after_sha256": "4a3f72f6391d51818eade4ee14824ec2d58b8c14237fa5c96313059348f8c304"
+  },
+  {
+    "path": "docs/VISUAL_RESOURCE_FORMAT.md",
+    "before_sha256": "7e2d74958404d19f35c6c3f38269f7ad1e97aa4ec56fc3e7e5eb12342f5c2d82",
+    "after_sha256": "aec0deb4d57c36c443c78babe3b52bae43728bf4afea3efd242b910656e1cb79"
+  },
+  {
+    "path": "docs/DEVELOPMENT.md",
+    "before_sha256": "a08b6f30e4b682a0bc4317a3cd07cb25caf02c35acf447dbd511da2e982fcd31",
+    "after_sha256": "1517a9835b32335e4ee76a5485ea0dc7ac85b7ac70f63abd8a2ba56d814b0d5a"
+  },
+  {
+    "path": "wiki/articles/data-textures.md",
+    "before_sha256": "33d3c07a296ff635ed274f43f3e3f088570601052234ac08a0681aa226b841c0",
+    "after_sha256": "77130a231041f0cf798e5424db764687540efbf217adee04a6ea87e8eb06f453"
+  },
+  {
+    "path": "wiki/articles/item-icon-sizes.md",
+    "before_sha256": "9aa6599cbbee12126f074874f10c95ef33701150cc843da82e3e9736b952fc11",
+    "after_sha256": "090cc3b7ec92555aa190343f79b6acb5ac0e872f699ff86db5b82c9b6b6af120"
+  },
+  {
+    "path": "wiki/articles/asset-migration.md",
+    "before_sha256": "dea4666bf68ff7afc065c5fc57c885e0514a481f493b9de462923c2ae434568b",
+    "after_sha256": "acc29b3c15545163ecb6cfb08b9294c23221340a123e3a2167d76eccc7d3eebe"
+  },
+  {
+    "path": "wiki/articles/visual-pipeline.md",
+    "before_sha256": "c2075395e932ad74fa6ba974f0e81deb0cb7f89d1362afaa54e5ee6224eb9937",
+    "after_sha256": "8e7340c7aa886aa2304188d4b6c1faa0379dbf93b872e16a2503c726d24f1933"
+  },
+  {
+    "path": "docs/ASSET_PIPELINE.md",
+    "before_sha256": "59f86cca2cb3ed097c833a3c48302f1917051186405a37a4256b237d174dad0a",
+    "after_sha256": "b3188010dda8964cc99abf7e36c7a80b59f2cbea8261bafd6a73d1cadca2fed4"
+  },
+  {
+    "path": "tools/README.md",
+    "before_sha256": "2cf3c063c41cb4e17ceed7482c90100abb214919e4b465aac76396bbac91a4e9",
+    "after_sha256": "e0482c042cbc1b9e0c668c033ff21119c41a6a7d287032be7c131a543b3da44c"
+  },
+  {
+    "path": "wiki/articles/project-refactoring.md",
+    "before_sha256": "d8f79c7f47f21418a878f2ba25454e1af4f4f397fd83647f618532e8acec121b",
+    "after_sha256": "52d5974b482848992443a6b15a9a4cdf3d9306442fc2cfdc6ffe63ff7e58d560"
+  },
+  {
+    "path": "wiki/articles/visual-pilot.md",
+    "before_sha256": "2d90ce3b438509ee4792f3552b5c9cfe908d5bf4cd6d36380abb2f8ae82b956f",
+    "after_sha256": "fe9666f8fa89df49862b095383dcb5ee86361f0e15c6a61a56c60ced4a7d3139"
+  },
+  {
+    "path": "docs/epics/refactoring-2026-10/README.md",
+    "before_sha256": "47693bc1d75314efd08ec2a7aeedaeb06daadc1fea25bd27a1436eebfc7727fb",
+    "after_sha256": "01aa657af8d591fbcc5f158441e332195358fbd1dd09e1fe6fb0a18d3c408581"
+  },
+  {
+    "path": "docs/epics/refactoring-2026-10/TASKS.md",
+    "before_sha256": "4ec25d000ddb9b53e3c0ea360d75962a6c4dcd22dbae673510e2e09fef01fd56",
+    "after_sha256": "b1a7fce347686d7665623c3371f6d36c66906cc6e7dcfa7d97becb17d868821c"
+  }
+]

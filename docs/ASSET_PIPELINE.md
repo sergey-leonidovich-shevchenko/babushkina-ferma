@@ -1,12 +1,12 @@
 # Исходники и игровые ресурсы
 
-VPIPELINE-010 завершила [адресный отчёт](reports/visual-overhaul/vpipeline-010/README.md) по 2839 production-файлам. Источник, размер, альфа, импорт и условная оценка памяти доступны в JSON/CSV и [Wiki](../wiki/articles/asset-costs.md). Неустановленное происхождение остаётся явным долгом; ссылка на сайт лицензии не превращается в сохранённый полный текст. `python3 tools/asset_report.py` проверяет исторический снимок, новый адресный долг и нативный пакет. `--current-output <новый.json>` выдаёт актуальный каталог без замораживания будущего документированного арта.
+VPIPELINE-010 завершила [адресный отчёт](reports/visual-overhaul/vpipeline-010/README.md) по 2839 production-файлам. Источник, размер, альфа, импорт и условная оценка памяти доступны в JSON/CSV и [Wiki](../wiki/articles/asset-costs.md). Неустановленное происхождение остаётся явным долгом; ссылка на сайт лицензии не превращается в сохранённый полный текст. `python3 tools/run.py assets.contracts.asset_report` проверяет исторический снимок, новый адресный долг и нативный пакет. `--current-output <новый.json>` выдаёт актуальный каталог без замораживания будущего документированного арта.
 
 `export_presets.cfg` задаёт ресурсный профиль **Desktop resources**: `Godot --headless --editor --path . --export-pack "Desktop resources" /private/tmp/farm-data.zip`. Сначала выполнить проверки, затем проверить конкретный ZIP через `tools/asset_pack.py inspect`. Выход должен быть вне runtime. Это не установщик и не разрешение на релиз. Все неигровые деревья, tools/tests исключены явно, JSON/TXT production включены. Пакет проверяется из пустой физической рабочей папки, чтобы Godot не подхватывал отсутствующие файлы из checkout. Реальные деревня/дом и 1190 изображений совпали до/после; это не оценка FPS или фактической резидентной памяти. Не удалять прежние ресурсы без владельцев VEDITOR/VCOMPAT.
 
 VPIPELINE-009 подготовила [порядок миграции](reports/visual-overhaul/vpipeline-009/README.md): snapshot → staging → регистрация → пересборка производных → совместимость → Wiki → сравнение → откат → отдельное удаление. План охватывает 29 семейств с существующими владельцами; production-операций в нём нет. Изолированный пример использует настоящие каталог и сериализатор F12, два отрицательных контроля и восстановление старых UID. Новый файл получает свой UID; старые raw-пути нельзя удалять до реализации и приёмки адаптера и версии документа. Уровни с новой геометрией требуют отдельной миграции. Перед каждой партией изучать вычисляемые загрузки и все внешние форматы; отсутствие literal-ссылки не разрешает удаление. [Статья Wiki](../wiki/articles/asset-migration.md).
 
-VPIPELINE-001 разделяет авторские материалы и ресурсы Godot без замены графики. Политика хранится в [`visual_asset_policy.json`](../tools/visual_asset_policy.json), проверка — [`visual_pipeline.py`](../tools/visual_pipeline.py).
+VPIPELINE-001 разделяет авторские материалы и ресурсы Godot без замены графики. Политика хранится в [`visual_asset_policy.json`](../tools/assets/contracts/visual_asset_policy.json), проверка — [`visual_pipeline.py`](../tools/assets/contracts/visual_pipeline.py).
 
 | Материалы | Путь | Импорт |
 |---|---|---|
@@ -36,9 +36,9 @@ VPIPELINE-001 разделяет авторские материалы и рес
 ## Проверка
 
 ```sh
-python3 tools/visual_pipeline.py
-python3 tools/test_visual_pipeline.py
-tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/visual_pipeline_review.gd
+python3 tools/run.py assets.contracts.visual_pipeline
+python3 tools/run.py assets.contracts.test_visual_pipeline
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/assets/contracts/visual_pipeline_review.gd
 ```
 
 Перед публикацией — весь `TESTING.md`, для Wiki дополнительно `pnpm check`. Новое семейство требует своих проверок геометрии, профиля импорта, альфы и настоящего кадра; зелёная граница папок не принимает его художественное качество.

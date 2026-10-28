@@ -1,0 +1,907 @@
+{
+  "base": "6af72b44ddd62109ba4765638b79ab86736d5eae",
+  "version": "0.0.364",
+  "root_sources": 481,
+  "assignments": {
+    "tools/artist_packet.py": {
+      "target": "tools/build/artist_packet.py",
+      "family": "build",
+      "action": "move"
+    },
+    "tools/asset_costs.py": {
+      "target": "tools/assets/contracts/asset_costs.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/asset_game_probe.gd": {
+      "target": "tools/assets/contracts/asset_game_probe.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/asset_migration.py": {
+      "target": "tools/assets/migration/asset_migration.py",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/asset_pack.py": {
+      "target": "tools/build/asset_pack.py",
+      "family": "build",
+      "action": "move"
+    },
+    "tools/asset_pack_probe.gd": {
+      "target": "tools/build/asset_pack_probe.gd",
+      "family": "build",
+      "action": "move"
+    },
+    "tools/asset_provenance.json": {
+      "target": "tools/assets/contracts/asset_provenance.json",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/asset_report.py": {
+      "target": "tools/assets/contracts/asset_report.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/check_sprite_cleanup.py": {
+      "target": "tools/assets/contracts/check_sprite_cleanup.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/check_world_sprite_manifest.py": {
+      "target": "tools/assets/contracts/check_world_sprite_manifest.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_export_contract.gd": {
+      "target": "tools/assets/contracts/item_export_contract.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_export_contract.gd.uid": {
+      "target": "tools/assets/contracts/item_export_contract.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/item_export_contract.gd"
+    },
+    "tools/item_export_contract.py": {
+      "target": "tools/assets/contracts/item_export_contract.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_export_contract_review.gd": {
+      "target": "tools/assets/contracts/item_export_contract_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_export_contract_review.gd.uid": {
+      "target": "tools/assets/contracts/item_export_contract_review.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/item_export_contract_review.gd"
+    },
+    "tools/item_fingerprint_capture.gd": {
+      "target": "tools/assets/contracts/item_fingerprint_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_fingerprint_capture.gd.uid": {
+      "target": "tools/assets/contracts/item_fingerprint_capture.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/item_fingerprint_capture.gd"
+    },
+    "tools/item_icon_contract_review.gd": {
+      "target": "tools/assets/contracts/item_icon_contract_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_icon_contract_review.gd.uid": {
+      "target": "tools/assets/contracts/item_icon_contract_review.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/item_icon_contract_review.gd"
+    },
+    "tools/item_sizes.py": {
+      "target": "tools/assets/contracts/item_sizes.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_sizes_capture.gd": {
+      "target": "tools/assets/contracts/item_sizes_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_sizes_review.gd": {
+      "target": "tools/assets/contracts/item_sizes_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_ui_fitter.gd": {
+      "target": "tools/assets/contracts/item_ui_fitter.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/migration_capture.gd": {
+      "target": "tools/assets/migration/migration_capture.gd",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/migration_fixture.py": {
+      "target": "tools/assets/migration/migration_fixture.py",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/migration_inventory.py": {
+      "target": "tools/assets/migration/migration_inventory.py",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/migration_proof.py": {
+      "target": "tools/assets/migration/migration_proof.py",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/padded_atlas_capture.gd": {
+      "target": "tools/assets/contracts/padded_atlas_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/padded_atlas_review.gd": {
+      "target": "tools/assets/contracts/padded_atlas_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/padded_atlases.py": {
+      "target": "tools/assets/contracts/padded_atlases.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/preview_portability.py": {
+      "target": "tools/assets/contracts/preview_portability.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/preview_portability_capture.gd": {
+      "target": "tools/assets/contracts/preview_portability_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/preview_portability_capture.gd.uid": {
+      "target": "tools/assets/contracts/preview_portability_capture.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/preview_portability_capture.gd"
+    },
+    "tools/sprite_usage_review.gd": {
+      "target": "tools/assets/contracts/sprite_usage_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/sprite_usage_review.gd.uid": {
+      "target": "tools/assets/contracts/sprite_usage_review.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/sprite_usage_review.gd"
+    },
+    "tools/test_artist_packet.py": {
+      "target": "tools/build/test_artist_packet.py",
+      "family": "build",
+      "action": "move"
+    },
+    "tools/test_asset_migration.py": {
+      "target": "tools/assets/migration/test_asset_migration.py",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/test_asset_pack_proof.py": {
+      "target": "tools/build/test_asset_pack_proof.py",
+      "family": "build",
+      "action": "move"
+    },
+    "tools/test_asset_report.py": {
+      "target": "tools/assets/contracts/test_asset_report.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_item_export_contract.py": {
+      "target": "tools/assets/contracts/test_item_export_contract.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_item_sizes.py": {
+      "target": "tools/assets/contracts/test_item_sizes.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_migration_proof.py": {
+      "target": "tools/assets/migration/test_migration_proof.py",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/test_padded_atlases.py": {
+      "target": "tools/assets/contracts/test_padded_atlases.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_preview_portability.py": {
+      "target": "tools/assets/contracts/test_preview_portability.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_sprite_cleanup.py": {
+      "target": "tools/assets/contracts/test_sprite_cleanup.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_texture_intents.py": {
+      "target": "tools/assets/contracts/test_texture_intents.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_visual_icons.py": {
+      "target": "tools/assets/contracts/test_visual_icons.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_visual_pipeline.py": {
+      "target": "tools/assets/contracts/test_visual_pipeline.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_visual_resources.py": {
+      "target": "tools/assets/contracts/test_visual_resources.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_visual_sampling.py": {
+      "target": "tools/assets/contracts/test_visual_sampling.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_world_sprite_manifest.py": {
+      "target": "tools/assets/contracts/test_world_sprite_manifest.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/texture_data_probe.gd": {
+      "target": "tools/assets/contracts/texture_data_probe.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/texture_data_room_capture.gd": {
+      "target": "tools/assets/contracts/texture_data_room_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/texture_intent_review.gd": {
+      "target": "tools/assets/contracts/texture_intent_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/texture_intents.py": {
+      "target": "tools/assets/contracts/texture_intents.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/ui_portability_capture.gd": {
+      "target": "tools/assets/contracts/ui_portability_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/ui_portability_capture.gd.uid": {
+      "target": "tools/assets/contracts/ui_portability_capture.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ui_portability_capture.gd"
+    },
+    "tools/ui_portability_observer.gd": {
+      "target": "tools/assets/contracts/ui_portability_observer.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/ui_portability_observer.gd.uid": {
+      "target": "tools/assets/contracts/ui_portability_observer.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ui_portability_observer.gd"
+    },
+    "tools/visual_asset_policy.json": {
+      "target": "tools/assets/contracts/visual_asset_policy.json",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_icons.py": {
+      "target": "tools/assets/contracts/visual_icons.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_icons_capture.gd": {
+      "target": "tools/assets/contracts/visual_icons_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_pipeline.py": {
+      "target": "tools/assets/contracts/visual_pipeline.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_pipeline_capture.gd": {
+      "target": "tools/assets/contracts/visual_pipeline_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_pipeline_review.gd": {
+      "target": "tools/assets/contracts/visual_pipeline_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_resource_capture.gd": {
+      "target": "tools/assets/contracts/visual_resource_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_resources.py": {
+      "target": "tools/assets/contracts/visual_resources.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_resources_review.gd": {
+      "target": "tools/assets/contracts/visual_resources_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_sampling.py": {
+      "target": "tools/assets/contracts/visual_sampling.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_sampling_capture.gd": {
+      "target": "tools/assets/contracts/visual_sampling_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_sampling_review.gd": {
+      "target": "tools/assets/contracts/visual_sampling_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    }
+  },
+  "sources": {
+    "tools/artist_packet.py": {
+      "sha256": "78a4cb1d85d6c1e97c9ecf1349823b7612384f7641a716aefdaa0edc1ac20b88",
+      "mode": 420
+    },
+    "tools/asset_costs.py": {
+      "sha256": "c73f7fd668ba204f8d8babc5af8ab86b47e9418a59522d4a4579e30d164cd299",
+      "mode": 420
+    },
+    "tools/asset_game_probe.gd": {
+      "sha256": "79e82142b51d093c972e4a6e0bd05835ae1f14cd1fc643f57e7a21f45c90293c",
+      "mode": 420
+    },
+    "tools/asset_migration.py": {
+      "sha256": "1c34686f0468ceae433c443effce64513d32175d18119709bcd4376cb6eb7770",
+      "mode": 420
+    },
+    "tools/asset_pack.py": {
+      "sha256": "ed58b830af36ed217afb565a209016a879f479d9173ecbb1881a5447a3b7c907",
+      "mode": 420
+    },
+    "tools/asset_pack_probe.gd": {
+      "sha256": "59c3503436f7a1e6fe5220bd15fc42cc1bf3692a9e017f8d7233d117c8adc24d",
+      "mode": 420
+    },
+    "tools/asset_provenance.json": {
+      "sha256": "9432152bfd9058595804a98e34629c49f27d89f897c3c3cb66588ea0d8f7831c",
+      "mode": 420
+    },
+    "tools/asset_report.py": {
+      "sha256": "1083143bc4a9b1c9d6644b169e409e5284004acb4a83425cde8df33b780e49a5",
+      "mode": 420
+    },
+    "tools/check_sprite_cleanup.py": {
+      "sha256": "a18eff290f50b9e8e5d71a54787db538b2d1bcc22516ae7328ce1a90aa567fc7",
+      "mode": 420
+    },
+    "tools/check_world_sprite_manifest.py": {
+      "sha256": "f85e71bea471e087408a96d0331352cd3ebfab3b006cd625d1852f6dea6d7445",
+      "mode": 420
+    },
+    "tools/item_export_contract.gd": {
+      "sha256": "ae118892874be3e5dbba32864636c6f8c328b9537d180f6b599f5ac5a438f6a9",
+      "mode": 420
+    },
+    "tools/item_export_contract.gd.uid": {
+      "sha256": "2390fb747925e9d219b12726b2c7308f68193de72b0bbe83776bec223f34dc0e",
+      "mode": 420
+    },
+    "tools/item_export_contract.py": {
+      "sha256": "04219a9073aac08a249497e5b3e5654acf5c11ead92ecc26b167de62671eeac3",
+      "mode": 420
+    },
+    "tools/item_export_contract_review.gd": {
+      "sha256": "85adb9f3750bdf0d959508db125c8c9bd2f1bbc0adef8b7a1784c2a13824791e",
+      "mode": 420
+    },
+    "tools/item_export_contract_review.gd.uid": {
+      "sha256": "b84a8e6d271efaff6d51b06ff8f6721782afaa41dda1bbb4d4e2b9888e51cea2",
+      "mode": 420
+    },
+    "tools/item_fingerprint_capture.gd": {
+      "sha256": "cea4529930b7579265568de72a6a4fac927cd380ffecc776c5491a5d44cf5085",
+      "mode": 420
+    },
+    "tools/item_fingerprint_capture.gd.uid": {
+      "sha256": "57f6863dbae9a8699edc648cb76f77bf75a43f9acbd1a323e21de7f8a56d7a73",
+      "mode": 420
+    },
+    "tools/item_icon_contract_review.gd": {
+      "sha256": "5bf021d024629c5360442486d79c2a0d2f1b49f0c742ee0b1e03f6280c79bdbc",
+      "mode": 420
+    },
+    "tools/item_icon_contract_review.gd.uid": {
+      "sha256": "3667e3e120755ea8c92b83680cf73886a4598545e57233adb0498edf7f299418",
+      "mode": 420
+    },
+    "tools/item_sizes.py": {
+      "sha256": "be87558b89f0a3c625acdae7b4ee1907711e45766a2b499f1478947b955a7b27",
+      "mode": 420
+    },
+    "tools/item_sizes_capture.gd": {
+      "sha256": "713123acef38a42ccc31ff58f1b787bfbd693ba025cb00656789241e5cd278dd",
+      "mode": 420
+    },
+    "tools/item_sizes_review.gd": {
+      "sha256": "b3649ba3c9491556091cbe2af3390ddbfd7434d457f0d2a928ea71a9e413d222",
+      "mode": 420
+    },
+    "tools/item_ui_fitter.gd": {
+      "sha256": "47743787c4b31016690a8ccd9b9c886fe72b8b5312620f38510006c594aa6c7e",
+      "mode": 420
+    },
+    "tools/migration_capture.gd": {
+      "sha256": "69ed4b0872c57161d9ff56d742a3db0bfe89eeddb1dae85aa240af54bb68f7f6",
+      "mode": 420
+    },
+    "tools/migration_fixture.py": {
+      "sha256": "f0572ec053a015cc54eda71749fe7df45f5c2f45e39806e1436c2408da68d4cc",
+      "mode": 420
+    },
+    "tools/migration_inventory.py": {
+      "sha256": "4916d16c26de8eedd5388f4814743e431578c85382d6df3f81bd27d2733428ea",
+      "mode": 420
+    },
+    "tools/migration_proof.py": {
+      "sha256": "498971e3830ca9560ae8e3355912a4cba4a21df955a7cd3683747d6323bc1bf8",
+      "mode": 420
+    },
+    "tools/padded_atlas_capture.gd": {
+      "sha256": "449080fdf33eca691fe462b03a46ada34488089b128da9db8f75a97c9e5e3ce5",
+      "mode": 420
+    },
+    "tools/padded_atlas_review.gd": {
+      "sha256": "9afafe257481d4cdffad9e9b6c64dfee5d18bf3f3173991e462399bb2fe92e53",
+      "mode": 420
+    },
+    "tools/padded_atlases.py": {
+      "sha256": "83bad766bd292038af9fe2e243e19e0a1210f94d05a88a69e4cd3524c898fb2c",
+      "mode": 420
+    },
+    "tools/preview_portability.py": {
+      "sha256": "9d3e8d066a7c8ded223898c47bdd9cba2ed71dbaca8b4c721a33769f007c7a49",
+      "mode": 420
+    },
+    "tools/preview_portability_capture.gd": {
+      "sha256": "40dae9d2458dafcaa7e7ea3ac057d981e2c9c82b7dd44a2a7ad235fbbf8948b2",
+      "mode": 420
+    },
+    "tools/preview_portability_capture.gd.uid": {
+      "sha256": "06b7136f37375a2d68e06d983d5514502088760b3a320654e1114409c54a9ab6",
+      "mode": 420
+    },
+    "tools/sprite_usage_review.gd": {
+      "sha256": "f7e9783d605e388ae67da1e9e7faaecd7bee889249af8e3ccf8a118ad1774253",
+      "mode": 420
+    },
+    "tools/sprite_usage_review.gd.uid": {
+      "sha256": "ae3f3a52801060754542dd20602365a7a88571950b21211385ad595c1f846d72",
+      "mode": 420
+    },
+    "tools/test_artist_packet.py": {
+      "sha256": "33df51d0cb2b8feeb7f716bae88da4ffbb94d28e5210fe4822f876959aedce6f",
+      "mode": 420
+    },
+    "tools/test_asset_migration.py": {
+      "sha256": "685900ce95bceed4a94b95867b2b030f7ea08295a5dd7ffb5c36c874b1d9d646",
+      "mode": 420
+    },
+    "tools/test_asset_pack_proof.py": {
+      "sha256": "b00297955107f457e4f8ab702217f0b201ac72a7fcb29a8873b4ede2683209b0",
+      "mode": 420
+    },
+    "tools/test_asset_report.py": {
+      "sha256": "39c32b012aa182df845d52bf3b34e7029a436cb42ef41791fd30a025f8ada0ef",
+      "mode": 420
+    },
+    "tools/test_item_export_contract.py": {
+      "sha256": "af59797b128757aa505d313733f61e1846aabe5cd4d8511c5b8582babfe44c28",
+      "mode": 420
+    },
+    "tools/test_item_sizes.py": {
+      "sha256": "9a60756baad7d0b82b03b07ab002b2b579ccd6204a23ab60e47cc2f2564e675e",
+      "mode": 420
+    },
+    "tools/test_migration_proof.py": {
+      "sha256": "61f6bf9df3a83637f4288999aad9b23307b6b04e07840eb530520012f5485021",
+      "mode": 420
+    },
+    "tools/test_padded_atlases.py": {
+      "sha256": "cafccd1dd99bad137b8773b251a157eaf93531c78ab3c8fb903739b7fedb4593",
+      "mode": 420
+    },
+    "tools/test_preview_portability.py": {
+      "sha256": "234652082417ea52193309697b8618b3f26021bd5a8c32025ca67ee79ce5d8de",
+      "mode": 420
+    },
+    "tools/test_sprite_cleanup.py": {
+      "sha256": "ae8437828ba7aef2ca284e0cd43f1ba9ff022318029566c4f8fd9d50be6418d1",
+      "mode": 420
+    },
+    "tools/test_texture_intents.py": {
+      "sha256": "154e526e22bb7dafcab34843ced122bc53814af22e8a99d08083d66d95c71b7a",
+      "mode": 420
+    },
+    "tools/test_visual_icons.py": {
+      "sha256": "1a5dff224ddee9d4947d7f6511179ca87b87315e5e6d62c017f085cf8d970a68",
+      "mode": 420
+    },
+    "tools/test_visual_pipeline.py": {
+      "sha256": "85709a569826c891a2ac6fb1f3b2502177bdd769f5c07d3ce842761a2fde2939",
+      "mode": 420
+    },
+    "tools/test_visual_resources.py": {
+      "sha256": "455244e8cd6e3abf746506a8604de5817c931c741334c4467e21f48509e56857",
+      "mode": 420
+    },
+    "tools/test_visual_sampling.py": {
+      "sha256": "d6c1f56cccacbd08cec05528cb28821e2112ff9e6fea099ba8347c7726117303",
+      "mode": 420
+    },
+    "tools/test_world_sprite_manifest.py": {
+      "sha256": "31420529cf3f26bb4faeae5737283ac4202cd2802e90ca840771b38178eaa04c",
+      "mode": 420
+    },
+    "tools/texture_data_probe.gd": {
+      "sha256": "1c02118fbcc9ca9f55e7ac8f469110692b5f060c68b26ce223618fed58f5ed54",
+      "mode": 420
+    },
+    "tools/texture_data_room_capture.gd": {
+      "sha256": "cfbd87738a65c8e1a761cfdc9809d1f08130f1e4d9bc461fcb415092fc607665",
+      "mode": 420
+    },
+    "tools/texture_intent_review.gd": {
+      "sha256": "f0204b88fec7736d840ddf30eab2cf993c0905e854df897e2dcc943d7b75d5b9",
+      "mode": 420
+    },
+    "tools/texture_intents.py": {
+      "sha256": "87aada6061a9a7658de6638faf5cab82db1cc16f4f4850756e42cb49551d13fa",
+      "mode": 420
+    },
+    "tools/ui_portability_capture.gd": {
+      "sha256": "c009ed476aa2531c70b32532b9a3b384847a6123871158e1e7695e886a547a54",
+      "mode": 420
+    },
+    "tools/ui_portability_capture.gd.uid": {
+      "sha256": "2d47bf9cf8cdf0e91fa6b994917873908b26c95ff115cc7e40ab98033e4307bb",
+      "mode": 420
+    },
+    "tools/ui_portability_observer.gd": {
+      "sha256": "1ac2fc4eb8ffd36a07d47567fcabfda5e59fb4ad4761b725add3be820841ebcd",
+      "mode": 420
+    },
+    "tools/ui_portability_observer.gd.uid": {
+      "sha256": "b6fdadb241f8a8da588429d744205f37d1a6ad4cbbb00355286f452ed0de6537",
+      "mode": 420
+    },
+    "tools/visual_asset_policy.json": {
+      "sha256": "4cc75f0782bcc80f3ba8f99e07f64dbc3da7b2e707d5bb965a0d28697334d674",
+      "mode": 420
+    },
+    "tools/visual_icons.py": {
+      "sha256": "e69ae9df9ea9c54bd77ad589769a206e501470904cd5dd068fcad692bc341762",
+      "mode": 420
+    },
+    "tools/visual_icons_capture.gd": {
+      "sha256": "bd0449587db04950b8dae2713cab832ac7a8dc9c16d7c3e41b16ac488c5359f2",
+      "mode": 420
+    },
+    "tools/visual_pipeline.py": {
+      "sha256": "6ee0ba6e69a83c1416bb44f3e036486dc2ffed01d17aead44f2ab5181f56e221",
+      "mode": 420
+    },
+    "tools/visual_pipeline_capture.gd": {
+      "sha256": "7038760f1d69873f138830fd189f40b1a0d53133193eef964e1053ede7b919fb",
+      "mode": 420
+    },
+    "tools/visual_pipeline_review.gd": {
+      "sha256": "37364d7934b9d595466c9cd79fd0fb8064623af084848deb1079e7e1bef07991",
+      "mode": 420
+    },
+    "tools/visual_resource_capture.gd": {
+      "sha256": "63e477cb580ae5b7e5be1fbd34318ffb63168a42dd3d3c30a32da700e0a5ad03",
+      "mode": 420
+    },
+    "tools/visual_resources.py": {
+      "sha256": "437a62906b84a2a38072dedb31f43f5bcd2ee36068954677a0b0e0e0a0339fe0",
+      "mode": 420
+    },
+    "tools/visual_resources_review.gd": {
+      "sha256": "1c4de90bc3cdc8c0443eb6ec1ed8eeca0107936262f4c854aa3973aa37470139",
+      "mode": 420
+    },
+    "tools/visual_sampling.py": {
+      "sha256": "6d3917205c612351030a0344678dc3a230b33129a874e696c4561f19a6fb213e",
+      "mode": 420
+    },
+    "tools/visual_sampling_capture.gd": {
+      "sha256": "788137e4db61b447a8e4bc8176e2f3dfdb1a014045184f28b89c2da9d250b8fe",
+      "mode": 420
+    },
+    "tools/visual_sampling_review.gd": {
+      "sha256": "fd99c8bfcc00107ae001751811fbb9e0a4a7ab76dcdc952b26178ee943fd9601",
+      "mode": 420
+    },
+    "tools/alpha_audit.py": {
+      "sha256": "d5838e016cd71078ad374032ddbf71cd32c5bfaf68eb040fae25342ff855a6e2",
+      "mode": 420
+    },
+    "tools/slice_audit.py": {
+      "sha256": "5e5d0dac4b5e6af31dc8ff539d01a7de8955dfc9ce2ca102458d66eb7cbcdf26",
+      "mode": 420
+    },
+    "tools/test_alpha_audit.py": {
+      "sha256": "8ca55b70cba5a55238501e8d3049977951f8bfc79d74aed4870772b2f6a5e7f4",
+      "mode": 420
+    },
+    "tools/shore_kit.py": {
+      "sha256": "1e39323090adf18d3e7539ada7057af5b8eab30b81c0a3e1d93735a55bb89407",
+      "mode": 420
+    },
+    "tools/planning/pilot_rollout.py": {
+      "sha256": "ed841184a3101365a20c1d4f07eb2b90e74332a6a2edd49c7a3a83ff21a10743",
+      "mode": 420
+    },
+    "tools/build/test_asset_report_history.py": {
+      "sha256": "7b252055c56faa4c068c20b64638a7aae2b42cf99abc11a847ea227baeb2c032",
+      "mode": 420
+    },
+    "tools/assets/migration/test_scanner_history.py": {
+      "sha256": "c5bd34e3df78f49e0a3ad6b3f19ee2e6b28af7aec9b9f9913bd318af8bc9a514",
+      "mode": 420
+    },
+    "tools/assets/authoring/build_item_ui_textures.gd": {
+      "sha256": "6208c9dd28199580f35f3b571cb205da1370a5826e156fa9e2ee59592b57927f",
+      "mode": 420
+    },
+    "tests/suites/item_sizes_suite.gd": {
+      "sha256": "f540ada019127436300b742667807cb19b729944aad4355c75f75bbe3df1d8e2",
+      "mode": 420
+    },
+    ".github/workflows/ci.yml": {
+      "sha256": "8894ad9619d61879b3bb69108f0f736ac80a584c32ac44a271cf31dc039feb46",
+      "mode": 420
+    },
+    "tools/quality/check_architecture.sh": {
+      "sha256": "9e37419f767b2285b3cf5616254fd6a7a67b2959068bef2f706cf241ec11ec32",
+      "mode": 493
+    },
+    "QA_CHECKLIST.md": {
+      "sha256": "9b32217aa89d6ae0fa2afa70e5744c83542ae1dad079b09333f7aca7328c4fda",
+      "mode": 420
+    },
+    "TESTING.md": {
+      "sha256": "64223d4504279ebcbfc5082743804ad2112e7180f3b2bc49002b527bee1e54b8",
+      "mode": 420
+    },
+    "docs/DEVELOPMENT.md": {
+      "sha256": "a08b6f30e4b682a0bc4317a3cd07cb25caf02c35acf447dbd511da2e982fcd31",
+      "mode": 420
+    },
+    "docs/epics/visual-overhaul-2026-10/backlog.json": {
+      "sha256": "8d897788490d339ef7fb391843e75d5def11f0ac46723ba1c1853ffeb7267576",
+      "mode": 420
+    },
+    "docs/epics/visual-overhaul-2026-10/epics/vpipeline.md": {
+      "sha256": "2fe500831e54e5fbe891451ec313ad727f38b63e0b76f2da83cedcb29b8261a3",
+      "mode": 420
+    },
+    "docs/epics/visual-overhaul-2026-10/epics/vrelease.md": {
+      "sha256": "42669f26d01edc34d84e0d1113577c5bba63f6a4ced62916a5b9e4d8b0d24f8c",
+      "mode": 420
+    },
+    "docs/SPRITE_STANDARD.md": {
+      "sha256": "a4b15044fb3ec45b7a12c960ede453df2b8cc232df0620f355fd60288c24154a",
+      "mode": 420
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "sha256": "4ec25d000ddb9b53e3c0ea360d75962a6c4dcd22dbae673510e2e09fef01fd56",
+      "mode": 420
+    },
+    "tools/README.md": {
+      "sha256": "2cf3c063c41cb4e17ceed7482c90100abb214919e4b465aac76396bbac91a4e9",
+      "mode": 420
+    },
+    "wiki/articles/project-refactoring.md": {
+      "sha256": "d8f79c7f47f21418a878f2ba25454e1af4f4f397fd83647f618532e8acec121b",
+      "mode": 420
+    },
+    ".gitignore": {
+      "sha256": "b99c6c64f98e5d57442d1ba7fe91700cac87b7050c56fb636decdb9f5ed41e67",
+      "mode": 420
+    }
+  },
+  "consumers": [
+    "tools/alpha_audit.py",
+    "tools/slice_audit.py",
+    "tools/test_alpha_audit.py",
+    "tools/shore_kit.py",
+    "tools/planning/pilot_rollout.py",
+    "tools/build/test_asset_report_history.py",
+    "tools/assets/migration/test_scanner_history.py",
+    "tools/assets/authoring/build_item_ui_textures.gd",
+    "tests/suites/item_sizes_suite.gd",
+    ".github/workflows/ci.yml",
+    "tools/quality/check_architecture.sh"
+  ],
+  "documents": [
+    "QA_CHECKLIST.md",
+    "TESTING.md",
+    "docs/DEVELOPMENT.md",
+    "docs/epics/visual-overhaul-2026-10/backlog.json",
+    "docs/epics/visual-overhaul-2026-10/epics/vpipeline.md",
+    "docs/epics/visual-overhaul-2026-10/epics/vrelease.md",
+    "docs/SPRITE_STANDARD.md",
+    "docs/epics/refactoring-2026-10/TASKS.md",
+    "tools/README.md",
+    "wiki/articles/project-refactoring.md"
+  ],
+  "local_UID": [
+    {
+      "old_path": "tools/asset_game_probe.gd.uid",
+      "target": "tools/assets/contracts/asset_game_probe.gd.uid",
+      "value": "uid://b6oj1u17lylsa",
+      "sha256": "e6eb05942112d9d9e3a9d9a8f4e074daa234529512bc3240840669122bf8d8d0",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/asset_pack_probe.gd.uid",
+      "target": "tools/build/asset_pack_probe.gd.uid",
+      "value": "uid://1ic5kt3w8ef",
+      "sha256": "f72a97368e11501a80b9d2a0cfd58ff84b4e8ea1ffd4e39a72f5a65b74bbceab",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_sizes_capture.gd.uid",
+      "target": "tools/assets/contracts/item_sizes_capture.gd.uid",
+      "value": "uid://cvr5lowsu4jqa",
+      "sha256": "46c2451ef064bfcd4166ad65ff9b49b9d11aa71eb861f6c79ef0233edc6bde0d",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_sizes_review.gd.uid",
+      "target": "tools/assets/contracts/item_sizes_review.gd.uid",
+      "value": "uid://c6b21re25xgp4",
+      "sha256": "a4b68cc1c39b7691b781cfdc34186858e88ccbae05c7aa061cbfc1ec9854ae0f",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/item_ui_fitter.gd.uid",
+      "target": "tools/assets/contracts/item_ui_fitter.gd.uid",
+      "value": "uid://5p6xsu6x7lf5",
+      "sha256": "3a2f9747910eb07a7cb5bcc4b4ab5c1b34657d434b59ac2a3ae8eca9c4e963ce",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/migration_capture.gd.uid",
+      "target": "tools/assets/migration/migration_capture.gd.uid",
+      "value": "uid://g6sbbs6s2muo",
+      "sha256": "aeba8e43687ee4aaf80708f957df61974f957d082dd736c8bd1a22bb05c27970",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/padded_atlas_capture.gd.uid",
+      "target": "tools/assets/contracts/padded_atlas_capture.gd.uid",
+      "value": "uid://ccqoleimu4xis",
+      "sha256": "3e11f9968df4d5bf1959945a01470cf24458b7178d05c21de2fc0b1c0061c482",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/padded_atlas_review.gd.uid",
+      "target": "tools/assets/contracts/padded_atlas_review.gd.uid",
+      "value": "uid://mug3mwbfqox2",
+      "sha256": "425a988035a6d1ce83a7603a7fc4648e886d3f977217af05206bb1be6a2a4ba8",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/texture_data_probe.gd.uid",
+      "target": "tools/assets/contracts/texture_data_probe.gd.uid",
+      "value": "uid://cy1qee6l3mpsw",
+      "sha256": "91f08a0ffe40082359f8882ffff9b2a39d2a59b6f5f49b14af58c6798f25ad16",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/texture_data_room_capture.gd.uid",
+      "target": "tools/assets/contracts/texture_data_room_capture.gd.uid",
+      "value": "uid://cxc6n8x00enuy",
+      "sha256": "27f3fa65bb472b355c93a8611683c999d03cc506791aa43cabf0a53fabbd0e34",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/texture_intent_review.gd.uid",
+      "target": "tools/assets/contracts/texture_intent_review.gd.uid",
+      "value": "uid://bvxqdow0ohiq3",
+      "sha256": "363aa87a58e0422254d221c09a9df317c5575f7b202b73679f4d7d54d4309aef",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_icons_capture.gd.uid",
+      "target": "tools/assets/contracts/visual_icons_capture.gd.uid",
+      "value": "uid://jbed02e5y43v",
+      "sha256": "40fd61073f3a6e6edcf3f8f01c4b769a9f9fa15bdc8b46d6fc86c41a2f449d0a",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_pipeline_capture.gd.uid",
+      "target": "tools/assets/contracts/visual_pipeline_capture.gd.uid",
+      "value": "uid://fjcc6aqfhgr2",
+      "sha256": "0b841ea8392d5cf1eb24487b291090fc46edb31d0ca10ca41707468c8861eece",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_pipeline_review.gd.uid",
+      "target": "tools/assets/contracts/visual_pipeline_review.gd.uid",
+      "value": "uid://dfipuht11h36w",
+      "sha256": "057a044e9301ab6db911061c3dc34b0f1a7d69a61652ac33ac7230275734a193",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_resource_capture.gd.uid",
+      "target": "tools/assets/contracts/visual_resource_capture.gd.uid",
+      "value": "uid://pk0l5la3gbt7",
+      "sha256": "4a9f29d5319d5b0053aefbe93e561d16363d67fde2b92932a081be4d94cbb37a",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_resources_review.gd.uid",
+      "target": "tools/assets/contracts/visual_resources_review.gd.uid",
+      "value": "uid://bgjqonqa7ncsh",
+      "sha256": "a6b717242004bc74f35c4de9c03ec5954e381ee8c420db0c33dc9bffeb700ff1",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_sampling_capture.gd.uid",
+      "target": "tools/assets/contracts/visual_sampling_capture.gd.uid",
+      "value": "uid://ddiude7j2ygvq",
+      "sha256": "e38c4dd583666caceade517a8c9a111fac5e0a50e8c676cd7a7813e5144ab08b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_sampling_review.gd.uid",
+      "target": "tools/assets/contracts/visual_sampling_review.gd.uid",
+      "value": "uid://b38jukhbtkvs7",
+      "sha256": "1950f3b94a7179c7ffd10912580bdb8c6e707e32f25f030fc0de087181993324",
+      "mode": 420
+    }
+  ],
+  "capture_pins": {
+    "tools/visual_icons_capture.gd": {
+      "commit": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "sha256": "bd0449587db04950b8dae2713cab832ac7a8dc9c16d7c3e41b16ac488c5359f2"
+    },
+    "tools/preview_portability_capture.gd": {
+      "commit": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "sha256": "40dae9d2458dafcaa7e7ea3ac057d981e2c9c82b7dd44a2a7ad235fbbf8948b2"
+    }
+  }
+}

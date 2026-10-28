@@ -9,11 +9,16 @@ import time
 from pathlib import Path
 from PIL import Image
 from alpha_metrics import analyse,VERSION
-from visual_pipeline import ignored
-from visual_resources import parse
-from texture_intents import DATA_IMPORT,import_errors
+from common.launch import prepare_imports
+from common.paths import project_root
 
-ROOT=Path(__file__).resolve().parents[1]
+prepare_imports(project_root(__file__))
+from tools.assets.contracts.visual_pipeline import ignored
+from tools.assets.contracts.visual_resources import parse
+from tools.assets.contracts.texture_intents import DATA_IMPORT, import_errors
+from tools.assets.contracts.source_paths import current_source
+
+ROOT=project_root(__file__)
 POLICY='tools/alpha_policy.json'
 REPORT='docs/reports/visual-overhaul/vpipeline-007'
 BASELINE=REPORT+'/legacy-baseline.json'
@@ -31,7 +36,7 @@ def sha(data: bytes) -> str:
 
 def paths(root: Path) -> list[str]:
     """Обходит runtime PNG с настоящими барьерами исходников и без предположения об использовании каждого файла."""
-    policy=read(root/'tools/visual_asset_policy.json');result=[]
+    policy=read(current_source(root, 'tools/visual_asset_policy.json'));result=[]
     for file in (root/'assets/game').rglob('*.png'):
         relative=file.relative_to(root).as_posix()
         if ignored(relative,policy) or any((parent/'.gdignore').exists() for parent in file.parents if parent.is_relative_to(root)):continue

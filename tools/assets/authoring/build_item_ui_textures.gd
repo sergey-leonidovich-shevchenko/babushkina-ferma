@@ -37,4 +37,4 @@ func _initialize() -> void:
 
 ## Вписывает целый непустой силуэт с прозрачным безопасным краем и сохранением пропорций.
 func fitted(source: Image, bounds: Rect2i, size: int, padding: int) -> Image:
-	return preload("res://tools/item_ui_fitter.gd").fitted(source,bounds,size,padding)
+	return preload("res://tools/assets/contracts/item_ui_fitter.gd").fitted(source,bounds,size,padding)
