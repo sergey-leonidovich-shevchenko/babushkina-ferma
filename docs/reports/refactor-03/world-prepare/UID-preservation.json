@@ -1,0 +1,431 @@
+{
+  "prior_primary_head": "6b13af8ebf9ec603705c6d4e04577ce8774095da",
+  "same_bytes_modes_as_prior_primary": true,
+  "rows": [
+    {
+      "path": "tools/assets/alpha/alpha_capture.gd.uid",
+      "sha256": "c7056f3c166570920c497a9213b21e367d40ee2ba22dafa8ac7c23da0d79be47",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/asset_game_probe.gd.uid",
+      "sha256": "e6eb05942112d9d9e3a9d9a8f4e074daa234529512bc3240840669122bf8d8d0",
+      "mode": 420
+    },
+    {
+      "path": "tools/build/asset_pack_probe.gd.uid",
+      "sha256": "f72a97368e11501a80b9d2a0cfd58ff84b4e8ea1ffd4e39a72f5a65b74bbceab",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/boss_balance_review.gd.uid",
+      "sha256": "b4f27d5941a5f8f1c50d670c88eec747c4596d0b449553c647baa28991464c72",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/authoring/build_clean_interior_atlas.gd.uid",
+      "sha256": "fd3de202677c31a9cd28240b054918a81cf9de8754898f91ffe4e5d59b98f7e4",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/authoring/build_village_materials.gd.uid",
+      "sha256": "2e82ab5f3c28e191f573695a19f343c43128de1541a68ad9ba93678713cea9c1",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/authoring/build_village_props.gd.uid",
+      "sha256": "bf389640bc54b8fe8011dbc672d4deee8c6792a79f3cc2bb160cc36704d2c6b5",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/camera_quantization_capture.gd.uid",
+      "sha256": "091b1c0253ae2e2f81965546e6b900a705fcc31e583bded7e3861406bf25615e",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/camera_quantization_review.gd.uid",
+      "sha256": "54175b6f02999bbee3b8183a19744b63271802afb660ab4ce8ba4329f214f96a",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/character_polish_capture.gd.uid",
+      "sha256": "759199daee873f275a9408d9c7981f3d6a420569bf7430a27364599ff435740c",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/compact_hud_review.gd.uid",
+      "sha256": "d7ca347692b1f543978eddfb4658bae84fd0b9569dafb423b42f192f3bcc4ac1",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/cooking_capture.gd.uid",
+      "sha256": "5733a6422af57b61f924f6170604ce5c9844d8bc3b7aef434eab263acea4f2f5",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/cooking_review.gd.uid",
+      "sha256": "e8ef07147d3106882018f8e1ea82d5c21cd4c7be82c1db854be5843725325899",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/performance/cpu_profile_game.gd.uid",
+      "sha256": "f0a30e22ae4e98c74b8f4b4d661743bda2e36efcb27e24525b9b4166b556245e",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/authoring/extract_farm_icons.gd.uid",
+      "sha256": "7947a014f5bf45c2be4e822f977c039773e83132ed791e3b633c3dcb0c4c78fd",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/authoring/extract_farmyard_sprites.gd.uid",
+      "sha256": "0a73a2d9d013ec067ebef179a25f1be50bc3ca6f7e8f95fa11b26b72a83e739e",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/farm_bounds_capture.gd.uid",
+      "sha256": "1d7114e4903233b0dab1154d133a56023b7565f0b58ac336ceedfdc483ceffe6",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/farm_cursor_review.gd.uid",
+      "sha256": "eaf52567371713d6f72a199b5319d06d69d7edc74d5ef54e0e13988e80a96310",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/generate_adaptive_hud_previews.gd.uid",
+      "sha256": "cc24c7df3ed4a22133cc6fece789b86272a6302db90a111bda652f17b29808f9",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/generate_hero_pose_preview.gd.uid",
+      "sha256": "5e0d4a555fc226286713a1dd4495be9d830c989b94728b791cf4c54213e9cb35",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/generate_ui_layout_audit.gd.uid",
+      "sha256": "de01a791b112682af31b7f134b817ff91ab5ccfad81314e69e30cc6fc993830d",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/performance/geometry_benchmark.gd.uid",
+      "sha256": "ecca6dffcdfe45c7a2be9abecbe375aac4f1f717ccad9181c0a87678c5e57429",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/grandmother_animation_review.gd.uid",
+      "sha256": "cb042222c06811ff3556ec473f0fcee098528ec3eb7ada7094c52a52a2a668df",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/hero_actions_capture.gd.uid",
+      "sha256": "e8c9fb198546ed96db13c0fc50aefecf092cbf6b7873c991e4c3e8ddda3cfab6",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/hero_actions_review.gd.uid",
+      "sha256": "73925c55807cb5eff564188d52d845771cf63bc69237f86653e03e2a50ae5a66",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/performance/inspector_benchmark.gd.uid",
+      "sha256": "a97a67cb96087ab57ad2a0c81410da67f34497d4e873a5a39eaf5942060f0e44",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/item_sizes_capture.gd.uid",
+      "sha256": "46c2451ef064bfcd4166ad65ff9b49b9d11aa71eb861f6c79ef0233edc6bde0d",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/item_sizes_review.gd.uid",
+      "sha256": "a4b68cc1c39b7691b781cfdc34186858e88ccbae05c7aa061cbfc1ec9854ae0f",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/item_ui_fitter.gd.uid",
+      "sha256": "3a2f9747910eb07a7cb5bcc4b4ab5c1b34657d434b59ac2a3ae8eca9c4e963ce",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/livestock_review.gd.uid",
+      "sha256": "535be4e3213e7f14aa79eb3b59a7a7515f3cdcbf5b138216f5d382fc2177a8d9",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/migration/migration_capture.gd.uid",
+      "sha256": "aeba8e43687ee4aaf80708f957df61974f957d082dd736c8bd1a22bb05c27970",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/padded_atlas_capture.gd.uid",
+      "sha256": "3e11f9968df4d5bf1959945a01470cf24458b7178d05c21de2fc0b1c0061c482",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/padded_atlas_review.gd.uid",
+      "sha256": "425a988035a6d1ce83a7603a7fc4648e886d3f977217af05206bb1be6a2a4ba8",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/player_contact_capture.gd.uid",
+      "sha256": "01a8fb0d824955883d9de75a6087a14f0d8ead2fc70a655fc3a5c1466e1b2b8a",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/player_contact_review.gd.uid",
+      "sha256": "f25c5214e00700e1e7c3ef34769455214ad8c412a137da9293ca76b73ef2bde8",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/authoring/prepare_celestial_dial.gd.uid",
+      "sha256": "55020385a3ffceb69f31adae53321c557d271646a42a5f97eeeedc7549fe2673",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/authoring/prepare_character_walk.gd.uid",
+      "sha256": "c366f4537bc695062a2ab815b7c71ff4042d6a1f320bd5753b799a4f52eb7b65",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/authoring/prepare_hero_actions.gd.uid",
+      "sha256": "438ed6a525a87986ead7600fdca8bb19dafa490175df3e1954a1e1f1aac4f93b",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/authoring/prepare_skeleton_v2.gd.uid",
+      "sha256": "520dd10f40c12b4a9c81020de33f6f1b84aba2398c60dc7863c5cd9cd25ded04",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/presentation_pose_capture.gd.uid",
+      "sha256": "451f1fd66f15e2ce1d72cf0b6e90347728763aa024c2cb673d47a149442224f5",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/presentation_pose_live.gd.uid",
+      "sha256": "129da3fdb4ed38d99013718cddff9429478d88f8284f89da2b2d355333585b9a",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/presentation_pose_review.gd.uid",
+      "sha256": "44283f6b003ddbe0e9089a5fc52eb878e6c548594349d06df654ec3d249fbc2a",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/prop_edges_capture.gd.uid",
+      "sha256": "36530220c67066564d1b9ec88fc538a6ac3b986b9edcf9e732592fb8d8eaa289",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/ranged_combat_capture.gd.uid",
+      "sha256": "71329b657494fa91dfd1d36a35a6c710fbe3f4f4aae7eed29949a9a40dac39de",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/ranged_combat_review.gd.uid",
+      "sha256": "76180cfc28fc531c7e0f710dbe7075dbae3a64b1ebcbd40dea028b48a45cac28",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/reference_zoom_capture.gd.uid",
+      "sha256": "85d1de57434f2ce6aa0fb229e8dd171bc1d9d461063bd08e88f9bbdd0e141291",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/reference_zoom_live.gd.uid",
+      "sha256": "2ce36f4878b01217871ae96095520e0bfdb353ebefb90db30e5959026b647610",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/reference_zoom_review.gd.uid",
+      "sha256": "8f8b780dd38750934e2a4bb15abf7f3600cf4d4d4776fc95ce49c52f534c728a",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/resident_review.gd.uid",
+      "sha256": "e24b70ba4b73e0bacce8bc986ba3892aa1cd38a829f57f5a72354b18c55c7177",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/runtime_comfort_review.gd.uid",
+      "sha256": "a7efd64968626e3cdd0a9de1befca1ceaadfab67f532bc85e61adcf83e3cc2a9",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/performance/runtime_frame_review.gd.uid",
+      "sha256": "83ab22f3865e9c17a883a278a04c5ef76141642cfa4d2868fe813acd8799dd7a",
+      "mode": 420
+    },
+    {
+      "path": "tools/shore_kit_canvas.gd.uid",
+      "sha256": "f68b7aaceba6028e7f67a6965adf758c73901e68e24499015ad12068b28eed8a",
+      "mode": 420
+    },
+    {
+      "path": "tools/shore_kit_capture.gd.uid",
+      "sha256": "6d56d52eff66842df2deaf80721f9262723f839320a8a9a28b1d14eae99a975f",
+      "mode": 420
+    },
+    {
+      "path": "tools/shore_kit_review.gd.uid",
+      "sha256": "6ad837b3c095d200664d3d9f88bdb5452ad95413517c3d5d934234ead8648921",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/slicing/slice_capture.gd.uid",
+      "sha256": "02660dcfcf2d6457c10100e1eac46bb43161f5cda2877fe4f6f1d0dc402ab472",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/slicing/slice_catalogs.gd.uid",
+      "sha256": "fc1aa868e72d2ca9340e22a63110f9269ff7683f5ca714531498a973d9f5e73b",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/slicing/slice_export.gd.uid",
+      "sha256": "bfdb64f3fb2f8c140c25feea4c424e7c8b08db0dd2ac032a08af78d7d7c7f149",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/slicing/slice_legacy_capture.gd.uid",
+      "sha256": "90b39c4440d1b86701218bc595f9336edaae845e2200b344f248e3efc75775f8",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/slicing/slice_review.gd.uid",
+      "sha256": "4bceca0d651fd337a699d2bb3907fa8afc5267e564117eda5f8225240bde9d95",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/terrain_cache_review.gd.uid",
+      "sha256": "63e2dee59baad985980812994f9ba778fcd504fd5bf1468c4317fd4dbd298dea",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/texture_data_probe.gd.uid",
+      "sha256": "91f08a0ffe40082359f8882ffff9b2a39d2a59b6f5f49b14af58c6798f25ad16",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/texture_data_room_capture.gd.uid",
+      "sha256": "27f3fa65bb472b355c93a8611683c999d03cc506791aa43cabf0a53fabbd0e34",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/texture_intent_review.gd.uid",
+      "sha256": "363aa87a58e0422254d221c09a9df317c5575f7b202b73679f4d7d54d4309aef",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/compatibility/tree_occlusion_review.gd.uid",
+      "sha256": "4955a44d200654da68e19539a978320e26fc992652934d2b84f7ab69a5953642",
+      "mode": 420
+    },
+    {
+      "path": "tools/village_clearance_review.gd.uid",
+      "sha256": "e561900240fd963aeeda253cc5279f2e67e001db47cf574b3ef1c8853dce1de8",
+      "mode": 420
+    },
+    {
+      "path": "tools/village_map_review.gd.uid",
+      "sha256": "2b0a4e2414f803155350a7aeaaec13c6cf08c3eb9a0cd9f85e7e0bbea7ea3bb8",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/visual_baseline.gd.uid",
+      "sha256": "9e52efee29e5647cc1387afb214579f6aa5918464977a1d0e032c97bb3fa0d03",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/visual_camera_capture.gd.uid",
+      "sha256": "4f96cf69aa04cf9b0b1a628be7de9c84c48f15f5050740790c41fb0da1202268",
+      "mode": 420
+    },
+    {
+      "path": "tools/visual_camera_points.gd.uid",
+      "sha256": "a55f0a0d5f3c7282001b2948151ff688710ea135fa2583b06e91f60c92887110",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/visual_camera_review.gd.uid",
+      "sha256": "7f62568cbeacb938ed82a062babf275641d011ac365650d5b114d07a47dde575",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/visual_icons_capture.gd.uid",
+      "sha256": "40fd61073f3a6e6edcf3f8f01c4b769a9f9fa15bdc8b46d6fc86c41a2f449d0a",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/art/visual_light_capture.gd.uid",
+      "sha256": "f951f28aa914363117f37d85e217a15f397a303c6b6ea25db24257315b5869c9",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/art/visual_modules_capture.gd.uid",
+      "sha256": "bd447d46883559816a15dc4a0b5b33faefcae849d14f792f5182d0e0aa04f7a8",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/visual_motion_capture.gd.uid",
+      "sha256": "c59c30b54a17c9c74ade1fa047dfc61638c984602f0411586bb6eef159f988cd",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/visual_motion_review.gd.uid",
+      "sha256": "51f2f26945d842bde82e43a42088f65e79675048563ad551f1d90fff9763c86b",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/visual_motion_route.gd.uid",
+      "sha256": "71fb4260b562365d823d8d5aa36ae490d656c9d82bdb10003db1e5947d311b16",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/visual_pipeline_capture.gd.uid",
+      "sha256": "0b841ea8392d5cf1eb24487b291090fc46edb31d0ca10ca41707468c8861eece",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/visual_pipeline_review.gd.uid",
+      "sha256": "057a044e9301ab6db911061c3dc34b0f1a7d69a61652ac33ac7230275734a193",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/visual_resource_capture.gd.uid",
+      "sha256": "4a9f29d5319d5b0053aefbe93e561d16363d67fde2b92932a081be4d94cbb37a",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/visual_resources_review.gd.uid",
+      "sha256": "a6b717242004bc74f35c4de9c03ec5954e381ee8c420db0c33dc9bffeb700ff1",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/art/visual_reuse_capture.gd.uid",
+      "sha256": "4e2b17b1cbc8cb9e19b7f248964415a4feb500c319f4f84013dfe17291da88f4",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/art/visual_reuse_sources.gd.uid",
+      "sha256": "1e988a2fed1e65bd7ba3aa10ab9c54efe73aadf4408e5405c1d436c51b6aa178",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/visual_sampling_capture.gd.uid",
+      "sha256": "e38c4dd583666caceade517a8c9a111fac5e0a50e8c676cd7a7813e5144ab08b",
+      "mode": 420
+    },
+    {
+      "path": "tools/assets/contracts/visual_sampling_review.gd.uid",
+      "sha256": "1950f3b94a7179c7ffd10912580bdb8c6e707e32f25f030fc0de087181993324",
+      "mode": 420
+    },
+    {
+      "path": "tools/qa/camera/visual_static_capture.gd.uid",
+      "sha256": "0fe2af606c6adf926a605178db99599d61eeccc0b1a1be69e9b0565e97203d9d",
+      "mode": 420
+    }
+  ]
+}

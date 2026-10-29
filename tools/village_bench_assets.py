@@ -3,7 +3,11 @@
 import argparse,hashlib,io,json
 from pathlib import Path
 from PIL import Image
-ROOT=Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 REPORT=ROOT/'docs/reports/visual-overhaul/vprop-002-four-legs'
 RUNTIME=ROOT/'assets/game/locations/overworld/benches'
 FEET={'south':[(173,820),(1460,820),(234,700),(1412,700)],'west':[(690,856),(918,856),(626,503),(1053,502)],'east':[(690,835),(962,835),(580,510),(1003,510)]}

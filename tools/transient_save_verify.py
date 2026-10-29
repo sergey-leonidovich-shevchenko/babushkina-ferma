@@ -2,6 +2,7 @@
 """Verify native file preservation, unchanged gameplay/rendering and exact reviewed save code."""
 import argparse,hashlib,json,subprocess
 from functools import lru_cache
+from common.git import git_environment
 from pathlib import Path
 from PIL import Image
 from transient_save_collect import ROOT,REPORT,QA
@@ -13,7 +14,7 @@ def load(path):return json.loads(Path(path).read_text())
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 @lru_cache(maxsize=512)
-def blob(base,name):return subprocess.check_output(['git','show',base+':'+name],cwd=ROOT)
+def blob(base,name):return subprocess.check_output(['git','show',base+':'+name],cwd=ROOT, env=git_environment())
 
 def metadata(data,phase,width):
     """Both real frames contain two actual pure draw callbacks and the same full gameplay state."""
@@ -35,10 +36,10 @@ def provenance(folder,phase,changes,source=None):
     """Assets are pinned to the accepted Git tree; every script and native artifact is independently hashed."""
     folder=Path(folder);s=source or load(folder/'source.json');base=changes['base_commit']
     require(s['task']=='VCOMPAT-001' and s['phase']==phase and s['complete'] and not s['performance_eligible'] and s['base_commit']==base,'complete phase/source identity')
-    expected=set(subprocess.check_output(['git','ls-tree','-r','--name-only',base],cwd=ROOT,text=True).splitlines())
+    expected=set(subprocess.check_output(['git','ls-tree','-r','--name-only',base],cwd=ROOT,text=True, env=git_environment()).splitlines())
     expected={n for n in expected if n.startswith('scripts/') and n.endswith('.gd')}|{'project.godot','main.tscn'}|set(QA)
     require(set(s['sources'])==expected,'full production script coverage')
-    require(s['asset_tree']==subprocess.check_output(['git','rev-parse',base+':assets/game'],cwd=ROOT,text=True).strip(),'accepted asset tree')
+    require(s['asset_tree']==subprocess.check_output(['git','rev-parse',base+':assets/game'],cwd=ROOT,text=True, env=git_environment()).strip(),'accepted asset tree')
     for name,digest in s['sources'].items():
         p=folder/'inputs'/name;require(not Path(name).is_absolute() and '..' not in Path(name).parts and sha(p)==digest,'exact archived source')
         if name in QA:continue

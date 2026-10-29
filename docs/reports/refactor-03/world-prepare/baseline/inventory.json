@@ -1,0 +1,195 @@
+{
+  "base": "6b13af8ebf9ec603705c6d4e04577ce8774095da",
+  "version": "0.0.374",
+  "root_sources": 245,
+  "sources": {
+    "tools/post_motion_verify.py": {
+      "sha256": "dc262ec15f91a46ed54e99b7ac6975cc24a8663cec803fab2342485c97f76428",
+      "mode": 420
+    },
+    "tools/render_order.py": {
+      "sha256": "a4773d6953446ebf0d4c8f61b274d071b4b6ef9dfb99f5808352f156c4ed9f42",
+      "mode": 420
+    },
+    "tools/shadow_inventory.py": {
+      "sha256": "e535439f02d2be23224afd6284b297f1c09048aecccd06dcf44553232a5aa8fd",
+      "mode": 420
+    },
+    "tools/village_bench_assets.py": {
+      "sha256": "fb1a4aa366d42df2bee694d2799e3fa2537d0e51c2a254cc7da3302d46e2923a",
+      "mode": 420
+    },
+    "tools/village_board_assets.py": {
+      "sha256": "c653192084bd220f7777a3ba0b64b5ef0a1892a8362eab9c1b0b2b4ecc6ca440",
+      "mode": 420
+    },
+    "tools/village_fence_assets.py": {
+      "sha256": "b847e5b85bd7c075a91c5083aa64b644b54461e883b1437214b730729d25fb7d",
+      "mode": 420
+    },
+    "tools/village_lamp_assets.py": {
+      "sha256": "e2e95f5a60651b8152661b43658a75546b083ac9bf5857460dd14e8c68e12e4a",
+      "mode": 420
+    },
+    "tools/village_street_assets.py": {
+      "sha256": "024e543910d32295c07330f2f46cee44aebb5e72a8640d0e450ca7308d286c0d",
+      "mode": 420
+    },
+    "tools/village_trade_assets.py": {
+      "sha256": "bd4d9b589e132a3b9c70587f2920e131e4a072b15c0f83ea7b3f703eeec7c1c5",
+      "mode": 420
+    },
+    "tools/object_command_collect.py": {
+      "sha256": "8c060ac0c465d0e8054328c1bad8e952f4a6d16415937bd6187782ad7df9cfac",
+      "mode": 420
+    },
+    "tools/object_command_verify.py": {
+      "sha256": "e0a58325ddec4d4962ad3c0983bfb542fab08d2917e0c9d69eba0121c131a9ca",
+      "mode": 420
+    },
+    "tools/pilot_pass_verify.py": {
+      "sha256": "e35f99da397deededb6feb6dffe81c487169319a64c531c84a61172e4a2c1725",
+      "mode": 420
+    },
+    "tools/pilot_static_audit.py": {
+      "sha256": "832e9cad10b9764bf1774b77673757044467be37859fb1b5712f65d4895838a2",
+      "mode": 420
+    },
+    "tools/pilot_static_verify.py": {
+      "sha256": "04bd29495c9006c9b9404ec46d2cac7ce99247b97b348bbcd873af550b7d208c",
+      "mode": 420
+    },
+    "tools/shadow_inventory_collect.py": {
+      "sha256": "07c10a585e2275ddacdf62c16cfdf689f67a7a69681b755d761b4331a713861d",
+      "mode": 420
+    },
+    "tools/shadow_inventory_verify.py": {
+      "sha256": "1cfd97a09d81aa2b091c5b31ff795bd2ca35594be8d2a1d0f70248b2bb61cbce",
+      "mode": 420
+    },
+    "tools/test_object_command.py": {
+      "sha256": "f682e49a5d786a68a170aaca4bf427089ee4c188f8d6fbbda096ab7fa52dca0a",
+      "mode": 420
+    },
+    "tools/test_render_order.py": {
+      "sha256": "d8f356cae3c459614fefe526b37c4a7a2e3560f43006a5d731538bc139fd272e",
+      "mode": 420
+    },
+    "tools/transient_save_verify.py": {
+      "sha256": "b28d76168286e53ab19928739225c85005bd4e7d93f6c4ab41816c6ba56fe050",
+      "mode": 420
+    },
+    "tools/village_bench_verify.py": {
+      "sha256": "962a51ea1a2bfd21833a32ebaa63342210de0393fa7181ba038f4e016edd6f75",
+      "mode": 420
+    },
+    "tools/village_board_verify.py": {
+      "sha256": "2528ba30468db500d77220885e69a6a0e51a27b9ed08ce1f3f7968002b964fb5",
+      "mode": 420
+    },
+    "tools/village_fence_verify.py": {
+      "sha256": "7efb349fd8b3fc542d022254bf93eae6cf77fc408c3d4a14f2494329e9d030a6",
+      "mode": 420
+    },
+    "tools/village_lamp_verify.py": {
+      "sha256": "bcbc085323a05c8233c0d92cf425e18ea362f46067768ec40cc5da92bc24854b",
+      "mode": 420
+    },
+    "tools/village_trade_verify.py": {
+      "sha256": "ea5991f48b6b8bddf20867ff375272cc7c00c65867be23b053f469628de55a01",
+      "mode": 420
+    },
+    ".gitignore": {
+      "sha256": "da91ee4e4394ad67db392fa45bc58e16c31d38c89eb1190e74cf945014521938",
+      "mode": 420
+    },
+    "VERSION": {
+      "sha256": "e1f1c0efa6458121a7d76a0a3e41fffd817e132c7a4779a93f1bb8af7dc02c0d",
+      "mode": 420
+    },
+    "project.godot": {
+      "sha256": "a1484757313211cabddb98b18cbacaf35e2a57969418d7938ebc2e4532a421dd",
+      "mode": 420
+    },
+    "Бабушкина ферма.app/Contents/Info.plist": {
+      "sha256": "796e3772292459817ad96e079f8094893a399f27fe21ff8beb1288abeea9a204",
+      "mode": 420
+    },
+    "tools/quality/check_architecture.sh": {
+      "sha256": "92e9c8a53a00e57eb021ff488b86fa10c1f31e974bb2bebfdfbe8a3377e08fb6",
+      "mode": 493
+    },
+    "TESTING.md": {
+      "sha256": "69df1269237ab881678bf165a54f38fa5e8110d12aacf6e9242abcd45202cba5",
+      "mode": 420
+    },
+    "QA_CHECKLIST.md": {
+      "sha256": "f377ef674e8bd0e5bb64e4d6bec3407c8e2fc1c627f40d515302e5895c855c9e",
+      "mode": 420
+    },
+    "docs/DEVELOPMENT.md": {
+      "sha256": "55ef4618d8ba8d346b429fed9a2e33e07a8d0321c07f1b998a717be2995ec8c0",
+      "mode": 420
+    },
+    "tools/README.md": {
+      "sha256": "ecd4d3e2cb2c9b6d1a35e0f1fc87e09e72a42b4497355cd21a6f864548c1c881",
+      "mode": 420
+    },
+    "wiki/articles/project-refactoring.md": {
+      "sha256": "9c0a5552753cb414ecb7f0732be8bf8940aa82f32def4031cd468c4bc554f6b1",
+      "mode": 420
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "sha256": "db6b1a7adef1c91604c618e86c97f7b314c15293e847af6efa34c9c7b6713ad1",
+      "mode": 420
+    }
+  },
+  "consumers": [
+    ".gitignore",
+    "VERSION",
+    "project.godot",
+    "Бабушкина ферма.app/Contents/Info.plist",
+    "tools/quality/check_architecture.sh",
+    "TESTING.md",
+    "QA_CHECKLIST.md",
+    "docs/DEVELOPMENT.md",
+    "tools/README.md",
+    "wiki/articles/project-refactoring.md",
+    "docs/epics/refactoring-2026-10/TASKS.md"
+  ],
+  "preparation_source_paths": [
+    "tools/post_motion_verify.py",
+    "tools/render_order.py",
+    "tools/shadow_inventory.py",
+    "tools/village_bench_assets.py",
+    "tools/village_board_assets.py",
+    "tools/village_fence_assets.py",
+    "tools/village_lamp_assets.py",
+    "tools/village_street_assets.py",
+    "tools/village_trade_assets.py",
+    "tools/object_command_collect.py",
+    "tools/object_command_verify.py",
+    "tools/pilot_pass_verify.py",
+    "tools/pilot_static_audit.py",
+    "tools/pilot_static_verify.py",
+    "tools/shadow_inventory_collect.py",
+    "tools/shadow_inventory_verify.py",
+    "tools/test_object_command.py",
+    "tools/test_render_order.py",
+    "tools/transient_save_verify.py",
+    "tools/village_bench_verify.py",
+    "tools/village_board_verify.py",
+    "tools/village_fence_verify.py",
+    "tools/village_lamp_verify.py",
+    "tools/village_trade_verify.py"
+  ],
+  "new_tests": 19,
+  "source_root_sites": 9,
+  "Git_read_sites": 42,
+  "already_clean_Git_read_sites": 9,
+  "source_review": 5693093074,
+  "Team_intermediate_accepted": true,
+  "CI374_success": 8,
+  "physical_moves": 0,
+  "local_UID": []
+}

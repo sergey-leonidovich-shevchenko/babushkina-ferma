@@ -6,6 +6,7 @@ if not __package__:
     prepare_imports(project_root(__file__))
 
 import argparse,gzip,hashlib,json,subprocess
+from common.git import git_environment
 from pathlib import Path
 from PIL import Image
 from tools.qa.performance.perf_contract_collect import ROOT,sha,write
@@ -31,14 +32,14 @@ def provenance(phase):
     for name,digest in data['sources'].items():
         require(not Path(name).is_absolute() and '..' not in Path(name).parts and sha(folder/'inputs'/name)==digest,'archived source changed')
         if name not in EXTRA and not (phase=='after' and name in CHANGED):
-            raw=subprocess.check_output(['git','show',data['base_commit']+':'+name],cwd=ROOT);require(hashlib.sha256(raw).hexdigest()==digest,'input differs from base: '+name)
+            raw=subprocess.check_output(['git','show',data['base_commit']+':'+name],cwd=ROOT, env=git_environment());require(hashlib.sha256(raw).hexdigest()==digest,'input differs from base: '+name)
     if phase=='after':
-        name='scripts/systems/village_prop_renderer.gd';old=subprocess.check_output(['git','show',data['base_commit']+':'+name],cwd=ROOT).decode()
+        name='scripts/systems/village_prop_renderer.gd';old=subprocess.check_output(['git','show',data['base_commit']+':'+name],cwd=ROOT, env=git_environment()).decode()
         expected=old.replace('const Lamp :=','const PilotPass:=preload("res://scripts/presentation/pilot_object_pass.gd")\nconst Lamp :=').replace('if visible.intersects(Board.destination("board",prop.position+Vector2(0,24)),true):Board.draw(game,"board",prop.position+Vector2(0,24))','if visible.intersects(Board.destination("board",prop.position+Vector2(0,24)),true):PilotPass.draw(game,prop,foreground,Board.draw.bind(game,"board",prop.position+Vector2(0,24)))')
         require((folder/'inputs'/name).read_text()==expected,'renderer changed beyond one selected adapter')
     actual={str(p.relative_to(folder)) for p in folder.rglob('*') if p.is_file() and 'inputs' not in p.parts and p.name!='source.json'};require(actual==set(data['artifacts']),'artifact coverage differs')
     for name,digest in data['artifacts'].items():require(sha(folder/name)==digest,'native artifact changed')
-    files=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()];require(subprocess.run(['git','ls-files','--error-unmatch','--',*files],cwd=ROOT,capture_output=True).returncode==0,'proof absent from index')
+    files=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()];require(subprocess.run(['git','ls-files','--error-unmatch','--',*files],cwd=ROOT,capture_output=True, env=git_environment()).returncode==0,'proof absent from index')
     return data
 
 

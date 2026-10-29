@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 import subprocess
+from common.git import git_environment
 from pathlib import Path
 from PIL import Image
 from object_command_collect import ROOT,SOURCES,OVERLAY
@@ -36,7 +37,7 @@ def provenance(folder):
     require(set(source['sources'])==set(source['base_sources'])==set(SOURCES),'source coverage')
     for name,digest in source['sources'].items():
         require(sha(folder/'inputs'/name)==digest,'archived source changed')
-        old=subprocess.run(['git','show',source['base_commit']+':'+name],cwd=ROOT,capture_output=True);historical=hashlib.sha256(old.stdout).hexdigest() if old.returncode==0 else None
+        old=subprocess.run(['git','show',source['base_commit']+':'+name],cwd=ROOT,capture_output=True, env=git_environment());historical=hashlib.sha256(old.stdout).hexdigest() if old.returncode==0 else None
         require(old.returncode==0 or name in OVERLAY,'historical input absent')
         require(historical==source['base_sources'][name],'historical base changed')
         if name not in OVERLAY: require(historical==digest,'unreviewed dependency changed')
@@ -46,7 +47,7 @@ def provenance(folder):
         require(not Path(name).is_absolute() and '..' not in Path(name).parts and sha(folder/name)==digest,'artifact changed or escaped')
     if folder.resolve()==(REPORT/'native').resolve():
         names=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()]
-        require(subprocess.run(['git','ls-files','--error-unmatch','--',*names],cwd=ROOT,capture_output=True).returncode==0,'native proof absent from Git index')
+        require(subprocess.run(['git','ls-files','--error-unmatch','--',*names],cwd=ROOT,capture_output=True, env=git_environment()).returncode==0,'native proof absent from Git index')
     return source
 
 
@@ -102,7 +103,7 @@ def verify(folder=REPORT/'native'):
     """Check source-bound native controls; historical reports never validate a changed live pass."""
     folder=Path(folder);source=provenance(folder)
     file='scripts/presentation/world_workbench_visual_system.gd'
-    old=subprocess.check_output(['git','show',source['base_commit']+':'+file],cwd=ROOT,text=True)
+    old=subprocess.check_output(['git','show',source['base_commit']+':'+file],cwd=ROOT,text=True, env=git_environment())
     require(legacy_body(old)==legacy_body((folder/'inputs'/file).read_text()),'production legacy draw changed')
     result={'task':'VRENDER-004','base_commit':source['base_commit'],'production_pass_enabled':False,'performance_eligible':False,'windows':{}}
     for width in [1152,1280]:

@@ -6,6 +6,7 @@ import json
 import shutil
 import tempfile
 import unittest
+from common.git import git_environment
 from pathlib import Path
 from PIL import Image
 from object_command_verify import CASES,PROBES,FALLBACK,metadata,probe_draws,equal,provenance,legacy_body,ROOT,REPORT,load
@@ -90,7 +91,7 @@ class ObjectCommandEvidenceTests(unittest.TestCase):
     def test_production_legacy_draw_is_preserved(self):
         import subprocess
         name='scripts/presentation/world_workbench_visual_system.gd'
-        old=subprocess.check_output(['git','show','HEAD:'+name],cwd=ROOT,text=True)
+        old=subprocess.check_output(['git','show','HEAD:'+name],cwd=ROOT,text=True, env=git_environment())
         self.assertEqual(legacy_body(old),legacy_body((ROOT/name).read_text()))
 
 

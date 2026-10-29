@@ -1,0 +1,7 @@
+{
+  "product_source_changed": false,
+  "new_tests_changed": false,
+  "cause": "normalizer removed existing Git env only on after AST",
+  "repair": "pair original and new Git calls; normalize only newly added env and preserve nine already-clean calls",
+  "failed_auditor_retained": true
+}

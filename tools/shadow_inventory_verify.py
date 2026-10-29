@@ -2,6 +2,7 @@
 """Verify immutable raster ownership and native on/off contact controls."""
 import argparse,csv,hashlib,json,subprocess
 from functools import lru_cache
+from common.git import git_environment
 from pathlib import Path
 from PIL import Image
 from shadow_inventory import ROOT,REPORT,RULES
@@ -23,7 +24,7 @@ def digest(data):
 @lru_cache(maxsize=1024)
 def git(base,name):
     """Read the immutable accepted source, never a mutable current working file."""
-    return subprocess.check_output(['git','show',base+':'+name],cwd=ROOT)
+    return subprocess.check_output(['git','show',base+':'+name],cwd=ROOT, env=git_environment())
 
 def pixels(path):
     """Close every native image after decoding its complete RGBA payload."""
@@ -41,7 +42,7 @@ def verify(report=REPORT):
         if name.startswith(('prop.village','part.village')):
             for view in item['views'].values():
                 for v in view['variants'].values():expected.add(catalog['textures'][v['texture']]['file'].removeprefix('res://'))
-    tree=subprocess.check_output(['git','ls-tree','-r','--name-only',base],cwd=ROOT,text=True).splitlines()
+    tree=subprocess.check_output(['git','ls-tree','-r','--name-only',base],cwd=ROOT,text=True, env=git_environment()).splitlines()
     expected.update(n for n in tree if n.startswith('assets/game/buildings/exteriors/') and n.endswith('.png'))
     expected.update('assets/game/environment/'+n for n in ['village_ambient_atlas_v1.png','forest_tree_growth_atlas_v1.png','forest_tree.png','seasons/tree_spring.png','seasons/tree_summer.png','seasons/tree_autumn.png','seasons/tree_winter.png'])
     expected.add('assets/game/interiors/village_interior_atlas_v2.png')
@@ -59,7 +60,7 @@ def verify(report=REPORT):
     require(source['complete'] and source['task']=='VSHADOW-001' and source['base_commit']==base and source['performance_eligible'] is False,'incomplete native series')
     production=sorted(n for n in tree if n.startswith('scripts/') and n.endswith(('.gd','.gdshader')))
     require(source['production']==production,'production coverage')
-    require(source['asset_tree']==subprocess.check_output(['git','rev-parse',base+':assets/game'],cwd=ROOT,text=True).strip(),'asset tree')
+    require(source['asset_tree']==subprocess.check_output(['git','rev-parse',base+':assets/game'],cwd=ROOT,text=True, env=git_environment()).strip(),'asset tree')
     for n in production+['main.tscn']:require(digest(git(base,n))==source['sources'][n],'production source: '+n)
     for n in source['overlay']:require(digest((folder/'inputs'/n).read_bytes())==source['sources'][n],'QA source')
     actual={str(p.relative_to(folder)):digest(p.read_bytes()) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'inputs' not in p.parts}

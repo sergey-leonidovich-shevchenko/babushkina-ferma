@@ -3,7 +3,11 @@
 import argparse,hashlib,io,json
 from pathlib import Path
 from PIL import Image
-ROOT=Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 REPORT=ROOT/'docs/reports/visual-overhaul/vprop-005'
 RUNTIME=ROOT/'assets/game/locations/overworld/fences'
 HEIGHTS={'post':128,'rail':64,'depth':128}

@@ -6,6 +6,7 @@ import gzip
 import hashlib
 import json
 import os
+from common.git import git_environment
 from pathlib import Path
 import re
 import shutil
@@ -14,7 +15,11 @@ import subprocess
 import uuid
 from PIL import Image, ImageChops
 
-ROOT=Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 REPORT=ROOT/'docs/reports/visual-overhaul/vrender-001'
 SOURCES=['main.tscn','project.godot','scripts/systems/render_system.gd','scripts/game_renderer.gd',
  'scripts/world_background.gd','scripts/presentation/village_terrain_canvas.gd','scripts/systems/world_projection_system.gd',
@@ -63,7 +68,7 @@ def inventory(text):
 
 def build_contract():
     """Authors the reviewed source snapshot; this command never marks a native run accepted."""
-    write(REPORT/'contract.json',{'task':'VRENDER-001','base_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
+    write(REPORT/'contract.json',{'task':'VRENDER-001','base_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True, env=git_environment()).strip(),
         'sources':{p:sha(ROOT/p) for p in SOURCES},'calls':inventory((ROOT/'scripts/systems/render_system.gd').read_text()),
         'coordinates':{'world':'WorldProjection: zoom * (world - camera); first overworld 1.2, HUD 1.0',
             'background':'separate Node2D, show_behind_parent; matching position/scale',
@@ -94,7 +99,7 @@ def native_jobs():
 def capture(folder):
     """Runs two isolated native windows serially; all readbacks are diagnostic, not performance samples."""
     require(not folder.exists(),'fresh output required'); require(not native_jobs(),'another Godot active')
-    require(not subprocess.check_output(['git','diff','HEAD','--','scripts','assets/game','main.tscn'],cwd=ROOT,text=True),'runtime changed')
+    require(not subprocess.check_output(['git','diff','HEAD','--','scripts','assets/game','main.tscn'],cwd=ROOT,text=True, env=git_environment()),'runtime changed')
     contract=read(REPORT/'contract.json'); validate_contract(contract)
     folder.mkdir(parents=True)
     for name in SOURCES:
@@ -148,12 +153,12 @@ def verify(folder=REPORT/'native'):
     contract=read(REPORT/'contract.json')
     source=read(folder/'source.json'); require(source.get('complete') is True and source['sources']==contract['sources']
         and source['task']==contract['task'] and source['base_commit']==contract['base_commit'],'collection incomplete or sources differ')
-    require(subprocess.run(['git','cat-file','-e',source['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'Git base absent')
+    require(subprocess.run(['git','cat-file','-e',source['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True, env=git_environment()).returncode==0,'Git base absent')
     validate_contract(contract,folder/'instrumentation')
     overlay={'project.godot','tools/render_order.py','tools/render_order_game.gd','tools/render_order_capture.gd'}
     for name,digest in source['sources'].items():
         if name in overlay: continue
-        base=subprocess.check_output(['git','show',source['base_commit']+':'+name],cwd=ROOT)
+        base=subprocess.check_output(['git','show',source['base_commit']+':'+name],cwd=ROOT, env=git_environment())
         require(hashlib.sha256(base).hexdigest()==digest,'archived runtime differs from Git base: '+name)
     actual={str(p.relative_to(folder)) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'instrumentation' not in p.parts}
     require(actual==set(source['artifacts']),'artifact coverage')

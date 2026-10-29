@@ -1,0 +1,35 @@
+{
+  "task": "VRENDER-008",
+  "base_commit": "2f844d14e4ea6ab6c56503c694135dc29e0eb4a2",
+  "production_publisher": true,
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "windows": {
+    "1152": {
+      "before_png": 40,
+      "after_png": 40,
+      "draw_callbacks": 160,
+      "full_save_pairs": 40,
+      "rgba_equal_pairs": 40,
+      "rgba_total_pairs": 40,
+      "changed_image_indices": [],
+      "videos": 2,
+      "shader_matches": true,
+      "actual_wall_steps": 8,
+      "post_transition_frames": 4
+    },
+    "1280": {
+      "before_png": 40,
+      "after_png": 40,
+      "draw_callbacks": 160,
+      "full_save_pairs": 40,
+      "rgba_equal_pairs": 40,
+      "rgba_total_pairs": 40,
+      "changed_image_indices": [],
+      "videos": 2,
+      "shader_matches": true,
+      "actual_wall_steps": 8,
+      "post_transition_frames": 4
+    }
+  }
+}

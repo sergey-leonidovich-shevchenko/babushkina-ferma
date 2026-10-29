@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Bind acceptance to the canonical queue at its real Git base; this is an audit, not a status registry."""
 import argparse,hashlib,json,subprocess,re
+from common.git import git_environment
 from pathlib import Path
 
 # Сохраняет прямой CLI/cwd старого QA-входа до его отдельного переноса в REFACTOR-03.
@@ -14,7 +15,7 @@ REPORT=ROOT/'docs/reports/visual-overhaul/vrelease-002'
 
 def git_json(base,path):
     """Read an immutable repository input rather than a parallel readiness ledger."""
-    raw=subprocess.check_output(['git','show',base+':'+path],cwd=ROOT)
+    raw=subprocess.check_output(['git','show',base+':'+path],cwd=ROOT, env=git_environment())
     return json.loads(raw)
 
 def audit(base):
@@ -36,9 +37,9 @@ def audit(base):
             paths=[ROOT/'docs/reports/visual-overhaul'/key.lower()/'README.md']
         evidence=[]
         for p in paths:
-            name=str(p.relative_to(ROOT));kind=subprocess.check_output(['git','cat-file','-t',base+':'+name],cwd=ROOT,text=True).strip()
+            name=str(p.relative_to(ROOT));kind=subprocess.check_output(['git','cat-file','-t',base+':'+name],cwd=ROOT,text=True, env=git_environment()).strip()
             assert kind in ['blob','tree'],name
-            raw=subprocess.check_output(['git','show',base+':'+name],cwd=ROOT)
+            raw=subprocess.check_output(['git','show',base+':'+name],cwd=ROOT, env=git_environment())
             evidence.append({'file':name,'git_type':kind,'sha256':hashlib.sha256(raw).hexdigest()})
         assert evidence,key
         rows.append({'id':key,'status_at_base':'done','evidence':evidence,'canonical_claims':task['evidence']})
@@ -53,5 +54,5 @@ def verify():
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--write',action='store_true');a=p.parse_args()
     if a.write:
-        data=audit(subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip());(REPORT/'dependency-audit.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+        data=audit(subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True, env=git_environment()).strip());(REPORT/'dependency-audit.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
     print('STATIC PILOT AUDIT:',verify()['predecessor_count'],'canonical predecessors and exact evidence; full map/FPS remain open')

@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """Build the reviewed VSHADOW-001 inventory; this never modifies game artwork."""
 import csv,hashlib,io,json,re,subprocess
+from common.git import git_environment
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
 
-ROOT=Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 REPORT=ROOT/'docs/reports/visual-overhaul/vshadow-001'
 OWNERS={'benches':'village_bench_visual.gd','street_props':'village_street_visual.gd','lamps':'village_lamp_visual.gd','boards':'village_board_visual.gd','trade':'village_trade_visual.gd','fences':'village_fence_visual.gd'}
 RULES=[
@@ -70,7 +75,7 @@ def build():
         p=ROOT/name;text=p.read_text();anchor='func '+function+'('
         if anchor not in text:raise ValueError('missing owner: '+name+':'+function)
         rules.append({'file':name,'sha256':sha(p),'function':function,'line':text[:text.index(anchor)].count('\n')+1,'rule':rule})
-    data={'schema':1,'task':'VSHADOW-001','base_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'runtime_changed':False,'dynamic_solar_implemented':False,'performance_eligible':False,'full_map_accepted':False,'scope':'All registered village prop PNG/views plus eight existing facades, six tree/growth rasters, ambient and legacy interior atlases. Actors/crops/fallbacks remain under renderer ownership; this is not a full animation catalogue acceptance.','review_method':'Manual RGBA review on checkerboard; distinguish material self shading, baked base/ground fragments and separately drawn contact. No dark-pixel extraction.','raster_gate':'Unreviewed or changed source cannot receive a new cast under this inventory. Keep material shading; separate or redraw inseparable base before adding projected cast.','assets':rows,'renderer_rules':rules,'followups':{'VSHADOW-002':'Reuse/replace existing contacts; never stack duplicates.','VSHADOW-003':'Separate ground/wall receivers from raster self shading.','VSHADOW-004':'Upper-left sun agreed; add separately disableable cast only after base review.','VSHADOW-005':'One presented-ground actor contact; inspect complete animation masks before projected cast.','VSHADOW-006':'Three views, same contact ownership.','VSHADOW-007':'Retain interior wall band; no new interior work here.','VSHADOW-008':'Bank AO separate from water/bridge receiver.','VSHADOW-009':'Bound active casts; no frame budget accepted here.','VSHADOW-010':'Final day/evening shadow acceptance remains open.'}}
+    data={'schema':1,'task':'VSHADOW-001','base_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True, env=git_environment()).strip(),'runtime_changed':False,'dynamic_solar_implemented':False,'performance_eligible':False,'full_map_accepted':False,'scope':'All registered village prop PNG/views plus eight existing facades, six tree/growth rasters, ambient and legacy interior atlases. Actors/crops/fallbacks remain under renderer ownership; this is not a full animation catalogue acceptance.','review_method':'Manual RGBA review on checkerboard; distinguish material self shading, baked base/ground fragments and separately drawn contact. No dark-pixel extraction.','raster_gate':'Unreviewed or changed source cannot receive a new cast under this inventory. Keep material shading; separate or redraw inseparable base before adding projected cast.','assets':rows,'renderer_rules':rules,'followups':{'VSHADOW-002':'Reuse/replace existing contacts; never stack duplicates.','VSHADOW-003':'Separate ground/wall receivers from raster self shading.','VSHADOW-004':'Upper-left sun agreed; add separately disableable cast only after base review.','VSHADOW-005':'One presented-ground actor contact; inspect complete animation masks before projected cast.','VSHADOW-006':'Three views, same contact ownership.','VSHADOW-007':'Retain interior wall band; no new interior work here.','VSHADOW-008':'Bank AO separate from water/bridge receiver.','VSHADOW-009':'Bound active casts; no frame budget accepted here.','VSHADOW-010':'Final day/evening shadow acceptance remains open.'}}
     (REPORT/'inventory.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
     fields=['file','sha256','family','baked_contact','baked_solar','separate_runtime_contact','owner','decision'];buf=io.StringIO();writer=csv.DictWriter(buf,fieldnames=fields,extrasaction='ignore');writer.writeheader();writer.writerows(rows);(REPORT/'inventory.csv').write_text(buf.getvalue())
     font=ImageFont.truetype('/System/Library/Fonts/Supplemental/Arial.ttf',12)

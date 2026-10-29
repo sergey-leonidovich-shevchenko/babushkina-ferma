@@ -6,6 +6,7 @@ if not __package__:
     prepare_imports(project_root(__file__))
 
 import argparse,hashlib,json,os,shutil,signal,subprocess,uuid
+from common.git import git_environment
 from pathlib import Path
 from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,write,sha
 
@@ -21,7 +22,7 @@ def collect(output):
     frozen=production+QA+['project.godot','main.tscn']
     sources={n:sha(ROOT/n) for n in frozen}
     for n in production:
-        if hashlib.sha256(subprocess.check_output(['git','show',base+':'+n],cwd=ROOT)).hexdigest()!=sources[n]:raise ValueError('production mismatch: '+n)
+        if hashlib.sha256(subprocess.check_output(['git','show',base+':'+n],cwd=ROOT, env=git_environment())).hexdigest()!=sources[n]:raise ValueError('production mismatch: '+n)
     folder.mkdir(parents=True)
     source={'task':'VSHADOW-001','base_commit':base,'production':production,'asset_tree':command(['git','rev-parse',base+':assets/game']),'complete':False,'performance_eligible':False,'sources':sources,'overlay':QA+['project.godot'],'artifacts':{}}
     for n in source['overlay']:

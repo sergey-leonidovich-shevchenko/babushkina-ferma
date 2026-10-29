@@ -3,6 +3,7 @@
 import copy
 import gzip
 import json
+from common.git import git_environment
 from pathlib import Path
 import shutil
 import subprocess
@@ -27,7 +28,7 @@ class RenderOrderTests(unittest.TestCase):
     def test_required_evidence_tracked(self):
         """Local ignored files cannot masquerade as evidence reproducible from Git."""
         paths=[str(p.relative_to(r.ROOT)) for p in (r.REPORT/'native').rglob('*') if p.is_file()]
-        result=subprocess.run(['git','ls-files','--error-unmatch','--',*paths],cwd=r.ROOT,capture_output=True)
+        result=subprocess.run(['git','ls-files','--error-unmatch','--',*paths],cwd=r.ROOT,capture_output=True, env=git_environment())
         self.assertEqual(result.returncode,0,result.stderr.decode())
 
     def test_inventory_preserves_multiple_guarded_calls(self):

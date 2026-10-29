@@ -6,6 +6,7 @@ if not __package__:
     prepare_imports(project_root(__file__))
 
 import argparse,gzip,hashlib,json,math,subprocess
+from common.git import git_environment
 from pathlib import Path
 from PIL import Image,ImageChops,ImageDraw
 from tools.qa.performance.perf_contract_collect import ROOT,sha,write
@@ -23,7 +24,7 @@ def load(path):
 def provenance(folder,phase):
     """Bind each archived source and every native file to its phase and real Git base."""
     data=load(folder/'source.json');require(data['complete'] and data['task']=='VPROP-002' and data['phase']==phase and data['performance_eligible'] is False,'incomplete phase')
-    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'missing base commit')
+    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True, env=git_environment()).returncode==0,'missing base commit')
     expected=set(ORIGINAL+EXTRA)
     if phase=='before':expected-={'scripts/presentation/village_bench_visual.gd','tools/village_bench_gallery.gd'}
     else:expected|={'assets/game/locations/overworld/benches/profile.json'}|{'assets/game/locations/overworld/benches/bench_'+side+'_v1.png'+suffix for side in ['south','west','east'] for suffix in ['', '.import']}
@@ -32,14 +33,14 @@ def provenance(folder,phase):
         require(not Path(name).is_absolute() and '..' not in Path(name).parts and sha(folder/'inputs'/name)==digest,'archived source changed')
         overlay=name.startswith('tools/village_bench') or (phase=='after' and (name in ['scripts/systems/village_prop_renderer.gd','assets/game/visual_resources.json','scripts/presentation/village_bench_visual.gd'] or name.startswith('assets/game/locations/overworld/benches/')))
         if not overlay:
-            historical=subprocess.run(['git','show',data['base_commit']+':'+name],cwd=ROOT,capture_output=True)
+            historical=subprocess.run(['git','show',data['base_commit']+':'+name],cwd=ROOT,capture_output=True, env=git_environment())
             require(historical.returncode==0 and hashlib.sha256(historical.stdout).hexdigest()==digest,'source does not match Git base')
     actual={str(p.relative_to(folder)) for p in folder.rglob('*') if p.is_file() and 'inputs' not in p.parts and p.name!='source.json'}
     require(actual==set(data['artifacts']),'native artifact coverage changed')
     for name,digest in data['artifacts'].items():require(sha(folder/name)==digest,'native artifact changed')
     if folder.resolve()==(REPORT/'native'/phase).resolve():
         files=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()]
-        require(subprocess.run(['git','ls-files','--error-unmatch','--',*files],cwd=ROOT,capture_output=True).returncode==0,'native proof missing from Git index')
+        require(subprocess.run(['git','ls-files','--error-unmatch','--',*files],cwd=ROOT,capture_output=True, env=git_environment()).returncode==0,'native proof missing from Git index')
     return data
 
 def metadata(data,width,phase):

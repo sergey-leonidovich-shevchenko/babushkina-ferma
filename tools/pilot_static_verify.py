@@ -6,6 +6,7 @@ if not __package__:
     prepare_imports(project_root(__file__))
 
 import argparse,gzip,hashlib,json,math,subprocess
+from common.git import git_environment
 from pathlib import Path
 from PIL import Image,ImageChops,ImageDraw
 from tools.qa.performance.perf_contract_collect import ROOT,sha,write
@@ -49,7 +50,7 @@ def provenance():
             require(old.returncode==0 and hashlib.sha256(old.stdout).hexdigest()==digest,'input not from Git base: '+name)
     actual={str(p.relative_to(folder)) for p in folder.rglob('*') if p.is_file() and 'inputs' not in p.parts and p.name!='source.json'};require(actual==set(data['artifacts']),'artifact coverage changed')
     for name,digest in data['artifacts'].items():require(sha(folder/name)==digest,'native artifact changed')
-    files=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()];require(subprocess.run(['git','ls-files','--error-unmatch','--',*files],cwd=ROOT,capture_output=True).returncode==0,'proof missing from index')
+    files=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()];require(subprocess.run(['git','ls-files','--error-unmatch','--',*files],cwd=ROOT,capture_output=True, env=git_environment()).returncode==0,'proof missing from index')
     return data
 
 def pixels(before,after,width):

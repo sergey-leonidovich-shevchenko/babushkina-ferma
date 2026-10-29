@@ -725,3 +725,9 @@ tools/qa/camera/*
 !tools/qa/camera/*.swift
 !tools/qa/camera/visual_coordinates_capture.gd.uid
 !tools/qa/camera/visual_coordinates_review.gd.uid
+
+# REFACTOR-03 World context preparation; original implementations have not moved yet.
+!tools/qa/world/
+tools/qa/world/*
+!tools/qa/world/__init__.py
+!tools/qa/world/test_world_context.py
