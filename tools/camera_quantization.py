@@ -11,12 +11,17 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+from common.git import git_environment
 import tempfile
 import uuid
 
 from PIL import Image, ImageChops, ImageStat
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 REPORT = ROOT / 'docs/reports/visual-overhaul/vcamera-002'
 CASES = {'base': [1152, 648], 'full-hd': [1920, 1080], 'retina-2x': [2304, 1296]}
 MODES = {'rounded': True, 'fractional': False}
@@ -165,7 +170,7 @@ def capture(folder):
     require(not folder.exists(), 'fresh output required')
     folder.mkdir(parents=True)
     source = {'schema': 1, 'task': 'VCAMERA-002', 'performance_eligible': False, 'complete': False,
-              'base_commit': subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
+              'base_commit': subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True, env=git_environment()).strip(),
               'sources': {p:sha(ROOT/p) for p in SOURCES}, 'artifacts': {}}
     for p in SOURCES:
         target = folder/'instrumentation'/p; target.parent.mkdir(parents=True, exist_ok=True); shutil.copy2(ROOT/p,target)

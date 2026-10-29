@@ -13,9 +13,14 @@ import re
 import shutil
 import struct
 import subprocess
+from common.git import git_environment
 import uuid
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 REPORT = ROOT / 'docs/reports/visual-overhaul/vbase-003'
 REGISTRY = REPORT / 'camera-points.json'
 SIZE = [1152, 648]
@@ -121,7 +126,7 @@ def run_capture(folder: Path, point: str) -> int:
     folder.mkdir(parents=True, exist_ok=False)
     binary = os.environ.get('FARM_GODOT_BIN') or str(ROOT / 'tools/Godot.app/Contents/MacOS/Godot')
     if not Path(binary).is_file(): binary = shutil.which('godot') or binary
-    git = lambda *args: subprocess.check_output(['git', *args], cwd=ROOT, text=True).strip()
+    git = lambda *args: subprocess.check_output(['git', *args], cwd=ROOT, text=True, env=git_environment()).strip()
     paths = ['project.godot', 'main.tscn', 'tools/visual_camera_points.gd', 'tools/visual_camera_capture.gd', 'tools/visual_camera.py']
     source = dict(kind='static-camera-reference', performance_eligible=False, commit=git('rev-parse', 'HEAD'),
                   dirty=git('status', '--porcelain'), registry_sha256=digest(REGISTRY), repeats=2,

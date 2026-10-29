@@ -8,6 +8,7 @@ from pathlib import Path
 import shutil
 import statistics
 import subprocess
+from common.git import git_environment
 import uuid
 from PIL import Image
 import reference_zoom as Z
@@ -163,7 +164,7 @@ def capture(folder):
     Z.verify(REPORT/'native')
     Z.require(not folder.exists(),'fresh live output required'); folder.mkdir(parents=True)
     source={'schema':2,'task':'VCAMERA-006','kind':'zoom-live-timing','complete':False,'performance_eligible':True,
-        'base_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
+        'base_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True, env=git_environment()).strip(),
         'video_provenance_sha256':Z.sha(REPORT/'native/source.json'),'sources':{p:Z.sha(ROOT/p) for p in SOURCES},'artifacts':{}}
     for p in SOURCES:
         target=folder/'instrumentation'/p; target.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(ROOT/p,target)

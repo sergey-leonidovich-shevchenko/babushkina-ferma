@@ -1,0 +1,31 @@
+{
+  "admission": "VALID_MOTION_PAIR",
+  "performance_eligible": false,
+  "base_commit": "0b00534cdeed61f23763f7494e888d8727134bc0",
+  "repeats": [
+    {
+      "admission": "VALID_MOTION_ROUTE",
+      "performance_eligible": false,
+      "ticks": 630,
+      "seconds": 10.5,
+      "grass_ticks": 48,
+      "overlap_ticks": 74,
+      "door_transitions": [
+        562,
+        597
+      ]
+    },
+    {
+      "admission": "VALID_MOTION_ROUTE",
+      "performance_eligible": false,
+      "ticks": 630,
+      "seconds": 10.5,
+      "grass_ticks": 48,
+      "overlap_ticks": 74,
+      "door_transitions": [
+        562,
+        597
+      ]
+    }
+  ]
+}

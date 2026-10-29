@@ -1,0 +1,5 @@
+{
+  "actual_failed_check": "AssertionError: ('tools/camera_quantization.py', 'capture')",
+  "cause": "Audit removed env from all subprocess calls, including unchanged Swift encoder; restrict removal to the eight added literal Git env keywords. Product sources unchanged.",
+  "before_audit_SHA256": "b00a19d8099c2a3f0d72f477cba563df71bad2618a9ed8037323e8f7b1a9b085"
+}

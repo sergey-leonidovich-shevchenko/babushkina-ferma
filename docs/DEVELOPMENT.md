@@ -1,3 +1,5 @@
+REFACTOR-03 camera0.0.373: `python3 tools/run.py qa.camera.test_camera_context` проверяет12 настоящих сценариев вложенного source-root/Git и новых source-envelope до нативного запуска. Семь дочерних fake-engine/open не рисуют кадры; timing останавливается перед нативным контекстом. Неполный вывод не принимается штатными verifiers. Системные команды сохраняют cwd/env, только Git получает явный проект и чистые overrides. Реальные before/after20 CLI и raw — в `docs/reports/refactor-03/camera-prepare/`. Без физических переносов/нового FPS допуска; обязательны полный architecture/Game/Wiki и браузер нового кандидата.
+
 REFACTOR-03 performance0.0.370: `python3 tools/run.py qa.performance.test_performance_context` проверяет5 реальных Git/CLI случаев без игрового окна. Source-root и Git-контекст привязаны к коду/явному project; shell-входы сохраняют args/stdout/exit, worker/gate budgets и все прежние тесты. Before/after CLI и14 headless save checkpoints/smoke180 — в performance-prepare; полные architecture/Game/Wiki и независимое ревью нового SHA обязательны. Пока ничего не переносится, root314,03in_progress.
 
 # Разработка

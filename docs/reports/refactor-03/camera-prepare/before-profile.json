@@ -1,0 +1,223 @@
+{
+  "phase": "before",
+  "base": "57612b6291a88253d5a2f5e46aca21457555f302",
+  "commands": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/visual_camera.py",
+        "check"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-01.txt",
+      "sha256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/visual_camera.py",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-02.txt",
+      "sha256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/visual_static.py",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-03.txt",
+      "sha256": "c7de2f0ce0e867869aec2adbdd2a5fd94cbc3edc6f18afaa333cf3980ca4db6f"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/visual_coordinates.py",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-04.txt",
+      "sha256": "ec953c3bc9072708142b71d2310937b74006f5ad8a21e50e48d74c5830ad73ee"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/camera_quantization.py",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-05.txt",
+      "sha256": "51a37ed5ae9c819b41f6657391f602550a4bea51b6ee64147e1999302ebdccc7"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/presentation_pose.py",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-06.txt",
+      "sha256": "9148781c5f1eb1cd164a226576ecc60d2283bc9f21900d6d5e93fcb1415ae48f"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/reference_zoom.py",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-07.txt",
+      "sha256": "2d54cd307b002f0a10b60452c871128c6fca29c3ff2c3f413b586cc4094b55e4"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/reference_zoom_perf.py",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-08.txt",
+      "sha256": "be3a775d36bca884269827366f5b1ab837d18ca691ad59f34466f370abf9b4e3"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/visual_motion.py",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-09.txt",
+      "sha256": "167d682959c996bb9e38dc579c117475b8b760a8e84a34f0c8b6020b0df578f4"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/visual_hardware.py",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-10.txt",
+      "sha256": "51c23b483859e6089c97471db7cae87ad82b59bec669447374c59e297688c277"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/check_native_frame_reports.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-11.txt",
+      "sha256": "4d6834761b10304e29615b2d609184aa56aeee49a6eebae0e785df63a312eae0"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_visual_camera.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-12.txt",
+      "sha256": "e72be3b69aee8050fe3edbf6fd548690081c1960b6d6349516f660512f7c8e97"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_visual_coordinates.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-13.txt",
+      "sha256": "2ff62094371551f5e0850e5bd2c9605ab8f80306cd6204dc41f45e34515c7f2a"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_camera_quantization.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-14.txt",
+      "sha256": "160e7126c002bd51be6840bdca63be5a64a85dc95c1d7acdc09601decafb4635"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_presentation_pose.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-15.txt",
+      "sha256": "a3b15c3f9cd79f6971959cd9a80d76a1f8dea2e3e327a337602ec82c49f314f7"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_reference_zoom.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-16.txt",
+      "sha256": "abf4eb7cdd46c28a490c5e70c0ca3c655495c1c7e25fb7d0a3d3e6558ecc5bd6"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_visual_motion.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-17.txt",
+      "sha256": "5f4db198b1e1a0420304399ab9e8e5a7d165a189b1743c56381addee72c05bc5"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_visual_static.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-18.txt",
+      "sha256": "dece363f839023eeabcf47d18e67cd07c981dd4de664521b87be193845c4f2ed"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_visual_baseline.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-19.txt",
+      "sha256": "538169511e82a43540758ce1d7e503a61ec88d801a570a484a66519c7ee7c516"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_visual_hardware.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera before foreign eci1105d",
+      "exit": 0,
+      "log": "before-20.txt",
+      "sha256": "9f673429f01288c821b657382dbf57359dd9d45e5befda6f7370a73e49d4d9c1"
+    }
+  ],
+  "foreign_Git_index_config_unchanged": true,
+  "historical_verifier_commands": 11,
+  "old_negative_suites": 9,
+  "Game_new": false,
+  "native_sessions": 0,
+  "GPU_FPS_admission": false,
+  "input_reports_unmodified": true
+}

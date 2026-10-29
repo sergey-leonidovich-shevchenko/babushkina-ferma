@@ -1,0 +1,28 @@
+{
+  "version": "0.0.373",
+  "source_SHA256": {
+    ".gitignore": "441305a6b21e7e57f046ae0060d9edb83e44c0e9926d0a63f29dd407a23119f4",
+    "QA_CHECKLIST.md": "094d680c49f83e2e4b306c146baffb985a9523963b85b9e7c35d987dccceafd3",
+    "TESTING.md": "ff6047028f665f4c902f5296baefea5a7d96e4f410e79e70f289d653c31277e3",
+    "VERSION": "de96d7bff2fcf3b51c38404de5119654b0c0441f7510052f3253f426cb2ff3db",
+    "docs/DEVELOPMENT.md": "ac8004971a559b44dff576db962b8cf614e908b8d1e66611e869c968f49c66bf",
+    "docs/epics/refactoring-2026-10/TASKS.md": "50dc66087b8abbc70201ec09c38b353b9769b311613dc619d05672c99b41f360",
+    "project.godot": "5d96f6ee6ea7c3cc44d7843c36b73709a1dec53cb6f1baf8e941165302231af0",
+    "tools/README.md": "76d8c38d71a3fb85574aa2a9cd8c3519c2026fd1f6f5727faafd1a6f84831ca2",
+    "tools/camera_quantization.py": "997dc584f9eae215a4bb46113c62fdab875029f275b39593c2b6a98231236071",
+    "tools/check_native_frame_reports.py": "1517249e577ec56bc22d7690a1412bc1e923a9c58b07daf4993292b6eeb57a9b",
+    "tools/presentation_pose.py": "63fc5e492885a46d4d683e35112f2b4637effe26b1a0408b9a4b6e80edff3aa2",
+    "tools/qa/camera/__init__.py": "3521dcc8e3a6589c1fd7d4f0d05c1782e94af1f645b0c3b6e2c96781fd43229d",
+    "tools/qa/camera/test_camera_context.py": "fbdea3d6097091f31146df426fd0f3df34d1b1d40e7e851f226892046ff4a992",
+    "tools/quality/check_architecture.sh": "644d977c51290e1ce09107c067e448a9c774967ec7d1e778eb6b9ba56a45887b",
+    "tools/reference_zoom.py": "e35374b04aac8b833cf8f0cef142445309bae641286a57b54d5e458d8c2b2b48",
+    "tools/reference_zoom_perf.py": "dc4048704575cb07d9703d3fa35ba5d57ca2fc0ac5ddd6b7c700dfc118d96ac0",
+    "tools/run_visual_baseline.py": "a7a328d5fe013a94004d944900ff7066d323a59bbd3889bf2d6d906384d3239f",
+    "tools/visual_camera.py": "45dda83df618b60b69d75b474199547f621d8f0618bba6e2af564b11c1607fed",
+    "tools/visual_coordinates.py": "43ecc3d3fc1c0db07acae6828715b9f497e9ab526e4ac7d0dc25f264bae718ff",
+    "tools/visual_motion.py": "707f61293777eaad0846205fb26126f48eb2afba8b0fb08447a221f17165ad7c",
+    "tools/visual_static.py": "04fe279fa3a20865a8227ec68f770a5bed6a9ca666bbadb178349473656382de",
+    "wiki/articles/project-refactoring.md": "90451ff93b7f7c6cb30de4c6a324be09d7a76d7a18e7d74186f250400a30a9e4",
+    "Бабушкина ферма.app/Contents/Info.plist": "fd232a39c254f7fc6a31001e6ec09786e10d87e83a85a6b63155e77f49b1f20a"
+  }
+}

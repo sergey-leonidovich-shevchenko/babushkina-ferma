@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+from common.git import git_environment
 import uuid
 from visual_camera import ROOT, REGISTRY, SIZE, FIELDS, read, digest
 
@@ -93,7 +94,7 @@ def capture(folder: Path) -> int:
     folder.mkdir(parents=True, exist_ok=False)
     binary = os.environ.get('FARM_GODOT_BIN') or str(ROOT / 'tools/Godot.app/Contents/MacOS/Godot')
     if not Path(binary).is_file(): binary = shutil.which('godot') or binary
-    git = lambda *args: subprocess.check_output(['git', *args], cwd=ROOT, text=True).strip()
+    git = lambda *args: subprocess.check_output(['git', *args], cwd=ROOT, text=True, env=git_environment()).strip()
     paths = ['project.godot', 'main.tscn', 'tools/visual_static.py', 'tools/visual_static_capture.gd', 'tools/visual_camera_points.gd']
     paths += [str(p.relative_to(ROOT)) for p in (ROOT / 'scripts').rglob('*.gd')]
     source = dict(kind=KIND, performance_eligible=False, repeats=2, commit=git('rev-parse', 'HEAD'), dirty=git('status', '--porcelain'),

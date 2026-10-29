@@ -17,7 +17,11 @@ import uuid
 from PIL import Image, ImageChops, ImageStat
 from run_visual_baseline import command, environment
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 REPORT = ROOT / 'docs/reports/visual-overhaul/vbase-005'
 SOURCES = ['tools/visual_motion.py', 'tools/visual_motion_route.gd', 'tools/visual_motion_capture.gd',
            'tools/encode_coordinate_video.swift', 'tools/visual_camera_points.gd',

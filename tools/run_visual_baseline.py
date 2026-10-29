@@ -8,17 +8,26 @@ import json
 import os
 import platform
 import subprocess
+from common.git import git_environment
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 
 
 def command(args: list[str]) -> str:
     """Читает только разрешённые сведения; недоступность помечается, а не заменяется нулём."""
     try:
-        return subprocess.check_output(args, text=True, stderr=subprocess.STDOUT, timeout=15).strip()
+        options = {"text": True, "stderr": subprocess.STDOUT, "timeout": 15}
+        # Git читает проект исходника; системные запросы сохраняют контекст вызывающего процесса.
+        if args and args[0] == "git":
+            options.update(cwd=ROOT, env=git_environment())
+        return subprocess.check_output(args, **options).strip()
     except (OSError, subprocess.SubprocessError) as error:
         return 'UNAVAILABLE: ' + type(error).__name__
 

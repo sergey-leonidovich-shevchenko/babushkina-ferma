@@ -10,10 +10,15 @@ import re
 from pathlib import Path
 import shutil
 import subprocess
+from common.git import git_environment
 import tempfile
 import uuid
 
-ROOT = Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 REPORT = ROOT / 'docs/reports/visual-overhaul/vcamera-001/native'
 CASES = {'base': [1152, 648], 'full-hd': [1920, 1080], 'retina-2x': [2304, 1296], 'letterbox': [1024, 768]}
 SOURCES = ['project.godot', 'scripts/systems/camera_system.gd', 'scripts/systems/animation_renderer.gd',
@@ -116,8 +121,8 @@ def capture(folder: Path) -> None:
     folder.mkdir(parents=True)
     godot = Path(os.environ.get('FARM_GODOT_BIN', ROOT/'tools/Godot.app/Contents/MacOS/Godot'))
     source = {'schema': 1, 'task': 'VCAMERA-001', 'performance_eligible': False,
-              'base_commit': subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True).strip(),
-              'worktree_patch': subprocess.check_output(['git','diff','--','scripts/systems/animation_renderer.gd'], cwd=ROOT, text=True),
+              'base_commit': subprocess.check_output(['git','rev-parse','HEAD'], cwd=ROOT, text=True, env=git_environment()).strip(),
+              'worktree_patch': subprocess.check_output(['git','diff','--','scripts/systems/animation_renderer.gd'], cwd=ROOT, text=True, env=git_environment()),
               'sources': {path:digest(ROOT/path) for path in SOURCES}, 'artifacts': {}}
     (folder/'source.json').write_text(json.dumps(source, ensure_ascii=False, indent=2)+'\n')
     with tempfile.TemporaryDirectory(prefix='farm-coordinates-') as raw:

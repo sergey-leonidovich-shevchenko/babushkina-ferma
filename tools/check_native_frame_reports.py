@@ -3,7 +3,11 @@ import json
 import math
 from pathlib import Path
 
-ROOT=Path(__file__).resolve().parents[1]
+from common.paths import project_root
+from common.launch import prepare_imports
+
+ROOT = project_root(__file__)
+prepare_imports(ROOT)
 REPORTS=ROOT/"docs/reports/performance-2026-10-12/final4"
 
 

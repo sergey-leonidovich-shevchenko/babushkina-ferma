@@ -1,0 +1,205 @@
+Capture 1/2
+FRejected; see /private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera actual producer uklp5_an/new output/run-1/stdout.txt
+CAPTURE base
+FFMOTION run-1
+F.CAPTURE base-physical
+FCAPTURE base-rounded
+FFFFFFFFStatic capture 1/2
+FRejected: /private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera actual producer 7riuyg0a/new output/run-1/stdout.txt
+CAPTURE base-100
+FLIVE base-100-1
+F
+======================================================================
+FAIL: test_camera_fresh_source_envelope (__main__.CameraContextTests.test_camera_fresh_source_envelope)
+Actual camera collector writes a new envelope with own commit before a failed fake child.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 216, in test_camera_fresh_source_envelope
+    self.capture_envelope(camera, lambda output: camera.run_capture(output, ''))
+  File "/private/tmp/refactor03-test-camera-context373.py", line 186, in capture_envelope
+    self.assertEqual(source.get('base_commit', source.get('commit')), expected)
+AssertionError: '534cdf39fd1d3e67e8cedd2508a394e1aa717825' != '88b12912229973c05ffc1c309d49901882a9d9f7'
+- 534cdf39fd1d3e67e8cedd2508a394e1aa717825
++ 88b12912229973c05ffc1c309d49901882a9d9f7
+
+
+======================================================================
+FAIL: test_coordinates_fresh_source_envelope (__main__.CameraContextTests.test_coordinates_fresh_source_envelope)
+Actual coordinate collector reads both Git revision and patch from the explicit project.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 224, in test_coordinates_fresh_source_envelope
+    self.capture_envelope(coordinates, coordinates.capture)
+  File "/private/tmp/refactor03-test-camera-context373.py", line 186, in capture_envelope
+    self.assertEqual(source.get('base_commit', source.get('commit')), expected)
+AssertionError: '527a63e73f85789dbf240bf108a8a27ea7d2fa33' != 'e6a3102abcbada4a4f0d8f74d60dafd84cb2563c'
+- 527a63e73f85789dbf240bf108a8a27ea7d2fa33
++ e6a3102abcbada4a4f0d8f74d60dafd84cb2563c
+
+
+======================================================================
+FAIL: test_git_helper_uses_its_explicit_project (__main__.CameraContextTests.test_git_helper_uses_its_explicit_project)
+A real foreign bare/index override must not change the collector commit or dirty list.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 101, in test_git_helper_uses_its_explicit_project
+    self.assertEqual(baseline.command(['git', 'rev-parse', 'HEAD']), expected)
+AssertionError: '1a22109f44cf912379f1d8b8d49a70125481a8d8' != '063fa70d0d70b3b18c478747338e55c1d925fe1b'
+- 1a22109f44cf912379f1d8b8d49a70125481a8d8
++ 063fa70d0d70b3b18c478747338e55c1d925fe1b
+
+
+======================================================================
+FAIL: test_motion_fresh_source_envelope (__main__.CameraContextTests.test_motion_fresh_source_envelope)
+Actual motion collector uses the shared Git helper without changing system-query context.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 244, in test_motion_fresh_source_envelope
+    self.capture_envelope(motion, motion.capture)
+  File "/private/tmp/refactor03-test-camera-context373.py", line 186, in capture_envelope
+    self.assertEqual(source.get('base_commit', source.get('commit')), expected)
+AssertionError: '9729dc24758bbd9d9a8d79d9ac612df608692b14' != 'a9246b23b2541e920a88556ba32fa9421ad8f28e'
+- 9729dc24758bbd9d9a8d79d9ac612df608692b14
++ a9246b23b2541e920a88556ba32fa9421ad8f28e
+
+
+======================================================================
+FAIL: test_pose_fresh_source_envelope (__main__.CameraContextTests.test_pose_fresh_source_envelope)
+Actual pose collector copies real sources into unchanged logical archive destinations.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 232, in test_pose_fresh_source_envelope
+    self.capture_envelope(pose, pose.capture)
+  File "/private/tmp/refactor03-test-camera-context373.py", line 186, in capture_envelope
+    self.assertEqual(source.get('base_commit', source.get('commit')), expected)
+AssertionError: '86fbfda26efc33d36185c52f64a0e9f9079737e9' != '8431d21cb65ae7e86cd785f99fd6c789521e33b6'
+- 86fbfda26efc33d36185c52f64a0e9f9079737e9
++ 8431d21cb65ae7e86cd785f99fd6c789521e33b6
+
+
+======================================================================
+FAIL: test_quantization_fresh_source_envelope (__main__.CameraContextTests.test_quantization_fresh_source_envelope)
+Actual quantization collector copies real source bytes before the explicit fake-open failure.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 228, in test_quantization_fresh_source_envelope
+    self.capture_envelope(quantization, quantization.capture)
+  File "/private/tmp/refactor03-test-camera-context373.py", line 186, in capture_envelope
+    self.assertEqual(source.get('base_commit', source.get('commit')), expected)
+AssertionError: '56170f69544cc48631815c51da306fa85e0fb88e' != '8431d21cb65ae7e86cd785f99fd6c789521e33b6'
+- 56170f69544cc48631815c51da306fa85e0fb88e
++ 8431d21cb65ae7e86cd785f99fd6c789521e33b6
+
+
+======================================================================
+FAIL: test_source_root_survives_nested_module_imports (__main__.CameraContextTests.test_source_root_survives_nested_module_imports) (module='visual_camera')
+Nested copies of the six actual modules find their own markers, not a fixed parent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 91, in test_source_root_survives_nested_module_imports
+    self.assertEqual(Path(json.loads(result.stdout)), root)
+AssertionError: Posix[41 chars]gvtstvkrkz20h0000gn/T/camera nested project pud3nmo2/tools/qa') != Posix[41 chars]gvtstvkrkz20h0000gn/T/camera nested project pud3nmo2')
+
+======================================================================
+FAIL: test_source_root_survives_nested_module_imports (__main__.CameraContextTests.test_source_root_survives_nested_module_imports) (module='camera_quantization')
+Nested copies of the six actual modules find their own markers, not a fixed parent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 91, in test_source_root_survives_nested_module_imports
+    self.assertEqual(Path(json.loads(result.stdout)), root)
+AssertionError: Posix[41 chars]gvtstvkrkz20h0000gn/T/camera nested project pud3nmo2/tools/qa') != Posix[41 chars]gvtstvkrkz20h0000gn/T/camera nested project pud3nmo2')
+
+======================================================================
+FAIL: test_source_root_survives_nested_module_imports (__main__.CameraContextTests.test_source_root_survives_nested_module_imports) (module='visual_coordinates')
+Nested copies of the six actual modules find their own markers, not a fixed parent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 91, in test_source_root_survives_nested_module_imports
+    self.assertEqual(Path(json.loads(result.stdout)), root)
+AssertionError: Posix[41 chars]gvtstvkrkz20h0000gn/T/camera nested project pud3nmo2/tools/qa') != Posix[41 chars]gvtstvkrkz20h0000gn/T/camera nested project pud3nmo2')
+
+======================================================================
+FAIL: test_source_root_survives_nested_module_imports (__main__.CameraContextTests.test_source_root_survives_nested_module_imports) (module='visual_motion')
+Nested copies of the six actual modules find their own markers, not a fixed parent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 91, in test_source_root_survives_nested_module_imports
+    self.assertEqual(Path(json.loads(result.stdout)), root)
+AssertionError: Posix[41 chars]gvtstvkrkz20h0000gn/T/camera nested project pud3nmo2/tools/qa') != Posix[41 chars]gvtstvkrkz20h0000gn/T/camera nested project pud3nmo2')
+
+======================================================================
+FAIL: test_source_root_survives_nested_module_imports (__main__.CameraContextTests.test_source_root_survives_nested_module_imports) (module='run_visual_baseline')
+Nested copies of the six actual modules find their own markers, not a fixed parent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 91, in test_source_root_survives_nested_module_imports
+    self.assertEqual(Path(json.loads(result.stdout)), root)
+AssertionError: Posix[41 chars]gvtstvkrkz20h0000gn/T/camera nested project pud3nmo2/tools/qa') != Posix[41 chars]gvtstvkrkz20h0000gn/T/camera nested project pud3nmo2')
+
+======================================================================
+FAIL: test_source_root_survives_nested_module_imports (__main__.CameraContextTests.test_source_root_survives_nested_module_imports) (module='check_native_frame_reports')
+Nested copies of the six actual modules find their own markers, not a fixed parent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 91, in test_source_root_survives_nested_module_imports
+    self.assertEqual(Path(json.loads(result.stdout)), root)
+AssertionError: Posix[41 chars]gvtstvkrkz20h0000gn/T/camera nested project pud3nmo2/tools/qa') != Posix[41 chars]gvtstvkrkz20h0000gn/T/camera nested project pud3nmo2')
+
+======================================================================
+FAIL: test_source_signature_keeps_own_commit_and_real_bytes (__main__.CameraContextTests.test_source_signature_keeps_own_commit_and_real_bytes)
+The actual VBASE source producer hashes its files and reads its own Git in a foreign cwd.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 122, in test_source_signature_keeps_own_commit_and_real_bytes
+    self.assertEqual(source['commit'], self.git(own, 'rev-parse', 'HEAD'))
+AssertionError: '1503a5ee67efea84b87a9098c4a2b648fcc3ac37' != '1ca1dfe65685f3d60d80e91ed6b75c0a791c953f'
+- 1503a5ee67efea84b87a9098c4a2b648fcc3ac37
++ 1ca1dfe65685f3d60d80e91ed6b75c0a791c953f
+
+
+======================================================================
+FAIL: test_static_fresh_source_envelope (__main__.CameraContextTests.test_static_fresh_source_envelope)
+Actual static collector preserves its own Git and source namespace.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 220, in test_static_fresh_source_envelope
+    self.capture_envelope(static, static.capture)
+  File "/private/tmp/refactor03-test-camera-context373.py", line 186, in capture_envelope
+    self.assertEqual(source.get('base_commit', source.get('commit')), expected)
+AssertionError: '3dc130359d87374cb35a2f90a5da54ff7d99e5b7' != 'd522e301c1d596ea2d323b28abbe77c7f51c24bb'
+- 3dc130359d87374cb35a2f90a5da54ff7d99e5b7
++ d522e301c1d596ea2d323b28abbe77c7f51c24bb
+
+
+======================================================================
+FAIL: test_zoom_fresh_source_envelope (__main__.CameraContextTests.test_zoom_fresh_source_envelope)
+Actual zoom collector retains its schema/source set before the failed fake child.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 236, in test_zoom_fresh_source_envelope
+    self.capture_envelope(zoom, zoom.capture)
+  File "/private/tmp/refactor03-test-camera-context373.py", line 186, in capture_envelope
+    self.assertEqual(source.get('base_commit', source.get('commit')), expected)
+AssertionError: '1dcf7496b3b68b0ca7934e7f96ea9284011db48c' != 'bbb7b91fea6de28f9a0d9e5a490d929d3fc32275'
+- 1dcf7496b3b68b0ca7934e7f96ea9284011db48c
++ bbb7b91fea6de28f9a0d9e5a490d929d3fc32275
+
+
+======================================================================
+FAIL: test_zoom_timing_prelaunch_source_envelope (__main__.CameraContextTests.test_zoom_timing_prelaunch_source_envelope)
+Actual timing source writes before its context check, with no engine launched or metric admitted.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-context373.py", line 240, in test_zoom_timing_prelaunch_source_envelope
+    self.capture_envelope(timing, timing.capture)
+  File "/private/tmp/refactor03-test-camera-context373.py", line 186, in capture_envelope
+    self.assertEqual(source.get('base_commit', source.get('commit')), expected)
+AssertionError: '1dcf7496b3b68b0ca7934e7f96ea9284011db48c' != 'bbb7b91fea6de28f9a0d9e5a490d929d3fc32275'
+- 1dcf7496b3b68b0ca7934e7f96ea9284011db48c
++ bbb7b91fea6de28f9a0d9e5a490d929d3fc32275
+
+
+----------------------------------------------------------------------
+Ran 12 tests in 8.670s
+
+FAILED (failures=16)

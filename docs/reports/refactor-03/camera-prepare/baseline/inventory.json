@@ -1,0 +1,124 @@
+{
+  "base": "57612b6291a88253d5a2f5e46aca21457555f302",
+  "version": "0.0.372",
+  "root_sources": 285,
+  "sources": {
+    "tools/visual_camera.py": {
+      "sha256": "6f82651af7a5b9682c06974834eeb7a93932973e1e2a5acbfce7fc0815319b87",
+      "mode": 420
+    },
+    "tools/camera_quantization.py": {
+      "sha256": "291c310db460deb10279635287e055a24937588054170085fbac6c93cfe30c1d",
+      "mode": 420
+    },
+    "tools/visual_coordinates.py": {
+      "sha256": "1528c45357060c84c14ccbc0dcbb5443ddf41d6c22730db2d8898428e22b961c",
+      "mode": 420
+    },
+    "tools/visual_motion.py": {
+      "sha256": "52ba745d0436b89a853b5c3b64a13624f712996037c289a21b4a17c34e63eb64",
+      "mode": 420
+    },
+    "tools/run_visual_baseline.py": {
+      "sha256": "8471a62d3fe8251c3372f618c807b1850aff7b3c8136d67ece9005749ff239df",
+      "mode": 420
+    },
+    "tools/check_native_frame_reports.py": {
+      "sha256": "60d41f4a099588ffd5815910f6212c0ffdf0865226b62f4fbb113c478a19da27",
+      "mode": 420
+    },
+    "tools/visual_static.py": {
+      "sha256": "4f75f2b2f5e152d7c6360f6141406fcfacd1f743d729ef6eedb346cdc6e237f8",
+      "mode": 420
+    },
+    "tools/presentation_pose.py": {
+      "sha256": "cdb3d7fce6a63d6e6331c65f962c56a6a8ebefefff2c7468c07ce5709b92a97f",
+      "mode": 420
+    },
+    "tools/reference_zoom.py": {
+      "sha256": "d02a33b35c81bacc7c53200d0c47f2e11851245909c4a832eceeda0d17642452",
+      "mode": 420
+    },
+    "tools/reference_zoom_perf.py": {
+      "sha256": "96a3f87f081a34f2b46652956bba949711224f2b4412645921a54b8d6b50993b",
+      "mode": 420
+    },
+    ".gitignore": {
+      "sha256": "c3938aa41253e8e4aba7423ff929a0dfd1a3450617b93b1dd2fdcde8fd235f56",
+      "mode": 420
+    },
+    "VERSION": {
+      "sha256": "0dc0495a0481ab8cd1c7370e02c3315a88b038750c4eaaf611a8ec8cccfe271b",
+      "mode": 420
+    },
+    "project.godot": {
+      "sha256": "6968c17150e06f928e94682aa6c1a5b7f18bdc181ff92e64a0bcf63a08fcc7fc",
+      "mode": 420
+    },
+    "Бабушкина ферма.app/Contents/Info.plist": {
+      "sha256": "d266c6eb72ab4d4029e9153f0a3e3ce4e14ba20c11443e6cdf23d55fab239899",
+      "mode": 420
+    },
+    "tools/quality/check_architecture.sh": {
+      "sha256": "af91e9b3b33a160e104118831cc282cca423d96de201a94116366ddd2a500233",
+      "mode": 493
+    },
+    "TESTING.md": {
+      "sha256": "25ec103745ab7ac5e0e70a988d123ff70a00a414bf75391d325c5e0184f7ffd4",
+      "mode": 420
+    },
+    "QA_CHECKLIST.md": {
+      "sha256": "c2efb9ad4a67bc3a46a21d162e53873721a0dd2f035975bc66addf344b6ebc83",
+      "mode": 420
+    },
+    "docs/DEVELOPMENT.md": {
+      "sha256": "804e934aacb7e9a07d4167cc08a9b639756a7993999df04497e95e1619b41abb",
+      "mode": 420
+    },
+    "tools/README.md": {
+      "sha256": "98ea1a8d5e44a7911eac9df9a0379994f8e3152181206adfac7dec94040a00fb",
+      "mode": 420
+    },
+    "wiki/articles/project-refactoring.md": {
+      "sha256": "da76bcec31217da1ce9acdd2c1f71cc3ec44430bde10ffa2f9eb1a0362c074c5",
+      "mode": 420
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "sha256": "055493b7c4ee2d55b89d882babbee734d1665ff1bd6da2814cd1c0950359a300",
+      "mode": 420
+    }
+  },
+  "consumers": [
+    ".gitignore",
+    "VERSION",
+    "project.godot",
+    "Бабушкина ферма.app/Contents/Info.plist",
+    "tools/quality/check_architecture.sh",
+    "TESTING.md",
+    "QA_CHECKLIST.md",
+    "docs/DEVELOPMENT.md",
+    "tools/README.md",
+    "wiki/articles/project-refactoring.md",
+    "docs/epics/refactoring-2026-10/TASKS.md"
+  ],
+  "preparation_source_paths": [
+    "tools/visual_camera.py",
+    "tools/camera_quantization.py",
+    "tools/visual_coordinates.py",
+    "tools/visual_motion.py",
+    "tools/run_visual_baseline.py",
+    "tools/check_native_frame_reports.py",
+    "tools/visual_static.py",
+    "tools/presentation_pose.py",
+    "tools/reference_zoom.py",
+    "tools/reference_zoom_perf.py"
+  ],
+  "new_tests": 12,
+  "source_root_sites": 6,
+  "Git_read_sites": 9,
+  "source_review": 5692067678,
+  "Team_intermediate_accepted": true,
+  "CI372_success": 8,
+  "physical_moves": 0,
+  "local_UID": []
+}

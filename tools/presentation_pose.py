@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
+from common.git import git_environment
 import tempfile
 import uuid
 from contextlib import contextmanager
@@ -176,7 +177,7 @@ def capture(folder, resume=False):
     else:
         require(not folder.exists(),'fresh output required'); folder.mkdir(parents=True)
         source = {'schema':1,'task':'VCAMERA-003','complete':False,'performance_eligible':False,
-            'base_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
+            'base_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True, env=git_environment()).strip(),
             'sources':{p:sha(ROOT/p) for p in SOURCES},'artifacts':{}}
         for p in SOURCES:
             target=folder/'instrumentation'/p; target.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(ROOT/p,target)
