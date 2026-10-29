@@ -1,0 +1,71 @@
+Capture 1/2
+FEFFFFF
+======================================================================
+ERROR: test_launch_uri_is_bound_to_closed_source_paths (__main__.CameraLayoutTests.test_launch_uri_is_bound_to_closed_source_paths)
+Legacy and canonical launch each require their matching full known source metadata.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-layout374.py", line 56, in test_launch_uri_is_bound_to_closed_source_paths
+    self.assertEqual(self.timing.validate_environment(changed, *arguments, source_paths=self.paths), expected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: validate_environment() got an unexpected keyword argument 'source_paths'
+
+======================================================================
+FAIL: test_actual_fresh_camera_never_falls_back_to_stale_root_source (__main__.CameraLayoutTests.test_actual_fresh_camera_never_falls_back_to_stale_root_source)
+Canonical source missing, stale old file present: actual collector must stop before its fake child.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-layout374.py", line 116, in test_actual_fresh_camera_never_falls_back_to_stale_root_source
+    with self.assertRaises(FileNotFoundError) as error:
+AssertionError: FileNotFoundError not raised
+
+======================================================================
+FAIL: test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames (__main__.CameraLayoutTests.test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames) (metadata=None)
+Actual old packet passes unchanged; adding layout metadata cannot reclassify its old launches.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-layout374.py", line 74, in test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames
+    with self.subTest(metadata=malformed), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames (__main__.CameraLayoutTests.test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames) (metadata=[])
+Actual old packet passes unchanged; adding layout metadata cannot reclassify its old launches.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-layout374.py", line 74, in test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames
+    with self.subTest(metadata=malformed), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames (__main__.CameraLayoutTests.test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames) (metadata=True)
+Actual old packet passes unchanged; adding layout metadata cannot reclassify its old launches.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-layout374.py", line 74, in test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames
+    with self.subTest(metadata=malformed), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames (__main__.CameraLayoutTests.test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames) (metadata={'tools/reference_zoom_live.gd': 'elsewhere.gd'})
+Actual old packet passes unchanged; adding layout metadata cannot reclassify its old launches.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-layout374.py", line 74, in test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames
+    with self.subTest(metadata=malformed), self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames (__main__.CameraLayoutTests.test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames)
+Actual old packet passes unchanged; adding layout metadata cannot reclassify its old launches.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-camera-layout374.py", line 79, in test_resigned_unknown_or_mismatched_layout_does_not_admit_old_frames
+    with self.assertRaisesRegex(ValueError, 'launch script'):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.262s
+
+FAILED (failures=6, errors=1)
+Rejected; see /var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera missing canonical e5nsjn2y/new output/run-1/stdout.txt

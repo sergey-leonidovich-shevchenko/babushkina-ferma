@@ -1,0 +1,192 @@
+[
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.visual_camera",
+      "check"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-001.txt",
+    "raw_SHA256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a",
+    "stored_SHA256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.visual_camera",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-002.txt",
+    "raw_SHA256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a",
+    "stored_SHA256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.visual_static",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-003.txt",
+    "raw_SHA256": "c7de2f0ce0e867869aec2adbdd2a5fd94cbc3edc6f18afaa333cf3980ca4db6f",
+    "stored_SHA256": "c7de2f0ce0e867869aec2adbdd2a5fd94cbc3edc6f18afaa333cf3980ca4db6f"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.visual_coordinates",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-004.txt",
+    "raw_SHA256": "ec953c3bc9072708142b71d2310937b74006f5ad8a21e50e48d74c5830ad73ee",
+    "stored_SHA256": "ec953c3bc9072708142b71d2310937b74006f5ad8a21e50e48d74c5830ad73ee"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.camera_quantization",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-005.txt",
+    "raw_SHA256": "51a37ed5ae9c819b41f6657391f602550a4bea51b6ee64147e1999302ebdccc7",
+    "stored_SHA256": "51a37ed5ae9c819b41f6657391f602550a4bea51b6ee64147e1999302ebdccc7"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.presentation_pose",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-006.txt",
+    "raw_SHA256": "9148781c5f1eb1cd164a226576ecc60d2283bc9f21900d6d5e93fcb1415ae48f",
+    "stored_SHA256": "9148781c5f1eb1cd164a226576ecc60d2283bc9f21900d6d5e93fcb1415ae48f"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.reference_zoom",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-007.txt",
+    "raw_SHA256": "2d54cd307b002f0a10b60452c871128c6fca29c3ff2c3f413b586cc4094b55e4",
+    "stored_SHA256": "2d54cd307b002f0a10b60452c871128c6fca29c3ff2c3f413b586cc4094b55e4"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.reference_zoom_perf",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-008.txt",
+    "raw_SHA256": "be3a775d36bca884269827366f5b1ab837d18ca691ad59f34466f370abf9b4e3",
+    "stored_SHA256": "be3a775d36bca884269827366f5b1ab837d18ca691ad59f34466f370abf9b4e3"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.visual_motion",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-009.txt",
+    "raw_SHA256": "167d682959c996bb9e38dc579c117475b8b760a8e84a34f0c8b6020b0df578f4",
+    "stored_SHA256": "167d682959c996bb9e38dc579c117475b8b760a8e84a34f0c8b6020b0df578f4"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.visual_hardware",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-010.txt",
+    "raw_SHA256": "51c23b483859e6089c97471db7cae87ad82b59bec669447374c59e297688c277",
+    "stored_SHA256": "51c23b483859e6089c97471db7cae87ad82b59bec669447374c59e297688c277"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.check_native_frame_reports"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-011.txt",
+    "raw_SHA256": "4d6834761b10304e29615b2d609184aa56aeee49a6eebae0e785df63a312eae0",
+    "stored_SHA256": "4d6834761b10304e29615b2d609184aa56aeee49a6eebae0e785df63a312eae0"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_visual_camera"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-012.txt",
+    "raw_SHA256": "ecb5a6f9a860c3eefd5ef779c3b2bec29afeb56d49a71e3b63589d8ec62f2298",
+    "stored_SHA256": "ecb5a6f9a860c3eefd5ef779c3b2bec29afeb56d49a71e3b63589d8ec62f2298"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_visual_coordinates"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-013.txt",
+    "raw_SHA256": "20b2040c8b3cbd00383c45adfa71cc49a52b9f8baa889b031acce5986e5a19c7",
+    "stored_SHA256": "20b2040c8b3cbd00383c45adfa71cc49a52b9f8baa889b031acce5986e5a19c7"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_camera_quantization"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-014.txt",
+    "raw_SHA256": "74a7126db3bd80a8bf412ddad7338897ca025dfbdf31d42e792490544ff52b51",
+    "stored_SHA256": "74a7126db3bd80a8bf412ddad7338897ca025dfbdf31d42e792490544ff52b51"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_presentation_pose"
+    ],
+    "kind": "CLI",
+    "exit": 1,
+    "log": "after-015.txt",
+    "raw_SHA256": "9c8ef553441fc3faa7ccd467ff6df37c8e6eab139d8cfaa0b9047236e0e16101",
+    "stored_SHA256": "9c8ef553441fc3faa7ccd467ff6df37c8e6eab139d8cfaa0b9047236e0e16101"
+  }
+]

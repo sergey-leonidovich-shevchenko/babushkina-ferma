@@ -62,8 +62,12 @@ class SourcePathsTests(unittest.TestCase):
                     if row['family'] in {'assets-contracts', 'assets-migration', 'build', 'assets-alpha', 'assets-slicing'}}
         self.assertEqual(len(expected), 90)
         expected['tools/perf_contract_collect.py'] = 'tools/qa/performance/perf_contract_collect.py'
+        self.assertEqual(len(expected), 91)
+        camera = {old: row['target'] for old, row in plan['assignments'].items() if row['family'] == 'camera' and old not in {'tools/visual_camera_points.gd', 'tools/encode_coordinate_video.swift'}}
+        self.assertEqual(len(camera), 42)
+        expected.update(camera)
         self.assertEqual(dict(MOVED_PATHS), expected)
-        self.assertEqual(len(MOVED_PATHS), 91)
+        self.assertEqual(len(MOVED_PATHS), 133)
         for old, target in expected.items():
             self.assertEqual(current_source(root, old), root / target)
             self.assertTrue((root / target).is_file(), target)

@@ -718,3 +718,10 @@ tools/qa/performance/*
 tools/qa/camera/*
 !tools/qa/camera/__init__.py
 !tools/qa/camera/test_camera_context.py
+
+# REFACTOR-03: camera40; shared camera points/video encoder are deferred with their consumers.
+!tools/qa/camera/*.py
+!tools/qa/camera/*.gd
+!tools/qa/camera/*.swift
+!tools/qa/camera/visual_coordinates_capture.gd.uid
+!tools/qa/camera/visual_coordinates_review.gd.uid

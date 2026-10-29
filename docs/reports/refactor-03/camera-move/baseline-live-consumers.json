@@ -1,0 +1,11 @@
+{
+  "extra_live_articles": [
+    "visual-motion",
+    "visual-camera-motion",
+    "visual-hardware",
+    "visual-pose"
+  ],
+  "original_migration_map_unchanged": true,
+  "runtime_fixture_adaptation": "Same archived bytes mirrored into a separate canonical current-input root; proof archive and all assertions unchanged.",
+  "private_plan_typo_corrected_before_product_edit": true
+}

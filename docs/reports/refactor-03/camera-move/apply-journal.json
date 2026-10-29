@@ -1,0 +1,287 @@
+[
+  {
+    "old": "tools/analyze_visual_baseline.py",
+    "new": "tools/qa/camera/analyze_visual_baseline.py",
+    "sha256": "0cba0cb44318fb4a3c9b409693c462c58e7079b564c03c565d7e1722a114f5e9"
+  },
+  {
+    "old": "tools/camera_quantization.py",
+    "new": "tools/qa/camera/camera_quantization.py",
+    "sha256": "997dc584f9eae215a4bb46113c62fdab875029f275b39593c2b6a98231236071"
+  },
+  {
+    "old": "tools/camera_quantization_capture.gd",
+    "new": "tools/qa/camera/camera_quantization_capture.gd",
+    "sha256": "f5338cb7428b13e2f2ef1456a77939188e802de65944477d217050b85076b2be"
+  },
+  {
+    "old": "tools/camera_quantization_review.gd",
+    "new": "tools/qa/camera/camera_quantization_review.gd",
+    "sha256": "06a8369e15c91b4e2c69acc73aa7137e3df6068445a65edd6ce0be40bc62b7e8"
+  },
+  {
+    "old": "tools/check_native_frame_reports.py",
+    "new": "tools/qa/camera/check_native_frame_reports.py",
+    "sha256": "1517249e577ec56bc22d7690a1412bc1e923a9c58b07daf4993292b6eeb57a9b"
+  },
+  {
+    "old": "tools/pose_video_frames.swift",
+    "new": "tools/qa/camera/pose_video_frames.swift",
+    "sha256": "6bce8ca5dac0f455dfdf3142eda4a5f87b0966b336fbd70523ebe6714b1f0ef4"
+  },
+  {
+    "old": "tools/pose_video_strip.py",
+    "new": "tools/qa/camera/pose_video_strip.py",
+    "sha256": "89d6198c307c16d79e4517973c1c47fc95079cdabb4056925465204ad4a03943"
+  },
+  {
+    "old": "tools/presentation_pose.py",
+    "new": "tools/qa/camera/presentation_pose.py",
+    "sha256": "63fc5e492885a46d4d683e35112f2b4637effe26b1a0408b9a4b6e80edff3aa2"
+  },
+  {
+    "old": "tools/presentation_pose_capture.gd",
+    "new": "tools/qa/camera/presentation_pose_capture.gd",
+    "sha256": "511caf29654bb3e82d5dcd613c0a796399297c1da5b0d4889ea41030d17eb302"
+  },
+  {
+    "old": "tools/presentation_pose_live.gd",
+    "new": "tools/qa/camera/presentation_pose_live.gd",
+    "sha256": "19f85beef3deb7de12289c2b6dbf8b0c3ec27deac74d863fff1255b3d18db72f"
+  },
+  {
+    "old": "tools/presentation_pose_review.gd",
+    "new": "tools/qa/camera/presentation_pose_review.gd",
+    "sha256": "48adaf9f3ba92b24fd003da4a972265fe2fd8578098b6d0af4fb2c270b892636"
+  },
+  {
+    "old": "tools/reference_zoom.py",
+    "new": "tools/qa/camera/reference_zoom.py",
+    "sha256": "e35374b04aac8b833cf8f0cef142445309bae641286a57b54d5e458d8c2b2b48"
+  },
+  {
+    "old": "tools/reference_zoom_capture.gd",
+    "new": "tools/qa/camera/reference_zoom_capture.gd",
+    "sha256": "d21b86edfdfa804b2aad0c97e42298c8862b542bedf72722f545763f18172203"
+  },
+  {
+    "old": "tools/reference_zoom_live.gd",
+    "new": "tools/qa/camera/reference_zoom_live.gd",
+    "sha256": "614c668ad890720a9837da440ecb049b6bc3de1278d8c3a10d461894b9ca8dee"
+  },
+  {
+    "old": "tools/reference_zoom_perf.py",
+    "new": "tools/qa/camera/reference_zoom_perf.py",
+    "sha256": "dc4048704575cb07d9703d3fa35ba5d57ca2fc0ac5ddd6b7c700dfc118d96ac0"
+  },
+  {
+    "old": "tools/reference_zoom_review.gd",
+    "new": "tools/qa/camera/reference_zoom_review.gd",
+    "sha256": "f6317023388c67c525491ca26b82803f1d0f2f707f64b94f86b2c373e5050527"
+  },
+  {
+    "old": "tools/run_visual_baseline.py",
+    "new": "tools/qa/camera/run_visual_baseline.py",
+    "sha256": "a7a328d5fe013a94004d944900ff7066d323a59bbd3889bf2d6d906384d3239f"
+  },
+  {
+    "old": "tools/test_camera_quantization.py",
+    "new": "tools/qa/camera/test_camera_quantization.py",
+    "sha256": "c144e870e66f88df98e78b2e90e3cd336e70d1ddc99ed47314d0ea7eb683f13a"
+  },
+  {
+    "old": "tools/test_presentation_pose.py",
+    "new": "tools/qa/camera/test_presentation_pose.py",
+    "sha256": "a1729fcba7ec7c706e921c83c7ffb525cbaa5b634e806a8309c22c235149f445"
+  },
+  {
+    "old": "tools/test_reference_zoom.py",
+    "new": "tools/qa/camera/test_reference_zoom.py",
+    "sha256": "99308f0f3fb2d46c5dcd5872efec3cc235474706a3dd209bae00946844dbdd98"
+  },
+  {
+    "old": "tools/test_visual_baseline.py",
+    "new": "tools/qa/camera/test_visual_baseline.py",
+    "sha256": "d5db1ab5f39b3f43042b11a35d3812b5fc28b9ae91abf38cd3c15617ea840bf1"
+  },
+  {
+    "old": "tools/test_visual_camera.py",
+    "new": "tools/qa/camera/test_visual_camera.py",
+    "sha256": "1aa39d46d3a069c52df5f546b928b62558fe8f5e8dfda6dc77ec40be4e24f217"
+  },
+  {
+    "old": "tools/test_visual_coordinates.py",
+    "new": "tools/qa/camera/test_visual_coordinates.py",
+    "sha256": "a800e606ed6f76ee607069720ff34cd53c314d0c6be4ef80e45607196fa69283"
+  },
+  {
+    "old": "tools/test_visual_hardware.py",
+    "new": "tools/qa/camera/test_visual_hardware.py",
+    "sha256": "0de9c2b82cb9733b26a40b0044ad0b0bd8efc17e04e0ffa5363b87e65e824a6e"
+  },
+  {
+    "old": "tools/test_visual_motion.py",
+    "new": "tools/qa/camera/test_visual_motion.py",
+    "sha256": "47cce5233b77125277727318cb2029df9c4a63f6f87e962a0c929a235a098b1a"
+  },
+  {
+    "old": "tools/test_visual_static.py",
+    "new": "tools/qa/camera/test_visual_static.py",
+    "sha256": "32d1079c7f7c0194c60cac61f99bc24516229182cb1e97d181b606ea26ab7dfb"
+  },
+  {
+    "old": "tools/visual_baseline.gd",
+    "new": "tools/qa/camera/visual_baseline.gd",
+    "sha256": "90832cc9dc35c0a7639c7ad3990a2c91fef6f7e58188fb18ef7e0cfe4618caae"
+  },
+  {
+    "old": "tools/visual_camera.py",
+    "new": "tools/qa/camera/visual_camera.py",
+    "sha256": "45dda83df618b60b69d75b474199547f621d8f0618bba6e2af564b11c1607fed"
+  },
+  {
+    "old": "tools/visual_camera_capture.gd",
+    "new": "tools/qa/camera/visual_camera_capture.gd",
+    "sha256": "b3cb880ca15a336cc9b3563e415d1bb2cb9948eda69edfe8a2c11a3c38ee4c81"
+  },
+  {
+    "old": "tools/visual_camera_review.gd",
+    "new": "tools/qa/camera/visual_camera_review.gd",
+    "sha256": "a45e6e6c02f37da5e6348c4ece4e8a4d4e20aa84528048b2added93042c3138f"
+  },
+  {
+    "old": "tools/visual_coordinates.py",
+    "new": "tools/qa/camera/visual_coordinates.py",
+    "sha256": "43ecc3d3fc1c0db07acae6828715b9f497e9ab526e4ac7d0dc25f264bae718ff"
+  },
+  {
+    "old": "tools/visual_coordinates_capture.gd",
+    "new": "tools/qa/camera/visual_coordinates_capture.gd",
+    "sha256": "e449170d10c65b7e6b390ee0b948a747ae100f56bbfb0fe2efd6d9209743e204"
+  },
+  {
+    "old": "tools/visual_coordinates_capture.gd.uid",
+    "new": "tools/qa/camera/visual_coordinates_capture.gd.uid",
+    "sha256": "b758acdc95aa3010d8faab460d4f2142494701f4223ce0306fd9a540bc5e690e"
+  },
+  {
+    "old": "tools/visual_coordinates_review.gd",
+    "new": "tools/qa/camera/visual_coordinates_review.gd",
+    "sha256": "92b474316b2057429178e213835bf9ba8afcdf0e1a28bcdc4f34d087b0a24a6b"
+  },
+  {
+    "old": "tools/visual_coordinates_review.gd.uid",
+    "new": "tools/qa/camera/visual_coordinates_review.gd.uid",
+    "sha256": "2b9f993ccebe597589190f08d40dd8b9e7d6c69905ed81e1618024888a5f95ec"
+  },
+  {
+    "old": "tools/visual_hardware.py",
+    "new": "tools/qa/camera/visual_hardware.py",
+    "sha256": "cce5bc303beecf6e069842accc93c24175bb9d196f80c089ba84272d67c351c0"
+  },
+  {
+    "old": "tools/visual_motion.py",
+    "new": "tools/qa/camera/visual_motion.py",
+    "sha256": "707f61293777eaad0846205fb26126f48eb2afba8b0fb08447a221f17165ad7c"
+  },
+  {
+    "old": "tools/visual_motion_capture.gd",
+    "new": "tools/qa/camera/visual_motion_capture.gd",
+    "sha256": "a18122e5e5781c5505435f896f07b8320042431927032585929f36f33c3337d2"
+  },
+  {
+    "old": "tools/visual_motion_review.gd",
+    "new": "tools/qa/camera/visual_motion_review.gd",
+    "sha256": "ea227cd4d35f9a8739a7a6a8ed2b56bfdf3da1d6de5fb56324993e3b41622183"
+  },
+  {
+    "old": "tools/visual_motion_route.gd",
+    "new": "tools/qa/camera/visual_motion_route.gd",
+    "sha256": "236ae36f5d685c38c285010345801661c966e75a211b22cf4c8ef8494da20546"
+  },
+  {
+    "old": "tools/visual_static.py",
+    "new": "tools/qa/camera/visual_static.py",
+    "sha256": "04fe279fa3a20865a8227ec68f770a5bed6a9ca666bbadb178349473656382de"
+  },
+  {
+    "old": "tools/visual_static_capture.gd",
+    "new": "tools/qa/camera/visual_static_capture.gd",
+    "sha256": "55994e826c3cf147c9d33253df25a561ccd33293fa74226efbf4d4767fdaae6a"
+  },
+  {
+    "old": "tools/camera_quantization_capture.gd.uid",
+    "new": "tools/qa/camera/camera_quantization_capture.gd.uid",
+    "sha256": "091b1c0253ae2e2f81965546e6b900a705fcc31e583bded7e3861406bf25615e"
+  },
+  {
+    "old": "tools/camera_quantization_review.gd.uid",
+    "new": "tools/qa/camera/camera_quantization_review.gd.uid",
+    "sha256": "54175b6f02999bbee3b8183a19744b63271802afb660ab4ce8ba4329f214f96a"
+  },
+  {
+    "old": "tools/presentation_pose_capture.gd.uid",
+    "new": "tools/qa/camera/presentation_pose_capture.gd.uid",
+    "sha256": "451f1fd66f15e2ce1d72cf0b6e90347728763aa024c2cb673d47a149442224f5"
+  },
+  {
+    "old": "tools/presentation_pose_live.gd.uid",
+    "new": "tools/qa/camera/presentation_pose_live.gd.uid",
+    "sha256": "129da3fdb4ed38d99013718cddff9429478d88f8284f89da2b2d355333585b9a"
+  },
+  {
+    "old": "tools/presentation_pose_review.gd.uid",
+    "new": "tools/qa/camera/presentation_pose_review.gd.uid",
+    "sha256": "44283f6b003ddbe0e9089a5fc52eb878e6c548594349d06df654ec3d249fbc2a"
+  },
+  {
+    "old": "tools/reference_zoom_capture.gd.uid",
+    "new": "tools/qa/camera/reference_zoom_capture.gd.uid",
+    "sha256": "85d1de57434f2ce6aa0fb229e8dd171bc1d9d461063bd08e88f9bbdd0e141291"
+  },
+  {
+    "old": "tools/reference_zoom_live.gd.uid",
+    "new": "tools/qa/camera/reference_zoom_live.gd.uid",
+    "sha256": "2ce36f4878b01217871ae96095520e0bfdb353ebefb90db30e5959026b647610"
+  },
+  {
+    "old": "tools/reference_zoom_review.gd.uid",
+    "new": "tools/qa/camera/reference_zoom_review.gd.uid",
+    "sha256": "8f8b780dd38750934e2a4bb15abf7f3600cf4d4d4776fc95ce49c52f534c728a"
+  },
+  {
+    "old": "tools/visual_baseline.gd.uid",
+    "new": "tools/qa/camera/visual_baseline.gd.uid",
+    "sha256": "9e52efee29e5647cc1387afb214579f6aa5918464977a1d0e032c97bb3fa0d03"
+  },
+  {
+    "old": "tools/visual_camera_capture.gd.uid",
+    "new": "tools/qa/camera/visual_camera_capture.gd.uid",
+    "sha256": "4f96cf69aa04cf9b0b1a628be7de9c84c48f15f5050740790c41fb0da1202268"
+  },
+  {
+    "old": "tools/visual_camera_review.gd.uid",
+    "new": "tools/qa/camera/visual_camera_review.gd.uid",
+    "sha256": "7f62568cbeacb938ed82a062babf275641d011ac365650d5b114d07a47dde575"
+  },
+  {
+    "old": "tools/visual_motion_capture.gd.uid",
+    "new": "tools/qa/camera/visual_motion_capture.gd.uid",
+    "sha256": "c59c30b54a17c9c74ade1fa047dfc61638c984602f0411586bb6eef159f988cd"
+  },
+  {
+    "old": "tools/visual_motion_review.gd.uid",
+    "new": "tools/qa/camera/visual_motion_review.gd.uid",
+    "sha256": "51f2f26945d842bde82e43a42088f65e79675048563ad551f1d90fff9763c86b"
+  },
+  {
+    "old": "tools/visual_motion_route.gd.uid",
+    "new": "tools/qa/camera/visual_motion_route.gd.uid",
+    "sha256": "71fb4260b562365d823d8d5aa36ae490d656c9d82bdb10003db1e5947d311b16"
+  },
+  {
+    "old": "tools/visual_static_capture.gd.uid",
+    "new": "tools/qa/camera/visual_static_capture.gd.uid",
+    "sha256": "0fe2af606c6adf926a605178db99599d61eeccc0b1a1be69e9b0565e97203d9d"
+  }
+]

@@ -11,16 +11,17 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import camera_quantization as quantization
-import presentation_pose as pose
-import reference_zoom as zoom
-import reference_zoom_perf as timing
-import run_visual_baseline as baseline
-import visual_camera as camera
-import visual_coordinates as coordinates
-import visual_motion as motion
-import visual_static as static
+from tools.qa.camera import camera_quantization as quantization
+from tools.qa.camera import presentation_pose as pose
+from tools.qa.camera import reference_zoom as zoom
+from tools.qa.camera import reference_zoom_perf as timing
+from tools.qa.camera import run_visual_baseline as baseline
+from tools.qa.camera import visual_camera as camera
+from tools.qa.camera import visual_coordinates as coordinates
+from tools.qa.camera import visual_motion as motion
+from tools.qa.camera import visual_static as static
 from tools.common.git import git_environment
+from tools.assets.contracts.source_paths import current_source
 
 
 class BeforeNativeLaunch(Exception):
@@ -80,7 +81,7 @@ class CameraContextTests(unittest.TestCase):
                      'print(json.dumps(str(m.ROOT)))')
             for name in names:
                 with self.subTest(module=name):
-                    source = baseline.ROOT / 'tools' / (name + '.py')
+                    source = current_source(baseline.ROOT, 'tools/' + name + '.py')
                     target = nested / source.name
                     target.write_bytes(source.read_bytes())
                     result = subprocess.run([sys.executable, '-c', child,
@@ -138,9 +139,9 @@ class CameraContextTests(unittest.TestCase):
                 names = {'project.godot', 'main.tscn', 'tools/visual_static.py',
                          'tools/visual_static_capture.gd', 'tools/visual_camera_points.gd'}
             for name in names:
-                target = own / name
+                target = current_source(own, name)
                 target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_bytes((original / name).read_bytes())
+                target.write_bytes(current_source(original, name).read_bytes())
             engine = own / 'tools/Godot.app/Contents/MacOS/Godot'
             engine.parent.mkdir(parents=True, exist_ok=True)
             engine.write_text('#!/usr/bin/env python3\nimport json,os,sys\nfrom pathlib import Path\n'
@@ -187,10 +188,10 @@ class CameraContextTests(unittest.TestCase):
                 signatures = source.get('sources', source.get('files'))
                 self.assertEqual(set(signatures), names)
                 for name, digest in signatures.items():
-                    self.assertEqual(digest, hashlib.sha256((own / name).read_bytes()).hexdigest())
+                    self.assertEqual(digest, hashlib.sha256(current_source(own, name).read_bytes()).hexdigest())
                     archived = output / 'instrumentation' / name
                     if 'sources' in source and module is not coordinates:
-                        self.assertEqual(archived.read_bytes(), (own / name).read_bytes())
+                        self.assertEqual(archived.read_bytes(), current_source(own, name).read_bytes())
                 if module is timing:
                     self.assertFalse(witness.exists())
                 else:

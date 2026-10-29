@@ -45,6 +45,7 @@ python3 tools/run.py qa.performance.test_performance_context
 python3 tools/run.py qa.performance.test_performance_layout
 python3 tools/run.py qa.performance.test_surface_producers
 python3 tools/run.py qa.camera.test_camera_context
+python3 tools/run.py qa.camera.test_camera_layout
 python3 tools/run.py assets.contracts.test_source_paths
 python3 tools/run.py planning.test_task_batch
 
@@ -66,24 +67,24 @@ python3 tools/run.py planning.test_project_backlog
 python3 tools/test_water_audit.py
 python3 tools/run.py planning.visual_backlog
 python3 tools/run.py planning.test_visual_backlog
-python3 tools/test_visual_baseline.py
-python3 tools/visual_hardware.py verify >/dev/null
-python3 tools/test_visual_hardware.py
-python3 tools/visual_motion.py verify >/dev/null
-python3 tools/visual_motion.py verify-controls >/dev/null
-python3 tools/test_visual_motion.py
-python3 tools/visual_camera.py check
-python3 tools/test_visual_camera.py
-python3 tools/test_visual_static.py
-python3 tools/visual_coordinates.py verify
-python3 tools/test_visual_coordinates.py
-python3 tools/camera_quantization.py verify >/dev/null
-python3 tools/test_camera_quantization.py
-python3 tools/presentation_pose.py verify >/dev/null
-python3 tools/test_presentation_pose.py
-python3 tools/reference_zoom.py verify >/dev/null
-python3 tools/reference_zoom_perf.py verify >/dev/null
-python3 tools/test_reference_zoom.py
+python3 tools/run.py qa.camera.test_visual_baseline
+python3 tools/run.py qa.camera.visual_hardware verify >/dev/null
+python3 tools/run.py qa.camera.test_visual_hardware
+python3 tools/run.py qa.camera.visual_motion verify >/dev/null
+python3 tools/run.py qa.camera.visual_motion verify-controls >/dev/null
+python3 tools/run.py qa.camera.test_visual_motion
+python3 tools/run.py qa.camera.visual_camera check
+python3 tools/run.py qa.camera.test_visual_camera
+python3 tools/run.py qa.camera.test_visual_static
+python3 tools/run.py qa.camera.visual_coordinates verify
+python3 tools/run.py qa.camera.test_visual_coordinates
+python3 tools/run.py qa.camera.camera_quantization verify >/dev/null
+python3 tools/run.py qa.camera.test_camera_quantization
+python3 tools/run.py qa.camera.presentation_pose verify >/dev/null
+python3 tools/run.py qa.camera.test_presentation_pose
+python3 tools/run.py qa.camera.reference_zoom verify >/dev/null
+python3 tools/run.py qa.camera.reference_zoom_perf verify >/dev/null
+python3 tools/run.py qa.camera.test_reference_zoom
 python3 tools/run.py qa.performance.test_perf_contract
 python3 tools/run.py qa.performance.perf_contract >/dev/null
 python3 tools/run.py qa.performance.perf_contract --controls --output docs/reports/visual-overhaul/vperf-001/controls >/dev/null
@@ -211,6 +212,6 @@ python3 tools/run.py build.artist_packet
 python3 tools/run.py build.test_artist_packet
 python3 tools/shore_kit.py
 python3 tools/test_shore_kit.py
-python3 tools/analyze_visual_baseline.py docs/reports/visual-overhaul/vbase-001/native >/dev/null
+python3 tools/run.py qa.camera.analyze_visual_baseline docs/reports/visual-overhaul/vbase-001/native >/dev/null
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"
