@@ -7,6 +7,7 @@ if not __package__:
 
 import argparse,gzip,hashlib,json,shutil,signal,subprocess,uuid
 from pathlib import Path
+from tools.qa.world.source_inputs import input_path
 from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
 from village_lamp_collect import ORIGINAL as COMMON, EXTRA as STREET_EXTRA, LAMP_ASSETS as STREET_ASSETS
 ORIGINAL=sorted(set(COMMON+STREET_EXTRA+STREET_ASSETS+['scripts/systems/atmosphere_renderer.gd','scripts/systems/world_event_system.gd','scripts/presentation/village_ground_clock.gd','assets/game/environment/buildable_fence_atlas_v1.png','scripts/systems/livestock_data.gd','scripts/systems/livestock_renderer.gd','scripts/systems/fence_renderer.gd','scripts/systems/fence_system.gd','scripts/systems/village_map_data.gd']))
@@ -19,10 +20,10 @@ def collect(folder,phase):
     folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+(FENCE_ASSETS if phase=='after' else [])))
     source={'task':'VPROP-005','phase':phase,'base_commit':command(['git','rev-parse','HEAD']),'complete':False,'performance_eligible':False,'initial_jobs':initial,'sources':{},'artifacts':{}}
     for name in sources:
-        if not (ROOT/name).is_file():
+        if not (input_path(ROOT, name)).is_file():
             if phase=='before' and name=='scripts/presentation/village_fence_visual.gd':continue
             raise ValueError('missing input '+name)
-        target=folder/'inputs'/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,target);source['sources'][name]=sha(target)
+        target=folder/'inputs'/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(input_path(ROOT, name),target);source['sources'][name]=sha(target)
     write(folder/'source.json',source)
     for width in [1152,1280]:
         if set(jobs())-set(initial):raise ValueError('unexpected Godot appeared')
@@ -48,7 +49,7 @@ def collect(folder,phase):
             p.unlink()
         source['artifacts']={str(p.relative_to(folder)):sha(p) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'inputs' not in p.parts};write(folder/'source.json',source)
         if code or not (target/'capture.json').is_file() or json.loads((target/'capture.json').read_text())['errors'] or any(t in (target/'engine.txt').read_text() for t in ['ERROR:','SCRIPT ERROR','Parse Error']):raise ValueError('native capture failed; partial data rejected')
-        if any(sha(ROOT/n)!=h for n,h in source['sources'].items()):raise ValueError('frozen input changed')
+        if any(sha(input_path(ROOT, n))!=h for n,h in source['sources'].items()):raise ValueError('frozen input changed')
     source['complete']=True;write(folder/'source.json',source)
 
 if __name__=='__main__':

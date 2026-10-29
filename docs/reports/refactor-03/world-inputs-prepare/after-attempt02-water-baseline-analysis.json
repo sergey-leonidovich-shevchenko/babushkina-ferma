@@ -1,0 +1,762 @@
+[
+  {
+    "admission": "VALID_DIAGNOSTIC_BASELINE",
+    "render_pixels": [
+      1152,
+      648
+    ],
+    "note": "Fixed native target, live scene and host composite; not exclusive GPU cost or OPT route acceptance.",
+    "measurements": [
+      {
+        "location": "overworld",
+        "repeat": 0,
+        "draw": {
+          "count": 240,
+          "mean_ms": 11.818254166666668,
+          "p95_ms": 15.68,
+          "p99_ms": 16.631,
+          "max_ms": 16.787,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 753884042.0
+      },
+      {
+        "location": "overworld",
+        "repeat": 1,
+        "draw": {
+          "count": 240,
+          "mean_ms": 11.107008333333333,
+          "p95_ms": 14.938,
+          "p99_ms": 15.825,
+          "max_ms": 16.728,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 753884042.0
+      },
+      {
+        "location": "overworld",
+        "repeat": 2,
+        "draw": {
+          "count": 240,
+          "mean_ms": 11.727341666666664,
+          "p95_ms": 15.526,
+          "p99_ms": 16.628,
+          "max_ms": 33.388,
+          "over33": 1,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 753884042.0
+      },
+      {
+        "location": "village_river",
+        "repeat": 0,
+        "draw": {
+          "count": 240,
+          "mean_ms": 8.472562499999999,
+          "p95_ms": 10.443,
+          "p99_ms": 14.12,
+          "max_ms": 15.353,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 747202442.0
+      },
+      {
+        "location": "village_river",
+        "repeat": 1,
+        "draw": {
+          "count": 240,
+          "mean_ms": 8.332020833333333,
+          "p95_ms": 10.312,
+          "p99_ms": 10.765,
+          "max_ms": 11.769,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 747202442.0
+      },
+      {
+        "location": "village_river",
+        "repeat": 2,
+        "draw": {
+          "count": 240,
+          "mean_ms": 8.331799999999994,
+          "p95_ms": 10.382,
+          "p99_ms": 10.671,
+          "max_ms": 11.236,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 747202442.0
+      },
+      {
+        "location": "cave_lake",
+        "repeat": 0,
+        "draw": {
+          "count": 240,
+          "mean_ms": 10.594699999999996,
+          "p95_ms": 14.149,
+          "p99_ms": 15.091,
+          "max_ms": 15.217,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 747420894.0
+      },
+      {
+        "location": "cave_lake",
+        "repeat": 1,
+        "draw": {
+          "count": 240,
+          "mean_ms": 8.59820833333333,
+          "p95_ms": 11.74,
+          "p99_ms": 13.6,
+          "max_ms": 13.89,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 747420894.0
+      },
+      {
+        "location": "cave_lake",
+        "repeat": 2,
+        "draw": {
+          "count": 240,
+          "mean_ms": 8.331787499999997,
+          "p95_ms": 10.827,
+          "p99_ms": 13.125,
+          "max_ms": 14.391,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 747420894.0
+      },
+      {
+        "location": "moon_glade",
+        "repeat": 0,
+        "draw": {
+          "count": 240,
+          "mean_ms": 8.333470833333331,
+          "p95_ms": 15.137,
+          "p99_ms": 15.225,
+          "max_ms": 15.464,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 747595656.0
+      },
+      {
+        "location": "moon_glade",
+        "repeat": 1,
+        "draw": {
+          "count": 240,
+          "mean_ms": 8.33205416666667,
+          "p95_ms": 15.152,
+          "p99_ms": 15.281,
+          "max_ms": 15.472,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 747595656.0
+      },
+      {
+        "location": "moon_glade",
+        "repeat": 2,
+        "draw": {
+          "count": 240,
+          "mean_ms": 8.332162499999997,
+          "p95_ms": 15.177,
+          "p99_ms": 15.296,
+          "max_ms": 15.515,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 747595656.0
+      },
+      {
+        "location": "pirate_ship",
+        "repeat": 0,
+        "draw": {
+          "count": 240,
+          "mean_ms": 8.333008333333334,
+          "p95_ms": 11.12,
+          "p99_ms": 12.063,
+          "max_ms": 12.916,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 751401180.0
+      },
+      {
+        "location": "pirate_ship",
+        "repeat": 1,
+        "draw": {
+          "count": 240,
+          "mean_ms": 8.321720833333336,
+          "p95_ms": 10.595,
+          "p99_ms": 10.854,
+          "max_ms": 11.037,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 751401180.0
+      },
+      {
+        "location": "pirate_ship",
+        "repeat": 2,
+        "draw": {
+          "count": 240,
+          "mean_ms": 8.337533333333337,
+          "p95_ms": 10.726,
+          "p99_ms": 11.031,
+          "max_ms": 12.195,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 751401180.0
+      }
+    ]
+  },
+  {
+    "admission": "VALID_DIAGNOSTIC_BASELINE",
+    "render_pixels": [
+      1920,
+      1080
+    ],
+    "note": "Fixed native target, live scene and host composite; not exclusive GPU cost or OPT route acceptance.",
+    "measurements": [
+      {
+        "location": "overworld",
+        "repeat": 0,
+        "draw": {
+          "count": 120,
+          "mean_ms": 33.33851666666668,
+          "p95_ms": 34.888,
+          "p99_ms": 35.61,
+          "max_ms": 36.803,
+          "over33": 55,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 764500874.0
+      },
+      {
+        "location": "overworld",
+        "repeat": 1,
+        "draw": {
+          "count": 120,
+          "mean_ms": 16.560491666666664,
+          "p95_ms": 32.7,
+          "p99_ms": 33.99,
+          "max_ms": 34.332,
+          "over33": 4,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 764500874.0
+      },
+      {
+        "location": "overworld",
+        "repeat": 2,
+        "draw": {
+          "count": 120,
+          "mean_ms": 15.402733333333336,
+          "p95_ms": 25.635,
+          "p99_ms": 31.876,
+          "max_ms": 32.571,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 764500874.0
+      },
+      {
+        "location": "village_river",
+        "repeat": 0,
+        "draw": {
+          "count": 120,
+          "mean_ms": 8.332425000000002,
+          "p95_ms": 10.545,
+          "p99_ms": 11.312,
+          "max_ms": 12.565,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 757819274.0
+      },
+      {
+        "location": "village_river",
+        "repeat": 1,
+        "draw": {
+          "count": 120,
+          "mean_ms": 8.332041666666665,
+          "p95_ms": 10.233,
+          "p99_ms": 10.563,
+          "max_ms": 11.155,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 757819274.0
+      },
+      {
+        "location": "village_river",
+        "repeat": 2,
+        "draw": {
+          "count": 120,
+          "mean_ms": 8.331958333333338,
+          "p95_ms": 10.495,
+          "p99_ms": 10.761,
+          "max_ms": 10.923,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 757819274.0
+      },
+      {
+        "location": "cave_lake",
+        "repeat": 0,
+        "draw": {
+          "count": 120,
+          "mean_ms": 11.104416666666669,
+          "p95_ms": 13.887,
+          "p99_ms": 14.851,
+          "max_ms": 16.199,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 758037726.0
+      },
+      {
+        "location": "cave_lake",
+        "repeat": 1,
+        "draw": {
+          "count": 120,
+          "mean_ms": 11.105924999999997,
+          "p95_ms": 13.742,
+          "p99_ms": 15.527,
+          "max_ms": 16.198,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 758037726.0
+      },
+      {
+        "location": "cave_lake",
+        "repeat": 2,
+        "draw": {
+          "count": 120,
+          "mean_ms": 11.117258333333327,
+          "p95_ms": 13.896,
+          "p99_ms": 15.358,
+          "max_ms": 15.719,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 758037726.0
+      },
+      {
+        "location": "moon_glade",
+        "repeat": 0,
+        "draw": {
+          "count": 120,
+          "mean_ms": 11.042741666666664,
+          "p95_ms": 14.335,
+          "p99_ms": 15.097,
+          "max_ms": 16.14,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 758212488.0
+      },
+      {
+        "location": "moon_glade",
+        "repeat": 1,
+        "draw": {
+          "count": 120,
+          "mean_ms": 11.120441666666666,
+          "p95_ms": 14.597,
+          "p99_ms": 15.259,
+          "max_ms": 15.994,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 758212488.0
+      },
+      {
+        "location": "moon_glade",
+        "repeat": 2,
+        "draw": {
+          "count": 120,
+          "mean_ms": 11.112908333333333,
+          "p95_ms": 14.024,
+          "p99_ms": 14.397,
+          "max_ms": 15.3,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 758212488.0
+      },
+      {
+        "location": "pirate_ship",
+        "repeat": 0,
+        "draw": {
+          "count": 120,
+          "mean_ms": 8.879766666666667,
+          "p95_ms": 14.218,
+          "p99_ms": 16.128,
+          "max_ms": 19.222,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 762018012.0
+      },
+      {
+        "location": "pirate_ship",
+        "repeat": 1,
+        "draw": {
+          "count": 120,
+          "mean_ms": 8.344666666666669,
+          "p95_ms": 10.578,
+          "p99_ms": 10.955,
+          "max_ms": 11.194,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 762018012.0
+      },
+      {
+        "location": "pirate_ship",
+        "repeat": 2,
+        "draw": {
+          "count": 120,
+          "mean_ms": 8.318800000000001,
+          "p95_ms": 10.771,
+          "p99_ms": 11.129,
+          "max_ms": 11.327,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 762018012.0
+      }
+    ]
+  },
+  {
+    "admission": "VALID_DIAGNOSTIC_BASELINE",
+    "render_pixels": [
+      3584,
+      2016
+    ],
+    "note": "Fixed native target, live scene and host composite; not exclusive GPU cost or OPT route acceptance.",
+    "measurements": [
+      {
+        "location": "overworld",
+        "repeat": 0,
+        "draw": {
+          "count": 120,
+          "mean_ms": 11.548483333333326,
+          "p95_ms": 15.391,
+          "p99_ms": 17.044,
+          "max_ms": 31.249,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 805714826.0
+      },
+      {
+        "location": "overworld",
+        "repeat": 1,
+        "draw": {
+          "count": 120,
+          "mean_ms": 12.083016666666667,
+          "p95_ms": 17.176,
+          "p99_ms": 26.843,
+          "max_ms": 31.586,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 805714826.0
+      },
+      {
+        "location": "overworld",
+        "repeat": 2,
+        "draw": {
+          "count": 120,
+          "mean_ms": 13.290608333333337,
+          "p95_ms": 19.13,
+          "p99_ms": 23.873,
+          "max_ms": 31.368,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 805714826.0
+      },
+      {
+        "location": "village_river",
+        "repeat": 0,
+        "draw": {
+          "count": 120,
+          "mean_ms": 10.864683333333335,
+          "p95_ms": 14.509,
+          "p99_ms": 14.922,
+          "max_ms": 15.976,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 799033226.0
+      },
+      {
+        "location": "village_river",
+        "repeat": 1,
+        "draw": {
+          "count": 120,
+          "mean_ms": 10.822841666666665,
+          "p95_ms": 15.605,
+          "p99_ms": 16.193,
+          "max_ms": 25.414,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 799033226.0
+      },
+      {
+        "location": "village_river",
+        "repeat": 2,
+        "draw": {
+          "count": 120,
+          "mean_ms": 10.80866666666666,
+          "p95_ms": 15.26,
+          "p99_ms": 15.822,
+          "max_ms": 25.051,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 799033226.0
+      },
+      {
+        "location": "cave_lake",
+        "repeat": 0,
+        "draw": {
+          "count": 120,
+          "mean_ms": 10.861299999999996,
+          "p95_ms": 14.489,
+          "p99_ms": 14.991,
+          "max_ms": 15.724,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 799251678.0
+      },
+      {
+        "location": "cave_lake",
+        "repeat": 1,
+        "draw": {
+          "count": 120,
+          "mean_ms": 10.832783333333335,
+          "p95_ms": 14.839,
+          "p99_ms": 15.666,
+          "max_ms": 15.826,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 799251678.0
+      },
+      {
+        "location": "cave_lake",
+        "repeat": 2,
+        "draw": {
+          "count": 120,
+          "mean_ms": 10.841350000000004,
+          "p95_ms": 14.278,
+          "p99_ms": 15.25,
+          "max_ms": 15.396,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 799251678.0
+      },
+      {
+        "location": "moon_glade",
+        "repeat": 0,
+        "draw": {
+          "count": 120,
+          "mean_ms": 11.110108333333335,
+          "p95_ms": 16.689,
+          "p99_ms": 24.803,
+          "max_ms": 25.196,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 799426440.0
+      },
+      {
+        "location": "moon_glade",
+        "repeat": 1,
+        "draw": {
+          "count": 120,
+          "mean_ms": 8.471358333333333,
+          "p95_ms": 10.519,
+          "p99_ms": 12.508,
+          "max_ms": 16.027,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 799426440.0
+      },
+      {
+        "location": "moon_glade",
+        "repeat": 2,
+        "draw": {
+          "count": 120,
+          "mean_ms": 8.331416666666664,
+          "p95_ms": 10.334,
+          "p99_ms": 10.558,
+          "max_ms": 10.6,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 799426440.0
+      },
+      {
+        "location": "pirate_ship",
+        "repeat": 0,
+        "draw": {
+          "count": 120,
+          "mean_ms": 8.804658333333332,
+          "p95_ms": 13.832,
+          "p99_ms": 14.866,
+          "max_ms": 19.077,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 803231964.0
+      },
+      {
+        "location": "pirate_ship",
+        "repeat": 1,
+        "draw": {
+          "count": 120,
+          "mean_ms": 8.33201666666667,
+          "p95_ms": 11.378,
+          "p99_ms": 11.691,
+          "max_ms": 11.948,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 803231964.0
+      },
+      {
+        "location": "pirate_ship",
+        "repeat": 2,
+        "draw": {
+          "count": 120,
+          "mean_ms": 8.330625000000001,
+          "p95_ms": 10.875,
+          "p99_ms": 11.123,
+          "max_ms": 11.765,
+          "over33": 0,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 803231964.0
+      }
+    ]
+  },
+  {
+    "admission": "VALID_DIAGNOSTIC_BASELINE",
+    "render_pixels": [
+      1152,
+      648
+    ],
+    "note": "Fixed native target, live scene and host composite; not exclusive GPU cost or OPT route acceptance.",
+    "measurements": [
+      {
+        "location": "overworld",
+        "repeat": 0,
+        "draw": {
+          "count": 240,
+          "mean_ms": 14.236154166666669,
+          "p95_ms": 21.508,
+          "p99_ms": 29.295,
+          "max_ms": 33.541,
+          "over33": 1,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 754302306.0
+      },
+      {
+        "location": "overworld",
+        "repeat": 1,
+        "draw": {
+          "count": 240,
+          "mean_ms": 16.68907500000001,
+          "p95_ms": 30.421,
+          "p99_ms": 32.798,
+          "max_ms": 35.556,
+          "over33": 2,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 754302306.0
+      },
+      {
+        "location": "overworld",
+        "repeat": 2,
+        "draw": {
+          "count": 240,
+          "mean_ms": 19.719812500000003,
+          "p95_ms": 44.71,
+          "p99_ms": 57.192,
+          "max_ms": 58.175,
+          "over33": 39,
+          "over100": 0
+        },
+        "terrain_rebuilds": 0,
+        "texture_bytes": 754302306.0
+      }
+    ]
+  }
+]

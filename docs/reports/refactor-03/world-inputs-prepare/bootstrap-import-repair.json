@@ -1,0 +1,7 @@
+{
+  "failed_profile": "after-commands.json / after-07.txt",
+  "reason": "new tools.qa.world helper imported before existing standalone prepare_imports in pilot_static_audit",
+  "repair": "move only that helper import immediately after prepare_imports(project_root(__file__))",
+  "functions_algorithms_budgets_changed": false,
+  "raw_retained": true
+}

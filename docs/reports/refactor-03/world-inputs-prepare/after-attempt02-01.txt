@@ -1,0 +1,30 @@
+{
+  "task": "VRENDER-001",
+  "accepted": true,
+  "fps_accepted": false,
+  "new_shader_accepted": false,
+  "whole_map_accepted": false,
+  "calls": 94,
+  "pairs": 18,
+  "draws": 72,
+  "pixel_differences": {
+    "1152/village": 0,
+    "1152/tree-behind": 0,
+    "1152/tree-front": 0,
+    "1152/bush": 0,
+    "1152/bridge": 0,
+    "1152/manual-pause": 0,
+    "1152/opaque-storage": 0,
+    "1152/interior": 0,
+    "1152/returned": 0,
+    "1280/village": 0,
+    "1280/tree-behind": 0,
+    "1280/tree-front": 0,
+    "1280/bush": 0,
+    "1280/bridge": 0,
+    "1280/manual-pause": 0,
+    "1280/opaque-storage": 0,
+    "1280/interior": 0,
+    "1280/returned": 0
+  }
+}

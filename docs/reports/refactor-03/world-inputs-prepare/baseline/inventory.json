@@ -1,0 +1,727 @@
+{
+  "base": "e205c00729214358308f14c46b63c3bd2fdde2d9",
+  "version": "0.0.375",
+  "root_sources": 245,
+  "sources": {
+    "tools/analyze_water_audit.py": {
+      "sha256": "ea4f0c21645977d557cb6e38ae0e8b2d954706741fc938c7f5b2b2bc7527d549",
+      "mode": 420
+    },
+    "tools/object_command_collect.py": {
+      "sha256": "08d0e4ab81486d5077417e4e08ad1f763234105822c5af2ee17f2522532b37b2",
+      "mode": 420
+    },
+    "tools/object_command_verify.py": {
+      "sha256": "29954f769b959a52521f8d5e3df8c11a878c93f730246b9b3298744d039504fa",
+      "mode": 420
+    },
+    "tools/pilot_pass_collect.py": {
+      "sha256": "dece8249ef14646bc3c8e8e2586499df9921d4a832214a4b61fee0857897d2f1",
+      "mode": 420
+    },
+    "tools/pilot_pass_verify.py": {
+      "sha256": "44d1c8e2eb4aa257ba828ede573124d7611645391c237d6b90462553bd69b8b1",
+      "mode": 420
+    },
+    "tools/pilot_static_audit.py": {
+      "sha256": "63e58de407666abe789c1fa08e356aa8b0962cfe62d3c78116ca0280122dd709",
+      "mode": 420
+    },
+    "tools/pilot_static_collect.py": {
+      "sha256": "f55174f8b45243b39a318822521d9ad870717ddbdb2008e84d9a3d59f98f7e37",
+      "mode": 420
+    },
+    "tools/pilot_static_verify.py": {
+      "sha256": "7d1fa3c8663ba7f9375f31da1f66bdcfb1cf32f08f7e37a87119baf10277d9a2",
+      "mode": 420
+    },
+    "tools/post_motion_collect.py": {
+      "sha256": "711d14a35056c12f4d4774c3668fad31da4603ca88424e42ac8e030ad04f2751",
+      "mode": 420
+    },
+    "tools/post_motion_verify.py": {
+      "sha256": "4ee5a6bc187cb2d307d06752159f777d3f7deb212c0bdcc5dcf24941447eb57a",
+      "mode": 420
+    },
+    "tools/render_order.py": {
+      "sha256": "a42b8e2d456ba627572b685453c747f0d60ef9475dabcb3a5ec610cf6d05b723",
+      "mode": 420
+    },
+    "tools/shadow_inventory_collect.py": {
+      "sha256": "12729030db8c18f8f099f7c53f639a15d8a17a9ef23cff446b77fd04e5c4e8ec",
+      "mode": 420
+    },
+    "tools/transient_save_collect.py": {
+      "sha256": "6ff7e7a82a9228666106a8d2e6c0bb3a8794b072eb9cf2bf70220343c93bff1d",
+      "mode": 420
+    },
+    "tools/village_bench_collect.py": {
+      "sha256": "b4f50fe9516b64e2acc46ff711d742861b9235adf1dad89182ba2f02413782bb",
+      "mode": 420
+    },
+    "tools/village_bench_verify.py": {
+      "sha256": "41b1a3cef5fc3f9bdc1834cc5422c8f0c4b9cdb67dfb403bdfb195c0be5944b5",
+      "mode": 420
+    },
+    "tools/village_board_collect.py": {
+      "sha256": "17d8087429e90e69a220e755c4cc62b25f01fa58e4bf5036c4b30d336c6c5e7d",
+      "mode": 420
+    },
+    "tools/village_board_verify.py": {
+      "sha256": "43a0fc3bc26289392e9c78df148028dc068ca1fcd25ade2c7d868fde643c633a",
+      "mode": 420
+    },
+    "tools/village_fence_collect.py": {
+      "sha256": "a755335980430ce873792e6a87c7b4bc70b3e04ce8468ff812213f628750ed10",
+      "mode": 420
+    },
+    "tools/village_fence_verify.py": {
+      "sha256": "a911205d242241a38cef29d3cb60d3163c34ebd06af5a768a2087dda0cdfbd8c",
+      "mode": 420
+    },
+    "tools/village_lamp_collect.py": {
+      "sha256": "579b95b4fa75d8426fc11f1a055c4f60e70244865ef0461ca36c2a2d66164217",
+      "mode": 420
+    },
+    "tools/village_lamp_verify.py": {
+      "sha256": "e600dc63de26d4118e9c8e31cec7fb1a26a6f63a7947ce21386f733423c4da8e",
+      "mode": 420
+    },
+    "tools/village_street_collect.py": {
+      "sha256": "dc2daf49f3d65c61eba8731550b1f53e77c065cc21a433e8098e4288c91d0c39",
+      "mode": 420
+    },
+    "tools/village_street_verify.py": {
+      "sha256": "6066446270c7a79ab237c65f252bf36090929fc17a7a4f5d2fdb6c9ac78a8771",
+      "mode": 420
+    },
+    "tools/village_trade_collect.py": {
+      "sha256": "fd885c0cc38a68c572a10094e3554872e9e2fd3c9a62a02b5164bf563bd40524",
+      "mode": 420
+    },
+    "tools/village_trade_verify.py": {
+      "sha256": "ced87f1c118a6860d318baa8cbe9209d373c842572e2dcd089c048fa9ae9f99e",
+      "mode": 420
+    },
+    ".gitignore": {
+      "sha256": "599405ba64df58c82ebd75893f5de96c7e4354bc031c9fc1be5a106f58497e7b",
+      "mode": 420
+    },
+    "VERSION": {
+      "sha256": "9817aaca441ca7bf9e1bed64a50d3f8420eb7f86170a380e6b225b89d8fe9aed",
+      "mode": 420
+    },
+    "project.godot": {
+      "sha256": "39f7085e63fb58d8ff7d4b2fe6201afa2411176ee7755923534811e7a85cb46d",
+      "mode": 420
+    },
+    "Бабушкина ферма.app/Contents/Info.plist": {
+      "sha256": "7bf2f49ea3f66f96da50ed5d0970982a49f5c4ac05bde58dabd7b3da10a9ff26",
+      "mode": 420
+    },
+    "tools/quality/check_architecture.sh": {
+      "sha256": "e76b76c9ebba984e9754ece05f2cb06a2dd2226e5a9e04351ed3f08db1bd67c5",
+      "mode": 493
+    },
+    "TESTING.md": {
+      "sha256": "88c6647b4c1e433a5521e66867c7ea5ac3ff6f0593c9ae8b384b42ce19e2381e",
+      "mode": 420
+    },
+    "QA_CHECKLIST.md": {
+      "sha256": "d24b5328bc29d9bc14bc1be321eae9f3c706844469df2e6d7f5e35469a07c49b",
+      "mode": 420
+    },
+    "docs/DEVELOPMENT.md": {
+      "sha256": "1f059e259a8c6225493d8ae11a932668391a5242929cc787f24ca9248dbcd2d2",
+      "mode": 420
+    },
+    "tools/README.md": {
+      "sha256": "5ea671146c133140eb69dc78ec6a044d9df71bedbd52150e4687ba528812cdeb",
+      "mode": 420
+    },
+    "wiki/articles/project-refactoring.md": {
+      "sha256": "728c82872b3993d5b2f99cee0100a2d3afb702d523781f97543be5f8269dde34",
+      "mode": 420
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "sha256": "ba130d818503593bd378f47a52f0d6e6c5d9b2821425b25c67e7c2aada00f219",
+      "mode": 420
+    },
+    "docs/epics/refactoring-2026-10/README.md": {
+      "sha256": "01aa657af8d591fbcc5f158441e332195358fbd1dd09e1fe6fb0a18d3c408581",
+      "mode": 420
+    }
+  },
+  "consumers": [
+    ".gitignore",
+    "VERSION",
+    "project.godot",
+    "Бабушкина ферма.app/Contents/Info.plist",
+    "tools/quality/check_architecture.sh",
+    "TESTING.md",
+    "QA_CHECKLIST.md",
+    "docs/DEVELOPMENT.md",
+    "tools/README.md",
+    "wiki/articles/project-refactoring.md",
+    "docs/epics/refactoring-2026-10/TASKS.md",
+    "docs/epics/refactoring-2026-10/README.md"
+  ],
+  "preparation_source_paths": [
+    "tools/analyze_water_audit.py",
+    "tools/object_command_collect.py",
+    "tools/object_command_verify.py",
+    "tools/pilot_pass_collect.py",
+    "tools/pilot_pass_verify.py",
+    "tools/pilot_static_audit.py",
+    "tools/pilot_static_collect.py",
+    "tools/pilot_static_verify.py",
+    "tools/post_motion_collect.py",
+    "tools/post_motion_verify.py",
+    "tools/render_order.py",
+    "tools/shadow_inventory_collect.py",
+    "tools/transient_save_collect.py",
+    "tools/village_bench_collect.py",
+    "tools/village_bench_verify.py",
+    "tools/village_board_collect.py",
+    "tools/village_board_verify.py",
+    "tools/village_fence_collect.py",
+    "tools/village_fence_verify.py",
+    "tools/village_lamp_collect.py",
+    "tools/village_lamp_verify.py",
+    "tools/village_street_collect.py",
+    "tools/village_street_verify.py",
+    "tools/village_trade_collect.py",
+    "tools/village_trade_verify.py"
+  ],
+  "history_integration_methods": 12,
+  "helper_API_methods": 16,
+  "actual_producer_methods": 13,
+  "existing_context_methods": 19,
+  "current_input_sites": 37,
+  "historical_sites": 14,
+  "future_history_aliases": 141,
+  "current_source_map": 133,
+  "source_review": 5693715399,
+  "Team_intermediate_accepted": true,
+  "CI375_success": 8,
+  "physical_moves": 0,
+  "local_UID": [],
+  "author_UID_exact": [
+    {
+      "path": "tools/assets/alpha/alpha_capture.gd.uid",
+      "sha256": "c7056f3c166570920c497a9213b21e367d40ee2ba22dafa8ac7c23da0d79be47",
+      "mode": 420,
+      "value": "uid://5t736l84wiws"
+    },
+    {
+      "path": "tools/assets/contracts/asset_game_probe.gd.uid",
+      "sha256": "e6eb05942112d9d9e3a9d9a8f4e074daa234529512bc3240840669122bf8d8d0",
+      "mode": 420,
+      "value": "uid://b6oj1u17lylsa"
+    },
+    {
+      "path": "tools/build/asset_pack_probe.gd.uid",
+      "sha256": "f72a97368e11501a80b9d2a0cfd58ff84b4e8ea1ffd4e39a72f5a65b74bbceab",
+      "mode": 420,
+      "value": "uid://1ic5kt3w8ef"
+    },
+    {
+      "path": "tools/qa/compatibility/boss_balance_review.gd.uid",
+      "sha256": "b4f27d5941a5f8f1c50d670c88eec747c4596d0b449553c647baa28991464c72",
+      "mode": 420,
+      "value": "uid://ce5k6755vw0fq"
+    },
+    {
+      "path": "tools/assets/authoring/build_clean_interior_atlas.gd.uid",
+      "sha256": "fd3de202677c31a9cd28240b054918a81cf9de8754898f91ffe4e5d59b98f7e4",
+      "mode": 420,
+      "value": "uid://cjdnskud18fbc"
+    },
+    {
+      "path": "tools/assets/authoring/build_village_materials.gd.uid",
+      "sha256": "2e82ab5f3c28e191f573695a19f343c43128de1541a68ad9ba93678713cea9c1",
+      "mode": 420,
+      "value": "uid://ckqo120mnir35"
+    },
+    {
+      "path": "tools/assets/authoring/build_village_props.gd.uid",
+      "sha256": "bf389640bc54b8fe8011dbc672d4deee8c6792a79f3cc2bb160cc36704d2c6b5",
+      "mode": 420,
+      "value": "uid://op88cfb4bnb"
+    },
+    {
+      "path": "tools/qa/camera/camera_quantization_capture.gd.uid",
+      "sha256": "091b1c0253ae2e2f81965546e6b900a705fcc31e583bded7e3861406bf25615e",
+      "mode": 420,
+      "value": "uid://bnb38c1s3wa63"
+    },
+    {
+      "path": "tools/qa/camera/camera_quantization_review.gd.uid",
+      "sha256": "54175b6f02999bbee3b8183a19744b63271802afb660ab4ce8ba4329f214f96a",
+      "mode": 420,
+      "value": "uid://hcvw5p3skmfp"
+    },
+    {
+      "path": "tools/qa/compatibility/character_polish_capture.gd.uid",
+      "sha256": "759199daee873f275a9408d9c7981f3d6a420569bf7430a27364599ff435740c",
+      "mode": 420,
+      "value": "uid://u5poahlqx2rg"
+    },
+    {
+      "path": "tools/qa/compatibility/compact_hud_review.gd.uid",
+      "sha256": "d7ca347692b1f543978eddfb4658bae84fd0b9569dafb423b42f192f3bcc4ac1",
+      "mode": 420,
+      "value": "uid://cap2r167da6tg"
+    },
+    {
+      "path": "tools/qa/compatibility/cooking_capture.gd.uid",
+      "sha256": "5733a6422af57b61f924f6170604ce5c9844d8bc3b7aef434eab263acea4f2f5",
+      "mode": 420,
+      "value": "uid://bia814tn1ujxy"
+    },
+    {
+      "path": "tools/qa/compatibility/cooking_review.gd.uid",
+      "sha256": "e8ef07147d3106882018f8e1ea82d5c21cd4c7be82c1db854be5843725325899",
+      "mode": 420,
+      "value": "uid://b0b21f7s13crr"
+    },
+    {
+      "path": "tools/qa/performance/cpu_profile_game.gd.uid",
+      "sha256": "f0a30e22ae4e98c74b8f4b4d661743bda2e36efcb27e24525b9b4166b556245e",
+      "mode": 420,
+      "value": "uid://bth8ylrr4oxla"
+    },
+    {
+      "path": "tools/assets/authoring/extract_farm_icons.gd.uid",
+      "sha256": "7947a014f5bf45c2be4e822f977c039773e83132ed791e3b633c3dcb0c4c78fd",
+      "mode": 420,
+      "value": "uid://bc1hlfm0bs21a"
+    },
+    {
+      "path": "tools/assets/authoring/extract_farmyard_sprites.gd.uid",
+      "sha256": "0a73a2d9d013ec067ebef179a25f1be50bc3ca6f7e8f95fa11b26b72a83e739e",
+      "mode": 420,
+      "value": "uid://3kjyo1crigys"
+    },
+    {
+      "path": "tools/qa/compatibility/farm_bounds_capture.gd.uid",
+      "sha256": "1d7114e4903233b0dab1154d133a56023b7565f0b58ac336ceedfdc483ceffe6",
+      "mode": 420,
+      "value": "uid://c7xka8pdimwwj"
+    },
+    {
+      "path": "tools/qa/compatibility/farm_cursor_review.gd.uid",
+      "sha256": "eaf52567371713d6f72a199b5319d06d69d7edc74d5ef54e0e13988e80a96310",
+      "mode": 420,
+      "value": "uid://b44uis3e7pky1"
+    },
+    {
+      "path": "tools/qa/compatibility/generate_adaptive_hud_previews.gd.uid",
+      "sha256": "cc24c7df3ed4a22133cc6fece789b86272a6302db90a111bda652f17b29808f9",
+      "mode": 420,
+      "value": "uid://syoocokmt4kk"
+    },
+    {
+      "path": "tools/qa/compatibility/generate_hero_pose_preview.gd.uid",
+      "sha256": "5e0d4a555fc226286713a1dd4495be9d830c989b94728b791cf4c54213e9cb35",
+      "mode": 420,
+      "value": "uid://caynwasqt2tk8"
+    },
+    {
+      "path": "tools/qa/compatibility/generate_ui_layout_audit.gd.uid",
+      "sha256": "de01a791b112682af31b7f134b817ff91ab5ccfad81314e69e30cc6fc993830d",
+      "mode": 420,
+      "value": "uid://b2j5gvfiei8hs"
+    },
+    {
+      "path": "tools/qa/performance/geometry_benchmark.gd.uid",
+      "sha256": "ecca6dffcdfe45c7a2be9abecbe375aac4f1f717ccad9181c0a87678c5e57429",
+      "mode": 420,
+      "value": "uid://cw6ao1icfm3ox"
+    },
+    {
+      "path": "tools/qa/compatibility/grandmother_animation_review.gd.uid",
+      "sha256": "cb042222c06811ff3556ec473f0fcee098528ec3eb7ada7094c52a52a2a668df",
+      "mode": 420,
+      "value": "uid://d3kv4w85cpbwm"
+    },
+    {
+      "path": "tools/qa/compatibility/hero_actions_capture.gd.uid",
+      "sha256": "e8c9fb198546ed96db13c0fc50aefecf092cbf6b7873c991e4c3e8ddda3cfab6",
+      "mode": 420,
+      "value": "uid://8tg3370i06ct"
+    },
+    {
+      "path": "tools/qa/compatibility/hero_actions_review.gd.uid",
+      "sha256": "73925c55807cb5eff564188d52d845771cf63bc69237f86653e03e2a50ae5a66",
+      "mode": 420,
+      "value": "uid://bregcjevkwn1v"
+    },
+    {
+      "path": "tools/qa/performance/inspector_benchmark.gd.uid",
+      "sha256": "a97a67cb96087ab57ad2a0c81410da67f34497d4e873a5a39eaf5942060f0e44",
+      "mode": 420,
+      "value": "uid://bwl31jcrib5pt"
+    },
+    {
+      "path": "tools/assets/contracts/item_sizes_capture.gd.uid",
+      "sha256": "46c2451ef064bfcd4166ad65ff9b49b9d11aa71eb861f6c79ef0233edc6bde0d",
+      "mode": 420,
+      "value": "uid://cvr5lowsu4jqa"
+    },
+    {
+      "path": "tools/assets/contracts/item_sizes_review.gd.uid",
+      "sha256": "a4b68cc1c39b7691b781cfdc34186858e88ccbae05c7aa061cbfc1ec9854ae0f",
+      "mode": 420,
+      "value": "uid://c6b21re25xgp4"
+    },
+    {
+      "path": "tools/assets/contracts/item_ui_fitter.gd.uid",
+      "sha256": "3a2f9747910eb07a7cb5bcc4b4ab5c1b34657d434b59ac2a3ae8eca9c4e963ce",
+      "mode": 420,
+      "value": "uid://5p6xsu6x7lf5"
+    },
+    {
+      "path": "tools/qa/compatibility/livestock_review.gd.uid",
+      "sha256": "535be4e3213e7f14aa79eb3b59a7a7515f3cdcbf5b138216f5d382fc2177a8d9",
+      "mode": 420,
+      "value": "uid://c8qcgi5mhhn0b"
+    },
+    {
+      "path": "tools/assets/migration/migration_capture.gd.uid",
+      "sha256": "aeba8e43687ee4aaf80708f957df61974f957d082dd736c8bd1a22bb05c27970",
+      "mode": 420,
+      "value": "uid://g6sbbs6s2muo"
+    },
+    {
+      "path": "tools/assets/contracts/padded_atlas_capture.gd.uid",
+      "sha256": "3e11f9968df4d5bf1959945a01470cf24458b7178d05c21de2fc0b1c0061c482",
+      "mode": 420,
+      "value": "uid://ccqoleimu4xis"
+    },
+    {
+      "path": "tools/assets/contracts/padded_atlas_review.gd.uid",
+      "sha256": "425a988035a6d1ce83a7603a7fc4648e886d3f977217af05206bb1be6a2a4ba8",
+      "mode": 420,
+      "value": "uid://mug3mwbfqox2"
+    },
+    {
+      "path": "tools/qa/compatibility/player_contact_capture.gd.uid",
+      "sha256": "01a8fb0d824955883d9de75a6087a14f0d8ead2fc70a655fc3a5c1466e1b2b8a",
+      "mode": 420,
+      "value": "uid://be6viw0ncqha4"
+    },
+    {
+      "path": "tools/qa/compatibility/player_contact_review.gd.uid",
+      "sha256": "f25c5214e00700e1e7c3ef34769455214ad8c412a137da9293ca76b73ef2bde8",
+      "mode": 420,
+      "value": "uid://d0x735sapv5hv"
+    },
+    {
+      "path": "tools/assets/authoring/prepare_celestial_dial.gd.uid",
+      "sha256": "55020385a3ffceb69f31adae53321c557d271646a42a5f97eeeedc7549fe2673",
+      "mode": 420,
+      "value": "uid://cbsnjan2j0ejm"
+    },
+    {
+      "path": "tools/assets/authoring/prepare_character_walk.gd.uid",
+      "sha256": "c366f4537bc695062a2ab815b7c71ff4042d6a1f320bd5753b799a4f52eb7b65",
+      "mode": 420,
+      "value": "uid://by0a8nduq4qx4"
+    },
+    {
+      "path": "tools/assets/authoring/prepare_hero_actions.gd.uid",
+      "sha256": "438ed6a525a87986ead7600fdca8bb19dafa490175df3e1954a1e1f1aac4f93b",
+      "mode": 420,
+      "value": "uid://qibr172a5gag"
+    },
+    {
+      "path": "tools/assets/authoring/prepare_skeleton_v2.gd.uid",
+      "sha256": "520dd10f40c12b4a9c81020de33f6f1b84aba2398c60dc7863c5cd9cd25ded04",
+      "mode": 420,
+      "value": "uid://bia17i2pavkds"
+    },
+    {
+      "path": "tools/qa/camera/presentation_pose_capture.gd.uid",
+      "sha256": "451f1fd66f15e2ce1d72cf0b6e90347728763aa024c2cb673d47a149442224f5",
+      "mode": 420,
+      "value": "uid://w5x2fwkrus88"
+    },
+    {
+      "path": "tools/qa/camera/presentation_pose_live.gd.uid",
+      "sha256": "129da3fdb4ed38d99013718cddff9429478d88f8284f89da2b2d355333585b9a",
+      "mode": 420,
+      "value": "uid://dy5c53rxl120p"
+    },
+    {
+      "path": "tools/qa/camera/presentation_pose_review.gd.uid",
+      "sha256": "44283f6b003ddbe0e9089a5fc52eb878e6c548594349d06df654ec3d249fbc2a",
+      "mode": 420,
+      "value": "uid://cgajrpt8u2etf"
+    },
+    {
+      "path": "tools/qa/compatibility/prop_edges_capture.gd.uid",
+      "sha256": "36530220c67066564d1b9ec88fc538a6ac3b986b9edcf9e732592fb8d8eaa289",
+      "mode": 420,
+      "value": "uid://dae7ubfwoqkku"
+    },
+    {
+      "path": "tools/qa/compatibility/ranged_combat_capture.gd.uid",
+      "sha256": "71329b657494fa91dfd1d36a35a6c710fbe3f4f4aae7eed29949a9a40dac39de",
+      "mode": 420,
+      "value": "uid://dpchsnbi8bha0"
+    },
+    {
+      "path": "tools/qa/compatibility/ranged_combat_review.gd.uid",
+      "sha256": "76180cfc28fc531c7e0f710dbe7075dbae3a64b1ebcbd40dea028b48a45cac28",
+      "mode": 420,
+      "value": "uid://ntr4tnwg4isc"
+    },
+    {
+      "path": "tools/qa/camera/reference_zoom_capture.gd.uid",
+      "sha256": "85d1de57434f2ce6aa0fb229e8dd171bc1d9d461063bd08e88f9bbdd0e141291",
+      "mode": 420,
+      "value": "uid://rmpdh860u4hl"
+    },
+    {
+      "path": "tools/qa/camera/reference_zoom_live.gd.uid",
+      "sha256": "2ce36f4878b01217871ae96095520e0bfdb353ebefb90db30e5959026b647610",
+      "mode": 420,
+      "value": "uid://d3f8q7wkqypwp"
+    },
+    {
+      "path": "tools/qa/camera/reference_zoom_review.gd.uid",
+      "sha256": "8f8b780dd38750934e2a4bb15abf7f3600cf4d4d4776fc95ce49c52f534c728a",
+      "mode": 420,
+      "value": "uid://s2384kkhcb62"
+    },
+    {
+      "path": "tools/qa/compatibility/resident_review.gd.uid",
+      "sha256": "e24b70ba4b73e0bacce8bc986ba3892aa1cd38a829f57f5a72354b18c55c7177",
+      "mode": 420,
+      "value": "uid://bp6tc755l7n4w"
+    },
+    {
+      "path": "tools/qa/compatibility/runtime_comfort_review.gd.uid",
+      "sha256": "a7efd64968626e3cdd0a9de1befca1ceaadfab67f532bc85e61adcf83e3cc2a9",
+      "mode": 420,
+      "value": "uid://cxb7t8tkxh6yn"
+    },
+    {
+      "path": "tools/qa/performance/runtime_frame_review.gd.uid",
+      "sha256": "83ab22f3865e9c17a883a278a04c5ef76141642cfa4d2868fe813acd8799dd7a",
+      "mode": 420,
+      "value": "uid://bnc22pdmm56rn"
+    },
+    {
+      "path": "tools/shore_kit_canvas.gd.uid",
+      "sha256": "f68b7aaceba6028e7f67a6965adf758c73901e68e24499015ad12068b28eed8a",
+      "mode": 420,
+      "value": "uid://b4gaa1w2e7l8x"
+    },
+    {
+      "path": "tools/shore_kit_capture.gd.uid",
+      "sha256": "6d56d52eff66842df2deaf80721f9262723f839320a8a9a28b1d14eae99a975f",
+      "mode": 420,
+      "value": "uid://d0njvqehhwccf"
+    },
+    {
+      "path": "tools/shore_kit_review.gd.uid",
+      "sha256": "6ad837b3c095d200664d3d9f88bdb5452ad95413517c3d5d934234ead8648921",
+      "mode": 420,
+      "value": "uid://cghtf6qdhb82j"
+    },
+    {
+      "path": "tools/assets/slicing/slice_capture.gd.uid",
+      "sha256": "02660dcfcf2d6457c10100e1eac46bb43161f5cda2877fe4f6f1d0dc402ab472",
+      "mode": 420,
+      "value": "uid://blxplnujkf3sf"
+    },
+    {
+      "path": "tools/assets/slicing/slice_catalogs.gd.uid",
+      "sha256": "fc1aa868e72d2ca9340e22a63110f9269ff7683f5ca714531498a973d9f5e73b",
+      "mode": 420,
+      "value": "uid://dkbpo66xbicfd"
+    },
+    {
+      "path": "tools/assets/slicing/slice_export.gd.uid",
+      "sha256": "bfdb64f3fb2f8c140c25feea4c424e7c8b08db0dd2ac032a08af78d7d7c7f149",
+      "mode": 420,
+      "value": "uid://begjpidcxkgem"
+    },
+    {
+      "path": "tools/assets/slicing/slice_legacy_capture.gd.uid",
+      "sha256": "90b39c4440d1b86701218bc595f9336edaae845e2200b344f248e3efc75775f8",
+      "mode": 420,
+      "value": "uid://45qs8gap2mgj"
+    },
+    {
+      "path": "tools/assets/slicing/slice_review.gd.uid",
+      "sha256": "4bceca0d651fd337a699d2bb3907fa8afc5267e564117eda5f8225240bde9d95",
+      "mode": 420,
+      "value": "uid://bsi3llrhmd124"
+    },
+    {
+      "path": "tools/qa/compatibility/terrain_cache_review.gd.uid",
+      "sha256": "63e2dee59baad985980812994f9ba778fcd504fd5bf1468c4317fd4dbd298dea",
+      "mode": 420,
+      "value": "uid://dcrb1iltov4n4"
+    },
+    {
+      "path": "tools/assets/contracts/texture_data_probe.gd.uid",
+      "sha256": "91f08a0ffe40082359f8882ffff9b2a39d2a59b6f5f49b14af58c6798f25ad16",
+      "mode": 420,
+      "value": "uid://cy1qee6l3mpsw"
+    },
+    {
+      "path": "tools/assets/contracts/texture_data_room_capture.gd.uid",
+      "sha256": "27f3fa65bb472b355c93a8611683c999d03cc506791aa43cabf0a53fabbd0e34",
+      "mode": 420,
+      "value": "uid://cxc6n8x00enuy"
+    },
+    {
+      "path": "tools/assets/contracts/texture_intent_review.gd.uid",
+      "sha256": "363aa87a58e0422254d221c09a9df317c5575f7b202b73679f4d7d54d4309aef",
+      "mode": 420,
+      "value": "uid://bvxqdow0ohiq3"
+    },
+    {
+      "path": "tools/qa/compatibility/tree_occlusion_review.gd.uid",
+      "sha256": "4955a44d200654da68e19539a978320e26fc992652934d2b84f7ab69a5953642",
+      "mode": 420,
+      "value": "uid://occpu7oxbqpu"
+    },
+    {
+      "path": "tools/village_clearance_review.gd.uid",
+      "sha256": "e561900240fd963aeeda253cc5279f2e67e001db47cf574b3ef1c8853dce1de8",
+      "mode": 420,
+      "value": "uid://cm5k72l1semf3"
+    },
+    {
+      "path": "tools/village_map_review.gd.uid",
+      "sha256": "2b0a4e2414f803155350a7aeaaec13c6cf08c3eb9a0cd9f85e7e0bbea7ea3bb8",
+      "mode": 420,
+      "value": "uid://qbyddjxvum43"
+    },
+    {
+      "path": "tools/qa/camera/visual_baseline.gd.uid",
+      "sha256": "9e52efee29e5647cc1387afb214579f6aa5918464977a1d0e032c97bb3fa0d03",
+      "mode": 420,
+      "value": "uid://bli8q2rbhgtt"
+    },
+    {
+      "path": "tools/qa/camera/visual_camera_capture.gd.uid",
+      "sha256": "4f96cf69aa04cf9b0b1a628be7de9c84c48f15f5050740790c41fb0da1202268",
+      "mode": 420,
+      "value": "uid://24m4h2w5w63o"
+    },
+    {
+      "path": "tools/visual_camera_points.gd.uid",
+      "sha256": "a55f0a0d5f3c7282001b2948151ff688710ea135fa2583b06e91f60c92887110",
+      "mode": 420,
+      "value": "uid://c3w8ftwc15vnl"
+    },
+    {
+      "path": "tools/qa/camera/visual_camera_review.gd.uid",
+      "sha256": "7f62568cbeacb938ed82a062babf275641d011ac365650d5b114d07a47dde575",
+      "mode": 420,
+      "value": "uid://cvarcj06tguwu"
+    },
+    {
+      "path": "tools/assets/contracts/visual_icons_capture.gd.uid",
+      "sha256": "40fd61073f3a6e6edcf3f8f01c4b769a9f9fa15bdc8b46d6fc86c41a2f449d0a",
+      "mode": 420,
+      "value": "uid://jbed02e5y43v"
+    },
+    {
+      "path": "tools/qa/art/visual_light_capture.gd.uid",
+      "sha256": "f951f28aa914363117f37d85e217a15f397a303c6b6ea25db24257315b5869c9",
+      "mode": 420,
+      "value": "uid://bbh5adah3fpfw"
+    },
+    {
+      "path": "tools/qa/art/visual_modules_capture.gd.uid",
+      "sha256": "bd447d46883559816a15dc4a0b5b33faefcae849d14f792f5182d0e0aa04f7a8",
+      "mode": 420,
+      "value": "uid://b2mx0g8a0nt5v"
+    },
+    {
+      "path": "tools/qa/camera/visual_motion_capture.gd.uid",
+      "sha256": "c59c30b54a17c9c74ade1fa047dfc61638c984602f0411586bb6eef159f988cd",
+      "mode": 420,
+      "value": "uid://8uuljru6a6ym"
+    },
+    {
+      "path": "tools/qa/camera/visual_motion_review.gd.uid",
+      "sha256": "51f2f26945d842bde82e43a42088f65e79675048563ad551f1d90fff9763c86b",
+      "mode": 420,
+      "value": "uid://cr8tnvvvkvh27"
+    },
+    {
+      "path": "tools/qa/camera/visual_motion_route.gd.uid",
+      "sha256": "71fb4260b562365d823d8d5aa36ae490d656c9d82bdb10003db1e5947d311b16",
+      "mode": 420,
+      "value": "uid://cu7oghfjir47i"
+    },
+    {
+      "path": "tools/assets/contracts/visual_pipeline_capture.gd.uid",
+      "sha256": "0b841ea8392d5cf1eb24487b291090fc46edb31d0ca10ca41707468c8861eece",
+      "mode": 420,
+      "value": "uid://fjcc6aqfhgr2"
+    },
+    {
+      "path": "tools/assets/contracts/visual_pipeline_review.gd.uid",
+      "sha256": "057a044e9301ab6db911061c3dc34b0f1a7d69a61652ac33ac7230275734a193",
+      "mode": 420,
+      "value": "uid://dfipuht11h36w"
+    },
+    {
+      "path": "tools/assets/contracts/visual_resource_capture.gd.uid",
+      "sha256": "4a9f29d5319d5b0053aefbe93e561d16363d67fde2b92932a081be4d94cbb37a",
+      "mode": 420,
+      "value": "uid://pk0l5la3gbt7"
+    },
+    {
+      "path": "tools/assets/contracts/visual_resources_review.gd.uid",
+      "sha256": "a6b717242004bc74f35c4de9c03ec5954e381ee8c420db0c33dc9bffeb700ff1",
+      "mode": 420,
+      "value": "uid://bgjqonqa7ncsh"
+    },
+    {
+      "path": "tools/qa/art/visual_reuse_capture.gd.uid",
+      "sha256": "4e2b17b1cbc8cb9e19b7f248964415a4feb500c319f4f84013dfe17291da88f4",
+      "mode": 420,
+      "value": "uid://delcwbwkjsxmc"
+    },
+    {
+      "path": "tools/qa/art/visual_reuse_sources.gd.uid",
+      "sha256": "1e988a2fed1e65bd7ba3aa10ab9c54efe73aadf4408e5405c1d436c51b6aa178",
+      "mode": 420,
+      "value": "uid://omsbak28p3bs"
+    },
+    {
+      "path": "tools/assets/contracts/visual_sampling_capture.gd.uid",
+      "sha256": "e38c4dd583666caceade517a8c9a111fac5e0a50e8c676cd7a7813e5144ab08b",
+      "mode": 420,
+      "value": "uid://ddiude7j2ygvq"
+    },
+    {
+      "path": "tools/assets/contracts/visual_sampling_review.gd.uid",
+      "sha256": "1950f3b94a7179c7ffd10912580bdb8c6e707e32f25f030fc0de087181993324",
+      "mode": 420,
+      "value": "uid://b38jukhbtkvs7"
+    },
+    {
+      "path": "tools/qa/camera/visual_static_capture.gd.uid",
+      "sha256": "0fe2af606c6adf926a605178db99599d61eeccc0b1a1be69e9b0565e97203d9d",
+      "mode": 420,
+      "value": "uid://yk4pwrlrk00f"
+    }
+  ],
+  "anchor": {
+    "path": "tools/water_audit.gd.uid",
+    "value": "uid://bv2s0ed2vg8pt",
+    "sha256": "3e613ca5cfa3761342e235c9757b333f92a0c477eac93f86624c52a0f37d9adf",
+    "move": false
+  }
+}

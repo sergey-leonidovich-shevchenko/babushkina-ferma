@@ -1,0 +1,10 @@
+{
+  "phase": "before",
+  "base": "e205c00729214358308f14c46b63c3bd2fdde2d9",
+  "test_SHA256": "2c44dd8874905d5ea81967f255a05314b89704c840e0539f81d06265cc2e6d3b",
+  "exit": 0,
+  "seconds": 26.394381204008823,
+  "methods": 13,
+  "raw_sha256": "6345d00263ae2f78fff45be59a310a1354962a50729e473d49d49903d6952fe1",
+  "summary": "BENCH NATIVE after 1152\n.BOARD NATIVE after 1152\n.FENCE NATIVE after 1152\n.LAMP NATIVE after 1152\n.OBJECT COMMAND NATIVE 1152\n.PILOT PASS NATIVE after 1152\n.POST MOTION NATIVE after 1152\n.RENDER NATIVE 1152\n.SHADOW INVENTORY 1152\n.STATIC PILOT NATIVE after 1152\n.STREET NATIVE after 1152\n.TRADE NATIVE after 1152\n.TRANSIENT NATIVE after 1152\n.\n----------------------------------------------------------------------\nRan 13 tests in 26.020s\n\nOK\n"
+}

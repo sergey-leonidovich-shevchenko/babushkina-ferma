@@ -20,6 +20,7 @@ from common.launch import prepare_imports
 
 ROOT = project_root(__file__)
 prepare_imports(ROOT)
+from tools.qa.world.source_inputs import historical_bytes, input_path
 REPORT=ROOT/'docs/reports/visual-overhaul/vrender-001'
 SOURCES=['main.tscn','project.godot','scripts/systems/render_system.gd','scripts/game_renderer.gd',
  'scripts/world_background.gd','scripts/presentation/village_terrain_canvas.gd','scripts/systems/world_projection_system.gd',
@@ -69,7 +70,7 @@ def inventory(text):
 def build_contract():
     """Authors the reviewed source snapshot; this command never marks a native run accepted."""
     write(REPORT/'contract.json',{'task':'VRENDER-001','base_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True, env=git_environment()).strip(),
-        'sources':{p:sha(ROOT/p) for p in SOURCES},'calls':inventory((ROOT/'scripts/systems/render_system.gd').read_text()),
+        'sources':{p:sha(input_path(ROOT, p)) for p in SOURCES},'calls':inventory((ROOT/'scripts/systems/render_system.gd').read_text()),
         'coordinates':{'world':'WorldProjection: zoom * (world - camera); first overworld 1.2, HUD 1.0',
             'background':'separate Node2D, show_behind_parent; matching position/scale',
             'terrain_cache':'world-space offscreen SubViewport, UPDATE_ONCE; not a second camera',
@@ -81,7 +82,7 @@ def build_contract():
 def validate_contract(contract,folder=ROOT):
     """Checks all reviewed calls and the exact source version without silently re-authoring it."""
     require(contract.get('task')=='VRENDER-001' and set(contract['sources'])==set(SOURCES),'source coverage')
-    for name,digest in contract['sources'].items(): require(sha(folder/name)==digest,'source changed: '+name)
+    for name,digest in contract['sources'].items(): require(sha(input_path(ROOT,name) if Path(folder).resolve()==ROOT.resolve() else folder/name)==digest,'source changed: '+name)
     calls=inventory((folder/'scripts/systems/render_system.gd').read_text())
     require(calls==contract['calls'],'command inventory stale')
     world=[x['receiver']+'.'+x['method'] for x in calls if x['function']=='draw']
@@ -100,10 +101,10 @@ def capture(folder):
     """Runs two isolated native windows serially; all readbacks are diagnostic, not performance samples."""
     require(not folder.exists(),'fresh output required'); require(not native_jobs(),'another Godot active')
     require(not subprocess.check_output(['git','diff','HEAD','--','scripts','assets/game','main.tscn'],cwd=ROOT,text=True, env=git_environment()),'runtime changed')
-    contract=read(REPORT/'contract.json'); validate_contract(contract)
+    contract=read(REPORT/'contract.json'); validate_contract(contract,ROOT)
     folder.mkdir(parents=True)
     for name in SOURCES:
-        target=folder/'instrumentation'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+        target=folder/'instrumentation'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(input_path(ROOT, name),target)
     source={'task':'VRENDER-001','base_commit':contract['base_commit'],'complete':False,'sources':contract['sources'],'artifacts':{}}
     write(folder/'source.json',source)
     for width in [1152,1280]:
@@ -135,7 +136,7 @@ def capture(folder):
         source['artifacts']={str(p.relative_to(folder)):sha(p) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'instrumentation' not in p.parts}
         write(folder/'source.json',source)
         require(result.returncode==0,'native capture failed')
-        validate_contract(contract)
+        validate_contract(contract,ROOT)
     source['complete']=True; write(folder/'source.json',source)
 
 
@@ -158,7 +159,7 @@ def verify(folder=REPORT/'native'):
     overlay={'project.godot','tools/render_order.py','tools/render_order_game.gd','tools/render_order_capture.gd'}
     for name,digest in source['sources'].items():
         if name in overlay: continue
-        base=subprocess.check_output(['git','show',source['base_commit']+':'+name],cwd=ROOT, env=git_environment())
+        base=historical_bytes(ROOT, source['base_commit'], name)
         require(hashlib.sha256(base).hexdigest()==digest,'archived runtime differs from Git base: '+name)
     actual={str(p.relative_to(folder)) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'instrumentation' not in p.parts}
     require(actual==set(source['artifacts']),'artifact coverage')

@@ -8,6 +8,7 @@ if not __package__:
 import argparse,gzip,hashlib,json,math,subprocess
 from common.git import git_environment
 from pathlib import Path
+from tools.qa.world.source_inputs import historical_result
 from PIL import Image,ImageChops,ImageDraw
 from tools.qa.performance.perf_contract_collect import ROOT,sha,write
 from render_order import require,validate_draws
@@ -36,7 +37,7 @@ def provenance(folder,phase):
         require(not Path(name).is_absolute() and '..' not in Path(name).parts and sha(folder/'inputs'/name)==digest,'archived source changed')
         overlay=name.startswith('tools/village_board') or (phase=='after' and (name in list(CHANGED) or name.startswith('assets/game/locations/overworld/boards/')))
         if not overlay:
-            historical=subprocess.run(['git','show',data['base_commit']+':'+name],cwd=ROOT,capture_output=True, env=git_environment())
+            historical=historical_result(ROOT, data['base_commit'], name)
             require(historical.returncode==0 and hashlib.sha256(historical.stdout).hexdigest()==digest,'source does not match Git base')
     actual={str(p.relative_to(folder)) for p in folder.rglob('*') if p.is_file() and 'inputs' not in p.parts and p.name!='source.json'}
     require(actual==set(data['artifacts']),'native artifact coverage changed')

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_static_audit.py", line 6, in <module>
+    from tools.qa.world.source_inputs import historical_bytes, historical_kind
+ModuleNotFoundError: No module named 'tools'

@@ -8,6 +8,7 @@ if not __package__:
 import argparse,gzip,hashlib,json,subprocess
 from common.git import git_environment
 from pathlib import Path
+from tools.qa.world.source_inputs import historical_bytes
 from PIL import Image
 from tools.qa.performance.perf_contract_collect import ROOT,sha,write
 from render_order import require,validate_draws
@@ -32,7 +33,7 @@ def provenance(phase):
     for name,digest in data['sources'].items():
         require(not Path(name).is_absolute() and '..' not in Path(name).parts and sha(folder/'inputs'/name)==digest,'archived source changed')
         if name not in EXTRA and not (phase=='after' and name in CHANGED):
-            raw=subprocess.check_output(['git','show',data['base_commit']+':'+name],cwd=ROOT, env=git_environment());require(hashlib.sha256(raw).hexdigest()==digest,'input differs from base: '+name)
+            raw=historical_bytes(ROOT, data['base_commit'], name);require(hashlib.sha256(raw).hexdigest()==digest,'input differs from base: '+name)
     if phase=='after':
         name='scripts/systems/village_prop_renderer.gd';old=subprocess.check_output(['git','show',data['base_commit']+':'+name],cwd=ROOT, env=git_environment()).decode()
         expected=old.replace('const Lamp :=','const PilotPass:=preload("res://scripts/presentation/pilot_object_pass.gd")\nconst Lamp :=').replace('if visible.intersects(Board.destination("board",prop.position+Vector2(0,24)),true):Board.draw(game,"board",prop.position+Vector2(0,24))','if visible.intersects(Board.destination("board",prop.position+Vector2(0,24)),true):PilotPass.draw(game,prop,foreground,Board.draw.bind(game,"board",prop.position+Vector2(0,24)))')

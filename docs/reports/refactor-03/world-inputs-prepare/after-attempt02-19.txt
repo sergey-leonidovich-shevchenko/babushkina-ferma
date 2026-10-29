@@ -1,0 +1,1 @@
+LAMP ASSETS: three unlit bodies, exact RGBA/pivots/pane centers and separate bounded glow profile

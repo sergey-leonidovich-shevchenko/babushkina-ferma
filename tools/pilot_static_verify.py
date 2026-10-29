@@ -6,8 +6,8 @@ if not __package__:
     prepare_imports(project_root(__file__))
 
 import argparse,gzip,hashlib,json,math,subprocess
-from common.git import git_environment
 from pathlib import Path
+from tools.qa.world.source_inputs import historical_result
 from PIL import Image,ImageChops,ImageDraw
 from tools.qa.performance.perf_contract_collect import ROOT,sha,write
 from render_order import require,validate_draws
@@ -46,7 +46,7 @@ def provenance():
     for name,digest in data['sources'].items():
         require(not Path(name).is_absolute() and '..' not in Path(name).parts and sha(folder/'inputs'/name)==digest,'archived source changed')
         if name not in EXTRA:
-            old=subprocess.run(['git','show',data['base_commit']+':'+paths.get(name,name)],cwd=ROOT,env=git_environment(),capture_output=True)
+            old=historical_result(ROOT, data['base_commit'], paths.get(name,name))
             require(old.returncode==0 and hashlib.sha256(old.stdout).hexdigest()==digest,'input not from Git base: '+name)
     actual={str(p.relative_to(folder)) for p in folder.rglob('*') if p.is_file() and 'inputs' not in p.parts and p.name!='source.json'};require(actual==set(data['artifacts']),'artifact coverage changed')
     for name,digest in data['artifacts'].items():require(sha(folder/name)==digest,'native artifact changed')

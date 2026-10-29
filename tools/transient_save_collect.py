@@ -7,6 +7,7 @@ if not __package__:
 
 import argparse,hashlib,json,shutil,signal,subprocess,uuid
 from pathlib import Path
+from tools.qa.world.source_inputs import input_path
 from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,write,sha
 REPORT=ROOT/'docs/reports/visual-overhaul/vcompat-001'
 QA=['tools/visual_camera_points.gd','tools/render_order_game.gd','tools/transient_save_probe.gd','tools/transient_save_capture.gd','tools/transient_save_collect.py']
@@ -22,7 +23,7 @@ def collect(phase):
     folder.mkdir(parents=True)
     source={'task':'VCOMPAT-001','phase':phase,'base_commit':base,'asset_tree':command(['git','rev-parse',base+':assets/game']),'complete':False,'performance_eligible':False,'sources':{},'artifacts':{}}
     for name in names:
-        target=folder/'inputs'/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,target);source['sources'][name]=sha(target)
+        target=folder/'inputs'/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(input_path(ROOT, name),target);source['sources'][name]=sha(target)
     initial=jobs();write(folder/'source.json',source)
     for width in [1152,1280]:
         if set(jobs())-set(initial):raise ValueError('unexpected Godot process')
@@ -45,7 +46,7 @@ def collect(phase):
             (target/'native').rmdir()
         source['artifacts']={str(p.relative_to(folder)):sha(p) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'inputs' not in p.parts};write(folder/'source.json',source)
         if code or not (target/'capture.json').is_file() or json.loads((target/'capture.json').read_text())['errors'] or any(t in (target/'engine.txt').read_text() for t in ['ERROR:','SCRIPT ERROR','Parse Error']):raise ValueError('native capture failed')
-        if any(sha(ROOT/n)!=h for n,h in source['sources'].items()) or command(['git','diff',base,'--name-only','--','assets/game']):raise ValueError('frozen input changed')
+        if any(sha(input_path(ROOT, n))!=h for n,h in source['sources'].items()) or command(['git','diff',base,'--name-only','--','assets/game']):raise ValueError('frozen input changed')
     source['complete']=True;write(folder/'source.json',source)
 
 if __name__=='__main__':

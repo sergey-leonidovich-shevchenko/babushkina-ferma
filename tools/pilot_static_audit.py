@@ -9,6 +9,7 @@ from common.launch import prepare_imports
 from common.paths import project_root
 
 prepare_imports(project_root(__file__))
+from tools.qa.world.source_inputs import historical_bytes, historical_kind
 
 from tools.planning.pilot_rollout import project,validate,load,ROOT
 REPORT=ROOT/'docs/reports/visual-overhaul/vrelease-002'
@@ -37,9 +38,9 @@ def audit(base):
             paths=[ROOT/'docs/reports/visual-overhaul'/key.lower()/'README.md']
         evidence=[]
         for p in paths:
-            name=str(p.relative_to(ROOT));kind=subprocess.check_output(['git','cat-file','-t',base+':'+name],cwd=ROOT,text=True, env=git_environment()).strip()
+            name=str(p.relative_to(ROOT));kind=historical_kind(ROOT, base, name).strip()
             assert kind in ['blob','tree'],name
-            raw=subprocess.check_output(['git','show',base+':'+name],cwd=ROOT, env=git_environment())
+            raw=historical_bytes(ROOT, base, name, allow_tree=True)
             evidence.append({'file':name,'git_type':kind,'sha256':hashlib.sha256(raw).hexdigest()})
         assert evidence,key
         rows.append({'id':key,'status_at_base':'done','evidence':evidence,'canonical_claims':task['evidence']})

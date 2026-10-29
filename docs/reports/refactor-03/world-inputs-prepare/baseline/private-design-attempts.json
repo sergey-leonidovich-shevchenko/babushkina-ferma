@@ -1,0 +1,8 @@
+{
+  "before_product_edits": true,
+  "history_first_attempt": "PNG source inputs wrongly counted as native frames; imported TestCase accidentally added19 extra cases; render legacy header has no top-level performance_eligible. All corrected before final red.",
+  "final_history_red": "12 methods,1failure/10errors,render-order positive control",
+  "helper_private_smoke_first_attempt": "reference root selected tmp test path; anchored to existing project context fixture source;16/0 private design smoke after correction. This is not a product regression replay.",
+  "native_frames_generated": 0,
+  "Game_started": false
+}

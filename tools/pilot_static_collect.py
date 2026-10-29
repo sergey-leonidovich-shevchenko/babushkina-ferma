@@ -12,7 +12,8 @@ from village_trade_collect import ORIGINAL as COMMON, EXTRA as PREVIOUS_EXTRA, T
 from tools.common.launch import prepare_imports
 from tools.common.git import git_environment
 prepare_imports(ROOT)
-from tools.qa.art.current_paths import captured_paths, source_path
+from tools.qa.world.source_inputs import input_path
+from tools.qa.art.current_paths import captured_paths
 ORIGINAL=sorted(set(COMMON+PREVIOUS_EXTRA+TRADE_ASSETS+['tools/visual_modules_capture.gd','docs/reports/visual-overhaul/vart-008/modules.json','tests/fixtures/saves/v1-core.json']+[str(p.relative_to(ROOT)) for p in (ROOT/'docs/reports/visual-overhaul/vart-008/native/sprites').glob('*.png')]))
 EXTRA=['tools/pilot_static_capture.gd','tools/pilot_static_scene.gd','tools/pilot_static_collect.py']
 
@@ -20,7 +21,7 @@ def archive_inputs(folder,names):
     """Архивирует физические moved-входы под прежними логическими ключами sources."""
     hashes={}
     for name in names:
-        current=source_path(ROOT,name)
+        current=input_path(ROOT,name)
         if not current.is_file():raise ValueError('missing input '+name)
         target=folder/'inputs'/name;target.parent.mkdir(parents=True,exist_ok=True)
         shutil.copyfile(current,target);hashes[name]=sha(target)

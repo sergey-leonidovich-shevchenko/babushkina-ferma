@@ -15,6 +15,7 @@ import subprocess
 import uuid
 from common.git import git_environment
 from pathlib import Path
+from tools.qa.world.source_inputs import historical_result, input_path
 from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write
 
 SOURCES = ['assets/game/basement/workbench_1_east.tres', 'assets/game/basement/workbench_1_south.tres', 'assets/game/basement/workbench_1_west.tres', 'assets/game/basement/workbench_atlas_a.png', 'assets/game/environment/forest_tree_growth_atlas_v1.png', 'docs/reports/visual-overhaul/vbase-003/camera-points.json', 'main.tscn', 'project.godot', 'scripts/game_renderer.gd', 'scripts/presentation/basement_visual_system.gd', 'scripts/presentation/object_draw_command.gd', 'scripts/presentation/object_draw_replay.gd', 'scripts/presentation/village_region_renderer.gd', 'scripts/presentation/village_terrain_canvas.gd', 'scripts/presentation/visual_reference_mode.gd', 'scripts/presentation/world_workbench_visual_system.gd', 'scripts/systems/furniture_facing_system.gd', 'scripts/systems/hero_visual_system.gd', 'scripts/systems/orchard_system.gd', 'scripts/systems/presentation_pose_system.gd', 'scripts/systems/render_system.gd', 'scripts/systems/save_system.gd', 'scripts/systems/tree_occlusion_system.gd', 'scripts/systems/tree_system.gd', 'scripts/systems/village_foreground_renderer.gd', 'scripts/systems/village_prop_renderer.gd', 'scripts/systems/village_terrain_renderer.gd', 'scripts/systems/world_projection_system.gd', 'scripts/world_background.gd', 'tests/suites/axial_road_suite.gd', 'tests/suites/object_draw_command_suite.gd', 'tools/ground_seasons_fixture.gd', 'tools/object_command_canvas.gd', 'tools/object_command_capture.gd', 'tools/object_command_collect.py', 'tools/object_command_review.gd', 'tools/render_order_game.gd', 'tools/visual_camera_points.gd']
@@ -30,9 +31,9 @@ def collect(folder, static_coexistence=False):
     folder.mkdir(parents=True)
     base=command(['git','rev-parse','HEAD']); source={'task':'VRENDER-004','base_commit':base,'base_version':command(['git','show',base+':VERSION']),'complete':False,'static_coexistence':static_coexistence,'initial_jobs':initial_jobs,'performance_eligible':False,'sources':{},'base_sources':{},'artifacts':{}}
     for name in SOURCES:
-        target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+        target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(input_path(ROOT, name),target)
         source['sources'][name]=sha(target)
-        historical=subprocess.run(['git','show',base+':'+name],cwd=ROOT,capture_output=True, env=git_environment())
+        historical=historical_result(ROOT, base, name)
         source['base_sources'][name]=hashlib.sha256(historical.stdout).hexdigest() if historical.returncode==0 else None
     write(folder/'source.json',source)
     for width in [1152,1280]:
@@ -59,7 +60,7 @@ def collect(folder, static_coexistence=False):
         source['artifacts']={str(p.relative_to(folder)):sha(p) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'inputs' not in p.parts}
         write(folder/'source.json',source)
         if not (target/'capture.json').exists(): raise ValueError('native process ended before completion; partial proof preserved and rejected')
-        if code or json.loads((target/'capture.json').read_text()).get('errors') or any(token in (target/'engine.txt').read_text() for token in ['ERROR:','SCRIPT ERROR','Parse Error']) or any(sha(ROOT/p)!=s for p,s in source['sources'].items()): raise ValueError('capture failed, engine error or frozen input changed')
+        if code or json.loads((target/'capture.json').read_text()).get('errors') or any(token in (target/'engine.txt').read_text() for token in ['ERROR:','SCRIPT ERROR','Parse Error']) or any(sha(input_path(ROOT, p))!=s for p,s in source['sources'].items()): raise ValueError('capture failed, engine error or frozen input changed')
     source['complete']=True; write(folder/'source.json',source)
 
 

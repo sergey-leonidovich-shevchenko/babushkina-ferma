@@ -10,6 +10,7 @@ from common.launch import prepare_imports
 
 ROOT = project_root(__file__)
 prepare_imports(ROOT)
+from tools.qa.world.source_inputs import historical_bytes
 REPORT=ROOT/'docs/reports/visual-overhaul/vrender-008'
 CASES=[('walk',8),('wall',8),('tree',2),('bush',2),('bridge-west',2),('bridge-east',2),('returned',2),('pause',4),('inventory',2),('editor',2),('interior',2),('other-map',2),('returned',2)]
 ORDER=[(name,tick) for name,count in CASES for tick in range(count)]
@@ -81,7 +82,7 @@ def validate_source(folder,phase,manifest=None):
     for name,digest in source['sources'].items():
         path=folder/'inputs'/name;require(path.is_file() and sha(path)==digest,'exact source '+name)
         if name in ORIGINAL:
-            original=subprocess.check_output(['git','show',source['base_commit']+':'+name],cwd=ROOT, env=git_environment())
+            original=historical_bytes(ROOT, source['base_commit'], name)
             if name==LOOP and phase=='after':original=original.replace(OLD.encode(),b'').replace(b'\tpreload("res://scripts/systems/dropped_loot_system.gd").update(game,delta)\n',b'\tpreload("res://scripts/systems/dropped_loot_system.gd").update(game,delta)\n'+NEW.encode())
             require(path.read_bytes()==original,'only selected production change '+name)
     actual={str(p.relative_to(folder)):sha(p) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'inputs' not in p.parts}

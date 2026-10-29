@@ -10,7 +10,9 @@ from pathlib import Path
 
 from tools.qa.performance.analyze_optimization_audit import statistics
 
-FOLDER = Path(__file__).resolve().parents[1] / 'docs/reports/water-2026-10'
+from tools.common.paths import project_root
+
+FOLDER = project_root(__file__) / 'docs/reports/water-2026-10'
 LOCATIONS = {'overworld', 'village_river', 'cave_lake', 'moon_glade', 'pirate_ship'}
 
 

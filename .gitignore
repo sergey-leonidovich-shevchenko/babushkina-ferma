@@ -731,3 +731,9 @@ tools/qa/camera/*
 tools/qa/world/*
 !tools/qa/world/__init__.py
 !tools/qa/world/test_world_context.py
+
+# REFACTOR-03 World current/history input preparation; physical files remain in place.
+!tools/qa/world/source_inputs.py
+!tools/qa/world/test_world_source_history.py
+!tools/qa/world/test_source_inputs.py
+!tools/qa/world/test_world_producers.py

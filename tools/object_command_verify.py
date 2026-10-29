@@ -13,6 +13,7 @@ import re
 import subprocess
 from common.git import git_environment
 from pathlib import Path
+from tools.qa.world.source_inputs import historical_result
 from PIL import Image
 from object_command_collect import ROOT,SOURCES,OVERLAY
 from tools.qa.performance.perf_contract_collect import sha,write
@@ -37,7 +38,7 @@ def provenance(folder):
     require(set(source['sources'])==set(source['base_sources'])==set(SOURCES),'source coverage')
     for name,digest in source['sources'].items():
         require(sha(folder/'inputs'/name)==digest,'archived source changed')
-        old=subprocess.run(['git','show',source['base_commit']+':'+name],cwd=ROOT,capture_output=True, env=git_environment());historical=hashlib.sha256(old.stdout).hexdigest() if old.returncode==0 else None
+        old=historical_result(ROOT, source['base_commit'], name);historical=hashlib.sha256(old.stdout).hexdigest() if old.returncode==0 else None
         require(old.returncode==0 or name in OVERLAY,'historical input absent')
         require(historical==source['base_sources'][name],'historical base changed')
         if name not in OVERLAY: require(historical==digest,'unreviewed dependency changed')

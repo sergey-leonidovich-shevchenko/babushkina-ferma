@@ -1,0 +1,10 @@
+{
+  "phase": "red",
+  "base": "e205c00729214358308f14c46b63c3bd2fdde2d9",
+  "test_SHA256": "836d0baa70bd668322d9f3cdc9c13266a6ae5ee097fff86dbbb8180250106bae",
+  "exit": 1,
+  "seconds": 31.994255432015052,
+  "methods": 12,
+  "raw_sha256": "688249e9c7591416aa663c47c3ad7642087bd57693e2b1dcb841bd32ed997e46",
+  "summary": "    self.check_reader(trade)\n  File \"/private/tmp/refactor03-test-world-source-history376.py\", line 93, in check_reader\n    if module in[bench,board,fence,lamp,street,trade]:result=module.provenance(folder,'before')\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_trade_verify.py\", line 40, in provenance\n    require(historical.returncode==0 and hashlib.sha256(historical.stdout).hexdigest()==digest,'source does not match Git base: '+name)\n  File \"/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py\", line 37, in require\n    if not condition: raise ValueError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: source does not match Git base: tools/object_command_canvas.gd\n\n======================================================================\nFAIL: test_water_folder_follows_nested_source_project (__main__.WorldSourceHistoryTests.test_water_folder_follows_nested_source_project)\nActual water analyzer locates report output under its own project rather than a fixed parent.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/tmp/refactor03-test-world-source-history376.py\", line 168, in test_water_folder_follows_nested_source_project\n    self.assertEqual(Path(json.loads(result.stdout)),root/'docs/reports/water-2026-10')\nAssertionError: Posix[66 chars]er nested source xvzhbw2g/tools/qa/docs/reports/water-2026-10') != Posix[66 chars]er nested source xvzhbw2g/docs/reports/water-2026-10')\n\n----------------------------------------------------------------------\nRan 12 tests in 31.648s\n\nFAILED (failures=1, errors=10)\n"
+}

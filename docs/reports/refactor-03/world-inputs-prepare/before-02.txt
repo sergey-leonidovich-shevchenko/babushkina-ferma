@@ -1,0 +1,30 @@
+{
+  "task": "VRENDER-004",
+  "base_commit": "91620aa716924555640557c541a455ca8e1afa2a",
+  "production_pass_enabled": false,
+  "performance_eligible": false,
+  "windows": {
+    "1152": {
+      "png_count": 40,
+      "draw_callbacks": 124,
+      "production_pairs": 9,
+      "probe_pairs": 11,
+      "pixel_equal": true,
+      "fallback_cases": 5,
+      "descriptor_only_in_game": true,
+      "owned_material_proved": true,
+      "translucent_alpha_max": 86
+    },
+    "1280": {
+      "png_count": 40,
+      "draw_callbacks": 124,
+      "production_pairs": 9,
+      "probe_pairs": 11,
+      "pixel_equal": true,
+      "fallback_cases": 5,
+      "descriptor_only_in_game": true,
+      "owned_material_proved": true,
+      "translucent_alpha_max": 86
+    }
+  }
+}

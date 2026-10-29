@@ -1,0 +1,117 @@
+{
+  "task": "VSHADOW-001",
+  "base_commit": "85ae79d809ebe15958900afde0115a72845e5d1c",
+  "reviewed_png": 45,
+  "renderer_owners": 18,
+  "runtime_changed": false,
+  "dynamic_solar_implemented": false,
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "windows": {
+    "1152": [
+      {
+        "id": "720-single",
+        "changed_contact_pixels": 322,
+        "body_core_pixels_within_one_byte": 2519,
+        "focused": true
+      },
+      {
+        "id": "720-street",
+        "changed_contact_pixels": 980,
+        "body_core_pixels_within_one_byte": 17296,
+        "focused": true
+      },
+      {
+        "id": "720-boards",
+        "changed_contact_pixels": 255,
+        "body_core_pixels_within_one_byte": 9287,
+        "focused": true
+      },
+      {
+        "id": "720-trade",
+        "changed_contact_pixels": 987,
+        "body_core_pixels_within_one_byte": 11517,
+        "focused": true
+      },
+      {
+        "id": "1140-single",
+        "changed_contact_pixels": 318,
+        "body_core_pixels_within_one_byte": 2519,
+        "focused": true
+      },
+      {
+        "id": "1140-street",
+        "changed_contact_pixels": 914,
+        "body_core_pixels_within_one_byte": 17296,
+        "focused": true
+      },
+      {
+        "id": "1140-boards",
+        "changed_contact_pixels": 251,
+        "body_core_pixels_within_one_byte": 9287,
+        "focused": true
+      },
+      {
+        "id": "1140-trade",
+        "changed_contact_pixels": 959,
+        "body_core_pixels_within_one_byte": 11517,
+        "focused": true
+      }
+    ],
+    "1280": [
+      {
+        "id": "720-single",
+        "changed_contact_pixels": 322,
+        "body_core_pixels_within_one_byte": 2519,
+        "focused": true
+      },
+      {
+        "id": "720-street",
+        "changed_contact_pixels": 980,
+        "body_core_pixels_within_one_byte": 17296,
+        "focused": true
+      },
+      {
+        "id": "720-boards",
+        "changed_contact_pixels": 255,
+        "body_core_pixels_within_one_byte": 9287,
+        "focused": true
+      },
+      {
+        "id": "720-trade",
+        "changed_contact_pixels": 987,
+        "body_core_pixels_within_one_byte": 11517,
+        "focused": true
+      },
+      {
+        "id": "1140-single",
+        "changed_contact_pixels": 318,
+        "body_core_pixels_within_one_byte": 2519,
+        "focused": true
+      },
+      {
+        "id": "1140-street",
+        "changed_contact_pixels": 914,
+        "body_core_pixels_within_one_byte": 17296,
+        "focused": true
+      },
+      {
+        "id": "1140-boards",
+        "changed_contact_pixels": 251,
+        "body_core_pixels_within_one_byte": 9287,
+        "focused": true
+      },
+      {
+        "id": "1140-trade",
+        "changed_contact_pixels": 959,
+        "body_core_pixels_within_one_byte": 11517,
+        "focused": true
+      }
+    ]
+  },
+  "native_cases": 16,
+  "target_png": 48,
+  "window_png": 32,
+  "game_callbacks": 32,
+  "target_callbacks": 96
+}
