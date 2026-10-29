@@ -1,0 +1,14 @@
+{
+  "collector": "garden",
+  "fixture_commit": "ef399c527fba2ed730fa53a01e2eda783cf1a2f2",
+  "source_fields": 44,
+  "all_current_Git_archived_bytes_equal": true,
+  "own_index_config_preserved": true,
+  "foreign_index_config_preserved": true,
+  "complete": false,
+  "partial_provenance_rejected": true,
+  "native_frames": 0,
+  "Game": false,
+  "capture_boundary": "context before open/Godot",
+  "temporary_fixture_removed_after_test": true
+}

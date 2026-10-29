@@ -11,6 +11,7 @@ import hashlib
 import shutil
 import signal
 import subprocess
+from tools.common.git import git_environment
 import uuid
 from pathlib import Path
 from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write
@@ -40,7 +41,7 @@ def collect(folder):
     for name in SOURCES:
         target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
         source['sources'][name]=sha(target)
-        historical=subprocess.run(['git','show',base+':'+name],cwd=ROOT,capture_output=True)
+        historical=subprocess.run(['git','show',base+':'+name],cwd=ROOT,capture_output=True,env=git_environment())
         source['base_sources'][name]=hashlib.sha256(historical.stdout).hexdigest() if historical.returncode==0 else None
     write(folder/'source.json',source)
     for width in [1152,1280]:

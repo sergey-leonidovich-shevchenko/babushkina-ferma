@@ -1,0 +1,134 @@
+{
+  "removed_World_addresses": [],
+  "verified_current_targets": [
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/object_command_collect.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/object_command_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/pilot_pass_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/pilot_pass_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/pilot_static_audit.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/pilot_static_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/post_motion_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/shadow_inventory_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/test_object_command.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/test_pilot_pass.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/test_pilot_static.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/test_post_motion.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/test_render_order.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/test_shadow_inventory.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/test_transient_save.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/test_village_bench.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/test_village_lamp.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/test_village_street.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/transient_save_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/transient_save_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/village_bench_assets.py"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/village_bench_leg_capture.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/village_bench_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/village_lamp_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/village_street_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/water_fishing_capture.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/water_fishing_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/water_navigation_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "target": "tools/qa/world/water_topology_review.gd"
+    },
+    {
+      "document": "QA_CHECKLIST.md",
+      "target": "tools/qa/world/water_topology_review.gd"
+    },
+    {
+      "document": "docs/DEVELOPMENT.md",
+      "target": "tools/qa/world/village_regions_capture.gd"
+    },
+    {
+      "document": "docs/DEVELOPMENT.md",
+      "target": "tools/qa/world/village_regions_review.gd"
+    }
+  ],
+  "frozen_reports_and_historical_map": "excluded; exact prior bytes retained"
+}

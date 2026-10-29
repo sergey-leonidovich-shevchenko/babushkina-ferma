@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Verify real plant/hero depth dispatch, complete gameplay, rollback and bounded changed pixels."""
-import argparse,gzip,hashlib,json,math,subprocess
+import argparse,gzip,hashlib,json,math
 from functools import lru_cache
 from pathlib import Path
 from PIL import Image,ImageChops,ImageDraw,ImageStat

@@ -610,6 +610,9 @@ tools/assets/slicing/*
 !tools/qa/
 tools/qa/*
 !tools/qa/__init__.py
+!tools/qa/ground/
+tools/qa/ground/*
+!tools/qa/ground/*.py
 !tools/qa/art/
 tools/qa/art/*
 !tools/qa/art/*.py

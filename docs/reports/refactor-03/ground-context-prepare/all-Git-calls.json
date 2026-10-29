@@ -1,0 +1,158 @@
+{
+  "direct_calls": 30,
+  "isolated": 30,
+  "newly_repaired": 28,
+  "already_isolated": 2,
+  "sites": [
+    {
+      "path": "tools/axial_road_collect.py",
+      "line": 44,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/axial_road_verify.py",
+      "line": 62,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/axial_road_verify.py",
+      "line": 73,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/decoration_collect.py",
+      "line": 89,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/decoration_verify.py",
+      "line": 116,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/decoration_verify.py",
+      "line": 127,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/garden_collect.py",
+      "line": 45,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/garden_verify.py",
+      "line": 70,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/garden_verify.py",
+      "line": 81,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/ground_edge_collect.py",
+      "line": 44,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/ground_edge_verify.py",
+      "line": 62,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/ground_edge_verify.py",
+      "line": 73,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/ground_layers.py",
+      "line": 49,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/ground_layers.py",
+      "line": 110,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/ground_seasons_collect.py",
+      "line": 102,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/ground_seasons_verify.py",
+      "line": 39,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/ground_seasons_verify.py",
+      "line": 49,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/meadow_collect.py",
+      "line": 43,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/meadow_verify.py",
+      "line": 62,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/meadow_verify.py",
+      "line": 73,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/plaza_collect.py",
+      "line": 45,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/plaza_verify.py",
+      "line": 69,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/plaza_verify.py",
+      "line": 80,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/road_network_collect.py",
+      "line": 46,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/road_network_verify.py",
+      "line": 62,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/road_network_verify.py",
+      "line": 73,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/terrain_revision_collect.py",
+      "line": 96,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/terrain_revision_verify.py",
+      "line": 131,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/terrain_revision_verify.py",
+      "line": 91,
+      "env": "git_environment()"
+    },
+    {
+      "path": "tools/terrain_revision_verify.py",
+      "line": 101,
+      "env": "git_environment()"
+    }
+  ]
+}

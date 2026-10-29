@@ -11,6 +11,7 @@ import gzip
 import hashlib
 import json
 import subprocess
+from tools.common.git import git_environment
 from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw
 from terrain_revision_collect import ROOT, SOURCES, OVERLAY
@@ -87,7 +88,7 @@ def provenance(folder):
     require(set(source['sources'])==set(source['base_sources'])==set(SOURCES),'source coverage')
     for name,digest in source['sources'].items():
         require(sha(folder/'inputs'/name)==digest,'archived source changed')
-        old=subprocess.run(['git','show',source['base_commit']+':'+name],cwd=ROOT,capture_output=True);historical=hashlib.sha256(old.stdout).hexdigest() if old.returncode==0 else None
+        old=subprocess.run(['git','show',source['base_commit']+':'+name],cwd=ROOT,capture_output=True,env=git_environment());historical=hashlib.sha256(old.stdout).hexdigest() if old.returncode==0 else None
         require(old.returncode==0 or name in OVERLAY,'historical input absent')
         require(historical==source['base_sources'][name],'historical base changed')
         if name not in OVERLAY: require(historical==digest,'unreviewed dependency changed')
@@ -97,7 +98,7 @@ def provenance(folder):
         require(not Path(name).is_absolute() and '..' not in Path(name).parts and sha(folder/name)==digest,'artifact changed or escaped')
     if folder.resolve()==(REPORT/'native').resolve():
         names=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()]
-        require(subprocess.run(['git','ls-files','--error-unmatch','--',*names],cwd=ROOT,capture_output=True).returncode==0,'native proof absent from Git index')
+        require(subprocess.run(['git','ls-files','--error-unmatch','--',*names],cwd=ROOT,capture_output=True,env=git_environment()).returncode==0,'native proof absent from Git index')
     return source
 
 
@@ -127,7 +128,7 @@ def local_pixels(before,after):
 def historical_control(path,rows,width,base):
     """Compare against the previous accepted commit, excluding only its intentionally different untilled fixture."""
     relative='docs/reports/visual-overhaul/vground-008/native/'+str(width)+'/cottage-control-before.png'
-    old=ROOT/relative;historical=subprocess.check_output(['git','show',base+':'+relative],cwd=ROOT)
+    old=ROOT/relative;historical=subprocess.check_output(['git','show',base+':'+relative],cwd=ROOT,env=git_environment())
     require(sha(old)==hashlib.sha256(historical).hexdigest(),'previous native control changed after Git base')
     old_meta=load(old.parent/'capture.json');before=next(r for r in old_meta['rows'] if r['id']=='cottage-control-before');after=rows['cottage-full']
     require(before['player']==after['player'] and before['camera']==after['camera'] and before['zoom']==after['zoom']==1.2,'historical camera differs')

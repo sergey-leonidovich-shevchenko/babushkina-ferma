@@ -10,6 +10,7 @@ import gzip
 import hashlib
 import json
 import subprocess
+from tools.common.git import git_environment
 from pathlib import Path
 from PIL import Image, ImageChops, ImageStat
 from axial_road_collect import ROOT, SOURCES, OVERLAY
@@ -58,7 +59,7 @@ def provenance(folder):
     require(set(source['sources'])==set(SOURCES) and set(source['base_sources'])==set(SOURCES),'source coverage')
     for name,digest in source['sources'].items():
         require(sha(folder/'inputs'/name)==digest,'archived input changed')
-        old=subprocess.run(['git','show',source['base_commit']+':'+name],cwd=ROOT,capture_output=True)
+        old=subprocess.run(['git','show',source['base_commit']+':'+name],cwd=ROOT,capture_output=True,env=git_environment())
         historical=hashlib.sha256(old.stdout).hexdigest() if old.returncode==0 else None
         require(historical==source['base_sources'][name],'historical base differs')
         if name not in OVERLAY: require(historical==digest,'unreviewed historical dependency changed')
@@ -69,7 +70,7 @@ def provenance(folder):
         require(sha(folder/name)==digest,'artifact changed')
     if folder.resolve()==(REPORT/'native').resolve():
         names=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()]
-        require(subprocess.run(['git','ls-files','--error-unmatch','--',*names],cwd=ROOT,capture_output=True).returncode==0,'native proof missing from Git index')
+        require(subprocess.run(['git','ls-files','--error-unmatch','--',*names],cwd=ROOT,capture_output=True,env=git_environment()).returncode==0,'native proof missing from Git index')
     return source
 
 

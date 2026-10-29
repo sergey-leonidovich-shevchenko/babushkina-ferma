@@ -1,0 +1,14 @@
+{
+  "collector": "axial_road",
+  "fixture_commit": "44d10daf1f8cdebfffc88092e8a0486237679654",
+  "source_fields": 36,
+  "all_current_Git_archived_bytes_equal": true,
+  "own_index_config_preserved": true,
+  "foreign_index_config_preserved": true,
+  "complete": false,
+  "partial_provenance_rejected": true,
+  "native_frames": 0,
+  "Game": false,
+  "capture_boundary": "context before open/Godot",
+  "temporary_fixture_removed_after_test": true
+}

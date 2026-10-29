@@ -1,0 +1,16 @@
+{
+  "exit": 1,
+  "before_tests": true,
+  "partial_paths": [
+    "tools/axial_road_collect.py",
+    "tools/axial_road_verify.py",
+    "tools/decoration_collect.py",
+    "tools/decoration_verify.py",
+    "tools/garden_collect.py",
+    "tools/garden_verify.py",
+    "tools/ground_edge_collect.py",
+    "tools/ground_edge_verify.py"
+  ],
+  "reason": "prototype included wrapper calls and met an already present Git import",
+  "repair": "derive all edits anew from accepted base; only direct subprocess Git calls"
+}

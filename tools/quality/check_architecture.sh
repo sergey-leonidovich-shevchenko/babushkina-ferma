@@ -47,6 +47,7 @@ python3 tools/run.py qa.performance.test_surface_producers
 python3 tools/run.py qa.camera.test_camera_context
 python3 tools/run.py qa.camera.test_camera_layout
 python3 tools/run.py qa.world.test_world_context
+python3 tools/run.py qa.ground.test_ground_context
 python3 tools/run.py qa.world.test_source_inputs
 python3 tools/run.py qa.world.test_world_source_history
 python3 tools/run.py qa.world.test_world_producers

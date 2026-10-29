@@ -1,0 +1,25 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "Ground context preparation",
+  "base": "c47b78add8813392769be8b9d5dfba9b8d5fa1d5",
+  "version": "0.0.378",
+  "accepted_parent_review": 5697669336,
+  "root_sources_before": 153,
+  "root_sources_after": 153,
+  "current_map": 267,
+  "physical_moves": 0,
+  "Git_calls_total": 30,
+  "Git_calls_to_clean": 28,
+  "new_real_archive_cases": 10,
+  "baseline_errors": 9,
+  "source_contract_fields": 37,
+  "source_contract_modules": 21,
+  "native_frames": 0,
+  "new_FPS_admission": false,
+  "followups": [
+    "plant_depth_verify unused subprocess",
+    "live World/Water commands"
+  ],
+  "frozen_reports_rewritten": false,
+  "full03_done": false
+}

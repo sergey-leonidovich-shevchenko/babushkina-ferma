@@ -1,0 +1,7 @@
+{
+  "architecture_exit": 1,
+  "reason": "report linked two future output files before they existed",
+  "product_source_changed": false,
+  "Game_started": false,
+  "repair": "future output paths are code names until produced; retain gates-01, rerun full gates-02"
+}

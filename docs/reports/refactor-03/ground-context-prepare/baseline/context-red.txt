@@ -1,0 +1,158 @@
+EEEE.EEEEE
+======================================================================
+ERROR: test_axial_road_archive_under_foreign_git (__main__.GroundContextTests.test_axial_road_archive_under_foreign_git)
+Axial road's real source, artifact and index validation ignores caller overrides.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-context378.py", line 36, in test_axial_road_archive_under_foreign_git
+    self.check_reader(axial)
+  File "/private/tmp/refactor03-test-ground-context378.py", line 30, in check_reader
+    result = module.provenance(folder)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/axial_road_verify.py", line 63, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_decoration_archive_under_foreign_git (__main__.GroundContextTests.test_decoration_archive_under_foreign_git)
+Decoration source coverage and frozen native artifacts stay bound to their own base.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-context378.py", line 40, in test_decoration_archive_under_foreign_git
+    self.check_reader(decoration)
+  File "/private/tmp/refactor03-test-ground-context378.py", line 30, in check_reader
+    result = module.provenance(folder)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/decoration_verify.py", line 116, in provenance
+    require(old.returncode==0 or name in OVERLAY,'historical dependency missing')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical dependency missing
+
+======================================================================
+ERROR: test_garden_archive_under_foreign_git (__main__.GroundContextTests.test_garden_archive_under_foreign_git)
+Garden's accepted inputs are never looked up in the caller's foreign repository.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-context378.py", line 44, in test_garden_archive_under_foreign_git
+    self.check_reader(garden)
+  File "/private/tmp/refactor03-test-ground-context378.py", line 30, in check_reader
+    result = module.provenance(folder)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/garden_verify.py", line 71, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_ground_edge_archive_under_foreign_git (__main__.GroundContextTests.test_ground_edge_archive_under_foreign_git)
+Ground edge keeps exact historical blobs and the tracked proof requirement.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-context378.py", line 48, in test_ground_edge_archive_under_foreign_git
+    self.check_reader(edge)
+  File "/private/tmp/refactor03-test-ground-context378.py", line 30, in check_reader
+    result = module.provenance(folder)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_edge_verify.py", line 63, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_meadow_archive_under_foreign_git (__main__.GroundContextTests.test_meadow_archive_under_foreign_git)
+Meadow's real archive validation reads the pinned source in this checkout.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-context378.py", line 60, in test_meadow_archive_under_foreign_git
+    self.check_reader(meadow)
+  File "/private/tmp/refactor03-test-ground-context378.py", line 30, in check_reader
+    result = module.provenance(folder)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/meadow_verify.py", line 63, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_plaza_archive_under_foreign_git (__main__.GroundContextTests.test_plaza_archive_under_foreign_git)
+Plaza's exact sources and tracked artifacts are independent of caller cwd.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-context378.py", line 64, in test_plaza_archive_under_foreign_git
+    self.check_reader(plaza)
+  File "/private/tmp/refactor03-test-ground-context378.py", line 30, in check_reader
+    result = module.provenance(folder)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/plaza_verify.py", line 70, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_revision_archive_under_foreign_git (__main__.GroundContextTests.test_revision_archive_under_foreign_git)
+Terrain revision keeps its actual historical envelope and complete tracked proof.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-context378.py", line 72, in test_revision_archive_under_foreign_git
+    self.check_reader(revision)
+  File "/private/tmp/refactor03-test-ground-context378.py", line 30, in check_reader
+    result = module.provenance(folder)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/terrain_revision_verify.py", line 91, in provenance
+    require(old.returncode==0 or name in OVERLAY,'historical input absent')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical input absent
+
+======================================================================
+ERROR: test_roads_archive_under_foreign_git (__main__.GroundContextTests.test_roads_archive_under_foreign_git)
+Road network's immutable source/index checks reject inherited repository selection.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-context378.py", line 68, in test_roads_archive_under_foreign_git
+    self.check_reader(roads)
+  File "/private/tmp/refactor03-test-ground-context378.py", line 30, in check_reader
+    result = module.provenance(folder)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/road_network_verify.py", line 63, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_seasons_archive_under_foreign_git (__main__.GroundContextTests.test_seasons_archive_under_foreign_git)
+Seasonal source envelopes and their full artifacts survive foreign Git config/index.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-context378.py", line 56, in test_seasons_archive_under_foreign_git
+    self.check_reader(seasons)
+  File "/private/tmp/refactor03-test-ground-context378.py", line 30, in check_reader
+    result = module.provenance(folder)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_seasons_verify.py", line 39, in provenance
+    require(old.returncode==0 or name in OVERLAY,'historical input absent')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical input absent
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.901s
+
+FAILED (errors=9)
