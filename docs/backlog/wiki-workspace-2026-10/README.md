@@ -284,4 +284,4 @@
 
 **Проверка:** docs/reports/creative/2026-10-29/, node wiki/scripts/editorial-review29-audit.mjs, pnpm --dir wiki check и полный штатный pre-commit.
 
-**Подтверждения / результат:** Подготовлены десять предложений и 45 будущих карточек. URL PR/проверенный SHA будут добавлены после публикации. Ожидается независимое ревью и решение Team Lead. Новая игра, участники и 60 F не реализованы/не проверены.
+**Подтверждения / результат:** Подготовлены десять предложений и 45 будущих карточек. PR: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/25 . Первый проверенный head c0f54a76097357eab6b0c78e75b10e0ec6a7c808: architecture83/1148, Game53502/0, normal/F10 по90/0, Wiki145/0, редакционный/foreign-GIT аудит и браузер desktop/390. Уточнения владельцев площадок/тепла и учёт PR проверяются заново в docs/reports/creative/2026-10-29/publish-1/; точный head нового коммита связывается с результатами в PR и сообщении Tech Lead после commit/push. Ожидается независимое ревью текущего head, его CI и решение Team Lead; in_progress, не done. Новые механики, участники и 60 F не реализованы/не проверены.

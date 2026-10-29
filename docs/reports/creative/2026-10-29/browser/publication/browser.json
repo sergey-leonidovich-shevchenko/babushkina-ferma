@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-29T10:36:39.313Z",
+  "version": "0.0.358",
+  "checks": [
+    {
+      "key": "owner299",
+      "verified": true,
+      "version358": true
+    },
+    {
+      "key": "owner300",
+      "verified": true,
+      "version358": true
+    },
+    {
+      "key": "warmth171",
+      "verified": true,
+      "version358": true
+    },
+    {
+      "key": "editor",
+      "verified": true,
+      "version358": true
+    }
+  ],
+  "counts": {
+    "ideas": 251,
+    "epics": 178,
+    "tasks": 2091,
+    "articles": 1200
+  },
+  "editorStatus": "in_progress",
+  "pullRequest": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/25",
+  "priorDesktopAnd390Evidence": "../browser.json",
+  "stateMutations": false,
+  "newGameplayTested": false,
+  "finalOverviewRaw": "overview-final.ax.txt.gz",
+  "finalTableScreenshot": "ideas-table.jpg",
+  "preLayoutScreenshot": "ideas-table-before-layout.jpg",
+  "tableReadability": "Two columns; separate labeled value/cost/risk remain. Earlier view retained."
+}

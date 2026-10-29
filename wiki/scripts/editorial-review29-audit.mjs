@@ -136,6 +136,12 @@ for (const proposal of ideas) {
   for (const heading of headings) assert.ok(text.includes(heading), `${proposal.id}: ${heading}`)
   for (const value of [proposal.summary, proposal.neighbor, proposal.balance, proposal.record])
     assert.ok(text.includes(value))
+  for (const rule of proposal.rules) assert.ok(text.includes(rule), `${proposal.id}: rule`)
+  const geometryTask = allTasks.get(proposal.geometryOwner)
+  assert.ok(geometryTask && geometryTask.id.startsWith(`${proposal.id}-`))
+  assert.ok(text.includes(`Геометрия/рабочая зона — ${proposal.geometryOwner}.`))
+  const register = await read('wiki/articles/new-horizons-register.md')
+  assert.ok(register.includes(`/${proposal.id.toLowerCase()}--${proposal.geometryOwner}`))
   assert.equal(proposal.dialog.length, 3)
   assert.equal(proposal.tests.length, 6)
   for (const [key, speaker, line, choices] of proposal.dialog) {
@@ -173,6 +179,11 @@ for (const proposal of ideas) {
 const editor = allTasks.get('IDEA-REVIEW-20261029')
 assert.equal(editor?.status, 'in_progress')
 assert.ok(editor.source.includes('wiki-workspace'))
+assert.ok(
+  (await read('docs/backlog/wiki-workspace-2026-10/README.md')).includes(
+    'https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/25'
+  )
+)
 
 // Clamp edits to the new design package, established pointers and version metadata.
 const allowed = new Set([
