@@ -1,0 +1,10 @@
+{
+  "source": "gates-01/game.txt",
+  "stored": "gates-01/game.txt.gz",
+  "raw_SHA256": "58ff6966e065c14a8fc73fb7b1d04b793eddc20402eb956e7f1e9f4dcdfba6ca",
+  "stored_SHA256": "0dbbd2fc4e9b596a23856c32bbf2e46ea1ed41dcceb0c75c044c1de85a23abbc",
+  "raw_bytes": 3324998,
+  "stored_bytes": 265784,
+  "raw_bytes_changed": false,
+  "reason": "git diff --cached --check flags meaningful trailing spaces in two negative-test labels; never trim raw"
+}

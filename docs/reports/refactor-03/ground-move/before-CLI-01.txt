@@ -1,0 +1,182 @@
+{
+  "task": "VRENDER-003",
+  "accepted": true,
+  "frames": 64,
+  "draws": 250,
+  "comparisons": {
+    "1152/village": {
+      "mean_channel_error": 0.03266728823731139,
+      "max_channel_error": 1,
+      "changed_pixels": 62562
+    },
+    "1152/tree-behind": {
+      "mean_channel_error": 0.03718841092249657,
+      "max_channel_error": 1,
+      "changed_pixels": 71346
+    },
+    "1152/tree-front": {
+      "mean_channel_error": 0.026780228337905807,
+      "max_channel_error": 1,
+      "changed_pixels": 51249
+    },
+    "1152/bush": {
+      "mean_channel_error": 0.03903258244741655,
+      "max_channel_error": 1,
+      "changed_pixels": 75089
+    },
+    "1152/bridge-west": {
+      "mean_channel_error": 0.040473983339048926,
+      "max_channel_error": 1,
+      "changed_pixels": 77892
+    },
+    "1152/bridge-east": {
+      "mean_channel_error": 0.04546932155921354,
+      "max_channel_error": 1,
+      "changed_pixels": 87268
+    },
+    "1152/winter": {
+      "mean_channel_error": 0.028811496199131228,
+      "max_channel_error": 1,
+      "changed_pixels": 53561
+    },
+    "1152/rain": {
+      "mean_channel_error": 0.03266728823731139,
+      "max_channel_error": 1,
+      "changed_pixels": 62562
+    },
+    "1152/manual-pause": {
+      "mean_channel_error": 0.012885534550754458,
+      "max_channel_error": 1,
+      "changed_pixels": 27690
+    },
+    "1152/interior": {
+      "mean_channel_error": 0.0,
+      "max_channel_error": 0,
+      "changed_pixels": 0
+    },
+    "1152/returned": {
+      "mean_channel_error": 0.03266728823731139,
+      "max_channel_error": 1,
+      "changed_pixels": 62562
+    },
+    "1280/village": {
+      "mean_channel_error": 0.03269458912037037,
+      "max_channel_error": 1,
+      "changed_pixels": 77359
+    },
+    "1280/tree-behind": {
+      "mean_channel_error": 0.037291304976851854,
+      "max_channel_error": 1,
+      "changed_pixels": 88145
+    },
+    "1280/tree-front": {
+      "mean_channel_error": 0.026842447916666665,
+      "max_channel_error": 1,
+      "changed_pixels": 63316
+    },
+    "1280/bush": {
+      "mean_channel_error": 0.039430700231481486,
+      "max_channel_error": 1,
+      "changed_pixels": 93566
+    },
+    "1280/bridge-west": {
+      "mean_channel_error": 0.040138888888888884,
+      "max_channel_error": 1,
+      "changed_pixels": 95299
+    },
+    "1280/bridge-east": {
+      "mean_channel_error": 0.045020254629629636,
+      "max_channel_error": 1,
+      "changed_pixels": 106811
+    },
+    "1280/winter": {
+      "mean_channel_error": 0.028881293402777782,
+      "max_channel_error": 1,
+      "changed_pixels": 66111
+    },
+    "1280/rain": {
+      "mean_channel_error": 0.03269458912037037,
+      "max_channel_error": 1,
+      "changed_pixels": 77359
+    },
+    "1280/manual-pause": {
+      "mean_channel_error": 0.012838903356481482,
+      "max_channel_error": 1,
+      "changed_pixels": 34108
+    },
+    "1280/interior": {
+      "mean_channel_error": 0.0,
+      "max_channel_error": 0,
+      "changed_pixels": 0
+    },
+    "1280/returned": {
+      "mean_channel_error": 0.03269458912037037,
+      "max_channel_error": 1,
+      "changed_pixels": 77359
+    }
+  },
+  "controls": {
+    "1152": {
+      "cold_first_frame": {
+        "mean_channel_error": 0.0,
+        "max_channel_error": 0,
+        "changed_pixels": 0
+      },
+      "water": {
+        "mean_channel_error": 5.586790373513947,
+        "max_channel_error": 129,
+        "changed_pixels": 116249
+      },
+      "motion": {
+        "mean_channel_error": 0.33326322802354824,
+        "max_channel_error": 221,
+        "changed_pixels": 6844
+      },
+      "legacy_draw_calls": 140.0,
+      "split_draw_calls": 142.0,
+      "live_reeds_roi": [
+        395,
+        505,
+        470,
+        570
+      ],
+      "opaque_bridge_probe": [
+        566,
+        386
+      ]
+    },
+    "1280": {
+      "cold_first_frame": {
+        "mean_channel_error": 0.0,
+        "max_channel_error": 0,
+        "changed_pixels": 0
+      },
+      "water": {
+        "mean_channel_error": 5.580843460648148,
+        "max_channel_error": 129,
+        "changed_pixels": 143443
+      },
+      "motion": {
+        "mean_channel_error": 0.3296726707175926,
+        "max_channel_error": 227,
+        "changed_pixels": 8468
+      },
+      "legacy_draw_calls": 140.0,
+      "split_draw_calls": 142.0,
+      "live_reeds_roi": [
+        439,
+        561,
+        522,
+        633
+      ],
+      "opaque_bridge_probe": [
+        629,
+        429
+      ]
+    }
+  },
+  "live_gameplay_fps_accepted": false,
+  "whole_map_accepted": false,
+  "new_water_art_accepted": false,
+  "gpu_time_ms": null
+}

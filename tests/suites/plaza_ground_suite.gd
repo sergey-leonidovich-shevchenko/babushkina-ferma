@@ -1,8 +1,10 @@
 extends RefCounted
 
+const Sources := preload("res://tools/qa/ground/compiled_sources.gd")
+
 const Plaza := preload("res://scripts/presentation/plaza_ground.gd")
-const Compiler := preload("res://tools/plaza_compile.gd")
-const Field := preload("res://tools/plaza_field.gd")
+const Compiler := preload("res://tools/qa/ground/plaza_compile.gd")
+const Field := preload("res://tools/qa/ground/plaza_field.gd")
 const Meadow := preload("res://scripts/presentation/meadow_ground.gd")
 const Map := preload("res://scripts/systems/village_map_data.gd")
 const Rules := preload("res://tests/suites/axial_road_suite.gd")
@@ -21,7 +23,7 @@ static func run(context: SceneTree) -> void:
 			if arrays[Mesh.ARRAY_TEX_UV][i].distance_to(Meadow.uv_at(point,Vector2i((point/192.0).floor())))>.00001: valid=false
 		context.expect(valid and soft>100 and mesh.get_surface_count()==1,"plaza geometry stays bounded with smooth independent alpha and continuous mirrored world UV")
 		context.expect(spec.chips==22 and spec.vertices<7000 and mesh.get_meta("source_sha256").size()==Compiler.SOURCES.size(),"plaza contains bounded debris, compact geometry and complete source coverage")
-		for path: String in Compiler.SOURCES: context.expect(mesh.get_meta("source_sha256").get(path)==FileAccess.get_sha256("res://"+path),"compiled plaza follows source: "+path)
+		for path: String in Compiler.SOURCES: context.expect(Sources.matches(path,mesh.get_meta("source_sha256").get(path)),"compiled plaza follows source: "+path)
 	var fragments := Field.chips(); var chips_visible := 0; var contacts := 0
 	for rect: Rect2 in fragments:
 		if Field.coverage(rect.get_center(),"stone",fragments)>.9: chips_visible+=1

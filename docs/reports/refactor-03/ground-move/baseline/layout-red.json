@@ -1,0 +1,13 @@
+{
+  "base": "c1cdd9f5842eaf2286be38bd8f95d18767d03c11",
+  "tests": 22,
+  "failures": 4,
+  "errors": 19,
+  "subtests_included": true,
+  "test_SHA256": "e4fbf7787627eb0a74e88fe46a811fdc2087f82134ea670279cd5144ea80c1fa",
+  "raw_SHA256": "4ab2513dfd890c649f3a56f7b85d3315e240a4a6edc0b5329255882b5dd92f85",
+  "native_frames": 0,
+  "descriptor_attempt00": "fixture used absent old_path field; corrected to authoritative dictionary key before meaningful red replay",
+  "positive_controls": 1,
+  "authoritative": "explicit folder; ordinary Ground alias ambiguity, unchanged layers history positive control"
+}

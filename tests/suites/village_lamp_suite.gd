@@ -3,7 +3,7 @@ extends RefCounted
 const Lamp := preload("res://scripts/presentation/village_lamp_visual.gd")
 const Layout := preload("res://scripts/systems/village_layout_system.gd")
 const Points := preload("res://tools/visual_camera_points.gd")
-const Rules := preload("res://tools/ground_seasons_fixture.gd")
+const Rules := preload("res://tools/qa/ground/ground_seasons_fixture.gd")
 
 ## Проверяет независимый корпус, измеренный источник и повторное использование двух общих meshes.
 static func run(ctx: SceneTree) -> void:

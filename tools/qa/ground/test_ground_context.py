@@ -1,18 +1,17 @@
 """Actual accepted ground archive readers under foreign cwd/Git, with no native or Game launch."""
 import json
-from pathlib import Path
 import unittest
 
-import axial_road_verify as axial
-import decoration_verify as decoration
-import garden_verify as garden
-import ground_edge_verify as edge
-import ground_layers as layers
-import ground_seasons_verify as seasons
-import meadow_verify as meadow
-import plaza_verify as plaza
-import road_network_verify as roads
-import terrain_revision_verify as revision
+from tools.qa.ground import axial_road_verify as axial
+from tools.qa.ground import decoration_verify as decoration
+from tools.qa.ground import garden_verify as garden
+from tools.qa.ground import ground_edge_verify as edge
+from tools.qa.ground import ground_layers as layers
+from tools.qa.ground import ground_seasons_verify as seasons
+from tools.qa.ground import meadow_verify as meadow
+from tools.qa.ground import plaza_verify as plaza
+from tools.qa.ground import road_network_verify as roads
+from tools.qa.ground import terrain_revision_verify as revision
 from tools.qa.world import test_world_context as fixtures
 
 

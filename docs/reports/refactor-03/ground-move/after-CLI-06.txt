@@ -1,0 +1,229 @@
+{
+  "task": "VGROUND-010",
+  "base_commit": "559277afcefcccc1d8efad5ae04469a193ba13d2",
+  "windows": {
+    "1152": {
+      "png_count": 44,
+      "draw_callbacks": 152,
+      "climates": 5,
+      "views_per_climate": 6,
+      "retained_meshes": 41,
+      "identical_rules": 1200,
+      "identical_bridge_motions": 8,
+      "alpha_exact": true,
+      "spring_return_exact": true,
+      "retained_targets": 1,
+      "idle_callbacks": 120,
+      "pause_resume_cache_exact": true,
+      "pause_saved_events_only": [
+        "first_chapter.pause_menu",
+        "tutorial.pause_menu"
+      ],
+      "idempotent_calls_per_climate": 10,
+      "material_samples": {
+        "spring": {
+          "meadow": {
+            "rgb_mean": [
+              120.71712239583333,
+              131.80338541666666,
+              56.34581163194444
+            ],
+            "gray_mean": 119.88780381944444
+          },
+          "plaza": {
+            "rgb_mean": [
+              195.12434895833334,
+              153.82335069444446,
+              99.64518229166667
+            ],
+            "gray_mean": 160.01888020833334
+          }
+        },
+        "summer": {
+          "meadow": {
+            "rgb_mean": [
+              104.14865451388889,
+              116.85503472222223,
+              41.755642361111114
+            ],
+            "gray_mean": 104.51421440972223
+          },
+          "plaza": {
+            "rgb_mean": [
+              184.41384548611111,
+              141.14930555555554,
+              84.01866319444444
+            ],
+            "gray_mean": 147.56770833333334
+          }
+        },
+        "autumn": {
+          "meadow": {
+            "rgb_mean": [
+              110.31184895833333,
+              103.92686631944444,
+              34.681966145833336
+            ],
+            "gray_mean": 97.94173177083333
+          },
+          "plaza": {
+            "rgb_mean": [
+              182.87684461805554,
+              134.51486545138889,
+              76.97515190972223
+            ],
+            "gray_mean": 142.43326822916666
+          }
+        },
+        "winter": {
+          "meadow": {
+            "rgb_mean": [
+              87.57660590277777,
+              106.52213541666667,
+              44.4091796875
+            ],
+            "gray_mean": 93.73828125
+          },
+          "plaza": {
+            "rgb_mean": [
+              160.67990451388889,
+              133.31011284722223,
+              85.96896701388889
+            ],
+            "gray_mean": 136.07866753472223
+          }
+        },
+        "wet": {
+          "meadow": {
+            "rgb_mean": [
+              92.31890190972223,
+              110.65462239583333,
+              48.60687934027778
+            ],
+            "gray_mean": 98.09331597222223
+          },
+          "plaza": {
+            "rgb_mean": [
+              156.08430989583334,
+              129.69444444444446,
+              85.96896701388889
+            ],
+            "gray_mean": 132.59331597222223
+          }
+        }
+      }
+    },
+    "1280": {
+      "png_count": 44,
+      "draw_callbacks": 152,
+      "climates": 5,
+      "views_per_climate": 6,
+      "retained_meshes": 41,
+      "identical_rules": 1200,
+      "identical_bridge_motions": 8,
+      "alpha_exact": true,
+      "spring_return_exact": true,
+      "retained_targets": 1,
+      "idle_callbacks": 120,
+      "pause_resume_cache_exact": true,
+      "pause_saved_events_only": [
+        "first_chapter.pause_menu",
+        "tutorial.pause_menu"
+      ],
+      "idempotent_calls_per_climate": 10,
+      "material_samples": {
+        "spring": {
+          "meadow": {
+            "rgb_mean": [
+              120.71712239583333,
+              131.80338541666666,
+              56.34581163194444
+            ],
+            "gray_mean": 119.88780381944444
+          },
+          "plaza": {
+            "rgb_mean": [
+              195.12434895833334,
+              153.82335069444446,
+              99.64518229166667
+            ],
+            "gray_mean": 160.01888020833334
+          }
+        },
+        "summer": {
+          "meadow": {
+            "rgb_mean": [
+              104.14865451388889,
+              116.85503472222223,
+              41.755642361111114
+            ],
+            "gray_mean": 104.51421440972223
+          },
+          "plaza": {
+            "rgb_mean": [
+              184.41384548611111,
+              141.14930555555554,
+              84.01866319444444
+            ],
+            "gray_mean": 147.56770833333334
+          }
+        },
+        "autumn": {
+          "meadow": {
+            "rgb_mean": [
+              110.31184895833333,
+              103.92686631944444,
+              34.681966145833336
+            ],
+            "gray_mean": 97.94173177083333
+          },
+          "plaza": {
+            "rgb_mean": [
+              182.87684461805554,
+              134.51486545138889,
+              76.97515190972223
+            ],
+            "gray_mean": 142.43326822916666
+          }
+        },
+        "winter": {
+          "meadow": {
+            "rgb_mean": [
+              87.57660590277777,
+              106.52213541666667,
+              44.4091796875
+            ],
+            "gray_mean": 93.73828125
+          },
+          "plaza": {
+            "rgb_mean": [
+              160.67990451388889,
+              133.31011284722223,
+              85.96896701388889
+            ],
+            "gray_mean": 136.07866753472223
+          }
+        },
+        "wet": {
+          "meadow": {
+            "rgb_mean": [
+              92.31890190972223,
+              110.65462239583333,
+              48.60687934027778
+            ],
+            "gray_mean": 98.09331597222223
+          },
+          "plaza": {
+            "rgb_mean": [
+              156.08430989583334,
+              129.69444444444446,
+              85.96896701388889
+            ],
+            "gray_mean": 132.59331597222223
+          }
+        }
+      }
+    }
+  },
+  "performance_eligible": false
+}

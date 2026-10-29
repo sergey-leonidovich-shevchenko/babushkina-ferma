@@ -1,0 +1,427 @@
+EEEEEEEEEEEEEEEEEEEEEEEE
+======================================================================
+ERROR: test_ambiguous_ground_git_aliases_are_rejected (__main__.GroundLayoutTests.test_ambiguous_ground_git_aliases_are_rejected) (module='ground_edge')
+Neither the shared ground-layers reader nor ordinary surface readers may choose two aliases.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 224, in test_ambiguous_ground_git_aliases_are_rejected
+    report, folder, source = self.source_fixture(module, own)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 76, in source_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_ambiguous_ground_git_aliases_are_rejected (__main__.GroundLayoutTests.test_ambiguous_ground_git_aliases_are_rejected) (module='ground_layers')
+Neither the shared ground-layers reader nor ordinary surface readers may choose two aliases.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 224, in test_ambiguous_ground_git_aliases_are_rejected
+    report, folder, source = self.source_fixture(module, own)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 76, in source_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_axial_history (__main__.GroundLayoutTests.test_axial_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 177, in test_axial_history
+    def test_axial_history(self): self.reader('axial_road')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 103, in reader
+    report, folder, source = self.source_fixture(module, own)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 76, in source_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_axial_producer (__main__.GroundLayoutTests.test_axial_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 187, in test_axial_producer
+    def test_axial_producer(self): self.producer('axial_road')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 146, in producer
+    base = self.current_fixture(module, own)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 117, in current_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_decoration_history (__main__.GroundLayoutTests.test_decoration_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 178, in test_decoration_history
+    def test_decoration_history(self): self.reader('decoration')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 103, in reader
+    report, folder, source = self.source_fixture(module, own)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 76, in source_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_decoration_producer (__main__.GroundLayoutTests.test_decoration_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 188, in test_decoration_producer
+    def test_decoration_producer(self): self.producer('decoration')
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 146, in producer
+    base = self.current_fixture(module, own)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 117, in current_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_edge_history (__main__.GroundLayoutTests.test_edge_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 180, in test_edge_history
+    def test_edge_history(self): self.reader('ground_edge')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 103, in reader
+    report, folder, source = self.source_fixture(module, own)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 76, in source_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_edge_producer (__main__.GroundLayoutTests.test_edge_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 190, in test_edge_producer
+    def test_edge_producer(self): self.producer('ground_edge')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 146, in producer
+    base = self.current_fixture(module, own)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 117, in current_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_garden_history (__main__.GroundLayoutTests.test_garden_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 179, in test_garden_history
+    def test_garden_history(self): self.reader('garden')
+                                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 103, in reader
+    report, folder, source = self.source_fixture(module, own)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 76, in source_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_garden_producer (__main__.GroundLayoutTests.test_garden_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 189, in test_garden_producer
+    def test_garden_producer(self): self.producer('garden')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 146, in producer
+    base = self.current_fixture(module, own)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 117, in current_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_layers_history (__main__.GroundLayoutTests.test_layers_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 181, in test_layers_history
+    def test_layers_history(self): self.reader('ground_layers')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 103, in reader
+    report, folder, source = self.source_fixture(module, own)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 76, in source_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_layers_producer (__main__.GroundLayoutTests.test_layers_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 191, in test_layers_producer
+    def test_layers_producer(self): self.producer('ground_layers')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 146, in producer
+    base = self.current_fixture(module, own)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 117, in current_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_meadow_history (__main__.GroundLayoutTests.test_meadow_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 183, in test_meadow_history
+    def test_meadow_history(self): self.reader('meadow')
+                                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 103, in reader
+    report, folder, source = self.source_fixture(module, own)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 76, in source_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_meadow_producer (__main__.GroundLayoutTests.test_meadow_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 193, in test_meadow_producer
+    def test_meadow_producer(self): self.producer('meadow')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 146, in producer
+    base = self.current_fixture(module, own)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 117, in current_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_missing_canonical_ground_input_never_reads_stale_legacy (__main__.GroundLayoutTests.test_missing_canonical_ground_input_never_reads_stale_legacy) (module='ground_edge')
+Both collector families must fail on the exact missing canonical address, without launching.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 205, in test_missing_canonical_ground_input_never_reads_stale_legacy
+    self.current_fixture(module, own)
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 117, in current_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_missing_canonical_ground_input_never_reads_stale_legacy (__main__.GroundLayoutTests.test_missing_canonical_ground_input_never_reads_stale_legacy) (module='ground_layers')
+Both collector families must fail on the exact missing canonical address, without launching.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 205, in test_missing_canonical_ground_input_never_reads_stale_legacy
+    self.current_fixture(module, own)
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 117, in current_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_plaza_history (__main__.GroundLayoutTests.test_plaza_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 184, in test_plaza_history
+    def test_plaza_history(self): self.reader('plaza')
+                                  ^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 103, in reader
+    report, folder, source = self.source_fixture(module, own)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 76, in source_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_plaza_producer (__main__.GroundLayoutTests.test_plaza_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 194, in test_plaza_producer
+    def test_plaza_producer(self): self.producer('plaza')
+                                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 146, in producer
+    base = self.current_fixture(module, own)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 117, in current_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_revision_history (__main__.GroundLayoutTests.test_revision_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 186, in test_revision_history
+    def test_revision_history(self): self.reader('terrain_revision')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 103, in reader
+    report, folder, source = self.source_fixture(module, own)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 76, in source_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_revision_producer (__main__.GroundLayoutTests.test_revision_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 196, in test_revision_producer
+    def test_revision_producer(self): self.producer('terrain_revision')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 146, in producer
+    base = self.current_fixture(module, own)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 117, in current_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_roads_history (__main__.GroundLayoutTests.test_roads_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 185, in test_roads_history
+    def test_roads_history(self): self.reader('road_network')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 103, in reader
+    report, folder, source = self.source_fixture(module, own)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 76, in source_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_roads_producer (__main__.GroundLayoutTests.test_roads_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 195, in test_roads_producer
+    def test_roads_producer(self): self.producer('road_network')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 146, in producer
+    base = self.current_fixture(module, own)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 117, in current_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_seasons_history (__main__.GroundLayoutTests.test_seasons_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 182, in test_seasons_history
+    def test_seasons_history(self): self.reader('ground_seasons')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 103, in reader
+    report, folder, source = self.source_fixture(module, own)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 76, in source_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+======================================================================
+ERROR: test_seasons_producer (__main__.GroundLayoutTests.test_seasons_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 192, in test_seasons_producer
+    def test_seasons_producer(self): self.producer('ground_seasons')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 146, in producer
+    base = self.current_fixture(module, own)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 117, in current_fixture
+    target = own / self.future_name(name)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 56, in future_name
+    if row and row['family'] == 'ground' and row['old_path'] != row['target']:
+                                             ~~~^^^^^^^^^^^^
+KeyError: 'old_path'
+
+----------------------------------------------------------------------
+Ran 22 tests in 4.516s
+
+FAILED (errors=24)

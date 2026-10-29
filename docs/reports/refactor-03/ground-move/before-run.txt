@@ -1,0 +1,27 @@
+{"phase": "before", "CLI": 1, "name": "ground_layers", "exit": 0}
+{"phase": "before", "CLI": 2, "name": "axial_road_verify", "exit": 0}
+{"phase": "before", "CLI": 3, "name": "decoration_verify", "exit": 0}
+{"phase": "before", "CLI": 4, "name": "garden_verify", "exit": 0}
+{"phase": "before", "CLI": 5, "name": "ground_edge_verify", "exit": 0}
+{"phase": "before", "CLI": 6, "name": "ground_seasons_verify", "exit": 0}
+{"phase": "before", "CLI": 7, "name": "meadow_verify", "exit": 0}
+{"phase": "before", "CLI": 8, "name": "plaza_verify", "exit": 0}
+{"phase": "before", "CLI": 9, "name": "road_network_verify", "exit": 0}
+{"phase": "before", "CLI": 10, "name": "terrain_revision_verify", "exit": 0}
+{"phase": "before", "CLI": 11, "name": "test_ground_layers", "exit": 0}
+{"phase": "before", "CLI": 12, "name": "test_axial_road", "exit": 0}
+{"phase": "before", "CLI": 13, "name": "test_decoration_rules", "exit": 0}
+{"phase": "before", "CLI": 14, "name": "test_garden_soil", "exit": 0}
+{"phase": "before", "CLI": 15, "name": "test_ground_edge", "exit": 0}
+{"phase": "before", "CLI": 16, "name": "test_ground_seasons", "exit": 0}
+{"phase": "before", "CLI": 17, "name": "test_meadow_ground", "exit": 0}
+{"phase": "before", "CLI": 18, "name": "test_plaza_ground", "exit": 0}
+{"phase": "before", "CLI": 19, "name": "test_road_network", "exit": 0}
+{"phase": "before", "CLI": 20, "name": "test_terrain_revision", "exit": 0}
+{"phase": "before", "CLI": 21, "name": "qa.ground.test_ground_context", "exit": 0}
+{"phase": "before", "CLI": 22, "name": "qa.performance.test_surface_producers", "exit": 0}
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-ground-profile379.py", line 89, in <module>
+    assert result.returncode == 0 and not any(t in raw.decode() for t in ['SCRIPT ERROR', 'Parse Error', 'ERROR:']), row
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'logical': 'tools/axial_road_board.gd', 'physical': 'tools/axial_road_board.gd', 'argv': ['/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot', '--headless', '--path', '/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm', '--check-only', '--script', 'res://tools/axial_road_board.gd'], 'exit': -6, 'log': 'before-GD-01.txt.gz', 'storage': 'gzip', 'raw_SHA256': '791ac0a68ae7732798b4d374624726d9a8456f20baa6d82d7a9c97830d929a3f', 'stored_SHA256': '8d4d336d9b766ca818ed9865acaef7a7e517133ec9d447a46f4608aa6e0d90e2', 'source_SHA256': '82aac8007a27b1a185e6737cabe2cd7a5091236b89119000ed99e48b7d99c84e'}

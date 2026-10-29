@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+    "--headless",
+    "--editor",
+    "--path",
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+    "--quit",
+    "--log-file",
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/fresh-editor-engine.txt"
+  ],
+  "exit": 0,
+  "own_cache_saved": "/private/tmp/refactor03-owned-godot-cache-before379",
+  "primary_cache_untouched": true,
+  "native_frames": 0,
+  "FPS_admission": false,
+  "logs": [
+    {
+      "path": "fresh-editor-stdout.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "dad0ffff2baab8d80666ac7a12dee6377a9fa80256f97934447d313980464ccf",
+      "stored_SHA256": "5fd942503d1be88323178af2ab696b971586c6db0f5b4862a1c05453eceec598"
+    },
+    {
+      "path": "fresh-editor-engine.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "e994628d6cf18061907990d54df3ab83de4e32cee0f64ef2746bb969514fa6c2",
+      "stored_SHA256": "d34c7765824bf47f25b029812f93b6cdd990e71950ab8dc0203f53fc76761e5f"
+    }
+  ]
+}

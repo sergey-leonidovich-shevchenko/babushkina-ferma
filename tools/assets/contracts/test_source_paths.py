@@ -70,8 +70,11 @@ class SourcePathsTests(unittest.TestCase):
         world = {old: row['target'] for old, row in plan['assignments'].items() if row['family'] == 'world' and old != row['target'] and old not in world_deferred}
         self.assertEqual(len(world), 134)
         expected.update(world)
+        ground = {old: row['target'] for old, row in plan['assignments'].items() if row['family'] == 'ground' and old != row['target']}
+        self.assertEqual(len(ground), 113)
+        expected.update(ground)
         self.assertEqual(dict(MOVED_PATHS), expected)
-        self.assertEqual(len(MOVED_PATHS), 267)
+        self.assertEqual(len(MOVED_PATHS), 380)
         for old, target in expected.items():
             self.assertEqual(current_source(root, old), root / target)
             self.assertTrue((root / target).is_file(), target)

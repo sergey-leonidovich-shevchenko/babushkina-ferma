@@ -1,0 +1,44 @@
+FF
+======================================================================
+FAIL: test_fresh_compilers_keep_geometry_and_record_current_hashes (__main__.CompiledSourceTests.test_fresh_compilers_keep_geometry_and_record_current_hashes)
+All four real compilers produce nine masks with exact geometry and fresh source hashes.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_compiled_sources.py", line 36, in test_fresh_compilers_keep_geometry_and_record_current_hashes
+    self.run_script('compiled_sources_review', folder, '--mode=fresh', '--output=' + str(folder))
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_compiled_sources.py", line 20, in run_script
+    self.assertNotIn('SCRIPT ERROR', result.stdout + result.stderr)
+AssertionError: 'SCRIPT ERROR' unexpectedly found in 'Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nSCRIPT ERROR: Parse Error: Cannot infer the type of "path" variable because the value doesn\'t have a set type.\n          at: GDScript::reload (res://tools/qa/ground/compiled_sources_review.gd:32)\nERROR: Failed to load script "res://tools/qa/ground/compiled_sources_review.gd" with error "Parse error".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n'
+
+======================================================================
+FAIL: test_frozen_sources_and_actual_file_tampering (__main__.CompiledSourceTests.test_frozen_sources_and_actual_file_tampering)
+Frozen hashes survive only reviewed preload moves; missing/stale/tampered bytes fail.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_compiled_sources.py", line 27, in test_frozen_sources_and_actual_file_tampering
+    self.run_script('compiled_sources_review', folder, '--mode=provenance',
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_compiled_sources.py", line 20, in run_script
+    self.assertNotIn('SCRIPT ERROR', result.stdout + result.stderr)
+AssertionError: 'SCRIPT ERROR' unexpectedly found in 'Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nSCRIPT ERROR: Parse Error: Cannot infer the type of "path" variable because the value doesn\'t have a set type.\n          at: GDScript::reload (res://tools/qa/ground/compiled_sources_review.gd:32)\nERROR: Failed to load script "res://tools/qa/ground/compiled_sources_review.gd" with error "Parse error".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n'
+
+----------------------------------------------------------------------
+Ran 2 tests in 11.881s
+
+FAILED (failures=2)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+GROUND MASK main { "step": 2, "feather": 4.5, "period_world": 384.0, "size": [2400.0, 1368.0], "radius": 36.0, "color_independent": true, "vertices": 42957, "indices": 223386 } error=0
+GROUND MASK connectors { "step": 2, "feather": 4.5, "period_world": 384.0, "size": [2400.0, 1368.0], "radius": 36.0, "color_independent": true, "vertices": 12471, "indices": 65154 } error=0
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+GROUND MASK main { "step": 2, "feather": 4.5, "period_world": 384.0, "size": [2400.0, 1368.0], "radius": 36.0, "color_independent": true, "vertices": 44362, "indices": 231120, "shape": "axial-rounded-box", "corner": 4.0 } error=0
+GROUND MASK connectors { "step": 2, "feather": 4.5, "period_world": 384.0, "size": [2400.0, 1368.0], "radius": 36.0, "color_independent": true, "vertices": 13113, "indices": 68784, "shape": "axial-rounded-box", "corner": 4.0 } error=0
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+main {"color_independent":true,"corner":4.0,"feather":4.5,"indices":214092,"occupied_cells":129401,"owner":0,"period_world":384.0,"radius":36.0,"shape":"axial-union-partition","size":[2400.0,1368.0],"step":2,"vertices":41192}
+connectors {"color_independent":true,"corner":4.0,"feather":4.5,"indices":61644,"occupied_cells":36609,"owner":1,"period_world":384.0,"radius":36.0,"shape":"axial-union-partition","size":[2400.0,1368.0],"step":2,"vertices":11878}
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+apron {"bounds":[1080.0,528.0,528.0,312.0],"cell_world":192.0,"chips":22,"color_independent":true,"indices":34542,"kind":"apron","step":2,"vertices":6426}
+contact {"bounds":[1080.0,528.0,528.0,312.0],"cell_world":192.0,"chips":22,"color_independent":true,"indices":28380,"kind":"contact","step":2,"vertices":5632}
+stone {"bounds":[1080.0,528.0,528.0,312.0],"cell_world":192.0,"chips":22,"color_independent":true,"indices":20970,"kind":"stone","step":2,"vertices":4319}

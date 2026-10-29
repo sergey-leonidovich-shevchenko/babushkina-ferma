@@ -1,0 +1,1629 @@
+{
+  "phase": "before",
+  "base": "c1cdd9f5842eaf2286be38bd8f95d18767d03c11",
+  "commands": [
+    {
+      "logical": "ground_layers",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-01.txt",
+      "SHA256": "dadbf243b5c025d7a9413f4a9cb5b7f2df16449917aa77a826aca6265c64c347",
+      "unit_cases": []
+    },
+    {
+      "logical": "axial_road_verify",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/axial_road_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-02.txt",
+      "SHA256": "439d6ec877668ef0031228f3fe7b462aa9b4274afe2fe9bc5f459bcf7117dd8c",
+      "unit_cases": []
+    },
+    {
+      "logical": "decoration_verify",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/decoration_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-03.txt",
+      "SHA256": "d412a89735cd5fb28ac551d88493240be0e53580ff0fdc4fae2db4341c1377a6",
+      "unit_cases": []
+    },
+    {
+      "logical": "garden_verify",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/garden_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-04.txt",
+      "SHA256": "93d4d4ed8b4cb640b29078afc7eb10c61edacc05a9d4da4c429aa14bc0190ccc",
+      "unit_cases": []
+    },
+    {
+      "logical": "ground_edge_verify",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_edge_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-05.txt",
+      "SHA256": "5900d6044011792d209d1bf65f52fc9cbd5b2c393385a223e3bae9ffb4aedf25",
+      "unit_cases": []
+    },
+    {
+      "logical": "ground_seasons_verify",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_seasons_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-06.txt",
+      "SHA256": "1b85d2254949f3f0619152a0b4531572d17c775d5069a88a9f79a5cab2b37d10",
+      "unit_cases": []
+    },
+    {
+      "logical": "meadow_verify",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/meadow_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-07.txt",
+      "SHA256": "be8f3c48d8ebf1095e1fab049013b7281a80c71d8106981d458c6784a4e1e1b7",
+      "unit_cases": []
+    },
+    {
+      "logical": "plaza_verify",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/plaza_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-08.txt",
+      "SHA256": "e014104534146581c07fa2c74fdff002a5bd01829858154d14300a591b221bc2",
+      "unit_cases": []
+    },
+    {
+      "logical": "road_network_verify",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/road_network_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-09.txt",
+      "SHA256": "86d5cd293c0cf81a082774e836ad3c57670f55ac8aaa969aa32cfe1febcc17b4",
+      "unit_cases": []
+    },
+    {
+      "logical": "terrain_revision_verify",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/terrain_revision_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-10.txt",
+      "SHA256": "697d026de9f5b7ffe9bdf89e8be605dd2886254ed8d36cbca5640e46450aa3db",
+      "unit_cases": []
+    },
+    {
+      "logical": "test_ground_layers",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_ground_layers.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-11.txt",
+      "SHA256": "2b812f457ea5d1b620d13dd1c6f4127b657a2b043be22ecff6cc6f56d1fc6403",
+      "unit_cases": [
+        20
+      ]
+    },
+    {
+      "logical": "test_axial_road",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_axial_road.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-12.txt",
+      "SHA256": "1d83585b97486319bb9c2fff2996c7435fd78e26e63e611aae2ad6791d35db6b",
+      "unit_cases": [
+        11
+      ]
+    },
+    {
+      "logical": "test_decoration_rules",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_decoration_rules.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-13.txt",
+      "SHA256": "d409b05401a975416b91c5291bf46a9e7d2aea13ad6a13fbaf45e4859fa004da",
+      "unit_cases": [
+        10
+      ]
+    },
+    {
+      "logical": "test_garden_soil",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_garden_soil.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-14.txt",
+      "SHA256": "2313f3080a74b1eaafce18d5e57dc8c31f3bcffa59df236889bc7242a73abdcb",
+      "unit_cases": [
+        12
+      ]
+    },
+    {
+      "logical": "test_ground_edge",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_ground_edge.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-15.txt",
+      "SHA256": "31fee74ca91764ff428912a09870cbe01b998b86899b47ff32b2bbbf7fdc0d92",
+      "unit_cases": [
+        9
+      ]
+    },
+    {
+      "logical": "test_ground_seasons",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_ground_seasons.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-16.txt",
+      "SHA256": "8c16e47adc72faa56769280ad8baac2fb483a8461125b39a1aba7804f282a19e",
+      "unit_cases": [
+        11
+      ]
+    },
+    {
+      "logical": "test_meadow_ground",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_meadow_ground.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-17.txt",
+      "SHA256": "86c967a00f06ad033ecab8fdfd48f0dfe4f7c54ecd2a5af426df39e10af79aa8",
+      "unit_cases": [
+        7
+      ]
+    },
+    {
+      "logical": "test_plaza_ground",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_plaza_ground.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-18.txt",
+      "SHA256": "7724c49597cae31e2ea71147430444ee9376de1da92559d856b61842486ed797",
+      "unit_cases": [
+        10
+      ]
+    },
+    {
+      "logical": "test_road_network",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_road_network.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-19.txt",
+      "SHA256": "9c95060112ad49455ae17a54bf3b90e5657eb7883b686f911be4ff87f460201f",
+      "unit_cases": [
+        9
+      ]
+    },
+    {
+      "logical": "test_terrain_revision",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_terrain_revision.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-20.txt",
+      "SHA256": "9a621d00b6bb7443c7fd925c5b3a19c848a8b2f123c196d8eeb343f881f24084",
+      "unit_cases": [
+        9
+      ]
+    },
+    {
+      "logical": "qa.ground.test_ground_context",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.ground.test_ground_context"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-21.txt",
+      "SHA256": "c63bd01eee461ab491bf5f140c99ee0b6974072e1098fd6d599f71dd29606720",
+      "unit_cases": [
+        10
+      ]
+    },
+    {
+      "logical": "qa.performance.test_surface_producers",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.performance.test_surface_producers"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+      "exit": 0,
+      "log": "before-CLI-22.txt",
+      "SHA256": "8d09afc766f5613580911e751113b2151c963f7c497b162f99fdbb05151bfe2d",
+      "unit_cases": [
+        9
+      ]
+    }
+  ],
+  "GD": [
+    {
+      "logical": "tools/axial_road_board.gd",
+      "physical": "tools/axial_road_board.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-01.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/axial_road_board.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-01.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "82aac8007a27b1a185e6737cabe2cd7a5091236b89119000ed99e48b7d99c84e",
+      "engine_log": "before-attempt02-GD-01.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/axial_road_builder.gd",
+      "physical": "tools/axial_road_builder.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-02.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/axial_road_builder.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-02.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "4f5eac369ad8558ef172ad3e7c66cf662fb90b0e05b1895bc410d777cf4b75ff",
+      "engine_log": "before-attempt02-GD-02.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/axial_road_capture.gd",
+      "physical": "tools/axial_road_capture.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-03.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/axial_road_capture.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-03.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "274288cfeddfb80ed3bb8683ac1deb38bf00974bc5b836d804b27ee88e82fd97",
+      "engine_log": "before-attempt02-GD-03.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/axial_road_compile.gd",
+      "physical": "tools/axial_road_compile.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-04.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/axial_road_compile.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-04.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "940f2c7ddc65234a3e994f3f2130067cda91b062822cdff787009fd079b0f3f6",
+      "engine_log": "before-attempt02-GD-04.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/axial_road_field.gd",
+      "physical": "tools/axial_road_field.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-05.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/axial_road_field.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-05.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "f3013bcd942cc69fa427be9a2a3e317df16bd0c7d58c954ea2fdd5ccb60ebfeb",
+      "engine_log": "before-attempt02-GD-05.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/axial_road_review.gd",
+      "physical": "tools/axial_road_review.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-06.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/axial_road_review.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-06.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "e0e109c55e451b145a04700e8a3590f9340441dcf4354f1575b7ba83841c7fed",
+      "engine_log": "before-attempt02-GD-06.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/decoration_capture.gd",
+      "physical": "tools/decoration_capture.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-07.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/decoration_capture.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-07.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "6f44901cc840efcf17f8f66bb4d25ff1afdfbc619d030e94e846b8a8eb2d7db1",
+      "engine_log": "before-attempt02-GD-07.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/decoration_overlay.gd",
+      "physical": "tools/decoration_overlay.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-08.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/decoration_overlay.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-08.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "50dc00eed8ab39029f59402c7a3099dd6c237205262f7e4a60266367f2071ce9",
+      "engine_log": "before-attempt02-GD-08.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/decoration_review.gd",
+      "physical": "tools/decoration_review.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-09.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/decoration_review.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-09.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "1d722ceb46bab08829b14956c935894a93e5edea8925b3bdf1fbdd3ec9524c22",
+      "engine_log": "before-attempt02-GD-09.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/garden_board.gd",
+      "physical": "tools/garden_board.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-10.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/garden_board.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-10.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "14e6e7f9f03cd6e0afb4853bccf431b184b17a176cedfa8a13d740d3d50327fe",
+      "engine_log": "before-attempt02-GD-10.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/garden_capture.gd",
+      "physical": "tools/garden_capture.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-11.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/garden_capture.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-11.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "dc6b6bdf44f6c955990ee3c7565a46f4bf24e110343f7917ec5bc53384fd8cd3",
+      "engine_log": "before-attempt02-GD-11.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/garden_import.gd",
+      "physical": "tools/garden_import.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-12.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/garden_import.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-12.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "4537e1c215fc6814e81572f74f8e596e7d8abdec80e595d87755581e297b9eb2",
+      "engine_log": "before-attempt02-GD-12.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/garden_review.gd",
+      "physical": "tools/garden_review.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-13.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/garden_review.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-13.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "353bd919d4582470760caa44da57ef5dd24dd6d4cc2033e6007050c7f7458449",
+      "engine_log": "before-attempt02-GD-13.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/ground_edge_board.gd",
+      "physical": "tools/ground_edge_board.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-14.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/ground_edge_board.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-14.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "c7925a7e592572f2497cadffbcc47358578cc2dbf204d2d35d97d292e5cbb476",
+      "engine_log": "before-attempt02-GD-14.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/ground_edge_builder.gd",
+      "physical": "tools/ground_edge_builder.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-15.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/ground_edge_builder.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-15.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "6e3360cfabf5454cfb977b270273cd5037869d3eda3512f1d84473e81b68dfc3",
+      "engine_log": "before-attempt02-GD-15.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/ground_edge_capture.gd",
+      "physical": "tools/ground_edge_capture.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-16.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/ground_edge_capture.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-16.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "c4314d06a08401ae81925d0c88eb4de125fb91dd467728bd4eb46b99985828b9",
+      "engine_log": "before-attempt02-GD-16.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/ground_edge_compile.gd",
+      "physical": "tools/ground_edge_compile.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-17.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/ground_edge_compile.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-17.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "be74bdf4a046b46fe54571e625099b858b9a73a966a254fca3bfeeb8576568a1",
+      "engine_log": "before-attempt02-GD-17.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/ground_edge_field.gd",
+      "physical": "tools/ground_edge_field.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-18.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/ground_edge_field.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-18.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "8cec18c6fc061b692fb66c5a0a6309f24cc7a7da6fb7d103c31f581be20d1e30",
+      "engine_log": "before-attempt02-GD-18.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/ground_edge_review.gd",
+      "physical": "tools/ground_edge_review.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-19.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/ground_edge_review.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-19.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "6caed11816e4112f075a921a34eaa71c40954db335bd44083b419efcf883c53a",
+      "engine_log": "before-attempt02-GD-19.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/ground_layers_capture.gd",
+      "physical": "tools/ground_layers_capture.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-20.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/ground_layers_capture.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-20.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "602c757643f49f991820e683d9c834efeff294d89509cc3a3db0fdf53a3b7117",
+      "engine_log": "before-attempt02-GD-20.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/ground_layers_review.gd",
+      "physical": "tools/ground_layers_review.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-21.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/ground_layers_review.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-21.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "a6da016fc8be94f3b20fa056d0924d44dbec3b1d0494113edcc98b3fc91adbc4",
+      "engine_log": "before-attempt02-GD-21.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/ground_seasons_capture.gd",
+      "physical": "tools/ground_seasons_capture.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-22.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/ground_seasons_capture.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-22.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "c71148a8005eadd1440c522fd63ce9a47c0c84015f34e8b7ebe67a6fad55c439",
+      "engine_log": "before-attempt02-GD-22.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/ground_seasons_fixture.gd",
+      "physical": "tools/ground_seasons_fixture.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-23.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/ground_seasons_fixture.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-23.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "e5afc617fabde18419e6ce1d0a84a70e952fa3028bbf2c1d5cb2cba47787b111",
+      "engine_log": "before-attempt02-GD-23.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/ground_seasons_review.gd",
+      "physical": "tools/ground_seasons_review.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-24.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/ground_seasons_review.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-24.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "130a1c3aeea1cff9682584dc81b05c233a796b459e6e8b9b0bdbeb5a50cbb878",
+      "engine_log": "before-attempt02-GD-24.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/meadow_board.gd",
+      "physical": "tools/meadow_board.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-25.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/meadow_board.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-25.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "21d437d82cb3742fffdd1eaba111f9e0eccf1ea53d37dafb4532aae95055b99e",
+      "engine_log": "before-attempt02-GD-25.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/meadow_capture.gd",
+      "physical": "tools/meadow_capture.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-26.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/meadow_capture.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-26.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "05cbce38759c980bd19acb6741b89a3d13a6827fb874dc1fab23b31d86b1e046",
+      "engine_log": "before-attempt02-GD-26.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/meadow_import.gd",
+      "physical": "tools/meadow_import.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-27.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/meadow_import.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-27.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "4c3ca8b91e0a97ce2d840c7a55776ff40a195a365c6161cd1be90510f3e7ca68",
+      "engine_log": "before-attempt02-GD-27.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/meadow_review.gd",
+      "physical": "tools/meadow_review.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-28.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/meadow_review.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-28.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "b773d3497b474fd64cee9de2c3dc235d1290f04e702979d23a922f5398d52708",
+      "engine_log": "before-attempt02-GD-28.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/plaza_board.gd",
+      "physical": "tools/plaza_board.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-29.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/plaza_board.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-29.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "6b2c32075652cfb3ece25ec0693ccdecb09ef892de4defe02c73d23b3e1558ec",
+      "engine_log": "before-attempt02-GD-29.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/plaza_builder.gd",
+      "physical": "tools/plaza_builder.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-30.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/plaza_builder.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-30.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "a707c8a12a6e07b327d6685ba297d8941fabdd20ae7c63cae914548d7866371e",
+      "engine_log": "before-attempt02-GD-30.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/plaza_capture.gd",
+      "physical": "tools/plaza_capture.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-31.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/plaza_capture.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-31.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "33f9a3c34a6a0255f7fd81da54b0afc78783d75bf03b470b4b7a23028fa83ce0",
+      "engine_log": "before-attempt02-GD-31.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/plaza_compile.gd",
+      "physical": "tools/plaza_compile.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-32.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/plaza_compile.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-32.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "969aca99b14f781d0d13bb3aea442a85bcaf5ba2b99b1797221ebfedd9424538",
+      "engine_log": "before-attempt02-GD-32.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/plaza_field.gd",
+      "physical": "tools/plaza_field.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-33.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/plaza_field.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-33.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "2c4384cda4a0fbdb099acd7589ae24b198e58336c4abf8a0612c0a911ded020c",
+      "engine_log": "before-attempt02-GD-33.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/plaza_import.gd",
+      "physical": "tools/plaza_import.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-34.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/plaza_import.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-34.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "d395f243713032e4e09c80d1a8e593e831ea240da4adafb3b1878f1d6ee82986",
+      "engine_log": "before-attempt02-GD-34.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/plaza_review.gd",
+      "physical": "tools/plaza_review.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-35.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/plaza_review.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-35.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "c6dacef3dd0fbfc1f2aa376437bfb742109bef40fc709fdfb5575e54da98746f",
+      "engine_log": "before-attempt02-GD-35.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/road_network_board.gd",
+      "physical": "tools/road_network_board.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-36.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/road_network_board.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-36.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "ef808380b60ebeabcca386822db314236cc48dd20152b23a13d8472677ce1a4f",
+      "engine_log": "before-attempt02-GD-36.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/road_network_builder.gd",
+      "physical": "tools/road_network_builder.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-37.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/road_network_builder.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-37.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "6ab1f77cd66fc7d20418bf47c327b2526f5da575633b12499c9b7ad579d4409c",
+      "engine_log": "before-attempt02-GD-37.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/road_network_capture.gd",
+      "physical": "tools/road_network_capture.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-38.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/road_network_capture.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-38.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "f66f53c331c062d03782afb39b771b6fb6b8620dd6266df78d2399d06c1ccd4c",
+      "engine_log": "before-attempt02-GD-38.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/road_network_compile.gd",
+      "physical": "tools/road_network_compile.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-39.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/road_network_compile.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-39.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "4b42aa042dae87759e204a1596f434ed1be0287d08177acba2fe8d73b67fb2a5",
+      "engine_log": "before-attempt02-GD-39.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/road_network_review.gd",
+      "physical": "tools/road_network_review.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-40.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/road_network_review.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-40.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "02e4e92b1ba2ca9fc659a13daea38776b1102abf3ea6f8db05a5acafa7b97ec1",
+      "engine_log": "before-attempt02-GD-40.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/terrain_revision_capture.gd",
+      "physical": "tools/terrain_revision_capture.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-41.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/terrain_revision_capture.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-41.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "69be1e20f17bd1f366c6cb88bcac69597b2347d239a1f4c08e4401575892c37d",
+      "engine_log": "before-attempt02-GD-41.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tools/terrain_revision_review.gd",
+      "physical": "tools/terrain_revision_review.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-42.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tools/terrain_revision_review.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-42.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "f89da8aab3955d513635c51816e2683af16bcafdc3eaa2a14618ea7b67ad2bd4",
+      "engine_log": "before-attempt02-GD-42.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/axial_road_suite.gd",
+      "physical": "tests/suites/axial_road_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-43.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/axial_road_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-43.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "102c562e726310545a29cb664fdeed08f0ea4c01bec859f121a7967dd7149c9a",
+      "engine_log": "before-attempt02-GD-43.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/ground_edge_suite.gd",
+      "physical": "tests/suites/ground_edge_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-44.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/ground_edge_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-44.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "c8fc968abbe41f79a29d5bb5aceb48e7e4ba705568e25825585e513498411bc2",
+      "engine_log": "before-attempt02-GD-44.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/ground_seasons_suite.gd",
+      "physical": "tests/suites/ground_seasons_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-45.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/ground_seasons_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-45.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "701127948f477bbfb77f5721dc835f8ada35233209f1839ddccb388e6e8223cd",
+      "engine_log": "before-attempt02-GD-45.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/object_draw_command_suite.gd",
+      "physical": "tests/suites/object_draw_command_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-46.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/object_draw_command_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-46.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "ab309e33981a86479df2d118a0d87c30baeaf2d7b1f5fd42dd62c875727fa871",
+      "engine_log": "before-attempt02-GD-46.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/pilot_object_pass_suite.gd",
+      "physical": "tests/suites/pilot_object_pass_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-47.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/pilot_object_pass_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-47.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "3be32e90245cc24e6aadcdc70d1cc379d62bad4a46e1335d24351172ebad4cd3",
+      "engine_log": "before-attempt02-GD-47.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/plaza_ground_suite.gd",
+      "physical": "tests/suites/plaza_ground_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-48.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/plaza_ground_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-48.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "055a313c6953f95ae0b017d8863b5c5d2830a53dd3634b1519473fede8d69990",
+      "engine_log": "before-attempt02-GD-48.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/road_network_suite.gd",
+      "physical": "tests/suites/road_network_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-49.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/road_network_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-49.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "3ae9ae8fd7c1bddaa63780946929c279916517972660b26faa9c95a69bb5694c",
+      "engine_log": "before-attempt02-GD-49.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/village_bench_suite.gd",
+      "physical": "tests/suites/village_bench_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-50.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/village_bench_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-50.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "d68366a9f5741afc7d176f745468c0895d130082281fc17752bc144c303d4cf8",
+      "engine_log": "before-attempt02-GD-50.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/village_board_suite.gd",
+      "physical": "tests/suites/village_board_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-51.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/village_board_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-51.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "0569fb9b4055170fc1c78b08e5f8fa1cf9fb22fe1fbb4adcd6b933105c46193a",
+      "engine_log": "before-attempt02-GD-51.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/village_fence_suite.gd",
+      "physical": "tests/suites/village_fence_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-52.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/village_fence_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-52.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "4f2a245b46d597cfdf2c09d6fbfe00bde446e74327f81fd013ed712503e7ba2d",
+      "engine_log": "before-attempt02-GD-52.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/village_lamp_suite.gd",
+      "physical": "tests/suites/village_lamp_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-53.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/village_lamp_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-53.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "68b5338340ac35d37ac9d090a02fe740d8b4b16386be3543dd7b0dd5ec619c9e",
+      "engine_log": "before-attempt02-GD-53.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/village_street_suite.gd",
+      "physical": "tests/suites/village_street_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-54.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/village_street_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-54.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "4e875a019b4df6a52e3a2a036ced8a40c97b84afce4523189db233795c2e01c5",
+      "engine_log": "before-attempt02-GD-54.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "logical": "tests/suites/village_trade_suite.gd",
+      "physical": "tests/suites/village_trade_suite.gd",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+        "--log-file",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-03/ground-move/before-attempt02-GD-55.engine.txt",
+        "--check-only",
+        "--script",
+        "res://tests/suites/village_trade_suite.gd"
+      ],
+      "exit": 0,
+      "log": "before-attempt02-GD-55.txt.gz",
+      "storage": "gzip",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "source_SHA256": "d22058e0cb04c52cfc22c39edb390ad6d2537e6ef2e09155dd357306a9b18691",
+      "engine_log": "before-attempt02-GD-55.engine.txt.gz",
+      "engine_raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "engine_stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    }
+  ],
+  "foreign_cwd": true,
+  "foreign_Git_config_index": true,
+  "foreign_bytes_preserved": true,
+  "historical_readers": 10,
+  "old_negative_suites": 10,
+  "existing_context_and_producer_suites": 2,
+  "unit_cases": 127,
+  "native_frames": 0,
+  "FPS_admission": false,
+  "CLI_reused_after_GD_log_ownership_failure": true
+}

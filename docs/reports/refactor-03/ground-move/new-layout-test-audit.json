@@ -1,0 +1,14 @@
+{
+  "before_SHA256": "e4fbf7787627eb0a74e88fe46a811fdc2087f82134ea670279cd5144ea80c1fa",
+  "after_SHA256": "291056b0766604460c869c7957ea40a1235983197f1bbce0a73a0f6645225e6e",
+  "source_SHA_equal": false,
+  "test_cases": 22,
+  "methods_equal_after_explicit_fixture_guard_normalization": true,
+  "allowed_changes": [
+    "19 package import addresses",
+    "unused subprocess import removal",
+    "native-frame guard excludes exact archived input PNGs"
+  ],
+  "test_methods_removed": 0,
+  "first_after_failure_retained": "layout-green-attempt01.txt"
+}

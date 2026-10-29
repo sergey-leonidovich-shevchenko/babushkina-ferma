@@ -6,15 +6,15 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
-import sys
 import tempfile
 import unittest
 from unittest.mock import patch
 
 import grass_compare_collect as grass
 import grass_methods as grass_reader
-import ground_layers as ground
+from tools.qa.ground import ground_layers as ground
 from tools.common.git import git_environment
+from tools.assets.contracts.source_paths import current_source
 from tools.common.paths import project_root
 from tools.qa.performance import perf_contract_collect as common_collector
 
@@ -46,7 +46,7 @@ class SurfaceProducerTests(unittest.TestCase):
         root.mkdir()
         # This independent fixture always lays out the real current implementation physically.
         for logical in sorted(set(grass.FROZEN) | set(ground.SOURCES)):
-            physical = CANONICAL if logical == LEGACY else logical
+            physical = str(current_source(ROOT,logical).relative_to(ROOT))
             target = root / physical
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / physical, target)

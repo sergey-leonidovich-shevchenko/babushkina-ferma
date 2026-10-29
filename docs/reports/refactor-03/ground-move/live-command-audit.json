@@ -1,0 +1,161 @@
+{
+  "old_live_Ground_addresses": [],
+  "current_targets": [
+    {
+      "document": "TESTING.md",
+      "line": 133,
+      "target": "tools/qa/ground/ground_seasons_collect.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 133,
+      "target": "tools/qa/ground/ground_seasons_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 135,
+      "target": "tools/qa/ground/terrain_revision_collect.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 135,
+      "target": "tools/qa/ground/terrain_revision_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 137,
+      "target": "tools/qa/ground/decoration_collect.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 137,
+      "target": "tools/qa/ground/decoration_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 139,
+      "target": "tools/qa/ground/garden_collect.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 139,
+      "target": "tools/qa/ground/garden_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 139,
+      "target": "tools/qa/ground/test_garden_soil.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 141,
+      "target": "tools/qa/ground/plaza_collect.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 141,
+      "target": "tools/qa/ground/plaza_compile.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 141,
+      "target": "tools/qa/ground/plaza_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 141,
+      "target": "tools/qa/ground/test_plaza_ground.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 143,
+      "target": "tools/qa/ground/road_network_collect.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 143,
+      "target": "tools/qa/ground/road_network_compile.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 143,
+      "target": "tools/qa/ground/road_network_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 143,
+      "target": "tools/qa/ground/test_road_network.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 145,
+      "target": "tools/qa/ground/axial_road_collect.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 145,
+      "target": "tools/qa/ground/axial_road_compile.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 145,
+      "target": "tools/qa/ground/axial_road_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 145,
+      "target": "tools/qa/ground/test_axial_road.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 147,
+      "target": "tools/qa/ground/ground_edge_collect.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 147,
+      "target": "tools/qa/ground/ground_edge_compile.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 147,
+      "target": "tools/qa/ground/ground_edge_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 147,
+      "target": "tools/qa/ground/test_ground_edge.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 149,
+      "target": "tools/qa/ground/meadow_collect.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 149,
+      "target": "tools/qa/ground/meadow_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 149,
+      "target": "tools/qa/ground/test_meadow_ground.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 151,
+      "target": "tools/qa/ground/ground_layers_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 151,
+      "target": "tools/qa/ground/test_ground_layers.py"
+    },
+    {
+      "document": "QA_CHECKLIST.md",
+      "line": 1831,
+      "target": "tools/qa/ground/decoration_review.gd"
+    }
+  ],
+  "frozen_reports_and_historical_map_excluded": true
+}

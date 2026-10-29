@@ -1,0 +1,11 @@
+{
+  "base": "c1cdd9f5842eaf2286be38bd8f95d18767d03c11",
+  "tests": 22,
+  "failures": 4,
+  "errors": 20,
+  "subtests_included": true,
+  "test_SHA256": "84d0e4142efebbba0a4637c5119cf2ea1dbf4e269a46277ab4a28e2a8dd52582",
+  "raw_SHA256": "743206d57049249cc1cb35fb6324d16baeed01cf4aecc79b372e5428da84ee45",
+  "native_frames": 0,
+  "descriptor_attempt00": "fixture used absent old_path field; corrected to authoritative dictionary key before meaningful red replay"
+}

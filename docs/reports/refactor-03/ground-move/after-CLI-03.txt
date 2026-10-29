@@ -1,0 +1,37 @@
+{
+  "task": "VGROUND-008",
+  "base_commit": "c9ae970781fae8d1aab95644873668036b5c3011",
+  "windows": {
+    "1152": {
+      "png_count": 54,
+      "draw_callbacks": 208,
+      "ordinary_exact_cases": 10,
+      "snapshot_only_cases": [
+        "rain",
+        "interior",
+        "returned"
+      ],
+      "rain_pixel_equality": false,
+      "diagnostic_changed_cases": 10,
+      "accepted": 86,
+      "rejected": 200,
+      "zones": 161
+    },
+    "1280": {
+      "png_count": 54,
+      "draw_callbacks": 208,
+      "ordinary_exact_cases": 10,
+      "snapshot_only_cases": [
+        "rain",
+        "interior",
+        "returned"
+      ],
+      "rain_pixel_equality": false,
+      "diagnostic_changed_cases": 10,
+      "accepted": 86,
+      "rejected": 200,
+      "zones": 161
+    }
+  },
+  "performance_eligible": false
+}

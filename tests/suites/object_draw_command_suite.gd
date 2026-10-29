@@ -67,7 +67,7 @@ static func test_material_scope_and_fallback(context: SceneTree) -> void:
 ## Исходное состояние: подготовленная навигация, полный save и прежние 1 200 правил/восемь движений.
 ## Ожидаемый результат: описание рисунка не меняет механику, карту, опору героя или сохраняемые данные.
 static func test_world_and_save_are_unchanged(context: SceneTree) -> void:
-	var Fixture:=preload("res://tools/ground_seasons_fixture.gd")
+	var Fixture:=preload("res://tools/qa/ground/ground_seasons_fixture.gd")
 	var game:=Fixture.Points.create_game();game._ready();Fixture.Points.configure(game,Fixture.Points.registry().points[0])
 	var rules:=Fixture.rules(game);var saved:Dictionary=game.SaveSystem.snapshot(game);var player:Vector2=game.player
 	for i in 32:Bench.command(game.workbench_position+Vector2(0,24),[0,1,3][i%3])

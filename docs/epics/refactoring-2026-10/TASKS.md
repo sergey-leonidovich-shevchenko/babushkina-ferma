@@ -108,6 +108,10 @@
 
 **Промежуточная подготовка Ground 0.0.378:** принятый родитель c47b78…/review5697669336/CI8/8 сохранён.28 прямых Git-вызовов18 модулей изолированы от чужих cwd/index/config;10 настоящих архивных сценариев дали parent9 ошибок → текущие10/0.37 полей21 модуля и frozen reports прежние. Неиспользуемый импорт plant_depth и живые World/Water команды исправлены. [План и проверки](../../reports/refactor-03/ground-context-prepare/README.md). Физических переносов0, корень153, текущая карта267. Полная03 не завершена; PR21 остаётся draft/in_progress, новый head требует независимого ревью и CI.
 
+**Промежуточный перенос Ground 0.0.379:** родитель378 принят [review5704521872](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5704521872), CI 8/8 и Team Lead. 71 исходник/42 UID перемещены в qa/ground, root153→82, карта267→380. Сохранены 37 полей/21 модуль и 302 UID bytes/mode. Новые22 layout, прежние22 CLI/55 GD и fresh import прошли; данные и отказы в [отчёте](../../reports/refactor-03/ground-move/README.md). P3 Path и дополнительные unused в tools-тестах исправлены, аудит34 Python включает14 тестовых модулей. Вся03 остаётся in_progress/draft PR21, нужны полные TESTING и независимые exact-head CI/review; без merge/Task-Complete.
+
+- Ground379: первый Game выявил25 source-hash ошибок после переноса; QA-only bridge сохраняет frozen .res и различает точный preload move от изменения содержимого. Свежие compiler hashes и девять byte-equal масок проверены отдельно; обязательна новая полная gates-03 (gates-02: ps запрещён sandbox; точный permitted replay1/0).
+
 ## REFACTOR-04 — Сгруппировать профильные suites и helpers без потери запуска
 
 **Статус:** blocked · **Приоритет:** P2 · **Объём:** M · **Тип:** refactor.

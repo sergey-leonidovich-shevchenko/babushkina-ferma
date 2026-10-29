@@ -1,0 +1,8 @@
+{
+  "reason": "first commit attempt found significant raw whitespace; after compression, retry omitted already-staged deletion paths from add args",
+  "helper_before_SHA256": "3431ddba70005db370562d6e1b0277e94d871deb1f68a3c20cb662ea9451fe5f",
+  "helper_after_SHA256": "4b3164bd74f8a178e60eb539bbe30077ddd939280f5051eed0bd3ca5611ad768",
+  "removed_paths_expected_unchanged": 113,
+  "source_paths_unchanged": 146,
+  "full_gates_source_unchanged": true
+}

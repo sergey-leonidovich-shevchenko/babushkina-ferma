@@ -1,8 +1,10 @@
 extends RefCounted
 
+const Sources := preload("res://tools/qa/ground/compiled_sources.gd")
+
 const Masks := preload("res://scripts/presentation/ground_edge_masks.gd")
-const Field := preload("res://tools/axial_road_field.gd")
-const Compiler := preload("res://tools/road_network_compile.gd")
+const Field := preload("res://tools/qa/ground/axial_road_field.gd")
+const Compiler := preload("res://tools/qa/ground/road_network_compile.gd")
 const Map := preload("res://scripts/systems/village_map_data.gd")
 const Regions := preload("res://scripts/systems/village_region_data.gd")
 const AxialTests := preload("res://tests/suites/axial_road_suite.gd")
@@ -16,7 +18,7 @@ static func run(context: SceneTree) -> void:
 		context.expect(spec.shape=="axial-union-partition" and spec.radius==Map.PATH_HALF_WIDTH and spec.period_world==384.0 and mesh.get_surface_count()==1,"network shares width, material coordinates and one surface per owner")
 		context.expect(mesh.get_meta("source_sha256").size()==Compiler.SOURCES.size(),"network compiler preserves complete source coverage")
 		for path: String in Compiler.SOURCES:
-			context.expect(FileAccess.get_sha256("res://"+path)==mesh.get_meta("source_sha256").get(path),"compiled network follows canonical input: "+path)
+			context.expect(Sources.matches(path,mesh.get_meta("source_sha256").get(path)),"compiled network follows canonical input: "+path)
 		for i in arrays[Mesh.ARRAY_VERTEX].size():
 			var point: Vector2=arrays[Mesh.ARRAY_VERTEX][i]; var uv: Vector2=arrays[Mesh.ARRAY_TEX_UV][i]; var color: Color=arrays[Mesh.ARRAY_COLOR][i]
 			if point.distance_to(uv*384.0)>.001 or absf(color.a-Field.coverage(point,all_edges))>1.0/255.0+.00001 or color.r!=1 or color.g!=1 or color.b!=1: valid=false
@@ -31,7 +33,7 @@ static func run(context: SceneTree) -> void:
 		context.expect(count==spec.occupied_cells,"compiled ownership metadata counts actual nonoverlapping cells")
 	context.expect(valid,"every network vertex uses global UV, white color and the exact union coverage")
 	context.expect(not duplicate and not occupied.is_empty(),"neither layer draws the same world cell twice")
-	var reference := preload("res://tools/axial_road_builder.gd").build(Map.routes()+Regions.routes("overworld"),Map.WORLD_SIZE)
+	var reference := preload("res://tools/qa/ground/axial_road_builder.gd").build(Map.routes()+Regions.routes("overworld"),Map.WORLD_SIZE)
 	var ref_arrays := reference.surface_get_arrays(0); var expected := {}
 	for i in range(0,ref_arrays[Mesh.ARRAY_INDEX].size(),6):
 		var a: Vector2=ref_arrays[Mesh.ARRAY_VERTEX][ref_arrays[Mesh.ARRAY_INDEX][i]]

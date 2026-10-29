@@ -1,6 +1,6 @@
 extends RefCounted
 
-const Fixture := preload("res://tools/ground_seasons_fixture.gd")
+const Fixture := preload("res://tools/qa/ground/ground_seasons_fixture.gd")
 const Terrain := preload("res://scripts/systems/village_terrain_renderer.gd")
 
 ## Принимает цвета на неизменной геометрии и сохраняет настоящие правила календаря и полива.

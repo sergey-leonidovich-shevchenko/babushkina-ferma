@@ -1,0 +1,2139 @@
+{
+  "base": "c1cdd9f5842eaf2286be38bd8f95d18767d03c11",
+  "sources": {
+    "tests/suites/axial_road_suite.gd": {
+      "sha256": "102c562e726310545a29cb664fdeed08f0ea4c01bec859f121a7967dd7149c9a",
+      "bytes": 4776,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "5f03cc67839916e85b064e75157800631c4ccca0"
+    },
+    "tests/suites/ground_edge_suite.gd": {
+      "sha256": "c8fc968abbe41f79a29d5bb5aceb48e7e4ba705568e25825585e513498411bc2",
+      "bytes": 3394,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "0d7fbe8a991767ee6fa14315e0f3296f2a6feda5"
+    },
+    "tests/suites/ground_seasons_suite.gd": {
+      "sha256": "701127948f477bbfb77f5721dc835f8ada35233209f1839ddccb388e6e8223cd",
+      "bytes": 6343,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "0a490ce73e5021ebd693ab84dc3d43bfd9ec4976"
+    },
+    "tests/suites/object_draw_command_suite.gd": {
+      "sha256": "ab309e33981a86479df2d118a0d87c30baeaf2d7b1f5fd42dd62c875727fa871",
+      "bytes": 7372,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "d8eb2ab44592ad70ea71f7bca0a2dff6ea2ef4b2"
+    },
+    "tests/suites/pilot_object_pass_suite.gd": {
+      "sha256": "3be32e90245cc24e6aadcdc70d1cc379d62bad4a46e1335d24351172ebad4cd3",
+      "bytes": 4641,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "363685eb605acaf9106deab3fb36f2fd8ad7076c"
+    },
+    "tests/suites/plaza_ground_suite.gd": {
+      "sha256": "055a313c6953f95ae0b017d8863b5c5d2830a53dd3634b1519473fede8d69990",
+      "bytes": 3330,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "3fbd8808f76e8071f84195e841bcac5ca6f949d5"
+    },
+    "tests/suites/road_network_suite.gd": {
+      "sha256": "3ae9ae8fd7c1bddaa63780946929c279916517972660b26faa9c95a69bb5694c",
+      "bytes": 4086,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "1e3f138c83de440ac1c185be00543782252ca2d5"
+    },
+    "tests/suites/village_bench_suite.gd": {
+      "sha256": "d68366a9f5741afc7d176f745468c0895d130082281fc17752bc144c303d4cf8",
+      "bytes": 3362,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "e5bd51647b03b7276b0493bef3eb4cfe2f8ac03e"
+    },
+    "tests/suites/village_board_suite.gd": {
+      "sha256": "0569fb9b4055170fc1c78b08e5f8fa1cf9fb22fe1fbb4adcd6b933105c46193a",
+      "bytes": 5196,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "847ed80636388d95ecddb3f641709623b9f02f92"
+    },
+    "tests/suites/village_fence_suite.gd": {
+      "sha256": "4f2a245b46d597cfdf2c09d6fbfe00bde446e74327f81fd013ed712503e7ba2d",
+      "bytes": 3309,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "d8eec26ed9eff089e705c626482c613e84f08eb9"
+    },
+    "tests/suites/village_lamp_suite.gd": {
+      "sha256": "68b5338340ac35d37ac9d090a02fe740d8b4b16386be3543dd7b0dd5ec619c9e",
+      "bytes": 4563,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "fc993cdf5bf91b37f55680b4a71107422a795334"
+    },
+    "tests/suites/village_street_suite.gd": {
+      "sha256": "4e875a019b4df6a52e3a2a036ced8a40c97b84afce4523189db233795c2e01c5",
+      "bytes": 4431,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "a7c366383e20c4537067324da811d8b75d71016d"
+    },
+    "tests/suites/village_trade_suite.gd": {
+      "sha256": "d22058e0cb04c52cfc22c39edb390ad6d2537e6ef2e09155dd357306a9b18691",
+      "bytes": 5615,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "781d0b71daefbb910ec52ee972242ac9939be599"
+    },
+    "tools/assets/contracts/source_paths.py": {
+      "sha256": "789e863a74d12676443d63d61dfb7c204a093cc6e23eb54e4ff9b38d8c9c1e72",
+      "bytes": 24204,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "49d14b0c9ea0c68ec348a0dd5b24ca8badef950e"
+    },
+    "tools/assets/contracts/test_source_paths.py": {
+      "sha256": "21d2741914041d5158038b20d583d89b789ba0e23d4d90e6158434d1869536e4",
+      "bytes": 8881,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "92e144eb45ab3813ca2762effbc51cb2368c7265"
+    },
+    "tools/axial_road_board.gd": {
+      "sha256": "82aac8007a27b1a185e6737cabe2cd7a5091236b89119000ed99e48b7d99c84e",
+      "bytes": 1782,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "7b518729026832aca8c19f4e2fdd55b8197bb9f1"
+    },
+    "tools/axial_road_board.gd.uid": {
+      "sha256": "31c7c0b9657bf31ba7d1d8bfab1ffc0f4b639401ab53c825b01b77f096d1e076",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "fc52df5c081b741844400abe22e74d9555c68f12"
+    },
+    "tools/axial_road_builder.gd": {
+      "sha256": "4f5eac369ad8558ef172ad3e7c66cf662fb90b0e05b1895bc410d777cf4b75ff",
+      "bytes": 2738,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "67679375011d86190cf1341f7f94af09856a55dd"
+    },
+    "tools/axial_road_builder.gd.uid": {
+      "sha256": "697bc663138139a2230000d308043e4ee526a55e746c131b5b05c80f9d7a8191",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "75b7320d8ab85c8f544f0eb2b5266a7b9f0cb5b7"
+    },
+    "tools/axial_road_capture.gd": {
+      "sha256": "274288cfeddfb80ed3bb8683ac1deb38bf00974bc5b836d804b27ee88e82fd97",
+      "bytes": 8311,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "7c503ad6fdfd72368938a4e2f3dabd72e4899b5e"
+    },
+    "tools/axial_road_capture.gd.uid": {
+      "sha256": "2fcd9e1f187aed865ffb6e428752e334094ecc4c8672a92ea88515b10d80735d",
+      "bytes": 19,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "8f9576e827f7dd20c7cd02605c57339f38cd6886"
+    },
+    "tools/axial_road_collect.py": {
+      "sha256": "0a03448ffb5ce313ffddf29b77a5b9320314797bcdfad3f564be3dccdda724ad",
+      "bytes": 5280,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "4eeedc998115bd51478a6dde630ca9908034882e"
+    },
+    "tools/axial_road_compile.gd": {
+      "sha256": "940f2c7ddc65234a3e994f3f2130067cda91b062822cdff787009fd079b0f3f6",
+      "bytes": 1676,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "9aa5a629e522ad190dd8a6b2d51d6e3a0101e655"
+    },
+    "tools/axial_road_compile.gd.uid": {
+      "sha256": "8224d9f212b7d233e6464ccd9aecda215418c096da5961cf178f0ea920420e90",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "c4eda2e7705bd18e640168478eddb9f8f5423152"
+    },
+    "tools/axial_road_field.gd": {
+      "sha256": "f3013bcd942cc69fa427be9a2a3e317df16bd0c7d58c954ea2fdd5ccb60ebfeb",
+      "bytes": 1510,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "d8ae4efb1725352de39889ac85f92bed2c56f3fb"
+    },
+    "tools/axial_road_field.gd.uid": {
+      "sha256": "d195f046142001b580c4fc4e1c5c8fa56180bdd515ca5a7c7f458a89a143dd1f",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "40757b1f72d19f2b7422aa31ad0cf5b2425c15a7"
+    },
+    "tools/axial_road_review.gd": {
+      "sha256": "e0e109c55e451b145a04700e8a3590f9340441dcf4354f1575b7ba83841c7fed",
+      "bytes": 842,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "e25919ab947adc7169059d85d85be76f1cb50f4f"
+    },
+    "tools/axial_road_review.gd.uid": {
+      "sha256": "4b72114f9d71e05cd7ce4aa0bb4d13b1876a649b985dffd6c5164e05b1a90d3e",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "2ba06dcd31d8c4af0220a7332f621b91f18969a7"
+    },
+    "tools/axial_road_verify.py": {
+      "sha256": "1a663bfcdf5d4035870773dc732bdb88320d4eca69646ea26cedaf86a11be4db",
+      "bytes": 9515,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "b35324e366144d10537a06275012899cab478921"
+    },
+    "tools/decoration_capture.gd": {
+      "sha256": "6f44901cc840efcf17f8f66bb4d25ff1afdfbc619d030e94e846b8a8eb2d7db1",
+      "bytes": 8221,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "d5cf303c32d87b35e6a4293789d46e4c697cf1cf"
+    },
+    "tools/decoration_capture.gd.uid": {
+      "sha256": "a19091aa0aec7ce0145ef70d4b286c13954fdd9f0257e25ddea6a08657904e16",
+      "bytes": 19,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "e6803db73ca7770272288888558454cbc0025f15"
+    },
+    "tools/decoration_collect.py": {
+      "sha256": "f27d3e4149c55d9a6fd47aeebdc2a990bde6e9cd532f4414f7afc957761dcf54",
+      "bytes": 7517,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "703c90da031ee2c5bdf85c3292ae690b034855b3"
+    },
+    "tools/decoration_overlay.gd": {
+      "sha256": "50dc00eed8ab39029f59402c7a3099dd6c237205262f7e4a60266367f2071ce9",
+      "bytes": 306,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "5a30aa07f69209eaebb8b04da946aca852ee4724"
+    },
+    "tools/decoration_overlay.gd.uid": {
+      "sha256": "bea6461ffcb12ce4b2a52e36db49267b14d569b50cb02885548c2590e17e91a7",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "8ad4ceb0836cbe07cda63bab06d10c9fa798b936"
+    },
+    "tools/decoration_review.gd": {
+      "sha256": "1d722ceb46bab08829b14956c935894a93e5edea8925b3bdf1fbdd3ec9524c22",
+      "bytes": 1143,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "51c57b1a1e0dc04764bb1f33a66e65fd688239a9"
+    },
+    "tools/decoration_review.gd.uid": {
+      "sha256": "a2812adbd09a58350558f3071c5d0dbdd379ff1bc4d1b784981550ea68b1fdaa",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "aa558eb6ce2c091ba3a481599fd2542911fc74ea"
+    },
+    "tools/decoration_verify.py": {
+      "sha256": "fec58347bd6956f3acbdafd196e0c0c21733c6e4fb24822a41e8bca5601709a0",
+      "bytes": 12364,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "908dc852d39a5ef7de8f5b80fb6d80a788bba961"
+    },
+    "tools/garden_board.gd": {
+      "sha256": "14e6e7f9f03cd6e0afb4853bccf431b184b17a176cedfa8a13d740d3d50327fe",
+      "bytes": 1215,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "ff89b7b6770380bead8aa5e1776c6241482a7907"
+    },
+    "tools/garden_board.gd.uid": {
+      "sha256": "080421fb954c393da8e24d9eafb57e84d292fe81382ae101b43e19fd934526b0",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "db91146e8efc209ec8739071af299b14670338cf"
+    },
+    "tools/garden_capture.gd": {
+      "sha256": "dc6b6bdf44f6c955990ee3c7565a46f4bf24e110343f7917ec5bc53384fd8cd3",
+      "bytes": 9904,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "4fb8b9a740e2805b562e09f33d380a5fbcd2954c"
+    },
+    "tools/garden_capture.gd.uid": {
+      "sha256": "c17efc92a39ba0b63fb4ec792246c0fc9503f074905a5eae269b414c1a00d5ed",
+      "bytes": 19,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "150e98fa3edccdef1a2f719cf04541b8957e79ef"
+    },
+    "tools/garden_collect.py": {
+      "sha256": "382eb9a394fd3e19226cb31cba00c52b44043f6d407128deab885d1c30c42ce4",
+      "bytes": 5669,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "2395fe2d1879d9e27db1d6c3eadc7b2f6c494003"
+    },
+    "tools/garden_import.gd": {
+      "sha256": "4537e1c215fc6814e81572f74f8e596e7d8abdec80e595d87755581e297b9eb2",
+      "bytes": 632,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "4bf051b4cd01dbae8117a3efebaf777f93a34e21"
+    },
+    "tools/garden_import.gd.uid": {
+      "sha256": "ae57abfe50ed5f9e417b87f06fce72e90fa8fe977c68c4dd0c02ff6f802dddcf",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "e5eac8d27da0c5bde7150d0152dee8fb742e836e"
+    },
+    "tools/garden_review.gd": {
+      "sha256": "353bd919d4582470760caa44da57ef5dd24dd6d4cc2033e6007050c7f7458449",
+      "bytes": 856,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "a039f4e87c1d077836babddbf454c43dc590b9c5"
+    },
+    "tools/garden_review.gd.uid": {
+      "sha256": "6d552bee05a62084ca845b2d72de4fcdb11e81afcab889ef8d885fffc4d0b2df",
+      "bytes": 18,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "7cd25f694fe3e72900f3f7ba8a3070ee49bc1814"
+    },
+    "tools/garden_verify.py": {
+      "sha256": "b6c7526799b6d8b221683cb3e80a5e8321f9dddc81b70c0abbb3e293950a3c2e",
+      "bytes": 11320,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "4c000ffb333c0a212a728263efa2a744562cdf00"
+    },
+    "tools/ground_edge_board.gd": {
+      "sha256": "c7925a7e592572f2497cadffbcc47358578cc2dbf204d2d35d97d292e5cbb476",
+      "bytes": 1709,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "43bcb8403c8917f0f900e51e5c7b2eccc176b1ff"
+    },
+    "tools/ground_edge_board.gd.uid": {
+      "sha256": "ab29c4503bdd45045b4bc4ac37338cf69ba4ad6e120858a7375db29dbdda9483",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "910351194cc9dbe6a5d41c6293990c5f230de94a"
+    },
+    "tools/ground_edge_builder.gd": {
+      "sha256": "6e3360cfabf5454cfb977b270273cd5037869d3eda3512f1d84473e81b68dfc3",
+      "bytes": 2739,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "6fceecf0293f1717040251f6252a2c82824c02e2"
+    },
+    "tools/ground_edge_builder.gd.uid": {
+      "sha256": "b7481abdebf720e3749f67e14fa829c6e9285a8d5ac3519342209bb24d9a1ad8",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "e1373a4969be4f031b8a7eb699bfdb438630e6cd"
+    },
+    "tools/ground_edge_capture.gd": {
+      "sha256": "c4314d06a08401ae81925d0c88eb4de125fb91dd467728bd4eb46b99985828b9",
+      "bytes": 8273,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "7d2c4c181d243a9dad7ad2969dba361c57074241"
+    },
+    "tools/ground_edge_capture.gd.uid": {
+      "sha256": "42ed28f8497de1e024b259f57d1af87e5a7dbdf7d287b4ad29e519b8e83a55f6",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "eaa352c8f23d0ffaf63d8c62aac06d53768aa7b1"
+    },
+    "tools/ground_edge_collect.py": {
+      "sha256": "5e8baeb01a952e50371285bd3409dbe4927a48effbeb8e13ea917f7055ad588d",
+      "bytes": 5101,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "82e82635ba0865ecc52789e48e20a13a694eb701"
+    },
+    "tools/ground_edge_compile.gd": {
+      "sha256": "be74bdf4a046b46fe54571e625099b858b9a73a966a254fca3bfeeb8576568a1",
+      "bytes": 1508,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "45a009a7005416b23e88fed6ed8ab56c5481ea6b"
+    },
+    "tools/ground_edge_compile.gd.uid": {
+      "sha256": "20eee3ce6b63372fcdde949f077c738ec447b6080cf04afcce1f538e2477db5a",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "d9b6e9ec4cf19be34e69a80b1613bd65c6d7f236"
+    },
+    "tools/ground_edge_field.gd": {
+      "sha256": "8cec18c6fc061b692fb66c5a0a6309f24cc7a7da6fb7d103c31f581be20d1e30",
+      "bytes": 1507,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "cf134a52ddf23ce862d6a7ef67191febea47797b"
+    },
+    "tools/ground_edge_field.gd.uid": {
+      "sha256": "afd806b8108f5fa920c21de562ac7775378558d868843eba6a2fc90d1e6e9483",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "9f5a3f6e113c6bb6c55d9faf1cc1c8df201ce461"
+    },
+    "tools/ground_edge_review.gd": {
+      "sha256": "6caed11816e4112f075a921a34eaa71c40954db335bd44083b419efcf883c53a",
+      "bytes": 844,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "79810117757d40c41590da68bb7705cbb211dfd1"
+    },
+    "tools/ground_edge_review.gd.uid": {
+      "sha256": "ddf80e0831e301f99a53568a7402d6e7c1349625c6dc4be5c7dfea406e46b0c1",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "df762ccc1d23119f928e1109a4ca746dbdeb2b7b"
+    },
+    "tools/ground_edge_verify.py": {
+      "sha256": "25e66db823abf324dd9432c40854f6ad141176c6d63a980634edbd13757f9207",
+      "bytes": 8764,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "0f347d31bbab1ddd863f50e410aed46224af1b13"
+    },
+    "tools/ground_layers.py": {
+      "sha256": "48b42c5ed5a9be0fbd9a9fe800a087ed9ae5fcdd752c0b3789d0fd4cc429e3ba",
+      "bytes": 17069,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "4dbca87bbd82b6b781c741386d127a635608d161"
+    },
+    "tools/ground_layers_capture.gd": {
+      "sha256": "602c757643f49f991820e683d9c834efeff294d89509cc3a3db0fdf53a3b7117",
+      "bytes": 12596,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "10d0f45e38111874078a9249ad3e9dc2a67ed451"
+    },
+    "tools/ground_layers_capture.gd.uid": {
+      "sha256": "a92cc82d1bfb6ae2aaca7d568efc221159feaae123cf3c0c0fe5c97257568f1d",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "23935d34bc940b7850882cf1b91b5139016164c4"
+    },
+    "tools/ground_layers_review.gd": {
+      "sha256": "a6da016fc8be94f3b20fa056d0924d44dbec3b1d0494113edcc98b3fc91adbc4",
+      "bytes": 909,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "63cf9b00f051cf7eccee1091da2713db3dd8e917"
+    },
+    "tools/ground_layers_review.gd.uid": {
+      "sha256": "022d609d4882063cc9dc309e1f602669306243efcfa77dcef4065c12aa374659",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "db5bd3c7a3ed6ce367e74d4f69aa020c563f9785"
+    },
+    "tools/ground_seasons_capture.gd": {
+      "sha256": "c71148a8005eadd1440c522fd63ce9a47c0c84015f34e8b7ebe67a6fad55c439",
+      "bytes": 8989,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "bdb390c3ae049f05cf70e7af5a35deddd11c2641"
+    },
+    "tools/ground_seasons_capture.gd.uid": {
+      "sha256": "025efd254de944ddd2e283cda422b0bab244301ecabd83d04f34820bb676eb57",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "d441e2f95125ce15633f7f65017ba3fd96af2adf"
+    },
+    "tools/ground_seasons_collect.py": {
+      "sha256": "f72df5691accbfc0da4ce7480f2a7b9971fecb0300b4cce105095904d565f380",
+      "bytes": 7983,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "5579fdc655693a7114aef243f16bba718c4c1840"
+    },
+    "tools/ground_seasons_fixture.gd": {
+      "sha256": "e5afc617fabde18419e6ce1d0a84a70e952fa3028bbf2c1d5cb2cba47787b111",
+      "bytes": 3690,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "ae6df168515c9648028a0673a73d161eb1d2cbcb"
+    },
+    "tools/ground_seasons_fixture.gd.uid": {
+      "sha256": "79d0c378d8aa8d81fd96fc7b672f7c8e168c4cf3088592148e2dee3dfc07e8b2",
+      "bytes": 19,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "8d702bcf7dd9dc8ff087ca0c918ea7a445e8bc3c"
+    },
+    "tools/ground_seasons_review.gd": {
+      "sha256": "130a1c3aeea1cff9682584dc81b05c233a796b459e6e8b9b0bdbeb5a50cbb878",
+      "bytes": 834,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "95dcdc4f2913b35aabee3de70cd3428c44ffbd04"
+    },
+    "tools/ground_seasons_review.gd.uid": {
+      "sha256": "137dae04871d8d903a6f399d4f54ba9935e5e360efd24c601d7239efa4e8574f",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "eef20cc40dc886232b59603c070615bae7a725da"
+    },
+    "tools/ground_seasons_verify.py": {
+      "sha256": "c0298e55157188c30d71232adaf64f223563644d842d01e1c4550f4b4206b817",
+      "bytes": 11556,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "3b5a538c3cdf7223b0d726f27d5d6cc7502ac255"
+    },
+    "tools/meadow_board.gd": {
+      "sha256": "21d437d82cb3742fffdd1eaba111f9e0eccf1ea53d37dafb4532aae95055b99e",
+      "bytes": 1000,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "918ff4df2f478cb5bd6d09985234ec335a08ddad"
+    },
+    "tools/meadow_board.gd.uid": {
+      "sha256": "9ba5213cee190a8a08c92ab1a33b228916aba985ed42b2282f57e32e433e41d2",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "5fd99d0895c648fcf2ce25bd742007f99e770aa3"
+    },
+    "tools/meadow_capture.gd": {
+      "sha256": "05cbce38759c980bd19acb6741b89a3d13a6827fb874dc1fab23b31d86b1e046",
+      "bytes": 8211,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "8ac5ff7a944c10b64576723836561d08943bf67c"
+    },
+    "tools/meadow_capture.gd.uid": {
+      "sha256": "84afa23972201ce1b8bbfb54539eb9b1ee4c8dab5cadbd61ac182a17b0e1c5d0",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "d9b61a30128109bc2d9c31da2397c8c490882ee9"
+    },
+    "tools/meadow_collect.py": {
+      "sha256": "f14570b700005d35db4a2564f8b879caba5dc9514047911357211588a0dbedb0",
+      "bytes": 5053,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "63fced1fb42ef8083c61163854bf2530e9883156"
+    },
+    "tools/meadow_import.gd": {
+      "sha256": "4c3ca8b91e0a97ce2d840c7a55776ff40a195a365c6161cd1be90510f3e7ca68",
+      "bytes": 690,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "48d65169917966d71c27ecc5f341f518fe1b224f"
+    },
+    "tools/meadow_import.gd.uid": {
+      "sha256": "caae8e9238555c52325ddacebc8f07375a7cb8d3e56cfbd3b3a260729bd6243a",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "cc2a529187476d9b191c0f66632756cd91466ffc"
+    },
+    "tools/meadow_review.gd": {
+      "sha256": "b773d3497b474fd64cee9de2c3dc235d1290f04e702979d23a922f5398d52708",
+      "bytes": 787,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "684687b962f60729138f337661a26dda107904ac"
+    },
+    "tools/meadow_review.gd.uid": {
+      "sha256": "80af0b70cc04169a103044638ba8e6824167eb4b4f31b4d2e983037c5f25e36d",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "b0e99669adb1d109477acd2e60d541e47387cf40"
+    },
+    "tools/meadow_verify.py": {
+      "sha256": "af438875fb6c74a8310162715b6f1c63243b63eacd698d953d69ce0981bac529",
+      "bytes": 7475,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "0190ed9d7ff6389f4e8b4f94d20a2cc33a785a5b"
+    },
+    "tools/plaza_board.gd": {
+      "sha256": "6b2c32075652cfb3ece25ec0693ccdecb09ef892de4defe02c73d23b3e1558ec",
+      "bytes": 917,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "5757cacb9150c79c8a3d348d7523e87bd2621482"
+    },
+    "tools/plaza_board.gd.uid": {
+      "sha256": "21ac77af69bba21735fc0f6c6a5d8238b78e076c00b86ce1e5dc706e043e9b82",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "d3d2ab5ae248676cfc1e78fa8c119fc3ec92fd3c"
+    },
+    "tools/plaza_builder.gd": {
+      "sha256": "a707c8a12a6e07b327d6685ba297d8941fabdd20ae7c63cae914548d7866371e",
+      "bytes": 2957,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "f0e86cdaec8cbbc507aed88fa0d5ea8c4309205a"
+    },
+    "tools/plaza_builder.gd.uid": {
+      "sha256": "d3375800dcfd37d6c17510291f2a2aad57e334853b9dc9840a85d1129a07a23e",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "17bc6e9ba846a61c01b151a41aa7b599134c4c6b"
+    },
+    "tools/plaza_capture.gd": {
+      "sha256": "33f9a3c34a6a0255f7fd81da54b0afc78783d75bf03b470b4b7a23028fa83ce0",
+      "bytes": 9089,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "3a2b86dd1744aa189cf4f9ce88de440e7b8d82af"
+    },
+    "tools/plaza_capture.gd.uid": {
+      "sha256": "88ffc185427d24f10b8929e71669463b5703e993b44892edb002e9f94a61b0f3",
+      "bytes": 19,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "d9a38154f81d62c59e1179e7c2d4811b739c4fcc"
+    },
+    "tools/plaza_collect.py": {
+      "sha256": "e39b08643a8b115aa941337ba8234ef86f17accd98ce7d2d225db04b86a303c1",
+      "bytes": 6094,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "31beaca8d9a99231a37ef1ba24c51ea1180de7bc"
+    },
+    "tools/plaza_compile.gd": {
+      "sha256": "969aca99b14f781d0d13bb3aea442a85bcaf5ba2b99b1797221ebfedd9424538",
+      "bytes": 1245,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "e3d948fd93c81b827fc942f0a0cb10a9adba93a3"
+    },
+    "tools/plaza_compile.gd.uid": {
+      "sha256": "d5ce26c2d7ea20ba1f1e05fe44c98179bd323603b4d0bb00ca472839ad702f64",
+      "bytes": 19,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "d89e0256bb44b82d29ec50bfce29402eff3169cb"
+    },
+    "tools/plaza_field.gd": {
+      "sha256": "2c4384cda4a0fbdb099acd7589ae24b198e58336c4abf8a0612c0a911ded020c",
+      "bytes": 2125,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "3061d2bdc04fbd9f8cf10307eafbfbc775c9339d"
+    },
+    "tools/plaza_field.gd.uid": {
+      "sha256": "a18b06934fe03afa181feebf6d4e2b06e65c213023d6971d083dacf51f08c208",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "d245aa15b369dd4881c0098ec74ced3c659d4c85"
+    },
+    "tools/plaza_import.gd": {
+      "sha256": "d395f243713032e4e09c80d1a8e593e831ea240da4adafb3b1878f1d6ee82986",
+      "bytes": 697,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "3f4c499e6933a841312c5f59e54a3d8faf8220b7"
+    },
+    "tools/plaza_import.gd.uid": {
+      "sha256": "2e89934657a8636acfe9bba84a7f2c83a2a970719dde20ffca9f2f93f054e9df",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "3d7e4d70566f3df1e4d55b7a4a0247be72cd34c3"
+    },
+    "tools/plaza_review.gd": {
+      "sha256": "c6dacef3dd0fbfc1f2aa376437bfb742109bef40fc709fdfb5575e54da98746f",
+      "bytes": 845,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "a7e78a7763de4134aad5e8a2671a861daa3d6e84"
+    },
+    "tools/plaza_review.gd.uid": {
+      "sha256": "f3bec48e94c08a51812486db83a2ac47f6b1f1c6cba7149fe07751c69efa5077",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "deeb8aec26cc3eb141ad4ef4c626d40d505a796f"
+    },
+    "tools/plaza_verify.py": {
+      "sha256": "ad5e04eaa65c0a21f6d64bb203ab4a8ba72f8f9d79da8acb8f11c69d63babae2",
+      "bytes": 10672,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "96783af428b391f5214622924d7c9afd8bd4e1ee"
+    },
+    "tools/qa/ground/test_ground_context.py": {
+      "sha256": "92e8e02409880272e2ab397b866621351d28b57fd473424ada5003a93d5f7725",
+      "bytes": 3178,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "ae0a7254b362fb521fd67a849d5fdaffcae100ef"
+    },
+    "tools/qa/performance/test_surface_producers.py": {
+      "sha256": "9b84921ed227955072da14309281486f22a695654a4eede7d9553f8a41f8574c",
+      "bytes": 13949,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "5134d9a3c00a6369f29555442a64b036c91d8e25"
+    },
+    "tools/road_network_board.gd": {
+      "sha256": "ef808380b60ebeabcca386822db314236cc48dd20152b23a13d8472677ce1a4f",
+      "bytes": 2105,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "43b53338d3e5ca18de128b5918aad139124dd81b"
+    },
+    "tools/road_network_board.gd.uid": {
+      "sha256": "b84683434399f1ef86accfe1d8a8fe9f56d593d09ec9546f0c08eb4fb71a1e0e",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "3e6b900ef1308385a8e950f349d84db13fc4872c"
+    },
+    "tools/road_network_builder.gd": {
+      "sha256": "6ab1f77cd66fc7d20418bf47c327b2526f5da575633b12499c9b7ad579d4409c",
+      "bytes": 4576,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "cba2cd56fed3568b0a769e5d6217c74ba9e053cc"
+    },
+    "tools/road_network_builder.gd.uid": {
+      "sha256": "7b69a7f228334939c03e297ea9146c27fc00c041fa0ac9a19a4fc2b453547517",
+      "bytes": 19,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "61c6053bbc6c75014719c4f58835e6b97621bc89"
+    },
+    "tools/road_network_capture.gd": {
+      "sha256": "f66f53c331c062d03782afb39b771b6fb6b8620dd6266df78d2399d06c1ccd4c",
+      "bytes": 8497,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "c34bcfba9a1cf1f47b48092046f6652cc7f16737"
+    },
+    "tools/road_network_capture.gd.uid": {
+      "sha256": "776a71bce491c5320d7c3aa026e169d12631016175999b6e81f4efa688e96fa9",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "f061fe97c747532cfc49ba7174d7992885f1894f"
+    },
+    "tools/road_network_collect.py": {
+      "sha256": "a68fd33555c72dafb4fbe1bb55cff37653497d0bef1586240b70a0f400187f27",
+      "bytes": 5530,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "d6c716c03d27ad4a7586ddbf1a63783e4cd6bfa3"
+    },
+    "tools/road_network_compile.gd": {
+      "sha256": "4b42aa042dae87759e204a1596f434ed1be0287d08177acba2fe8d73b67fb2a5",
+      "bytes": 1552,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "6816e67b5ba161d04f1d113d6c27fcaa52c27e20"
+    },
+    "tools/road_network_compile.gd.uid": {
+      "sha256": "ff162198116bedb28ae2fdd3f7447d1a8341fc4fe98359850fde1872f08087d5",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "9d90c93a276b73813f71c4f3f9b0cd9d295ea9c5"
+    },
+    "tools/road_network_review.gd": {
+      "sha256": "02e4e92b1ba2ca9fc659a13daea38776b1102abf3ea6f8db05a5acafa7b97ec1",
+      "bytes": 845,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "b61eaab310f93ef3e403f6bdb43f3bb9a9681762"
+    },
+    "tools/road_network_review.gd.uid": {
+      "sha256": "42bc27fdbac865343b9df59ec592cf34ac402e6261189f14ea59fe71a85977dc",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "f1f07d6be09248f36799d5875f6786581272e6ff"
+    },
+    "tools/road_network_verify.py": {
+      "sha256": "eeb0ad3b47a99733014b4f4d30cc0633ec75efb7e675ac7b27e76ff7b713295d",
+      "bytes": 10548,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "07b51dcc03d35c88609827938eb6085d6f581a07"
+    },
+    "tools/terrain_revision_capture.gd": {
+      "sha256": "69be1e20f17bd1f366c6cb88bcac69597b2347d239a1f4c08e4401575892c37d",
+      "bytes": 11291,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "90252aa07e99813f214bb67fcf0d4623d54d38d4"
+    },
+    "tools/terrain_revision_capture.gd.uid": {
+      "sha256": "96e349adc6c831d5b8f91397fe587f9704dd88c6f10ca0ac8322765319059dae",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "cdae65978a57083bbf2e073aabfd5b324261c364"
+    },
+    "tools/terrain_revision_collect.py": {
+      "sha256": "b5c64b77ac5da98a8ae1269204bc69607782987c24c9b9d01cd5e63be3d8533d",
+      "bytes": 7707,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "9157d0377513d13191c9614b394b0fd7f3e4806a"
+    },
+    "tools/terrain_revision_review.gd": {
+      "sha256": "f89da8aab3955d513635c51816e2683af16bcafdc3eaa2a14618ea7b67ad2bd4",
+      "bytes": 817,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "220248cbd196f74b96b2e5717c0bfadf8e5a2dd4"
+    },
+    "tools/terrain_revision_review.gd.uid": {
+      "sha256": "f1e6a4de3b64f48d98091075be27dcffd63ef7ff7f55cfdd3b26e2d4304964b6",
+      "bytes": 20,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "ba37913ed83bae1407f08a526398c8039f13411e"
+    },
+    "tools/terrain_revision_verify.py": {
+      "sha256": "bcd1155812cf95be4bd888a7d713586995e973a72ef9e2298187081f0c690eb0",
+      "bytes": 14035,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "2ed92870f14b0a57b374d47f2188485edfea1e6a"
+    },
+    "tools/test_axial_road.py": {
+      "sha256": "d3953637c34f54d30d57a412aad6a4bf669af66095f79c32d2e5739943e479b5",
+      "bytes": 4125,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "594ae06230c964392201815cedbec2a7b451b982"
+    },
+    "tools/test_decoration_rules.py": {
+      "sha256": "65f7c7bd822366dbaf7a53db4933767282a414f2873dbf2c58cf80250a594559",
+      "bytes": 4236,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "41bfc374eeb3e2547eca1421ac92569a8ac403f2"
+    },
+    "tools/test_garden_soil.py": {
+      "sha256": "fd3c8aeab866dfccd2c4b58cc626b5b6b5f56b7873510f4331edbcea18853234",
+      "bytes": 6030,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "7c83c4171d994b288c0f3e83d3728f9c19c40818"
+    },
+    "tools/test_ground_edge.py": {
+      "sha256": "f9618188bb9c3ecbcefeffe66c3bb253c271c9e34472d9c8336201f27b8b24f6",
+      "bytes": 3707,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "e1187c8d877ab55764325e17007c463859f878a6"
+    },
+    "tools/test_ground_layers.py": {
+      "sha256": "5fbda567d4fee6dfd14b61db11b0cfdc8dc7aafc8a67a0bdeca3a5e4d128ac56",
+      "bytes": 7931,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "3057be972ac32bda60fac22a59525e9fcc6d6c9e"
+    },
+    "tools/test_ground_seasons.py": {
+      "sha256": "3bfe34edf3e1c872e1bbe9e2c0dec30cf55a4cab3b724d78ae3897f9ad9f21dd",
+      "bytes": 5050,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "e9b49d6a7b07d5beddac8949c1e7c5f59834784a"
+    },
+    "tools/test_meadow_ground.py": {
+      "sha256": "1b6cd62ace8ce4bd7866f7f3e6bc11185884eb724c2f2499fc475fc873872412",
+      "bytes": 3326,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "db0f9802642963fc1027935365e670c8a413e7ff"
+    },
+    "tools/test_plaza_ground.py": {
+      "sha256": "f4f24907674138d5412f825943a854c3c134448076e2163f294ca21b733e62e9",
+      "bytes": 5198,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "9c66e9a0880dacfb5ff7fb180c531a6df2bc5aaf"
+    },
+    "tools/test_road_network.py": {
+      "sha256": "9b66bf0b2f56ea9c1a82673cf0abd353919fe675176b48d7c798aa9336257652",
+      "bytes": 4645,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "aff76048fbec008373b74b840600af4bd872941c"
+    },
+    "tools/test_terrain_revision.py": {
+      "sha256": "cbe27a281153723f36cf0019486c4929b97a5dfda1b74a271eb62a2ef242ee5c",
+      "bytes": 3963,
+      "mode": 420,
+      "Git_mode": "100644",
+      "blob": "4ea314f1e7672f44a97a84ddfb1f1497547f1b6f"
+    }
+  },
+  "all_tools_UID": {
+    "tools/plaza_capture.gd.uid": {
+      "sha256": "88ffc185427d24f10b8929e71669463b5703e993b44892edb002e9f94a61b0f3",
+      "mode": 420
+    },
+    "tools/foliage_wind_capture.gd.uid": {
+      "sha256": "3dce1eac1b97c382b54c7eace1166d25a1c180165f04f5c72e58fdb15dc38d45",
+      "mode": 420
+    },
+    "tools/foliage_speed_review.gd.uid": {
+      "sha256": "8bb2a5ef0cfa9e73e8469de98ef3e7c1d8571325524d35e1ca1b9206abb4dad1",
+      "mode": 420
+    },
+    "tools/meadow_import.gd.uid": {
+      "sha256": "caae8e9238555c52325ddacebc8f07375a7cb8d3e56cfbd3b3a260729bd6243a",
+      "mode": 420
+    },
+    "tools/foliage_visibility_review.gd.uid": {
+      "sha256": "9661e547426e6a4fde5902aae2484a6ae7b3b05aa3edf18e221e1bec27299bfd",
+      "mode": 420
+    },
+    "tools/foliage_wind_baseline.gd.uid": {
+      "sha256": "6835aae6b0da9aff542be284dbea84b1caa01657f17eec7cac12057294b3729b",
+      "mode": 420
+    },
+    "tools/decoration_overlay.gd.uid": {
+      "sha256": "bea6461ffcb12ce4b2a52e36db49267b14d569b50cb02885548c2590e17e91a7",
+      "mode": 420
+    },
+    "tools/ground_seasons_capture.gd.uid": {
+      "sha256": "025efd254de944ddd2e283cda422b0bab244301ecabd83d04f34820bb676eb57",
+      "mode": 420
+    },
+    "tools/garden_board.gd.uid": {
+      "sha256": "080421fb954c393da8e24d9eafb57e84d292fe81382ae101b43e19fd934526b0",
+      "mode": 420
+    },
+    "tools/shore_kit_canvas.gd.uid": {
+      "sha256": "f68b7aaceba6028e7f67a6965adf758c73901e68e24499015ad12068b28eed8a",
+      "mode": 420
+    },
+    "tools/foliage_contact_review.gd.uid": {
+      "sha256": "dc569b887e4a0f62be5ac501c5dc9373383e7d03177b8b244ef4fe2c7213c280",
+      "mode": 420
+    },
+    "tools/axial_road_compile.gd.uid": {
+      "sha256": "8224d9f212b7d233e6464ccd9aecda215418c096da5961cf178f0ea920420e90",
+      "mode": 420
+    },
+    "tools/road_network_review.gd.uid": {
+      "sha256": "42bc27fdbac865343b9df59ec592cf34ac402e6261189f14ea59fe71a85977dc",
+      "mode": 420
+    },
+    "tools/plant_depth_capture.gd.uid": {
+      "sha256": "0d6b2c1457fa53125925e863950cb5ea7d43d8096f9799054d3ee806c79030fd",
+      "mode": 420
+    },
+    "tools/meadow_review.gd.uid": {
+      "sha256": "80af0b70cc04169a103044638ba8e6824167eb4b4f31b4d2e983037c5f25e36d",
+      "mode": 420
+    },
+    "tools/ground_edge_compile.gd.uid": {
+      "sha256": "20eee3ce6b63372fcdde949f077c738ec447b6080cf04afcce1f538e2477db5a",
+      "mode": 420
+    },
+    "tools/garden_capture.gd.uid": {
+      "sha256": "c17efc92a39ba0b63fb4ec792246c0fc9503f074905a5eae269b414c1a00d5ed",
+      "mode": 420
+    },
+    "tools/foliage_wind_review.gd.uid": {
+      "sha256": "234cf18acdb499711b837a714a281830f878bb2108b2e030c25841d761f41e4b",
+      "mode": 420
+    },
+    "tools/foliage_pause_capture.gd.uid": {
+      "sha256": "0623104cb5d9a25c9275d08ee90973a1d6da04ee5301f6a2d26d1e06706db43a",
+      "mode": 420
+    },
+    "tools/water_audit.gd.uid": {
+      "sha256": "3e613ca5cfa3761342e235c9757b333f92a0c477eac93f86624c52a0f37d9adf",
+      "mode": 420
+    },
+    "tools/foliage_visibility_game.gd.uid": {
+      "sha256": "6160a64fc2f7a263303bc929fd11719b1f04795048b7f836f3de9b18effa9580",
+      "mode": 420
+    },
+    "tools/visual_camera_points.gd.uid": {
+      "sha256": "a55f0a0d5f3c7282001b2948151ff688710ea135fa2583b06e91f60c92887110",
+      "mode": 420
+    },
+    "tools/decoration_review.gd.uid": {
+      "sha256": "a2812adbd09a58350558f3071c5d0dbdd379ff1bc4d1b784981550ea68b1fdaa",
+      "mode": 420
+    },
+    "tools/ground_seasons_fixture.gd.uid": {
+      "sha256": "79d0c378d8aa8d81fd96fc7b672f7c8e168c4cf3088592148e2dee3dfc07e8b2",
+      "mode": 420
+    },
+    "tools/foliage_uv_capture.gd.uid": {
+      "sha256": "3fd4b1d447173b4e80431dc5aeecba2ec93c3e2a2c776699d69a4cb99b773210",
+      "mode": 420
+    },
+    "tools/render_order_game.gd.uid": {
+      "sha256": "7b49ff32159df62e69774b82710e23c012563014d9c03ef14d04f95448069352",
+      "mode": 420
+    },
+    "tools/terrain_revision_capture.gd.uid": {
+      "sha256": "96e349adc6c831d5b8f91397fe587f9704dd88c6f10ca0ac8322765319059dae",
+      "mode": 420
+    },
+    "tools/foliage_speed_capture.gd.uid": {
+      "sha256": "d55aca00b4cb8c50618b28d525152d0f5ccb7ae0ba0e9f6fa66055de51110556",
+      "mode": 420
+    },
+    "tools/plaza_compile.gd.uid": {
+      "sha256": "d5ce26c2d7ea20ba1f1e05fe44c98179bd323603b4d0bb00ca472839ad702f64",
+      "mode": 420
+    },
+    "tools/axial_road_capture.gd.uid": {
+      "sha256": "2fcd9e1f187aed865ffb6e428752e334094ecc4c8672a92ea88515b10d80735d",
+      "mode": 420
+    },
+    "tools/ground_edge_capture.gd.uid": {
+      "sha256": "42ed28f8497de1e024b259f57d1af87e5a7dbdf7d287b4ad29e519b8e83a55f6",
+      "mode": 420
+    },
+    "tools/meadow_capture.gd.uid": {
+      "sha256": "84afa23972201ce1b8bbfb54539eb9b1ee4c8dab5cadbd61ac182a17b0e1c5d0",
+      "mode": 420
+    },
+    "tools/foliage_root_capture.gd.uid": {
+      "sha256": "c06a3c25fc0c284ed5458681ff95f292edb10e73135b2aa1934a5a0e38eb5cf2",
+      "mode": 420
+    },
+    "tools/road_network_builder.gd.uid": {
+      "sha256": "7b69a7f228334939c03e297ea9146c27fc00c041fa0ac9a19a4fc2b453547517",
+      "mode": 420
+    },
+    "tools/road_network_compile.gd.uid": {
+      "sha256": "ff162198116bedb28ae2fdd3f7447d1a8341fc4fe98359850fde1872f08087d5",
+      "mode": 420
+    },
+    "tools/ground_layers_capture.gd.uid": {
+      "sha256": "a92cc82d1bfb6ae2aaca7d568efc221159feaae123cf3c0c0fe5c97257568f1d",
+      "mode": 420
+    },
+    "tools/foliage_contact_capture.gd.uid": {
+      "sha256": "15c214221b1335696f2391f870bfec9373eb1f91a3abae379c90b971cdea243c",
+      "mode": 420
+    },
+    "tools/plaza_import.gd.uid": {
+      "sha256": "2e89934657a8636acfe9bba84a7f2c83a2a970719dde20ffca9f2f93f054e9df",
+      "mode": 420
+    },
+    "tools/axial_road_field.gd.uid": {
+      "sha256": "d195f046142001b580c4fc4e1c5c8fa56180bdd515ca5a7c7f458a89a143dd1f",
+      "mode": 420
+    },
+    "tools/foliage_pause_review.gd.uid": {
+      "sha256": "c0155009a6dca5e7566acfe3b053becd2660ac7fc69079fa20a5af7dfdadda5d",
+      "mode": 420
+    },
+    "tools/decoration_capture.gd.uid": {
+      "sha256": "a19091aa0aec7ce0145ef70d4b286c13954fdd9f0257e25ddea6a08657904e16",
+      "mode": 420
+    },
+    "tools/axial_road_board.gd.uid": {
+      "sha256": "31c7c0b9657bf31ba7d1d8bfab1ffc0f4b639401ab53c825b01b77f096d1e076",
+      "mode": 420
+    },
+    "tools/plant_depth_game.gd.uid": {
+      "sha256": "d23e9909e87e9efdc60ca5e9b57a3963ba0fe0f90844ea4106b98469483a8ef1",
+      "mode": 420
+    },
+    "tools/meadow_board.gd.uid": {
+      "sha256": "9ba5213cee190a8a08c92ab1a33b228916aba985ed42b2282f57e32e433e41d2",
+      "mode": 420
+    },
+    "tools/foliage_recovery_capture.gd.uid": {
+      "sha256": "cddafa91a5621a5bdbf82e999a965d7eefafe8f9d3dbf328f44ef1d4c9f1dab5",
+      "mode": 420
+    },
+    "tools/garden_import.gd.uid": {
+      "sha256": "ae57abfe50ed5f9e417b87f06fce72e90fa8fe977c68c4dd0c02ff6f802dddcf",
+      "mode": 420
+    },
+    "tools/foliage_uv_board.gd.uid": {
+      "sha256": "2ed4713f41f6a4c2615f0f7cb6ce31f255cb2c603e5d0427a66297a0fefe8af1",
+      "mode": 420
+    },
+    "tools/plaza_builder.gd.uid": {
+      "sha256": "d3375800dcfd37d6c17510291f2a2aad57e334853b9dc9840a85d1129a07a23e",
+      "mode": 420
+    },
+    "tools/performance_sampler.gd.uid": {
+      "sha256": "66994a141b87d150f2df74be741ad9b1b4a2f95b5f2bde75eace77040cd6d0fa",
+      "mode": 420
+    },
+    "tools/foliage_visibility_capture.gd.uid": {
+      "sha256": "0ecb020f7fa4d7188a68c85a097ac68d292fdb75a381506734b24cfd7c0601df",
+      "mode": 420
+    },
+    "tools/terrain_revision_review.gd.uid": {
+      "sha256": "f1e6a4de3b64f48d98091075be27dcffd63ef7ff7f55cfdd3b26e2d4304964b6",
+      "mode": 420
+    },
+    "tools/plaza_review.gd.uid": {
+      "sha256": "f3bec48e94c08a51812486db83a2ac47f6b1f1c6cba7149fe07751c69efa5077",
+      "mode": 420
+    },
+    "tools/road_network_board.gd.uid": {
+      "sha256": "b84683434399f1ef86accfe1d8a8fe9f56d593d09ec9546f0c08eb4fb71a1e0e",
+      "mode": 420
+    },
+    "tools/foliage_root_board.gd.uid": {
+      "sha256": "9db000012f3e0c8ccf94b5b38fb3ca4a50e7a778880a3defb6dadcb169d1af3a",
+      "mode": 420
+    },
+    "tools/ground_seasons_review.gd.uid": {
+      "sha256": "137dae04871d8d903a6f399d4f54ba9935e5e360efd24c601d7239efa4e8574f",
+      "mode": 420
+    },
+    "tools/foliage_visibility_budget.gd.uid": {
+      "sha256": "b771493a7f0418fdba49cb87d82c0aad20928e82350c56b8f6769702067d2072",
+      "mode": 420
+    },
+    "tools/garden_review.gd.uid": {
+      "sha256": "6d552bee05a62084ca845b2d72de4fcdb11e81afcab889ef8d885fffc4d0b2df",
+      "mode": 420
+    },
+    "tools/ground_edge_review.gd.uid": {
+      "sha256": "ddf80e0831e301f99a53568a7402d6e7c1349625c6dc4be5c7dfea406e46b0c1",
+      "mode": 420
+    },
+    "tools/plant_depth_review.gd.uid": {
+      "sha256": "1bb6c9a895c99634a0f3d6cd1ede09d3c14ee3be9f7a9b7db923c3de7cd80314",
+      "mode": 420
+    },
+    "tools/foliage_root_observer.gd.uid": {
+      "sha256": "f069b02ea3c10fe36e582d3de009a25ce709e16097f64c5c6f21d839a38b226e",
+      "mode": 420
+    },
+    "tools/foliage_uv_quad.gd.uid": {
+      "sha256": "e835ea41c53f84f021df430be01bc9d86a001de299bd5ee1702fa9ca74f757bc",
+      "mode": 420
+    },
+    "tools/axial_road_review.gd.uid": {
+      "sha256": "4b72114f9d71e05cd7ce4aa0bb4d13b1876a649b985dffd6c5164e05b1a90d3e",
+      "mode": 420
+    },
+    "tools/ground_edge_builder.gd.uid": {
+      "sha256": "b7481abdebf720e3749f67e14fa829c6e9285a8d5ac3519342209bb24d9a1ad8",
+      "mode": 420
+    },
+    "tools/axial_road_builder.gd.uid": {
+      "sha256": "697bc663138139a2230000d308043e4ee526a55e746c131b5b05c80f9d7a8191",
+      "mode": 420
+    },
+    "tools/plaza_field.gd.uid": {
+      "sha256": "a18b06934fe03afa181feebf6d4e2b06e65c213023d6971d083dacf51f08c208",
+      "mode": 420
+    },
+    "tools/plaza_board.gd.uid": {
+      "sha256": "21ac77af69bba21735fc0f6c6a5d8238b78e076c00b86ce1e5dc706e043e9b82",
+      "mode": 420
+    },
+    "tools/foliage_pause_game.gd.uid": {
+      "sha256": "d5647355746b971b3f7f3550ea9426d67b49222a5e92397bfb140c3f1d4f44ca",
+      "mode": 420
+    },
+    "tools/foliage_uv_review.gd.uid": {
+      "sha256": "75e3409939f2a8efd79e61cbdd1084993a0dffb582f5f3f01171a9a15daab788",
+      "mode": 420
+    },
+    "tools/shore_kit_capture.gd.uid": {
+      "sha256": "6d56d52eff66842df2deaf80721f9262723f839320a8a9a28b1d14eae99a975f",
+      "mode": 420
+    },
+    "tools/foliage_root_review.gd.uid": {
+      "sha256": "8cd991bf3b71f0cd79133e5fbc5d695b26f002a4854528ea977c3f533ff704d6",
+      "mode": 420
+    },
+    "tools/shore_kit_review.gd.uid": {
+      "sha256": "6ad837b3c095d200664d3d9f88bdb5452ad95413517c3d5d934234ead8648921",
+      "mode": 420
+    },
+    "tools/road_network_capture.gd.uid": {
+      "sha256": "776a71bce491c5320d7c3aa026e169d12631016175999b6e81f4efa688e96fa9",
+      "mode": 420
+    },
+    "tools/foliage_recovery_review.gd.uid": {
+      "sha256": "071e595e9f3bad36a9ba3466c977f03e100bda63b1cec4d69a0a8bcfc5c6251f",
+      "mode": 420
+    },
+    "tools/ground_edge_board.gd.uid": {
+      "sha256": "ab29c4503bdd45045b4bc4ac37338cf69ba4ad6e120858a7375db29dbdda9483",
+      "mode": 420
+    },
+    "tools/ground_layers_review.gd.uid": {
+      "sha256": "022d609d4882063cc9dc309e1f602669306243efcfa77dcef4065c12aa374659",
+      "mode": 420
+    },
+    "tools/ground_edge_field.gd.uid": {
+      "sha256": "afd806b8108f5fa920c21de562ac7775378558d868843eba6a2fc90d1e6e9483",
+      "mode": 420
+    },
+    "tools/grass_compare/field.gd.uid": {
+      "sha256": "c56adbbd8e88359007b642e66e281a8a8c153a175fc30dc80e857e7e960a5f75",
+      "mode": 420
+    },
+    "tools/grass_compare/review.gd.uid": {
+      "sha256": "95cea80c6aca988559e6359c7f2bd9bfaaf6f6971206c2f98f33bd904ee7ba7a",
+      "mode": 420
+    },
+    "tools/grass_compare/mesh_data.gd.uid": {
+      "sha256": "09e9f9456e354fdd64b13e4f39cfaa7e422dd73695d69973317699d54e31bb51",
+      "mode": 420
+    },
+    "tools/grass_compare/capture.gd.uid": {
+      "sha256": "a039a11293741d80c639fdb39b71474960136a442f1642a9af204645793bf573",
+      "mode": 420
+    },
+    "tools/grass_compare/observer.gd.uid": {
+      "sha256": "6e0cb30769c92d02e84dc9a77d87e2605c0df5982b548b1424c156624fcea530",
+      "mode": 420
+    },
+    "tools/grass_compare/wind.gdshader.uid": {
+      "sha256": "c52a0343cc472bee232272a0f00f55e333a604c6d79898b9444b63d2fb81e926",
+      "mode": 420
+    },
+    "tools/qa/compatibility/compact_dialogue_review.gd.uid": {
+      "sha256": "111d5ec84fad2d1338c55ecdd1e24413d0d1af769ddd1488ea33628738de67e4",
+      "mode": 420
+    },
+    "tools/qa/compatibility/boss_balance_review.gd.uid": {
+      "sha256": "b4f27d5941a5f8f1c50d670c88eec747c4596d0b449553c647baa28991464c72",
+      "mode": 420
+    },
+    "tools/qa/compatibility/prepared_pixels_review.gd.uid": {
+      "sha256": "3246cce52131aa28b8ab4021b6fb299cbc6aed199b5674d39b0b4b91d6b61729",
+      "mode": 420
+    },
+    "tools/qa/compatibility/lazy_item_icons_review.gd.uid": {
+      "sha256": "ed04fd1c7174aec4526fc2e0bac465e353e3b9ced86bc5271b2860b8bee3200b",
+      "mode": 420
+    },
+    "tools/qa/compatibility/content_reference_audit.gd.uid": {
+      "sha256": "fca244b76cfa82a304d3b93ad36fd71a5029202a2bd669ead16e8d6f800a69e6",
+      "mode": 420
+    },
+    "tools/qa/compatibility/held_weapon_capture.gd.uid": {
+      "sha256": "53c9c72188db47ee27ca4687ca81e8b5e8d9e49f6be1909709a45f84dfe75e59",
+      "mode": 420
+    },
+    "tools/qa/compatibility/design_audit_capture.gd.uid": {
+      "sha256": "47c4b841ab13eff139cd0379701e58d0e0b1bbf5f1bb24a7d3d7cb3aca9d1641",
+      "mode": 420
+    },
+    "tools/qa/compatibility/design_audit_gallery.gd.uid": {
+      "sha256": "cb07559657dee4461d71eac518da9a4d69910cac9a5b5410effa7a1d92f5335c",
+      "mode": 420
+    },
+    "tools/qa/compatibility/resident_review.gd.uid": {
+      "sha256": "e24b70ba4b73e0bacce8bc986ba3892aa1cd38a829f57f5a72354b18c55c7177",
+      "mode": 420
+    },
+    "tools/qa/compatibility/research_capture.gd.uid": {
+      "sha256": "ef2cac896b61ae8660331610eb537f0b204786a6572513a85be1f76c2606a73f",
+      "mode": 420
+    },
+    "tools/qa/compatibility/paper_theme_review.gd.uid": {
+      "sha256": "950b843c945f6cc1643a00bcc9028136c652e13f8304a2a6d2c595eeadc6050d",
+      "mode": 420
+    },
+    "tools/qa/compatibility/farm_bounds_review.gd.uid": {
+      "sha256": "54f3f26ebeb08178d4d2c5434644788aeed0eb7d0221edf161863428e9b4389e",
+      "mode": 420
+    },
+    "tools/qa/compatibility/dropped_loot_capture.gd.uid": {
+      "sha256": "9614e23368ea080be13e15895809cd2cef035f439454c7db507dcf1aade696b1",
+      "mode": 420
+    },
+    "tools/qa/compatibility/world_review.gd.uid": {
+      "sha256": "7c1bc34db297d0d1b7191275708d6073873d1773650fecae890a4277917df8a7",
+      "mode": 420
+    },
+    "tools/qa/compatibility/character_polish_capture.gd.uid": {
+      "sha256": "759199daee873f275a9408d9c7981f3d6a420569bf7430a27364599ff435740c",
+      "mode": 420
+    },
+    "tools/qa/compatibility/house_furniture_review.gd.uid": {
+      "sha256": "f33cf8fd9d64daa6a02316665e88577d7936ac2720e6e52b759584f38a816692",
+      "mode": 420
+    },
+    "tools/qa/compatibility/startup_review.gd.uid": {
+      "sha256": "9196ac5328ded622d3a15037f27d7f96e0447ea65273b8b46d254af045281f2e",
+      "mode": 420
+    },
+    "tools/qa/compatibility/compact_dialogue_preview.gd.uid": {
+      "sha256": "7c4cd6776a9369149293603af85d0456d6230396505bc94167bac1ab4bad5d13",
+      "mode": 420
+    },
+    "tools/qa/compatibility/house_furniture_capture.gd.uid": {
+      "sha256": "46da084057b332f51577f2ebddf68254f4f1edd85df3d12195b31e6877038ac8",
+      "mode": 420
+    },
+    "tools/qa/compatibility/safe_review.gd.uid": {
+      "sha256": "5c7f94455cc284f9a48b95eb15fd3ed6f0b4d89e4a2c2253f8111697ce40b4f3",
+      "mode": 420
+    },
+    "tools/qa/compatibility/livestock_review.gd.uid": {
+      "sha256": "535be4e3213e7f14aa79eb3b59a7a7515f3cdcbf5b138216f5d382fc2177a8d9",
+      "mode": 420
+    },
+    "tools/qa/compatibility/workshops_catalog_export.gd.uid": {
+      "sha256": "2b72dfa85bf8e8194c437d91f6f38082f0a242815e3793f1f4c5b3429d009dc5",
+      "mode": 420
+    },
+    "tools/qa/compatibility/prop_edges_capture.gd.uid": {
+      "sha256": "36530220c67066564d1b9ec88fc538a6ac3b986b9edcf9e732592fb8d8eaa289",
+      "mode": 420
+    },
+    "tools/qa/compatibility/farm_review.gd.uid": {
+      "sha256": "9511d7db855be915775f6a257e7d51cac023b4d5e9ed36832670e9b2782e5d59",
+      "mode": 420
+    },
+    "tools/qa/compatibility/research_catalog_export.gd.uid": {
+      "sha256": "1ccb056a2f9f3367645b60fefc3a8e0f1d4603b49c0f1ae19d154fa48292c555",
+      "mode": 420
+    },
+    "tools/qa/compatibility/furnace_capture.gd.uid": {
+      "sha256": "00ece6d548932b9ca26b7a0ea1c083c43e77579f97edabe0012eb338de39f6c7",
+      "mode": 420
+    },
+    "tools/qa/compatibility/action_lifecycle_native.gd.uid": {
+      "sha256": "3d43a7582a77a0ad18e69457b66da8c36a66c34f2dc3c748f29055796ee6fe5d",
+      "mode": 420
+    },
+    "tools/qa/compatibility/player_contact_review.gd.uid": {
+      "sha256": "f25c5214e00700e1e7c3ef34769455214ad8c412a137da9293ca76b73ef2bde8",
+      "mode": 420
+    },
+    "tools/qa/compatibility/basement_review.gd.uid": {
+      "sha256": "7ed3bdc8b4d2437e51ed9eb15ae9806783076a8c39cfab8371d28a7f3750ccbb",
+      "mode": 420
+    },
+    "tools/qa/compatibility/kitchen_review.gd.uid": {
+      "sha256": "80fb516a7bf06335cbb93ab0a966515632ddd9ffdac5871468f937bfa06286aa",
+      "mode": 420
+    },
+    "tools/qa/compatibility/depth_guardian_capture.gd.uid": {
+      "sha256": "d18cc85b91eb1b43411249bfbf4ae1e5fc2ff2cf6dd56f6fdb83f8312f9c5e6f",
+      "mode": 420
+    },
+    "tools/qa/compatibility/alchemy_catalog_export.gd.uid": {
+      "sha256": "6479f7ec1673df2d2b93c1f04a44e3581903e9086b4802fdaef29a8f819f5a4e",
+      "mode": 420
+    },
+    "tools/qa/compatibility/ranged_combat_capture.gd.uid": {
+      "sha256": "71329b657494fa91dfd1d36a35a6c710fbe3f4f4aae7eed29949a9a40dac39de",
+      "mode": 420
+    },
+    "tools/qa/compatibility/research_review.gd.uid": {
+      "sha256": "71ace6254078c53be137bf1a762b4fcd2bfe1acb9abc323e650c4f94e566e950",
+      "mode": 420
+    },
+    "tools/qa/compatibility/apiary_capture.gd.uid": {
+      "sha256": "5c2801aa595ef1bfa0fb7573bb08c1a47176a8d1babf9bd35ad0ea3f34ba029d",
+      "mode": 420
+    },
+    "tools/qa/compatibility/generate_adaptive_hud_previews.gd.uid": {
+      "sha256": "cc24c7df3ed4a22133cc6fece789b86272a6302db90a111bda652f17b29808f9",
+      "mode": 420
+    },
+    "tools/qa/compatibility/qa_teleport_review.gd.uid": {
+      "sha256": "bcb68f3ef93b4c335bab023c6e76022ed3f3c56ddee90d656b9339e4a04a95fd",
+      "mode": 420
+    },
+    "tools/qa/compatibility/dev_cabinet_review.gd.uid": {
+      "sha256": "3032646866c30e78e64d38220008fe27776a9482bc3231ac6370855fe36bc38d",
+      "mode": 420
+    },
+    "tools/qa/compatibility/alchemy_capture.gd.uid": {
+      "sha256": "94fc8acd2ff885cc7ec94a22f5a63427884ce34963453ff53de1e7f088c8d0d9",
+      "mode": 420
+    },
+    "tools/qa/compatibility/furnace_review.gd.uid": {
+      "sha256": "997a78c160ba372b3cc5778997fc1b2fa2a1fa71d4c7e2ccf4e580f5f2d41415",
+      "mode": 420
+    },
+    "tools/qa/compatibility/focus_pause_native.gd.uid": {
+      "sha256": "bcb26ff5ff0d80e1d2654bf75be5a4de8b0f140732a6b86f0351b8dac919fb57",
+      "mode": 420
+    },
+    "tools/qa/compatibility/end_to_end_review.gd.uid": {
+      "sha256": "88a8d348999d883ef312b71897ed71a2638253934761e24e6db98819db44f9ec",
+      "mode": 420
+    },
+    "tools/qa/compatibility/storage_actions_capture.gd.uid": {
+      "sha256": "37f31f815b5bfa546a922957b00dccc12365c5fc73763da65828ce67017da97a",
+      "mode": 420
+    },
+    "tools/qa/compatibility/basement_ui_review.gd.uid": {
+      "sha256": "0b16d26a2347dc9ac04c98c53bb3a4bf791259a15e9410cfa13502fc2ba77ba3",
+      "mode": 420
+    },
+    "tools/qa/compatibility/depth_guardian_review.gd.uid": {
+      "sha256": "95b94d34767eb2c69cd5cb7210747cae49e51803e2e7fb4a922bc3c8ebd76ca6",
+      "mode": 420
+    },
+    "tools/qa/compatibility/world_native.gd.uid": {
+      "sha256": "25bcbf5112c7ddd24eb12f98e509b5dd0215fd11a1a30e5cd5bafd9b8bd28389",
+      "mode": 420
+    },
+    "tools/qa/compatibility/paper_theme_capture.gd.uid": {
+      "sha256": "a703907e4e5a061fff968bd5dadaf1e943321720c4d3ba482123cf6e8cc5fd55",
+      "mode": 420
+    },
+    "tools/qa/compatibility/grandmother_animation_review.gd.uid": {
+      "sha256": "cb042222c06811ff3556ec473f0fcee098528ec3eb7ada7094c52a52a2a668df",
+      "mode": 420
+    },
+    "tools/qa/compatibility/cooking_capture.gd.uid": {
+      "sha256": "5733a6422af57b61f924f6170604ce5c9844d8bc3b7aef434eab263acea4f2f5",
+      "mode": 420
+    },
+    "tools/qa/compatibility/storage_window_capture.gd.uid": {
+      "sha256": "1356a8d61f6149d60035ab2b6df6318905bde8dee470c904af7771f005a08c7c",
+      "mode": 420
+    },
+    "tools/qa/compatibility/artisan_review.gd.uid": {
+      "sha256": "b26ee13b136a20ac3b0d30668b388a493445a7de5a7f01034e47235c5491b1ae",
+      "mode": 420
+    },
+    "tools/qa/compatibility/workshops_review.gd.uid": {
+      "sha256": "b9583864c9e79d606eebd6f8b7a805dffd487af0e8cd4b16fd961bb68d35e022",
+      "mode": 420
+    },
+    "tools/qa/compatibility/hero_actions_capture.gd.uid": {
+      "sha256": "e8c9fb198546ed96db13c0fc50aefecf092cbf6b7873c991e4c3e8ddda3cfab6",
+      "mode": 420
+    },
+    "tools/qa/compatibility/end_to_end_capture.gd.uid": {
+      "sha256": "23ed9c0558126c98d9bc7f736bb78d99a63a4c56c59f53ab77b8ec3fde1137d3",
+      "mode": 420
+    },
+    "tools/qa/compatibility/hero_actions_review.gd.uid": {
+      "sha256": "73925c55807cb5eff564188d52d845771cf63bc69237f86653e03e2a50ae5a66",
+      "mode": 420
+    },
+    "tools/qa/compatibility/held_weapon_review.gd.uid": {
+      "sha256": "db0a82aea53fe2e4b2985f51652b51b7b958e26e5c65c490b9e7d668b933d4d7",
+      "mode": 420
+    },
+    "tools/qa/compatibility/artisan_capture.gd.uid": {
+      "sha256": "3c4939fb74a77dc33597ddd68efab0a1bf935e80a220674da90473f02c0a4955",
+      "mode": 420
+    },
+    "tools/qa/compatibility/farm_native.gd.uid": {
+      "sha256": "a49e4d5fe46ab0e05b8c652f9d1da9aa1b56ee6a63f96bf4b6f791218676629a",
+      "mode": 420
+    },
+    "tools/qa/compatibility/front_facing_capture.gd.uid": {
+      "sha256": "59d097d4a97d3117da9ac03b94a309a786cd1305c314571961c19bb2e0369938",
+      "mode": 420
+    },
+    "tools/qa/compatibility/recovery_capture.gd.uid": {
+      "sha256": "3755968dd9ea7b786d951d0068ce62de4ae59927c2d6d099bd7800f721d71c1e",
+      "mode": 420
+    },
+    "tools/qa/compatibility/farm_cursor_review.gd.uid": {
+      "sha256": "eaf52567371713d6f72a199b5319d06d69d7edc74d5ef54e0e13988e80a96310",
+      "mode": 420
+    },
+    "tools/qa/compatibility/alchemy_review.gd.uid": {
+      "sha256": "3c83621924feecd5a0c5113e997dfeb456320fe07633cb2317c5bf744e8d0eb9",
+      "mode": 420
+    },
+    "tools/qa/compatibility/compact_dialogue_capture.gd.uid": {
+      "sha256": "9d74d0295bcd58103e713da31da4accf1a46772949bd81ae93a97d2d1981b43b",
+      "mode": 420
+    },
+    "tools/qa/compatibility/tree_occlusion_review.gd.uid": {
+      "sha256": "4955a44d200654da68e19539a978320e26fc992652934d2b84f7ab69a5953642",
+      "mode": 420
+    },
+    "tools/qa/compatibility/compact_hud_review.gd.uid": {
+      "sha256": "d7ca347692b1f543978eddfb4658bae84fd0b9569dafb423b42f192f3bcc4ac1",
+      "mode": 420
+    },
+    "tools/qa/compatibility/dropped_loot_review.gd.uid": {
+      "sha256": "dfa8f1c385b947e5babc6b6af4cd059b855af1a98616dc832a209a7e357e1fae",
+      "mode": 420
+    },
+    "tools/qa/compatibility/player_contact_capture.gd.uid": {
+      "sha256": "01a8fb0d824955883d9de75a6087a14f0d8ead2fc70a655fc3a5c1466e1b2b8a",
+      "mode": 420
+    },
+    "tools/qa/compatibility/basement_capture.gd.uid": {
+      "sha256": "9dc3c5f94da91032dda31637abdb10d3d822454da1fd912ae4158bf47b53a3e9",
+      "mode": 420
+    },
+    "tools/qa/compatibility/terrain_cache_review.gd.uid": {
+      "sha256": "63e2dee59baad985980812994f9ba778fcd504fd5bf1468c4317fd4dbd298dea",
+      "mode": 420
+    },
+    "tools/qa/compatibility/design_audit_review.gd.uid": {
+      "sha256": "18eba93ffa0c3cb6df70134028396330ea185898d8d98ebdec280cd29cb0def5",
+      "mode": 420
+    },
+    "tools/qa/compatibility/qa_teleport_capture.gd.uid": {
+      "sha256": "4bbdfbd59b57a2f5de3da24c152a013551e6c93bd63d05fc1e5a55ea96dc1d7f",
+      "mode": 420
+    },
+    "tools/qa/compatibility/runtime_comfort_review.gd.uid": {
+      "sha256": "a7efd64968626e3cdd0a9de1befca1ceaadfab67f532bc85e61adcf83e3cc2a9",
+      "mode": 420
+    },
+    "tools/qa/compatibility/kitchen_capture.gd.uid": {
+      "sha256": "34d1442411d23c3da7e7da79ae5f854fb2984923222330773cc7a0c797b83d24",
+      "mode": 420
+    },
+    "tools/qa/compatibility/cooking_review.gd.uid": {
+      "sha256": "e8ef07147d3106882018f8e1ea82d5c21cd4c7be82c1db854be5843725325899",
+      "mode": 420
+    },
+    "tools/qa/compatibility/apiary_review.gd.uid": {
+      "sha256": "9bf60b54eecad87b2e3ce6be818d6d83fa4e2ef3f1d69ceddb3a843819d476f2",
+      "mode": 420
+    },
+    "tools/qa/compatibility/runtime_maintenance_tests.gd.uid": {
+      "sha256": "57b3a9d0483a5129b11ee42a6d2ee5cfbaf21b8d2f07a0eed106770cfcb4f69f",
+      "mode": 420
+    },
+    "tools/qa/compatibility/generate_ui_layout_audit.gd.uid": {
+      "sha256": "de01a791b112682af31b7f134b817ff91ab5ccfad81314e69e30cc6fc993830d",
+      "mode": 420
+    },
+    "tools/qa/compatibility/farm_bounds_capture.gd.uid": {
+      "sha256": "1d7114e4903233b0dab1154d133a56023b7565f0b58ac336ceedfdc483ceffe6",
+      "mode": 420
+    },
+    "tools/qa/compatibility/workshops_capture.gd.uid": {
+      "sha256": "ee5d869b5fd3ddfde47b658b9a737598904a76d816fc249cc2e8670ca5cfd170",
+      "mode": 420
+    },
+    "tools/qa/compatibility/dev_cabinet_capture.gd.uid": {
+      "sha256": "303b424e5b19af7e4c1a34cd14ef642df9ef7e741d5e8d41bdcce1a5caf3023c",
+      "mode": 420
+    },
+    "tools/qa/compatibility/generate_hero_pose_preview.gd.uid": {
+      "sha256": "5e0d4a555fc226286713a1dd4495be9d830c989b94728b791cf4c54213e9cb35",
+      "mode": 420
+    },
+    "tools/qa/compatibility/skeleton_aim_capture.gd.uid": {
+      "sha256": "3c1fdea42c2e0339bd7d9175e3b96702dfbc8602e5d8e0122c0b59994573589b",
+      "mode": 420
+    },
+    "tools/qa/compatibility/ranged_combat_review.gd.uid": {
+      "sha256": "76180cfc28fc531c7e0f710dbe7075dbae3a64b1ebcbd40dea028b48a45cac28",
+      "mode": 420
+    },
+    "tools/qa/compatibility/front_facing_review.gd.uid": {
+      "sha256": "426186bc726ab10d936e783c25f596ec068c2fbf4bc9701aa00447df0ca52761",
+      "mode": 420
+    },
+    "tools/qa/compatibility/world_workbench_review.gd.uid": {
+      "sha256": "d4d09a9c9fbd1f32dbe7599408aac72cfcd100b9aa050f5628ee978cfa7d1e28",
+      "mode": 420
+    },
+    "tools/qa/compatibility/recovery_review.gd.uid": {
+      "sha256": "373aa0e5f9def8463a4dc21f5ad3bad842585de1092585caecef47d790039ccd",
+      "mode": 420
+    },
+    "tools/qa/compatibility/paper_theme_reference_capture.gd.uid": {
+      "sha256": "243f61620da487dc5c55f3d43add97ea2139b39e38442cd6d242726b0912c3a1",
+      "mode": 420
+    },
+    "tools/qa/art/visual_perspective_export.gd.uid": {
+      "sha256": "1e7029e8ec7ce70e038ceddd3ca9a6d48a4e4fcbd1fda9d3f71f6528703eb71b",
+      "mode": 420
+    },
+    "tools/qa/art/visual_light_capture.gd.uid": {
+      "sha256": "f951f28aa914363117f37d85e217a15f397a303c6b6ea25db24257315b5869c9",
+      "mode": 420
+    },
+    "tools/qa/art/visual_reuse_capture.gd.uid": {
+      "sha256": "4e2b17b1cbc8cb9e19b7f248964415a4feb500c319f4f84013dfe17291da88f4",
+      "mode": 420
+    },
+    "tools/qa/art/visual_scale_capture.gd.uid": {
+      "sha256": "7df4edc4e8860e9aaaebe9f4dcaa42ee4889fc621e9a896459532454d1841fac",
+      "mode": 420
+    },
+    "tools/qa/art/visual_density_capture.gd.uid": {
+      "sha256": "0efefd30c8d75e29a404101492dd6b7d9f76f1b4ba4084e1be5fd00da047f0cc",
+      "mode": 420
+    },
+    "tools/qa/art/visual_reuse_sources.gd.uid": {
+      "sha256": "1e988a2fed1e65bd7ba3aa10ab9c54efe73aadf4408e5405c1d436c51b6aa178",
+      "mode": 420
+    },
+    "tools/qa/art/visual_modules_capture.gd.uid": {
+      "sha256": "bd447d46883559816a15dc4a0b5b33faefcae849d14f792f5182d0e0aa04f7a8",
+      "mode": 420
+    },
+    "tools/qa/camera/reference_zoom_live.gd.uid": {
+      "sha256": "2ce36f4878b01217871ae96095520e0bfdb353ebefb90db30e5959026b647610",
+      "mode": 420
+    },
+    "tools/qa/camera/visual_baseline.gd.uid": {
+      "sha256": "9e52efee29e5647cc1387afb214579f6aa5918464977a1d0e032c97bb3fa0d03",
+      "mode": 420
+    },
+    "tools/qa/camera/visual_motion_capture.gd.uid": {
+      "sha256": "c59c30b54a17c9c74ade1fa047dfc61638c984602f0411586bb6eef159f988cd",
+      "mode": 420
+    },
+    "tools/qa/camera/presentation_pose_live.gd.uid": {
+      "sha256": "129da3fdb4ed38d99013718cddff9429478d88f8284f89da2b2d355333585b9a",
+      "mode": 420
+    },
+    "tools/qa/camera/visual_camera_review.gd.uid": {
+      "sha256": "7f62568cbeacb938ed82a062babf275641d011ac365650d5b114d07a47dde575",
+      "mode": 420
+    },
+    "tools/qa/camera/reference_zoom_review.gd.uid": {
+      "sha256": "8f8b780dd38750934e2a4bb15abf7f3600cf4d4d4776fc95ce49c52f534c728a",
+      "mode": 420
+    },
+    "tools/qa/camera/camera_quantization_review.gd.uid": {
+      "sha256": "54175b6f02999bbee3b8183a19744b63271802afb660ab4ce8ba4329f214f96a",
+      "mode": 420
+    },
+    "tools/qa/camera/reference_zoom_capture.gd.uid": {
+      "sha256": "85d1de57434f2ce6aa0fb229e8dd171bc1d9d461063bd08e88f9bbdd0e141291",
+      "mode": 420
+    },
+    "tools/qa/camera/visual_motion_route.gd.uid": {
+      "sha256": "71fb4260b562365d823d8d5aa36ae490d656c9d82bdb10003db1e5947d311b16",
+      "mode": 420
+    },
+    "tools/qa/camera/visual_camera_capture.gd.uid": {
+      "sha256": "4f96cf69aa04cf9b0b1a628be7de9c84c48f15f5050740790c41fb0da1202268",
+      "mode": 420
+    },
+    "tools/qa/camera/visual_motion_review.gd.uid": {
+      "sha256": "51f2f26945d842bde82e43a42088f65e79675048563ad551f1d90fff9763c86b",
+      "mode": 420
+    },
+    "tools/qa/camera/visual_coordinates_review.gd.uid": {
+      "sha256": "2b9f993ccebe597589190f08d40dd8b9e7d6c69905ed81e1618024888a5f95ec",
+      "mode": 420
+    },
+    "tools/qa/camera/visual_coordinates_capture.gd.uid": {
+      "sha256": "b758acdc95aa3010d8faab460d4f2142494701f4223ce0306fd9a540bc5e690e",
+      "mode": 420
+    },
+    "tools/qa/camera/visual_static_capture.gd.uid": {
+      "sha256": "0fe2af606c6adf926a605178db99599d61eeccc0b1a1be69e9b0565e97203d9d",
+      "mode": 420
+    },
+    "tools/qa/camera/presentation_pose_review.gd.uid": {
+      "sha256": "44283f6b003ddbe0e9089a5fc52eb878e6c548594349d06df654ec3d249fbc2a",
+      "mode": 420
+    },
+    "tools/qa/camera/presentation_pose_capture.gd.uid": {
+      "sha256": "451f1fd66f15e2ce1d72cf0b6e90347728763aa024c2cb673d47a149442224f5",
+      "mode": 420
+    },
+    "tools/qa/camera/camera_quantization_capture.gd.uid": {
+      "sha256": "091b1c0253ae2e2f81965546e6b900a705fcc31e583bded7e3861406bf25615e",
+      "mode": 420
+    },
+    "tools/qa/world/transient_save_capture.gd.uid": {
+      "sha256": "0cd93714938318f66217187d6da816a323dd8b71b03f348ebc8d341e1523f715",
+      "mode": 420
+    },
+    "tools/qa/world/pilot_static_capture.gd.uid": {
+      "sha256": "e32b5583f9489d90bcf3aa1bb8891024823a473c28fea6769f3a601c85c8dd10",
+      "mode": 420
+    },
+    "tools/qa/world/post_motion_capture.gd.uid": {
+      "sha256": "ccb0fa15a8bca34dd9aecf5e109b5a56ce69b9107970e21ce651a8ae6e0a7861",
+      "mode": 420
+    },
+    "tools/qa/world/post_motion_review.gd.uid": {
+      "sha256": "0c372cc83c4cb9b1e2cfdc9c5fb3d70ebc11af296164033b6e718c63a9b81140",
+      "mode": 420
+    },
+    "tools/qa/world/village_fence_gallery.gd.uid": {
+      "sha256": "9b9eb2a9a2b6cf3382bbeb1e2959f0b6f85ae58f81a02a9608aa237c59bfacad",
+      "mode": 420
+    },
+    "tools/qa/world/village_street_review.gd.uid": {
+      "sha256": "d0b493dbde19d68b17730585595deae59fd31f73a33979aeb7c784dc70994867",
+      "mode": 420
+    },
+    "tools/qa/world/village_fence_capture.gd.uid": {
+      "sha256": "ba5ffa39b2da4955e06888a464fc167c7256abb69344598c936100fe71f2a196",
+      "mode": 420
+    },
+    "tools/qa/world/village_map_review.gd.uid": {
+      "sha256": "2b0a4e2414f803155350a7aeaaec13c6cf08c3eb9a0cd9f85e7e0bbea7ea3bb8",
+      "mode": 420
+    },
+    "tools/qa/world/water_fishing_review.gd.uid": {
+      "sha256": "8e3c6066ae559fb912e579e7a15d6fd95c1590aa277127a991e8436f3672ee0a",
+      "mode": 420
+    },
+    "tools/qa/world/render_order_capture.gd.uid": {
+      "sha256": "2dd3dfff29d4f3d2fb831954619db0ed2581ca66a3203fcb88eb33079c65e49b",
+      "mode": 420
+    },
+    "tools/qa/world/object_command_review.gd.uid": {
+      "sha256": "6cba7637aeaf4280670cede9b280ab09a26d383d505df71145a992d9b02e00a4",
+      "mode": 420
+    },
+    "tools/qa/world/village_bench_leg_capture.gd.uid": {
+      "sha256": "00f1d4d9634c2299d8f9a20dd9023dbedc5b6454704cfab87e4700430e3ace9c",
+      "mode": 420
+    },
+    "tools/qa/world/pilot_pass_review.gd.uid": {
+      "sha256": "fe382e39dc17984eab9f87078c3e69b645120a2e0af8df75ba252213b93f5386",
+      "mode": 420
+    },
+    "tools/qa/world/village_regions_review.gd.uid": {
+      "sha256": "341c8ff5584f627b04c77d0959c87ef3a9f1c7b949e05d1e9bb9222f8bee49fe",
+      "mode": 420
+    },
+    "tools/qa/world/village_clearance_review.gd.uid": {
+      "sha256": "e561900240fd963aeeda253cc5279f2e67e001db47cf574b3ef1c8853dce1de8",
+      "mode": 420
+    },
+    "tools/qa/world/post_motion_game.gd.uid": {
+      "sha256": "e0dd73e0d45dbe8eb99d39144bd654f085cac22068e2b5b5cf59aab94996bc6f",
+      "mode": 420
+    },
+    "tools/qa/world/village_board_capture.gd.uid": {
+      "sha256": "675265c214ba39c3de92d3a1d74de6e2ea29e7a03def7b72784cb58af21c581a",
+      "mode": 420
+    },
+    "tools/qa/world/village_street_gallery.gd.uid": {
+      "sha256": "06d4184bd97486b2ff1ef2b5ef98652fcef26d17afd93cb38fbb5a99e662ae82",
+      "mode": 420
+    },
+    "tools/qa/world/village_street_capture.gd.uid": {
+      "sha256": "6d8588d665694ab8a6afa0366812a25155db0ed1bb8d6e873a28bd8cdb2ecf75",
+      "mode": 420
+    },
+    "tools/qa/world/water_navigation_review.gd.uid": {
+      "sha256": "c9bf2ac25f620af2cbff81bee5d79d6823700f774f803c82e407b4171df9cb42",
+      "mode": 420
+    },
+    "tools/qa/world/village_lamp_review.gd.uid": {
+      "sha256": "5ed02a68b31765d07830b3ee31b3ced642ae613a1e421a925c44ed0ff403bcc0",
+      "mode": 420
+    },
+    "tools/qa/world/village_board_gallery.gd.uid": {
+      "sha256": "e5efed3c9caecbe60ddcbc2373c3c38d659f48906a9241d4205fefe4ce66e97b",
+      "mode": 420
+    },
+    "tools/qa/world/object_command_capture.gd.uid": {
+      "sha256": "e7d705d2212313c6f9fd766df68ad92e39165fd599b675a64343e263161581e7",
+      "mode": 420
+    },
+    "tools/qa/world/village_board_review.gd.uid": {
+      "sha256": "621cea918140e0ff043ec02758ab7f2041120803529e1dd8b5a8380e35e2363c",
+      "mode": 420
+    },
+    "tools/qa/world/village_trade_gallery.gd.uid": {
+      "sha256": "beabc0657e19a9ea80ed412747b53e46ff3eb1a6d214ee193ffdfc574607829d",
+      "mode": 420
+    },
+    "tools/qa/world/village_trade_capture.gd.uid": {
+      "sha256": "df0adbc774a0b09b40d8215bf67c4609d08671dd869147e32a758c79e91104de",
+      "mode": 420
+    },
+    "tools/qa/world/village_fence_review.gd.uid": {
+      "sha256": "35f85acf227b60a73bf7aa136d871acb587712114d33e795109a7d51e6a147e7",
+      "mode": 420
+    },
+    "tools/qa/world/water_topology_review.gd.uid": {
+      "sha256": "5485ddb88492c4822a92138bc87100ef8d0370202f1d022f154c4762c499fbe5",
+      "mode": 420
+    },
+    "tools/qa/world/object_command_canvas.gd.uid": {
+      "sha256": "bae0165e18f985c8bb5db3445dc181a9e83444aea44a341c4b58a28a9a6d1dc3",
+      "mode": 420
+    },
+    "tools/qa/world/village_lamp_capture.gd.uid": {
+      "sha256": "25a47b6440849669fc509eaaab59068de032480be3cdec2ce9e3f871c3fec2ac",
+      "mode": 420
+    },
+    "tools/qa/world/pilot_static_scene.gd.uid": {
+      "sha256": "acfa6dba186f987a4caa81bd37b44794668887a970707ea75f7a36fa701529d8",
+      "mode": 420
+    },
+    "tools/qa/world/transient_save_probe.gd.uid": {
+      "sha256": "095d2f7c5dbe64c07f4901640fe79d1a1778733027c4f931b70553b8bbc7b254",
+      "mode": 420
+    },
+    "tools/qa/world/village_lamp_gallery.gd.uid": {
+      "sha256": "c848c7c20a30b2b4ee088cc3f717880880cb8b2f78d746d549f1fc952fea1a0a",
+      "mode": 420
+    },
+    "tools/qa/world/village_trade_review.gd.uid": {
+      "sha256": "9d57c9d0cdf8809404b0c72c4e4dac50ea6eb045f861e85e2629d0dc57038def",
+      "mode": 420
+    },
+    "tools/qa/world/water_fishing_capture.gd.uid": {
+      "sha256": "d334970b55b9356c16e1c452df60a9f92b61050ce0512d5ca35377abdfdc0e72",
+      "mode": 420
+    },
+    "tools/qa/world/shadow_inventory_canvas.gd.uid": {
+      "sha256": "b31913d0e6d1fb870eb97a62ec443a625e4472b65f5ecd0dab4a92c9fcaf6e31",
+      "mode": 420
+    },
+    "tools/qa/world/transient_save_review.gd.uid": {
+      "sha256": "529e5bc0477cac12965be4062c2f8082c3faef48cd9bb937f2e626c79dabcc71",
+      "mode": 420
+    },
+    "tools/qa/world/shadow_inventory_capture.gd.uid": {
+      "sha256": "6317cf7ff791798d9febbdf47fe84c7ffbbe5d736f1d761434ff2ebcbadd513d",
+      "mode": 420
+    },
+    "tools/qa/world/village_regions_capture.gd.uid": {
+      "sha256": "fa230c17b0e64825bf8a436f16cb0549aca7d6f6c7412136557a40ba31d0d1cd",
+      "mode": 420
+    },
+    "tools/qa/world/pilot_pass_game.gd.uid": {
+      "sha256": "cfa62dcde746476a78162dd126a44f0e09e1dbed1cefb5b3fa0b51f47477a0c5",
+      "mode": 420
+    },
+    "tools/qa/world/pilot_pass_capture.gd.uid": {
+      "sha256": "3eea56b562fba36fc83cfab335add785e5bcef7833875440b988d66eb908ea12",
+      "mode": 420
+    },
+    "tools/qa/world/village_bench_review.gd.uid": {
+      "sha256": "3e403814600eab2c8f0623de58c4e549769497756e6f2b8d13b44c0ec9eae330",
+      "mode": 420
+    },
+    "tools/qa/world/village_bench_capture.gd.uid": {
+      "sha256": "6e34a5bbd2c33a14e2dd939920b4ce05a299e119e7f20a948cf9291d7e7ae6aa",
+      "mode": 420
+    },
+    "tools/qa/world/village_bench_gallery.gd.uid": {
+      "sha256": "913e3dcec108452229e8b4fea08b90e2df0e8fba132d799b5f79d40bbadfc850",
+      "mode": 420
+    },
+    "tools/qa/performance/wildlife_query_review.gd.uid": {
+      "sha256": "c7e0005a7d4e64da0be0203d14c8ed8462a417241e1d59d04dd5bb82103fd2a8",
+      "mode": 420
+    },
+    "tools/qa/performance/geometry_benchmark.gd.uid": {
+      "sha256": "ecca6dffcdfe45c7a2be9abecbe375aac4f1f717ccad9181c0a87678c5e57429",
+      "mode": 420
+    },
+    "tools/qa/performance/inspector_benchmark.gd.uid": {
+      "sha256": "a97a67cb96087ab57ad2a0c81410da67f34497d4e873a5a39eaf5942060f0e44",
+      "mode": 420
+    },
+    "tools/qa/performance/lazy_item_storage_perf.gd.uid": {
+      "sha256": "37d1be208edcfe3adc85ccbc599bc7bffb2196e3377adf88f7ac8fd6d39af7dc",
+      "mode": 420
+    },
+    "tools/qa/performance/optimization_audit_route.gd.uid": {
+      "sha256": "d83e632322f067ae9ba2cf50a6150ecf32fb646df479421cdc1312fc51288c24",
+      "mode": 420
+    },
+    "tools/qa/performance/optimization_audit_sweep.gd.uid": {
+      "sha256": "8b160fd9ae511b3b8b30fc7f717ca6a6852b06ccee28e85a696aad8abaa8d1ad",
+      "mode": 420
+    },
+    "tools/qa/performance/runtime_cleanup_soak.gd.uid": {
+      "sha256": "242050c3e291d6018d971beec56d1a9ab8544bf9acb5c490f61acb3ade0a1a2f",
+      "mode": 420
+    },
+    "tools/qa/performance/redraw_frame_review.gd.uid": {
+      "sha256": "3e8c8a16098421b380820cf390f268efe39729f8675b08244d2e8b055c0814ed",
+      "mode": 420
+    },
+    "tools/qa/performance/cpu_profile_game.gd.uid": {
+      "sha256": "f0a30e22ae4e98c74b8f4b4d661743bda2e36efcb27e24525b9b4166b556245e",
+      "mode": 420
+    },
+    "tools/qa/performance/optimization_audit_boss.gd.uid": {
+      "sha256": "843fcbb2cb5bfdd8702bc8cc23af459ae248533f0545b30d6ed8bdd90ccecc2e",
+      "mode": 420
+    },
+    "tools/qa/performance/save_crash_worker.gd.uid": {
+      "sha256": "51ed8df0e6eacd5accba6b37e7e5803c5f896ad84a7901906be500317330cd11",
+      "mode": 420
+    },
+    "tools/qa/performance/storage_perf_game.gd.uid": {
+      "sha256": "52005ca091588e37b18c43d80fbe2a46810bf58ebfdf353924e715a75cc9a2da",
+      "mode": 420
+    },
+    "tools/qa/performance/storage_perf_review.gd.uid": {
+      "sha256": "6ef71cbcdcec7d56b6f440ac9a9d948e3b32032c826764a5f5fc409723bf6a8d",
+      "mode": 420
+    },
+    "tools/qa/performance/runtime_cleanup_review.gd.uid": {
+      "sha256": "c1655659a00a2d743befd67e16b58f341a0f273705289e916d68127110dd6c5b",
+      "mode": 420
+    },
+    "tools/qa/performance/cave_boss_frame_review.gd.uid": {
+      "sha256": "e08d864136837039e7f32879a72c3397b8848c72f07ee0327de4247ab98f4f79",
+      "mode": 420
+    },
+    "tools/qa/performance/runtime_frame_review.gd.uid": {
+      "sha256": "83ab22f3865e9c17a883a278a04c5ef76141642cfa4d2868fe813acd8799dd7a",
+      "mode": 420
+    },
+    "tools/qa/performance/boss_cpu_review.gd.uid": {
+      "sha256": "02d1c3990498b23456cddb211363c360970977cc174a73edae31a381c242b9a9",
+      "mode": 420
+    },
+    "tools/qa/performance/perf_contract_capture.gd.uid": {
+      "sha256": "20ff8da5169e382e6b30d138cf6b44d5c20c857b7dbea1453e7f5fef21916792",
+      "mode": 420
+    },
+    "tools/dev/art_review/art_review_export.gd.uid": {
+      "sha256": "11c2fe73a8f1d704bf62c79510c4d7b48cd506cda37d87ce950177a40c3d80c5",
+      "mode": 420
+    },
+    "tools/build/asset_pack_probe.gd.uid": {
+      "sha256": "f72a97368e11501a80b9d2a0cfd58ff84b4e8ea1ffd4e39a72f5a65b74bbceab",
+      "mode": 420
+    },
+    "tools/assets/contracts/asset_game_probe.gd.uid": {
+      "sha256": "e6eb05942112d9d9e3a9d9a8f4e074daa234529512bc3240840669122bf8d8d0",
+      "mode": 420
+    },
+    "tools/assets/contracts/item_icon_contract_review.gd.uid": {
+      "sha256": "3667e3e120755ea8c92b83680cf73886a4598545e57233adb0498edf7f299418",
+      "mode": 420
+    },
+    "tools/assets/contracts/ui_portability_capture.gd.uid": {
+      "sha256": "2d47bf9cf8cdf0e91fa6b994917873908b26c95ff115cc7e40ab98033e4307bb",
+      "mode": 420
+    },
+    "tools/assets/contracts/padded_atlas_capture.gd.uid": {
+      "sha256": "3e11f9968df4d5bf1959945a01470cf24458b7178d05c21de2fc0b1c0061c482",
+      "mode": 420
+    },
+    "tools/assets/contracts/visual_sampling_review.gd.uid": {
+      "sha256": "1950f3b94a7179c7ffd10912580bdb8c6e707e32f25f030fc0de087181993324",
+      "mode": 420
+    },
+    "tools/assets/contracts/padded_atlas_review.gd.uid": {
+      "sha256": "425a988035a6d1ce83a7603a7fc4648e886d3f977217af05206bb1be6a2a4ba8",
+      "mode": 420
+    },
+    "tools/assets/contracts/sprite_usage_review.gd.uid": {
+      "sha256": "ae3f3a52801060754542dd20602365a7a88571950b21211385ad595c1f846d72",
+      "mode": 420
+    },
+    "tools/assets/contracts/item_sizes_capture.gd.uid": {
+      "sha256": "46c2451ef064bfcd4166ad65ff9b49b9d11aa71eb861f6c79ef0233edc6bde0d",
+      "mode": 420
+    },
+    "tools/assets/contracts/texture_data_probe.gd.uid": {
+      "sha256": "91f08a0ffe40082359f8882ffff9b2a39d2a59b6f5f49b14af58c6798f25ad16",
+      "mode": 420
+    },
+    "tools/assets/contracts/visual_resource_capture.gd.uid": {
+      "sha256": "4a9f29d5319d5b0053aefbe93e561d16363d67fde2b92932a081be4d94cbb37a",
+      "mode": 420
+    },
+    "tools/assets/contracts/item_fingerprint_capture.gd.uid": {
+      "sha256": "57f6863dbae9a8699edc648cb76f77bf75a43f9acbd1a323e21de7f8a56d7a73",
+      "mode": 420
+    },
+    "tools/assets/contracts/visual_icons_capture.gd.uid": {
+      "sha256": "40fd61073f3a6e6edcf3f8f01c4b769a9f9fa15bdc8b46d6fc86c41a2f449d0a",
+      "mode": 420
+    },
+    "tools/assets/contracts/preview_portability_capture.gd.uid": {
+      "sha256": "06b7136f37375a2d68e06d983d5514502088760b3a320654e1114409c54a9ab6",
+      "mode": 420
+    },
+    "tools/assets/contracts/visual_pipeline_review.gd.uid": {
+      "sha256": "057a044e9301ab6db911061c3dc34b0f1a7d69a61652ac33ac7230275734a193",
+      "mode": 420
+    },
+    "tools/assets/contracts/visual_sampling_capture.gd.uid": {
+      "sha256": "e38c4dd583666caceade517a8c9a111fac5e0a50e8c676cd7a7813e5144ab08b",
+      "mode": 420
+    },
+    "tools/assets/contracts/texture_data_room_capture.gd.uid": {
+      "sha256": "27f3fa65bb472b355c93a8611683c999d03cc506791aa43cabf0a53fabbd0e34",
+      "mode": 420
+    },
+    "tools/assets/contracts/item_export_contract_review.gd.uid": {
+      "sha256": "b84a8e6d271efaff6d51b06ff8f6721782afaa41dda1bbb4d4e2b9888e51cea2",
+      "mode": 420
+    },
+    "tools/assets/contracts/texture_intent_review.gd.uid": {
+      "sha256": "363aa87a58e0422254d221c09a9df317c5575f7b202b73679f4d7d54d4309aef",
+      "mode": 420
+    },
+    "tools/assets/contracts/visual_pipeline_capture.gd.uid": {
+      "sha256": "0b841ea8392d5cf1eb24487b291090fc46edb31d0ca10ca41707468c8861eece",
+      "mode": 420
+    },
+    "tools/assets/contracts/item_ui_fitter.gd.uid": {
+      "sha256": "3a2f9747910eb07a7cb5bcc4b4ab5c1b34657d434b59ac2a3ae8eca9c4e963ce",
+      "mode": 420
+    },
+    "tools/assets/contracts/visual_resources_review.gd.uid": {
+      "sha256": "a6b717242004bc74f35c4de9c03ec5954e381ee8c420db0c33dc9bffeb700ff1",
+      "mode": 420
+    },
+    "tools/assets/contracts/item_sizes_review.gd.uid": {
+      "sha256": "a4b68cc1c39b7691b781cfdc34186858e88ccbae05c7aa061cbfc1ec9854ae0f",
+      "mode": 420
+    },
+    "tools/assets/contracts/ui_portability_observer.gd.uid": {
+      "sha256": "b6fdadb241f8a8da588429d744205f37d1a6ad4cbbb00355286f452ed0de6537",
+      "mode": 420
+    },
+    "tools/assets/contracts/item_export_contract.gd.uid": {
+      "sha256": "2390fb747925e9d219b12726b2c7308f68193de72b0bbe83776bec223f34dc0e",
+      "mode": 420
+    },
+    "tools/assets/authoring/build_house_furniture.gd.uid": {
+      "sha256": "5fd470424d61510ca47f103e7a0e54c4fb4c47411efe9579cd6a93e57dc8c9c8",
+      "mode": 420
+    },
+    "tools/assets/authoring/build_painted_item_icons.gd.uid": {
+      "sha256": "c21efe2728d70f4210fac0f33eb55c8e85b9c951a8560658945196e57e322c54",
+      "mode": 420
+    },
+    "tools/assets/authoring/prepare_skeleton_v2.gd.uid": {
+      "sha256": "520dd10f40c12b4a9c81020de33f6f1b84aba2398c60dc7863c5cd9cd25ded04",
+      "mode": 420
+    },
+    "tools/assets/authoring/build_village_props.gd.uid": {
+      "sha256": "bf389640bc54b8fe8011dbc672d4deee8c6792a79f3cc2bb160cc36704d2c6b5",
+      "mode": 420
+    },
+    "tools/assets/authoring/build_village_materials.gd.uid": {
+      "sha256": "2e82ab5f3c28e191f573695a19f343c43128de1541a68ad9ba93678713cea9c1",
+      "mode": 420
+    },
+    "tools/assets/authoring/prepare_celestial_dial.gd.uid": {
+      "sha256": "55020385a3ffceb69f31adae53321c557d271646a42a5f97eeeedc7549fe2673",
+      "mode": 420
+    },
+    "tools/assets/authoring/build_prepared_pixels.gd.uid": {
+      "sha256": "fbb7b0452e9dc1c04497cb148e6f56400afc8b5a146b5311c7fc408de5124d46",
+      "mode": 420
+    },
+    "tools/assets/authoring/prepare_hero_actions.gd.uid": {
+      "sha256": "438ed6a525a87986ead7600fdca8bb19dafa490175df3e1954a1e1f1aac4f93b",
+      "mode": 420
+    },
+    "tools/assets/authoring/extract_hero_combat_sprites.gd.uid": {
+      "sha256": "63c6102b2dcb1fb87b1f5d706a37f12b834ac26ca21a89229dc89311e4f7064e",
+      "mode": 420
+    },
+    "tools/assets/authoring/extract_farmyard_sprites.gd.uid": {
+      "sha256": "0a73a2d9d013ec067ebef179a25f1be50bc3ca6f7e8f95fa11b26b72a83e739e",
+      "mode": 420
+    },
+    "tools/assets/authoring/build_clean_interior_atlas.gd.uid": {
+      "sha256": "fd3de202677c31a9cd28240b054918a81cf9de8754898f91ffe4e5d59b98f7e4",
+      "mode": 420
+    },
+    "tools/assets/authoring/prepare_character_walk.gd.uid": {
+      "sha256": "c366f4537bc695062a2ab815b7c71ff4042d6a1f320bd5753b799a4f52eb7b65",
+      "mode": 420
+    },
+    "tools/assets/authoring/build_item_ui_textures.gd.uid": {
+      "sha256": "160b2e0340774a74aa33d5923b184ae3a8f19d41acc138aaded3e43a67fa057c",
+      "mode": 420
+    },
+    "tools/assets/authoring/extract_farm_icons.gd.uid": {
+      "sha256": "7947a014f5bf45c2be4e822f977c039773e83132ed791e3b633c3dcb0c4c78fd",
+      "mode": 420
+    },
+    "tools/assets/slicing/slice_capture.gd.uid": {
+      "sha256": "02660dcfcf2d6457c10100e1eac46bb43161f5cda2877fe4f6f1d0dc402ab472",
+      "mode": 420
+    },
+    "tools/assets/slicing/slice_legacy_capture.gd.uid": {
+      "sha256": "90b39c4440d1b86701218bc595f9336edaae845e2200b344f248e3efc75775f8",
+      "mode": 420
+    },
+    "tools/assets/slicing/slice_review.gd.uid": {
+      "sha256": "4bceca0d651fd337a699d2bb3907fa8afc5267e564117eda5f8225240bde9d95",
+      "mode": 420
+    },
+    "tools/assets/slicing/slice_catalogs.gd.uid": {
+      "sha256": "fc1aa868e72d2ca9340e22a63110f9269ff7683f5ca714531498a973d9f5e73b",
+      "mode": 420
+    },
+    "tools/assets/slicing/slice_export.gd.uid": {
+      "sha256": "bfdb64f3fb2f8c140c25feea4c424e7c8b08db0dd2ac032a08af78d7d7c7f149",
+      "mode": 420
+    },
+    "tools/assets/alpha/alpha_capture.gd.uid": {
+      "sha256": "c7056f3c166570920c497a9213b21e367d40ee2ba22dafa8ac7c23da0d79be47",
+      "mode": 420
+    },
+    "tools/assets/migration/migration_capture.gd.uid": {
+      "sha256": "aeba8e43687ee4aaf80708f957df61974f957d082dd736c8bd1a22bb05c27970",
+      "mode": 420
+    }
+  },
+  "primary_foreign": {
+    "docs/backlog/README.md": {
+      "working": "769820cec6f73c4b892726e411c595f64f1b537cb4f828c454a2a8a68ba58c18",
+      "index": "7426df289870a8ed33e38e485459f5e16910850919bb5c647dbcd7b0dce93872"
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "working": "c449ea3e5c33aaa1e39731da94e5f39d529d43e40712ed3029db91bf4c637fca",
+      "index": "4665b1590107bf1bd701df691c37586b8f47eec6f0441df9f8a72412c697be43"
+    },
+    "wiki/planning/sources.json": {
+      "working": "4094c09cf13357191f6e80c837f3672aded43bbde09735b39d64f2567c578c7b",
+      "index": "6122d2272740c99fa69a1cce9ac3d35c07ee6e565489aa496aff7f3bef49b59d"
+    }
+  }
+}

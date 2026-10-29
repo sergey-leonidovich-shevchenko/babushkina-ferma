@@ -48,6 +48,8 @@ python3 tools/run.py qa.camera.test_camera_context
 python3 tools/run.py qa.camera.test_camera_layout
 python3 tools/run.py qa.world.test_world_context
 python3 tools/run.py qa.ground.test_ground_context
+python3 tools/run.py qa.ground.test_ground_layout
+python3 tools/run.py qa.ground.test_compiled_sources
 python3 tools/run.py qa.world.test_source_inputs
 python3 tools/run.py qa.world.test_world_source_history
 python3 tools/run.py qa.world.test_world_producers
@@ -97,26 +99,26 @@ python3 tools/run.py qa.world.render_order >/dev/null
 python3 tools/run.py qa.world.test_render_order
 python3 tools/grass_methods.py all >/dev/null
 python3 tools/test_grass_methods.py
-python3 tools/ground_layers.py verify >/dev/null
-python3 tools/test_ground_layers.py
-python3 tools/meadow_verify.py >/dev/null
-python3 tools/test_meadow_ground.py
-python3 tools/ground_edge_verify.py >/dev/null
-python3 tools/test_ground_edge.py
-python3 tools/axial_road_verify.py >/dev/null
-python3 tools/test_axial_road.py
-python3 tools/road_network_verify.py >/dev/null
-python3 tools/test_road_network.py
-python3 tools/plaza_verify.py >/dev/null
-python3 tools/test_plaza_ground.py
-python3 tools/garden_verify.py >/dev/null
-python3 tools/test_garden_soil.py
-python3 tools/decoration_verify.py >/dev/null
-python3 tools/test_decoration_rules.py
-python3 tools/terrain_revision_verify.py >/dev/null
-python3 tools/test_terrain_revision.py
-python3 tools/ground_seasons_verify.py >/dev/null
-python3 tools/test_ground_seasons.py
+python3 tools/run.py qa.ground.ground_layers verify >/dev/null
+python3 tools/run.py qa.ground.test_ground_layers
+python3 tools/run.py qa.ground.meadow_verify >/dev/null
+python3 tools/run.py qa.ground.test_meadow_ground
+python3 tools/run.py qa.ground.ground_edge_verify >/dev/null
+python3 tools/run.py qa.ground.test_ground_edge
+python3 tools/run.py qa.ground.axial_road_verify >/dev/null
+python3 tools/run.py qa.ground.test_axial_road
+python3 tools/run.py qa.ground.road_network_verify >/dev/null
+python3 tools/run.py qa.ground.test_road_network
+python3 tools/run.py qa.ground.plaza_verify >/dev/null
+python3 tools/run.py qa.ground.test_plaza_ground
+python3 tools/run.py qa.ground.garden_verify >/dev/null
+python3 tools/run.py qa.ground.test_garden_soil
+python3 tools/run.py qa.ground.decoration_verify >/dev/null
+python3 tools/run.py qa.ground.test_decoration_rules
+python3 tools/run.py qa.ground.terrain_revision_verify >/dev/null
+python3 tools/run.py qa.ground.test_terrain_revision
+python3 tools/run.py qa.ground.ground_seasons_verify >/dev/null
+python3 tools/run.py qa.ground.test_ground_seasons
 python3 tools/run.py qa.world.object_command_verify >/dev/null
 python3 tools/run.py qa.world.test_object_command
 python3 tools/run.py qa.world.village_bench_verify >/dev/null
