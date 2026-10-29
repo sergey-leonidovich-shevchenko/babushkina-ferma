@@ -10,23 +10,23 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import object_command_collect as object_collect
-import object_command_verify as object_verify
-import pilot_pass_verify as pilot_pass
-import pilot_static_audit as pilot_audit
-import pilot_static_verify as pilot_static
-import post_motion_verify as post_motion
-import render_order
-import shadow_inventory as shadow
-import shadow_inventory_collect as shadow_collect
-import shadow_inventory_verify as shadow_verify
-import transient_save_verify as transient
-import village_bench_verify as bench
-import village_board_verify as board
-import village_fence_verify as fence
-import village_lamp_verify as lamp
-import village_street_verify as street
-import village_trade_verify as trade
+from tools.qa.world import object_command_collect as object_collect
+from tools.qa.world import object_command_verify as object_verify
+from tools.qa.world import pilot_pass_verify as pilot_pass
+from tools.qa.world import pilot_static_audit as pilot_audit
+from tools.qa.world import pilot_static_verify as pilot_static
+from tools.qa.world import post_motion_verify as post_motion
+from tools.qa.world import render_order
+from tools.qa.world import shadow_inventory as shadow
+from tools.qa.world import shadow_inventory_collect as shadow_collect
+from tools.qa.world import shadow_inventory_verify as shadow_verify
+from tools.qa.world import transient_save_verify as transient
+from tools.qa.world import village_bench_verify as bench
+from tools.qa.world import village_board_verify as board
+from tools.qa.world import village_fence_verify as fence
+from tools.qa.world import village_lamp_verify as lamp
+from tools.qa.world import village_street_verify as street
+from tools.qa.world import village_trade_verify as trade
 from tools.qa.performance import perf_contract_collect as perf
 from tools.common.git import git_environment
 from tools.assets.contracts.source_paths import current_source
@@ -188,7 +188,7 @@ class WorldContextTests(unittest.TestCase):
             with patch.object(render_order,'REPORT',report),self.foreign_context():render_order.build_contract()
             source=json.loads((report/'contract.json').read_text())
             self.assertEqual(source['base_commit'],expected)
-            self.assertEqual(source['sources'],{n:hashlib.sha256((render_order.ROOT/n).read_bytes()).hexdigest()for n in render_order.SOURCES})
+            self.assertEqual(source['sources'],{n:hashlib.sha256(current_source(render_order.ROOT,n).read_bytes()).hexdigest()for n in render_order.SOURCES})
 
     def test_fresh_shadow_inventory_uses_own_git(self):
         """Real inventory JSON/CSV writes precede the explicitly stopped platform-specific contact sheets."""
@@ -212,7 +212,7 @@ class WorldContextTests(unittest.TestCase):
             names=set(object_collect.SOURCES)if module is object_collect else set(shadow_collect.QA)|{'scripts/probe.gd','project.godot','main.tscn','assets/game/probe.txt','VERSION'}
             names.add('VERSION')
             for name in names:
-                target=own/name;target.parent.mkdir(parents=True,exist_ok=True)
+                target=current_source(own,name);target.parent.mkdir(parents=True,exist_ok=True)
                 raw=(b'extends Node\n'if name=='scripts/probe.gd'else b'asset fixture\n'if name=='assets/game/probe.txt'else current_source(original,name).read_bytes())
                 target.write_bytes(raw)
             subprocess.run(['git','init','-q',str(own)],env=git_environment(),check=True)
@@ -231,14 +231,14 @@ class WorldContextTests(unittest.TestCase):
                 source=json.loads((output/'source.json').read_text());self.assertEqual(source['base_commit'],expected)
                 self.assertFalse(source['complete']);self.assertFalse(source['performance_eligible'])
                 for name,digest in source['sources'].items():
-                    self.assertEqual(digest,hashlib.sha256((own/name).read_bytes()).hexdigest())
+                    self.assertEqual(digest,hashlib.sha256(current_source(own,name).read_bytes()).hexdigest())
                     if module is object_collect:
                         self.assertEqual(source['base_sources'][name],digest)
-                        self.assertEqual((output/'inputs'/name).read_bytes(),(own/name).read_bytes())
+                        self.assertEqual((output/'inputs'/name).read_bytes(),current_source(own,name).read_bytes())
                 if module is shadow_collect:
                     self.assertEqual(source['production'],['scripts/probe.gd'])
                     self.assertEqual(source['asset_tree'],self.git(own,'rev-parse',expected+':assets/game'))
-                    for name in source['overlay']:self.assertEqual((output/'inputs'/name).read_bytes(),(own/name).read_bytes())
+                    for name in source['overlay']:self.assertEqual((output/'inputs'/name).read_bytes(),current_source(own,name).read_bytes())
                 with self.assertRaises((ValueError,FileNotFoundError)):
                     if module is object_collect:object_verify.provenance(output)
                     else:shadow_verify.verify(output)

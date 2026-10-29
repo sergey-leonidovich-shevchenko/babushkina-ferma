@@ -71,7 +71,7 @@ class CurrentPathTests(unittest.TestCase):
 
     def test_actual_pilot_archive_keeps_logical_keys(self):
         """Настоящий producer кладёт новый физический source под прежним логическим именем архива."""
-        from tools import pilot_static_collect as collector
+        from tools.qa.world import pilot_static_collect as collector
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory).resolve()
             logical = 'tools/visual_modules_capture.gd'

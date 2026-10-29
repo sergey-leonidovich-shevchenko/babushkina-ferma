@@ -21,7 +21,7 @@ from tools.common.git import git_environment
 from tools.qa.performance.source_history import LEGACY_HELPER, historical_helper
 from grass_compare_collect import ROOT,FROZEN,schedule,sha
 from tools.qa.performance.perf_contract import distribution,validate_environment,cpu_seconds
-from render_order import validate_draws
+from tools.qa.world.render_order import validate_draws
 
 REPORT=ROOT/'docs/reports/visual-overhaul/vrender-002'
 FIELDS=['usec','interval_ms','update_ms','engine_frame_ms','draw_calls','static_bytes','texture_bytes','wind_time','camera_x','camera_y','focused','window_x','window_y','modal']

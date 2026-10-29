@@ -68,7 +68,7 @@ python3 tools/run.py assets.contracts.test_sprite_cleanup
 python3 tools/run.py assets.contracts.check_sprite_cleanup
 python3 tools/run.py planning.project_backlog
 python3 tools/run.py planning.test_project_backlog
-python3 tools/test_water_audit.py
+python3 tools/run.py qa.world.test_water_audit
 python3 tools/run.py planning.visual_backlog
 python3 tools/run.py planning.test_visual_backlog
 python3 tools/run.py qa.camera.test_visual_baseline
@@ -92,8 +92,8 @@ python3 tools/run.py qa.camera.test_reference_zoom
 python3 tools/run.py qa.performance.test_perf_contract
 python3 tools/run.py qa.performance.perf_contract >/dev/null
 python3 tools/run.py qa.performance.perf_contract --controls --output docs/reports/visual-overhaul/vperf-001/controls >/dev/null
-python3 tools/render_order.py >/dev/null
-python3 tools/test_render_order.py
+python3 tools/run.py qa.world.render_order >/dev/null
+python3 tools/run.py qa.world.test_render_order
 python3 tools/grass_methods.py all >/dev/null
 python3 tools/test_grass_methods.py
 python3 tools/ground_layers.py verify >/dev/null
@@ -116,27 +116,27 @@ python3 tools/terrain_revision_verify.py >/dev/null
 python3 tools/test_terrain_revision.py
 python3 tools/ground_seasons_verify.py >/dev/null
 python3 tools/test_ground_seasons.py
-python3 tools/object_command_verify.py >/dev/null
-python3 tools/test_object_command.py
-python3 tools/village_bench_verify.py >/dev/null
-python3 tools/test_village_bench.py
-python3 tools/village_street_verify.py >/dev/null
-python3 tools/test_village_street.py
-python3 tools/village_board_verify.py >/dev/null
-python3 tools/test_village_board.py
-python3 tools/village_trade_verify.py >/dev/null
-python3 tools/test_village_trade.py
-python3 tools/pilot_static_audit.py >/dev/null
-python3 tools/pilot_static_verify.py >/dev/null
-python3 tools/test_pilot_static.py
-python3 tools/pilot_pass_verify.py >/dev/null
-python3 tools/test_pilot_pass.py
-python3 tools/post_motion_verify.py >/dev/null
-python3 tools/test_post_motion.py
+python3 tools/run.py qa.world.object_command_verify >/dev/null
+python3 tools/run.py qa.world.test_object_command
+python3 tools/run.py qa.world.village_bench_verify >/dev/null
+python3 tools/run.py qa.world.test_village_bench
+python3 tools/run.py qa.world.village_street_verify >/dev/null
+python3 tools/run.py qa.world.test_village_street
+python3 tools/run.py qa.world.village_board_verify >/dev/null
+python3 tools/run.py qa.world.test_village_board
+python3 tools/run.py qa.world.village_trade_verify >/dev/null
+python3 tools/run.py qa.world.test_village_trade
+python3 tools/run.py qa.world.pilot_static_audit >/dev/null
+python3 tools/run.py qa.world.pilot_static_verify >/dev/null
+python3 tools/run.py qa.world.test_pilot_static
+python3 tools/run.py qa.world.pilot_pass_verify >/dev/null
+python3 tools/run.py qa.world.test_pilot_pass
+python3 tools/run.py qa.world.post_motion_verify >/dev/null
+python3 tools/run.py qa.world.test_post_motion
 python3 tools/plant_depth_verify.py >/dev/null
 python3 tools/test_plant_depth.py
-python3 tools/transient_save_verify.py >/dev/null
-python3 tools/test_transient_save.py
+python3 tools/run.py qa.world.transient_save_verify >/dev/null
+python3 tools/run.py qa.world.test_transient_save
 python3 tools/foliage_root_verify.py >/dev/null
 python3 tools/test_foliage_root.py
 python3 tools/foliage_uv_verify.py >/dev/null
@@ -149,12 +149,12 @@ python3 tools/foliage_speed_verify.py >/dev/null
 python3 tools/test_foliage_speed.py
 python3 tools/foliage_recovery_verify.py >/dev/null
 python3 tools/test_foliage_recovery.py
-python3 tools/shadow_inventory_verify.py >/dev/null
-python3 tools/test_shadow_inventory.py
-python3 tools/village_fence_verify.py >/dev/null
-python3 tools/test_village_fence.py
-python3 tools/village_lamp_verify.py >/dev/null
-python3 tools/test_village_lamp.py
+python3 tools/run.py qa.world.shadow_inventory_verify >/dev/null
+python3 tools/run.py qa.world.test_shadow_inventory
+python3 tools/run.py qa.world.village_fence_verify >/dev/null
+python3 tools/run.py qa.world.test_village_fence
+python3 tools/run.py qa.world.village_lamp_verify >/dev/null
+python3 tools/run.py qa.world.test_village_lamp
 python3 tools/run.py qa.art.visual_scale verify
 python3 tools/run.py qa.art.test_visual_scale
 python3 tools/run.py qa.art.visual_palette

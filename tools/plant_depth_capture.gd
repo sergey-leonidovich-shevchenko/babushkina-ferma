@@ -1,4 +1,4 @@
-extends "res://tools/post_motion_capture.gd"
+extends "res://tools/qa/world/post_motion_capture.gd"
 
 var physical_index:=0
 var tree_ground:=Vector2.ZERO

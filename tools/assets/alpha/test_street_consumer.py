@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import village_street_verify as street
+from tools.qa.world import village_street_verify as street
 from tools.common.git import git_environment
 
 

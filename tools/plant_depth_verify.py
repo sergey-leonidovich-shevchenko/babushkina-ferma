@@ -5,6 +5,7 @@ from functools import lru_cache
 from pathlib import Path
 from PIL import Image,ImageChops,ImageDraw,ImageStat
 from plant_depth_collect import ORIGINAL,EXTRA
+from tools.qa.world.source_inputs import historical_bytes
 ROOT=Path(__file__).resolve().parents[1]
 REPORT=ROOT/'docs/reports/visual-overhaul/vrender-006'
 NEW='scripts/presentation/forage_depth_renderer.gd'
@@ -22,7 +23,7 @@ def sha(path):
 @lru_cache(maxsize=512)
 def git_blob(base,name):
     """Cache only immutable Git blobs; actual evidence files are always read and hashed again."""
-    return subprocess.check_output(['git','show',base+':'+name],cwd=ROOT)
+    return historical_bytes(ROOT,base,name)
 
 def capture(path):
     """Read full captured saves and actual dispatches without launching Godot."""

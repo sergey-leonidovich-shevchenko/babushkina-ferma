@@ -1,0 +1,454 @@
+[
+  {
+    "logical_command": "render_order",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.render_order"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-01.txt",
+    "sha256": "a8b33fe1ea335b55d13195c79cc2097cdeeca2dc6f68525603d9d238e24c19e3"
+  },
+  {
+    "logical_command": "object_command_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.object_command_verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-02.txt",
+    "sha256": "5b31e9f962a7f212d22d6a94b9fef2e930b8ee03d0ccd47496f370802cc75b94"
+  },
+  {
+    "logical_command": "village_bench_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.village_bench_verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-03.txt",
+    "sha256": "b955501e4d12f72d9746e290f696b4fe6868eb0bc4fd887edde0787fe09e7132"
+  },
+  {
+    "logical_command": "village_street_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.village_street_verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-04.txt",
+    "sha256": "41585925b5661d98a12d62bdad6406d7cffaac8ebe2bce4c9077ee08f178907c"
+  },
+  {
+    "logical_command": "village_board_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.village_board_verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-05.txt",
+    "sha256": "0c137126cf8e40e7fec228bf6552ecd4836c66eea3a3e17a4e367664f4fe5fc7"
+  },
+  {
+    "logical_command": "village_trade_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.village_trade_verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-06.txt",
+    "sha256": "a64120b8f652240ffcc8256cb155271574174300deed7898705b7091c6766c32"
+  },
+  {
+    "logical_command": "pilot_static_audit",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.pilot_static_audit"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-07.txt",
+    "sha256": "947feae97d59dfc997b88449b8b42d4646ecae9bf3da5ef8c5d7cd39b2ee1c1d"
+  },
+  {
+    "logical_command": "pilot_static_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.pilot_static_verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-08.txt",
+    "sha256": "0ac7b394f4d018f1992e597bd243dcb378d277c40510364982a54b59501d55c3"
+  },
+  {
+    "logical_command": "pilot_pass_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.pilot_pass_verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-09.txt",
+    "sha256": "109a15219fac2d704b566751abf98dac95b2c7c8317e6f82cdc1358fbfb26114"
+  },
+  {
+    "logical_command": "post_motion_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.post_motion_verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-10.txt",
+    "sha256": "1dc63f59899b335798519165a55796ab9e34e34e4aae2fbfa46afb61a0907808"
+  },
+  {
+    "logical_command": "transient_save_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.transient_save_verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-11.txt",
+    "sha256": "c02e5b029adcd5cbee90f7d2968005a2c6a8d31db3676f9e8283516487c50030"
+  },
+  {
+    "logical_command": "shadow_inventory_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.shadow_inventory_verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-12.txt",
+    "sha256": "09d934675e93e758a1eed330398bd1f7185108c21bad2f5ebfeec6379cc96d65"
+  },
+  {
+    "logical_command": "village_fence_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.village_fence_verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-13.txt",
+    "sha256": "4ebe1432a86edfe4b2070d2d7be825c9d46da6382754913bdcaa4d17817e9822"
+  },
+  {
+    "logical_command": "village_lamp_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.village_lamp_verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-14.txt",
+    "sha256": "ae3f24d30158a74119457377c678e04e7628f641efa1db4483e1307d65f7d0b4"
+  },
+  {
+    "logical_command": "shore_kit",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/shore_kit.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-15.txt",
+    "sha256": "9a61715da3f3ccc9f52ff17784d0b0ba9a94836a13954d7361331a87b277a69e"
+  },
+  {
+    "logical_command": "plant_depth_verify",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/plant_depth_verify.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-16.txt",
+    "sha256": "72d82e9ecbc566d047d6705217fb97813441566b055da58d3e1ae37fba8cdb04"
+  },
+  {
+    "logical_command": "village_bench_assets",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.village_bench_assets"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-17.txt",
+    "sha256": "96d7695fdf193e5fd2ba502eb91a01ea1d5eab2c809734399c9a64a3c78ab00b"
+  },
+  {
+    "logical_command": "village_board_assets",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.village_board_assets"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-18.txt",
+    "sha256": "eacbd7f43c3e33f18cee3e6f3524fa01a0f4ca84b7693c894859b3eb20e80770"
+  },
+  {
+    "logical_command": "village_fence_assets",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.village_fence_assets"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-19.txt",
+    "sha256": "8bb62b49ebf6c2de6d13905fcb8aaa2b9a3e2e9c2c2a97aa92fc7019af22eec3"
+  },
+  {
+    "logical_command": "village_lamp_assets",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.village_lamp_assets"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-20.txt",
+    "sha256": "be359d6971cf3a2a9dc6ecdfceafeadf6d527ea4901a7376ceaafe2f320b3b7e"
+  },
+  {
+    "logical_command": "village_street_assets",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.village_street_assets"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-21.txt",
+    "sha256": "ddf8b934ccfb115381328253284014ed015a1ebcc61adfc4d5a43b20978949cb"
+  },
+  {
+    "logical_command": "village_trade_assets",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.village_trade_assets"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-22.txt",
+    "sha256": "46f360290fd83ca1920b46fe5d3103cd5e75076ed166c640a2377d29fe020956"
+  },
+  {
+    "logical_command": "test_render_order",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_render_order"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-23.txt",
+    "sha256": "22901616011d84605509074898aaf977f9a1875e94082c91fc85a8915f65d17d"
+  },
+  {
+    "logical_command": "test_object_command",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_object_command"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-24.txt",
+    "sha256": "31694cd867c526ba076846086b3a733494cfe51e741346a12557fc4bdb178dcc"
+  },
+  {
+    "logical_command": "test_village_bench",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_village_bench"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-25.txt",
+    "sha256": "c719040076a0b796ca3cf36393b49af096c1d8ed4bbf8c8d8bcc4a8aba6e7d45"
+  },
+  {
+    "logical_command": "test_village_street",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_village_street"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-26.txt",
+    "sha256": "62f95ee8b05d7fd6232933cf07a00304185428d47828e8809436bc75d1a4b844"
+  },
+  {
+    "logical_command": "test_village_board",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_village_board"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-27.txt",
+    "sha256": "2a81113efeddf73621ddb974b1c206fa2681fdde9290d493ee88a459a7bda8fe"
+  },
+  {
+    "logical_command": "test_village_trade",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_village_trade"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-28.txt",
+    "sha256": "ff62517edc4bb32af83ba2471c465f6c591376cb198adadebf3f4e258652ee56"
+  },
+  {
+    "logical_command": "test_pilot_static",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_pilot_static"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-29.txt",
+    "sha256": "5c49af8e92ec145658be7597493f065ff398b56c85154fdd3f6964fee9d36101"
+  },
+  {
+    "logical_command": "test_pilot_pass",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_pilot_pass"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-30.txt",
+    "sha256": "931d595453ce91651482052179400d8ee3872efd019cc3d75f2a020b554a9a40"
+  },
+  {
+    "logical_command": "test_post_motion",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_post_motion"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-31.txt",
+    "sha256": "1b48645234b7bf7441c80c9fdf7710c2cf5da31f53f82f4b715d5b498d84ef7a"
+  },
+  {
+    "logical_command": "test_transient_save",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_transient_save"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-32.txt",
+    "sha256": "fff67bf44d4c6b8516050d8787e27cce562a8138284d2437a34054111c91d373"
+  },
+  {
+    "logical_command": "test_shadow_inventory",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_shadow_inventory"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-33.txt",
+    "sha256": "d82f4a23dc751bec169c3c8f3b2bd22ddaeee7c431df159a6ef9a228b520af42"
+  },
+  {
+    "logical_command": "test_village_fence",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_village_fence"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-34.txt",
+    "sha256": "802fd70f633d67f2328f5bb24c8d889596d7029e560b6f2f53e6121d76eedf42"
+  },
+  {
+    "logical_command": "test_village_lamp",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_village_lamp"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-35.txt",
+    "sha256": "37d017875b1c5f3650aa0187d6610a7359b9309d9bc4d24c3f3855c4c2517125"
+  },
+  {
+    "logical_command": "test_shore_kit",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_shore_kit.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-36.txt",
+    "sha256": "573819bf1f45ced89c20a185bde77c247cdd9581a3998f09cbf6fe0a4bfc512a"
+  },
+  {
+    "logical_command": "test_water_audit",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.world.test_water_audit"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-37.txt",
+    "sha256": "6273232de4d3ef7acd4ecafa5c86beeeb974f56586b21089a2990b3f72facbe6"
+  },
+  {
+    "logical_command": "test_plant_depth",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_plant_depth.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world core after foreign sgp6k9wz",
+    "exit": 0,
+    "log": "after-38.txt",
+    "sha256": "3f7982e0c2f06a02c05567ec479a08f3144ac42b2abfaa375f1b63b7faf197dc"
+  }
+]

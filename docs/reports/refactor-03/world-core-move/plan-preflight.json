@@ -1,0 +1,15 @@
+{
+  "base": "7a2d7a5917bede86b3ffa850b1d5c83e9e8cc0bd",
+  "changed_code_modules": 83,
+  "functions_preserved_address_only_or_explicit_test_extensions": 569,
+  "validated_import_bindings": 671,
+  "normalized_address_sites": 37,
+  "old_leaf_tests_and_assertions_preserved": true,
+  "new_producer_methods": 14,
+  "new_history_methods": 13,
+  "new_non_import_test_AST_equal": true,
+  "source_map_exact_accepted_assignments": 134,
+  "source_map_after": 267,
+  "physical_moves_planned": 92,
+  "P3_unused_imports_removed": 4
+}

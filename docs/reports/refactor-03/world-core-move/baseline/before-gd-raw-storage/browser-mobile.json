@@ -1,0 +1,9 @@
+{
+  "dimensions": {
+    "scrollWidth": 390,
+    "width": 390
+  },
+  "article_visible": true,
+  "closed_navigation_button": true,
+  "capture_after_navigation_transition": true
+}

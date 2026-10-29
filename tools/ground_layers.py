@@ -23,7 +23,7 @@ from tools.qa.performance.source_history import LEGACY_HELPER, historical_helper
 from tools.assets.contracts.source_paths import current_source
 from tools.qa.performance.perf_contract_collect import ROOT,context,jobs,command,sha,write,native_pid
 from grass_methods import require,image_difference
-from render_order import validate_draws
+from tools.qa.world.render_order import validate_draws
 
 REPORT=ROOT/'docs/reports/visual-overhaul/vrender-003'
 OVERLAY=['scripts/world_background.gd','scripts/presentation/village_terrain_canvas.gd','scripts/presentation/village_ground_layer.gd',

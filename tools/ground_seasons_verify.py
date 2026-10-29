@@ -15,7 +15,7 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageStat
 from ground_seasons_collect import ROOT, SOURCES, OVERLAY
 from tools.qa.performance.perf_contract_collect import sha, write
-from render_order import require, validate_draws
+from tools.qa.world.render_order import require, validate_draws
 
 REPORT=ROOT/'docs/reports/visual-overhaul/vground-010'
 CASES={'spring':(1,'spring','clear'),'summer':(8,'summer','clear'),'autumn':(15,'autumn','clear'),'winter':(22,'winter','clear'),'wet':(3,'spring','rain')}

@@ -13,7 +13,7 @@ import subprocess
 from pathlib import Path
 from PIL import Image, ImageChops, ImageStat
 from axial_road_collect import ROOT, SOURCES, OVERLAY
-from render_order import require, validate_draws
+from tools.qa.world.render_order import require, validate_draws
 from tools.qa.performance.perf_contract_collect import sha, write
 from ground_layers import cold_draws
 

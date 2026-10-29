@@ -1,0 +1,2665 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "World-core physical move",
+  "version": "0.0.377",
+  "base": "7a2d7a5917bede86b3ffa850b1d5c83e9e8cc0bd",
+  "prior_source_review": 5695222063,
+  "prior_Team_intermediate_accepted": true,
+  "prior_CI_success": 8,
+  "root_sources": 153,
+  "physical_moves": 92,
+  "tracked_UID_moves": 42,
+  "ignored_UID_moves": 2,
+  "current_source_map": 267,
+  "future_history_aliases": 141,
+  "architecture_suites": 101,
+  "architecture_cases": 1339,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.377",
+      "started_at": "2026-10-29T07:59:48.748434+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-29T09:19:36.177427+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.377",
+      "started_at": "2026-10-29T09:19:36.182952+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-29T09:26:15.782629+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.377",
+      "started_at": "2026-10-29T09:26:15.785799+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-29T09:27:06.070264+00:00"
+    }
+  ],
+  "functions_AST_checked": 569,
+  "normalized_address_sites": 38,
+  "historical_fields_preserved": 37,
+  "author_UID_exact": 85,
+  "actual_profile_CLI_each": 38,
+  "old_negative_suites": 16,
+  "old_negative_cases": 213,
+  "actual_GD_parse_each": 46,
+  "historical_stdout_byte_equal": 22,
+  "owned_water_outputs_byte_equal": 2,
+  "regression": {
+    "base": "7a2d7a5917bede86b3ffa850b1d5c83e9e8cc0bd",
+    "before_producer_methods": 14,
+    "after_producer_methods": 14,
+    "before_history_methods": 13,
+    "after_history_methods": 13,
+    "before_history_errors": 1,
+    "new_test_non_import_AST_equal_after_one_fixture_address_normalization": true,
+    "old_API_methods": 16,
+    "old_context_methods": 19,
+    "commands": [
+      {
+        "label": "helper-green",
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+          "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+          "qa.world.test_source_inputs"
+        ],
+        "exit": 0,
+        "methods": 16,
+        "test_SHA256": "19d6e7d7674424e2831217145fa4bab88aa12f42374625061bac0469329209cc",
+        "raw_sha256": "759edf06d2e9b51e019dcd3a58b3f414a323dc5b2f13f67ab4a7eaa0325bf9bf",
+        "native_frames": 0,
+        "Game_new": false
+      },
+      {
+        "label": "producers-after",
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+          "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+          "qa.world.test_world_producers"
+        ],
+        "exit": 0,
+        "methods": 14,
+        "test_SHA256": "aba7104858673b20271333fb7d5b7ff315c628d6ea41704c8725fc250b688226",
+        "raw_sha256": "3c86f6dc0fe41b121c0a7444f4812b752b4baeb5591b81c9f57fc8b7fe11b076",
+        "native_frames": 0,
+        "Game_new": false
+      },
+      {
+        "label": "history-green-attempt02",
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+          "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+          "qa.world.test_world_source_history"
+        ],
+        "exit": 0,
+        "methods": 13,
+        "test_SHA256": "7bbb6dca965fa32d62dd48ac8f8f83dc02a5a2c305b4c2e5d88d761e2ca4bc73",
+        "raw_sha256": "a0d82f917eed9efd2493ff7a0afcca3123714fc9e28ac33d1900b4de41ec7b43",
+        "native_frames": 0,
+        "Game_new": false
+      },
+      {
+        "label": "context-after",
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+          "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+          "qa.world.test_world_context"
+        ],
+        "exit": 0,
+        "methods": 19,
+        "test_SHA256": "70c398c6579582e34106897d1d4f354ed6b47469a62f73d528c0d4c805134a6a",
+        "raw_sha256": "4e528e1a16cfbe1d6a34f8080bc15543851bc0192cf9f0b7b3e359876171d92f",
+        "native_frames": 0,
+        "Game_new": false
+      }
+    ],
+    "fake_open_exit": 17,
+    "native_frames_new": 0,
+    "Game_new": false,
+    "GPU_FPS_admission": false
+  },
+  "P3_unused_imports_fixed": true,
+  "native_Game_GPU_FPS_admission_from_profile": false,
+  "full_task03_accepted": false,
+  "Task_Complete_added": false,
+  "source_SHA256": {
+    ".gitignore": "eaa5cdbf4f9269ac80054a89e074e707992b3ca443f854762d6c8f1201d0759f",
+    "QA_CHECKLIST.md": "aae4321848571e9c97b02c19548e4b8eec1063c429f15a169d8db8d940d170ff",
+    "TESTING.md": "5518c2b161d704ec3bdef28f01b5367a3ad51efd990fc77a395d1d97083c751c",
+    "VERSION": "80b6bc282ae9e9b930a163935c508e4ff9974d51181945de8feabab8d069efd6",
+    "docs/DEVELOPMENT.md": "bcc90923c0ddf4698bb0334d5224cc5ab5281606c3273a03ee8a74effaf23f87",
+    "docs/epics/refactoring-2026-10/TASKS.md": "8ec3ac1ab82d2cc261fd3e2d422c3d3e19cdba4d2c8cc5ab59abc4a74c66f818",
+    "project.godot": "d4e5c865f4aac9dad36cb610059056eac3bc8915acd15b3fb29bfe6c9411b387",
+    "tools/README.md": "4a0569188f342f62f4f6fb3931c643be12321af20314371764c84f598f5800a2",
+    "tools/assets/alpha/test_street_consumer.py": "d8ab1caf72eb6ae4cf36838e26535d8806d90ca8aa08a70edea10ea16dfed90f",
+    "tools/assets/contracts/source_paths.py": "789e863a74d12676443d63d61dfb7c204a093cc6e23eb54e4ff9b38d8c9c1e72",
+    "tools/assets/contracts/test_source_paths.py": "21d2741914041d5158038b20d583d89b789ba0e23d4d90e6158434d1869536e4",
+    "tools/axial_road_verify.py": "6707169a4b41d75a80894225ee78ec20074db0df59478c3712e1e7d7fea9e1c6",
+    "tools/decoration_verify.py": "1f19ae7fe0377372c800988d60bea589270ef667e7aaa4cfc97003162ac5c885",
+    "tools/garden_verify.py": "0903a697c212e7edbb9ded470d5143710381880533265b586ea9d4f2e09f786b",
+    "tools/grass_methods.py": "1609c1a68a6c68c79da6d86dd417a5b4a481987b0d42f52d8bd09c7489658d56",
+    "tools/ground_edge_verify.py": "0e2356a2d82297e3ecb5ff470dd381f1b2b6f34f1d913afe22f0de9df63fb66a",
+    "tools/ground_layers.py": "48b42c5ed5a9be0fbd9a9fe800a087ed9ae5fcdd752c0b3789d0fd4cc429e3ba",
+    "tools/ground_seasons_verify.py": "ad2b20846e1387b624e06d21b811b379f8d9726f6608d2f39fba353458f7f2bb",
+    "tools/meadow_verify.py": "eaff4dd059545b990fe6186516dca17e35b3aceb0fc0e1f65343e731a464e84e",
+    "tools/plant_depth_capture.gd": "c85483837ffbac5401ba743ca20761d9f07bf6d2901d2ff8740fd2e89aa8ca4f",
+    "tools/plant_depth_collect.py": "374fe7b7fe4f0f491c6a6ddc469d8fc7ba0087ed1c06af5095feecbf91cf18bc",
+    "tools/plant_depth_game.gd": "28775bd2509c06f57fe35bf3ca9381104386aed65aac87588faae46895ad8737",
+    "tools/plant_depth_verify.py": "374c3bb8c45caa103936ff6a9f66ff10fd26a2b41f87442f1e8bd8d71c1d9d31",
+    "tools/plaza_verify.py": "2a930b5cae9cf04bfd808f186c9fb7e042c7391362643c382b411798401267ce",
+    "tools/qa/art/test_current_paths.py": "16f30cded066ccb61a98ae03fc2cbdfb5e6293aa3120e897ef3fecd35d571b77",
+    "tools/qa/world/analyze_water_audit.py": "f8f8fabd0007066ddd79c091974f8f923347d89e30c98d18ff0215868b70cd99",
+    "tools/qa/world/object_command_canvas.gd": "7d528c4ef0a6df79feb00ca306f66119ff686db0312fe3a4c9a6569a64032184",
+    "tools/qa/world/object_command_canvas.gd.uid": "bae0165e18f985c8bb5db3445dc181a9e83444aea44a341c4b58a28a9a6d1dc3",
+    "tools/qa/world/object_command_capture.gd": "f0597ba395ec5baf837ab5d198e43aa9387fb29750bede5b72257745ae65bc64",
+    "tools/qa/world/object_command_capture.gd.uid": "e7d705d2212313c6f9fd766df68ad92e39165fd599b675a64343e263161581e7",
+    "tools/qa/world/object_command_collect.py": "1f402472e00ee29c8a34b19626d122da9fd03e753763b4d32f9cc9dc1478c2a4",
+    "tools/qa/world/object_command_review.gd": "3e54bc3416d10d569431b1d9a7efcac3843dd786995a16769c670692d65bb051",
+    "tools/qa/world/object_command_review.gd.uid": "6cba7637aeaf4280670cede9b280ab09a26d383d505df71145a992d9b02e00a4",
+    "tools/qa/world/object_command_verify.py": "b2118c58420dead65218fd6410874536050470eb84af6ada21e33e94331b9997",
+    "tools/qa/world/pilot_pass_capture.gd": "2f90e801589db62dea205c1824f421d7a53fff3773b165f48acadfcc81aab039",
+    "tools/qa/world/pilot_pass_capture.gd.uid": "3eea56b562fba36fc83cfab335add785e5bcef7833875440b988d66eb908ea12",
+    "tools/qa/world/pilot_pass_collect.py": "888bbb6b7dd7856d07a335a843b66712d6cd2335d9bdd8e3cc232cf6d1141c2b",
+    "tools/qa/world/pilot_pass_game.gd": "e50489d807bd692c93a8125fb614a6ff667802176c15bdaf40ee533108cd4661",
+    "tools/qa/world/pilot_pass_game.gd.uid": "cfa62dcde746476a78162dd126a44f0e09e1dbed1cefb5b3fa0b51f47477a0c5",
+    "tools/qa/world/pilot_pass_review.gd": "ec1542805907b057cfa2fb1153f1277eda941e1d2ecc426d16a905dcd0f0ea78",
+    "tools/qa/world/pilot_pass_review.gd.uid": "fe382e39dc17984eab9f87078c3e69b645120a2e0af8df75ba252213b93f5386",
+    "tools/qa/world/pilot_pass_verify.py": "806d3bc8d5d5efe23d89f351c465f592e44aeee36eafb131387423d8499eebb0",
+    "tools/qa/world/pilot_static_audit.py": "6501d3815f8228e84fed4d1b6e9d04876cbf071f87c375044bae7349dee21d42",
+    "tools/qa/world/pilot_static_capture.gd": "54f05cad460a4eb8d9377a429c499baa1c9dcaf6f75ff8cab72609c281b2aef5",
+    "tools/qa/world/pilot_static_capture.gd.uid": "e32b5583f9489d90bcf3aa1bb8891024823a473c28fea6769f3a601c85c8dd10",
+    "tools/qa/world/pilot_static_collect.py": "7e3bdb33ef505f769f893e0b166971a892a64c95f2eeb913f0ca0d3d6295d88c",
+    "tools/qa/world/pilot_static_scene.gd": "5e03c32c11f1b516261b8fc7414cd53136463dfdd200a1d07d8300f688603e54",
+    "tools/qa/world/pilot_static_scene.gd.uid": "acfa6dba186f987a4caa81bd37b44794668887a970707ea75f7a36fa701529d8",
+    "tools/qa/world/pilot_static_verify.py": "e9c377bc2f98c37a32f1ceeec06bd4c0182da1e17a258681d4701aaecd9cd13e",
+    "tools/qa/world/post_motion_capture.gd": "f804cf42c1be81a6234f21121fc4fae457268eb915c83ea89b952fc678237648",
+    "tools/qa/world/post_motion_capture.gd.uid": "ccb0fa15a8bca34dd9aecf5e109b5a56ce69b9107970e21ce651a8ae6e0a7861",
+    "tools/qa/world/post_motion_collect.py": "0409ddd9ed1e6015271b7e1d34d21122a14c4cddfe51747268cc3c9b6e97f42a",
+    "tools/qa/world/post_motion_game.gd": "06fcc91942101f954f45c3581a4bc3a6a0fc860238afd50952601d87c4e14818",
+    "tools/qa/world/post_motion_game.gd.uid": "e0dd73e0d45dbe8eb99d39144bd654f085cac22068e2b5b5cf59aab94996bc6f",
+    "tools/qa/world/post_motion_review.gd": "f4bfef13811e875b5b67681180576bafa5065eafb9c4ff1ccf9f71ba718e9c2c",
+    "tools/qa/world/post_motion_review.gd.uid": "0c372cc83c4cb9b1e2cfdc9c5fb3d70ebc11af296164033b6e718c63a9b81140",
+    "tools/qa/world/post_motion_verify.py": "b99582f07c745cdd49c9e3d36f9672a0102453543722412c399bd84d2f13ff32",
+    "tools/qa/world/render_order.py": "a743ee80dd2bb657887e2afe56c8d7defee416930c506e79e90cf61732c4fd0d",
+    "tools/qa/world/render_order_capture.gd": "ed8c1e21a42df0222639b3f1ab08a9ea1d89b29359f780c20efaf903bcdbc7da",
+    "tools/qa/world/render_order_capture.gd.uid": "2dd3dfff29d4f3d2fb831954619db0ed2581ca66a3203fcb88eb33079c65e49b",
+    "tools/qa/world/shadow_inventory.py": "b2544277b9ce0895edbe1330ed8108e86cf5a44346c2be4590ad97629b6f12c3",
+    "tools/qa/world/shadow_inventory_canvas.gd": "fea546fabe6e8808762f04bda6a1a322e9cb2f79b2def98f976c5d3d2aac7a15",
+    "tools/qa/world/shadow_inventory_canvas.gd.uid": "b31913d0e6d1fb870eb97a62ec443a625e4472b65f5ecd0dab4a92c9fcaf6e31",
+    "tools/qa/world/shadow_inventory_capture.gd": "ddbb80101e915069aba15bfbfacc95fea1d5c7ea9713ade5788b5713d16bb677",
+    "tools/qa/world/shadow_inventory_capture.gd.uid": "6317cf7ff791798d9febbdf47fe84c7ffbbe5d736f1d761434ff2ebcbadd513d",
+    "tools/qa/world/shadow_inventory_collect.py": "6613e52f9c766f03e839fa9824ace674fe975474c466fd15c1c894df5d7a066b",
+    "tools/qa/world/shadow_inventory_verify.py": "dab54f08736525518e7e48042316738e96a8730cef021b2b4865d57c1ac8a485",
+    "tools/qa/world/test_object_command.py": "92ab863923462e8f3dd19bcfb3b009db9231f4c8a70730da44e940faa2da50c8",
+    "tools/qa/world/test_pilot_pass.py": "5f55631f3506c7ca8ae34bf1711459e59aee6a1c409c7bd16903c3ab7c53df0e",
+    "tools/qa/world/test_pilot_static.py": "c5722711112136a7288aa1cb776b56dd616a134ba574ba9cef72b963376826fe",
+    "tools/qa/world/test_post_motion.py": "5cb16c4910400696c8badb9974f53a5b87f3c3f84236b51c9b7ad0745c60f435",
+    "tools/qa/world/test_render_order.py": "1e521c26af1faeb3604be2c782aeebe338b6f70d87efaa86e18943c0c78cf3b8",
+    "tools/qa/world/test_shadow_inventory.py": "c749724518e40e903ec5cdb861f3f8a9e36eaa21430da0d5c7037d59c871eed7",
+    "tools/qa/world/test_transient_save.py": "b2c732936dc1491fc893d13ea66a39e44f5f36ed181e4860710a00f9a2fdaeba",
+    "tools/qa/world/test_village_bench.py": "94802818fa301db11923e24a119a2ef4aceed22748fc1c7f12306f40a0b13541",
+    "tools/qa/world/test_village_board.py": "c5e401394e17ed7a6f881b3f0a7feea2106dcf011879d12249d8d67002843b90",
+    "tools/qa/world/test_village_fence.py": "505b771198e10e003f800d354726bae17d79474905b0d015e1f65a3a714be95a",
+    "tools/qa/world/test_village_lamp.py": "a7018932fb7e229008163a78c91df9fd53684c2cc00f28e14308e5023a6b6f1a",
+    "tools/qa/world/test_village_street.py": "28b4fd501466ce2c1f78974793f1b0a7262d3d5fccd89d81349877021a6d8d48",
+    "tools/qa/world/test_village_trade.py": "eac595657e92032a7ec410f78aa5b8f142757196e0e33d64287c115e1fcc2aec",
+    "tools/qa/world/test_water_audit.py": "725dc77dc7e611f528dd7832cd5d8f4339327f67f8f49396be05af3ab0ca0dc6",
+    "tools/qa/world/test_world_context.py": "70c398c6579582e34106897d1d4f354ed6b47469a62f73d528c0d4c805134a6a",
+    "tools/qa/world/test_world_producers.py": "aba7104858673b20271333fb7d5b7ff315c628d6ea41704c8725fc250b688226",
+    "tools/qa/world/test_world_source_history.py": "7bbb6dca965fa32d62dd48ac8f8f83dc02a5a2c305b4c2e5d88d761e2ca4bc73",
+    "tools/qa/world/transient_save_capture.gd": "99a48c2b4492a90c7bd6cbc68e1149e93981d46bdc2504d85f9fb052bd5fc624",
+    "tools/qa/world/transient_save_capture.gd.uid": "0cd93714938318f66217187d6da816a323dd8b71b03f348ebc8d341e1523f715",
+    "tools/qa/world/transient_save_collect.py": "0584e0098d7619ef34f5472da6f3929102c2b6cc15b8541c48a9d12d10a1c8e6",
+    "tools/qa/world/transient_save_probe.gd": "45947cd69410bdc03fa50b06772c4f6e4587019a310b791b61e0ba533f15f0c2",
+    "tools/qa/world/transient_save_probe.gd.uid": "095d2f7c5dbe64c07f4901640fe79d1a1778733027c4f931b70553b8bbc7b254",
+    "tools/qa/world/transient_save_review.gd": "9a64f46a5b543c8ebd054a3a17b8a3e0f66305bb67ccfc1252b1717e0cd0db8b",
+    "tools/qa/world/transient_save_review.gd.uid": "529e5bc0477cac12965be4062c2f8082c3faef48cd9bb937f2e626c79dabcc71",
+    "tools/qa/world/transient_save_verify.py": "ad374d7ae5cc1b99570c0ebf6e7ce699c097e3e350aa890bedd890446b90ad9d",
+    "tools/qa/world/village_bench_assets.py": "dc7c0805c62e7f7601b16185550fb1c133dcfdfc034abe60fb94f92b0fddf01a",
+    "tools/qa/world/village_bench_capture.gd": "2340b2d63d6fb0724b41357bf08af2ec5855de3671d71f37564f5dd68c12a56d",
+    "tools/qa/world/village_bench_capture.gd.uid": "6e34a5bbd2c33a14e2dd939920b4ce05a299e119e7f20a948cf9291d7e7ae6aa",
+    "tools/qa/world/village_bench_collect.py": "5b495e7c6151bc23951e439c695fd1aa98b96582665737ab541c89fd664d34ae",
+    "tools/qa/world/village_bench_gallery.gd": "0a73c739bffd558d17f5e3a799f0061a60963e34ce4b35a5eeea5cd8d8778d6b",
+    "tools/qa/world/village_bench_gallery.gd.uid": "913e3dcec108452229e8b4fea08b90e2df0e8fba132d799b5f79d40bbadfc850",
+    "tools/qa/world/village_bench_leg_capture.gd": "4e470d18b5465fa076562bd23c989779d559335b6f4c0b68effad36edc997ac1",
+    "tools/qa/world/village_bench_leg_capture.gd.uid": "00f1d4d9634c2299d8f9a20dd9023dbedc5b6454704cfab87e4700430e3ace9c",
+    "tools/qa/world/village_bench_review.gd": "1c146d23ce7150f2c7c580f0b5029867991d5ab72c453b963675d6c5585a6a66",
+    "tools/qa/world/village_bench_review.gd.uid": "3e403814600eab2c8f0623de58c4e549769497756e6f2b8d13b44c0ec9eae330",
+    "tools/qa/world/village_bench_verify.py": "b97e4092ff2c66fc36505c6c45494861de93d179607699e896bf4039997f1766",
+    "tools/qa/world/village_board_assets.py": "69f828f702bc1c0664a4b4bc98c6b28938fb734a15d016544ddd5ef57934b8af",
+    "tools/qa/world/village_board_capture.gd": "cd415d716f148a750b87300775f4f6ca85a1d148f257d3553c34cd1254d0d9f8",
+    "tools/qa/world/village_board_capture.gd.uid": "675265c214ba39c3de92d3a1d74de6e2ea29e7a03def7b72784cb58af21c581a",
+    "tools/qa/world/village_board_collect.py": "97919235f934e8d911ee684eed1a8d84dd4d091636036c3d856a1f05366c0126",
+    "tools/qa/world/village_board_gallery.gd": "930d89f2ee193f91959584c2295ba4efc0afd4a2bf3470f8270b0ff3b70c8194",
+    "tools/qa/world/village_board_gallery.gd.uid": "e5efed3c9caecbe60ddcbc2373c3c38d659f48906a9241d4205fefe4ce66e97b",
+    "tools/qa/world/village_board_review.gd": "319682950fe6c7a1883a6fcc09b492b88514c368a3bc0080b3c2c6777c1a7af6",
+    "tools/qa/world/village_board_review.gd.uid": "621cea918140e0ff043ec02758ab7f2041120803529e1dd8b5a8380e35e2363c",
+    "tools/qa/world/village_board_verify.py": "310e2e7c82bbd99bcf0f23fd99ce44836c2be8e8ee0c6d2ebfd32cd14d428ca3",
+    "tools/qa/world/village_clearance_review.gd": "033d49112f97aa673268f62e3a3e947c9a6d6ec596cd553be5d3473cbd615af4",
+    "tools/qa/world/village_fence_assets.py": "267d65420cfd0595956f1bcc65e58a6b92e016bc0e7a98c56e7c94ebfdb2a9b2",
+    "tools/qa/world/village_fence_capture.gd": "8bae038be3afd286abcd9687f39b467f9035ed6fd1e3946095612c5e7d7efc42",
+    "tools/qa/world/village_fence_capture.gd.uid": "ba5ffa39b2da4955e06888a464fc167c7256abb69344598c936100fe71f2a196",
+    "tools/qa/world/village_fence_collect.py": "0e7bc3720656eedd286caf3ac46dae36db0ae32c8d96450eb44f5dbfee7c0d8c",
+    "tools/qa/world/village_fence_gallery.gd": "f79a18fbbe0c6513bb3275aeccacee8099180f286b8f7d3381d1f7b68c718974",
+    "tools/qa/world/village_fence_gallery.gd.uid": "9b9eb2a9a2b6cf3382bbeb1e2959f0b6f85ae58f81a02a9608aa237c59bfacad",
+    "tools/qa/world/village_fence_review.gd": "54c730adbea780ca690d0ae94466ed86601ee3d19172049b44db26d65762f154",
+    "tools/qa/world/village_fence_review.gd.uid": "35f85acf227b60a73bf7aa136d871acb587712114d33e795109a7d51e6a147e7",
+    "tools/qa/world/village_fence_verify.py": "53cab3d87ebd532f3af8eee9f02032c24a3e5e09a8f62dd51276751bdacd3b88",
+    "tools/qa/world/village_lamp_assets.py": "e2830280240f61265dd683a6ecdd2114618556aa7edb3a1a428ada82a61250e2",
+    "tools/qa/world/village_lamp_capture.gd": "a87521fbf6359a11533ce5239d4f79a04daaf878ca3c6935de971233814ad58f",
+    "tools/qa/world/village_lamp_capture.gd.uid": "25a47b6440849669fc509eaaab59068de032480be3cdec2ce9e3f871c3fec2ac",
+    "tools/qa/world/village_lamp_collect.py": "b973f500f7fe353c10d0dbfe88751664661e35ba058cbc7a950095903866d97c",
+    "tools/qa/world/village_lamp_gallery.gd": "4ac24f4a621e2a5509e4ae889095aa50616bd3e6dd67128d9e1050bd9a09dee0",
+    "tools/qa/world/village_lamp_gallery.gd.uid": "c848c7c20a30b2b4ee088cc3f717880880cb8b2f78d746d549f1fc952fea1a0a",
+    "tools/qa/world/village_lamp_review.gd": "fe3fb9efee348980e086d140e51f34dc231d8935a4da03f27d9055349448ba2e",
+    "tools/qa/world/village_lamp_review.gd.uid": "5ed02a68b31765d07830b3ee31b3ced642ae613a1e421a925c44ed0ff403bcc0",
+    "tools/qa/world/village_lamp_verify.py": "90279b323cfdcc836186ca2fc04e1ba2bbe80a52a5bb3e11f25ac3e8eb93263e",
+    "tools/qa/world/village_map_review.gd": "d053a13e85a273792339c4a6b2804908b59ff942478166850793ed7b52ceefe9",
+    "tools/qa/world/village_regions_capture.gd": "08e62e89101c9cc23d2dd28179298d386d4b0d670ac27acc07be1efb128817e1",
+    "tools/qa/world/village_regions_capture.gd.uid": "fa230c17b0e64825bf8a436f16cb0549aca7d6f6c7412136557a40ba31d0d1cd",
+    "tools/qa/world/village_regions_review.gd": "d98153a7c573e805ea48312b7b9a399204f77fe9e5ecef5e37904129e1580fd8",
+    "tools/qa/world/village_regions_review.gd.uid": "341c8ff5584f627b04c77d0959c87ef3a9f1c7b949e05d1e9bb9222f8bee49fe",
+    "tools/qa/world/village_street_assets.py": "e3708d3d661436c8b6683252877d6f7f0595ca871240a9115b0586f3807cfa2d",
+    "tools/qa/world/village_street_capture.gd": "726dd21b521f53569ae37b7017848b6c8a2fdf43844a5f04a9e84c17c067fd6a",
+    "tools/qa/world/village_street_capture.gd.uid": "6d8588d665694ab8a6afa0366812a25155db0ed1bb8d6e873a28bd8cdb2ecf75",
+    "tools/qa/world/village_street_collect.py": "e76ad1627fcba4689b67bfcd85aa8687c686a88da601ed8f8571cebf7b344190",
+    "tools/qa/world/village_street_gallery.gd": "b38d3dc195c2bff403623f742ee9cba81c87605f2dcdd14aafa2e544a20e7590",
+    "tools/qa/world/village_street_gallery.gd.uid": "06d4184bd97486b2ff1ef2b5ef98652fcef26d17afd93cb38fbb5a99e662ae82",
+    "tools/qa/world/village_street_review.gd": "7c1b04ecea59a114f1f1cd1f0862396741b14c77c31e807bd692dd090be4e192",
+    "tools/qa/world/village_street_review.gd.uid": "d0b493dbde19d68b17730585595deae59fd31f73a33979aeb7c784dc70994867",
+    "tools/qa/world/village_street_verify.py": "9ce0209593ff66442d65c4fc66dfaf69861e3acecb1a985584448038a5b77af9",
+    "tools/qa/world/village_trade_assets.py": "59a6f8ae0fec807730d9d1243a5fe5de348698093c21417544e35b37e0864728",
+    "tools/qa/world/village_trade_capture.gd": "eebbe6b2d2b7eabc76901e778059d4589377a064ec311dd8485b84652aa082f8",
+    "tools/qa/world/village_trade_capture.gd.uid": "df0adbc774a0b09b40d8215bf67c4609d08671dd869147e32a758c79e91104de",
+    "tools/qa/world/village_trade_collect.py": "3798cac6239e4150d6a673b868df3a79498f1da91cefb6da055266bbb36b8470",
+    "tools/qa/world/village_trade_gallery.gd": "ee106068d35ceafd57c73e5c75a10ad297af16c720a78b6e0db1f49cca799074",
+    "tools/qa/world/village_trade_gallery.gd.uid": "beabc0657e19a9ea80ed412747b53e46ff3eb1a6d214ee193ffdfc574607829d",
+    "tools/qa/world/village_trade_review.gd": "ae3ad1e7f730284c193a604c130ffdc01d7891e2ed47993c995e9efd4e914a11",
+    "tools/qa/world/village_trade_review.gd.uid": "9d57c9d0cdf8809404b0c72c4e4dac50ea6eb045f861e85e2629d0dc57038def",
+    "tools/qa/world/village_trade_verify.py": "1a9579c0280430ae16824a47b548db4731f75ecfce1d20422e3bd55d5a1ae61f",
+    "tools/qa/world/water_fishing_capture.gd": "f56770f79d80eb8419d77d05344ff17c6d56e7a5e1032d6c427c889cecb12248",
+    "tools/qa/world/water_fishing_capture.gd.uid": "d334970b55b9356c16e1c452df60a9f92b61050ce0512d5ca35377abdfdc0e72",
+    "tools/qa/world/water_fishing_review.gd": "ce91e887b9f49bc9f3d17b863107a2492db1d15ba5360a29a7bb999a24a9e1ec",
+    "tools/qa/world/water_fishing_review.gd.uid": "8e3c6066ae559fb912e579e7a15d6fd95c1590aa277127a991e8436f3672ee0a",
+    "tools/qa/world/water_navigation_review.gd": "45cb6d336eef6e3064210a003a7be87779e49e3e9024e4fc6e34d9119c23cd2f",
+    "tools/qa/world/water_navigation_review.gd.uid": "c9bf2ac25f620af2cbff81bee5d79d6823700f774f803c82e407b4171df9cb42",
+    "tools/qa/world/water_topology_review.gd": "92025f483f056fd8e3e75a2f28577875672c1584ebfe32cb060670d662bdcdea",
+    "tools/qa/world/water_topology_review.gd.uid": "5485ddb88492c4822a92138bc87100ef8d0370202f1d022f154c4762c499fbe5",
+    "tools/quality/check_architecture.sh": "611fd61f62b02d52e6140a10d0b2b72c11b3e9f4411556594a4283380dfaa00d",
+    "tools/road_network_verify.py": "4b5c5031d4a8263e9811c3db64ef0c5636bf9939a675cc81d3ba4c270ff2fa02",
+    "tools/terrain_revision_verify.py": "27e9cb03377a889c1e5e35db97eef404e8e6e7fdb9d46c6216c11d18ad17d332",
+    "wiki/articles/project-refactoring.md": "23a698a5fecf5bdb924423d54499d07d85129e4751f25382f94a2b29718fd178",
+    "Бабушкина ферма.app/Contents/Info.plist": "b8095654512baceb41e80b3a9985c7294dc8696856e97414c5c7959a4c2c9840"
+  },
+  "removed_source_paths": [
+    "tools/analyze_water_audit.py",
+    "tools/object_command_canvas.gd",
+    "tools/object_command_canvas.gd.uid",
+    "tools/object_command_capture.gd",
+    "tools/object_command_capture.gd.uid",
+    "tools/object_command_collect.py",
+    "tools/object_command_review.gd",
+    "tools/object_command_review.gd.uid",
+    "tools/object_command_verify.py",
+    "tools/pilot_pass_capture.gd",
+    "tools/pilot_pass_capture.gd.uid",
+    "tools/pilot_pass_collect.py",
+    "tools/pilot_pass_game.gd",
+    "tools/pilot_pass_game.gd.uid",
+    "tools/pilot_pass_review.gd",
+    "tools/pilot_pass_review.gd.uid",
+    "tools/pilot_pass_verify.py",
+    "tools/pilot_static_audit.py",
+    "tools/pilot_static_capture.gd",
+    "tools/pilot_static_capture.gd.uid",
+    "tools/pilot_static_collect.py",
+    "tools/pilot_static_scene.gd",
+    "tools/pilot_static_scene.gd.uid",
+    "tools/pilot_static_verify.py",
+    "tools/post_motion_capture.gd",
+    "tools/post_motion_capture.gd.uid",
+    "tools/post_motion_collect.py",
+    "tools/post_motion_game.gd",
+    "tools/post_motion_game.gd.uid",
+    "tools/post_motion_review.gd",
+    "tools/post_motion_review.gd.uid",
+    "tools/post_motion_verify.py",
+    "tools/render_order.py",
+    "tools/render_order_capture.gd",
+    "tools/render_order_capture.gd.uid",
+    "tools/shadow_inventory.py",
+    "tools/shadow_inventory_canvas.gd",
+    "tools/shadow_inventory_canvas.gd.uid",
+    "tools/shadow_inventory_capture.gd",
+    "tools/shadow_inventory_capture.gd.uid",
+    "tools/shadow_inventory_collect.py",
+    "tools/shadow_inventory_verify.py",
+    "tools/test_object_command.py",
+    "tools/test_pilot_pass.py",
+    "tools/test_pilot_static.py",
+    "tools/test_post_motion.py",
+    "tools/test_render_order.py",
+    "tools/test_shadow_inventory.py",
+    "tools/test_transient_save.py",
+    "tools/test_village_bench.py",
+    "tools/test_village_board.py",
+    "tools/test_village_fence.py",
+    "tools/test_village_lamp.py",
+    "tools/test_village_street.py",
+    "tools/test_village_trade.py",
+    "tools/test_water_audit.py",
+    "tools/transient_save_capture.gd",
+    "tools/transient_save_capture.gd.uid",
+    "tools/transient_save_collect.py",
+    "tools/transient_save_probe.gd",
+    "tools/transient_save_probe.gd.uid",
+    "tools/transient_save_review.gd",
+    "tools/transient_save_review.gd.uid",
+    "tools/transient_save_verify.py",
+    "tools/village_bench_assets.py",
+    "tools/village_bench_capture.gd",
+    "tools/village_bench_capture.gd.uid",
+    "tools/village_bench_collect.py",
+    "tools/village_bench_gallery.gd",
+    "tools/village_bench_gallery.gd.uid",
+    "tools/village_bench_leg_capture.gd",
+    "tools/village_bench_leg_capture.gd.uid",
+    "tools/village_bench_review.gd",
+    "tools/village_bench_review.gd.uid",
+    "tools/village_bench_verify.py",
+    "tools/village_board_assets.py",
+    "tools/village_board_capture.gd",
+    "tools/village_board_capture.gd.uid",
+    "tools/village_board_collect.py",
+    "tools/village_board_gallery.gd",
+    "tools/village_board_gallery.gd.uid",
+    "tools/village_board_review.gd",
+    "tools/village_board_review.gd.uid",
+    "tools/village_board_verify.py",
+    "tools/village_clearance_review.gd",
+    "tools/village_fence_assets.py",
+    "tools/village_fence_capture.gd",
+    "tools/village_fence_capture.gd.uid",
+    "tools/village_fence_collect.py",
+    "tools/village_fence_gallery.gd",
+    "tools/village_fence_gallery.gd.uid",
+    "tools/village_fence_review.gd",
+    "tools/village_fence_review.gd.uid",
+    "tools/village_fence_verify.py",
+    "tools/village_lamp_assets.py",
+    "tools/village_lamp_capture.gd",
+    "tools/village_lamp_capture.gd.uid",
+    "tools/village_lamp_collect.py",
+    "tools/village_lamp_gallery.gd",
+    "tools/village_lamp_gallery.gd.uid",
+    "tools/village_lamp_review.gd",
+    "tools/village_lamp_review.gd.uid",
+    "tools/village_lamp_verify.py",
+    "tools/village_map_review.gd",
+    "tools/village_regions_capture.gd",
+    "tools/village_regions_capture.gd.uid",
+    "tools/village_regions_review.gd",
+    "tools/village_regions_review.gd.uid",
+    "tools/village_street_assets.py",
+    "tools/village_street_capture.gd",
+    "tools/village_street_capture.gd.uid",
+    "tools/village_street_collect.py",
+    "tools/village_street_gallery.gd",
+    "tools/village_street_gallery.gd.uid",
+    "tools/village_street_review.gd",
+    "tools/village_street_review.gd.uid",
+    "tools/village_street_verify.py",
+    "tools/village_trade_assets.py",
+    "tools/village_trade_capture.gd",
+    "tools/village_trade_capture.gd.uid",
+    "tools/village_trade_collect.py",
+    "tools/village_trade_gallery.gd",
+    "tools/village_trade_gallery.gd.uid",
+    "tools/village_trade_review.gd",
+    "tools/village_trade_review.gd.uid",
+    "tools/village_trade_verify.py",
+    "tools/water_fishing_capture.gd",
+    "tools/water_fishing_capture.gd.uid",
+    "tools/water_fishing_review.gd",
+    "tools/water_fishing_review.gd.uid",
+    "tools/water_navigation_review.gd",
+    "tools/water_navigation_review.gd.uid",
+    "tools/water_topology_review.gd",
+    "tools/water_topology_review.gd.uid"
+  ],
+  "report_files": [
+    {
+      "path": "README.md",
+      "sha256": "2540fa0a6985e831df456c7d5f255b0b9cadf0d4eba9b81127f495976218b86d",
+      "bytes": 8335
+    },
+    {
+      "path": "after-01.txt",
+      "sha256": "a8b33fe1ea335b55d13195c79cc2097cdeeca2dc6f68525603d9d238e24c19e3",
+      "bytes": 658
+    },
+    {
+      "path": "after-02.txt",
+      "sha256": "5b31e9f962a7f212d22d6a94b9fef2e930b8ee03d0ccd47496f370802cc75b94",
+      "bytes": 759
+    },
+    {
+      "path": "after-03.txt",
+      "sha256": "b955501e4d12f72d9746e290f696b4fe6868eb0bc4fd887edde0787fe09e7132",
+      "bytes": 1485
+    },
+    {
+      "path": "after-04.txt",
+      "sha256": "41585925b5661d98a12d62bdad6406d7cffaac8ebe2bce4c9077ee08f178907c",
+      "bytes": 1625
+    },
+    {
+      "path": "after-05.txt",
+      "sha256": "0c137126cf8e40e7fec228bf6552ecd4836c66eea3a3e17a4e367664f4fe5fc7",
+      "bytes": 2890
+    },
+    {
+      "path": "after-06.txt",
+      "sha256": "a64120b8f652240ffcc8256cb155271574174300deed7898705b7091c6766c32",
+      "bytes": 2660
+    },
+    {
+      "path": "after-07.txt",
+      "sha256": "947feae97d59dfc997b88449b8b42d4646ecae9bf3da5ef8c5d7cd39b2ee1c1d",
+      "bytes": 91
+    },
+    {
+      "path": "after-08.txt",
+      "sha256": "0ac7b394f4d018f1992e597bd243dcb378d277c40510364982a54b59501d55c3",
+      "bytes": 1376
+    },
+    {
+      "path": "after-09.txt",
+      "sha256": "109a15219fac2d704b566751abf98dac95b2c7c8317e6f82cdc1358fbfb26114",
+      "bytes": 1074
+    },
+    {
+      "path": "after-10.txt",
+      "sha256": "1dc63f59899b335798519165a55796ab9e34e34e4aae2fbfa46afb61a0907808",
+      "bytes": 871
+    },
+    {
+      "path": "after-11.txt",
+      "sha256": "c02e5b029adcd5cbee90f7d2968005a2c6a8d31db3676f9e8283516487c50030",
+      "bytes": 732
+    },
+    {
+      "path": "after-12.txt",
+      "sha256": "09d934675e93e758a1eed330398bd1f7185108c21bad2f5ebfeec6379cc96d65",
+      "bytes": 2976
+    },
+    {
+      "path": "after-13.txt",
+      "sha256": "4ebe1432a86edfe4b2070d2d7be825c9d46da6382754913bdcaa4d17817e9822",
+      "bytes": 1482
+    },
+    {
+      "path": "after-14.txt",
+      "sha256": "ae3f24d30158a74119457377c678e04e7628f641efa1db4483e1307d65f7d0b4",
+      "bytes": 2286
+    },
+    {
+      "path": "after-15.txt",
+      "sha256": "9a61715da3f3ccc9f52ff17784d0b0ba9a94836a13954d7361331a87b277a69e",
+      "bytes": 152
+    },
+    {
+      "path": "after-16.txt",
+      "sha256": "72d82e9ecbc566d047d6705217fb97813441566b055da58d3e1ae37fba8cdb04",
+      "bytes": 938
+    },
+    {
+      "path": "after-17.txt",
+      "sha256": "96d7695fdf193e5fd2ba502eb91a01ea1d5eab2c809734399c9a64a3c78ab00b",
+      "bytes": 97
+    },
+    {
+      "path": "after-18.txt",
+      "sha256": "eacbd7f43c3e33f18cee3e6f3524fa01a0f4ca84b7693c894859b3eb20e80770",
+      "bytes": 104
+    },
+    {
+      "path": "after-19.txt",
+      "sha256": "8bb62b49ebf6c2de6d13905fcb8aaa2b9a3e2e9c2c2a97aa92fc7019af22eec3",
+      "bytes": 88
+    },
+    {
+      "path": "after-20.txt",
+      "sha256": "be359d6971cf3a2a9dc6ecdfceafeadf6d527ea4901a7376ceaafe2f320b3b7e",
+      "bytes": 98
+    },
+    {
+      "path": "after-21.txt",
+      "sha256": "ddf8b934ccfb115381328253284014ed015a1ebcc61adfc4d5a43b20978949cb",
+      "bytes": 105
+    },
+    {
+      "path": "after-22.txt",
+      "sha256": "46f360290fd83ca1920b46fe5d3103cd5e75076ed166c640a2377d29fe020956",
+      "bytes": 106
+    },
+    {
+      "path": "after-23.txt",
+      "sha256": "22901616011d84605509074898aaf977f9a1875e94082c91fc85a8915f65d17d",
+      "bytes": 115
+    },
+    {
+      "path": "after-24.txt",
+      "sha256": "31694cd867c526ba076846086b3a733494cfe51e741346a12557fc4bdb178dcc",
+      "bytes": 114
+    },
+    {
+      "path": "after-25.txt",
+      "sha256": "c719040076a0b796ca3cf36393b49af096c1d8ed4bbf8c8d8bcc4a8aba6e7d45",
+      "bytes": 107
+    },
+    {
+      "path": "after-26.txt",
+      "sha256": "62f95ee8b05d7fd6232933cf07a00304185428d47828e8809436bc75d1a4b844",
+      "bytes": 110
+    },
+    {
+      "path": "after-27.txt",
+      "sha256": "2a81113efeddf73621ddb974b1c206fa2681fdde9290d493ee88a459a7bda8fe",
+      "bytes": 110
+    },
+    {
+      "path": "after-28.txt",
+      "sha256": "ff62517edc4bb32af83ba2471c465f6c591376cb198adadebf3f4e258652ee56",
+      "bytes": 110
+    },
+    {
+      "path": "after-29.txt",
+      "sha256": "5c49af8e92ec145658be7597493f065ff398b56c85154fdd3f6964fee9d36101",
+      "bytes": 112
+    },
+    {
+      "path": "after-30.txt",
+      "sha256": "931d595453ce91651482052179400d8ee3872efd019cc3d75f2a020b554a9a40",
+      "bytes": 115
+    },
+    {
+      "path": "after-31.txt",
+      "sha256": "1b48645234b7bf7441c80c9fdf7710c2cf5da31f53f82f4b715d5b498d84ef7a",
+      "bytes": 120
+    },
+    {
+      "path": "after-32.txt",
+      "sha256": "fff67bf44d4c6b8516050d8787e27cce562a8138284d2437a34054111c91d373",
+      "bytes": 117
+    },
+    {
+      "path": "after-33.txt",
+      "sha256": "d82f4a23dc751bec169c3c8f3b2bd22ddaeee7c431df159a6ef9a228b520af42",
+      "bytes": 118
+    },
+    {
+      "path": "after-34.txt",
+      "sha256": "802fd70f633d67f2328f5bb24c8d889596d7029e560b6f2f53e6121d76eedf42",
+      "bytes": 109
+    },
+    {
+      "path": "after-35.txt",
+      "sha256": "37d017875b1c5f3650aa0187d6610a7359b9309d9bc4d24c3f3855c4c2517125",
+      "bytes": 112
+    },
+    {
+      "path": "after-36.txt",
+      "sha256": "573819bf1f45ced89c20a185bde77c247cdd9581a3998f09cbf6fe0a4bfc512a",
+      "bytes": 110
+    },
+    {
+      "path": "after-37.txt",
+      "sha256": "6273232de4d3ef7acd4ecafa5c86beeeb974f56586b21089a2990b3f72facbe6",
+      "bytes": 103
+    },
+    {
+      "path": "after-38.txt",
+      "sha256": "3f7982e0c2f06a02c05567ec479a08f3144ac42b2abfaa375f1b63b7faf197dc",
+      "bytes": 120
+    },
+    {
+      "path": "after-GD.json",
+      "sha256": "faa196725849467799308e2849605305581483ac501b476947b78307fedbffd0",
+      "bytes": 36870
+    },
+    {
+      "path": "after-commands.json",
+      "sha256": "fc2ea3eee3079b7f2faaef1248beecb5f79e0079f1eefac92605032f8517b4ff",
+      "bytes": 19619
+    },
+    {
+      "path": "after-gd-01.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-02.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-03.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-04.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-05.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-06.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-07.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-08.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-09.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-10.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-11.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-12.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-13.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-14.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-15.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-16.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-17.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-18.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-19.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-20.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-21.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-22.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-23.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-24.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-25.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-26.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-27.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-28.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-29.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-30.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-31.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-32.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-33.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-34.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-35.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-36.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-37.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-38.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-39.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-40.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-41.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-42.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-43.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-44.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-45.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-gd-46.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-profile.json",
+      "sha256": "979d6a5a518e2a7061b5493516c7d4d2cb8bcaee65492be714eba0a5473bea50",
+      "bytes": 60847
+    },
+    {
+      "path": "after-water-baseline-analysis.json",
+      "sha256": "7e6e7606cdfb89ea05eae0334391ae589235ca602be5cb030c08ddc1ccd3163e",
+      "bytes": 18442
+    },
+    {
+      "path": "after-water-native-summary.md",
+      "sha256": "2034b8c94c0597cacf0b74a0d5377314bb44ac8639b4bb498233516619a12702",
+      "bytes": 3792
+    },
+    {
+      "path": "after-water-writer.json",
+      "sha256": "59f870ca660ee505fa84b9cab50097ca965b8147652ae29d3ee1ceb267cdcdca",
+      "bytes": 953
+    },
+    {
+      "path": "after-water-writer.txt",
+      "sha256": "4f30cdeb4240d8ced8a95e5f9396e38884b5a73054c82d8bc2e88262ca4131fd",
+      "bytes": 80
+    },
+    {
+      "path": "apply-journal.json",
+      "sha256": "f2ad336f0841c2b80f3a27b7292fd72ac498f83c8e72e0d62d2851c5a8114263",
+      "bytes": 28121
+    },
+    {
+      "path": "apply.py",
+      "sha256": "337ec28e32527acb6493f4e15950c9ec56d1f10facd2aa38656270ce8cfe331b",
+      "bytes": 8111
+    },
+    {
+      "path": "audit.py",
+      "sha256": "d80888fc87162d1091803fb728200f2cf91cec35560c867c2817e61973068d8f",
+      "bytes": 15519
+    },
+    {
+      "path": "baseline/.gitignore.gz",
+      "sha256": "95614141b0767e774aae799b0cd270054d811bee731e83429fc492ae0a8e2af9",
+      "bytes": 5456
+    },
+    {
+      "path": "baseline/QA_CHECKLIST.md.gz",
+      "sha256": "e8fc606eb978a0a5e3f3cd9bd449e69ac0acc2fb9638f8500653f1e284e7fc07",
+      "bytes": 114511
+    },
+    {
+      "path": "baseline/TESTING.md.gz",
+      "sha256": "387605b2edba90b24ef57856c79bfc1cd91a3a3f5739d84ab14f2874d440a59b",
+      "bytes": 46138
+    },
+    {
+      "path": "baseline/VERSION.gz",
+      "sha256": "76c15dfb0bcc736bcd494d216845344ffbd98b9b1afb8f7fd4487c4e422e0acf",
+      "bytes": 28
+    },
+    {
+      "path": "baseline/audit-py-before-water-fixture-repair.gz",
+      "sha256": "80c19ac2b410ebd722ac55a4206e3d45fac35f074b483433a2a9755feb94d4cf",
+      "bytes": 4640
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/after-GD.json.gz",
+      "sha256": "0557ed6b08c1517db302c04bb5fa4788e847cbd6daa0f6cac8f4bdf3308d8f72",
+      "bytes": 3176
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/after-profile.json.gz",
+      "sha256": "7b9fb0784642687e0a74d5b032679106e47844834df1c7bdce327312134d0b23",
+      "bytes": 6195
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/before-GD.json.gz",
+      "sha256": "209568e074dceb9d03a0c0aae0c0b668108332867041cf91c63641874c3d23ac",
+      "bytes": 3154
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/before-profile.json.gz",
+      "sha256": "beb713f49512f116daac033fedad4a1d416618f0868c5e28578eacf823b9e6fd",
+      "bytes": 6150
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/browser-article.json",
+      "sha256": "9f427ea5f1c5db4d2194a5a7169cc77708382109ca11cfa84f944f178222293e",
+      "bytes": 421
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/browser-cleanup.json",
+      "sha256": "5f98239126d95b62811e434a627d50cf3540e947b3a351f9ca9e840ea21f685b",
+      "bytes": 381
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/browser-cleanup.py",
+      "sha256": "b0ba0d8a487ea5379de7392423aeee7c44740d887156dad171ef6c282e59a2d9",
+      "bytes": 1792
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/browser-desktop.png",
+      "sha256": "3766c90727bcb54bcd504d83dc54d4d8af596368f5f24c5e28cdafb55f2bb1b3",
+      "bytes": 191958
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/browser-mobile-before-transition-settled.png",
+      "sha256": "32dbc86ed1ee926624a9b44195956e97264a0feb94fd3da444ad24ffe9a9e537",
+      "bytes": 53678
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/browser-mobile.json",
+      "sha256": "548526c78d3770df61c5ff1da951b79aaf9225e57b6901bc0312c038821f959a",
+      "bytes": 177
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/browser-mobile.png",
+      "sha256": "24627b479645d07e34bbda3e7b59965e23befc3bfa20aa82dacc2faf452cd361",
+      "bytes": 60988
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/browser-task.json",
+      "sha256": "b14d4d7b80fd59fe443d9cbc00b0e817bdaf8781230114c6d74a767f23c6c737",
+      "bytes": 158
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/catalog.json.gz",
+      "sha256": "f817efae2a815408518a4c219045c85b3c649b39684f3540d3630d196a3d9f6b",
+      "bytes": 296
+    },
+    {
+      "path": "baseline/before-gd-raw-storage/checks.json.gz",
+      "sha256": "aeadab4f6e3caa72a93bd38737d13b256ce77262a106f6f902d507b8159cc248",
+      "bytes": 27666
+    },
+    {
+      "path": "baseline/ci376-final.json",
+      "sha256": "4a698afb57919b29770e45434508e83dd85e08f2261b9e2f261f4ce764a49fc4",
+      "bytes": 3901
+    },
+    {
+      "path": "baseline/deferred-shore-analysis.md",
+      "sha256": "53ab72b7e39e03119e1d504ff4987e60f1dc55e675f31eb4f27a2ba327f5627c",
+      "bytes": 3442
+    },
+    {
+      "path": "baseline/docs--DEVELOPMENT.md.gz",
+      "sha256": "01e0b22b39dd7ac262958337c2393efc8b4bca41e1af8ff31ed560e5eaab0b55",
+      "bytes": 44698
+    },
+    {
+      "path": "baseline/docs--epics--refactoring-2026-10--TASKS.md.gz",
+      "sha256": "eb1d88063a74057e7155c085f67231a6f893cf24ac7d7f438b216d6419613103",
+      "bytes": 11374
+    },
+    {
+      "path": "baseline/history-test-before-water-fixture-repair.py.gz",
+      "sha256": "99bcc8067889c9eb8af9385804214a67bc1b0580a353f8ecf4d9b47afc122aac",
+      "bytes": 3402
+    },
+    {
+      "path": "baseline/history13-before.py",
+      "sha256": "79e8ff46fe51d773371b16ac1c296c5824da3ed15e93b16189fd50c8d30c79e6",
+      "bytes": 10890
+    },
+    {
+      "path": "baseline/inventory.json",
+      "sha256": "8fae5e43fa19e915c66674025adf3caf722369d8cb77bea980d241e7fa06649f",
+      "bytes": 97542
+    },
+    {
+      "path": "baseline/move-plan.json",
+      "sha256": "ca5f8dc4f7ce068b85267648600da023be4ce5483ab221c9e37a2a459b7e8319",
+      "bytes": 1377642
+    },
+    {
+      "path": "baseline/plan-before-P3.json.gz",
+      "sha256": "dadec311e83a2b148e44b36268178e89fc327a5bf226980e9ad7e782256f9b5a",
+      "bytes": 184646
+    },
+    {
+      "path": "baseline/plan-before-P3.py.gz",
+      "sha256": "6ac0390cbf76df2676694795bbd8bb3d0b8638250cd88f09b30d3c8e0531cb8e",
+      "bytes": 3209
+    },
+    {
+      "path": "baseline/plan-before-plant-bootstrap.json.gz",
+      "sha256": "894d54251f8af78e0c28987d2f64bbd4157a0e1c480c689dbb8570fc8c12abd1",
+      "bytes": 185396
+    },
+    {
+      "path": "baseline/plan-before-water-fixture-repair.json.gz",
+      "sha256": "831679a487bbec9fcf707ed830df9f096cb4aad4dd0675261b9f820e0e9537c0",
+      "bytes": 185418
+    },
+    {
+      "path": "baseline/planner-before-ast-optimization.py.gz",
+      "sha256": "7af6860bc45d168eb5c70f857e481420205e7bee0fd6136c3ecbcb251e52dcde",
+      "bytes": 3195
+    },
+    {
+      "path": "baseline/producer14-before.py",
+      "sha256": "c52bbb3a8b64d156ac7b71c078b16b2e8df0ac03c54f201e020a1ae328a006ea",
+      "bytes": 13880
+    },
+    {
+      "path": "baseline/project.godot.gz",
+      "sha256": "43e67dbb1b5d075ea73d20d8521ec5a54c05d369229bbee5b8071c3f203aaf79",
+      "bytes": 607
+    },
+    {
+      "path": "baseline/reviews376.json",
+      "sha256": "9968aec5fa93747904ccc6f4a2602faaba9ca54bb42bb0b1fc08425fd771ebd0",
+      "bytes": 124234
+    },
+    {
+      "path": "baseline/scope-json-before-water-fixture-repair.gz",
+      "sha256": "291e4895c150bcccb0bc8665806c46f7c093ea4b432cd96c2acdfa1bdbab809c",
+      "bytes": 1880
+    },
+    {
+      "path": "baseline/tools--README.md.gz",
+      "sha256": "7cc733738a3a215994fcd3dcb4f2c2e7db02c6036e867fea34d20b81a2b964e2",
+      "bytes": 8205
+    },
+    {
+      "path": "baseline/tools--analyze_water_audit.py.gz",
+      "sha256": "1c75c533a0100afeee2a41443244279db5b5e5e955ed8fe969be2e0f8056ce26",
+      "bytes": 1989
+    },
+    {
+      "path": "baseline/tools--assets--alpha--test_street_consumer.py.gz",
+      "sha256": "6a20e4fe874aa24c538d377e6c3cfd14c5056be39e9d381a41f322d9ef421c6d",
+      "bytes": 1080
+    },
+    {
+      "path": "baseline/tools--assets--contracts--source_paths.py.gz",
+      "sha256": "b56f77114ce33e9d683cc6ee1a73a824be9e8bf31207dfb0678523dd0f34f439",
+      "bytes": 2699
+    },
+    {
+      "path": "baseline/tools--assets--contracts--test_source_paths.py.gz",
+      "sha256": "64624b65b1935e63c89ec062acb6607426c079938d107aea376fca181af6a227",
+      "bytes": 2748
+    },
+    {
+      "path": "baseline/tools--axial_road_verify.py.gz",
+      "sha256": "64ec900ba4a9e37bd9e6748ccc9fd3ab4d8cd04d0960d05bd0152357b3c99afe",
+      "bytes": 3565
+    },
+    {
+      "path": "baseline/tools--decoration_verify.py.gz",
+      "sha256": "3fb83982fd2a1d85c86fddcbe4815dac630251bf538d7856cbd631c973d5f94c",
+      "bytes": 4704
+    },
+    {
+      "path": "baseline/tools--garden_verify.py.gz",
+      "sha256": "38bc6d1dc74c0e50f50f2f07c9f49eb5fbbdcc32dbe733c007ca126a0cf97c42",
+      "bytes": 4224
+    },
+    {
+      "path": "baseline/tools--grass_methods.py.gz",
+      "sha256": "3562eb52445fd518e86320bf73fe95b6a19db314da399ffac97495c0909b9576",
+      "bytes": 7131
+    },
+    {
+      "path": "baseline/tools--ground_edge_verify.py.gz",
+      "sha256": "afa752152296b41f58dce7cd824a79f98e377bb9643189aa5a7dac55c7aaa031",
+      "bytes": 3323
+    },
+    {
+      "path": "baseline/tools--ground_layers.py.gz",
+      "sha256": "3ec562e96ced3a0cc4f42212e261ef3bfd389ff49cf98c1042c4f7655942205f",
+      "bytes": 5756
+    },
+    {
+      "path": "baseline/tools--ground_seasons_verify.py.gz",
+      "sha256": "6478ad37223ff2d15af491fed6e76407ecd1c3bced65eed33217ffbc39a562cf",
+      "bytes": 4319
+    },
+    {
+      "path": "baseline/tools--meadow_verify.py.gz",
+      "sha256": "58a24d7a0cc56dba9ee83de766ea6abf04e8a58957824ec9a0ed50cabddd084c",
+      "bytes": 2923
+    },
+    {
+      "path": "baseline/tools--object_command_canvas.gd.gz",
+      "sha256": "73fcac6ea2453a54a204566e63ef73d86084ae974723f5ca1ff23da547fab31c",
+      "bytes": 1362
+    },
+    {
+      "path": "baseline/tools--object_command_canvas.gd.uid.gz",
+      "sha256": "d996b7013043e5e31f6ffe47bf03cfe76a6635646d5c663b0b94113a01bede4b",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--object_command_capture.gd.gz",
+      "sha256": "96659531131bd03a9fbb87cdba48d7db6850f895fbbc4f67e9afbd500e1a1e18",
+      "bytes": 4294
+    },
+    {
+      "path": "baseline/tools--object_command_capture.gd.uid.gz",
+      "sha256": "bb2422a335da3460620222bcc769b22d03128504ae1bab5a5baa70d12e1ed929",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--object_command_collect.py.gz",
+      "sha256": "c9a0f5f65a8d811684e517f1736d9a66cf96257fb7751683644d0cc839d0861e",
+      "bytes": 2534
+    },
+    {
+      "path": "baseline/tools--object_command_review.gd.gz",
+      "sha256": "6c3dbf474cf2452218ee200a8fb938a0ee8bfcb36d776a0cefd853acb1d99216",
+      "bytes": 912
+    },
+    {
+      "path": "baseline/tools--object_command_review.gd.uid.gz",
+      "sha256": "8fa7e037c7010501b9c93f1b900fd191457e49b82a7d8d4269cbfd6b81b6e02f",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--object_command_verify.py.gz",
+      "sha256": "8a531a3969380b77cc8f226237ee7a388380e58e0c6465321c55278ab4a8c365",
+      "bytes": 3782
+    },
+    {
+      "path": "baseline/tools--pilot_pass_capture.gd.gz",
+      "sha256": "8460bf77d3b8083c33fe85626f24cbc7ee4d7dc5c5163dfffee2e3cc774dd446",
+      "bytes": 3368
+    },
+    {
+      "path": "baseline/tools--pilot_pass_capture.gd.uid.gz",
+      "sha256": "9b59ba0a0ff46064889442314a3db5709bb11a3b150e472cb4e1f0ef5f94f452",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--pilot_pass_collect.py.gz",
+      "sha256": "17d943ae976b1adc0f2069a27992ba4fcb623a67df23e31b11aff3994a7b72b8",
+      "bytes": 1956
+    },
+    {
+      "path": "baseline/tools--pilot_pass_game.gd.gz",
+      "sha256": "a1dad4503e01621f544977711f2a81da8bf5e6fb50e5d19fdf91229e844e0812",
+      "bytes": 530
+    },
+    {
+      "path": "baseline/tools--pilot_pass_game.gd.uid.gz",
+      "sha256": "dd48af1d70fd168ed6620473fc812204fbea56b902181480c4305abeb33a1cb8",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--pilot_pass_review.gd.gz",
+      "sha256": "03f61ce74901d797b8d47f28db2d1ebb0eb3e76333e4d9edd1d082584347e1ba",
+      "bytes": 600
+    },
+    {
+      "path": "baseline/tools--pilot_pass_review.gd.uid.gz",
+      "sha256": "2e3cf826a39d66f068e4939e9073a743e2442c79886a31f33a516d7a805e13d2",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--pilot_pass_verify.py.gz",
+      "sha256": "c77fc34355067afe2a37879a1efb804a0da51a54d0dfc9e29722446b63fb865e",
+      "bytes": 3954
+    },
+    {
+      "path": "baseline/tools--pilot_static_audit.py.gz",
+      "sha256": "230aee96fbc2da9b73301ce456970892649e213eb3cfedf8bcdcfec470c21440",
+      "bytes": 1954
+    },
+    {
+      "path": "baseline/tools--pilot_static_capture.gd.gz",
+      "sha256": "9f75fde1d147d78d6099cf8c0826eea45492230e08ba3cf0f790dedc95ca1d07",
+      "bytes": 3280
+    },
+    {
+      "path": "baseline/tools--pilot_static_capture.gd.uid.gz",
+      "sha256": "54347874b3bf99f157d0b38fbb0b0a0f1c40e37b384412955ee94ed034edf77a",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--pilot_static_collect.py.gz",
+      "sha256": "47db1f6c369acfb5cb0714a790a71b5c98a76ff6c33de6c3c54632b5b31b9083",
+      "bytes": 2177
+    },
+    {
+      "path": "baseline/tools--pilot_static_scene.gd.gz",
+      "sha256": "e8211c7237b5becae6d52961724c0dd00ff82708f83def5028d2180bf284d218",
+      "bytes": 2024
+    },
+    {
+      "path": "baseline/tools--pilot_static_scene.gd.uid.gz",
+      "sha256": "7eed3b1198bcfbb96f01ceb92d7120e540101f1197059c02924b07d92623a2be",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--pilot_static_verify.py.gz",
+      "sha256": "b5ce847e6288c68b432c97fb878ffb9ed4d493fc1b4d7553f6403ef116d605c4",
+      "bytes": 3328
+    },
+    {
+      "path": "baseline/tools--plant_depth_capture.gd.gz",
+      "sha256": "f100caaa846f4dec970aa5ff60f0e8d9c234b02ad044ad5e7a782c6b7377532b",
+      "bytes": 3149
+    },
+    {
+      "path": "baseline/tools--plant_depth_collect.py.gz",
+      "sha256": "13229731e1eeafc3c38a26fcf7a0c99418191cba9aab23eb28bc5fe7acff4c75",
+      "bytes": 2155
+    },
+    {
+      "path": "baseline/tools--plant_depth_game.gd.gz",
+      "sha256": "2b68b2cd56dd4eaf84871c5c1e04594f128f492346928c00b6a3993d71aa8fbd",
+      "bytes": 401
+    },
+    {
+      "path": "baseline/tools--plant_depth_verify.py.gz",
+      "sha256": "de2dda89031de229d310e2b09e2cd51e599e8dbd5f6d3ac14bc8963aca05b509",
+      "bytes": 4621
+    },
+    {
+      "path": "baseline/tools--plaza_verify.py.gz",
+      "sha256": "78317281135896f5abfd91b41f14ce98b355a3b6b5ee45d166414d115a7af53f",
+      "bytes": 3984
+    },
+    {
+      "path": "baseline/tools--post_motion_capture.gd.gz",
+      "sha256": "b6f85efd122da43c3d571411d0bf78214ab3a15d545db3b2af06c50e2e7d9e37",
+      "bytes": 3983
+    },
+    {
+      "path": "baseline/tools--post_motion_capture.gd.uid.gz",
+      "sha256": "7ce4fc2816603da9374dc2c0d91a1791c5b8490c6ba9ce759a0c2078488161f2",
+      "bytes": 38
+    },
+    {
+      "path": "baseline/tools--post_motion_collect.py.gz",
+      "sha256": "10f210e105a869f6c6b34c5940fdc7f7c8fb519cdfcc55878edfbbc6e36b19a1",
+      "bytes": 2149
+    },
+    {
+      "path": "baseline/tools--post_motion_game.gd.gz",
+      "sha256": "b9b7cd0424526cfaf5a2ebfd75086266686f6dc0e227a1a5caa6de2c92d3094d",
+      "bytes": 335
+    },
+    {
+      "path": "baseline/tools--post_motion_game.gd.uid.gz",
+      "sha256": "b73965271249edd16c04ccb6cae601639803c9336084496e07200fb9b805ed08",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--post_motion_review.gd.gz",
+      "sha256": "3348e3c3ddb0cb068fd2b33c95630024720146ce00ba9df009b86e29bd2ac2a5",
+      "bytes": 565
+    },
+    {
+      "path": "baseline/tools--post_motion_review.gd.uid.gz",
+      "sha256": "8c88b25ea068d4eed60cf9148be45b3a36dabc3fc793a1e05263081e49fcd567",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--post_motion_verify.py.gz",
+      "sha256": "4676f24cda88d015ec74239e4068fa5bdc7cf71e61cf6d5eb847895143f63737",
+      "bytes": 3933
+    },
+    {
+      "path": "baseline/tools--qa--art--test_current_paths.py.gz",
+      "sha256": "78dcc6ccafc624dfdab00c1ac1588af7027260d3c148603a2bc419ebc82e333a",
+      "bytes": 1945
+    },
+    {
+      "path": "baseline/tools--qa--world--test_world_context.py.gz",
+      "sha256": "dc254da29cff619824fc91f413c81b0b31cdf92fadb79746ffd66756dbf871fd",
+      "bytes": 4181
+    },
+    {
+      "path": "baseline/tools--qa--world--test_world_producers.py.gz",
+      "sha256": "e4f6548a13c9b794cb6aa0fe761da8dbb2085a95cf9d3535147792cfcf930101",
+      "bytes": 3927
+    },
+    {
+      "path": "baseline/tools--qa--world--test_world_source_history.py.gz",
+      "sha256": "43d5600a90b780ae988c08d8a8058b7d139f61bd1e343d3279e8144520f5d206",
+      "bytes": 3234
+    },
+    {
+      "path": "baseline/tools--quality--check_architecture.sh.gz",
+      "sha256": "60401e0c607c8679eda68984ef0fd94cc176c2249a9f60ab2b4c3eb5d7363860",
+      "bytes": 2132
+    },
+    {
+      "path": "baseline/tools--render_order.py.gz",
+      "sha256": "0536bcff9b9229a0a0142dfdd214415285c1ac8fa564f1fe26100e0283ec2001",
+      "bytes": 5009
+    },
+    {
+      "path": "baseline/tools--render_order_capture.gd.gz",
+      "sha256": "b27e8fea0b8a963b433fc962d75f83ecca86330c4f6b880d8167a4085c948611",
+      "bytes": 3084
+    },
+    {
+      "path": "baseline/tools--render_order_capture.gd.uid.gz",
+      "sha256": "962711625f4878dbeb96cfdf077e387fb83a53a524b564909ebfa54ab93f2239",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--road_network_verify.py.gz",
+      "sha256": "ed44920a708a8b301f90f04e2cf91821dd801969104ecb0437a621ec4f333df1",
+      "bytes": 3848
+    },
+    {
+      "path": "baseline/tools--shadow_inventory.py.gz",
+      "sha256": "821410906c1dec35ab0354450b36a2cb4ddaf06473f7c931fdb97d46e3f3f2d7",
+      "bytes": 3633
+    },
+    {
+      "path": "baseline/tools--shadow_inventory_canvas.gd.gz",
+      "sha256": "fd249533a3c08ed624e67b1b8f186490b4e11d961e21bb2fefc9f115038d9b18",
+      "bytes": 1032
+    },
+    {
+      "path": "baseline/tools--shadow_inventory_canvas.gd.uid.gz",
+      "sha256": "d5ed7d7f43a5077b878db36a28c1fbf659af1c430effbfb0135ffc53df2ddc14",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--shadow_inventory_capture.gd.gz",
+      "sha256": "38bf59cd10102651b353d4a3cf4d76ee531c91bd7c3dc0bb53d771cdbb2415d0",
+      "bytes": 2305
+    },
+    {
+      "path": "baseline/tools--shadow_inventory_capture.gd.uid.gz",
+      "sha256": "f07df457ed6ffc82b0d41a33027eaff3f415c0c8685306af5d9fcb680a0023fa",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--shadow_inventory_collect.py.gz",
+      "sha256": "97d9ab654fab5d1b0537210dab40a0ce22c1f48d12e99cb818e28cf6052987ac",
+      "bytes": 1849
+    },
+    {
+      "path": "baseline/tools--shadow_inventory_verify.py.gz",
+      "sha256": "46b8729d3414353939f1fdce6ef4235952ea904e02c988612e51ad348720ee6b",
+      "bytes": 3720
+    },
+    {
+      "path": "baseline/tools--terrain_revision_verify.py.gz",
+      "sha256": "4de19c5caf21ac884330382f9b8ebc340e374e39c1d1d76db9b010e8af8148ac",
+      "bytes": 5120
+    },
+    {
+      "path": "baseline/tools--test_object_command.py.gz",
+      "sha256": "7f4a08b2cf749b82069338ba07567ab3c6e4a685d1f6538af1fc73956c1e4a0e",
+      "bytes": 2776
+    },
+    {
+      "path": "baseline/tools--test_pilot_pass.py.gz",
+      "sha256": "ad0c70f08ab88472f680c3c3a8e15e72beddd6c183909a7c69b51502ddc78e9b",
+      "bytes": 1131
+    },
+    {
+      "path": "baseline/tools--test_pilot_static.py.gz",
+      "sha256": "f17e8c25de9624b56c835571f2da00371c945c262bec1fe22f4435d893addfda",
+      "bytes": 1070
+    },
+    {
+      "path": "baseline/tools--test_post_motion.py.gz",
+      "sha256": "acab1cbfb8de86c6cc17c53589a7de33c62b2a7c758d2965ae8711fc562aec3d",
+      "bytes": 1189
+    },
+    {
+      "path": "baseline/tools--test_render_order.py.gz",
+      "sha256": "9cb5880af92fd5c3f1a962f24aba27d46453aa2dde406705d9406f91b36a9364",
+      "bytes": 2736
+    },
+    {
+      "path": "baseline/tools--test_shadow_inventory.py.gz",
+      "sha256": "9113dd2c625f0b71669fa63f5f6b26af49da4e9de107e3dbd6330b9d3f889847",
+      "bytes": 1530
+    },
+    {
+      "path": "baseline/tools--test_transient_save.py.gz",
+      "sha256": "5e639e1c00fd60f7762e843975a1ce66b93b695ebcdef6234df8a069e447a795",
+      "bytes": 1081
+    },
+    {
+      "path": "baseline/tools--test_village_bench.py.gz",
+      "sha256": "e0f1ecc40332e1e75f3d93145465b7def0b1038e6330e08d8c3281ed3d7bda83",
+      "bytes": 1507
+    },
+    {
+      "path": "baseline/tools--test_village_board.py.gz",
+      "sha256": "8c6d6affd061a70c5fa825a1e26fdd76df4aaece4c6d823674ca76571b1b37be",
+      "bytes": 1131
+    },
+    {
+      "path": "baseline/tools--test_village_fence.py.gz",
+      "sha256": "35a0cb29890ca58c07bcc71bab2d9851c7f27c8dc08276e32121d58ff3ab896c",
+      "bytes": 921
+    },
+    {
+      "path": "baseline/tools--test_village_lamp.py.gz",
+      "sha256": "d284242b299fed9e06dcf96fcd6642ee1a3d1915fbc5329063ce7d1ec55917f7",
+      "bytes": 1824
+    },
+    {
+      "path": "baseline/tools--test_village_street.py.gz",
+      "sha256": "eff5b04701f2f923b305c333450810d4cdb83947f4bd2a91283f828b9ec4d95b",
+      "bytes": 1681
+    },
+    {
+      "path": "baseline/tools--test_village_trade.py.gz",
+      "sha256": "d72ecaed664e9b339eb2ddb2a1fa472e3868f2182c3226b01b3760d624105bdb",
+      "bytes": 950
+    },
+    {
+      "path": "baseline/tools--test_water_audit.py.gz",
+      "sha256": "3491aaf9344369cb132402d940ea3a1f30a6741918f543b820bb6b01e2bb981c",
+      "bytes": 1461
+    },
+    {
+      "path": "baseline/tools--transient_save_capture.gd.gz",
+      "sha256": "41b52a06e3c4fb522bc5c1b9080c8db7a8847742eff38da29620cc125e23c6cf",
+      "bytes": 2215
+    },
+    {
+      "path": "baseline/tools--transient_save_capture.gd.uid.gz",
+      "sha256": "24e26bdae9a30bebb7c579e5bf000fc5f9f7c56fad9a3e6a2cccafd8f7e8f23c",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--transient_save_collect.py.gz",
+      "sha256": "79144bb5e8acabed2bc42f3e382ce1194e84a9568343bbb25727e8e32dfee63c",
+      "bytes": 1776
+    },
+    {
+      "path": "baseline/tools--transient_save_probe.gd.gz",
+      "sha256": "077b3c71951fe9fcd9e3edc39ba10299e21c45804e95338d9b94c7fa907d252e",
+      "bytes": 1135
+    },
+    {
+      "path": "baseline/tools--transient_save_probe.gd.uid.gz",
+      "sha256": "1d777a51da6c899fcddb1a493a6b5d45500683aaf413e30b4a805efcb830bdc7",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--transient_save_review.gd.gz",
+      "sha256": "b678911dca27b8c8da1ea86cd26257816b4414c58b9e62acc6732c3f03bf525f",
+      "bytes": 513
+    },
+    {
+      "path": "baseline/tools--transient_save_review.gd.uid.gz",
+      "sha256": "fa4ce013816cb313608a06530ae1754da5c283d622d4ed8087aef3939ab1f309",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--transient_save_verify.py.gz",
+      "sha256": "74af2cebc9cc71ec7f91c246b5a8bff7af28365edf96c72e223c544fe4d6121d",
+      "bytes": 2424
+    },
+    {
+      "path": "baseline/tools--village_bench_assets.py.gz",
+      "sha256": "7d03f73dbe52a3da7012d65fa8e09b950bd92ccba3b1250b11463dc6e9eb3e62",
+      "bytes": 2583
+    },
+    {
+      "path": "baseline/tools--village_bench_capture.gd.gz",
+      "sha256": "e4f9efb6a3d91ec37f4745f6fef18839f5b09d04ea1cdbee928b1c340c19f810",
+      "bytes": 2500
+    },
+    {
+      "path": "baseline/tools--village_bench_capture.gd.uid.gz",
+      "sha256": "1146faee8af9d697b5dfcbc02a186c2b0fd87aab60015c2e03e86d4083ac654a",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_bench_collect.py.gz",
+      "sha256": "37504cb180030c05513b50e15851d1f3386949456b809a9864e326153ad457dd",
+      "bytes": 1956
+    },
+    {
+      "path": "baseline/tools--village_bench_gallery.gd.gz",
+      "sha256": "eadc5b111e159b08fcf88e0e1a24750477d585856ac0d4f564df6bad5cd50489",
+      "bytes": 1297
+    },
+    {
+      "path": "baseline/tools--village_bench_gallery.gd.uid.gz",
+      "sha256": "3f8dd082f74b10d54ba584a943acc5feaf4ba446db31e5b759f1283f7c70b81a",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_bench_leg_capture.gd.gz",
+      "sha256": "7808d4c137927c1696aa558e8cba054c7086314ec8b45d3afdc191beb62e073f",
+      "bytes": 2140
+    },
+    {
+      "path": "baseline/tools--village_bench_leg_capture.gd.uid.gz",
+      "sha256": "77940bc8c46daebae6ff50ad94710558c4d4ac3a0bfdc9dd83dbfdf9e1c25ba1",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_bench_review.gd.gz",
+      "sha256": "c0f9b7fd311e9f5a8b22168876e2186bdcc2305e1590ddc6f56290e529d18a6f",
+      "bytes": 567
+    },
+    {
+      "path": "baseline/tools--village_bench_review.gd.uid.gz",
+      "sha256": "2549ba6593622744115a907fa1e791da12cc1ae363da127f42ccc2d991d71e78",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--village_bench_verify.py.gz",
+      "sha256": "d0dbb3121f1e51beb8eee3b9d7cb2011cfd83bbed633b40025e7bb9f44507357",
+      "bytes": 3319
+    },
+    {
+      "path": "baseline/tools--village_board_assets.py.gz",
+      "sha256": "e591616c24d55892d28f78c67dd36fdf614c81c834038828da433757e87ffba9",
+      "bytes": 2854
+    },
+    {
+      "path": "baseline/tools--village_board_capture.gd.gz",
+      "sha256": "8dd2288b6745fb5ff8ba08fbfcdafe28d4adcab9925213262ed4900de6b1edb5",
+      "bytes": 2861
+    },
+    {
+      "path": "baseline/tools--village_board_capture.gd.uid.gz",
+      "sha256": "3a23086017328379a8dd88f6099c243e3ebead342a8ab006640edbc7a124b1aa",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_board_collect.py.gz",
+      "sha256": "730f1a7620fe7d1343783d1cb93dc0c5558d95ba8e0a959f07b741fe80c4218f",
+      "bytes": 2182
+    },
+    {
+      "path": "baseline/tools--village_board_gallery.gd.gz",
+      "sha256": "e4138f67e546bd5c8b66e6ab8f1416cfe5d2ebe9ec4425b69deef22ba0cb6b27",
+      "bytes": 1348
+    },
+    {
+      "path": "baseline/tools--village_board_gallery.gd.uid.gz",
+      "sha256": "453c4b4e493d814728c84a7fa230e6576580dd452a547cd2480abd30313edc43",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_board_review.gd.gz",
+      "sha256": "a6f59ac5ec9fe17f2d4b66ce34676f8a26e6cb8cbd79d2e524917519420fd254",
+      "bytes": 593
+    },
+    {
+      "path": "baseline/tools--village_board_review.gd.uid.gz",
+      "sha256": "c57a917c4cdcbe127a70576e7ea313b4d9842c9cc3bd593498f41ed187f2915d",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_board_verify.py.gz",
+      "sha256": "05197ccb5671468c12052336e976b0b8ece55827e2799dfe007f21d0411b21dc",
+      "bytes": 4193
+    },
+    {
+      "path": "baseline/tools--village_clearance_review.gd.gz",
+      "sha256": "184a7ec0b3ae44b405e5b8a143f63ec89fa3558a0bf2d7cf170decbab44c7f8b",
+      "bytes": 1534
+    },
+    {
+      "path": "baseline/tools--village_fence_assets.py.gz",
+      "sha256": "6015ac7e6e844c64c2dfc17d020d568c10c9cc0c5dbacec49e437b51e6462c60",
+      "bytes": 2101
+    },
+    {
+      "path": "baseline/tools--village_fence_capture.gd.gz",
+      "sha256": "cdf06e07e7acf55edd8bdb7b50c524b93812a937f18034d2b471608c8eb8e42d",
+      "bytes": 2697
+    },
+    {
+      "path": "baseline/tools--village_fence_capture.gd.uid.gz",
+      "sha256": "4a3bd2c35573cc2a919331fcc61697bd9e1db19483447a25bed3293c7949f96a",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--village_fence_collect.py.gz",
+      "sha256": "d9d22effdfc2647a79905ec185d6e16ed2f1b8993ebfe3cae0419eb1105fe7e5",
+      "bytes": 2087
+    },
+    {
+      "path": "baseline/tools--village_fence_gallery.gd.gz",
+      "sha256": "bd6e610f3811868514ae4d88aeb17d3d1b23efe7138770b5c0e36814c560d57b",
+      "bytes": 1004
+    },
+    {
+      "path": "baseline/tools--village_fence_gallery.gd.uid.gz",
+      "sha256": "d2a997ef7f2762c7e378c8a0a4004f13377aa89dd1036a1c07483ba07daf53ff",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_fence_review.gd.gz",
+      "sha256": "b5c8edad53e49b9d263a093be839afae3ba538d7be88d3d5ed37932f20e6ad0e",
+      "bytes": 573
+    },
+    {
+      "path": "baseline/tools--village_fence_review.gd.uid.gz",
+      "sha256": "aad9c3c03fa3234d2f6426052f11bd8ec636d298e55c35b7448dc97cb2aa6f1b",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_fence_verify.py.gz",
+      "sha256": "bf3db41d00eff81cff4c19a44c644aaa22edddcf1886630b46fd2b6a1da5b43f",
+      "bytes": 3828
+    },
+    {
+      "path": "baseline/tools--village_lamp_assets.py.gz",
+      "sha256": "e0842d1360ed6bea03d2edaa24f4b75777f41ef70535ca700dc42f51513cb242",
+      "bytes": 2659
+    },
+    {
+      "path": "baseline/tools--village_lamp_capture.gd.gz",
+      "sha256": "0ef62dab00e910615615b47a5b3e830c4e77dc46af955bd85b14016eed5f0576",
+      "bytes": 2778
+    },
+    {
+      "path": "baseline/tools--village_lamp_capture.gd.uid.gz",
+      "sha256": "a9ef9a33a0a66a15390167ec59d96893fb81da80037a380c7587504eb1eee1a9",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--village_lamp_collect.py.gz",
+      "sha256": "b8cc88ad96635a6442eae864a4c90f5476f0dce597dfa83deb5637a5020c5d50",
+      "bytes": 2036
+    },
+    {
+      "path": "baseline/tools--village_lamp_gallery.gd.gz",
+      "sha256": "2b0468fdd70c76962accb9a90e4b617515d9f9feab72cb40d53f231e884ddc02",
+      "bytes": 1373
+    },
+    {
+      "path": "baseline/tools--village_lamp_gallery.gd.uid.gz",
+      "sha256": "dba040aecf8626b1ef3f0963447bebfd3a186e4a7abad75db007669a2b208880",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--village_lamp_review.gd.gz",
+      "sha256": "b6d1f88c55f0de6f1639fcdc262b768ddaf41e8c7cca09ddfd05ddc3c2207c58",
+      "bytes": 572
+    },
+    {
+      "path": "baseline/tools--village_lamp_review.gd.uid.gz",
+      "sha256": "75d69319fca451fb05bf5abe3071f0dce2926fb15fc2e0adc5d61f1b83098822",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_lamp_verify.py.gz",
+      "sha256": "9a5abb2018ed1a6b0b09e2b29654e136d1c0985a2bd2f37f0952e395ab61fc9b",
+      "bytes": 4521
+    },
+    {
+      "path": "baseline/tools--village_map_review.gd.gz",
+      "sha256": "9b8bbae089257bd821385286873d7be4fd49c2f4672cb4c2574d16fff9b49397",
+      "bytes": 1313
+    },
+    {
+      "path": "baseline/tools--village_regions_capture.gd.gz",
+      "sha256": "77829e4dc19fc736205ec59fa6b956f20d6ce818e3cd540f1965c485ed416a60",
+      "bytes": 1820
+    },
+    {
+      "path": "baseline/tools--village_regions_capture.gd.uid.gz",
+      "sha256": "c21d3f77183dfa7cd77d616f55c10ad5db5d4b3fee12536a63d5d584ea2ee4ce",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--village_regions_review.gd.gz",
+      "sha256": "63b22521440d67b0e5af35653e2b240947aa661e08bc616817feb5f4398ed7d4",
+      "bytes": 1080
+    },
+    {
+      "path": "baseline/tools--village_regions_review.gd.uid.gz",
+      "sha256": "ffb4e69db92dd20d12ba15ae5e28f5645d05eb836aff45d6551e7733ed48e630",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_street_assets.py.gz",
+      "sha256": "4d745c52920e4e17ba332b37cdc1dca8c5e6c1ff413564b987c07f413e918d40",
+      "bytes": 2837
+    },
+    {
+      "path": "baseline/tools--village_street_capture.gd.gz",
+      "sha256": "f24f5b597bfc9ae5976a9243ad9d95476bcae33c35237eaff02a2f2ddd554552",
+      "bytes": 2598
+    },
+    {
+      "path": "baseline/tools--village_street_capture.gd.uid.gz",
+      "sha256": "52352f5812caf415162d46efb107f71dd674d9d90e0369f1e61478be2ec53855",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_street_collect.py.gz",
+      "sha256": "4c4d44f02d19cc6e35853beac561c986ca631b18d7e62ef449c845e8eff83ce9",
+      "bytes": 2043
+    },
+    {
+      "path": "baseline/tools--village_street_gallery.gd.gz",
+      "sha256": "47f17a92948ed786c0616d6bf9bd359d0aa7927025c58aca589afe0d5cdbe706",
+      "bytes": 1333
+    },
+    {
+      "path": "baseline/tools--village_street_gallery.gd.uid.gz",
+      "sha256": "6dcbe9f80a67e61b0d32d257c2e8b58be5f930bff43584ab1edd5ab7c3e4afd6",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_street_review.gd.gz",
+      "sha256": "895b49cb57139f07878e77e1f4eac7067c7f9f7c8eb5271eba982aac5bf6dbf9",
+      "bytes": 576
+    },
+    {
+      "path": "baseline/tools--village_street_review.gd.uid.gz",
+      "sha256": "fcf2e4d0b056183e53e7e237013209f8360dd9cd726ffc94fa1351166bb114d4",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_street_verify.py.gz",
+      "sha256": "f651b3a23f8e22532026eff041f6de7ca149f31a569e3f73a3f50cf60c6bb7b5",
+      "bytes": 3855
+    },
+    {
+      "path": "baseline/tools--village_trade_assets.py.gz",
+      "sha256": "a54315c177c7df321f7371c5d639b21929dc1d3c2491c99760a432aecd7f35db",
+      "bytes": 2896
+    },
+    {
+      "path": "baseline/tools--village_trade_capture.gd.gz",
+      "sha256": "a0b07d5e99185bf869e73fb3b646e003ab2472d67f6f4f33584a1ac298d82ba5",
+      "bytes": 3159
+    },
+    {
+      "path": "baseline/tools--village_trade_capture.gd.uid.gz",
+      "sha256": "d8e611d2c5b1d7c42e3248980418adde0927d57163187f292428d9e6eb4ec473",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_trade_collect.py.gz",
+      "sha256": "c4b6fef7de9ce8fa90b7de218548a15a5f1ad5760452122d574403b7940f996a",
+      "bytes": 2117
+    },
+    {
+      "path": "baseline/tools--village_trade_gallery.gd.gz",
+      "sha256": "76abee8c1f6082c9710f9a1161f5141f5a0c6975c6e1cf9e5151f36e82bb8253",
+      "bytes": 1349
+    },
+    {
+      "path": "baseline/tools--village_trade_gallery.gd.uid.gz",
+      "sha256": "2b3ca4725f3ceb207a69ab4480edf9ac72e7d4fa63de9e9f0ca46de5fcebe662",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_trade_review.gd.gz",
+      "sha256": "3bda21b5c9ad8ca567ab5bc36af19cad13db6456ca19fa2e4af81c540891c3e2",
+      "bytes": 591
+    },
+    {
+      "path": "baseline/tools--village_trade_review.gd.uid.gz",
+      "sha256": "68794b48e6ec30122d487df55e83761e2ef888ef2590ec1ca2cf6c3d42f543b9",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--village_trade_verify.py.gz",
+      "sha256": "51c2d090cc56bd03f355168f44c976a69ee48c6f2e5a07755cc6a6b733fd49b2",
+      "bytes": 3987
+    },
+    {
+      "path": "baseline/tools--water_fishing_capture.gd.gz",
+      "sha256": "9e769213683a11b91b990fdcd8cce3940eff9594ba4a96648de6fd2900d827ac",
+      "bytes": 1926
+    },
+    {
+      "path": "baseline/tools--water_fishing_capture.gd.uid.gz",
+      "sha256": "54d685a2104236c7efa34825ec5564b865555ad57727525b138a1e22c07fdca1",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--water_fishing_review.gd.gz",
+      "sha256": "64d6a30bed6b57fc3ae055c139b7e9566771c3e0673c0365948d3c430a4894e5",
+      "bytes": 510
+    },
+    {
+      "path": "baseline/tools--water_fishing_review.gd.uid.gz",
+      "sha256": "9b354a86f581a1a007f40609f93001ef25608a5abe6dd55959f555238ba00579",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--water_navigation_review.gd.gz",
+      "sha256": "79227f911b3da2e1eb17e71f87bc76ac08d0d285bf05dfb34e9af91b8ef7d707",
+      "bytes": 612
+    },
+    {
+      "path": "baseline/tools--water_navigation_review.gd.uid.gz",
+      "sha256": "1052f43693a47d17b2488c3d6fc2c9d5c160d03da963a02ceee9b0b36918060b",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--water_topology_review.gd.gz",
+      "sha256": "928914e32567c91ea2c0120ae56c14694f9a6fde3da4877c848ffaee1b949ffe",
+      "bytes": 423
+    },
+    {
+      "path": "baseline/tools--water_topology_review.gd.uid.gz",
+      "sha256": "4e4506346d39c281212f4305fe40b0c5adeb1aa9d1fdef419ed6b5ca3dfac952",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/wiki--articles--project-refactoring.md.gz",
+      "sha256": "c33636e8f613f82a50d9d491a8038f74a57401b3093edfa2748f63184c652587",
+      "bytes": 11187
+    },
+    {
+      "path": "baseline/Бабушкина ферма.app--Contents--Info.plist.gz",
+      "sha256": "6e6c55b6b9542b4bd5a9f03eba5f370c41ef8da6ff837d65e853b9d1eb780be6",
+      "bytes": 393
+    },
+    {
+      "path": "baseline.py",
+      "sha256": "b61229da36c5c14d47f27a477156ce0e670e3d6ce09854c8066e589eba00cb77",
+      "bytes": 6655
+    },
+    {
+      "path": "before/native-1152.json",
+      "sha256": "a59a69dc7d825ebcaf9e0f78c89924294f5edfe4ec3fc0965d6b71cd21abace5",
+      "bytes": 125094
+    },
+    {
+      "path": "before/native-1920.json",
+      "sha256": "a39a426940f2d3c66bca4e24b3f0cd12f28e5412f1a165467043ea8eae49b4e0",
+      "bytes": 66740
+    },
+    {
+      "path": "before/native-3584.json",
+      "sha256": "c97450dee6a7f55e32cb413e80d7d4530dd5121c082c151350f445e0b1826be9",
+      "bytes": 66480
+    },
+    {
+      "path": "before-01.txt",
+      "sha256": "a8b33fe1ea335b55d13195c79cc2097cdeeca2dc6f68525603d9d238e24c19e3",
+      "bytes": 658
+    },
+    {
+      "path": "before-02.txt",
+      "sha256": "5b31e9f962a7f212d22d6a94b9fef2e930b8ee03d0ccd47496f370802cc75b94",
+      "bytes": 759
+    },
+    {
+      "path": "before-03.txt",
+      "sha256": "b955501e4d12f72d9746e290f696b4fe6868eb0bc4fd887edde0787fe09e7132",
+      "bytes": 1485
+    },
+    {
+      "path": "before-04.txt",
+      "sha256": "41585925b5661d98a12d62bdad6406d7cffaac8ebe2bce4c9077ee08f178907c",
+      "bytes": 1625
+    },
+    {
+      "path": "before-05.txt",
+      "sha256": "0c137126cf8e40e7fec228bf6552ecd4836c66eea3a3e17a4e367664f4fe5fc7",
+      "bytes": 2890
+    },
+    {
+      "path": "before-06.txt",
+      "sha256": "a64120b8f652240ffcc8256cb155271574174300deed7898705b7091c6766c32",
+      "bytes": 2660
+    },
+    {
+      "path": "before-07.txt",
+      "sha256": "947feae97d59dfc997b88449b8b42d4646ecae9bf3da5ef8c5d7cd39b2ee1c1d",
+      "bytes": 91
+    },
+    {
+      "path": "before-08.txt",
+      "sha256": "0ac7b394f4d018f1992e597bd243dcb378d277c40510364982a54b59501d55c3",
+      "bytes": 1376
+    },
+    {
+      "path": "before-09.txt",
+      "sha256": "109a15219fac2d704b566751abf98dac95b2c7c8317e6f82cdc1358fbfb26114",
+      "bytes": 1074
+    },
+    {
+      "path": "before-10.txt",
+      "sha256": "1dc63f59899b335798519165a55796ab9e34e34e4aae2fbfa46afb61a0907808",
+      "bytes": 871
+    },
+    {
+      "path": "before-11.txt",
+      "sha256": "c02e5b029adcd5cbee90f7d2968005a2c6a8d31db3676f9e8283516487c50030",
+      "bytes": 732
+    },
+    {
+      "path": "before-12.txt",
+      "sha256": "09d934675e93e758a1eed330398bd1f7185108c21bad2f5ebfeec6379cc96d65",
+      "bytes": 2976
+    },
+    {
+      "path": "before-13.txt",
+      "sha256": "4ebe1432a86edfe4b2070d2d7be825c9d46da6382754913bdcaa4d17817e9822",
+      "bytes": 1482
+    },
+    {
+      "path": "before-14.txt",
+      "sha256": "ae3f24d30158a74119457377c678e04e7628f641efa1db4483e1307d65f7d0b4",
+      "bytes": 2286
+    },
+    {
+      "path": "before-15.txt",
+      "sha256": "9a61715da3f3ccc9f52ff17784d0b0ba9a94836a13954d7361331a87b277a69e",
+      "bytes": 152
+    },
+    {
+      "path": "before-16.txt",
+      "sha256": "72d82e9ecbc566d047d6705217fb97813441566b055da58d3e1ae37fba8cdb04",
+      "bytes": 938
+    },
+    {
+      "path": "before-17.txt",
+      "sha256": "96d7695fdf193e5fd2ba502eb91a01ea1d5eab2c809734399c9a64a3c78ab00b",
+      "bytes": 97
+    },
+    {
+      "path": "before-18.txt",
+      "sha256": "eacbd7f43c3e33f18cee3e6f3524fa01a0f4ca84b7693c894859b3eb20e80770",
+      "bytes": 104
+    },
+    {
+      "path": "before-19.txt",
+      "sha256": "8bb62b49ebf6c2de6d13905fcb8aaa2b9a3e2e9c2c2a97aa92fc7019af22eec3",
+      "bytes": 88
+    },
+    {
+      "path": "before-20.txt",
+      "sha256": "be359d6971cf3a2a9dc6ecdfceafeadf6d527ea4901a7376ceaafe2f320b3b7e",
+      "bytes": 98
+    },
+    {
+      "path": "before-21.txt",
+      "sha256": "ddf8b934ccfb115381328253284014ed015a1ebcc61adfc4d5a43b20978949cb",
+      "bytes": 105
+    },
+    {
+      "path": "before-22.txt",
+      "sha256": "46f360290fd83ca1920b46fe5d3103cd5e75076ed166c640a2377d29fe020956",
+      "bytes": 106
+    },
+    {
+      "path": "before-23.txt",
+      "sha256": "70dabaf9fda4a0533c10d1300b2700bd43f93ca836a35a784396604be15881b7",
+      "bytes": 115
+    },
+    {
+      "path": "before-24.txt",
+      "sha256": "6718491710638c916e76bbc69a8652d93e2ab9c6f3844d7e471a00c506125a14",
+      "bytes": 114
+    },
+    {
+      "path": "before-25.txt",
+      "sha256": "d7fe913a317343f58e97bd79f9e8aa8ae8a25ac422555c68e7538f4a2dd39ea2",
+      "bytes": 107
+    },
+    {
+      "path": "before-26.txt",
+      "sha256": "df8da51a5f5ec3737a45c1e05957f3d48675d753b312eb50a9d2f781c1c9b699",
+      "bytes": 110
+    },
+    {
+      "path": "before-27.txt",
+      "sha256": "2b453817571b203c87f1159fa8d2313965c660b2c1225e90ca0ca17b18c5ef2c",
+      "bytes": 110
+    },
+    {
+      "path": "before-28.txt",
+      "sha256": "3270b660f85e4a118f64d48a8e142fe34b2245eec816923e79be8d5a67b4f9b3",
+      "bytes": 110
+    },
+    {
+      "path": "before-29.txt",
+      "sha256": "37277dac82ba01e5821a0f0de1edb0dfd531b2a854b283edc07ac9977080e852",
+      "bytes": 112
+    },
+    {
+      "path": "before-30.txt",
+      "sha256": "6709fc2c438f2a27ed9b41e8f6698045f915cf33a8fdde8ae81b868588dc0fd5",
+      "bytes": 115
+    },
+    {
+      "path": "before-31.txt",
+      "sha256": "2441fdeec1c0906734428238d3d10724965646c1b62a840d99b0a5bf6383b085",
+      "bytes": 120
+    },
+    {
+      "path": "before-32.txt",
+      "sha256": "9f89330c9e4ba4ab9266af6914cd25624337bc8f890882bbdb770ad1b15f3e8f",
+      "bytes": 117
+    },
+    {
+      "path": "before-33.txt",
+      "sha256": "b41883bb9842edffb6615c35c4e640bb105290ea72a1f35bb195860345bcf5cb",
+      "bytes": 118
+    },
+    {
+      "path": "before-34.txt",
+      "sha256": "9a027da55babd5cdb461c34c012f20c94346b6e3dd4d3a6773726a72a10fcd2a",
+      "bytes": 109
+    },
+    {
+      "path": "before-35.txt",
+      "sha256": "f4a733eb6c6211dd1c9befc59f7f0e750d1c7620e52e4696b3483f06905d3588",
+      "bytes": 112
+    },
+    {
+      "path": "before-36.txt",
+      "sha256": "0d45a4b1b65bdd5acfd9afcf16d119afdfce6e4818fa4c045ef061a0dfee2f2e",
+      "bytes": 110
+    },
+    {
+      "path": "before-37.txt",
+      "sha256": "6273232de4d3ef7acd4ecafa5c86beeeb974f56586b21089a2990b3f72facbe6",
+      "bytes": 103
+    },
+    {
+      "path": "before-38.txt",
+      "sha256": "bff49aec79d937efe3af33e8e5c9a2eb90754e24a7ae48e0016b51c9bcfe940f",
+      "bytes": 120
+    },
+    {
+      "path": "before-GD.json",
+      "sha256": "8b0f92eca8f0ad301fe5bd646512f6a236f9a1e9c1f6c27aa6b3ae7ae31976df",
+      "bytes": 36170
+    },
+    {
+      "path": "before-commands.json",
+      "sha256": "36ede2dc77c4d15140105cfd805d7c21bbaa03dedf129892fdc470b5e54bc573",
+      "bytes": 18947
+    },
+    {
+      "path": "before-extra-tests.py",
+      "sha256": "5fed7c6c55dfccfd53c280d8e5a3fe5a6fb0f06a5a2447f8bea9ec825e0a441d",
+      "bytes": 2566
+    },
+    {
+      "path": "before-f10/native-1152.json",
+      "sha256": "7d255fdd67587699493fad6be5c4b2cd30eae6ae2ad65a60e603928abb7b7327",
+      "bytes": 26624
+    },
+    {
+      "path": "before-gd-01.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-02.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-03.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-04.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-05.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-06.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-07.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-08.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-09.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-10.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-11.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-12.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-13.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-14.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-15.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-16.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-17.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-18.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-19.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-20.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-21.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-22.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-23.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-24.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-25.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-26.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-27.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-28.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-29.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-30.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-31.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-32.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-33.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-34.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-35.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-36.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-37.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-38.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-39.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-40.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-41.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-42.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-43.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-44.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-45.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-gd-46.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-profile.json",
+      "sha256": "95deae1319df4a726385a933244f25eb8749394bfbe33f3a4218819e631c6d7b",
+      "bytes": 59334
+    },
+    {
+      "path": "before-water-baseline-analysis.json",
+      "sha256": "7e6e7606cdfb89ea05eae0334391ae589235ca602be5cb030c08ddc1ccd3163e",
+      "bytes": 18442
+    },
+    {
+      "path": "before-water-native-summary.md",
+      "sha256": "2034b8c94c0597cacf0b74a0d5377314bb44ac8639b4bb498233516619a12702",
+      "bytes": 3792
+    },
+    {
+      "path": "before-water-writer.json",
+      "sha256": "912060e89a035891c70100a117cb4de006438eb7af7914ed5997ed431a6633a3",
+      "bytes": 955
+    },
+    {
+      "path": "before-water-writer.txt",
+      "sha256": "4f30cdeb4240d8ced8a95e5f9396e38884b5a73054c82d8bc2e88262ca4131fd",
+      "bytes": 80
+    },
+    {
+      "path": "browser-article.json",
+      "sha256": "e970d7afe0c250fc7fb8e968e3b87e0498f5a326bdba721ccd43139ae2feb637",
+      "bytes": 422
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "d9d32957efd60ec2c7f1ee3fa3aaf42c9b277d32553aea7ed70f4f3568c777d7",
+      "bytes": 419
+    },
+    {
+      "path": "browser-cleanup.py",
+      "sha256": "b2e11993f73576c5919a82b752237f35e95922686a163044dcfa9da891e9cd9c",
+      "bytes": 1668
+    },
+    {
+      "path": "browser-desktop.png",
+      "sha256": "3766c90727bcb54bcd504d83dc54d4d8af596368f5f24c5e28cdafb55f2bb1b3",
+      "bytes": 191958
+    },
+    {
+      "path": "browser-mobile.json",
+      "sha256": "709373c9e396d1f8e933f37201ed7bcbdefc32cec574a6c3d8029cbb503879d8",
+      "bytes": 168
+    },
+    {
+      "path": "browser-mobile.png",
+      "sha256": "24627b479645d07e34bbda3e7b59965e23befc3bfa20aa82dacc2faf452cd361",
+      "bytes": 60988
+    },
+    {
+      "path": "browser-task.json",
+      "sha256": "bb2c3f41781d9791d850542a73cb5934d826eef2756b094348ca18577febfc95",
+      "bytes": 196
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "69ff521aa2a37e5eec5c81507385818b29718a8daeff3991e25a382203f12f18",
+      "bytes": 435
+    },
+    {
+      "path": "catalog.mjs",
+      "sha256": "ff82b6da789883af733a03f0d128536fac42f69b68686bf7941778795b879539",
+      "bytes": 2298
+    },
+    {
+      "path": "context-after.json",
+      "sha256": "2824423268b5794f153014a5ed2373da3a76a008b75e51049d3143026bf86f1d",
+      "bytes": 499
+    },
+    {
+      "path": "context-after.txt",
+      "sha256": "4e528e1a16cfbe1d6a34f8080bc15543851bc0192cf9f0b7b3e359876171d92f",
+      "bytes": 120
+    },
+    {
+      "path": "editor-import.json",
+      "sha256": "2401da96c36221595f214d630569ce5b37e6c83d6a69129021294f98a15c5e37",
+      "bytes": 275
+    },
+    {
+      "path": "editor-import.txt",
+      "sha256": "b1c93b4d574011b130a78894355891fe02bc9fe620eb7d187c984f866b3135f1",
+      "bytes": 4132
+    },
+    {
+      "path": "final-report-write-attempt01.json",
+      "sha256": "ad697b48c86fbf483573f60fed7432b510c9a9031d1b9b9f9ceaec4230dbd6e4",
+      "bytes": 371
+    },
+    {
+      "path": "final-report.py",
+      "sha256": "5cb4a4ba82f9a5fd02ee66b434d6060e35734deff813900b4bf7d2977e51f045",
+      "bytes": 3274
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "2741ffe4050ed46681b8ead11a462b4879a0cedf69cda2e3be60f8442944e7ae",
+      "bytes": 15744
+    },
+    {
+      "path": "gates-01/game.txt",
+      "sha256": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+      "bytes": 1356
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "5b5cc4bea7354ddeb77cafec9c10eca6a83a811ff9582bd21b7e62ca039be51b",
+      "bytes": 733
+    },
+    {
+      "path": "gates-01/headless/f10/engine.txt",
+      "sha256": "b229ae8457d7fed50fdccfb15a5c0a98ac2492ff0014570c30893a73f41bb74a",
+      "bytes": 11028
+    },
+    {
+      "path": "gates-01/headless/f10/frames.jsonl",
+      "sha256": "d494599c7a017a1c7742a278c5e0d8456bc63ea32e68c47149248e09a36c0433",
+      "bytes": 9137
+    },
+    {
+      "path": "gates-01/headless/f10/summary.json",
+      "sha256": "e84ee6cbd7ea6142ff040b2aec4054d9eb17883a46c32534313496aabf237e6b",
+      "bytes": 1743
+    },
+    {
+      "path": "gates-01/headless/normal/engine.txt",
+      "sha256": "d586f7885059d6628823e28c3fba001ce701d59e84dda70e2a6862c69403fd5b",
+      "bytes": 11002
+    },
+    {
+      "path": "gates-01/headless/normal/frames.jsonl",
+      "sha256": "02b12294552aaf019952df19dd4173dd2c4b171a63a308adab421fe889ecb884",
+      "bytes": 9108
+    },
+    {
+      "path": "gates-01/headless/normal/summary.json",
+      "sha256": "03d32f6c944a69d00a9c0bc4dc4825f06e918355cc531d9eeb5d067d1b4d5876",
+      "bytes": 1746
+    },
+    {
+      "path": "gates-01/wiki-storage.json",
+      "sha256": "373d3c9addfbe18c6408c3e4fba562306b6596b7a7881cd2da432822bcded802",
+      "bytes": 144
+    },
+    {
+      "path": "gates-01/wiki-storage.txt",
+      "sha256": "c24363d2498b3b932bb63694639729d7d22945b7ac2bb0f762acfa95ec85b9a4",
+      "bytes": 13809
+    },
+    {
+      "path": "gates-01/wiki.txt",
+      "sha256": "f3c265f4616705ec210f6f9ea89257aac2b2f638791f4ad7e6ac14bc5c14ed08",
+      "bytes": 13809
+    },
+    {
+      "path": "gd-raw-storage.json",
+      "sha256": "f36b314fbfa6b809cb767f391ec0e811542d67934e22648281eb81d7c9ec0426",
+      "bytes": 30060
+    },
+    {
+      "path": "gd-raw-storage.py",
+      "sha256": "f10680520440c8c960f6a91aa5e788a008b24eb70315d6f7e06fcef09c026dd0",
+      "bytes": 4294
+    },
+    {
+      "path": "helper-green.json",
+      "sha256": "f77d79b0c641bdb6dadceb1d122234aad6ff433a30613511cf3effc0232d1d5f",
+      "bytes": 498
+    },
+    {
+      "path": "helper-green.txt",
+      "sha256": "759edf06d2e9b51e019dcd3a58b3f414a323dc5b2f13f67ab4a7eaa0325bf9bf",
+      "bytes": 115
+    },
+    {
+      "path": "history-green-attempt02.json",
+      "sha256": "61733cf82d29da349f67ed31c1e8aa75c413f36ad21b4ecdaa6c7fe9e0873a0f",
+      "bytes": 516
+    },
+    {
+      "path": "history-green-attempt02.txt",
+      "sha256": "a0d82f917eed9efd2493ff7a0afcca3123714fc9e28ac33d1900b4de41ec7b43",
+      "bytes": 114
+    },
+    {
+      "path": "history-green.json",
+      "sha256": "b742c2630d5a32ae3bcaf7642368c31e169e5908e68329f2e20636e2ec451fd0",
+      "bytes": 506
+    },
+    {
+      "path": "history-green.txt",
+      "sha256": "d78c4c427543cab46ff9088bca986eb3c9117fc78a9b267aac2cde48809183ec",
+      "bytes": 1570
+    },
+    {
+      "path": "history-red.json",
+      "sha256": "70f9f9cfbe1027c90a3ab8560d65cb7d90b8ffe5650b1764901430b6e717da42",
+      "bytes": 925
+    },
+    {
+      "path": "history-red.txt",
+      "sha256": "26f50d0655cfcba76b72b813ffb2f8fe25d5971c81a6aacb7cc4e713560d40ca",
+      "bytes": 2301
+    },
+    {
+      "path": "migration.json",
+      "sha256": "88c20217d7fc21e8dc648b895f0b74a1df52ed6cc0112c4a24f31e077f6c056c",
+      "bytes": 53558
+    },
+    {
+      "path": "plan-preflight.json",
+      "sha256": "54ddd7e829c94bf2e5b7ae03fd6f725011ff854f9eb5f57d777232bcef338570",
+      "bytes": 520
+    },
+    {
+      "path": "plan.py",
+      "sha256": "f5fe0970cef8a73ec8569bb9dbf129e23ff6e201ffc731a546fafb6dd91bb56c",
+      "bytes": 10745
+    },
+    {
+      "path": "prepare-extra-tests.py",
+      "sha256": "2cd09daa6b5bda1e4223847470d324905bf65c668fb225f4b779377419c1bee5",
+      "bytes": 5078
+    },
+    {
+      "path": "producers-after.json",
+      "sha256": "82da99f5c12f49eaf46d130391db8f6d8df33156d8bef8dc3ff2531045f76d80",
+      "bytes": 503
+    },
+    {
+      "path": "producers-after.txt",
+      "sha256": "3c86f6dc0fe41b121c0a7444f4812b752b4baeb5591b81c9f57fc8b7fe11b076",
+      "bytes": 474
+    },
+    {
+      "path": "producers-before.json",
+      "sha256": "6064620f0c29a61217f7ceb191cf0b58a520cc12447660038fbdfe3b5afd8b33",
+      "bytes": 927
+    },
+    {
+      "path": "producers-before.txt",
+      "sha256": "0ee761eeefc243e00c5cd71ad7d30ca531b2aa9de60274f76c12e942991fee59",
+      "bytes": 474
+    },
+    {
+      "path": "profile.py",
+      "sha256": "9e24fec37e67716f87a0830a5ea70663dc4eda4350fb28e7c54aefae6b154ff4",
+      "bytes": 9018
+    },
+    {
+      "path": "regression.json",
+      "sha256": "3121bf6c6dc73cf182d1b7f0b7f98d24975aa630f5c772400503d09d0b0d8570",
+      "bytes": 2715
+    },
+    {
+      "path": "regression.py",
+      "sha256": "6c619f8b3ce195d377d898372ff13243d320ec292b97c40dee2c500c9191a80f",
+      "bytes": 5079
+    },
+    {
+      "path": "report.py",
+      "sha256": "4d8cbdfca4bda77488b2c2c8efb82aa6ecb63c718b8e22a12cf7bd315c709755",
+      "bytes": 9611
+    },
+    {
+      "path": "scope.json",
+      "sha256": "183f5c05a816e151f089435cda05438700354982781e1e3d98792a985dc0c71d",
+      "bytes": 13606
+    },
+    {
+      "path": "seal.py",
+      "sha256": "d814418da350682275922be3f24d4bf88135d1988da3d3f961744d9f51a240d6",
+      "bytes": 8423
+    },
+    {
+      "path": "source-freeze.json",
+      "sha256": "92c370772ce1d5d86bf510fad6c7d86d732868fbdbc71b496af25a4cbc9d64bf",
+      "bytes": 19111
+    },
+    {
+      "path": "stage-whitespace-attempt01.txt",
+      "sha256": "e2a05def6d96811436f4730cd8394b74d8e7dde9355fa35903beb442229e83fd",
+      "bytes": 7682
+    },
+    {
+      "path": "water-fixture-address-repair.json",
+      "sha256": "04fa930818446790a36eedb1539e152158222dcf0023aface27ddb6fd5c56ced",
+      "bytes": 641
+    },
+    {
+      "path": "water-fixture-address-repair.py",
+      "sha256": "efe1217a47ffa251a42304be2c390acf5888302e5c6f7229e4515f047e094989",
+      "bytes": 2886
+    }
+  ]
+}

@@ -9,46 +9,48 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import object_command_collect as objects
-import object_command_verify as object_verify
-import pilot_pass_collect as pilot_pass
-import pilot_pass_verify
-import pilot_static_collect as static
-import pilot_static_verify
-import post_motion_collect as motion
-import post_motion_verify
-import render_order
-import shadow_inventory_collect as shadow
-import shadow_inventory_verify
-import transient_save_collect as transient
-import transient_save_verify
-import village_bench_collect as bench
-import village_bench_verify
-import village_board_collect as board
-import village_board_verify
-import village_fence_collect as fence
-import village_fence_verify
-import village_lamp_collect as lamp
-import village_lamp_verify
-import village_street_collect as street
-import village_street_verify
-import village_trade_collect as trade
-import village_trade_verify
+from tools.qa.world import object_command_collect as objects
+from tools.qa.world import object_command_verify as object_verify
+from tools.qa.world import pilot_pass_collect as pilot_pass
+from tools.qa.world import pilot_pass_verify
+from tools.qa.world import pilot_static_collect as static
+from tools.qa.world import pilot_static_verify
+from tools.qa.world import post_motion_collect as motion
+from tools.qa.world import post_motion_verify
+from tools.qa.world import render_order
+from tools.qa.world import shadow_inventory_collect as shadow
+from tools.qa.world import shadow_inventory_verify
+from tools.qa.world import transient_save_collect as transient
+from tools.qa.world import transient_save_verify
+from tools.qa.world import village_bench_collect as bench
+from tools.qa.world import village_bench_verify
+from tools.qa.world import village_board_collect as board
+from tools.qa.world import village_board_verify
+from tools.qa.world import village_fence_collect as fence
+from tools.qa.world import village_fence_verify
+from tools.qa.world import village_lamp_collect as lamp
+from tools.qa.world import village_lamp_verify
+from tools.qa.world import village_street_collect as street
+from tools.qa.world import village_street_verify
+from tools.qa.world import village_trade_collect as trade
+from tools.qa.world import village_trade_verify
+import plant_depth_collect as plant_depth
+import plant_depth_verify
 from tools.assets.contracts.source_paths import current_source
 from tools.qa.art.current_paths import MOVED_PATHS as ART_PATHS
 from tools.qa.performance import perf_contract_collect as perf
 from tools.qa.world import test_world_context as context_fixtures
 from tools.common.git import git_environment
 
-PRODUCERS=[objects,pilot_pass,static,motion,shadow,transient,bench,board,fence,lamp,street,trade,render_order]
+PRODUCERS=[objects,pilot_pass,static,motion,shadow,transient,bench,board,fence,lamp,street,trade,render_order,plant_depth]
 CAPTURES=dict(zip(PRODUCERS,['object_command_capture.gd','pilot_pass_capture.gd','pilot_static_capture.gd',
     'post_motion_capture.gd','shadow_inventory_capture.gd','transient_save_capture.gd',
     'village_bench_capture.gd','village_board_capture.gd','village_fence_capture.gd',
-    'village_lamp_capture.gd','village_street_capture.gd','village_trade_capture.gd','render_order_capture.gd']))
+    'village_lamp_capture.gd','village_street_capture.gd','village_trade_capture.gd','render_order_capture.gd','plant_depth_capture.gd']))
 VERIFIERS={objects:object_verify,pilot_pass:pilot_pass_verify,static:pilot_static_verify,
     motion:post_motion_verify,shadow:shadow_inventory_verify,transient:transient_save_verify,
     bench:village_bench_verify,board:village_board_verify,fence:village_fence_verify,
-    lamp:village_lamp_verify,street:village_street_verify,trade:village_trade_verify,render_order:render_order}
+    lamp:village_lamp_verify,street:village_street_verify,trade:village_trade_verify,render_order:render_order,plant_depth:plant_depth_verify}
 
 
 class WorldProducerInputsTests(unittest.TestCase):
@@ -113,6 +115,7 @@ class WorldProducerInputsTests(unittest.TestCase):
             elif module is static:verifier.provenance()
             elif module is motion:verifier.validate_source(output,'after')
             elif module is transient:verifier.provenance(output,'after',{'base_commit':base})
+            elif module is plant_depth:verifier.validate_source(output,'after',{'base_commit':base})
             elif module is shadow:verifier.verify(report)
             else:verifier.verify(output)
 
@@ -225,6 +228,11 @@ class WorldProducerInputsTests(unittest.TestCase):
     def test_render_order_real_inputs_and_failed_fake_child(self):
         """Actual inventory/capture writes real instrumentation and keeps complete false."""
         self.producer(render_order)
+
+
+    def test_plant_depth_real_inputs_and_failed_fake_child(self):
+        """The external vegetation-depth collector preserves inherited World inputs and real child argv."""
+        self.producer(plant_depth)
 
 
 if __name__=='__main__':unittest.main()

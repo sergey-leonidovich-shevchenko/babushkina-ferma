@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+    "--headless",
+    "--editor",
+    "--path",
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+    "--quit"
+  ],
+  "exit": 0,
+  "native_frames": 0
+}

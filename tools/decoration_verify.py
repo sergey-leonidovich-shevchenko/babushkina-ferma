@@ -15,7 +15,7 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw
 from decoration_collect import ROOT, SOURCES, OVERLAY
 from tools.qa.performance.perf_contract_collect import sha, write
-from render_order import require, validate_draws
+from tools.qa.world.render_order import require, validate_draws
 
 REPORT = ROOT/'docs/reports/visual-overhaul/vground-008'
 CASES = ['cottage','services','farm','bridge-west','bridge-east','road-turn','road-end',

@@ -15,7 +15,7 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw
 from terrain_revision_collect import ROOT, SOURCES, OVERLAY
 from tools.qa.performance.perf_contract_collect import sha, write
-from render_order import require, validate_draws
+from tools.qa.world.render_order import require, validate_draws
 from ground_layers import cold_draws
 
 REPORT=ROOT/'docs/reports/visual-overhaul/vground-009'

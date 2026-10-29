@@ -1,0 +1,14 @@
+{
+  "label": "context-after",
+  "command": [
+    "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+    "qa.world.test_world_context"
+  ],
+  "exit": 0,
+  "methods": 19,
+  "test_SHA256": "70c398c6579582e34106897d1d4f354ed6b47469a62f73d528c0d4c805134a6a",
+  "raw_sha256": "4e528e1a16cfbe1d6a34f8080bc15543851bc0192cf9f0b7b3e359876171d92f",
+  "native_frames": 0,
+  "Game_new": false
+}

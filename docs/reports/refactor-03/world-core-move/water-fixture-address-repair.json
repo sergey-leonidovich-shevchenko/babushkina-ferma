@@ -1,0 +1,11 @@
+{
+  "product_algorithms_changed": false,
+  "test_methods_assertions_removed": 0,
+  "current_fixture_input_sites": 1,
+  "before_SHA256": "4f553e33b5a2d0eac0e3e0ec015641aa66b93a337c71683353e3e572d22add9d",
+  "after_SHA256": "7bbb6dca965fa32d62dd48ac8f8f83dc02a5a2c305b4c2e5d88d761e2ca4bc73",
+  "failed_raw_retained": "history-green.txt",
+  "reason": "water nested-source fixture still copied the moved analyzer from legacy root",
+  "before_runtime_source": "79e8ff46fe51d773371b16ac1c296c5824da3ed15e93b16189fd50c8d30c79e6",
+  "before_after_comparison": "identical non-import AST after normalizing exactly the fixture current-input address"
+}

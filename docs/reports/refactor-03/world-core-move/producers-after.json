@@ -1,0 +1,14 @@
+{
+  "label": "producers-after",
+  "command": [
+    "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+    "qa.world.test_world_producers"
+  ],
+  "exit": 0,
+  "methods": 14,
+  "test_SHA256": "aba7104858673b20271333fb7d5b7ff315c628d6ea41704c8725fc250b688226",
+  "raw_sha256": "3c86f6dc0fe41b121c0a7444f4812b752b4baeb5591b81c9f57fc8b7fe11b076",
+  "native_frames": 0,
+  "Game_new": false
+}

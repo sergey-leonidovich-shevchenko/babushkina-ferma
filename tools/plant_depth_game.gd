@@ -1,4 +1,4 @@
-extends "res://tools/post_motion_game.gd"
+extends "res://tools/qa/world/post_motion_game.gd"
 var depth_records:=[]
 
 ## Записывает только наблюдаемые реальные dispatch растения вокруг production draw.

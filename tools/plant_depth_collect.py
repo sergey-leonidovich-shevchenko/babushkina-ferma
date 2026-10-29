@@ -7,8 +7,9 @@ if not __package__:
 
 import os,tempfile,argparse,gzip,hashlib,json,shutil,signal,subprocess,uuid
 from pathlib import Path
+from tools.qa.world.source_inputs import input_path
 from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
-from post_motion_collect import ORIGINAL as PREVIOUS, EXTRA as PREVIOUS_EXTRA
+from tools.qa.world.post_motion_collect import ORIGINAL as PREVIOUS, EXTRA as PREVIOUS_EXTRA
 ORIGINAL=sorted(set(PREVIOUS+PREVIOUS_EXTRA+['scripts/presentation/farm_renderer.gd','scripts/systems/tree_occlusion_system.gd','scripts/game_renderer.gd','scripts/systems/render_system.gd','scripts/systems/forage_system.gd','scripts/presentation/alchemy_renderer.gd']))
 EXTRA=['scripts/presentation/forage_depth_renderer.gd','tools/plant_depth_game.gd','tools/plant_depth_capture.gd','tools/plant_depth_collect.py']
 
@@ -19,10 +20,10 @@ def collect(folder,phase):
     source={'task':'VRENDER-006','phase':phase,'base_commit':command(['git','rev-parse','HEAD']),'complete':False,'performance_eligible':False,'initial_jobs':initial,'sources':{},'artifacts':{}}
     for name in sources:
         if phase=='before' and name=='scripts/presentation/forage_depth_renderer.gd':continue
-        if not (ROOT/name).is_file():
+        if not input_path(ROOT,name).is_file():
             if phase=='before' and name=='scripts/presentation/forage_depth_renderer.gd':continue
             raise ValueError('missing input '+name)
-        target=folder/'inputs'/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,target);source['sources'][name]=sha(target)
+        target=folder/'inputs'/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(input_path(ROOT,name),target);source['sources'][name]=sha(target)
     write(folder/'source.json',source)
     for width in [1152,1280]:
         if set(jobs())-set(initial):raise ValueError('unexpected Godot appeared')
@@ -53,7 +54,7 @@ def collect(folder,phase):
                 subprocess.run(['swift',str(ROOT/'tools/encode_coordinate_video.swift'),str(target/'frames'/mode),str(target/(mode+'.mp4')),'10','4000000'],env=environment,stdout=out,stderr=subprocess.STDOUT,check=True,timeout=240)
         source['artifacts']={str(p.relative_to(folder)):sha(p) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'inputs' not in p.parts};write(folder/'source.json',source)
         if code or not (target/'capture.json.gz').is_file() or json.loads(gzip.decompress((target/'capture.json.gz').read_bytes()))['errors'] or any(t in (target/'engine.txt').read_text() for t in ['ERROR:','SCRIPT ERROR','Parse Error']):raise ValueError('native capture failed; partial data rejected')
-        if any(sha(ROOT/n)!=h for n,h in source['sources'].items()):raise ValueError('frozen input changed')
+        if any(sha(input_path(ROOT,n))!=h for n,h in source['sources'].items()):raise ValueError('frozen input changed')
     source['complete']=True;write(folder/'source.json',source)
 
 if __name__=='__main__':

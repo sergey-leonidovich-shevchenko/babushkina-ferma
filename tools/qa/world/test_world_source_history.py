@@ -11,18 +11,19 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import object_command_verify as objects
-import pilot_pass_verify as pilot_pass
-import pilot_static_verify as static
-import post_motion_verify as motion
-import render_order
-import village_bench_verify as bench
-import village_board_verify as board
-import village_fence_verify as fence
-import village_lamp_verify as lamp
-import village_street_verify as street
-import village_trade_verify as trade
-from tools.assets.contracts.source_paths import MOVED_PATHS
+from tools.qa.world import object_command_verify as objects
+from tools.qa.world import pilot_pass_verify as pilot_pass
+from tools.qa.world import pilot_static_verify as static
+from tools.qa.world import post_motion_verify as motion
+from tools.qa.world import render_order
+from tools.qa.world import village_bench_verify as bench
+from tools.qa.world import village_board_verify as board
+from tools.qa.world import village_fence_verify as fence
+from tools.qa.world import village_lamp_verify as lamp
+from tools.qa.world import village_street_verify as street
+from tools.qa.world import village_trade_verify as trade
+import plant_depth_verify as plant_depth
+from tools.assets.contracts.source_paths import MOVED_PATHS, current_source
 from tools.qa.art.current_paths import MOVED_PATHS as ART_PATHS
 from tools.qa.world import test_world_context as context_fixtures
 from tools.common.git import git_environment
@@ -68,7 +69,7 @@ class WorldSourceHistoryTests(unittest.TestCase):
         source['artifacts']={}
         source['fixture_scope']={'complete_inputs':True,'native_frames':0,'native_capture':False,'performance_eligible':False}
         if'base_sources'in source:source['base_sources']=dict(source['sources'])
-        if module is motion:
+        if module in [motion,plant_depth]:
             for width in[1152,1280]:
                 target=folder/str(width);target.mkdir()
                 (target/'environment.json').write_text(json.dumps({'exit_code':0,'fixture_scope':'input-only; no native process'})+'\n')
@@ -95,6 +96,10 @@ class WorldSourceHistoryTests(unittest.TestCase):
                 elif module is pilot_pass:result=module.provenance('before')
                 elif module is static:result=module.provenance()
                 elif module is motion:result=module.validate_source(folder,'before')
+                elif module is plant_depth:
+                    changes=json.loads((render_order.ROOT/'docs/reports/visual-overhaul/vrender-006/changes.json').read_text())
+                    changes['base_commit']=source['base_commit']
+                    result=module.validate_source(folder,'before',changes)
                 else:
                     with self.assertRaises(FileNotFoundError)as missing:module.verify(folder)
                     self.assertEqual(Path(missing.exception.filename).name,'capture.json')
@@ -105,7 +110,7 @@ class WorldSourceHistoryTests(unittest.TestCase):
                 if'performance_eligible'in result:self.assertIs(result['performance_eligible'],False)
                 if module is not render_order:
                     with redirect_stdout(io.StringIO()),self.assertRaises((FileNotFoundError,ValueError)):
-                        if module is motion:module.verify(report)
+                        if module in [motion,plant_depth]:module.verify(report)
                         else:module.verify()
             for name,raw in before.items():self.assertEqual((own/'.git'/name).read_bytes(),raw)
 
@@ -158,7 +163,7 @@ class WorldSourceHistoryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix='water nested source ')as directory:
             root=Path(directory).resolve();(root/'project.godot').write_text('; marker\n');(root/'VERSION').write_text('qa\n')
             target=root/'tools/qa/world/analyze_water_audit.py';target.parent.mkdir(parents=True)
-            target.write_bytes((render_order.ROOT/'tools/analyze_water_audit.py').read_bytes())
+            target.write_bytes(current_source(render_order.ROOT,'tools/analyze_water_audit.py').read_bytes())
             child=('import importlib.util,json,sys;sys.path[:0]=[sys.argv[1],sys.argv[1]+"/tools"];'
                    's=importlib.util.spec_from_file_location("water_source_probe",sys.argv[2]);'
                    'm=importlib.util.module_from_spec(s);s.loader.exec_module(m);print(json.dumps(str(m.FOLDER)))')
@@ -166,6 +171,13 @@ class WorldSourceHistoryTests(unittest.TestCase):
                 env=dict(git_environment(),PYTHONDONTWRITEBYTECODE='1'),capture_output=True,text=True,timeout=30)
             self.assertEqual(result.returncode,0,result.stderr)
             self.assertEqual(Path(json.loads(result.stdout)),root/'docs/reports/water-2026-10')
+
+
+    def test_plant_depth_reads_new_git_alias_with_old_archive_keys(self):
+        """The real external reader binds inherited canonical World blobs to unchanged archive keys."""
+        plant_depth.git_blob.cache_clear()
+        try:self.check_reader(plant_depth)
+        finally:plant_depth.git_blob.cache_clear()
 
 
 if __name__=='__main__':unittest.main()

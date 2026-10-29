@@ -1,0 +1,43 @@
+{
+  "task": "VRENDER-006",
+  "base_commit": "630a6030792736125072180956b26549e1740f8f",
+  "plant_depth_enabled": true,
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "windows": {
+    "1152": {
+      "before_png": 48,
+      "after_png": 96,
+      "draw_callbacks": 288,
+      "exact_legacy_pairs": 48,
+      "full_state_triples": 48,
+      "changed_enabled_frames": [
+        6,
+        10,
+        14,
+        15
+      ],
+      "equal_root_pixels_stable": true,
+      "single_dispatch": true,
+      "queue_cleared": true,
+      "videos": 3
+    },
+    "1280": {
+      "before_png": 48,
+      "after_png": 96,
+      "draw_callbacks": 288,
+      "exact_legacy_pairs": 48,
+      "full_state_triples": 48,
+      "changed_enabled_frames": [
+        6,
+        10,
+        14,
+        15
+      ],
+      "equal_root_pixels_stable": true,
+      "single_dispatch": true,
+      "queue_cleared": true,
+      "videos": 3
+    }
+  }
+}

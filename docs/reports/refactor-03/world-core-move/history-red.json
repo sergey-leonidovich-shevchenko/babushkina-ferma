@@ -1,0 +1,20 @@
+{
+  "base": "7a2d7a5917bede86b3ffa850b1d5c83e9e8cc0bd",
+  "label": "history13",
+  "exit": 1,
+  "methods": 13,
+  "before_test_SHA256": "79e8ff46fe51d773371b16ac1c296c5824da3ed15e93b16189fd50c8d30c79e6",
+  "after_test_SHA256": "4f553e33b5a2d0eac0e3e0ec015641aa66b93a337c71683353e3e572d22add9d",
+  "non_import_AST_equal": true,
+  "actual_cli": [
+    "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+    "-c",
+    "import runpy,sys;sys.path[:0]=sys.argv[1:3];sys.argv=sys.argv[3:];runpy.run_path(sys.argv[0],run_name=\"__main__\")",
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools",
+    "/private/tmp/refactor03-test-world-history13-before377.py"
+  ],
+  "raw_sha256": "26f50d0655cfcba76b72b813ffb2f8fe25d5971c81a6aacb7cc4e713560d40ca",
+  "product_mutated": false,
+  "native_frames": 0
+}
