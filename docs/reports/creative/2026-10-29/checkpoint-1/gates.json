@@ -1,0 +1,121 @@
+{
+  "candidate": {
+    "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "parent": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "output": "docs/reports/creative/2026-10-29/checkpoint-1",
+    "profile": "wiki/scripts/editorial-review29-audit.mjs",
+    "wikiLog": ".godot/creative-runtime/review29-wiki-1.log",
+    "label": "review29-content-final",
+    "sourceSHA256": {
+      "TESTING.md": "6c2f0542d14a8bd4dd80da96bee9889249b363fe118bd0b84c2de212b0bd35e7",
+      "VERSION": "3bad20e7a44d0ac54360c37d18ae03259d59473029732cb311ad0afa76d0101b",
+      "docs/backlog/README.md": "fed845006dab5537088bd7acfc97b99665b5bde7c91680cc3ee75df58ce404da",
+      "docs/backlog/wiki-workspace-2026-10/README.md": "bf6d9d8dc1aa26de0aad97ea53d0bc8905db9ce608803c3db4e9c54ef0cee310",
+      "docs/epics/ideas/README.md": "3545504d1ca7429bd8ebdca78052704caed8e7c10459f061724e7f9d19dc80e2",
+      "docs/epics/ideas/idea-292/README.md": "413e42d465bc32c9386cf2df771336b44a36751cd53e75b4db219cdb95fce6d7",
+      "docs/epics/ideas/idea-292/TASKS.md": "d9f5983429d516ce2e108e459da654107a2d4ca43c642bfa33cce35255a9f824",
+      "docs/epics/ideas/idea-293/README.md": "98cb03a2efb3ec30a05c4b8b8eb7537cf27ceaf507064def9046913f7a1ab8ef",
+      "docs/epics/ideas/idea-293/TASKS.md": "c0d07776f3d3bc07548b124ecfc19ff3e05846eb86c8d8ecc4bdcd3ca3fc6578",
+      "docs/epics/ideas/idea-294/README.md": "48e20b9690e9a327642a8b969f76e4c40172f6c5a61f59675b0ea8d7e9c2184d",
+      "docs/epics/ideas/idea-294/TASKS.md": "ac7ba3cc167add82666654bb1e50c4aea426f39b84701f065174f0caddd89e86",
+      "docs/epics/ideas/idea-295/README.md": "d56bf6d78a78ad0f7a85dce56f63140b24b41526488559635582bd95984b5ed1",
+      "docs/epics/ideas/idea-295/TASKS.md": "c3af5ce358944d879f286d584fd817589d7fbd305e0e8602865d676fd285795c",
+      "docs/epics/ideas/idea-296/README.md": "20a4eac9c257eda965fb0b942247c39728b5994594d5eb9c257e38663dacc45c",
+      "docs/epics/ideas/idea-296/TASKS.md": "b747111a06583281a0602674b062f143b7bc9bf7392671ec191abd0d5420a2c3",
+      "docs/epics/ideas/idea-297/README.md": "f584cdf0a4bf9ca7769fc9bb888c944435c7f08a30eb02d0efa5e3fd0274dcaf",
+      "docs/epics/ideas/idea-297/TASKS.md": "24f4e40e218fc7e49e51ce41d35ac2bba6d57e748e700b605d99954bd29121c9",
+      "docs/epics/ideas/idea-298/README.md": "3a69782717b339febb33231f30530c66e7412d124cf4f747e15fa2de675f143d",
+      "docs/epics/ideas/idea-298/TASKS.md": "45d844a4b1afa33d64fa6040c15b071bdf042283bebae34e74638b9a1fe65fae",
+      "docs/epics/ideas/idea-299/README.md": "429703514e2af36329337b76a87f2755afbb5f25aa1b2dabd17e073de06466e5",
+      "docs/epics/ideas/idea-299/TASKS.md": "f9c00f9cf1dc1dfb7e5cecb8b9a738119a98ba3046fefa995c3b5c6ca111ea70",
+      "docs/epics/ideas/idea-300/README.md": "1b4a54ce4683c61416c51d7d85ed12ba67af88f57e093c5e927574c1d355dd22",
+      "docs/epics/ideas/idea-300/TASKS.md": "ab8102d2ecd8f161e5c931ca44b293f48481ce2cee980e63ef96048dd60559de",
+      "docs/epics/ideas/idea-301/README.md": "51f08c5690998ee71d1dbe2f743b40e45cbfefc59ad06c533e123fb47b978f7c",
+      "docs/epics/ideas/idea-301/TASKS.md": "4a2f1bf3970410d32b786459c4c07abd7e961387e645db3c261d22175c1bbb4a",
+      "docs/reports/creative/2026-10-29/README.md": "4d75f94b827265f87ac1eaf04975967f788782f50bb0ed4e862f9674f5fbcf54",
+      "docs/reports/creative/2026-10-29/browser/IDEA-292.ax.txt.gz": "8d1e93939b668c3e4cf5ee8a8aa316bd075b6140ceba8c83a0d0be6b7d543d45",
+      "docs/reports/creative/2026-10-29/browser/IDEA-293.ax.txt.gz": "03a07f09980314c8c6f6c52461e38214014f1f8196547f17de9f4079c195633b",
+      "docs/reports/creative/2026-10-29/browser/IDEA-294.ax.txt.gz": "7fa392624212a2381f57c7a7fef775e06474b6f1a83482a3f80475a4e3322abf",
+      "docs/reports/creative/2026-10-29/browser/IDEA-295.ax.txt.gz": "c246912d0b712721a3a5ec251d51c3559ca16a8e7305494c6a1109c2d73a12e3",
+      "docs/reports/creative/2026-10-29/browser/IDEA-296.ax.txt.gz": "61531c6f88faa83d51762157dda12a8bdc70f8c0893c85390bbc2d35a7a63687",
+      "docs/reports/creative/2026-10-29/browser/IDEA-297.ax.txt.gz": "74960d43a858bdf7242805471b4831d86c92880438e3e55926e601ac3f7f89bb",
+      "docs/reports/creative/2026-10-29/browser/IDEA-298.ax.txt.gz": "43ddb8cb5ea22061177e1a04781c4b7f55cde2b194fe8573e23181fe4723730f",
+      "docs/reports/creative/2026-10-29/browser/IDEA-299.ax.txt.gz": "456ddeaace385a7c69df802fd291fa9b955f7b9919b17e0ce00389b3f39719b0",
+      "docs/reports/creative/2026-10-29/browser/IDEA-300.ax.txt.gz": "22170e73e8c0f72f8ee9d662c17ab771d8533d095dd325591326f816f93c43b3",
+      "docs/reports/creative/2026-10-29/browser/IDEA-301.ax.txt.gz": "9aaa423c1c32fdf83b7a1e5d75902887f14bc5effea7d97dc8ab74205738c38c",
+      "docs/reports/creative/2026-10-29/browser/article-301-mobile.ax.txt.gz": "b8dd09661cb80a21593968b055e85087d9944a0a736020fcdc5358bd0998eca8",
+      "docs/reports/creative/2026-10-29/browser/article-301-mobile.jpg": "a3b5967f60992881fcd246754416f3cccf5b13f37dc971186ebbb39ae26556f0",
+      "docs/reports/creative/2026-10-29/browser/ax-raw-sha256.json": "7e81e79ac855781a41addb19e748d673a1340feac125a0b8a424eee0b709c0bd",
+      "docs/reports/creative/2026-10-29/browser/browser.json": "f893ae7919fa1d1385dbb58a4dc4191405efca80301026262f75e7edeab5b6e8",
+      "docs/reports/creative/2026-10-29/browser/epic-299.ax.txt.gz": "ba7ac119e769c69b82ba2ec690cef009ff808540f84e7f99b8fe4c57e364be4d",
+      "docs/reports/creative/2026-10-29/browser/idea-301-card.ax.txt.gz": "a2d0e3c9179ee61d243a1330644a4332dc2e2e49b7024a8e98345778607eac22",
+      "docs/reports/creative/2026-10-29/browser/idea-301-mobile.ax.txt.gz": "c35dc9ce786b818bd229536a6a1852fc554808b24928a522485f8a2cbb4b179d",
+      "docs/reports/creative/2026-10-29/browser/idea-301-mobile.jpg": "10977077a3668625c4cdcf437bafdbe28c569980a4bba0cabeda2404d383864e",
+      "docs/reports/creative/2026-10-29/browser/overview.ax.txt.gz": "a71f3da8f8b512f65470ae04d52a0004e0fdd725d1758b392cbf042021482391",
+      "docs/reports/creative/2026-10-29/browser/overview.jpg": "9d084ea625f709c35b22c327c79a26f25ae6d408e1fbc8e51586bc60d245d679",
+      "docs/reports/creative/2026-10-29/browser/search.ax.txt.gz": "8eea29e973ea16811d99ab68012526f9901925b3dab497b6177e63a091ccdd52",
+      "docs/reports/creative/2026-10-29/browser/task-299-02.ax.txt.gz": "c558615907cf1d06ac5a2c6503627a26b027749f9ab60a07f5a5698a5713ebe9",
+      "docs/reports/creative/2026-10-29/browser/task-299-02.jpg": "884733d9c65bb762e916b4bfabcfbcb576aa3b1addea4ece721f33fec5198cb0",
+      "docs/reports/creative/2026-10-29/plan.json": "7a78730946c0b925b94e1e1937a843b391d3f5188522e770bd3f4671eee0b602",
+      "docs/reports/creative/2026-10-29/previous-plan.json": "2b3fe3acae81a88eb98417102a52a7945b49f547c1e92e6bb8fd320280164e0b",
+      "docs/reports/creative/2026-10-29/proposals.json": "863b4e2c7a1d6d39312c503acbb699a88e2ba65bc80194e9a1b604096c5f510c",
+      "docs/reports/creative/2026-10-29/published-refs.json": "0e86b383e97f2e7e2197b4fed5f74b81b5775c98c370fa85edcd5ff6b9c9d46e",
+      "project.godot": "80b2d2134a450efa14ad537e1c04da465680c6de1aefe1bcc97ef18c7c0d090b",
+      "wiki/articles/IDEA-292.md": "bf048bc0a76eee0b378112ea04f0e88050fce25fb17576bd0233214672811249",
+      "wiki/articles/IDEA-293.md": "31731dcdaad8bfc605f8e55d134479c1aa53c454768e0a3adfbdd77afc24a064",
+      "wiki/articles/IDEA-294.md": "557a65f8b11dc95e17e912443ffa36e53a23fa58ae09c4b4bb5d515c569d3e12",
+      "wiki/articles/IDEA-295.md": "f127eec3f9ab626870f210efad21913ef2d79c38c6793ee8bd8b03946316b38b",
+      "wiki/articles/IDEA-296.md": "936744ca49a869b823858c68cf2092d9e85ab3fa18ce290e2826e4b7da9d47f5",
+      "wiki/articles/IDEA-297.md": "c680fd5aa76cda053cbdf5fbc4ea1d4050201d4b649c9e16386691b75f403b23",
+      "wiki/articles/IDEA-298.md": "751604a124e1f06de5b4979e9992033073132ec3e8852af9a0c03d7f0a25107d",
+      "wiki/articles/IDEA-299.md": "9fc932bd6b656ec2e88fb3340fc74a0f2bd9d6f4463659539f290f3745e6e5ae",
+      "wiki/articles/IDEA-300.md": "de8557bba2cdc86308bc36feb7cd0800bd48e625984a09fdc54e777d30661af7",
+      "wiki/articles/IDEA-301.md": "9000b3c19b8aa7ed1fc0af5cb734d1a7dfecfab6face5b040242471deeaff097",
+      "wiki/articles/creative-review-2026-10-29.md": "4efcda8cf2e802397ffd8c7a6e657aeeff603785660cf04221ce6e83b35a0047",
+      "wiki/articles/idea-feature-epics.md": "bc1f9ae43577d42e18b5a186e40b9942ca30b1357235898cfef2515f7ce794e9",
+      "wiki/articles/index.json": "3fa7e7a5022bad27afcea96c25b843fe9d0e55d2b49ab76499bab2d10724e888",
+      "wiki/articles/new-horizons-contracts.md": "2a3a06f64f33c24f7dcb0ac7a86e2ebd8f78af56a9e7dc64ca19a96976f11f22",
+      "wiki/articles/new-horizons-register.md": "2b95b08a5d02d749fcce1f1c31335b199fc198e16bc0653c985c885686b65ef6",
+      "wiki/planning/assessments.json": "211e377490f8418486ec53992ce5df8f0a90b27c361aca4c7883704c0089acce",
+      "wiki/planning/sources.json": "1d4f9cbfc43ab852860eb22b2998487f0cd0a801cb3b8f6e4956de029a470fca",
+      "wiki/planning/state.json": "15745e289ad3d14a0912639fa220a0ff5245f484de8dae3de62667e5068fc302",
+      "wiki/scripts/editorial-review29-audit.mjs": "de324d26e9f17ba8a0ece860619fedcdebd594182c3a3c3e64df86cdc9ee7beb",
+      "Бабушкина ферма.app/Contents/Info.plist": "692a4bcc58de7dd673ac59d847015c61cba6dc623dfec573deff779192cfcac3"
+    }
+  },
+  "metadata": "0.0.357",
+  "completedAt": "2026-10-29T10:32:49.924517+00:00",
+  "command": ".githooks/pre-commit unchanged via capture-only external wrapper",
+  "exitCode": 0,
+  "architecture": {
+    "pythonSuites": 83,
+    "cases": 1148
+  },
+  "game": [
+    [
+      "53502",
+      "0"
+    ]
+  ],
+  "redraw": [
+    [
+      "90",
+      "0"
+    ],
+    [
+      "90",
+      "0"
+    ]
+  ],
+  "wiki": {
+    "passed": 145,
+    "failed": 0
+  },
+  "rawSHA256": {
+    "full-hook": "fcb651df0210dd12158d594cb989db7907779d4bbd22869a94a998f06912d489",
+    "wiki": "1cf182585d3198ec0e0321ca7006474dc35e1d585ae055a450de82835543be59"
+  },
+  "gameplayImplemented": false,
+  "futureGameplayScenariosRun": 0,
+  "audienceTested": false
+}
