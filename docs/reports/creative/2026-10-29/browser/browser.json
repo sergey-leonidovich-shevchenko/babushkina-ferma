@@ -1,0 +1,126 @@
+{
+  "baseUrl": "http://127.0.0.1:4205",
+  "apiPort": 4206,
+  "buildVersion": "0.0.357",
+  "checkedAt": "2026-10-29T10:05:05.120Z",
+  "counts": {
+    "ideas": 251,
+    "epics": 178,
+    "tasks": 2091,
+    "articles": 1200
+  },
+  "articles": [
+    {
+      "id": 292,
+      "heading": true,
+      "proposal": true,
+      "epic": true,
+      "dialogue": true,
+      "acceptance": true,
+      "ratings": true
+    },
+    {
+      "id": 293,
+      "heading": true,
+      "proposal": true,
+      "epic": true,
+      "dialogue": true,
+      "acceptance": true,
+      "ratings": true
+    },
+    {
+      "id": 294,
+      "heading": true,
+      "proposal": true,
+      "epic": true,
+      "dialogue": true,
+      "acceptance": true,
+      "ratings": true
+    },
+    {
+      "id": 295,
+      "heading": true,
+      "proposal": true,
+      "epic": true,
+      "dialogue": true,
+      "acceptance": true,
+      "ratings": true
+    },
+    {
+      "id": 296,
+      "heading": true,
+      "proposal": true,
+      "epic": true,
+      "dialogue": true,
+      "acceptance": true,
+      "ratings": true
+    },
+    {
+      "id": 297,
+      "heading": true,
+      "proposal": true,
+      "epic": true,
+      "dialogue": true,
+      "acceptance": true,
+      "ratings": true
+    },
+    {
+      "id": 298,
+      "heading": true,
+      "proposal": true,
+      "epic": true,
+      "dialogue": true,
+      "acceptance": true,
+      "ratings": true
+    },
+    {
+      "id": 299,
+      "heading": true,
+      "proposal": true,
+      "epic": true,
+      "dialogue": true,
+      "acceptance": true,
+      "ratings": true
+    },
+    {
+      "id": 300,
+      "heading": true,
+      "proposal": true,
+      "epic": true,
+      "dialogue": true,
+      "acceptance": true,
+      "ratings": true
+    },
+    {
+      "id": 301,
+      "heading": true,
+      "proposal": true,
+      "epic": true,
+      "dialogue": true,
+      "acceptance": true,
+      "ratings": true
+    }
+  ],
+  "articleToEpicToTask": {
+    "idea": 299,
+    "epicTaskCount": 5,
+    "task": "IDEA-299-02",
+    "dependencies": [
+      "IDEA-299-01",
+      "VMAP-003",
+      "IDEA-232-04"
+    ]
+  },
+  "idea301CardSixScores": true,
+  "searchLegendFinds301": true,
+  "keyboardTabFocusedStateFilter": true,
+  "responsive": {
+    "width": 390,
+    "height": 900,
+    "card301": true,
+    "article301": true,
+    "viewportReset": true
+  },
+  "stateMutations": false,
+  "limits": "Wiki content/navigation only. No new gameplay scene, F scenarios, audience trial, game HUD, FPS or GPU acceptance."
+}

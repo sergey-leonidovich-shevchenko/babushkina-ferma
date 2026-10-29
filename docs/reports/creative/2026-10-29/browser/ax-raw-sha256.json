@@ -1,0 +1,70 @@
+{
+  "IDEA-301.ax.txt": {
+    "rawSHA256": "4d7df435f93739eec002749b3d0867783533cffd379070a04c17504ff6d00a38",
+    "bytes": 31035
+  },
+  "idea-301-mobile.ax.txt": {
+    "rawSHA256": "82b814cd43cefd653098533b969725fdb09f5f75e37e3f22f69c5b5403e72aa2",
+    "bytes": 10064
+  },
+  "search.ax.txt": {
+    "rawSHA256": "8cd35eddae079d3522943b8c222538fbbdf1b4645d21eaf636fd3635cd2c2b22",
+    "bytes": 33109
+  },
+  "article-301-mobile.ax.txt": {
+    "rawSHA256": "e016a08baa095577f77dc764ddbf6bb5d02b28a7853c1fcef3a8149e75325922",
+    "bytes": 31086
+  },
+  "IDEA-293.ax.txt": {
+    "rawSHA256": "709f72342316f677469fec309e3de6e427fbf41f60eb2c0dc2229650176e9921",
+    "bytes": 30069
+  },
+  "IDEA-297.ax.txt": {
+    "rawSHA256": "9ac26cc80c48afc20d2c9dc0e8147a09a11d4eacb0395911339b8884819b401b",
+    "bytes": 30860
+  },
+  "IDEA-299.ax.txt": {
+    "rawSHA256": "f71ffb3e8cf4595a1bcf42565dc17f2e180e73bc86164433726656d39b44fd2b",
+    "bytes": 30956
+  },
+  "IDEA-295.ax.txt": {
+    "rawSHA256": "f1631bb59a8294899c76cd4646d9d9082e45eb0e339f0ab55c74fc78d26664da",
+    "bytes": 31211
+  },
+  "IDEA-300.ax.txt": {
+    "rawSHA256": "7e4e53978b98282305493c95826353d3099e14da4e4604e98bdaf254ae67a0e3",
+    "bytes": 31186
+  },
+  "task-299-02.ax.txt": {
+    "rawSHA256": "f34c6f41f7177acec2a1ad43a1d7dd56e0b4a582200b9bb10298d6b9ed96c24d",
+    "bytes": 6814
+  },
+  "IDEA-292.ax.txt": {
+    "rawSHA256": "9a673045f4033bec3f4d74cbc2a1369daf294812f917482af2e7854ebe6d8b3b",
+    "bytes": 29723
+  },
+  "IDEA-296.ax.txt": {
+    "rawSHA256": "da16e61aba2e9b63c4caa27f7b2e597b39cdef6dad44e130d1bd6be790cfd440",
+    "bytes": 30304
+  },
+  "idea-301-card.ax.txt": {
+    "rawSHA256": "51e9f5d258a0c03918473112067ad5955fd628515b39429e46de744d97979ac1",
+    "bytes": 10090
+  },
+  "IDEA-298.ax.txt": {
+    "rawSHA256": "ca5dca2398f47856d6022ca686b4ec3ef2f26cc992637ae91eb5f721510a4348",
+    "bytes": 29858
+  },
+  "IDEA-294.ax.txt": {
+    "rawSHA256": "877a90f453cf3358998c3ce6fd2ee71bf2bae706f8db0c1ac94b0d1684792436",
+    "bytes": 30661
+  },
+  "overview.ax.txt": {
+    "rawSHA256": "da274350e4def77ed80a7bbde33a41dee8f81564644e14b95c1809a6630b7d87",
+    "bytes": 20534
+  },
+  "epic-299.ax.txt": {
+    "rawSHA256": "169625e9f62e449ad5797c9f10f7e75ac574f299f1959452836e1af3f4da6bf6",
+    "bytes": 6903
+  }
+}
