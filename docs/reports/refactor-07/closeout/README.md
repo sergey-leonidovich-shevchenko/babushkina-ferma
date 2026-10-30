@@ -7,7 +7,7 @@
 Файлы:
 
 - `accepted-review.json` — independent exact-head review;
-- `accepted-ci.json` — восемь успешных checks и два workflow run;
+- [`accepted-CI.json`](accepted-CI.json) — восемь успешных checks и два workflow run;
 - `accepted-merge.json` — PR, родители и дерево merge;
 - `team-decision.json` — явное решение Team Lead;
 - `completion.json` — каноническая сводка задачи.

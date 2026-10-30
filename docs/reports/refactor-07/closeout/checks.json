@@ -1,11 +1,27 @@
 {
   "task": "REFACTOR-07-accounting",
-  "version": "0.0.387",
+  "version": "0.0.388",
   "branch": "codex/refactor-07-accounting",
   "base": "7d8c62be8a98edcd34cf1ede3919625295c5076e",
   "preparation_head": "e0651944566118a9e2926f687b37ae4f98b937c6",
   "pull_request": 29,
   "local_game_launched": false,
+  "review_fixes": [
+    {
+      "review_id": 5718323431,
+      "priority": "P3",
+      "result": "accepted-ci.json text replaced by a real relative link to accepted-CI.json for case-sensitive checkouts"
+    }
+  ],
+  "review_control": {
+    "discarded_command": "test ! -e docs/reports/refactor-07/closeout/accepted-ci.json",
+    "discarded_exit": 1,
+    "reason": "case-insensitive macOS resolves the wrong-case spelling to the same file, so this cannot prove the Git pathname",
+    "replacement": "exact git ls-files comparison",
+    "replacement_exit": 0,
+    "tracked_exact_name": "docs/reports/refactor-07/closeout/accepted-CI.json",
+    "wrong_case_tracked": false
+  },
   "checks": [
     {
       "command": "python3 tools/bump_version.py --check",
