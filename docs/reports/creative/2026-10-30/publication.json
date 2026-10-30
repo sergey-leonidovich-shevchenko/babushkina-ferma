@@ -1,0 +1,40 @@
+{
+  "base": "464328853c2fbbed1410ac0312de75c3fee7cfa2",
+  "firstVerifiedHead": "70143a84d2236bcd6972cb15c209a25f470aad9c",
+  "pullRequest": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/27",
+  "status": "in_progress",
+  "updatedAt": "2026-10-30T05:53:46.658569+00:00",
+  "firstCheckpoint": "checkpoint-1/gates.json",
+  "finalCheckpoint": "publish-1/gates.json",
+  "expectedMetadata": "0.0.384",
+  "changesSinceFirst": [
+    "Literal PR URL, first verified SHA and waiting-review state in editorial card",
+    "Publication protocol and archived capture helpers",
+    "Fresh final Wiki and browser proof after metadata update",
+    "304: gate school presence at bite start; accepted bite survives school departure, cancellation/load cannot duplicate claim",
+    "Correct future receipt link to plain path, preserve failed92-source publication attempt, restore real rg on final PATH"
+  ],
+  "localQA": {
+    "engine": "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+    "engineVersion": "4.7.1.stable.official.a13da4feb",
+    "FARM_GODOT_BIN": "/private/tmp/creative28-save-gate/godot",
+    "WIKI_GODOT_BIN": "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+    "CREATIVE_WAIT_FOR_GATE": null,
+    "forwarding": "Same installed engine; every argv forwarded unchanged. flock only cooperating test_game.gd processes to avoid shared-save collisions, no locks over unrelated Godot/QA.",
+    "CI": "CI does not use this local forwarder.",
+    "capture": "Unchanged .githooks/pre-commit. External capture wrapper validates frozen source hashes and appends four receipts only after success. No test override or gameplay change.",
+    "archivesSHA256": {
+      "freeze.py.txt": "7281d0061fb8cc314ea4c33ce4e39bad961949713c4cbedf9cfd4b38c2102bb8",
+      "receipt.py.txt": "52725e95969aa2fae66631cad074bfa5d1a3b600a97d1aac5c28e867f3aebb2b",
+      "godot-forwarder.py.txt": "e7c88aad4eff83eb3c0416cd0c9caf9e06d2c961a5d2a87f3ce5109baadd51b9"
+    },
+    "rg": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path/rg",
+    "initialCheckpointLimit": "checkpoint-1 contains command not found: rg; its conditional draw_ guard did not execute. Python/Game/redraw results are actual. Final retry PATH fixes rg and repeats unchanged full hook."
+  },
+  "futureGameplayScenariosRun": 0,
+  "audienceTested": false,
+  "independentReviewApproved": false,
+  "mainMerged": false,
+  "exactFinalHead": "Bound after commit/push in GitHub PR and Tech Lead packet; no circular self-SHA in this file.",
+  "failedPublicationAttempt": "publication-attempt-1/failure.json"
+}

@@ -284,4 +284,6 @@
 
 **Проверка:** docs/reports/creative/2026-10-30/, node wiki/scripts/editorial-review30-audit.mjs, pnpm --dir wiki check и штатный pre-commit.
 
-**Подтверждения / результат:** Подготовлены десять предложений/44 будущих задачи. PR URL и проверенный SHA добавляются после публикации. Ожидается независимое exact-head ревью/CI и решение Team Lead. Новые F/участники/игровые режимы не выполнены.
+**Подтверждения / результат:** Подготовлены десять предложений/44 будущих задачи. Pull Request: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/27 · первый проверенный head `70143a84d2236bcd6972cb15c209a25f470aad9c` (checkpoint-1); финальный publication head закрепляется в PR и пакете Tech Lead после commit/push. Статус in_progress: ожидаются независимое ревью текущего SHA, его CI и решение Team Lead. [Протокол публикации](../../reports/creative/2026-10-30/PUBLICATION.md). Новые F/участники/игровые режимы не выполнены.
+
+**Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/27

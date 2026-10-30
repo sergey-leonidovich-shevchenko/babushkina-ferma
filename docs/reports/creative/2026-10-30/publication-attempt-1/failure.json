@@ -1,0 +1,13 @@
+{
+  "label": "review30-publication",
+  "exitCode": 1,
+  "success": false,
+  "commitCreated": false,
+  "frozenSourceHashesVerified": 92,
+  "pythonSuitesCompleted": 25,
+  "casesCompleted": 272,
+  "reason": "Documentation points to publish-1/gates.json before its successful receipt can be created",
+  "environmentIssue": "rg directory omitted from PATH; conditional draw_ guard did not execute",
+  "rawSHA256": "f81dd0f6d2cb9d996d8c27a3652aa992606f3f0ba16118e14fed2e8c2a69ab26",
+  "recordedAt": "2026-10-30T06:09:31.716022+00:00"
+}
