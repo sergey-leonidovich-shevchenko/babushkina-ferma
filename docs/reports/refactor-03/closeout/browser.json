@@ -1,0 +1,69 @@
+{
+  "version": "0.0.382",
+  "tab": "29",
+  "desktop": {
+    "accepted": true,
+    "height": 900,
+    "history": true,
+    "link": [
+      {
+        "download": "completion.json",
+        "href": "http://127.0.0.1:4193/generated/attachments/c2d212ca373f1c86e7add9cb388b514f788611ec32f948c44676e6996fb4c194.json",
+        "text": "Запись приёмки REFACTOR-03"
+      }
+    ],
+    "scrollWidth": 1280,
+    "summary": true,
+    "url": "http://127.0.0.1:4193/#/guides/project-refactoring",
+    "version": true,
+    "width": 1280
+  },
+  "mobile": {
+    "accepted": true,
+    "height": 844,
+    "scrollWidth": 390,
+    "url": "http://127.0.0.1:4193/#/guides/project-refactoring",
+    "version": true,
+    "width": 390
+  },
+  "task03": {
+    "acceptedMerge": true,
+    "date": true,
+    "done": true,
+    "historyLabel": true,
+    "pr": true,
+    "scrollWidth": 1280,
+    "url": "http://127.0.0.1:4193/#/development/tasks/refactoring--REFACTOR-03",
+    "width": 1280
+  },
+  "epicBefore": {
+    "stale": true,
+    "status03": "REFACTOR-03\nРазнести QA, обработку ассетов, сборку и ручные стенды tools по подсистемам\nПонятная структура инструментов и модулей\nЗавершена\nP1",
+    "status06": "REFACTOR-06\nЗакрепить навигацию и правило добавления новых инструментов\nПонятная структура инструментов и модулей\nЗаблокирована\nP1",
+    "url": "http://127.0.0.1:4193/#/development/epics/refactoring--REFACTOR"
+  },
+  "epic": {
+    "acceptedGoal": true,
+    "scrollWidth": 1280,
+    "stale": false,
+    "status03": "REFACTOR-03\nРазнести QA, обработку ассетов, сборку и ручные стенды tools по подсистемам\nПонятная структура инструментов и модулей\nЗавершена\nP1",
+    "status06": "REFACTOR-06\nЗакрепить навигацию и правило добавления новых инструментов\nПонятная структура инструментов и модулей\nЗаблокирована\nP1",
+    "url": "http://127.0.0.1:4193/#/development/epics/refactoring--REFACTOR",
+    "width": 1280
+  },
+  "task06": {
+    "blocked": true,
+    "next07": true,
+    "oldStopRemoved": true,
+    "ownerConfirmationNotRequired": true,
+    "scrollWidth": 1280,
+    "url": "http://127.0.0.1:4193/#/development/tasks/refactoring--REFACTOR-06",
+    "width": 1280,
+    "dependencyDoneLiteral": false,
+    "dependencyDoneViaAX": true,
+    "dependencySource": "Observed AX link; literal body probe missed a line break"
+  },
+  "read_only": true,
+  "user4175_untouched": true,
+  "download_not_claimed": true
+}

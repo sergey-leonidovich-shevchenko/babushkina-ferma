@@ -15,7 +15,7 @@
     "id": "project-refactoring",
     "file": "project-refactoring.md",
     "title": "Рефакторинг: инструменты по назначению",
-    "summary": "REFACTOR-02 и его учёт PR19 приняты. REFACTOR-03 в работе: тематические пакеты tools с сохранением команд, UID и исторических доказательств. Итоговый root-бюджет и REFACTOR-06 ещё не приняты.",
+    "summary": "REFACTOR-03 принята через PR21: 779 назначений сверены, в корне tools 11 исходников при лимите 30. Следом REFACTOR-07, затем REFACTOR-06 и первая overworld до VMAP-003.",
     "tags": [
       "Разработка",
       "Рефакторинг",

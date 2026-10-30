@@ -1,0 +1,12 @@
+{
+  "version": "0.0.382",
+  "03_status": "done",
+  "03_date": "2026-10-30",
+  "06_status": "blocked",
+  "registry_cards": 7,
+  "07_card_added": false,
+  "epic_goal_current": true,
+  "article_summary_current": true,
+  "source_public_dist_completion_equal": true,
+  "accepted_source_head": "7976630ce372d3e7ac0c15b154ca7377d398450c"
+}
