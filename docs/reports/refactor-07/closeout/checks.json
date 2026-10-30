@@ -1,8 +1,10 @@
 {
   "task": "REFACTOR-07-accounting",
-  "version": "0.0.386",
+  "version": "0.0.387",
   "branch": "codex/refactor-07-accounting",
   "base": "7d8c62be8a98edcd34cf1ede3919625295c5076e",
+  "preparation_head": "e0651944566118a9e2926f687b37ae4f98b937c6",
+  "pull_request": 29,
   "local_game_launched": false,
   "checks": [
     {
@@ -28,7 +30,7 @@
     {
       "command": "pnpm --dir wiki check",
       "exit": 0,
-      "result": "build passed; 145 tests passed"
+      "result": "final build with PR29 links passed; 145 tests passed"
     },
     {
       "command": "python3 -m json.tool <changed JSON>",

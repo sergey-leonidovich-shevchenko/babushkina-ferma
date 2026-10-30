@@ -1,6 +1,6 @@
 {
   "task": "REFACTOR-07",
-  "status_proposed_by_accounting_branch": "done",
+  "status": "done",
   "completion_date_asia_almaty": "2026-10-31",
   "implementation_pull_request": 28,
   "implementation_head": "c5c2a2d68bc5c79cb61f2bf1c27fe8fa0ccf3703",
@@ -9,7 +9,8 @@
   "team_lead_decision": "accepted",
   "merge": "7d8c62be8a98edcd34cf1ede3919625295c5076e",
   "merge_tree": "ee3a17e5bc8463eba6eb3918137367a5409005d6",
-  "accounting_pull_request": null,
+  "accounting_pull_request": 29,
+  "accounting_pull_request_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/29",
   "local_final_validation": {
     "architecture": "109 suites / 1436 cases",
     "game": "53502/0",

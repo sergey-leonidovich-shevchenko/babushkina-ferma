@@ -199,6 +199,8 @@
 
 **Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/28
 
+**Учётный Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/29
+
 **Дата завершения:** 2026-10-31
 
 **Результат и объём:** Воспроизводимый барьер качества изменяемого GDScript/Python и самопроверка настоящих публичных сценариев до независимого ревью. Постановка пользователя28.10.2026; последующей прямой командой передана Developer в очередь после03.
