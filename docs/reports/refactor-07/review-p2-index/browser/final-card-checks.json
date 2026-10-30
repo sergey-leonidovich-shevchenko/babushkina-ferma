@@ -1,0 +1,21 @@
+{
+  "version": "0.0.385",
+  "taskSearchFound": 1,
+  "status": "in_progress",
+  "dependency03": "done",
+  "finalCountsObserved": "109/1436; Game53502/0",
+  "oldPartialExplicitlyNotComplete": true,
+  "desktop": {
+    "width": 1280,
+    "scrollWidth": 1280
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "finalJSONLink": "generated/attachments/f3a835823cf6ee4ee0427f9f001a196658d8801a1a13d5979f4473d7bde3f0ca.json",
+  "downloadAttribute": "final-validation.json",
+  "downloadLinkClicked": true,
+  "ownServerPort": 4197,
+  "user4175Untouched": true
+}

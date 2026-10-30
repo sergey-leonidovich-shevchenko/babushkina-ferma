@@ -10,6 +10,7 @@ import time
 from pathlib import Path
 
 from tools.common.paths import project_root
+from tools.quality.index import matching_sources
 from tools.quality.process import run, versions
 from tools.quality.selection import baseline, selected
 
@@ -53,12 +54,18 @@ def main() -> None:
     """Запускает проверку из любой рабочей папки, сохраняя окружение процесса."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("check", "fix"), nargs="?", default="check")
+    parser.add_argument(
+        "--staged", action="store_true", help="отказать при разных байтах исходников в index и cwd"
+    )
     args = parser.parse_args()
+    if args.staged and args.command == "fix":
+        parser.error("--staged is read-only and cannot be combined with fix")
     start = time.monotonic()
     root = project_root(__file__)
     try:
         versions(root)
-        files = selected(root, baseline(root))
+        indexed = matching_sources(root) if args.staged else []
+        files = selected(root, baseline(root), indexed)
         print(f"QUALITY: {len(files)} whole changed/new files", flush=True)
         for name in files:
             print("  " + name)

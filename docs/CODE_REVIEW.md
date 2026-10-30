@@ -39,3 +39,5 @@ REFACTOR-07: `python3 tools/run.py quality.check` проверяет целик�
 ## Звук и музыка
 
 Когда согласованной задаче нужны аудиофайлы, Developer Agent обращается к Music Agent. Задание содержит игровое событие/сцену, художественное настроение, длительность, loop/one-shot, начало и конец, необходимые варианты, формат, ограничения громкости и место использования. Полученные файлы проходят проверку и интеграцию в игру в соответствующей ветке. Музыкальный заказ не расширяет сам по себе приоритет первой локации.
+
+REFACTOR-07/P2: hook проверяет `quality.check --staged` до bump. Рабочие и staged байты всех исходников/quality rules должны совпадать до baseline-фильтра; intentional alternate index сохраняется. `quality.test_index` воспроизводит bad staged / corrected working, restored legacy baseline, alternate bad→good, реальные hook/Ruff/mypy/bump и отдельный git commit. Отказ не исправляет и не прячет данные. Полные TESTING и независимое ревью нового head сохраняются.

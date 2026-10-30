@@ -1,0 +1,68 @@
+"""Упаковывает только новый непринятый отчёт после успешных восьми gates."""
+from pathlib import Path
+import hashlib
+import json
+import re
+import sys
+import zipfile
+
+root = Path(sys.argv[1]).resolve()
+p = root / 'docs/reports/refactor-07/review-p2-index'
+result = json.loads((p/'gates-result.json').read_text())
+checks = json.loads((p/'checks.json').read_text())
+assert result['all8_passed'] and result['source_freeze_unchanged'] and result['own_index_unchanged']
+assert len(checks) == 8 and all(c['code'] == 0 for c in checks)
+tests = re.findall(r'^Ran (\d+) tests? in', (p/'architecture.txt').read_text(), re.M)
+architecture = {'suites':len(tests), 'cases':sum(map(int,tests))}
+assert architecture == {'suites':109,'cases':1436}, architecture
+game_log=(p/'game-normal-f10.txt').read_text()
+game=int(re.findall(r'TESTS: (\d+) passed, 0 failed',game_log)[-1])
+wiki=int(re.findall(r'ℹ tests (\d+)',(p/'wiki.txt').read_text())[-1])
+same=json.loads((p/'same-regression.json').read_text())
+golden=hashlib.sha256((root/'tools/quality/test_index.py').read_bytes()).hexdigest()
+assert golden == same['same_test_sha256'] == '78dbaee706e13c1391719e52183163cb63fe86dcfe2d4241f0af72e60b08c1ba'
+assert same['runs'][0]['failures']==2 and same['runs'][0]['errors']==0
+assert same['runs'][1]['tests_run']==2 and same['runs'][1]['failures']==same['runs'][1]['errors']==0
+paths=['before-gates.json','after-gates.json','partial-01/before-gates.json',
+       'producer-report/source-state.json','partial-01/producer-report/source-state.json']
+payloads={}; mappings=[]
+for name in paths:
+    raw=(p/name).read_bytes(); sha=hashlib.sha256(raw).hexdigest()
+    if sha in payloads: assert payloads[sha]==raw
+    payloads[sha]=raw
+    mappings.append({'original':name,'entry':sha+'.json','sha256':sha,'bytes':len(raw)})
+archive=p/'preservation-snapshots.zip'
+with zipfile.ZipFile(archive,'x',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+    for sha,raw in payloads.items(): z.writestr(sha+'.json',raw)
+with zipfile.ZipFile(archive) as z:
+    for item in mappings:
+        assert z.read(item['entry']) == (p/item['original']).read_bytes()
+manifest={'archive':archive.name,'archive_sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),
+          'unique_payloads':len(payloads),'original_files':mappings,
+          'all_original_bytes_verified_after_zip_readback':True}
+(p/'preservation-archive.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+for name in paths: (p/name).unlink()
+summary={'task':'REFACTOR-07','version':result['version'],
+         'parent':'5276b87f518c2f4562d53ab5be009ecb977a57ec','same_test_sha256':golden,
+         'all8_gates_passed':True,'final_parent_PYTHONDONTWRITEBYTECODE':'unset',
+         'architecture':architecture,'Game_passed':game,'wiki_tests':wiki,
+         'redraw_log_lines':[line for line in game_log.splitlines() if 'REDRAW' in line],
+         'regression':same['runs'],'preservation':result,
+         'partial_01':'SIGINT by author after96 suites/1259 cases; NOT a complete gate',
+         'review':'pending independent current-head Tech review, CI and Team decision; no Task-Complete'}
+(p/'final-validation.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
+doc=(p/'README.md').read_text()
+old='На момент подготовки этой записи version, quality10, настоящий producer и Wiki прошли; полный architecture/Game/normal/F10/smoke/performance выполняется. Итог будет записан после завершения и проверки сохранности.'
+assert old in doc
+new=f'Финальная серия завершена: все8 gates вернули0; architecture109/1436, Game{game}/0, normal/F10, smoke, performance и Wiki{wiki}/0. Внешний процесс работал без родительского PYTHONDONTWRITEBYTECODE. Все1230 source SHA,22411 прежних reports,800 tracked UID, чужие5 working/3 staged и собственный raw index сохранены. [Итог](final-validation.json).'
+doc=doc.replace(old,new)
+doc+='\nБольшие сырые snapshots без изменения байтов упакованы в preservation-snapshots.zip. [Manifest](preservation-archive.json) сохраняет исходные имена, SHA256, размеры и ZIP entry; одинаковые полные before/after payload хранятся один раз. Все entries побайтно сверены с оригиналами после чтения ZIP. Для изучения извлеките нужный payload в новую внешнюю папку, сохраняя manifest; исторические файлы проекта не заменяйте.\n'
+(p/'README.md').write_text(doc)
+card=root/'docs/epics/refactoring-2026-10/TASKS.md'
+text=card.read_text()
+old='Доработка0.0.385 вводит read-only --staged до bump и отдельный11-case профиль настоящего Git/hook/alternate index; общий повтор проверок и exact-head ревью ещё выполняются.'
+assert text.count(old)==1
+new=f'Доработка0.0.385 вводит read-only --staged до bump и11 реальных Git/hook/alternate-index случаев, включая legacy до baseline. Финальный полный прогон без родительского bytecode-флага: architecture109/1436, Game{game}/0, normal/F10, smoke, performance и Wiki{wiki}/0; source1230, прежние reports22411, tracked UID800 и index/чужие данные сохранены. Прерванные96/1259 не считаются полной приёмкой. [Финальные проверки P2](../../reports/refactor-07/review-p2-index/final-validation.json).'
+card.write_text(text.replace(old,new))
+print(json.dumps({'packaged':True,'architecture':architecture,'Game':game,'wiki':wiki,
+                  'archive_bytes':archive.stat().st_size,'unique_snapshot_payloads':len(payloads)},ensure_ascii=False))

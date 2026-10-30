@@ -1,0 +1,9 @@
+QUALITY INDEX: staged and working sources/rules differ:
+  .githooks/pre-commit
+  project.godot
+  tools/quality/check.py
+  tools/quality/index.py
+  tools/quality/selection.py
+  tools/quality/test_index.py
+Stage the intended source/rule bytes (or restore them), then retry. No index or working files were changed.
+Install tools/quality/requirements.txt into Python 3.11.

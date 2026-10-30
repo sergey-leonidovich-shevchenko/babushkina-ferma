@@ -1,0 +1,15 @@
+{
+  "task": "REFACTOR-07",
+  "base": "464328853c2fbbed1410ac0312de75c3fee7cfa2",
+  "source_head": "5276b87f518c2f4562d53ab5be009ecb977a57ec",
+  "commands": 14,
+  "alpha_fixtures": 8,
+  "fixture_files": 137,
+  "foreign_git_unchanged": true,
+  "environment_unchanged": true,
+  "source_checkout_and_git_unchanged": true,
+  "real_linked_worktree": true,
+  "temp_parent": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm self review real IO b9gre3og",
+  "native_or_fps_acceptance": false,
+  "temp_removed": true
+}

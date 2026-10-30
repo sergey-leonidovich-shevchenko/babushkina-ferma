@@ -1,0 +1,12 @@
+{
+  "all8_passed": true,
+  "source_freeze_unchanged": true,
+  "old_reports_unchanged": 22411,
+  "uid_unchanged": 800,
+  "primary_working_unchanged": 5,
+  "primary_staged_unchanged": 3,
+  "own_index_unchanged": true,
+  "source_count": 1230,
+  "version": "0.0.385",
+  "no_new_native_GPU_FPS_admission": true
+}

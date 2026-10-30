@@ -1,0 +1,7 @@
+test_actual_hook_rejects_partial_staging_before_bump (tools.quality.test_index.IndexTests.test_actual_hook_rejects_partial_staging_before_bump) ... ok
+test_actual_hook_rejects_partial_legacy_before_baseline_filter (tools.quality.test_index.IndexTests.test_actual_hook_rejects_partial_legacy_before_baseline_filter) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.759s
+
+OK

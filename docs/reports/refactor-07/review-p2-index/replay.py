@@ -1,0 +1,81 @@
+"""Повторяет один неизменный тест настоящего hook на старом и исправленном gate."""
+from pathlib import Path
+import hashlib
+import importlib
+import io
+import json
+import shutil
+import subprocess
+import sys
+import tempfile
+import unittest
+
+root = Path(sys.argv[1]).resolve()
+report = Path(sys.argv[2]).resolve()
+if report.exists() or report.is_relative_to(root) or not report.parent.is_dir():
+    raise SystemExit('Нужен новый внешний каталог с существующим родителем')
+report.mkdir()
+sys.path[:0] = [str(root), str(root / 'tools')]
+module = importlib.import_module('tools.quality.test_index')
+old_head = '5276b87f518c2f4562d53ab5be009ecb977a57ec'
+names = ['tools/run.py', 'tools/__init__.py', 'tools/bump_version.py',
+         'tools/planning/__init__.py', 'tools/planning/bump_version.py',
+         'tools/common/__init__.py', 'tools/common/paths.py', 'tools/common/git.py',
+         'tools/common/launch.py', 'tools/quality/__init__.py', 'tools/quality/check.py',
+         'tools/quality/index.py', 'tools/quality/selection.py', 'tools/quality/process.py',
+         'tools/quality/godot.py', 'tools/quality/requirements.txt', module.BASELINE,
+         'pyproject.toml', '.gdlintrc', '.githooks/pre-commit', 'VERSION', 'project.godot',
+         'Бабушкина ферма.app/Contents/Info.plist']
+cases = ['test_actual_hook_rejects_partial_staging_before_bump',
+         'test_actual_hook_rejects_partial_legacy_before_baseline_filter']
+summary = {'old_head': old_head, 'same_test_sha256': hashlib.sha256(
+    (root / 'tools/quality/test_index.py').read_bytes()).hexdigest(), 'runs': []}
+with tempfile.TemporaryDirectory(prefix='farm index same regression ') as temporary:
+    old = Path(temporary) / 'old source'
+    for name in names:
+        destination = old / name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(root / name, destination)
+    summary['old_sources'] = {}
+    for name in ['.githooks/pre-commit', 'tools/quality/check.py', 'tools/quality/selection.py']:
+        raw = subprocess.check_output(['git', '-C', str(root), 'show', old_head + ':' + name])
+        (old / name).write_bytes(raw)
+        summary['old_sources'][name] = hashlib.sha256(raw).hexdigest()
+    original_hook = module.IndexTests.commit_hook
+    for label, source in [('old', old), ('new', root)]:
+        module.ROOT = source
+        observed = []
+        def observe(self):
+            before = {name: (self.root / name).read_bytes().hex()
+                      for name in ['probe.py', 'tools/common/paths.py', 'VERSION', '.git/index']}
+            staged = self.git('show', ':probe.py').decode()
+            result = original_hook(self)
+            observed.append({'case': self.id(), 'returncode': result.returncode,
+                             'stdout': result.stdout, 'stderr': result.stderr,
+                             'staged_probe': staged, 'before': before,
+                             'version_after': (self.root / 'VERSION').read_text()})
+            return result
+        module.IndexTests.commit_hook = observe
+        suite = unittest.TestSuite(module.IndexTests(name) for name in cases)
+        stream = io.StringIO()
+        result = unittest.TextTestRunner(stream=stream, verbosity=2).run(suite)
+        (report / (label + '-same-tests.txt')).write_text(stream.getvalue())
+        (report / (label + '-actual-hooks.json')).write_text(json.dumps(observed, ensure_ascii=False, indent=2) + '\n')
+        summary['runs'].append({'label': label, 'tests_run': result.testsRun,
+                                'failures': len(result.failures), 'errors': len(result.errors),
+                                'hooks_observed': len(observed)})
+        if label == 'old':
+            assert result.testsRun == 2 and len(result.failures) == 2 and not result.errors
+            assert len(observed) == 2
+            assert all('QUALITY: 0 failed steps' in item['stdout'] and
+                       'QUALITY TEST BOUNDARY: after real bump' in item['stdout'] and
+                       'QUALITY INDEX' not in item['stderr'] for item in observed)
+        else:
+            assert result.wasSuccessful() and result.testsRun == 2 and len(observed) == 2
+            assert all('QUALITY INDEX: staged and working' in item['stderr'] and
+                       'QUALITY TEST BOUNDARY' not in item['stdout'] for item in observed)
+    module.IndexTests.commit_hook = original_hook
+    module.ROOT = root
+summary['temporary_parent_removed'] = not Path(temporary).exists()
+(report / 'same-regression.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2) + '\n')
+print(json.dumps(summary, ensure_ascii=False))

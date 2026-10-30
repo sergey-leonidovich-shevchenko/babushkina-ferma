@@ -67,10 +67,10 @@ def discover(root: Path) -> list[str]:
     )
 
 
-def selected(root: Path, legacy: dict[str, str]) -> list[str]:
+def selected(root: Path, legacy: dict[str, str], indexed: list[str] | None = None) -> list[str]:
     """Включает все правила для целого файла после изменения хотя бы одного байта."""
     result = []
-    for name in discover(root):
+    for name in sorted(set(discover(root)) | set(indexed or [])):
         path = root / name
         if path.is_symlink() or not path.resolve().is_relative_to(root.resolve()):
             raise ValueError("source must be a regular file within its checkout: " + name)

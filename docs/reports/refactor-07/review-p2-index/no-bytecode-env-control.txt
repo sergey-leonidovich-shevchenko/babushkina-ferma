@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_actual_hook_rejects_partial_staging_before_bump (__main__.IndexTests.test_actual_hook_rejects_partial_staging_before_bump)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/quality/test_index.py", line 193, in test_actual_hook_rejects_partial_staging_before_bump
+    self.assertEqual(self.state(), before)
+AssertionError: {'pyp[35277 chars]ools/quality/__pycache__/selection.cpython-311[301796 chars]a\n'} != {'pyp[35277 chars]ools/planning/__init__.py': b'"""\xd0\x9f\xd0\[198033 chars]a\n'}
+Diff is 1345504 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 1 test in 1.230s
+
+FAILED (failures=1)
