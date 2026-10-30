@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "previousReviewHead": "979ccd5948b535726e72c0744d49c13971692394",
+  "previousPlanSHA256": "2b3fe3acae81a88eb98417102a52a7945b49f547c1e92e6bb8fd320280164e0b",
+  "newIdeas": [
+    "IDEA-292",
+    "IDEA-293",
+    "IDEA-294",
+    "IDEA-295",
+    "IDEA-296",
+    "IDEA-297",
+    "IDEA-298",
+    "IDEA-299",
+    "IDEA-300",
+    "IDEA-301"
+  ],
+  "expectedTasks": 45,
+  "expectedActors": 14,
+  "dialogueNodes": 30,
+  "writtenReplies": 90,
+  "futureScenarios": 60,
+  "futureScenariosRun": 0,
+  "gameplayImplemented": false,
+  "branch": "codex/idea-review-20261029-new-horizons",
+  "reviewRequired": true
+}

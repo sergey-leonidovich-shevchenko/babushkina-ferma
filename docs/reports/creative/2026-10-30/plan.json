@@ -1,0 +1,24 @@
+{
+  "base": "464328853c2fbbed1410ac0312de75c3fee7cfa2",
+  "previousReviewHead": "4f77b3092fdd4e197e337699f0ece507da33902f",
+  "previousPlanSHA256": "7a78730946c0b925b94e1e1937a843b391d3f5188522e770bd3f4671eee0b602",
+  "ideas": [
+    "IDEA-302",
+    "IDEA-303",
+    "IDEA-304",
+    "IDEA-305",
+    "IDEA-306",
+    "IDEA-307",
+    "IDEA-308",
+    "IDEA-309",
+    "IDEA-310",
+    "IDEA-311"
+  ],
+  "expectedTasks": 44,
+  "actors": 10,
+  "dialogueNodes": 30,
+  "writtenReplies": 90,
+  "futureScenarios": 60,
+  "futureScenariosRun": 0,
+  "gameplayImplemented": false
+}

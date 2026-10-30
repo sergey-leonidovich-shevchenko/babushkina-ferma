@@ -1,0 +1,19 @@
+{
+  "kind": "normalized subset of fresh connected GitHub PR metadata",
+  "pullRequests": {
+    "21": {
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21",
+      "merged": true,
+      "head": "7976630ce372d3e7ac0c15b154ca7377d398450c",
+      "merge": "dd506fdd2cb98f1364c0e367c9f73c670064a6d0",
+      "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc"
+    },
+    "26": {
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/26",
+      "merged": true,
+      "head": "37aad5430e6395a1a3d370976f86c6126a430315",
+      "merge": "464328853c2fbbed1410ac0312de75c3fee7cfa2",
+      "base": "dd506fdd2cb98f1364c0e367c9f73c670064a6d0"
+    }
+  }
+}

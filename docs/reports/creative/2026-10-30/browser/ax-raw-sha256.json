@@ -1,0 +1,70 @@
+{
+  "IDEA-303.ax.txt.gz": {
+    "rawSHA256": "b7beb3fe7397fc16404e8b27ae71fae10882cf9e5a800344e028cb70d8616cfc",
+    "bytes": 29560
+  },
+  "IDEA-308.ax.txt.gz": {
+    "rawSHA256": "4e661e8c009567b1f4de5c28812e40566b4c3f8825b86e3c074492c22b2aedf2",
+    "bytes": 28818
+  },
+  "IDEA-305.ax.txt.gz": {
+    "rawSHA256": "609e0e136f68c1079a1fe40997d91d359346fa27412c9dc5256478ca6599440f",
+    "bytes": 28129
+  },
+  "IDEA-311.ax.txt.gz": {
+    "rawSHA256": "97605050a081e11df7ae7be5de4a48d275ea3bce74731da3946dd0d5aaa2f212",
+    "bytes": 30799
+  },
+  "epic-302.ax.txt.gz": {
+    "rawSHA256": "588725bc1d0b47232080ae49ac41a8827b7ff19b2a0241d77e568d07a0b8ab22",
+    "bytes": 6473
+  },
+  "IDEA-302.ax.txt.gz": {
+    "rawSHA256": "1f564ff4135d2c196ecce07b2b63e328faaea07b0c56d9101c73e0d27b4e22b4",
+    "bytes": 28696
+  },
+  "IDEA-309.ax.txt.gz": {
+    "rawSHA256": "e939e67f56c07982f50bbe97a05a3418dc0a5ec7aac16e9f08288b9b724e5a12",
+    "bytes": 28361
+  },
+  "IDEA-310.ax.txt.gz": {
+    "rawSHA256": "c357594fa0039e347d0c373bcb72c97cd342431118309a592dddded08942e1ad",
+    "bytes": 29061
+  },
+  "article-310-mobile.ax.txt.gz": {
+    "rawSHA256": "9083927caaf08cc6ad16edeabd05d6ff0998e4c207ef5ac26ddfd692f974f235",
+    "bytes": 29151
+  },
+  "IDEA-304.ax.txt.gz": {
+    "rawSHA256": "6853978c5a7f874594746ee8b6a5930f152496085f02788e998b4a1c5f4f1f47",
+    "bytes": 28484
+  },
+  "task-302-02.ax.txt.gz": {
+    "rawSHA256": "a018c195dccfe973d9b53f54001424dad7d8bb07f1ecbc1b5ab1960d3b362bc4",
+    "bytes": 6748
+  },
+  "overview.ax.txt.gz": {
+    "rawSHA256": "e52c4d1f52d6c2c7587a43c15b729d269cc905a6dc6b0402fe972bd4630e3583",
+    "bytes": 23125
+  },
+  "search.ax.txt.gz": {
+    "rawSHA256": "a54b22416916a1b96803bf0d8f68d668a19cb73b50f4df430ebdd8c3367b302a",
+    "bytes": 6669
+  },
+  "IDEA-307.ax.txt.gz": {
+    "rawSHA256": "88c170022562017328d3681d25abe5c8ff2cfc70383094e16ee0e0a6119f4bcf",
+    "bytes": 30602
+  },
+  "idea-310-mobile.ax.txt.gz": {
+    "rawSHA256": "7b2a1a93afb8a784a744e78fe78b9523ec13061b629f2411405b1f5b4f1d85a4",
+    "bytes": 10607
+  },
+  "idea-307-card.ax.txt.gz": {
+    "rawSHA256": "7bad3fb86ec1fbe772e52ac7029fc92de936c26b496bdf3d9e1cebd05de3ce50",
+    "bytes": 11091
+  },
+  "IDEA-306.ax.txt.gz": {
+    "rawSHA256": "66010cdd19f5dcf4854342f184a837381550deaafd671dfbaa091256e35aca0e",
+    "bytes": 29996
+  }
+}
