@@ -1,0 +1,35 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "canonical closeout",
+  "version": "0.0.382",
+  "base": "dd506fdd2cb98f1364c0e367c9f73c670064a6d0",
+  "source_SHA256": {
+    "TESTING.md": "e8343951703bbd780a9d6cb0920edad41e7bf3e0fb52c8383a65921124e62634",
+    "VERSION": "8af62925f44af123fd00dea845f0392de0987c985562a36074a0b5d17425211a",
+    "docs/epics/refactoring-2026-10/README.md": "74167c3ab6bc5e1920367babd467eb06b21f842503f27cb6a5cbff60c8a20a52",
+    "docs/epics/refactoring-2026-10/TASKS.md": "315dd09ae63b2cf0885e036473ad1def03a58a98a045e745d6aff95e668e4e64",
+    "project.godot": "5a81e4acc9fc280e1fc064e36043de565bf3db2f9d3bad3e7e19b098b66dce08",
+    "tools/README.md": "bac1cab53d63f9a9a39899dd9a8f590773cdf5b74e97bb3f413d00c9ddda508f",
+    "wiki/articles/index.json": "4c08eabf1dc888bf732449d83e7dbd0c0af97e4aee368c29785766f4cce55bec",
+    "wiki/articles/project-refactoring.md": "2ca0eed170a50521814e4ca6476c475623f9d658d2b1022d0cec78f13838f871",
+    "Бабушкина ферма.app/Contents/Info.plist": "8f25e7c4e78e848ad34c8d391ba46c52cdcc32a7cd3b59cc6d6994528fb6a628"
+  },
+  "report_content_inputs": {
+    "completion.json": "c2d212ca373f1c86e7add9cb388b514f788611ec32f948c44676e6996fb4c194"
+  },
+  "existing_report_entries": 22218,
+  "existing_report_Git_ledger_SHA256": "abf0b2b6064676c76078bf354a4b15f6342723e479fa82a360dc92bdef323bf2",
+  "changed_statuses": [
+    "REFACTOR-03: in_progress→done"
+  ],
+  "06_changes": "conditions/result only; blocked preserved; stale owner stop revoked",
+  "other_five_cards_unchanged": true,
+  "criteria_unchanged": true,
+  "tools_runtime_tests_art_existing_reports_unchanged": true,
+  "QA_UID_preserved": 304,
+  "primary_parallel07_preserved": true,
+  "primary_ignored_probe_preserved": true,
+  "main_not_changed_by_closeout": true,
+  "closeout_review_CI": "required separately",
+  "all_before_full_gates": true
+}

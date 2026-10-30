@@ -1,0 +1,16 @@
+{
+  "file": "wiki/planning/sources.json",
+  "field": "refactoring.epics.REFACTOR.goal",
+  "before_SHA256": "6122d2272740c99fa69a1cce9ac3d35c07ee6e565489aa496aff7f3bef49b59d",
+  "after_SHA256": "d5bc2ce8cfe5e16092694e24be44d4258ebb2bc58fcb18a890c723bbfc828bd1",
+  "before": "Сразу после полного завершения VFOLIAGE-010: ведомость, тематические каталоги tools, сохранность импортов/UID/исторических доказательств и адресный аудит остальных перегруженных папок. Прямое техническое поручение пользователя 25 октября; переносы пока не выполнены.",
+  "after": "Полная REFACTOR-03 принята через PR21: 779 назначений сверены, в корне tools 11 исходников при лимите30; команды, UID и исторические доказательства сохранены. Далее REFACTOR-07, затем REFACTOR-06 и первая overworld до VMAP-003 по актуальным зависимостям. Адресные04/05 остаются отдельными будущими задачами.",
+  "only_one_string_changed": true,
+  "registry_card_count_still": 7,
+  "card07_added": false,
+  "primary_parallel07_changed": false,
+  "reason": "Browser epic page still claimed that all transfers were unimplemented",
+  "full_gates_epoch": "Initial nine-file freeze; accepted implementation/tools/tests bytes unchanged throughout",
+  "final_editorial_check": "Separate Wiki check and browser recheck required; this change is not represented as an earlier frozen full-gates input",
+  "edit_stage": "During running architecture, after initial Wiki exit0; full Game not yet started"
+}

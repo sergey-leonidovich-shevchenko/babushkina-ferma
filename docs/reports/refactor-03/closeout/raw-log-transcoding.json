@@ -1,0 +1,51 @@
+[
+  {
+    "raw_path": "browser-task06-AX.txt",
+    "stored_path": "browser-task06-AX.txt.gz",
+    "raw_SHA256": "f385fad50a721acb13d5272da2940d2b5b1e3c008477339d49d052e82b98c0bf",
+    "stored_SHA256": "eef5c3ee8f376d4ddbfb8d6b530fb7df754d3d6184ca2e1cbb4cdc6eb99313a5",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-01/architecture.txt",
+    "stored_path": "gates-01/architecture.txt.gz",
+    "raw_SHA256": "b87fa57ad018bdd8c83ab0c55e3a5336375448c4b00ec457ab6d1b9a1486b162",
+    "stored_SHA256": "68b8068503285bcc6245f9c47d0f27483fbfac99419e87b2b0f048c868b783e4",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-01/game.txt",
+    "stored_path": "gates-01/game.txt.gz",
+    "raw_SHA256": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+    "stored_SHA256": "0e733c608d5f0bcc2eaf0370ae7831b537abc8c69db5d49b67311e790f15a2b3",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-01/headless/f10/engine.txt",
+    "stored_path": "gates-01/headless/f10/engine.txt.gz",
+    "raw_SHA256": "9dca11c23ae6d5365d202faccf278e8e389331ec00b3f45042de22a06dca7da7",
+    "stored_SHA256": "748d50c6f3524d19ccbad6bdc4b9a168c5749f43dd41427710d2ea69195fb3e5",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-01/headless/normal/engine.txt",
+    "stored_path": "gates-01/headless/normal/engine.txt.gz",
+    "raw_SHA256": "6868c73108e01789f766e6b18c8ab6045f7331b8cffaa457c1ff7e98ea302cac",
+    "stored_SHA256": "e6b0dd6d3094c006f8d1540fb3d82889dfdd7cd628f39f53d73e0ccd8e9dd1ae",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-01/wiki.txt",
+    "stored_path": "gates-01/wiki.txt.gz",
+    "raw_SHA256": "38b8c0784a6073894125e8adfc4c47fedc7def5ccdb166762d1dece052c6bbac",
+    "stored_SHA256": "132ed76dceb1828f64db140c796f1c18db30780cf5168dbb6cae530946bcb286",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "wiki-recheck/wiki.txt",
+    "stored_path": "wiki-recheck/wiki.txt.gz",
+    "raw_SHA256": "8e4549aea9404b604edab4febd362e0b2bd48838a4d2b6f3311319feac5c38da",
+    "stored_SHA256": "b891355e9439c4a1ff122af0017a418d4059149a2dd8911d6d4bdfe526e24430",
+    "raw_bytes_changed": false
+  }
+]

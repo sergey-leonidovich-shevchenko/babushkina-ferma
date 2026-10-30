@@ -1,0 +1,13 @@
+{
+  "id": "PRR_kwDOTqkhCs8AAAABVDoHVA",
+  "state": "COMMENTED",
+  "body": "APPROVED — вся REFACTOR-03, exact head 7976630ce372d3e7ac0c15b154ca7377d398450c, base main d609ab4fa6d82d6d013265183f018b8836abf7cc.\n\nSOURCE PASS review5707958748 подтверждён финальным CI8/8 нового SHA. P2 review5707484667/5707589808 закрыт; других обязательных или неблокирующих замечаний нет. Собственная matrix12:4 корректных accepted/8 invalid rejected. Тот же test SHA707e481b…: actual parent20/32 failed subtests/4 errors; current20/0 на Python3.11 и3.9, прежние18 controls и historical stdout byte-equal. Все10 old test methods/assertions сохранены; reader вне launch и все прочие tools прежние.\n\nПо полному независимому review5707589808 и сохранности нового head приняты original779, map491, root11≤30 с объяснением всех11 исключений,37 логических полей21 модуля,304 canonical UID, сохранность runtime/art/.res/старых доказательств. Все22162 parent report blobs прежние,8 source SHA/55 report digests проверены, полный diff --check чист. Другие6 карточек и чужой план07 не включены. Полный scope03 завершён, это не одобрение только промежуточного пакета.\n\nНезависимо прочитаны все8 финальных raw jobs:\n- pull_request run41000256126: test123882755333 (raw535649), macOS123882755328, Linux123882755103, Wiki123882755251.\n- push run41000246600: test123882724916 (raw534523), macOS123882724970, Linux123882725194, Wiki123882724972.\nКаждый test: architecture107 suites/1414 cases; Game53520/0, normal/F10 redraw90/0×2, smoke180; шесть performance sessions с valid/budget_passed/status passed,10000000us/10samples и уникальными folder/profile. Каждый platform:25+14 cases, export411/failures[], artifact; Linux UI after_issues/errors пусты. Wiki145/0×2. CI380 не использовался для одобрения381.\n\nБлокирующих замечаний нет. Можно обычный merge после фактического решения Team Lead и свежих head/base/CI guards; без force/squash/rebase опубликованной истории. Учёт done/Task-Complete выполняется после принятого merge по принятому процессу; очередь03→07→06→первая overworld доVMAP-003 сохраняется. Игру на ПК не запускал. Полные независимые доказательства /private/tmp/pr21-7976-review, CI.json.",
+  "submitted_at": "2026-10-30T04:23:50Z",
+  "author": {
+    "login": "sergey-leonidovich-shevchenko",
+    "name": "sergey-leonidovich-shevchenko",
+    "email": null,
+    "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+    "id": null
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "task": "REFACTOR-03",
+  "task_status": "done",
+  "implementation_PR": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21",
+  "accepted_head": "7976630ce372d3e7ac0c15b154ca7377d398450c",
+  "accepted_base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "merged_commit": "dd506fdd2cb98f1364c0e367c9f73c670064a6d0",
+  "merged_tree": "c234c4974347d9ca34872eed76ee06d1939e07c6",
+  "merged_at": "2026-10-30T04:25:11Z",
+  "git_committer_date": "2026-10-30T09:25:10+05:00",
+  "canonical_card_date": "2026-10-30",
+  "date_source": "Calendar part of the accepted implementation merge Git %cI",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5708056404",
+  "review_graphql_id": "PRR_kwDOTqkhCs8AAAABVDoHVA",
+  "review_submitted_at": "2026-10-30T04:23:50Z",
+  "reviewer_verdict": "APPROVED whole REFACTOR-03; independent reviewer shared-account COMMENT",
+  "team_decision": "Team Lead explicitly accepted exact source head and CI8/8; delegated actual merge to Tech Lead, then canonical closeout to Developer through a separate reviewed PR",
+  "accepted_CI": {
+    "head": "7976630ce372d3e7ac0c15b154ca7377d398450c",
+    "success": 8,
+    "total": 8,
+    "runs": [
+      41000256126,
+      41000246600
+    ],
+    "test_jobs": [
+      123882755333,
+      123882724916
+    ],
+    "architecture_each": [
+      107,
+      1414
+    ],
+    "Game_each": [
+      53520,
+      0
+    ],
+    "normal_F10_each": [
+      90,
+      0
+    ],
+    "smoke_frames_each": 180,
+    "headless_CPU_series_each": 6,
+    "Wiki_each": [
+      145,
+      0
+    ],
+    "source": "Accepted implementation CI and independent final review5708056404; not fresh closeout results"
+  },
+  "accepted_local": {
+    "version": "0.0.381",
+    "architecture": [
+      107,
+      1414
+    ],
+    "Game": [
+      53502,
+      0
+    ],
+    "normal_F10_each": [
+      90,
+      0
+    ],
+    "Wiki": [
+      145,
+      0
+    ],
+    "source": "Immutable launch-boundary-review/gates-01; not fresh closeout results"
+  },
+  "accepted_scope": {
+    "original_assignments": 779,
+    "generic_map": 491,
+    "root_sources": 11,
+    "root_budget": 30,
+    "canonical_UID_preserved": 304,
+    "contract_fields": 37,
+    "contract_modules": 21,
+    "exceptions": [
+      "PIL importer in assets/authoring",
+      "performance_protocol facade"
+    ],
+    "new_native_FPS_accepted": false,
+    "VMAP_003_accepted": false
+  },
+  "closeout_branch": "codex/refactor-03-completion-record",
+  "closeout_base": "dd506fdd2cb98f1364c0e367c9f73c670064a6d0",
+  "closeout_version": "0.0.382",
+  "closeout_acceptance": "Own checks, exact-head independent review/CI and Team Lead decision required before this accounting PR is merged",
+  "changed_task_statuses": {
+    "REFACTOR-03": [
+      "in_progress",
+      "done"
+    ]
+  },
+  "REFACTOR_06": "blocked; stale owner-stop condition corrected to the currently authorized07→06 order; implementation not started",
+  "next_queue": [
+    "REFACTOR-07 after accepted closeout03",
+    "REFACTOR-06",
+    "first overworld route to VMAP-003 with full dependencies"
+  ],
+  "primary_parallel07_and_local_probe": "preserved separately; neither included in this branch"
+}

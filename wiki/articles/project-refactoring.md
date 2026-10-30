@@ -1,5 +1,15 @@
 # Рефакторинг: инструменты по назначению
 
+Полная REFACTOR-03 принята через [PR №21](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21): head `7976630ce372d3e7ac0c15b154ca7377d398450c`, [независимое ревью 5708056404](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5708056404), CI 8/8 и решение Team Lead. Фактический merge `dd506fdd2cb98f1364c0e367c9f73c670064a6d0` от 30 октября 2026 имеет то же дерево, что проверенный head. Все 779 назначений учтены, в корне tools 11 исходников при лимите 30; сохранены 304 канонических UID и 37 логических полей 21 модуля.
+
+[Запись приёмки REFACTOR-03](../../docs/reports/refactor-03/closeout/completion.json). Исторические отчёты и планы сохранены. Учёт проходит отдельный PR с собственными проверками и независимой приёмкой.
+
+Текущий порядок после принятия учёта03: **REFACTOR-07 → REFACTOR-06 → первая overworld до VMAP-003** по актуальным карточкам и полным зависимостям. Одновременно одна задача; решения, ревью и обычные approved merge выполняются агентами без дополнительных вопросов владельцу.
+
+## История промежуточных пакетов
+
+Следующие записи сохраняют состояния прежних кандидатов. Указания in_progress, draft, старые количества и ожидание приёмки в них относятся к своей версии; актуальный итог приведён выше.
+
 P2 REFACTOR-03, кандидат0.0.381: `qa.foliage.test_relocation_provenance` проверяет20 случаев, включая10 новых тестов/54 подслучая границы engine/user argv. Parent2c856d7d дал32 failed subtests/4 errors, текущий reader20/0 на том же test SHA. Поиск script завершается на первом --/++; open --args и прямой Godot разделены, дубли/конфликтующие формы отклоняются, payload-флаги не влияют на engine. Все10 прежних test-методов и остальные функции reader сохранены;18 старых Grass controls и исторический stdout проходят без изменений. Parent380 не принят из-за P2;03 остаётся in_progress/PR21draft до новых полных TESTING, exact-head review/CI и решения Team Lead. Frozen evidence и runtime не переписаны.
 
 [Проверка границы аргументов381](../../docs/reports/refactor-03/launch-boundary-review/result.json).

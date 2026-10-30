@@ -1,5 +1,15 @@
 # REFACTOR — Понятная структура инструментов и модулей проекта
 
+Полная REFACTOR-03 принята через [PR №21](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21): head `7976630ce372d3e7ac0c15b154ca7377d398450c`, [независимое ревью 5708056404](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5708056404), CI 8/8 и решение Team Lead. Фактический merge `dd506fdd2cb98f1364c0e367c9f73c670064a6d0` от 30 октября 2026 имеет то же дерево, что проверенный head. Все 779 назначений учтены, в корне tools 11 исходников при лимите 30; сохранены 304 канонических UID и 37 логических полей 21 модуля.
+
+[Запись приёмки REFACTOR-03](../../reports/refactor-03/closeout/completion.json). Исторические отчёты и планы сохранены. Учёт проходит отдельный PR с собственными проверками и независимой приёмкой.
+
+Текущий порядок после принятия учёта03: **REFACTOR-07 → REFACTOR-06 → первая overworld до VMAP-003** по актуальным карточкам и полным зависимостям. Одновременно одна задача; решения, ревью и обычные approved merge выполняются агентами без дополнительных вопросов владельцу.
+
+## История промежуточных пакетов
+
+Следующие записи сохраняют состояния прежних кандидатов. Указания in_progress, draft, старые количества и ожидание приёмки в них относятся к своей версии; актуальный итог приведён выше.
+
 Подготовка0.0.376 world-inputs отделяет37 current-input sites от14 Git-history sites в25 исходниках. Новый helper совмещает прежние art/current maps и141 известных исторических World alias из исходного принятого плана; это не объявляет физический перенос. Уникальный old/new alias выбирается только из того же полного Git commit, с проверкой своего checkout, типа/mode и symlink; нет live fallback. Source lists, архивные имена, численные пороги и прежние metadata сохранены. Audit evidence-каталоги сохраняют отдельное разрешение tree и точные git-show header bytes. Исправлены FOLDER водного анализатора и P3 повторного импорта из review5693715399. 12 integration-тестов читают настоящие Git/capsule bytes в будущем canonical дереве: до1fail/10errors и1 позитивный контроль, после12/0 тем же source; 16 API-контролей проверяют настоящий Git/alias/mode/worktree/replace/foreign context. 13 actual producer используют настоящие Git/SHA/copy и явно fake-open17; process inventory/context являются source-only фикстурами, native кадров и новой Game/GPU/FPS приёмки нет. Прежние19 context cases и15 old negative suites сохраняются. 36 before/after CLI плюс настоящий Water writer в собственной копии четырёх raw сравниваются отдельно; frozen WATER не перезаписывается. Физических/UID переносов нет, root245, current map133; shared sources пока прежние. 375 exact e205c007 принят SOURCE PASS5693715399/Team и CI8/8;376 требует собственных полных TESTING/Wiki/browser/CI/review. 03 остаётся in_progress/PR21draft, полного merge/Task-Complete нет.
 
 Кандидат0.0.363: art-standard23 source/3 tracked UID/4 ignored UID в `tools/qa/art`, root481. [Точный пакет](../../reports/refactor-03/art-standard-move/README.md) сохраняет логические ключи proof и обновляет живые collectors/consumers. Общая03 ещё в работе.

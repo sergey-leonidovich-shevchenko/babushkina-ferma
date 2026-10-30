@@ -1,0 +1,14 @@
+{
+  "version": "0.0.382",
+  "command": [
+    "pnpm",
+    "--dir",
+    "wiki",
+    "check"
+  ],
+  "started_at": "2026-10-30T03:30:30.720362+00:00",
+  "metadata_SHA256": "d5bc2ce8cfe5e16092694e24be44d4258ebb2bc58fcb18a890c723bbfc828bd1",
+  "scope": "Final epic-goal editorial metadata; all code and initial nine frozen documents unchanged",
+  "exit": 0,
+  "finished_at": "2026-10-30T03:31:29.038023+00:00"
+}

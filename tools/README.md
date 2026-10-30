@@ -1,5 +1,15 @@
 # Инструменты проекта
 
+Полная REFACTOR-03 принята через [PR №21](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21): head `7976630ce372d3e7ac0c15b154ca7377d398450c`, [независимое ревью 5708056404](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5708056404), CI 8/8 и решение Team Lead. Фактический merge `dd506fdd2cb98f1364c0e367c9f73c670064a6d0` от 30 октября 2026 имеет то же дерево, что проверенный head. Все 779 назначений учтены, в корне tools 11 исходников при лимите 30; сохранены 304 канонических UID и 37 логических полей 21 модуля.
+
+[Запись приёмки REFACTOR-03](../docs/reports/refactor-03/closeout/completion.json). Исторические отчёты и планы сохранены. Учёт проходит отдельный PR с собственными проверками и независимой приёмкой.
+
+Текущий порядок после принятия учёта03: **REFACTOR-07 → REFACTOR-06 → первая overworld до VMAP-003** по актуальным карточкам и полным зависимостям. Одновременно одна задача; решения, ревью и обычные approved merge выполняются агентами без дополнительных вопросов владельцу.
+
+## История промежуточных пакетов
+
+Следующие записи сохраняют состояния прежних кандидатов. Указания in_progress, draft, старые количества и ожидание приёмки в них относятся к своей версии; актуальный итог приведён выше.
+
 Финальный перенос REFACTOR-03, кандидат0.0.380: 77 исходников (включая шесть nested grass_compare) и34 tracked UID распределены по qa/foliage, qa/world и qa/camera; четыре ignored UID сохраняются локально. Корень tools82→11 при лимите30. Все779 назначений исходного плана сверены отдельно от generic map491; два прежних исключения — PIL importer в authoring и protocol facade — сохранены. Все304 UID bytes/mode и37 полей21 source-contract модуля прежние. До/после:22 actual CLI,243 прежних теста и114 Godot compile-only; 11 исторических stdout побайтно равны. Новые11 context,10 provenance и10 actual-producer случаев проверяют свои Git/cwd/index/config, canonical input/copy/hash и точный launch URI; fake-open17 не рисует кадры и не даёт native/FPS-приёмки. Старые отчёты не переписаны. Родитель379 принят review5706289303, CI8/8 и Team Lead. Полная03 остаётся in_progress в PR21 до обязательных gates, независимого ревью текущего head, CI и решения Team Lead; merge/Task-Complete пока нет.
 
 [Полная карта и проверки380](../docs/reports/refactor-03/foliage-shared/README.md).
