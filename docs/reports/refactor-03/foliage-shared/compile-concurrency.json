@@ -1,0 +1,19 @@
+{
+  "own_serial_driver": 30848,
+  "owned_children": [
+    31790
+  ],
+  "completed_CLI": 22,
+  "completed_GD": 21,
+  "remaining_GD_rechecked": 93,
+  "reason": "independent compile-only checks use at most3 processes; no timing/FPS comparison",
+  "partial_logs": [
+    {
+      "stored": "serial-interrupted-31790.engine.gz",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "not_accepted_as_complete": true
+    }
+  ],
+  "no_other_process_stopped": true,
+  "planned_parallelism": 3
+}

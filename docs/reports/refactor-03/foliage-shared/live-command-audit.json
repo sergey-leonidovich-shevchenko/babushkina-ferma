@@ -1,0 +1,151 @@
+{
+  "old_live_addresses": [],
+  "current_targets": [
+    {
+      "document": "TESTING.md",
+      "line": 37,
+      "target": "tools/qa/foliage/foliage_pause_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 37,
+      "target": "tools/qa/foliage/foliage_pause_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 37,
+      "target": "tools/qa/foliage/test_foliage_pause.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 81,
+      "target": "tools/qa/foliage/foliage_visibility_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 81,
+      "target": "tools/qa/foliage/foliage_visibility_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 81,
+      "target": "tools/qa/foliage/test_foliage_visibility.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 101,
+      "target": "tools/qa/foliage/foliage_recovery_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 101,
+      "target": "tools/qa/foliage/foliage_recovery_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 101,
+      "target": "tools/qa/foliage/test_foliage_recovery.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 103,
+      "target": "tools/qa/foliage/foliage_speed_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 103,
+      "target": "tools/qa/foliage/foliage_speed_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 103,
+      "target": "tools/qa/foliage/test_foliage_speed.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 105,
+      "target": "tools/qa/foliage/foliage_contact_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 105,
+      "target": "tools/qa/foliage/foliage_contact_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 107,
+      "target": "tools/qa/foliage/foliage_wind_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 107,
+      "target": "tools/qa/foliage/foliage_wind_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 111,
+      "target": "tools/qa/foliage/foliage_uv_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 111,
+      "target": "tools/qa/foliage/foliage_uv_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 111,
+      "target": "tools/qa/foliage/test_foliage_uv.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 113,
+      "target": "tools/qa/foliage/foliage_root_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 113,
+      "target": "tools/qa/foliage/foliage_root_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 113,
+      "target": "tools/qa/foliage/test_foliage_root.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 117,
+      "target": "tools/qa/foliage/plant_depth_review.gd"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 117,
+      "target": "tools/qa/foliage/plant_depth_verify.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 117,
+      "target": "tools/qa/foliage/test_plant_depth.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 157,
+      "target": "tools/qa/foliage/test_grass_methods.py"
+    },
+    {
+      "document": "TESTING.md",
+      "line": 163,
+      "target": "tools/qa/world/test_shore_kit.py"
+    },
+    {
+      "document": "QA_CHECKLIST.md",
+      "line": 1872,
+      "target": "tools/qa/foliage/foliage_visibility_verify.py"
+    },
+    {
+      "document": "QA_CHECKLIST.md",
+      "line": 1872,
+      "target": "tools/qa/foliage/test_foliage_visibility.py"
+    }
+  ],
+  "frozen_reports_and_historical_map_excluded": true
+}

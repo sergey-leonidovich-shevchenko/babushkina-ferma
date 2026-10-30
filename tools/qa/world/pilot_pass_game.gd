@@ -1,4 +1,4 @@
-extends "res://tools/render_order_game.gd"
+extends "res://tools/qa/world/render_order_game.gd"
 var pass_records:=[]
 
 ## Снимает фактический маршрут выбранного прохода вокруг обычного production draw, не меняя код рисования.

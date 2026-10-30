@@ -1,0 +1,20 @@
+{
+  "task": "REFACTOR-03",
+  "next_candidate": "0.0.380",
+  "base": "108ad126d00eb141658928aa3d68588c5af34db7",
+  "P3_review": 5706289303,
+  "P3_comment": 4418934834,
+  "files": {
+    "TESTING.md": {
+      "before_SHA256": "4bc02596a83e1d00269bca7982890c7d711dcc2132403384bdb9b4ccaf7c887e",
+      "after_SHA256": "8082ba3342a0bcc870c8cf6fb6f532a1e039b5b55f8c825246497c8e3b1d1f08"
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "before_SHA256": "52bb6bc9a5829332cf0322c5c6509d5355322f0a00e9e356c2b6460a41aebf9f",
+      "after_SHA256": "fca57ae07e1d1129147755ce45f4bcda14cfe69faa5fc963c446e159e8075a00"
+    }
+  },
+  "frozen_reports_changed": false,
+  "standalone_unit_test": false,
+  "reason": "Team Lead requested35 Python/15tests in live documentation; retain frozen reports"
+}

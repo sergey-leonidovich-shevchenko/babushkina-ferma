@@ -1,6 +1,6 @@
 extends RefCounted
 const Trade:=preload("res://scripts/presentation/village_trade_visual.gd")
-const Points:=preload("res://tools/visual_camera_points.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
 const Rules:=preload("res://tools/qa/ground/ground_seasons_fixture.gd")
 const Map:=preload("res://scripts/systems/village_map_data.gd")
 

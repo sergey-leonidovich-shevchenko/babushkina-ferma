@@ -1,0 +1,20 @@
+{
+  "exit": 0,
+  "headless_editor_import": true,
+  "native_frames": 0,
+  "logs": [
+    {
+      "log": "fresh-editor.stdout.gz",
+      "raw_SHA256": "2cc17802610e9bbba97862adea05a0044e22bd3a63091a353bea932c4744bff3",
+      "stored_SHA256": "610ce54070b6af6ba17e9c9f3386292e90d871a3226b2068f156e85b7376aa36"
+    },
+    {
+      "log": "fresh-editor.engine.gz",
+      "raw_SHA256": "71cc77fadebadfcaadc1f0c0c4ea92c537750c801a4837e19e444fac1f903168",
+      "stored_SHA256": "25316af4a3fe532c2dfd00fd1bb071220cd22ab5d4e0fae16dc8dc81fa499a80"
+    }
+  ],
+  "incremental_cache_after_move": true,
+  "QA_cache_only": true,
+  "primary_cache_untouched": true
+}

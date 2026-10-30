@@ -1,6 +1,6 @@
 extends SceneTree
 
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Observer := preload("res://tools/assets/contracts/ui_portability_observer.gd")
 const Reference := preload("res://scripts/presentation/visual_reference_mode.gd")
 const BASELINE := "res://tests/fixtures/ui_portability/baseline.json"

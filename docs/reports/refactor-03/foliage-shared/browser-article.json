@@ -1,0 +1,21 @@
+{
+  "candidate380": true,
+  "dimensions": {
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  "links": [
+    {
+      "download": "full-plan-coverage.json",
+      "href": "http://127.0.0.1:4193/generated/attachments/ba2ee1f25d8595a5cb76d12cfd1ec5bd01025b8280783a383368894679c285ae.json",
+      "text": "Полная карта779"
+    },
+    {
+      "download": "after-profile.json",
+      "href": "http://127.0.0.1:4193/generated/attachments/867322c31693f08c9dd79d77cff80537472cbd975a69887ffe2f4af20ab176bd.json",
+      "text": "Профиль380"
+    }
+  ],
+  "root11": true,
+  "version": true
+}

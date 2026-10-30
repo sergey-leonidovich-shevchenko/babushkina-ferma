@@ -1,0 +1,1246 @@
+{
+  "mechanical_modules": [
+    {
+      "path": "tools/build/test_asset_pack_proof.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 1,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 14,
+      "old_test_methods": [
+        "test_complete_packet",
+        "test_pack_payload_removed_after_rehash",
+        "test_source_fallback_is_not_pack_success",
+        "test_missing_native_texture_after_rehash",
+        "test_binary_size_is_not_trusted",
+        "test_negative_loader_cannot_succeed",
+        "test_game_camera_and_state_are_compared",
+        "test_changed_native_game_pixel_after_rehash",
+        "test_historical_camera_does_not_lock_current_instrument",
+        "test_historical_camera_hash_cannot_be_resigned",
+        "test_missing_history_is_not_current_source_fallback"
+      ]
+    },
+    {
+      "path": "tools/qa/foliage/foliage_contact_collect.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 3,
+      "history": 1,
+      "Git_env": 0,
+      "native": 1,
+      "roots": 0,
+      "functions": 2,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_contact_verify.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 2,
+      "native": 0,
+      "roots": 0,
+      "functions": 6,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_pause_collect.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 1,
+      "history": 0,
+      "Git_env": 1,
+      "native": 1,
+      "roots": 0,
+      "functions": 4,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_pause_verify.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 1,
+      "native": 0,
+      "roots": 1,
+      "functions": 11,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_recovery_collect.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 3,
+      "history": 1,
+      "Git_env": 0,
+      "native": 1,
+      "roots": 0,
+      "functions": 4,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_recovery_verify.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 2,
+      "native": 0,
+      "roots": 0,
+      "functions": 14,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_root_collect.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 3,
+      "history": 1,
+      "Git_env": 0,
+      "native": 1,
+      "roots": 0,
+      "functions": 2,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_root_verify.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 1,
+      "Git_env": 2,
+      "native": 0,
+      "roots": 0,
+      "functions": 9,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_speed_collect.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 3,
+      "history": 1,
+      "Git_env": 0,
+      "native": 1,
+      "roots": 0,
+      "functions": 2,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_speed_verify.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 2,
+      "native": 0,
+      "roots": 0,
+      "functions": 8,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_uv_collect.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 3,
+      "history": 1,
+      "Git_env": 0,
+      "native": 1,
+      "roots": 0,
+      "functions": 2,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_uv_verify.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 1,
+      "Git_env": 2,
+      "native": 0,
+      "roots": 0,
+      "functions": 8,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_visibility_collect.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 1,
+      "history": 0,
+      "Git_env": 1,
+      "native": 1,
+      "roots": 0,
+      "functions": 4,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_visibility_coverage.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 3,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_visibility_evidence.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 1,
+      "functions": 8,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_visibility_pack.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 1,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_visibility_provenance.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 4,
+      "native": 0,
+      "roots": 0,
+      "functions": 5,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_visibility_test_fixture.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 1,
+      "native": 0,
+      "roots": 0,
+      "functions": 1,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_visibility_verify.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 2,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_visibility_window.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 6,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_wind_collect.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 3,
+      "history": 1,
+      "Git_env": 0,
+      "native": 1,
+      "roots": 0,
+      "functions": 2,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/foliage_wind_verify.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 1,
+      "Git_env": 2,
+      "native": 0,
+      "roots": 1,
+      "functions": 9,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/grass_compare_collect.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 1,
+      "roots": 0,
+      "functions": 2,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/grass_methods.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 15,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/plant_depth_collect.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 1,
+      "history": 0,
+      "Git_env": 0,
+      "native": 1,
+      "roots": 0,
+      "functions": 1,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/plant_depth_verify.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 1,
+      "functions": 10,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/camera/camera_quantization.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 1,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 9,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/camera/presentation_pose.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 1,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 7,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/camera/reference_zoom.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 1,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 6,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/camera/visual_coordinates.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 1,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 7,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/camera/visual_motion.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 1,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 11,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/ground/ground_layers.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 11,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 17,
+      "old_test_methods": [
+        "test_grass_real_collect_and_reader_keep_logical_archive_namespace",
+        "test_ground_real_collect_and_reader_use_canonical_git_base_helper",
+        "test_ground_archives_real_sources_before_first_native_launch",
+        "test_grass_empty_schedule_archives_sources_without_native_admission",
+        "test_missing_canonical_helper_never_falls_back_to_stale_old_file",
+        "test_ground_historical_lookup_uses_exact_old_and_new_git_bytes",
+        "test_ambiguous_helper_git_aliases_are_rejected",
+        "test_resigned_helper_archive_cannot_override_git_base",
+        "test_existing_output_and_original_signed_packets_remain_protected"
+      ]
+    },
+    {
+      "path": "tools/qa/world/post_motion_collect.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 1,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 1,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/world/test_world_producers.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 20,
+      "old_test_methods": [
+        "test_object_real_inputs_and_failed_fake_child",
+        "test_pilot_pass_real_inputs_and_failed_fake_child",
+        "test_static_real_inputs_and_failed_fake_child",
+        "test_post_motion_real_inputs_and_failed_fake_child",
+        "test_shadow_real_inputs_and_failed_fake_child",
+        "test_transient_real_inputs_and_failed_fake_child",
+        "test_bench_real_inputs_and_failed_fake_child",
+        "test_board_real_inputs_and_failed_fake_child",
+        "test_fence_real_inputs_and_failed_fake_child",
+        "test_lamp_real_inputs_and_failed_fake_child",
+        "test_street_real_inputs_and_failed_fake_child",
+        "test_trade_real_inputs_and_failed_fake_child",
+        "test_render_order_real_inputs_and_failed_fake_child",
+        "test_plant_depth_real_inputs_and_failed_fake_child"
+      ]
+    },
+    {
+      "path": "tools/qa/world/test_world_source_history.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 16,
+      "old_test_methods": [
+        "test_bench_reads_new_git_alias_with_old_archive_keys",
+        "test_board_reads_new_git_alias_with_old_archive_keys",
+        "test_fence_reads_new_git_alias_with_old_archive_keys",
+        "test_lamp_reads_new_git_alias_with_old_archive_keys",
+        "test_street_reads_new_git_alias_with_old_archive_keys",
+        "test_trade_reads_new_git_alias_with_old_archive_keys",
+        "test_object_reads_new_git_alias_with_old_archive_keys",
+        "test_pilot_pass_reads_new_git_alias_with_old_archive_keys",
+        "test_static_reads_new_git_alias_with_old_archive_keys",
+        "test_post_motion_reads_new_git_alias_with_old_archive_keys",
+        "test_render_order_passes_source_checks_before_refusing_missing_frames",
+        "test_water_folder_follows_nested_source_project",
+        "test_plant_depth_reads_new_git_alias_with_old_archive_keys"
+      ]
+    },
+    {
+      "path": "tools/qa/world/shore_kit.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 1,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 8,
+      "old_test_methods": []
+    },
+    {
+      "path": "tools/qa/foliage/test_foliage_contact.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 22,
+      "old_test_methods": [
+        "test_accepted",
+        "test_headless",
+        "test_false_hardware",
+        "test_false_fps",
+        "test_incomplete",
+        "test_hidden",
+        "test_wrong_root",
+        "test_wrong_gpu_index",
+        "test_wrong_shader",
+        "test_wrong_save",
+        "test_missing_draw",
+        "test_reallocation",
+        "test_nonfinite",
+        "test_pointing_toward_hero",
+        "test_pause_clock",
+        "test_physical_instead_of_presented",
+        "test_fake_transfer",
+        "test_actual_no_effect_shader",
+        "test_actual_moving_root",
+        "test_wrong_gpu_pixel"
+      ]
+    },
+    {
+      "path": "tools/qa/foliage/test_foliage_pause.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 21,
+      "old_test_methods": [
+        "test_actual_first_series_is_rejected_without_focus",
+        "test_actual_second_attempt_is_incomplete_and_rejected",
+        "test_synthetic_metadata_covers_all_original_pause_states",
+        "test_missing_or_reordered_stage_is_rejected",
+        "test_corrupted_snapshot_bytes_are_rejected",
+        "test_resigned_clock_debt_is_still_rejected",
+        "test_missing_paused_sample_is_rejected",
+        "test_render_mutation_is_rejected",
+        "test_present_and_draw_are_both_required",
+        "test_fullscreen_size_is_rejected",
+        "test_false_hardware_or_fps_admission_is_rejected",
+        "test_changed_target_pixel_is_rejected_independently_of_file_sha",
+        "test_original_capsules_remain_exact",
+        "test_actual_unlocked_campaign_passes",
+        "test_old_incomplete_campaign_still_fails_public_verifier",
+        "test_new_artifact_sha_corruption_is_rejected",
+        "test_new_impossible_timestamps_are_rejected",
+        "test_startup_geometry_cannot_be_missing_or_fullscreen"
+      ]
+    },
+    {
+      "path": "tools/qa/foliage/test_foliage_recovery.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 36,
+      "old_test_methods": [
+        "test_accepted",
+        "test_historical_protocol",
+        "test_stale_zero_memory",
+        "test_stuck_after_zero",
+        "test_unannounced_seed",
+        "test_missing_reversal_seed",
+        "test_zero_still_active",
+        "test_headless",
+        "test_false_fps",
+        "test_false_hardware",
+        "test_missing_case",
+        "test_hidden_window",
+        "test_camera",
+        "test_background",
+        "test_root",
+        "test_missing_intermediate_tick",
+        "test_false_target",
+        "test_overshoot",
+        "test_wrong_tau",
+        "test_growing_entries",
+        "test_missing_removal",
+        "test_gpu_slot",
+        "test_shader",
+        "test_missing_gpu_recovery",
+        "test_changed_save",
+        "test_missing_callback",
+        "test_resource_growth",
+        "test_pause_clock",
+        "test_false_transfer",
+        "test_wrong_gpu_pixel",
+        "test_moving_root",
+        "test_no_gpu_effect"
+      ]
+    },
+    {
+      "path": "tools/qa/foliage/test_foliage_root.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 27,
+      "old_test_methods": [
+        "test_actual_complete_evidence",
+        "test_missing_row",
+        "test_duplicate_row",
+        "test_wrong_physical_window",
+        "test_hidden_window",
+        "test_focus_is_recorded_not_fabricated",
+        "test_static_protocol_cannot_accept_hardware_input",
+        "test_changed_gameplay",
+        "test_duplicate_draw_callback",
+        "test_missing_board_callback",
+        "test_root_query_changed_state",
+        "test_root_projection_is_actual",
+        "test_root_coverage_cannot_repeat_one_kind",
+        "test_approach_must_move",
+        "test_pause_must_hold_position",
+        "test_same_camera_pair",
+        "test_transparent_padding_cannot_bend",
+        "test_root_cannot_bend",
+        "test_rigid_decor_cannot_bend",
+        "test_every_profile_is_required",
+        "test_exact_pixels_cannot_change",
+        "test_archived_source_is_immutable"
+      ]
+    },
+    {
+      "path": "tools/qa/foliage/test_foliage_speed.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 32,
+      "old_test_methods": [
+        "test_accepted",
+        "test_headless",
+        "test_false_fps",
+        "test_false_hardware",
+        "test_missing_case",
+        "test_hidden",
+        "test_camera",
+        "test_background_camera",
+        "test_root",
+        "test_requested_velocity",
+        "test_zero_delta",
+        "test_wrong_origin",
+        "test_mutable_record",
+        "test_hitstop_outer_delta",
+        "test_wrong_gpu_slot",
+        "test_wrong_shader",
+        "test_stale_gpu_buffer",
+        "test_nonfinite",
+        "test_changed_save",
+        "test_missing_callback",
+        "test_growing_geometry",
+        "test_fake_wall",
+        "test_retained_stop_boost",
+        "test_pause_clock",
+        "test_wrong_interpolation",
+        "test_fake_transfer",
+        "test_actual_no_effect",
+        "test_actual_moving_root",
+        "test_wrong_gpu_pixel"
+      ]
+    },
+    {
+      "path": "tools/qa/foliage/test_foliage_uv.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 24,
+      "old_test_methods": [
+        "test_actual_gpu_evidence",
+        "test_missing_case",
+        "test_duplicate_case",
+        "test_wrong_projection",
+        "test_wrong_physical_window",
+        "test_hidden_window",
+        "test_hardware_or_performance_claim",
+        "test_wrong_source_rectangle",
+        "test_sampler_must_exist_on_gpu",
+        "test_own_shader_is_observed",
+        "test_duplicate_quad_draw",
+        "test_ownership_must_return_to_zero",
+        "test_full_gameplay_witness",
+        "test_draw_cannot_change_saved_state",
+        "test_independent_reflection_is_geometric",
+        "test_reflection_cannot_invert_vertical_mesh",
+        "test_root_lock_cannot_change",
+        "test_unfocused_static_data_are_not_hardware_acceptance",
+        "test_corrupt_gpu_pixel_is_detected",
+        "test_negative_control_must_actually_fail",
+        "test_archived_runtime_source_is_immutable"
+      ]
+    },
+    {
+      "path": "tools/qa/foliage/test_foliage_visibility.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 4,
+      "native": 0,
+      "roots": 0,
+      "functions": 44,
+      "old_test_methods": [
+        "test_golden_real_archive",
+        "test_incomplete",
+        "test_missing_window",
+        "test_headless",
+        "test_engine_error_even_exit_zero",
+        "test_wrong_native_size",
+        "test_lost_focus",
+        "test_missing_present",
+        "test_stale_marker_metadata",
+        "test_lost_frame",
+        "test_mutated_save_in_draw",
+        "test_changed_culling_pixel_with_valid_sha",
+        "test_changed_pair_uniform",
+        "test_fake_camera_endpoint",
+        "test_fake_hero_endpoint",
+        "test_unbounded_draw_calls",
+        "test_inactive_target_still_scheduled",
+        "test_clipped_multimesh_bounds",
+        "test_forged_coverage_sum",
+        "test_missing_native_bounds",
+        "test_real_coverage_overlap",
+        "test_lossy_or_corrupt_archive",
+        "test_missing_png_without_archive",
+        "test_corrupt_viewing_movie",
+        "test_historical_plan_cannot_be_resigned",
+        "test_historical_capsule_cannot_be_resigned",
+        "test_historical_base_cannot_be_changed",
+        "test_bad_metadata_fails_before_decode",
+        "test_captured_candidate_passes_strict_guard",
+        "test_version_only_evidence_is_still_valid",
+        "test_future_production_evidence_is_still_valid",
+        "test_new_production_file_is_rejected_by_guard",
+        "test_git_index_does_not_hide_untracked_production",
+        "test_inherited_hook_environment_preserves_parent_config_and_index"
+      ]
+    },
+    {
+      "path": "tools/qa/foliage/test_foliage_wind.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 21,
+      "old_test_methods": [
+        "test_accepted_native_records",
+        "test_missing_sample",
+        "test_duplicate_case",
+        "test_headless",
+        "test_hidden_window",
+        "test_false_hardware_claim",
+        "test_false_fps_claim",
+        "test_changed_save",
+        "test_removed_game_draw",
+        "test_wrong_shader",
+        "test_all_roots_same_phase",
+        "test_rebuilt_group",
+        "test_changed_material_owner",
+        "test_pause_clock_debt",
+        "test_offscreen_still_active",
+        "test_return_forgets_cancelled_frame",
+        "test_fake_approach",
+        "test_fake_teleport",
+        "test_real_root_pixel_mutation"
+      ]
+    },
+    {
+      "path": "tools/qa/foliage/test_grass_methods.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 22,
+      "old_test_methods": [
+        "test_complete_native_packets",
+        "test_wrong_host",
+        "test_focus_loss",
+        "test_mid_run_pause",
+        "test_gpu_inference",
+        "test_render_counter",
+        "test_truncated_sample",
+        "test_camera_shift",
+        "test_stopped_clock",
+        "test_hitch_retained",
+        "test_upload_in_static_gpu_method",
+        "test_hidden_state_mutation",
+        "test_wrong_uniform",
+        "test_interior_leak",
+        "test_nonfinite_csv",
+        "test_changed_image_detected",
+        "test_incomplete_collection",
+        "test_historical_overlay_is_not_current_version"
+      ]
+    },
+    {
+      "path": "tools/qa/foliage/test_plant_depth.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 26,
+      "old_test_methods": [
+        "test_actual_native_proof",
+        "test_missing_frame",
+        "test_duplicate_frame",
+        "test_wrong_window",
+        "test_missing_focus",
+        "test_hidden_window",
+        "test_snapshot_mutation",
+        "test_duplicate_production_callback",
+        "test_retained_callback",
+        "test_opaque_duplicate_key",
+        "test_wrong_ground_boundary",
+        "test_different_presentation_ground",
+        "test_unstable_equal_root_order",
+        "test_new_body_in_other_map",
+        "test_fake_sweep",
+        "test_unbounded_trace",
+        "test_incomplete_source",
+        "test_missing_source_coverage",
+        "test_changed_artifact",
+        "test_unrelated_pixel"
+      ]
+    },
+    {
+      "path": "tools/qa/world/test_shore_kit.py",
+      "AST_equal_after_closed_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "Git_env": 0,
+      "native": 0,
+      "roots": 0,
+      "functions": 13,
+      "old_test_methods": [
+        "test_complete",
+        "test_required_log_must_be_indexed",
+        "test_missing_part",
+        "test_fractional_or_outside_crop",
+        "test_rotated_lit_stone",
+        "test_replaced_export",
+        "test_widening_and_uniform_scale",
+        "test_headless_or_fps_claim",
+        "test_frozen_camera_video",
+        "test_corrupt_witness"
+      ]
+    },
+    {
+      "path": "tests/helpers/foliage_pause_scenario.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/axial_road_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/camera_quantization_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/coordinate_contract_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/decoration_rules_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/foliage_contact_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/foliage_recovery_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/foliage_root_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/foliage_speed_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/foliage_uv_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/foliage_wind_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/garden_soil_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/ground_edge_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/ground_layers_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/meadow_ground_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/pilot_object_pass_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/plant_depth_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/plaza_ground_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/post_motion_frame_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/presentation_pose_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/reference_zoom_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/road_network_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/terrain_revision_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/transient_visual_save_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/village_bench_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/village_board_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/village_fence_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/village_lamp_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/village_street_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/village_trade_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/visual_camera_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/visual_motion_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tests/suites/visual_static_suite.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/assets/contracts/item_sizes_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/assets/contracts/padded_atlas_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/assets/contracts/texture_data_room_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/assets/contracts/ui_portability_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/assets/contracts/visual_pipeline_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/assets/contracts/visual_resource_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/assets/contracts/visual_sampling_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/foliage/foliage_contact_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/foliage/foliage_pause_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/foliage/foliage_recovery_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/foliage/foliage_root_capture.gd",
+      "only_URI_changes": 3
+    },
+    {
+      "path": "tools/qa/foliage/foliage_root_observer.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/foliage/foliage_speed_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/foliage/foliage_uv_capture.gd",
+      "only_URI_changes": 4
+    },
+    {
+      "path": "tools/qa/foliage/foliage_visibility_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/foliage/foliage_wind_baseline.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/foliage/foliage_wind_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/foliage/grass_compare/capture.gd",
+      "only_URI_changes": 5
+    },
+    {
+      "path": "tools/qa/foliage/grass_compare/field.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/foliage/grass_compare/review.gd",
+      "only_URI_changes": 3
+    },
+    {
+      "path": "tools/qa/foliage/plant_depth_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/art/visual_scale_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/camera/camera_quantization_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/camera/presentation_pose_live.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/camera/visual_camera_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/camera/visual_camera_review.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/camera/visual_coordinates_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/camera/visual_motion_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/camera/visual_motion_route.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/camera/visual_static_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/ground/axial_road_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/ground/decoration_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/ground/garden_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/ground/ground_edge_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/ground/ground_layers_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/ground/ground_seasons_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/ground/ground_seasons_fixture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/ground/meadow_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/ground/plaza_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/ground/road_network_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/ground/terrain_revision_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/performance/perf_contract_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/world/object_command_canvas.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/world/object_command_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/world/pilot_pass_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/world/pilot_pass_game.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/world/pilot_static_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/world/post_motion_capture.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/world/post_motion_game.gd",
+      "only_URI_changes": 1
+    },
+    {
+      "path": "tools/qa/world/render_order_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/world/shadow_inventory_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/world/transient_save_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/world/village_bench_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/world/village_board_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/world/village_fence_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/world/village_lamp_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/world/village_street_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/world/village_trade_capture.gd",
+      "only_URI_changes": 2
+    },
+    {
+      "path": "tools/qa/world/shore_kit_capture.gd",
+      "only_URI_changes": 3
+    }
+  ],
+  "explicit_provenance": {
+    "tools/qa/foliage/grass_compare_collect.py": {
+      "reason": [
+        "fresh source.json records one complete known capture path; logical FROZEN stays exact"
+      ],
+      "before_SHA256": "020f2a98cf3ca6b15118a7349d514c2874e4a7af99f5668e0b2f7d7bff7814b3",
+      "after_SHA256": "231f127ff24106f3ca31c0bd619a423364c61fac62a9d6299a2068f2edf04334",
+      "mechanical_stage_SHA256": "fcf2b276511c064c1ba01781c42e5c44a4caa462703137e704db2c08d2cbbde9"
+    },
+    "tools/qa/foliage/grass_methods.py": {
+      "reason": [
+        "strict legacy/fresh URI selected by complete recorded path; preserve profile/error/headless criteria"
+      ],
+      "before_SHA256": "1609c1a68a6c68c79da6d86dd417a5b4a481987b0d42f52d8bd09c7489658d56",
+      "after_SHA256": "5c724d39f91ebb8233bbd6fd72941c6a26501533fdd9092fb2f0d67e2dedbb47",
+      "mechanical_stage_SHA256": "2bfce8c274444ee872f0cbdd451c4d854ff4fc9dc9c362465808ddd1d99d1603"
+    },
+    "tools/qa/world/shore_kit.py": {
+      "reason": [
+        "Shore accepts one complete legacy or canonical key scheme, rejects mixed/unknown tool aliases, checks exact current or URI-only legacy source bytes"
+      ],
+      "before_SHA256": "4cf87c73a16741a3ac726d6c94d7e15bc10b3325e0daddc030a867600cbacb67",
+      "after_SHA256": "34f4a25a85d4ba0d11f54096c4d074d2e216840351deec58e091f437725f17f4",
+      "mechanical_stage_SHA256": "e726b6ea0d6a0201e2a629b9678e84681fe4c2f3b4f514424bf5c04b846aa0f7"
+    }
+  },
+  "visibility_test_launcher_audited_separately": true,
+  "UID_preserved": 304,
+  "identity_sources": 1990,
+  "mapping_added_original_rows": 111
+}

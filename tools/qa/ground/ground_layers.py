@@ -22,8 +22,9 @@ from tools.common.git import git_environment
 from tools.qa.performance.source_history import LEGACY_HELPER, historical_helper
 from tools.assets.contracts.source_paths import current_source
 from tools.qa.performance.perf_contract_collect import ROOT,context,jobs,command,sha,write,native_pid
-from grass_methods import require,image_difference
+from tools.qa.foliage.grass_methods import require,image_difference
 from tools.qa.world.render_order import validate_draws
+from tools.qa.world.source_inputs import historical_bytes
 
 REPORT=ROOT/'docs/reports/visual-overhaul/vrender-003'
 OVERLAY=['scripts/world_background.gd','scripts/presentation/village_terrain_canvas.gd','scripts/presentation/village_ground_layer.gd',
@@ -45,6 +46,8 @@ def load(path):
 
 def base_bytes(commit,name):
     """Reads the exact historical Git source rather than the evolving current checkout."""
+    if name != LEGACY_HELPER:
+        return historical_bytes(ROOT,commit,name)
     physical = historical_helper(ROOT,commit) if name == LEGACY_HELPER else name
     return subprocess.check_output(['git','--no-replace-objects','show',commit+':'+physical],cwd=ROOT,env=git_environment())
 

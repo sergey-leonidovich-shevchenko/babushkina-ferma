@@ -1,7 +1,7 @@
 extends SceneTree
 
 const Route := preload("res://tools/qa/camera/visual_motion_route.gd")
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const SIZE := Vector2i(1152,648)
 var folder := ""
 var profile := ""

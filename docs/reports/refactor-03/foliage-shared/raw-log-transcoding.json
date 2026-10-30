@@ -1,0 +1,79 @@
+[
+  {
+    "raw_path": "gates-01/architecture.txt",
+    "stored_path": "gates-01/architecture.txt.gz",
+    "raw_SHA256": "34c513cdd9b2e2f6075f80b60e91851449752055256a37cdc47f23c114f1f6a4",
+    "stored_SHA256": "dac8d564092af15ec9c87f3f50cb384be87b706b08e9724a6ac6a646f9cb5d85",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-01/wiki.txt",
+    "stored_path": "gates-01/wiki.txt.gz",
+    "raw_SHA256": "70536b51a2c7739948b7889100c012a23f5dd1225c8e8578f6a3b02fe10e1bf4",
+    "stored_SHA256": "b2e6c1f5d93f2a9bc8320a2dff2fdd8a0df2534b063eb8eda260bddc71a66f65",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-02/architecture.txt",
+    "stored_path": "gates-02/architecture.txt.gz",
+    "raw_SHA256": "74a22e512ab6bbafd370a7cde085c5e88f4a6de9c51b0c0485fb865a3aab0e77",
+    "stored_SHA256": "8e0147aa4910cdb4956c2e73c79620534b2abecf2034995a3628f991fa4d2f1e",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-02/wiki.txt",
+    "stored_path": "gates-02/wiki.txt.gz",
+    "raw_SHA256": "5ad7abcb16c46091d6f5b3200b1530a826935d66693cd58df9ea90947ef29b3f",
+    "stored_SHA256": "f7e3b933274d8f53e3b8982fe5786a4d18a0b469cd16acc7ecb035988889294e",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-03/architecture.txt",
+    "stored_path": "gates-03/architecture.txt.gz",
+    "raw_SHA256": "5c431fb9f0af601143f81defc52f545f8fdb83e2bc2550d43d9f65e92cc75802",
+    "stored_SHA256": "960715deced18dba69aaa43aee63d33e7d10d969ae9f1c3df1e54846bbbc14d9",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-03/wiki.txt",
+    "stored_path": "gates-03/wiki.txt.gz",
+    "raw_SHA256": "c0da2899b3072363c8a813266bb449880a15c9de31bc1a79851da8bc9e5112d6",
+    "stored_SHA256": "86b0da1f91aacea69a895cf010c82ada99538d30afbf1e12dbc8d912799b8f40",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-04/architecture.txt",
+    "stored_path": "gates-04/architecture.txt.gz",
+    "raw_SHA256": "8a0067852821fb0594cb8b4f1d3ea9ff73f1fd9305257e120809e4150442dea7",
+    "stored_SHA256": "b7a14337badfdf03ed57ffef728ce88905a4470a90ca254557f442531f776fbf",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-04/wiki.txt",
+    "stored_path": "gates-04/wiki.txt.gz",
+    "raw_SHA256": "1baba37bc06763a100938e6f9ca9842634a7227a51f866d1ad1d0a1d408a7d0d",
+    "stored_SHA256": "21ea140dbea6c02c2e9720d32c7765a9b72704eda1c7fdeaf3c458e8422eac84",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-05/architecture.txt",
+    "stored_path": "gates-05/architecture.txt.gz",
+    "raw_SHA256": "6f2ff304e33bf0c858345a203950fd687012343d5dcaae359aba9ebf8265b547",
+    "stored_SHA256": "5a6affa2db7ea444f413e78122926e4713afa7667fb1e0113eb8e4342eb19a2f",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-05/game.txt",
+    "stored_path": "gates-05/game.txt.gz",
+    "raw_SHA256": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+    "stored_SHA256": "0e733c608d5f0bcc2eaf0370ae7831b537abc8c69db5d49b67311e790f15a2b3",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-05/wiki.txt",
+    "stored_path": "gates-05/wiki.txt.gz",
+    "raw_SHA256": "1704c03b34571a9570c028bbf216096c21a08eb435d4ddc9a8a1ca8fc4f2f57e",
+    "stored_SHA256": "0bb25fe5c0f69ce09aa5aacb5977dfa5f7b5531c376783cb483511d5d722e6bc",
+    "raw_bytes_changed": false
+  }
+]

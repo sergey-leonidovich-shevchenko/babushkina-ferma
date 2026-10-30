@@ -1,6 +1,6 @@
 extends SceneTree
 
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Actor := preload("res://scripts/systems/animation_renderer.gd")
 const Visual := preload("res://scripts/systems/hero_visual_system.gd")
 const Legacy := preload("res://docs/reports/visual-overhaul/vcamera-002/legacy_camera_system.gd")

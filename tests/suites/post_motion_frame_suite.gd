@@ -1,6 +1,6 @@
 extends RefCounted
 
-const Points:=preload("res://tools/visual_camera_points.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
 const Frame:=preload("res://scripts/presentation/post_motion_frame.gd")
 const Pose:=preload("res://scripts/systems/presentation_pose_system.gd")
 const Clock:=preload("res://scripts/presentation/village_ground_clock.gd")

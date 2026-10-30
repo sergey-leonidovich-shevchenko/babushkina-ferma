@@ -1,6 +1,6 @@
 extends RefCounted
 const Pass:=preload("res://scripts/presentation/pilot_object_pass.gd")
-const Points:=preload("res://tools/visual_camera_points.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
 const Rules:=preload("res://tools/qa/ground/ground_seasons_fixture.gd")
 
 ## Проверяет ограничение флага, чистую команду, атомарный отказ и отсутствие изменений механики.

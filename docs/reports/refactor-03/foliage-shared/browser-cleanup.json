@@ -1,0 +1,13 @@
+{
+  "pid": 38181,
+  "command": "node docs/reports/refactor-03/qa-server.mjs",
+  "own_tabs_closed": [
+    "25",
+    "26"
+  ],
+  "viewport_reset": true,
+  "user_server4175_untouched": true,
+  "own_server_exit": 143,
+  "browser_task_first_false_result": "whitespace in visible text; corrected regex after waiting for actual task heading",
+  "screenshots": "Tab.screenshot returns actual viewport; initial AX screenshot thumbnails replaced"
+}

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Портит только копии нативного пакета и пересчитывает хеш, проверяя содержимое доказательств."""
+from tools.qa.world.source_inputs import input_path
 import contextlib
 import json
 from pathlib import Path
@@ -89,7 +90,7 @@ class ExportProofTests(unittest.TestCase):
     def test_historical_camera_does_not_lock_current_instrument(self):
         """Новая рабочая камера не переписывает экспортный снимок прежнего commit."""
         with packet() as (root,data):
-            path=root/'tools/visual_camera_points.gd';path.write_bytes(path.read_bytes()+b'\n# later instrument\n')
+            path=input_path(root,'tools/visual_camera_points.gd');path.write_bytes(path.read_bytes()+b'\n# later instrument\n')
             registry=root/'docs/reports/visual-overhaul/vbase-003/camera-points.json';registry.write_bytes(b'{}\n')
             self.assertEqual(proof_errors(root,data),[])
 

@@ -1,7 +1,7 @@
 extends SceneTree
 
-const Points:=preload("res://tools/visual_camera_points.gd")
-const Observer:=preload("res://tools/render_order_game.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
+const Observer:=preload("res://tools/qa/world/render_order_game.gd")
 const Canvas:=preload("res://tools/qa/world/shadow_inventory_canvas.gd")
 const WorldSpace:=preload("res://scripts/systems/world_projection_system.gd")
 var output:=""

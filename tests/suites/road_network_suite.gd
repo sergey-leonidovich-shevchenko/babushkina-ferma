@@ -8,7 +8,7 @@ const Compiler := preload("res://tools/qa/ground/road_network_compile.gd")
 const Map := preload("res://scripts/systems/village_map_data.gd")
 const Regions := preload("res://scripts/systems/village_region_data.gd")
 const AxialTests := preload("res://tests/suites/axial_road_suite.gd")
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 
 ## Проверяет реальную геометрию двух владельцев общего поля, UV, непересечение и сохранность игровых правил.
 static func run(context: SceneTree) -> void:

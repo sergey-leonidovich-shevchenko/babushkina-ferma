@@ -1,5 +1,5 @@
 extends SceneTree
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Reference := preload("res://scripts/presentation/visual_reference_mode.gd")
 var game: Node
 var output:=OS.get_environment("VPIPELINE_CAPTURE")

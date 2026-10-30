@@ -1,4 +1,4 @@
-extends "res://tools/render_order_game.gd"
+extends "res://tools/qa/world/render_order_game.gd"
 
 ## Стабилизирует лишь QA-рисунок, сохраняя настоящий production draw и снимки состояния.
 func _draw()->void:

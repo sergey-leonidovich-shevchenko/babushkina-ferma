@@ -1,0 +1,43 @@
+WIND NATIVE 1152
+.GRASS NATIVE 1152
+.EPLANT DEPTH NATIVE after 1152
+.RECOVERY NATIVE 1152
+.ROOT NATIVE 1152
+.SPEED NATIVE 1152
+.UV NATIVE 1152
+.EWIND NATIVE 1152
+.
+======================================================================
+ERROR: test_pause (__main__.FoliageProducerTests.test_pause)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-producers380.py", line 105, in test_pause
+    def test_pause(self):self.producer('foliage_pause_collect')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-foliage-producers380.py", line 80, in producer
+    if plan is not None:mod.collect(output,plan_file)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/foliage/foliage_pause_collect.py", line 94, in collect
+    'engine_errors': failed, 'capture_complete': bool(capture and capture['complete']),
+                                                                  ~~~~~~~^^^^^^^^^^^^
+KeyError: 'complete'
+
+======================================================================
+ERROR: test_visibility (__main__.FoliageProducerTests.test_visibility)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-producers380.py", line 106, in test_visibility
+    def test_visibility(self):self.producer('foliage_visibility_collect')
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-foliage-producers380.py", line 80, in producer
+    if plan is not None:mod.collect(output,plan_file)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/foliage/foliage_visibility_collect.py", line 75, in collect
+    record = {'width': width, 'profile': profile, 'command': command, 'before': before, 'after': context(), 'exit': code, 'timeout': timeout, 'stdout': raw, 'engine_errors': bool(re.search(r'^ERROR:|SCRIPT ERROR:|Parse Error', clean, re.M)), 'capture_complete': bool(capture and capture['complete']), 'capture_errors': capture['errors'] if capture else ['missing capture']}
+                                                                                                                                                                                                                                                                                       ~~~~~~~^^^^^^^^^^^^
+KeyError: 'complete'
+
+----------------------------------------------------------------------
+Ran 10 tests in 49.478s
+
+FAILED (errors=2)

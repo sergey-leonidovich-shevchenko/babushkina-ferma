@@ -1,7 +1,7 @@
 extends RefCounted
 
 const Revision := preload("res://scripts/presentation/terrain_local_revision.gd")
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 
 ## Проверяет локальную очередь, приоритет полной смены и сохранность существующих игровых правил.
 static func run(context: SceneTree) -> void:

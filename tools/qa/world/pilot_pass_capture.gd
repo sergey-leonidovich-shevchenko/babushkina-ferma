@@ -2,7 +2,7 @@ extends SceneTree
 
 const Regions:=preload("res://scripts/systems/village_region_system.gd")
 const RegionData:=preload("res://scripts/systems/village_region_data.gd")
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Observer := preload("res://tools/qa/world/pilot_pass_game.gd")
 const Reference := preload("res://scripts/presentation/visual_reference_mode.gd")
 const Pose := preload("res://scripts/systems/presentation_pose_system.gd")

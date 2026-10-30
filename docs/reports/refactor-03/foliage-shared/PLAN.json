@@ -1,0 +1,721 @@
+{
+  "phase": "read-only complete remaining03 proposal;379 review pending",
+  "base": "108ad126d00eb141658928aa3d68588c5af34db7",
+  "rows": {
+    "tools/encode_coordinate_video.swift": {
+      "target": "tools/qa/camera/encode_coordinate_video.swift",
+      "family": "camera",
+      "SHA256": "a450da5cb35c57cc5846c435b4b04657c6d6fc8ac4e75dba70872991c8cf5d83",
+      "mode": 420
+    },
+    "tools/foliage_contact_capture.gd": {
+      "target": "tools/qa/foliage/foliage_contact_capture.gd",
+      "family": "foliage",
+      "SHA256": "408d748952fd65598bc142c30c7060a4d36135d392a163f5966d668d6f0d816f",
+      "mode": 420
+    },
+    "tools/foliage_contact_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_contact_capture.gd.uid",
+      "family": "foliage",
+      "SHA256": "15c214221b1335696f2391f870bfec9373eb1f91a3abae379c90b971cdea243c",
+      "mode": 420
+    },
+    "tools/foliage_contact_collect.py": {
+      "target": "tools/qa/foliage/foliage_contact_collect.py",
+      "family": "foliage",
+      "SHA256": "53ef150e594493f239e1116d770a3b2f35d9a22ee237dc7972459c48fdc10c68",
+      "mode": 420
+    },
+    "tools/foliage_contact_review.gd": {
+      "target": "tools/qa/foliage/foliage_contact_review.gd",
+      "family": "foliage",
+      "SHA256": "5196d703b55f311b997cf5cb491c06c4475d9c69367839e6f08218ee37424618",
+      "mode": 420
+    },
+    "tools/foliage_contact_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_contact_review.gd.uid",
+      "family": "foliage",
+      "SHA256": "dc569b887e4a0f62be5ac501c5dc9373383e7d03177b8b244ef4fe2c7213c280",
+      "mode": 420
+    },
+    "tools/foliage_contact_verify.py": {
+      "target": "tools/qa/foliage/foliage_contact_verify.py",
+      "family": "foliage",
+      "SHA256": "9dd37001235788bd043088227fa8734f2e2907e7de2abc43f7bf4f3937b4dd2c",
+      "mode": 420
+    },
+    "tools/foliage_pause_capture.gd": {
+      "target": "tools/qa/foliage/foliage_pause_capture.gd",
+      "family": "foliage",
+      "SHA256": "cce85248cee0d54ca49f20ad76a18bcdd67bdeaa6b140496d7874598b3d12332",
+      "mode": 420
+    },
+    "tools/foliage_pause_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_pause_capture.gd.uid",
+      "family": "foliage",
+      "SHA256": "0623104cb5d9a25c9275d08ee90973a1d6da04ee5301f6a2d26d1e06706db43a",
+      "mode": 420
+    },
+    "tools/foliage_pause_collect.py": {
+      "target": "tools/qa/foliage/foliage_pause_collect.py",
+      "family": "foliage",
+      "SHA256": "a88f8c5db90b6caefcdf452ea4a5481dee3a17b1684e0f37c8a1a8962256a781",
+      "mode": 420
+    },
+    "tools/foliage_pause_game.gd": {
+      "target": "tools/qa/foliage/foliage_pause_game.gd",
+      "family": "foliage",
+      "SHA256": "f1f8447b486a0788186ebe8265fa19a97a8aba67f15ee819fa0e9a0344b96bd4",
+      "mode": 420
+    },
+    "tools/foliage_pause_game.gd.uid": {
+      "target": "tools/qa/foliage/foliage_pause_game.gd.uid",
+      "family": "foliage",
+      "SHA256": "d5647355746b971b3f7f3550ea9426d67b49222a5e92397bfb140c3f1d4f44ca",
+      "mode": 420
+    },
+    "tools/foliage_pause_review.gd": {
+      "target": "tools/qa/foliage/foliage_pause_review.gd",
+      "family": "foliage",
+      "SHA256": "d44fed08e40e6fd4699b43ce6004ddf45700ae4c0fbd749ce7585c9ad8993dad",
+      "mode": 420
+    },
+    "tools/foliage_pause_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_pause_review.gd.uid",
+      "family": "foliage",
+      "SHA256": "c0155009a6dca5e7566acfe3b053becd2660ac7fc69079fa20a5af7dfdadda5d",
+      "mode": 420
+    },
+    "tools/foliage_pause_verify.py": {
+      "target": "tools/qa/foliage/foliage_pause_verify.py",
+      "family": "foliage",
+      "SHA256": "a36aac60ec0466a27190ad3bf92c766b642349ecd3dee89842b6e79bbbe0b4b0",
+      "mode": 420
+    },
+    "tools/foliage_recovery_capture.gd": {
+      "target": "tools/qa/foliage/foliage_recovery_capture.gd",
+      "family": "foliage",
+      "SHA256": "ded894e3d5637e412f5fab55ab34de3be3e6dc558044a174bf114416f40db810",
+      "mode": 420
+    },
+    "tools/foliage_recovery_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_recovery_capture.gd.uid",
+      "family": "foliage",
+      "SHA256": "cddafa91a5621a5bdbf82e999a965d7eefafe8f9d3dbf328f44ef1d4c9f1dab5",
+      "mode": 420
+    },
+    "tools/foliage_recovery_collect.py": {
+      "target": "tools/qa/foliage/foliage_recovery_collect.py",
+      "family": "foliage",
+      "SHA256": "17c6c90707d7feea5d312480c53c3fddd7147ae7de872e91c0f2b2b9ea870df4",
+      "mode": 420
+    },
+    "tools/foliage_recovery_review.gd": {
+      "target": "tools/qa/foliage/foliage_recovery_review.gd",
+      "family": "foliage",
+      "SHA256": "6172ba052a32007be9c92dc3ac40b27c6cdb942394b444383a1fa3194df39524",
+      "mode": 420
+    },
+    "tools/foliage_recovery_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_recovery_review.gd.uid",
+      "family": "foliage",
+      "SHA256": "071e595e9f3bad36a9ba3466c977f03e100bda63b1cec4d69a0a8bcfc5c6251f",
+      "mode": 420
+    },
+    "tools/foliage_recovery_verify.py": {
+      "target": "tools/qa/foliage/foliage_recovery_verify.py",
+      "family": "foliage",
+      "SHA256": "b2a94c20a86f58cd83c7116d571d94a134743fbfa32bda82c409ab5b4d5d4b71",
+      "mode": 420
+    },
+    "tools/foliage_root_board.gd": {
+      "target": "tools/qa/foliage/foliage_root_board.gd",
+      "family": "foliage",
+      "SHA256": "5f5348add81af9cf88ace17f591a66578531c1b083a27e211f6d580716a0ba24",
+      "mode": 420
+    },
+    "tools/foliage_root_board.gd.uid": {
+      "target": "tools/qa/foliage/foliage_root_board.gd.uid",
+      "family": "foliage",
+      "SHA256": "9db000012f3e0c8ccf94b5b38fb3ca4a50e7a778880a3defb6dadcb169d1af3a",
+      "mode": 420
+    },
+    "tools/foliage_root_capture.gd": {
+      "target": "tools/qa/foliage/foliage_root_capture.gd",
+      "family": "foliage",
+      "SHA256": "0b7425ed7bdf1c36ae4d95af77b27ce8d3212aaa8da2cd153fd75cfb244b60b6",
+      "mode": 420
+    },
+    "tools/foliage_root_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_root_capture.gd.uid",
+      "family": "foliage",
+      "SHA256": "c06a3c25fc0c284ed5458681ff95f292edb10e73135b2aa1934a5a0e38eb5cf2",
+      "mode": 420
+    },
+    "tools/foliage_root_collect.py": {
+      "target": "tools/qa/foliage/foliage_root_collect.py",
+      "family": "foliage",
+      "SHA256": "8d2e601924761fa5071ce1bae679acf219d6b1e4842d8c26a724313002d17e5f",
+      "mode": 420
+    },
+    "tools/foliage_root_observer.gd": {
+      "target": "tools/qa/foliage/foliage_root_observer.gd",
+      "family": "foliage",
+      "SHA256": "28792c968d5d55c144df45bd6ffdbbc3886083dd93d4be2792affc4f898a8208",
+      "mode": 420
+    },
+    "tools/foliage_root_observer.gd.uid": {
+      "target": "tools/qa/foliage/foliage_root_observer.gd.uid",
+      "family": "foliage",
+      "SHA256": "f069b02ea3c10fe36e582d3de009a25ce709e16097f64c5c6f21d839a38b226e",
+      "mode": 420
+    },
+    "tools/foliage_root_review.gd": {
+      "target": "tools/qa/foliage/foliage_root_review.gd",
+      "family": "foliage",
+      "SHA256": "3987235016c135e266ab5520ad253444390ff8fa0bb0926038a69569439a3e95",
+      "mode": 420
+    },
+    "tools/foliage_root_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_root_review.gd.uid",
+      "family": "foliage",
+      "SHA256": "8cd991bf3b71f0cd79133e5fbc5d695b26f002a4854528ea977c3f533ff704d6",
+      "mode": 420
+    },
+    "tools/foliage_root_verify.py": {
+      "target": "tools/qa/foliage/foliage_root_verify.py",
+      "family": "foliage",
+      "SHA256": "5fa94c87721e0c59b5f3fdc611a1e500c4a65898eb28606dfee6ed72808ac750",
+      "mode": 420
+    },
+    "tools/foliage_speed_capture.gd": {
+      "target": "tools/qa/foliage/foliage_speed_capture.gd",
+      "family": "foliage",
+      "SHA256": "fdd063a09fd0bed6245924ecdfe366aab9d9c170e4091583b7d96f490f849c6f",
+      "mode": 420
+    },
+    "tools/foliage_speed_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_speed_capture.gd.uid",
+      "family": "foliage",
+      "SHA256": "d55aca00b4cb8c50618b28d525152d0f5ccb7ae0ba0e9f6fa66055de51110556",
+      "mode": 420
+    },
+    "tools/foliage_speed_collect.py": {
+      "target": "tools/qa/foliage/foliage_speed_collect.py",
+      "family": "foliage",
+      "SHA256": "c99c11f133a9526cdc9e25cc8ef9e9a45fc8ea583ce33b34bc624801ccaa24b2",
+      "mode": 420
+    },
+    "tools/foliage_speed_review.gd": {
+      "target": "tools/qa/foliage/foliage_speed_review.gd",
+      "family": "foliage",
+      "SHA256": "966293289738e3624cd09fd3bcafb5e4cd8703fef1672055052a8662b9812b60",
+      "mode": 420
+    },
+    "tools/foliage_speed_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_speed_review.gd.uid",
+      "family": "foliage",
+      "SHA256": "8bb2a5ef0cfa9e73e8469de98ef3e7c1d8571325524d35e1ca1b9206abb4dad1",
+      "mode": 420
+    },
+    "tools/foliage_speed_verify.py": {
+      "target": "tools/qa/foliage/foliage_speed_verify.py",
+      "family": "foliage",
+      "SHA256": "6beed199363cc0d70bcb1c46acaeb0e2a07e62ecef04b7bb68470504e9e6e18c",
+      "mode": 420
+    },
+    "tools/foliage_uv_board.gd": {
+      "target": "tools/qa/foliage/foliage_uv_board.gd",
+      "family": "foliage",
+      "SHA256": "a94d82801d6042d505dc82d893ef55d129c8c1ad100529234f62c0c519d51a56",
+      "mode": 420
+    },
+    "tools/foliage_uv_board.gd.uid": {
+      "target": "tools/qa/foliage/foliage_uv_board.gd.uid",
+      "family": "foliage",
+      "SHA256": "2ed4713f41f6a4c2615f0f7cb6ce31f255cb2c603e5d0427a66297a0fefe8af1",
+      "mode": 420
+    },
+    "tools/foliage_uv_capture.gd": {
+      "target": "tools/qa/foliage/foliage_uv_capture.gd",
+      "family": "foliage",
+      "SHA256": "9c35069fa64b54d8fd1b3966ac711be1f70ecb66d98ced9a8d4ad2b03c9dfd02",
+      "mode": 420
+    },
+    "tools/foliage_uv_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_uv_capture.gd.uid",
+      "family": "foliage",
+      "SHA256": "3fd4b1d447173b4e80431dc5aeecba2ec93c3e2a2c776699d69a4cb99b773210",
+      "mode": 420
+    },
+    "tools/foliage_uv_collect.py": {
+      "target": "tools/qa/foliage/foliage_uv_collect.py",
+      "family": "foliage",
+      "SHA256": "46c81e9594c5ed91a23cd7091e6462d8c1fdd7a0cf32bb8265ebde84c199c3b0",
+      "mode": 420
+    },
+    "tools/foliage_uv_quad.gd": {
+      "target": "tools/qa/foliage/foliage_uv_quad.gd",
+      "family": "foliage",
+      "SHA256": "2d1e5e1576effb1f56d43d2a30fdace0c34ee43c0fd1df8706ed5b0b82020281",
+      "mode": 420
+    },
+    "tools/foliage_uv_quad.gd.uid": {
+      "target": "tools/qa/foliage/foliage_uv_quad.gd.uid",
+      "family": "foliage",
+      "SHA256": "e835ea41c53f84f021df430be01bc9d86a001de299bd5ee1702fa9ca74f757bc",
+      "mode": 420
+    },
+    "tools/foliage_uv_review.gd": {
+      "target": "tools/qa/foliage/foliage_uv_review.gd",
+      "family": "foliage",
+      "SHA256": "c8a151da1f7ad86dd13d4b267299dacd146616fae0d7936d8da2862f8ddf7116",
+      "mode": 420
+    },
+    "tools/foliage_uv_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_uv_review.gd.uid",
+      "family": "foliage",
+      "SHA256": "75e3409939f2a8efd79e61cbdd1084993a0dffb582f5f3f01171a9a15daab788",
+      "mode": 420
+    },
+    "tools/foliage_uv_verify.py": {
+      "target": "tools/qa/foliage/foliage_uv_verify.py",
+      "family": "foliage",
+      "SHA256": "cd76afb83a55d82f42f02cc542f09c0b89b459db743fff2ddbb8a2cea9efe9ec",
+      "mode": 420
+    },
+    "tools/foliage_visibility_budget.gd": {
+      "target": "tools/qa/foliage/foliage_visibility_budget.gd",
+      "family": "foliage",
+      "SHA256": "6f81f1056f03ce3c9c5dc426a0648b6756e0e7befdc114ce4fac25ed0bda7bcf",
+      "mode": 420
+    },
+    "tools/foliage_visibility_budget.gd.uid": {
+      "target": "tools/qa/foliage/foliage_visibility_budget.gd.uid",
+      "family": "foliage",
+      "SHA256": "b771493a7f0418fdba49cb87d82c0aad20928e82350c56b8f6769702067d2072",
+      "mode": 420
+    },
+    "tools/foliage_visibility_capture.gd": {
+      "target": "tools/qa/foliage/foliage_visibility_capture.gd",
+      "family": "foliage",
+      "SHA256": "cafaa0078e2f11bb641197a4c6c2d29d7cdf8eebbb393b6d1d3b02d740157bbc",
+      "mode": 420
+    },
+    "tools/foliage_visibility_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_visibility_capture.gd.uid",
+      "family": "foliage",
+      "SHA256": "0ecb020f7fa4d7188a68c85a097ac68d292fdb75a381506734b24cfd7c0601df",
+      "mode": 420
+    },
+    "tools/foliage_visibility_collect.py": {
+      "target": "tools/qa/foliage/foliage_visibility_collect.py",
+      "family": "foliage",
+      "SHA256": "56d75742b2fa1b722d5add9b6b5352572272cb173b5c5b8fd04948b401490ed7",
+      "mode": 420
+    },
+    "tools/foliage_visibility_coverage.py": {
+      "target": "tools/qa/foliage/foliage_visibility_coverage.py",
+      "family": "foliage",
+      "SHA256": "b651efed84b0fdc194d183c89ec9d4c96985980bf7a0fae016feacb5dc389a31",
+      "mode": 420
+    },
+    "tools/foliage_visibility_evidence.py": {
+      "target": "tools/qa/foliage/foliage_visibility_evidence.py",
+      "family": "foliage",
+      "SHA256": "b8a172cd40705b0a73de9dd10f82fd9c6347c2e44dbbd27f2df21f0f647afb97",
+      "mode": 420
+    },
+    "tools/foliage_visibility_game.gd": {
+      "target": "tools/qa/foliage/foliage_visibility_game.gd",
+      "family": "foliage",
+      "SHA256": "0c8f87462790c19007f46531f34e8f2ae3c175efb44bee441b407587e95b8903",
+      "mode": 420
+    },
+    "tools/foliage_visibility_game.gd.uid": {
+      "target": "tools/qa/foliage/foliage_visibility_game.gd.uid",
+      "family": "foliage",
+      "SHA256": "6160a64fc2f7a263303bc929fd11719b1f04795048b7f836f3de9b18effa9580",
+      "mode": 420
+    },
+    "tools/foliage_visibility_pack.py": {
+      "target": "tools/qa/foliage/foliage_visibility_pack.py",
+      "family": "foliage",
+      "SHA256": "ac3ff6359ba0dfb76b97a20b33ae439fa1e0229c44a2718225a66eb429f8c793",
+      "mode": 420
+    },
+    "tools/foliage_visibility_provenance.py": {
+      "target": "tools/qa/foliage/foliage_visibility_provenance.py",
+      "family": "foliage",
+      "SHA256": "ee2c962141890f02ee5d060ea8e5a4f35b3a3c0a95906c932eaa8ceea75db2b9",
+      "mode": 420
+    },
+    "tools/foliage_visibility_review.gd": {
+      "target": "tools/qa/foliage/foliage_visibility_review.gd",
+      "family": "foliage",
+      "SHA256": "f326a7c172e2fcd3ca4f530f1f207c6b92463373514d13c169bfa4f97bf8a4da",
+      "mode": 420
+    },
+    "tools/foliage_visibility_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_visibility_review.gd.uid",
+      "family": "foliage",
+      "SHA256": "9661e547426e6a4fde5902aae2484a6ae7b3b05aa3edf18e221e1bec27299bfd",
+      "mode": 420
+    },
+    "tools/foliage_visibility_test_fixture.py": {
+      "target": "tools/qa/foliage/foliage_visibility_test_fixture.py",
+      "family": "foliage",
+      "SHA256": "7f503904a153b0b45478c879a38f3a23e3ba411a3c46bf87d0068f517a8c7519",
+      "mode": 420
+    },
+    "tools/foliage_visibility_verify.py": {
+      "target": "tools/qa/foliage/foliage_visibility_verify.py",
+      "family": "foliage",
+      "SHA256": "bf40a30eb673656edd3e2cfc8df11a7ded7114ba0d56379d561cb5d07973605f",
+      "mode": 420
+    },
+    "tools/foliage_visibility_window.py": {
+      "target": "tools/qa/foliage/foliage_visibility_window.py",
+      "family": "foliage",
+      "SHA256": "51efce53682faa6f9e8a047c793d55ae78703fdd4d4fd27b45afd533fc679c53",
+      "mode": 420
+    },
+    "tools/foliage_wind_baseline.gd": {
+      "target": "tools/qa/foliage/foliage_wind_baseline.gd",
+      "family": "foliage",
+      "SHA256": "d2eec8755ccd235c1b25be246835ebe5d6d0aeef46635ae5e6675c22a81128cd",
+      "mode": 420
+    },
+    "tools/foliage_wind_baseline.gd.uid": {
+      "target": "tools/qa/foliage/foliage_wind_baseline.gd.uid",
+      "family": "foliage",
+      "SHA256": "6835aae6b0da9aff542be284dbea84b1caa01657f17eec7cac12057294b3729b",
+      "mode": 420
+    },
+    "tools/foliage_wind_capture.gd": {
+      "target": "tools/qa/foliage/foliage_wind_capture.gd",
+      "family": "foliage",
+      "SHA256": "85c84e9cdbfb458575856f867c089e8392254d47a5970dd4c3adfc2d77a7d03d",
+      "mode": 420
+    },
+    "tools/foliage_wind_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_wind_capture.gd.uid",
+      "family": "foliage",
+      "SHA256": "3dce1eac1b97c382b54c7eace1166d25a1c180165f04f5c72e58fdb15dc38d45",
+      "mode": 420
+    },
+    "tools/foliage_wind_collect.py": {
+      "target": "tools/qa/foliage/foliage_wind_collect.py",
+      "family": "foliage",
+      "SHA256": "d93d6aa6b41aebb17a9a04da0ae674daa4ef3a5261c9496b2f4a7bd547e8c0b6",
+      "mode": 420
+    },
+    "tools/foliage_wind_review.gd": {
+      "target": "tools/qa/foliage/foliage_wind_review.gd",
+      "family": "foliage",
+      "SHA256": "ff1a186ada2380812aa7b091706b6946b9e802b550d7d96d19edeb42e0425ed4",
+      "mode": 420
+    },
+    "tools/foliage_wind_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_wind_review.gd.uid",
+      "family": "foliage",
+      "SHA256": "234cf18acdb499711b837a714a281830f878bb2108b2e030c25841d761f41e4b",
+      "mode": 420
+    },
+    "tools/foliage_wind_verify.py": {
+      "target": "tools/qa/foliage/foliage_wind_verify.py",
+      "family": "foliage",
+      "SHA256": "71e1380b06cdd435cbed857b49f512924ef1af73babc0f1b52b59d56ba90dc3e",
+      "mode": 420
+    },
+    "tools/grass_compare/capture.gd": {
+      "target": "tools/qa/foliage/grass_compare/capture.gd",
+      "family": "foliage",
+      "SHA256": "c9cad50dda5ad92c04a79f331fe7daee89ca27b63de4061f757de4ec1b76a4ae",
+      "mode": 420
+    },
+    "tools/grass_compare/capture.gd.uid": {
+      "target": "tools/qa/foliage/grass_compare/capture.gd.uid",
+      "family": "foliage",
+      "SHA256": "a039a11293741d80c639fdb39b71474960136a442f1642a9af204645793bf573",
+      "mode": 420
+    },
+    "tools/grass_compare/field.gd": {
+      "target": "tools/qa/foliage/grass_compare/field.gd",
+      "family": "foliage",
+      "SHA256": "577710beeff9751232c9aea79eb93b4ac46d0c9e5521da66a7d59b41cea48d1f",
+      "mode": 420
+    },
+    "tools/grass_compare/field.gd.uid": {
+      "target": "tools/qa/foliage/grass_compare/field.gd.uid",
+      "family": "foliage",
+      "SHA256": "c56adbbd8e88359007b642e66e281a8a8c153a175fc30dc80e857e7e960a5f75",
+      "mode": 420
+    },
+    "tools/grass_compare/mesh_data.gd": {
+      "target": "tools/qa/foliage/grass_compare/mesh_data.gd",
+      "family": "foliage",
+      "SHA256": "313fc57d4c4d07e11bbdbff738256b0e81bcc6cf21b5924c65cfee360f3e2fa1",
+      "mode": 420
+    },
+    "tools/grass_compare/mesh_data.gd.uid": {
+      "target": "tools/qa/foliage/grass_compare/mesh_data.gd.uid",
+      "family": "foliage",
+      "SHA256": "09e9f9456e354fdd64b13e4f39cfaa7e422dd73695d69973317699d54e31bb51",
+      "mode": 420
+    },
+    "tools/grass_compare/observer.gd": {
+      "target": "tools/qa/foliage/grass_compare/observer.gd",
+      "family": "foliage",
+      "SHA256": "5d6134cd77cab44b07208925db00b73d02452cb0a1f352e8f27e73807b6abb05",
+      "mode": 420
+    },
+    "tools/grass_compare/observer.gd.uid": {
+      "target": "tools/qa/foliage/grass_compare/observer.gd.uid",
+      "family": "foliage",
+      "SHA256": "6e0cb30769c92d02e84dc9a77d87e2605c0df5982b548b1424c156624fcea530",
+      "mode": 420
+    },
+    "tools/grass_compare/review.gd": {
+      "target": "tools/qa/foliage/grass_compare/review.gd",
+      "family": "foliage",
+      "SHA256": "438616aace210a35b2bb6c97fecf6fb02c347672b3adb857cdac5de61ee7ec53",
+      "mode": 420
+    },
+    "tools/grass_compare/review.gd.uid": {
+      "target": "tools/qa/foliage/grass_compare/review.gd.uid",
+      "family": "foliage",
+      "SHA256": "95cea80c6aca988559e6359c7f2bd9bfaaf6f6971206c2f98f33bd904ee7ba7a",
+      "mode": 420
+    },
+    "tools/grass_compare/wind.gdshader": {
+      "target": "tools/qa/foliage/grass_compare/wind.gdshader",
+      "family": "foliage",
+      "SHA256": "328890ce1bd94059bc8f8b5e1df7e96a7470688b34fbcba1d51cd597bb6c22a7",
+      "mode": 420
+    },
+    "tools/grass_compare/wind.gdshader.uid": {
+      "target": "tools/qa/foliage/grass_compare/wind.gdshader.uid",
+      "family": "foliage",
+      "SHA256": "c52a0343cc472bee232272a0f00f55e333a604c6d79898b9444b63d2fb81e926",
+      "mode": 420
+    },
+    "tools/grass_compare_collect.py": {
+      "target": "tools/qa/foliage/grass_compare_collect.py",
+      "family": "foliage",
+      "SHA256": "020f2a98cf3ca6b15118a7349d514c2874e4a7af99f5668e0b2f7d7bff7814b3",
+      "mode": 420
+    },
+    "tools/grass_methods.py": {
+      "target": "tools/qa/foliage/grass_methods.py",
+      "family": "foliage",
+      "SHA256": "1609c1a68a6c68c79da6d86dd417a5b4a481987b0d42f52d8bd09c7489658d56",
+      "mode": 420
+    },
+    "tools/plant_depth_capture.gd": {
+      "target": "tools/qa/foliage/plant_depth_capture.gd",
+      "family": "foliage",
+      "SHA256": "c85483837ffbac5401ba743ca20761d9f07bf6d2901d2ff8740fd2e89aa8ca4f",
+      "mode": 420
+    },
+    "tools/plant_depth_capture.gd.uid": {
+      "target": "tools/qa/foliage/plant_depth_capture.gd.uid",
+      "family": "foliage",
+      "SHA256": "0d6b2c1457fa53125925e863950cb5ea7d43d8096f9799054d3ee806c79030fd",
+      "mode": 420
+    },
+    "tools/plant_depth_collect.py": {
+      "target": "tools/qa/foliage/plant_depth_collect.py",
+      "family": "foliage",
+      "SHA256": "374fe7b7fe4f0f491c6a6ddc469d8fc7ba0087ed1c06af5095feecbf91cf18bc",
+      "mode": 420
+    },
+    "tools/plant_depth_game.gd": {
+      "target": "tools/qa/foliage/plant_depth_game.gd",
+      "family": "foliage",
+      "SHA256": "28775bd2509c06f57fe35bf3ca9381104386aed65aac87588faae46895ad8737",
+      "mode": 420
+    },
+    "tools/plant_depth_game.gd.uid": {
+      "target": "tools/qa/foliage/plant_depth_game.gd.uid",
+      "family": "foliage",
+      "SHA256": "d23e9909e87e9efdc60ca5e9b57a3963ba0fe0f90844ea4106b98469483a8ef1",
+      "mode": 420
+    },
+    "tools/plant_depth_review.gd": {
+      "target": "tools/qa/foliage/plant_depth_review.gd",
+      "family": "foliage",
+      "SHA256": "daaf6d20b06a802719d81abf403805448d65105ed1657660de87635ed3653b3a",
+      "mode": 420
+    },
+    "tools/plant_depth_review.gd.uid": {
+      "target": "tools/qa/foliage/plant_depth_review.gd.uid",
+      "family": "foliage",
+      "SHA256": "1bb6c9a895c99634a0f3d6cd1ede09d3c14ee3be9f7a9b7db923c3de7cd80314",
+      "mode": 420
+    },
+    "tools/plant_depth_verify.py": {
+      "target": "tools/qa/foliage/plant_depth_verify.py",
+      "family": "foliage",
+      "SHA256": "a7063102d0062a175893ad89b32aec9cc045db40bf3f8cdc01510704bef34bbd",
+      "mode": 420
+    },
+    "tools/render_order_game.gd": {
+      "target": "tools/qa/world/render_order_game.gd",
+      "family": "world",
+      "SHA256": "662ad6e5af52bc95eb8d2804a7390ee5007caa88325aca2f7835873243a0000b",
+      "mode": 420
+    },
+    "tools/render_order_game.gd.uid": {
+      "target": "tools/qa/world/render_order_game.gd.uid",
+      "family": "world",
+      "SHA256": "7b49ff32159df62e69774b82710e23c012563014d9c03ef14d04f95448069352",
+      "mode": 420
+    },
+    "tools/shore_kit.py": {
+      "target": "tools/qa/world/shore_kit.py",
+      "family": "world",
+      "SHA256": "4cf87c73a16741a3ac726d6c94d7e15bc10b3325e0daddc030a867600cbacb67",
+      "mode": 420
+    },
+    "tools/shore_kit_canvas.gd": {
+      "target": "tools/qa/world/shore_kit_canvas.gd",
+      "family": "world",
+      "SHA256": "0d0555359b58fc4cb5652b1b68fc89d40091d0147cfc6aae09f657a0900086f9",
+      "mode": 420
+    },
+    "tools/shore_kit_capture.gd": {
+      "target": "tools/qa/world/shore_kit_capture.gd",
+      "family": "world",
+      "SHA256": "e4fdce42684be4183aae47cf790b5acd8bc741817321037c78a2f59395f655ec",
+      "mode": 420
+    },
+    "tools/shore_kit_review.gd": {
+      "target": "tools/qa/world/shore_kit_review.gd",
+      "family": "world",
+      "SHA256": "32d0a6e9b739d9a884e27104662035f51bee139c6d1a34d3726ea9c0638a3065",
+      "mode": 420
+    },
+    "tools/test_foliage_contact.py": {
+      "target": "tools/qa/foliage/test_foliage_contact.py",
+      "family": "foliage",
+      "SHA256": "663ffb37a74737e3bca91e6014bc40140d8b4718bc690e1271fb9b41ed1343c0",
+      "mode": 420
+    },
+    "tools/test_foliage_pause.py": {
+      "target": "tools/qa/foliage/test_foliage_pause.py",
+      "family": "foliage",
+      "SHA256": "e65a311632e529f2f39f8ff1fe50c8e5df08a9714c3fe1c3ec250a67cd23487d",
+      "mode": 420
+    },
+    "tools/test_foliage_recovery.py": {
+      "target": "tools/qa/foliage/test_foliage_recovery.py",
+      "family": "foliage",
+      "SHA256": "5ce6d7f2c66955f7c6c90ae6a0e93bb0fa90da932ddb0f316a174f6d72cfbf8d",
+      "mode": 420
+    },
+    "tools/test_foliage_root.py": {
+      "target": "tools/qa/foliage/test_foliage_root.py",
+      "family": "foliage",
+      "SHA256": "90fd3010834b26597c157ce6c3f387f239342d1772670b4a8b84d404bf19a25d",
+      "mode": 420
+    },
+    "tools/test_foliage_speed.py": {
+      "target": "tools/qa/foliage/test_foliage_speed.py",
+      "family": "foliage",
+      "SHA256": "4c11357136d1a22c53638427f4c8cca70b92096de8f80e3b89880d21262fb26a",
+      "mode": 420
+    },
+    "tools/test_foliage_uv.py": {
+      "target": "tools/qa/foliage/test_foliage_uv.py",
+      "family": "foliage",
+      "SHA256": "0f854e5deb9c1a7dca1659289d2d5749874908f03e657f50e88872779f12b244",
+      "mode": 420
+    },
+    "tools/test_foliage_visibility.py": {
+      "target": "tools/qa/foliage/test_foliage_visibility.py",
+      "family": "foliage",
+      "SHA256": "dcaa942f8d6c5bd0f673406a4c7c61670a7b4c2d3b623fd2d8bf9ba0485cc8cd",
+      "mode": 420
+    },
+    "tools/test_foliage_wind.py": {
+      "target": "tools/qa/foliage/test_foliage_wind.py",
+      "family": "foliage",
+      "SHA256": "f27feb09c47f8088662574cc1cef3eb12157379a3b8db2a3608b8a89b7b5d8e4",
+      "mode": 420
+    },
+    "tools/test_grass_methods.py": {
+      "target": "tools/qa/foliage/test_grass_methods.py",
+      "family": "foliage",
+      "SHA256": "0dd4914109cefe4a16473bcd9f7a6e8018e25f894cbdf9fd7c8591599de160a9",
+      "mode": 420
+    },
+    "tools/test_plant_depth.py": {
+      "target": "tools/qa/foliage/test_plant_depth.py",
+      "family": "foliage",
+      "SHA256": "55670a958ad633600f383212fbc57707b56ac03478a4adc9f52a959148cf7f41",
+      "mode": 420
+    },
+    "tools/test_shore_kit.py": {
+      "target": "tools/qa/world/test_shore_kit.py",
+      "family": "world",
+      "SHA256": "b47dd201a65a55ac8d27817cfa7a2cdaad51d7ccdaa69cfb8aaf628bb311c5d8",
+      "mode": 420
+    },
+    "tools/visual_camera_points.gd": {
+      "target": "tools/qa/camera/visual_camera_points.gd",
+      "family": "camera",
+      "SHA256": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+      "mode": 420
+    }
+  },
+  "ignored_UID": {
+    "tools/shore_kit_canvas.gd.uid": {
+      "target": "tools/qa/world/shore_kit_canvas.gd.uid",
+      "SHA256": "f68b7aaceba6028e7f67a6965adf758c73901e68e24499015ad12068b28eed8a",
+      "mode": 420
+    },
+    "tools/shore_kit_capture.gd.uid": {
+      "target": "tools/qa/world/shore_kit_capture.gd.uid",
+      "SHA256": "6d56d52eff66842df2deaf80721f9262723f839320a8a9a28b1d14eae99a975f",
+      "mode": 420
+    },
+    "tools/shore_kit_review.gd.uid": {
+      "target": "tools/qa/world/shore_kit_review.gd.uid",
+      "SHA256": "6ad837b3c095d200664d3d9f88bdb5452ad95413517c3d5d934234ead8648921",
+      "mode": 420
+    },
+    "tools/visual_camera_points.gd.uid": {
+      "target": "tools/qa/camera/visual_camera_points.gd.uid",
+      "SHA256": "a55f0a0d5f3c7282001b2948151ff688710ea135fa2583b06e91f60c92887110",
+      "mode": 420
+    }
+  },
+  "source_moves": 77,
+  "root_source_moves": 71,
+  "nested_grass_compare_sources": 6,
+  "tracked_UID_moves": 34,
+  "ignored_UID_moves": 4,
+  "root_after": 11,
+  "map_after": 491,
+  "product_mutations": 0,
+  "primary_ignored_UID_before": {
+    "tools/shore_kit_canvas.gd.uid": {
+      "SHA256": "f68b7aaceba6028e7f67a6965adf758c73901e68e24499015ad12068b28eed8a",
+      "mode": 420
+    },
+    "tools/shore_kit_capture.gd.uid": {
+      "SHA256": "6d56d52eff66842df2deaf80721f9262723f839320a8a9a28b1d14eae99a975f",
+      "mode": 420
+    },
+    "tools/shore_kit_review.gd.uid": {
+      "SHA256": "6ad837b3c095d200664d3d9f88bdb5452ad95413517c3d5d934234ead8648921",
+      "mode": 420
+    },
+    "tools/visual_camera_points.gd.uid": {
+      "SHA256": "a55f0a0d5f3c7282001b2948151ff688710ea135fa2583b06e91f60c92887110",
+      "mode": 420
+    }
+  },
+  "ignored_UID_rule": "preserve each worktree own bytes/mode; never replace primary ignored UID with QA UID"
+}

@@ -1,6 +1,6 @@
 extends RefCounted
 
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 
 ## Запускает проверки покрытия, реальной камеры и отказов при нарушении фиксированного состояния.
 static func run(context: SceneTree) -> void:

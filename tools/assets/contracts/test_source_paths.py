@@ -73,8 +73,13 @@ class SourcePathsTests(unittest.TestCase):
         ground = {old: row['target'] for old, row in plan['assignments'].items() if row['family'] == 'ground' and old != row['target']}
         self.assertEqual(len(ground), 113)
         expected.update(ground)
+        foliage = {old: row['target'] for old, row in plan['assignments'].items() if row['family'] == 'foliage' and old != row['target']}
+        self.assertEqual(len(foliage), 102)
+        expected.update(foliage)
+        expected.update({old: plan['assignments'][old]['target'] for old in world_deferred})
+        expected.update({old: plan['assignments'][old]['target'] for old in ['tools/visual_camera_points.gd', 'tools/encode_coordinate_video.swift']})
         self.assertEqual(dict(MOVED_PATHS), expected)
-        self.assertEqual(len(MOVED_PATHS), 380)
+        self.assertEqual(len(MOVED_PATHS), 491)
         for old, target in expected.items():
             self.assertEqual(current_source(root, old), root / target)
             self.assertTrue((root / target).is_file(), target)

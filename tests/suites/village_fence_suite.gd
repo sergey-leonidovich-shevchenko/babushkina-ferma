@@ -1,6 +1,6 @@
 extends RefCounted
 const F:=preload("res://scripts/presentation/village_fence_visual.gd")
-const Points:=preload("res://tools/visual_camera_points.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
 const Rules:=preload("res://tools/qa/ground/ground_seasons_fixture.gd")
 
 ## Проверяет все соединения и реальные старые коллизии без изменения игровых правил.

@@ -2,7 +2,7 @@ extends RefCounted
 const Recovery := preload("res://scripts/presentation/foliage_recovery.gd")
 const Wind := preload("res://scripts/presentation/foliage_wind.gd")
 const Contact := Wind.Contact
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 
 
 ## Проверяет частотную независимость экспоненты, отсутствие перелёта, предел памяти, удаление хвостов и реальные сбросы сцены.

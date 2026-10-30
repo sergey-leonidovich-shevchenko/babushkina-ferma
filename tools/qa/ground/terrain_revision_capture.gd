@@ -1,6 +1,6 @@
 extends SceneTree
 
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Soil := preload("res://scripts/presentation/garden_soil.gd")
 var folder := ""
 var profile := ""
@@ -28,7 +28,7 @@ func _start() -> void:
 	if DisplayServer.get_name()=="headless" or DirAccess.dir_exists_absolute(folder) or not OS.get_user_data_dir().ends_with(profile) or FileAccess.file_exists("user://farm-settings.cfg"):
 		push_error("Native display and unused isolated paths required"); quit(2); return
 	DirAccess.make_dir_recursive_absolute(folder)
-	game=Points.create_game(); game.set_script(preload("res://tools/render_order_game.gd")); root.add_child(game); current_scene=game
+	game=Points.create_game(); game.set_script(preload("res://tools/qa/world/render_order_game.gd")); root.add_child(game); current_scene=game
 	Points.configure(game,Points.registry().points[0]); preload("res://scripts/systems/world_projection_system.gd").set_reference_zoom(game,1.2)
 	bg=game.get_node("WorldBackground"); _environment(1); _place(Vector2(456,984))
 	for plot: Dictionary in game.plots.values(): plot.tilled=true; plot.planted=false; plot.watered=false

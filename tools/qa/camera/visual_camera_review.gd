@@ -1,6 +1,6 @@
 extends SceneTree
 
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 var folder := ""
 var export_candidates := false
 var profile := ""

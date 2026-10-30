@@ -90,8 +90,6 @@ class CameraLayoutTests(unittest.TestCase):
             for name in names:
                 raw = current_source(ROOT, name).read_bytes()
                 physical = plan['assignments'].get(name, {}).get('target', name)
-                if name == 'tools/visual_camera_points.gd':
-                    physical = name
                 for destination in {name, physical}:
                     target = root / destination
                     target.parent.mkdir(parents=True, exist_ok=True)

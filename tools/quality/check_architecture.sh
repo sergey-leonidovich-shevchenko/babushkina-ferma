@@ -50,6 +50,9 @@ python3 tools/run.py qa.world.test_world_context
 python3 tools/run.py qa.ground.test_ground_context
 python3 tools/run.py qa.ground.test_ground_layout
 python3 tools/run.py qa.ground.test_compiled_sources
+python3 tools/run.py qa.foliage.test_foliage_context
+python3 tools/run.py qa.foliage.test_relocation_provenance
+python3 tools/run.py qa.foliage.test_foliage_producers
 python3 tools/run.py qa.world.test_source_inputs
 python3 tools/run.py qa.world.test_world_source_history
 python3 tools/run.py qa.world.test_world_producers
@@ -97,8 +100,8 @@ python3 tools/run.py qa.performance.perf_contract >/dev/null
 python3 tools/run.py qa.performance.perf_contract --controls --output docs/reports/visual-overhaul/vperf-001/controls >/dev/null
 python3 tools/run.py qa.world.render_order >/dev/null
 python3 tools/run.py qa.world.test_render_order
-python3 tools/grass_methods.py all >/dev/null
-python3 tools/test_grass_methods.py
+python3 tools/run.py qa.foliage.grass_methods all >/dev/null
+python3 tools/run.py qa.foliage.test_grass_methods
 python3 tools/run.py qa.ground.ground_layers verify >/dev/null
 python3 tools/run.py qa.ground.test_ground_layers
 python3 tools/run.py qa.ground.meadow_verify >/dev/null
@@ -136,22 +139,22 @@ python3 tools/run.py qa.world.pilot_pass_verify >/dev/null
 python3 tools/run.py qa.world.test_pilot_pass
 python3 tools/run.py qa.world.post_motion_verify >/dev/null
 python3 tools/run.py qa.world.test_post_motion
-python3 tools/plant_depth_verify.py >/dev/null
-python3 tools/test_plant_depth.py
+python3 tools/run.py qa.foliage.plant_depth_verify >/dev/null
+python3 tools/run.py qa.foliage.test_plant_depth
 python3 tools/run.py qa.world.transient_save_verify >/dev/null
 python3 tools/run.py qa.world.test_transient_save
-python3 tools/foliage_root_verify.py >/dev/null
-python3 tools/test_foliage_root.py
-python3 tools/foliage_uv_verify.py >/dev/null
-python3 tools/test_foliage_uv.py
-python3 tools/foliage_wind_verify.py >/dev/null
-python3 tools/test_foliage_wind.py
-python3 tools/foliage_contact_verify.py >/dev/null
-python3 tools/test_foliage_contact.py
-python3 tools/foliage_speed_verify.py >/dev/null
-python3 tools/test_foliage_speed.py
-python3 tools/foliage_recovery_verify.py >/dev/null
-python3 tools/test_foliage_recovery.py
+python3 tools/run.py qa.foliage.foliage_root_verify >/dev/null
+python3 tools/run.py qa.foliage.test_foliage_root
+python3 tools/run.py qa.foliage.foliage_uv_verify >/dev/null
+python3 tools/run.py qa.foliage.test_foliage_uv
+python3 tools/run.py qa.foliage.foliage_wind_verify >/dev/null
+python3 tools/run.py qa.foliage.test_foliage_wind
+python3 tools/run.py qa.foliage.foliage_contact_verify >/dev/null
+python3 tools/run.py qa.foliage.test_foliage_contact
+python3 tools/run.py qa.foliage.foliage_speed_verify >/dev/null
+python3 tools/run.py qa.foliage.test_foliage_speed
+python3 tools/run.py qa.foliage.foliage_recovery_verify >/dev/null
+python3 tools/run.py qa.foliage.test_foliage_recovery
 python3 tools/run.py qa.world.shadow_inventory_verify >/dev/null
 python3 tools/run.py qa.world.test_shadow_inventory
 python3 tools/run.py qa.world.village_fence_verify >/dev/null
@@ -196,10 +199,10 @@ python3 tools/run.py qa.performance.test_performance_gate
 python3 docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/test_causal.py
 python3 docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/test_redraw_observer.py
 python3 tools/run.py qa.performance.test_redraw_output
-python3 tools/test_foliage_pause.py
-python3 tools/foliage_pause_verify.py
-python3 tools/foliage_visibility_verify.py
-python3 tools/test_foliage_visibility.py
+python3 tools/run.py qa.foliage.test_foliage_pause
+python3 tools/run.py qa.foliage.foliage_pause_verify
+python3 tools/run.py qa.foliage.foliage_visibility_verify
+python3 tools/run.py qa.foliage.test_foliage_visibility
 python3 tools/run.py assets.alpha.alpha_audit
 python3 tools/run.py assets.alpha.test_alpha_audit
 python3 tools/run.py assets.alpha.test_alpha_proof
@@ -217,8 +220,8 @@ python3 tools/run.py planning.pilot_rollout
 python3 tools/run.py planning.test_pilot_rollout
 python3 tools/run.py build.artist_packet
 python3 tools/run.py build.test_artist_packet
-python3 tools/shore_kit.py
-python3 tools/test_shore_kit.py
+python3 tools/run.py qa.world.shore_kit
+python3 tools/run.py qa.world.test_shore_kit
 python3 tools/run.py qa.camera.analyze_visual_baseline docs/reports/visual-overhaul/vbase-001/native >/dev/null
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"

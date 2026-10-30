@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """VBASE-005: воспроизводимый маршрут игровым вводом, два нативных видео и независимый допуск QA."""
 from __future__ import annotations
+from tools.qa.world.source_inputs import input_path
 from tools.assets.contracts.source_paths import current_source
 
 import argparse
@@ -255,7 +256,7 @@ def capture(folder: Path) -> None:
             (case / 'keyframes.json').write_text(json.dumps(keyframes, indent=2)+'\n')
             env = dict(os.environ, CLANG_MODULE_CACHE_PATH=str(raw/'clang-cache'), SWIFT_MODULECACHE_PATH=str(raw/'swift-cache'))
             with (case / 'encoder.txt').open('w') as log:
-                subprocess.run(['swift', str(ROOT/'tools/encode_coordinate_video.swift'), str(native/'frames'), str(case/'walk.mp4'), '20', '2500000'],
+                subprocess.run(['swift', str(input_path(ROOT,'tools/encode_coordinate_video.swift')), str(native/'frames'), str(case/'walk.mp4'), '20', '2500000'],
                                env=env, stdout=log, stderr=subprocess.STDOUT, check=True, timeout=180)
             save_source(folder, source)
     source['collection_complete'] = True

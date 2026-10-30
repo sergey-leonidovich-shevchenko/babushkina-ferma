@@ -1,7 +1,7 @@
 extends SceneTree
 
-const Points:=preload("res://tools/visual_camera_points.gd")
-const Observer:=preload("res://tools/render_order_game.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
+const Observer:=preload("res://tools/qa/world/render_order_game.gd")
 const Probe:=preload("res://tools/qa/world/transient_save_probe.gd")
 const Reference:=preload("res://scripts/presentation/visual_reference_mode.gd")
 const Clock:=preload("res://scripts/presentation/village_ground_clock.gd")

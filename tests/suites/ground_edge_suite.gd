@@ -4,7 +4,7 @@ const Sources := preload("res://tools/qa/ground/compiled_sources.gd")
 
 const Masks := preload("res://scripts/presentation/ground_edge_masks.gd")
 const Field := preload("res://tools/qa/ground/ground_edge_field.gd")
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Farm := preload("res://scripts/systems/world_farming_system.gd")
 
 ## Проверяет отдельные от цвета маски, неизменность физики и актуальность скомпилированного чертежа.

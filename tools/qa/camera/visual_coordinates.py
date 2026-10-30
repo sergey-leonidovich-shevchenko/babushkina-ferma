@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Снимает нативный контракт координат и проверяет реальные кадры, ввод и матрицы."""
 from __future__ import annotations
+from tools.qa.world.source_inputs import input_path
 from tools.assets.contracts.source_paths import current_source
 import argparse
 import hashlib
@@ -144,7 +145,7 @@ def capture(folder: Path) -> None:
                 for frame in [48,95]: shutil.copy2(native/f'frames/{frame:04d}.png',case/f'frame-{frame:04d}.png')
             environment = dict(os.environ, CLANG_MODULE_CACHE_PATH=str(temporary/'clang-cache'), SWIFT_MODULECACHE_PATH=str(temporary/'swift-cache'))
             with (case/'encoder.txt').open('w') as log:
-                subprocess.run(['swift',str(ROOT/'tools/encode_coordinate_video.swift'),str(native/'frames'),str(case/'walk.mp4'),'24'], env=environment, stdout=log, stderr=subprocess.STDOUT, check=True, timeout=180)
+                subprocess.run(['swift',str(input_path(ROOT,'tools/encode_coordinate_video.swift')),str(native/'frames'),str(case/'walk.mp4'),'24'], env=environment, stdout=log, stderr=subprocess.STDOUT, check=True, timeout=180)
     for file in sorted(folder.rglob('*')):
         if file.is_file() and file.name != 'source.json': source['artifacts'][str(file.relative_to(folder))] = digest(file)
     (folder/'source.json').write_text(json.dumps(source, ensure_ascii=False, indent=2)+'\n')

@@ -1,0 +1,346 @@
+{
+  "phase": "after",
+  "base": "108ad126d00eb141658928aa3d68588c5af34db7",
+  "commands": [
+    {
+      "logical": "tools/foliage_root_verify.py",
+      "physical": "tools/qa/foliage/foliage_root_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.foliage_root_verify"
+      ],
+      "exit": 0,
+      "source_SHA256": "4951494112d2dca00f5aabc4419c3fbc2ad2bcc9bd4b11d9e66450db1b15b10c",
+      "stdout_SHA256": "d44fc1e30d56accff56f047150980400ec589e8af065587de61b9e09048186c1",
+      "log": "after-cli-00.txt.gz",
+      "raw_SHA256": "d44fc1e30d56accff56f047150980400ec589e8af065587de61b9e09048186c1",
+      "stored_SHA256": "a5cd79ed266c9e79d1a7f72b7e1ae2023da11daa5f582fc8a43e9fae7472f3f3"
+    },
+    {
+      "logical": "tools/foliage_uv_verify.py",
+      "physical": "tools/qa/foliage/foliage_uv_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.foliage_uv_verify"
+      ],
+      "exit": 0,
+      "source_SHA256": "8d40b9c9ab14a61efb3c6529c7f3727db9b46670269119daf4f01210befe6142",
+      "stdout_SHA256": "0c2cef09e69b8055941416b7c300ff822b509f7d088d6ec3a0e8bcdeb1e4fc73",
+      "log": "after-cli-01.txt.gz",
+      "raw_SHA256": "0c2cef09e69b8055941416b7c300ff822b509f7d088d6ec3a0e8bcdeb1e4fc73",
+      "stored_SHA256": "c066d3ed7b14e06b37d2fd9097783d9debedb59049a6225537bcc75445b5468c"
+    },
+    {
+      "logical": "tools/foliage_wind_verify.py",
+      "physical": "tools/qa/foliage/foliage_wind_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.foliage_wind_verify"
+      ],
+      "exit": 0,
+      "source_SHA256": "3278992aac249c65d08305e4773e3fe6d8f110ea368b1509e0765d855f9e14b9",
+      "stdout_SHA256": "91e7fb4112ac0d9e54ab721c79d401fdaa1885ad46484fb7c461235518123540",
+      "log": "after-cli-02.txt.gz",
+      "raw_SHA256": "91e7fb4112ac0d9e54ab721c79d401fdaa1885ad46484fb7c461235518123540",
+      "stored_SHA256": "68851448065cbb562eba89a9168d8deeaa491e6c20f655e31ea71371f86661a8"
+    },
+    {
+      "logical": "tools/foliage_contact_verify.py",
+      "physical": "tools/qa/foliage/foliage_contact_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.foliage_contact_verify"
+      ],
+      "exit": 0,
+      "source_SHA256": "46a198cd93bcd348c07e3b3100452476216f2bb715e11fba8385c1208c9f9dcc",
+      "stdout_SHA256": "a317e5ebf2ba288965a0c25d2d723bae6171a3c8404bfd4f5aa397f9b7bcc6ec",
+      "log": "after-cli-03.txt.gz",
+      "raw_SHA256": "a317e5ebf2ba288965a0c25d2d723bae6171a3c8404bfd4f5aa397f9b7bcc6ec",
+      "stored_SHA256": "c3c9a3266172652dd9f4338c12a2e755fb14a9e361adda7d3f31f7a4494224c1"
+    },
+    {
+      "logical": "tools/foliage_speed_verify.py",
+      "physical": "tools/qa/foliage/foliage_speed_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.foliage_speed_verify"
+      ],
+      "exit": 0,
+      "source_SHA256": "d169924e8906afc9a89fdfbca6c7f6ad79e8202451aefe369e48396795cf2ee0",
+      "stdout_SHA256": "6822559755e07452f81251f113af3886c61c7333b085609c8090bafb903bc451",
+      "log": "after-cli-04.txt.gz",
+      "raw_SHA256": "6822559755e07452f81251f113af3886c61c7333b085609c8090bafb903bc451",
+      "stored_SHA256": "e665f51c6a4df4c92a9d8333a9c2134bfb2218be785fabc42ff3742bf6f6a746"
+    },
+    {
+      "logical": "tools/foliage_recovery_verify.py",
+      "physical": "tools/qa/foliage/foliage_recovery_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.foliage_recovery_verify"
+      ],
+      "exit": 0,
+      "source_SHA256": "d567ae314a5611269c3d83d628d7326dcaeec56631e27e379f5811f5105b2796",
+      "stdout_SHA256": "67ebc89dfb6a2f72081d212b254d01609aebc3605e35b3b4b0018d42dfd92250",
+      "log": "after-cli-05.txt.gz",
+      "raw_SHA256": "67ebc89dfb6a2f72081d212b254d01609aebc3605e35b3b4b0018d42dfd92250",
+      "stored_SHA256": "001dcc3f8488bec171946e42e58654bb95538d6e8207252444191ed2dff87117"
+    },
+    {
+      "logical": "tools/foliage_pause_verify.py",
+      "physical": "tools/qa/foliage/foliage_pause_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.foliage_pause_verify"
+      ],
+      "exit": 0,
+      "source_SHA256": "0bdd25554d8fc4bdfb95b7ed30c7127ced40da18989376004f2dbf6692e13ec5",
+      "stdout_SHA256": "109cd38e964c8bcf8ec3fe87e9160018261215bbaab1257e9a24f7d57fd82700",
+      "log": "after-cli-06.txt.gz",
+      "raw_SHA256": "109cd38e964c8bcf8ec3fe87e9160018261215bbaab1257e9a24f7d57fd82700",
+      "stored_SHA256": "5c0b988317d58be5ffd2d017cfcaaf94b7ba3d70ac8882164c0d58f28450bea5"
+    },
+    {
+      "logical": "tools/foliage_visibility_verify.py",
+      "physical": "tools/qa/foliage/foliage_visibility_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.foliage_visibility_verify"
+      ],
+      "exit": 0,
+      "source_SHA256": "fde6862b3fe505ea79cc23e1b8b09a1aec2a5dd1c9e782f1e36118c2c68313e7",
+      "stdout_SHA256": "e49c573251fe6a0af735319dcd5034ba3761372cc27a116d141311977118095f",
+      "log": "after-cli-07.txt.gz",
+      "raw_SHA256": "e49c573251fe6a0af735319dcd5034ba3761372cc27a116d141311977118095f",
+      "stored_SHA256": "b441bdd89cdf8b881235cdd500da022cb745061b0a0ddad4562d71afdb7b874e"
+    },
+    {
+      "logical": "tools/grass_methods.py",
+      "physical": "tools/qa/foliage/grass_methods.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.grass_methods",
+        "all"
+      ],
+      "exit": 0,
+      "source_SHA256": "5c724d39f91ebb8233bbd6fd72941c6a26501533fdd9092fb2f0d67e2dedbb47",
+      "stdout_SHA256": "30fa13c74c07112dd04448bb975d5352608308b8675ed0bdd89eb486bf8bebdf",
+      "log": "after-cli-08.txt.gz",
+      "raw_SHA256": "30fa13c74c07112dd04448bb975d5352608308b8675ed0bdd89eb486bf8bebdf",
+      "stored_SHA256": "b47aefa7c195eb3b5c426c14b79cc584746ac7330059d1cc6dca3e1340dd2fcd"
+    },
+    {
+      "logical": "tools/plant_depth_verify.py",
+      "physical": "tools/qa/foliage/plant_depth_verify.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.plant_depth_verify"
+      ],
+      "exit": 0,
+      "source_SHA256": "a5116537b1ccb965fed4bd6e623868a041c5b123fe7407ba27196ed4f88dcd4a",
+      "stdout_SHA256": "72d82e9ecbc566d047d6705217fb97813441566b055da58d3e1ae37fba8cdb04",
+      "log": "after-cli-09.txt.gz",
+      "raw_SHA256": "72d82e9ecbc566d047d6705217fb97813441566b055da58d3e1ae37fba8cdb04",
+      "stored_SHA256": "c87f0aa17afd8a2ae89f8a8db13ff189e96757822a4d664a229ac65714149462"
+    },
+    {
+      "logical": "tools/shore_kit.py",
+      "physical": "tools/qa/world/shore_kit.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.world.shore_kit"
+      ],
+      "exit": 0,
+      "source_SHA256": "34f4a25a85d4ba0d11f54096c4d074d2e216840351deec58e091f437725f17f4",
+      "stdout_SHA256": "9a61715da3f3ccc9f52ff17784d0b0ba9a94836a13954d7361331a87b277a69e",
+      "log": "after-cli-10.txt.gz",
+      "raw_SHA256": "9a61715da3f3ccc9f52ff17784d0b0ba9a94836a13954d7361331a87b277a69e",
+      "stored_SHA256": "811c4239912c8a0f1ed519b959fc148d40ba12b658b72a1676017575a642228f"
+    },
+    {
+      "logical": "tools/test_foliage_root.py",
+      "physical": "tools/qa/foliage/test_foliage_root.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.test_foliage_root"
+      ],
+      "exit": 0,
+      "source_SHA256": "d0e9ff5400c1e2986595a6175443fe01f0d1ccc4f0ec262771f5172efc6d9050",
+      "stdout_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "after-cli-11.txt.gz",
+      "raw_SHA256": "9edbea2e7580e7159e97a5ab5c4112209d2df6d7f7c5fe5aeda0988376c483dc",
+      "stored_SHA256": "258f6a125d596b7377ca41235074b2ccc61dc644bfe0bf72d1932255e2f92cf9"
+    },
+    {
+      "logical": "tools/test_foliage_uv.py",
+      "physical": "tools/qa/foliage/test_foliage_uv.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.test_foliage_uv"
+      ],
+      "exit": 0,
+      "source_SHA256": "b6cfbaec0c1b292e691de766bbbd9be435c483665b960a0d9ad01a90e895bb0a",
+      "stdout_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "after-cli-12.txt.gz",
+      "raw_SHA256": "bba2c20b96c20ebcf4fa03f405d0ccc1a6fc6d9d0d2af4801b99676217291291",
+      "stored_SHA256": "c69757387f8e94a13b2e38cd38ee81b6e1fb2e5db4255a3ce5888059a01dad17"
+    },
+    {
+      "logical": "tools/test_foliage_wind.py",
+      "physical": "tools/qa/foliage/test_foliage_wind.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.test_foliage_wind"
+      ],
+      "exit": 0,
+      "source_SHA256": "eed34f523ef711f1eb856acb8fb86854ecb71c791915723cea6e935c8a4cbb85",
+      "stdout_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "after-cli-13.txt.gz",
+      "raw_SHA256": "9e6d05450626cf49e2b7d9a6bf64be3c09baaddd7418e4f028308b38b6cbcdb1",
+      "stored_SHA256": "c5f4fc5498a1d641ce82585e1db6156b5c378d5015b84223ce25daf73c951a52"
+    },
+    {
+      "logical": "tools/test_foliage_contact.py",
+      "physical": "tools/qa/foliage/test_foliage_contact.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.test_foliage_contact"
+      ],
+      "exit": 0,
+      "source_SHA256": "75fc08fc598a47c14c174b74f1d3640ccef92d970d9c85d7740af827cc528d17",
+      "stdout_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "after-cli-14.txt.gz",
+      "raw_SHA256": "cbe4b8e328c13ad02984834a05755f556b9d3edcfde1789068644f48fc661296",
+      "stored_SHA256": "fba10d03eb0aed383b69e2bafbb95bd882672d69611f2785aad62abfb3faebcc"
+    },
+    {
+      "logical": "tools/test_foliage_speed.py",
+      "physical": "tools/qa/foliage/test_foliage_speed.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.test_foliage_speed"
+      ],
+      "exit": 0,
+      "source_SHA256": "489b6ea836d7b56158f8c44fd3e8f36e71eb1c08b25213d3901cac145087c998",
+      "stdout_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "after-cli-15.txt.gz",
+      "raw_SHA256": "624d2146d473fe5ccfb80a73819ecf7efa20693234943abbe6f4f385a917344e",
+      "stored_SHA256": "7a830fd9bba2add97488855215a84c1d7086b0000a63781e91764195eb006150"
+    },
+    {
+      "logical": "tools/test_foliage_recovery.py",
+      "physical": "tools/qa/foliage/test_foliage_recovery.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.test_foliage_recovery"
+      ],
+      "exit": 0,
+      "source_SHA256": "a01c3e0d9b6f4e637134b5f4848c24f81b9270b9c31f6dccc45bd52fafe9fb9a",
+      "stdout_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "after-cli-16.txt.gz",
+      "raw_SHA256": "43c4ed0bb1871c4b52810909fb0c0298c9f275c6a6169b3fdf0d2874942826a8",
+      "stored_SHA256": "69654db5248a82513f517ad74773e3b4025b3b8811d868ce885586536104f673"
+    },
+    {
+      "logical": "tools/test_foliage_pause.py",
+      "physical": "tools/qa/foliage/test_foliage_pause.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.test_foliage_pause"
+      ],
+      "exit": 0,
+      "source_SHA256": "6e26e0c33317999f6d94d1bdc055ffb2b28a9ae4c1bc021f3d95b853b7ff29f7",
+      "stdout_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "after-cli-17.txt.gz",
+      "raw_SHA256": "db99cc0025489a5bdcb4f1c29e5a8194aadc77eb8371911939122363b1b1c1f8",
+      "stored_SHA256": "f8e42e50060345b28f1f3ae4e38ba49bf4c2051e7f9b23e738c102e2ba93cbbd"
+    },
+    {
+      "logical": "tools/test_foliage_visibility.py",
+      "physical": "tools/qa/foliage/test_foliage_visibility.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.test_foliage_visibility"
+      ],
+      "exit": 0,
+      "source_SHA256": "094955ac18cd41996d594878c851bb67ac972c49207797f113e0a1badf15cb20",
+      "stdout_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "after-cli-18.txt.gz",
+      "raw_SHA256": "dccf8d7a37e55899f6527bbe8ffc4d90bc93597b2447010a37e550126de2a1da",
+      "stored_SHA256": "16c9da47902963178bfa6fee16992a4ba6549b5f80cdf414499337885af58b2b"
+    },
+    {
+      "logical": "tools/test_grass_methods.py",
+      "physical": "tools/qa/foliage/test_grass_methods.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.test_grass_methods"
+      ],
+      "exit": 0,
+      "source_SHA256": "9bc94594106ef8d49422292a66ef85d8945300a72e640fcff8d33c254ec64841",
+      "stdout_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "after-cli-19.txt.gz",
+      "raw_SHA256": "ac28e6ddfc814a307d026d083b6bb7b5e377a76cadcb4c788a086183fbbb576d",
+      "stored_SHA256": "5d90d793a778cf650a76ccd5fd7cd83560773132bf8445d18f3f5f8f5f7d9d2f"
+    },
+    {
+      "logical": "tools/test_plant_depth.py",
+      "physical": "tools/qa/foliage/test_plant_depth.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.foliage.test_plant_depth"
+      ],
+      "exit": 0,
+      "source_SHA256": "79db5fa3a9fa8103e9885b88914a1e8067f8c4ac1bc75e7ef9b1d13ff2fe3e8c",
+      "stdout_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "after-cli-20.txt.gz",
+      "raw_SHA256": "f08ad4d1338246206855a9b7480655c51f72aa87dd91b924f856b722693fa454",
+      "stored_SHA256": "8c7d45f724bd5e91faca4773924b8ca13ccc984b2ae35e4e98032142e508d86f"
+    },
+    {
+      "logical": "tools/test_shore_kit.py",
+      "physical": "tools/qa/world/test_shore_kit.py",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.world.test_shore_kit"
+      ],
+      "exit": 1,
+      "source_SHA256": "697680e0dde904383273081b70a8dc4144239abdd8ece081ddf6a1af4d2d56cc",
+      "stdout_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "after-cli-21.txt.gz",
+      "raw_SHA256": "e721f4c93a028acea6d9dde97ceb464fb64b333bbd8b0dced10af7ba63702ea6",
+      "stored_SHA256": "2629f67458696bea41b49870fe4aa064c9e7dc41bd2db91c6b4cf503a33b3d96"
+    }
+  ],
+  "GD": [],
+  "historical_readers": 11,
+  "old_negative_suites": 11,
+  "unit_cases": 243,
+  "native_frames": 0,
+  "FPS_admission": false,
+  "foreign_cwd": true,
+  "before_known_unsafe_Git_overrides_cleared": false,
+  "after_foreign_Git_overrides": true
+}

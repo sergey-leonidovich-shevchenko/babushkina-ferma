@@ -8,7 +8,7 @@ const Field := preload("res://tools/qa/ground/plaza_field.gd")
 const Meadow := preload("res://scripts/presentation/meadow_ground.gd")
 const Map := preload("res://scripts/systems/village_map_data.gd")
 const Rules := preload("res://tests/suites/axial_road_suite.gd")
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 
 ## Проверяет происхождение, ограниченность слоя, мировую фазу материала и прежние правила земли.
 static func run(context: SceneTree) -> void:

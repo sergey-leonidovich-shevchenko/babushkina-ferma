@@ -1,0 +1,25 @@
+[
+  {
+    "gate": "wiki",
+    "command": [
+      "pnpm",
+      "--dir",
+      "wiki",
+      "check"
+    ],
+    "version": "0.0.380",
+    "started_at": "2026-10-29T23:05:25.153619+00:00",
+    "exit": 0,
+    "finished_at": "2026-10-29T23:06:25.123739+00:00"
+  },
+  {
+    "gate": "architecture",
+    "command": [
+      "tools/check_architecture.sh"
+    ],
+    "version": "0.0.380",
+    "started_at": "2026-10-29T23:06:25.124541+00:00",
+    "exit": 1,
+    "finished_at": "2026-10-29T23:06:29.053236+00:00"
+  }
+]

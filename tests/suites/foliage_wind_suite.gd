@@ -2,7 +2,7 @@ extends RefCounted
 const Wind:=preload("res://scripts/presentation/foliage_wind.gd")
 const Batch:=preload("res://scripts/presentation/foliage_wind_batch.gd")
 const Clock:=preload("res://scripts/presentation/village_ground_clock.gd")
-const Points:=preload("res://tools/visual_camera_points.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
 
 ## Проверяет настоящие восемь опор, пространственные фазы, ограничение изгиба и отсутствие вертикального скольжения.
 static func run(ctx:SceneTree)->void:

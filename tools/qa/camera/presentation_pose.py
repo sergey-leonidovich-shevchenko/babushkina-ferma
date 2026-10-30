@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """VCAMERA-003: paired native presentation phases and root shader contact, never FPS."""
 from __future__ import annotations
+from tools.qa.world.source_inputs import input_path
 from tools.assets.contracts.source_paths import current_source
 import argparse
 import json
@@ -211,7 +212,7 @@ def capture(folder, resume=False):
                 validate_run(read(target/'capture.json'),size,legacy,case == 'retina-2x')
                 environment=dict(os.environ,CLANG_MODULE_CACHE_PATH=str(temporary/'clang-cache'),SWIFT_MODULECACHE_PATH=str(temporary/'swift-cache'))
                 with (target/'encoder.txt').open('w') as log:
-                    subprocess.run(['swift',str(ROOT/'tools/encode_coordinate_video.swift'),str(native/'frames'),str(target/'walk.mp4'),'60','4000000'],env=environment,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=240)
+                    subprocess.run(['swift',str(input_path(ROOT,'tools/encode_coordinate_video.swift')),str(native/'frames'),str(target/'walk.mp4'),'60','4000000'],env=environment,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=240)
                 shutil.rmtree(native); manifest(folder,source)
     source['complete']=True; manifest(folder,source)
     metrics=verify(folder); (folder.parent/'metrics.json').write_text(json.dumps(metrics,indent=2)+'\n')

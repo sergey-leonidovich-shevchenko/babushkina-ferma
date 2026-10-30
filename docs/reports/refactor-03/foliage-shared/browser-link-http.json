@@ -1,0 +1,17 @@
+{
+  "links": [
+    {
+      "observed_DOM_url": "http://127.0.0.1:4193/generated/attachments/ba2ee1f25d8595a5cb76d12cfd1ec5bd01025b8280783a383368894679c285ae.json",
+      "status": 200,
+      "exact_file": "full-plan-coverage.json",
+      "SHA256": "ba2ee1f25d8595a5cb76d12cfd1ec5bd01025b8280783a383368894679c285ae"
+    },
+    {
+      "observed_DOM_url": "http://127.0.0.1:4193/generated/attachments/867322c31693f08c9dd79d77cff80537472cbd975a69887ffe2f4af20ab176bd.json",
+      "status": 200,
+      "exact_file": "after-profile.json",
+      "SHA256": "867322c31693f08c9dd79d77cff80537472cbd975a69887ffe2f4af20ab176bd"
+    }
+  ],
+  "browser_download_not_claimed": true
+}

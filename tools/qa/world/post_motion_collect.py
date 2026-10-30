@@ -5,8 +5,8 @@ if not __package__:
     from tools.common.paths import project_root
     prepare_imports(project_root(__file__))
 
-import os,tempfile,argparse,gzip,hashlib,json,shutil,signal,subprocess,uuid
-from pathlib import Path
+import os, argparse, gzip, json, shutil, signal, subprocess, uuid
+
 from tools.qa.world.source_inputs import input_path
 from tools.qa.performance.perf_contract_collect import ROOT,command,context,jobs,native_pid,sha,write
 from tools.qa.world.pilot_pass_collect import ORIGINAL as PREVIOUS, EXTRA as PREVIOUS_EXTRA
@@ -50,7 +50,7 @@ def collect(folder,phase):
         video=target/'route.mp4';cache=ROOT/'tmp/post-motion-video-cache';cache.mkdir(parents=True,exist_ok=True)
         environment=dict(os.environ,CLANG_MODULE_CACHE_PATH=str(cache/'clang'),SWIFT_MODULECACHE_PATH=str(cache/'swift'))
         with (target/'video-encode.txt').open('w') as out:
-            subprocess.run(['swift',str(ROOT/'tools/encode_coordinate_video.swift'),str(target/'frames'),str(video),'10','4000000'],env=environment,stdout=out,stderr=subprocess.STDOUT,check=True,timeout=240)
+            subprocess.run(['swift',str(input_path(ROOT,'tools/encode_coordinate_video.swift')),str(target/'frames'),str(video),'10','4000000'],env=environment,stdout=out,stderr=subprocess.STDOUT,check=True,timeout=240)
         source['artifacts']={str(p.relative_to(folder)):sha(p) for p in folder.rglob('*') if p.is_file() and p.name!='source.json' and 'inputs' not in p.parts};write(folder/'source.json',source)
         if code or not (target/'capture.json.gz').is_file() or json.loads(gzip.decompress((target/'capture.json.gz').read_bytes()))['errors'] or any(t in (target/'engine.txt').read_text() for t in ['ERROR:','SCRIPT ERROR','Parse Error']):raise ValueError('native capture failed; partial data rejected')
         if any(sha(input_path(ROOT, n))!=h for n,h in source['sources'].items()):raise ValueError('frozen input changed')

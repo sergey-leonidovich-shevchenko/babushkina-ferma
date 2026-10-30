@@ -1,6 +1,6 @@
 extends SceneTree
 
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Reference := preload("res://scripts/presentation/visual_reference_mode.gd")
 const Resources := preload("res://scripts/systems/visual_resource_catalog.gd")
 const Sampling := preload("res://scripts/presentation/visual_sampling_system.gd")

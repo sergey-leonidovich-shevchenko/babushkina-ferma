@@ -1,6 +1,6 @@
 extends RefCounted
 
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Map := preload("res://scripts/systems/village_map_data.gd")
 const Soil := preload("res://scripts/presentation/garden_soil.gd")
 const Meadow := preload("res://scripts/presentation/meadow_ground.gd")

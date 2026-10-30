@@ -1,0 +1,8 @@
+{
+  "before_SHA256": "e231970db1b47653dce1014da68b4aed45b749401ee0bfae05be0d6209a191c2",
+  "after_SHA256": "094955ac18cd41996d594878c851bb67ac972c49207797f113e0a1badf15cb20",
+  "change": "same actual child testcase through tools/run.py from a foreign cwd; imports and Git controls retained",
+  "test_methods_removed": 0,
+  "failed_profile": "after-attempt01/after-profile.json",
+  "targeted_green": "visibility-child-green.txt"
+}

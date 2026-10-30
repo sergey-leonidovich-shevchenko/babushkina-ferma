@@ -1,5 +1,9 @@
 # Инструменты проекта
 
+Финальный перенос REFACTOR-03, кандидат0.0.380: 77 исходников (включая шесть nested grass_compare) и34 tracked UID распределены по qa/foliage, qa/world и qa/camera; четыре ignored UID сохраняются локально. Корень tools82→11 при лимите30. Все779 назначений исходного плана сверены отдельно от generic map491; два прежних исключения — PIL importer в authoring и protocol facade — сохранены. Все304 UID bytes/mode и37 полей21 source-contract модуля прежние. До/после:22 actual CLI,243 прежних теста и114 Godot compile-only; 11 исторических stdout побайтно равны. Новые11 context,10 provenance и10 actual-producer случаев проверяют свои Git/cwd/index/config, canonical input/copy/hash и точный launch URI; fake-open17 не рисует кадры и не даёт native/FPS-приёмки. Старые отчёты не переписаны. Родитель379 принят review5706289303, CI8/8 и Team Lead. Полная03 остаётся in_progress в PR21 до обязательных gates, независимого ревью текущего head, CI и решения Team Lead; merge/Task-Complete пока нет.
+
+[Полная карта и проверки380](../docs/reports/refactor-03/foliage-shared/README.md).
+
 Перенос Ground 0.0.379: 71 исходник и 42 tracked UID находятся в `tools/qa/ground`; корень tools сокращён со 153 до 82 исходников. Карта расширена ровно на 113 принятых строк до 380. Все 37 логических полей в 21 модуле и 302 UID bytes/mode сохранены. До/после прошли по 22 CLI и 55 compile-only checks, десять исторических stdout равны. Новые 22 real-layout случая проходят; fake-open17 проверяет source/argv и не является native/FPS приёмкой. P3 Path и дополнительные unused импорты в тестах исправлены; аудит теперь включает все 35 Python-модуля и 15 тестовых. Родитель378 принят review5704521872 и CI 8/8. Вся03 остаётся draft/in_progress, root82 >30; новому head нужны полные TESTING, независимое review/CI и решение Team Lead. Для frozen масок добавлен QA-only bridge семи путей: прежние SHA принимаются только при точном обратном преобразовании quoted preload URI; любые другие изменения байтов и отсутствующий canonical источник отклоняются. Четыре fresh compiler записывают реальные текущие SHA, сохраняя логические ключи. Два интеграционных теста проверяют 101 provenance-контроль и 36 проверок девяти новых масок, с неизменными geometry/UV/colour bytes. Игровые .res не пересоздаются. Первый полный Game дал 25 ошибок старых source paths; отказ сохранён, исправление проверяется новой полной серией gates-03. Gates-02 остановился на прежнем World context: sandbox блокировал ps; тот же тест с штатным доступом прошёл, source не менялся. Сохранены 302 прежних UID, добавлены два QA-only UID.
 
 [Профиль переноса Ground379](../docs/reports/refactor-03/ground-move/after-profile.json).
@@ -82,6 +86,26 @@ Git-команды, адресованные отдельному репозит
 | `tools/bump_version.py` | `planning/bump_version.py` | Pre-commit, CLI и import API; законный alternate index |
 | `tools/task_batch.py` | `planning/task_batch.py` | Post-commit/status и import API; publish остаётся историческим и не обходит PR |
 
-Эти входы удаляются только отдельным одобренным переходом всех публичных потребителей. Импорт возвращает тот же модуль и mutable globals, а не копию функций. Остальные принятые корневые входы `smoke_test.sh`, `performance_gate.sh`, `performance_gate.py` и защищённые `performance_sampler.gd`/`water_audit.gd` сохраняются для следующего этапа. Полный исторический публичный список находится в `docs/reports/refactor-01/integration-1/snapshot/migration-plan-copy.json`.
+Эти входы удаляются только отдельным одобренным переходом всех публичных потребителей. Импорт возвращает тот же модуль и mutable globals, а не копию функций. Полный текущий корневой набор приведён ниже; каждый адрес имеет публичного потребителя или отдельную причину сохранения. Полный исторический публичный список находится в `docs/reports/refactor-01/integration-1/snapshot/migration-plan-copy.json`.
 
 Проверка инфраструктуры выполняет 13 сценариев: настоящие disposable Git/worktree, argv/exit, пакетный `-m` и публичные API, подмена пакета, ссылки вне tools, нулевой unittest, чужое Git-окружение, alternate index и вложенный архитектурный лимит. Источники, попытки и границы приёмки хранятся в `docs/reports/refactor-02/`.
+
+## Все 11 исходников, оставшихся в корне
+
+| Адрес | Потребитель и причина |
+| --- | --- |
+| `tools/run.py` | Общий Python CLI для документации, quality gate и произвольной cwd; передаёт argv в пакет |
+| `tools/__init__.py` | Закрепляет собственный пакет tools при запуске из чужой cwd/PYTHONPATH |
+| `tools/check_architecture.sh` | Hooks и Actions; делегирует `quality/check_architecture.sh` |
+| `tools/bump_version.py` | Pre-commit/CLI/import API; делегирует planning с сохранением законного alternate index |
+| `tools/task_batch.py` | Post-commit/status/import API; publish остаётся историческим и не обходит PR |
+| `tools/smoke_test.sh` | `.github/workflows/ci.yml`; делегирует qa/performance с прежними argv/exit |
+| `tools/performance_gate.sh` | `.github/workflows/ci.yml`; делегирует qa/performance с прежними argv/exit |
+| `tools/performance_gate.py` | Frozen redraw/causal executable reports; один модуль, API и mutable SAMPLER |
+| `tools/performance_protocol.py` | Три frozen executable consumer, включая protocol-before-gate import; единственная реализация qa/performance |
+| `tools/performance_sampler.gd` | `qa/performance/performance_gate.py`; защищённый engine --script anchor исходного плана |
+| `tools/water_audit.gd` | Защищённый anchor исторического WATER/shore протокола исходного плана |
+
+Все779 исходных назначений, actual target и сохранённые facade/anchors: [проверенная полная карта](../docs/reports/refactor-03/foliage-shared/full-plan-coverage.json).
+Историческая карта не менялась. Generic491 — отдельная текущая таблица адресов, не замена полной779.
+Закреплённый `tools/Godot.app` остаётся на месте и не входит в число исходников.

@@ -1,0 +1,56 @@
+{
+  "modules": {
+    "tools/common/test_infrastructure.py": {
+      "before_SHA256": "1c29da77d2500485e21754f21c0a29c56c43173294a086034efeb353d5b4ef58",
+      "after_SHA256": "293d97f12e7b80fdc765f19c9c7b5275adc05bfa13ddfdd1a3b04a3f0580666f",
+      "change": "same actual Shore child and foreign Git/index/config assertions; qualified module and package root PYTHONPATH",
+      "test_methods_removed": 0,
+      "all_other_bytes_equal": true
+    },
+    "tools/qa/performance/perf_contract_collect.py": {
+      "before_SHA256": "562a21afcb50f48cb61771dd1fdd35f676dad36a96918924e90af412939dd71e",
+      "after_SHA256": "d2d47cc6e1d611ed8ee3df792e75c15e4efa066c753ea18519392ada872a3500",
+      "change": "one exact original camera assignment added to current-only input table; FROZEN/archive namespace and all function bodies unchanged",
+      "failed_full_gate": "gates-02/architecture.txt",
+      "existing_actual_producer_tests": "performance-shared-green.txt",
+      "existing_cases_passed": 8,
+      "test_cases_removed_or_rewritten": 0,
+      "all_other_bytes_equal": true
+    },
+    "tools/qa/ground/ground_layers.py": {
+      "before_SHA256": "9f7f7796946cb57294b820cf28cd663f7ee535372c5b71cf46eadd1be797f776",
+      "after_SHA256": "8700f3dab6bc60a0eeed979c2bc91174ce55a4d57c799c3e9e0688ec6ec192de",
+      "change": "non-helper current Git bases use one known alias in the same pinned commit; special LEGACY_HELPER resolution and every digest/coverage/assertion preserved",
+      "failed_full_gate": "gates-03/architecture.txt",
+      "tests": "surface-shared-history-green.txt",
+      "old_cases_retained": 9,
+      "all_other_bytes_equal_after_exact_history_resolution_normalization": true
+    },
+    "tools/qa/foliage/grass_methods.py": {
+      "before_SHA256": "5c724d39f91ebb8233bbd6fd72941c6a26501533fdd9092fb2f0d67e2dedbb47",
+      "after_SHA256": "e9d59c1189e43e7fd44e14dc7e14c252cfed0edcca954d6f6b3952ecbc23db28",
+      "change": "non-helper current Git bases use one known alias in the same pinned commit; special LEGACY_HELPER resolution and every digest/coverage/assertion preserved",
+      "failed_full_gate": "gates-03/architecture.txt",
+      "tests": "surface-shared-history-green.txt",
+      "old_cases_retained": 9,
+      "all_other_bytes_equal_after_exact_history_resolution_normalization": true
+    },
+    "tools/qa/camera/test_camera_layout.py": {
+      "before_SHA256": "6b3388d8bfa7dd4c83d74d91c50726edd3e9d0362d19d55facf9d0ea932a090e",
+      "after_SHA256": "ba92f42ce63aa088afd3726498facfebc6755246f7806637a3ba437cd9f9752a",
+      "change": "remove completed shared-points deferral only in file fixture; exact missing-canonical filename and no-child assertions retained",
+      "failed_full_gate": "gates-04/architecture.txt",
+      "tests": "camera-shared-fixture-green.txt",
+      "old_cases_retained": 3,
+      "test_assertions_changed": 0
+    }
+  },
+  "failed_full_gate": "gates-01/architecture.txt",
+  "targeted_green": "infrastructure-launch-green.txt",
+  "wiki_link_repair": {
+    "before": "README basename resolved to the unrelated Wiki README guide",
+    "after": "direct full-plan-coverage.json and after-profile.json downloads; exact exported bytes checked",
+    "failed_catalog_check": "catalog-attempt01.txt",
+    "Wiki_implementation_changed": false
+  }
+}

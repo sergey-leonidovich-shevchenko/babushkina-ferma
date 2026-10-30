@@ -29,7 +29,7 @@ func _start() -> void:
 		push_error("Native display and unused paths required"); quit(2); return
 	DirAccess.make_dir_recursive_absolute(folder)
 	print("GROUND SEASONS INIT scene")
-	game=Points.create_game(); game.set_script(preload("res://tools/render_order_game.gd")); root.add_child(game); current_scene=game
+	game=Points.create_game(); game.set_script(preload("res://tools/qa/world/render_order_game.gd")); root.add_child(game); current_scene=game
 	Points.configure(game,Points.registry().points[0]); preload("res://scripts/systems/world_projection_system.gd").set_reference_zoom(game,1.2)
 	bg=game.get_node("WorldBackground")
 	for cell:Vector2i in game.plots:

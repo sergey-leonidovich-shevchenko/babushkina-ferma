@@ -1,5 +1,5 @@
 extends SceneTree
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
 var output := ""
 var game: Node

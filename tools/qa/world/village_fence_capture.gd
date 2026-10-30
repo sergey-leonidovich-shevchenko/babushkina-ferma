@@ -1,7 +1,7 @@
 extends SceneTree
 
-const Points := preload("res://tools/visual_camera_points.gd")
-const Observer := preload("res://tools/render_order_game.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
+const Observer := preload("res://tools/qa/world/render_order_game.gd")
 const Reference := preload("res://scripts/presentation/visual_reference_mode.gd")
 const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
 var folder := ""

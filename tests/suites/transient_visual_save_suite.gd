@@ -2,7 +2,7 @@ extends RefCounted
 
 const Store:=preload("res://scripts/systems/atomic_json_store.gd")
 const Save:=preload("res://scripts/systems/save_system.gd")
-const Points:=preload("res://tools/visual_camera_points.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
 const Clock:=preload("res://scripts/presentation/village_ground_clock.gd")
 const Depth:=preload("res://scripts/systems/tree_occlusion_system.gd")
 const Pose:=preload("res://scripts/systems/presentation_pose_system.gd")

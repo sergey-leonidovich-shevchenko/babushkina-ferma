@@ -1,6 +1,6 @@
 extends RefCounted
 
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Hero := preload("res://scripts/systems/hero_visual_system.gd")
 const ActorRenderer := preload("res://scripts/systems/animation_renderer.gd")
 const Village := preload("res://scripts/systems/village_map_data.gd")

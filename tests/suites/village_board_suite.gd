@@ -1,7 +1,7 @@
 extends RefCounted
 const Board:=preload("res://scripts/presentation/village_board_visual.gd")
 const Layout:=preload("res://scripts/systems/village_layout_system.gd")
-const Points:=preload("res://tools/visual_camera_points.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
 const Rules:=preload("res://tools/qa/ground/ground_seasons_fixture.gd")
 const Wayfinding:=preload("res://scripts/systems/village_wayfinding_system.gd")
 const Regions:=preload("res://scripts/systems/village_region_system.gd")

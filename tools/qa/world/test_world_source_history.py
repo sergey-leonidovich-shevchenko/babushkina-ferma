@@ -1,7 +1,7 @@
 """Actual World readers on real Git/capsule bytes in a future canonical tree; input-only, never native proof."""
 from contextlib import redirect_stdout
 import hashlib
-import importlib.util
+
 import io
 import json
 from pathlib import Path
@@ -22,7 +22,7 @@ from tools.qa.world import village_fence_verify as fence
 from tools.qa.world import village_lamp_verify as lamp
 from tools.qa.world import village_street_verify as street
 from tools.qa.world import village_trade_verify as trade
-import plant_depth_verify as plant_depth
+from tools.qa.foliage import plant_depth_verify as plant_depth
 from tools.assets.contracts.source_paths import MOVED_PATHS, current_source
 from tools.qa.art.current_paths import MOVED_PATHS as ART_PATHS
 from tools.qa.world import test_world_context as context_fixtures

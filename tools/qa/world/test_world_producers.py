@@ -34,8 +34,8 @@ from tools.qa.world import village_street_collect as street
 from tools.qa.world import village_street_verify
 from tools.qa.world import village_trade_collect as trade
 from tools.qa.world import village_trade_verify
-import plant_depth_collect as plant_depth
-import plant_depth_verify
+from tools.qa.foliage import plant_depth_collect as plant_depth
+from tools.qa.foliage import plant_depth_verify
 from tools.assets.contracts.source_paths import current_source
 from tools.qa.art.current_paths import MOVED_PATHS as ART_PATHS
 from tools.qa.performance import perf_contract_collect as perf

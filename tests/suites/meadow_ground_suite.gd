@@ -1,7 +1,7 @@
 extends RefCounted
 
 const Meadow := preload("res://scripts/presentation/meadow_ground.gd")
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Farm := preload("res://scripts/systems/world_farming_system.gd")
 
 ## Проверяет реальные UV общих сторон, ограниченность геометрии и сохранность правил земли при откате.

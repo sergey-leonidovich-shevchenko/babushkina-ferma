@@ -10,8 +10,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import grass_compare_collect as grass
-import grass_methods as grass_reader
+from tools.qa.foliage import grass_compare_collect as grass
+from tools.qa.foliage import grass_methods as grass_reader
 from tools.qa.ground import ground_layers as ground
 from tools.common.git import git_environment
 from tools.assets.contracts.source_paths import current_source

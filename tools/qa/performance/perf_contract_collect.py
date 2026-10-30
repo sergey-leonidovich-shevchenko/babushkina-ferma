@@ -31,6 +31,7 @@ SOURCE_LAYOUT = 'qa-performance-v1'
 CURRENT_SOURCES = {
     'tools/perf_contract_capture.gd': 'tools/qa/performance/perf_contract_capture.gd',
     'tools/perf_contract_collect.py': 'tools/qa/performance/perf_contract_collect.py',
+    'tools/visual_camera_points.gd': 'tools/qa/camera/visual_camera_points.gd',
 }
 
 

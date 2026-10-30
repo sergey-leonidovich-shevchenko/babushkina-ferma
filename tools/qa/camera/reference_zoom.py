@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """VCAMERA-006: identical world trajectories at 100/120%, separate from live timing."""
 from __future__ import annotations
+from tools.qa.world.source_inputs import input_path
 from tools.assets.contracts.source_paths import current_source
 import argparse
 import hashlib
@@ -206,7 +207,7 @@ def capture(folder, resume=False):
                 require(result.returncode==0 and 'ERROR:' not in (target/'engine.txt').read_text(),'native launch/engine error: '+name)
                 validate_run(read(target/'capture.json'),size,amount)
                 env=dict(os.environ,SWIFT_MODULECACHE_PATH=str(temporary/'swift-cache'),CLANG_MODULE_CACHE_PATH=str(temporary/'clang-cache'))
-                with (target/'encoder.txt').open('w') as log: subprocess.run(['swift',str(ROOT/'tools/encode_coordinate_video.swift'),str(raw/'frames'),str(target/'walk.mp4'),'60','4000000'],env=env,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=300)
+                with (target/'encoder.txt').open('w') as log: subprocess.run(['swift',str(input_path(ROOT,'tools/encode_coordinate_video.swift')),str(raw/'frames'),str(target/'walk.mp4'),'60','4000000'],env=env,stdout=log,stderr=subprocess.STDOUT,check=True,timeout=300)
                 shutil.rmtree(raw); manifest(folder,source)
     source['complete']=True; manifest(folder,source)
     metrics=verify(folder); (folder.parent/'metrics.json').write_text(json.dumps(metrics,indent=2)+'\n')

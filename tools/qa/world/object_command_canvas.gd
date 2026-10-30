@@ -2,7 +2,7 @@ extends Node2D
 
 const Command := preload("res://scripts/presentation/object_draw_command.gd")
 const Replay := preload("res://scripts/presentation/object_draw_replay.gd")
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 var game: Node
 var packet := {}
 var submitted := {}

@@ -1,6 +1,6 @@
 extends SceneTree
 
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Reference := preload("res://scripts/presentation/visual_reference_mode.gd")
 const Padded := preload("res://scripts/presentation/padded_atlas_system.gd")
 const Cabinet := preload("res://scripts/systems/dev_cabinet_system.gd")
