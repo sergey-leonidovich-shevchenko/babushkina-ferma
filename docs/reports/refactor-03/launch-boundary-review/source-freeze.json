@@ -1,0 +1,25 @@
+{
+  "task": "REFACTOR-03",
+  "version": "0.0.381",
+  "base": "2c856d7d3d0a185735f17bdc5fa3f8c258b836d8",
+  "source_SHA256": {
+    "TESTING.md": "85cb90f5438f145675ae5a6230a200639a1dbcd331b3cc9784316a7986a15941",
+    "VERSION": "7029e1104647edbd40b5fb6766be635de6eb51ee4a817b900b15e4bd1f55845b",
+    "docs/epics/refactoring-2026-10/TASKS.md": "eec14eedbc901846313cf48fa75838b2baf46cc52d817486ef77a670a6680118",
+    "project.godot": "107612be843412d16f5ef9c61dbd10389ea6e70f23463c9a228dfcd310405ebb",
+    "tools/qa/foliage/grass_methods.py": "ea774bb5bfac03ff476ad4655727d2d7900b59b759b0fa3ff586598b84cbd5de",
+    "tools/qa/foliage/test_relocation_provenance.py": "707e481badaf4eae1280c4bd1e671bcfc87295fbe7544bacbbd39a1a73f196e5",
+    "wiki/articles/project-refactoring.md": "1405d91938669efa74552f74209114c50bf0efc693fb3aa6781a3079d91be306",
+    "Бабушкина ферма.app/Contents/Info.plist": "07b744a39b09269d0619b5d9f253ad85cff83cb2b862581f3bab941a5b505237"
+  },
+  "report_content_inputs": {
+    "result.json": "e1989171bc0c83565fc83e7d9ec67214ec02e64e00f6a4e405421e16231d044b"
+  },
+  "unused_imports": [],
+  "other_cards_unchanged": true,
+  "runtime_art_frozen_evidence_unchanged": true,
+  "primary_foreign_preserved": true,
+  "all_before_full_gates": true,
+  "main_changed": false,
+  "Task_Complete": false
+}

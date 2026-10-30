@@ -1,0 +1,16 @@
+{
+  "tab": "28",
+  "DOM": {
+    "height": 900,
+    "scrollWidth": 1280,
+    "url": "http://127.0.0.1:4193/#/guides/project-refactoring",
+    "version": true,
+    "width": 1280
+  },
+  "PNG": {
+    "width": 65536,
+    "height": 4292542531
+  },
+  "reason": "first screenshot retained old1024x720 compositor surface; CSS DOM already1280x900",
+  "read_only": true
+}

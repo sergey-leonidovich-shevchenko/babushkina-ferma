@@ -1,0 +1,23 @@
+{
+  "prepare_attempt01_exit": 1,
+  "primary_mutated_in_attempt01": false,
+  "reason": "primary contains one preexisting ignored local probe and UID absent from isolated QA",
+  "QA_UID_count": 304,
+  "primary_UID_count": 305,
+  "primary_extra_ignored_UID": {
+    "tools/foliage_coverage_probe.gd.uid": {
+      "SHA256": "24f9bbeb07430bb8a4d794926bdff90357904b2e9100113e5b3061fda121a8d4",
+      "mode": 420
+    }
+  },
+  "primary_extra_ignored_source": {
+    "tools/foliage_coverage_probe.gd": {
+      "SHA256": "b4a1fc4fc09f8e02809e9d473168790334faeadab4f7a814e010894af2b4cef5",
+      "mode": 420
+    }
+  },
+  "policy": "preserve all305 primary UID plus local probe; stage neither foreign file",
+  "product_source_changed": false,
+  "full_gates_changed": false,
+  "report_only_guard_change": true
+}

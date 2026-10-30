@@ -23,7 +23,8 @@ def module(logical):
 class RelocationProvenanceTests(unittest.TestCase):
     def launch_fixture(self,folder,uri):
         profile='Codex-VRENDER-002-control'
-        env={'exit_code':0,'jobs_after':[],'profile':profile,'command':['open','-n','--script',uri]}
+        env={'exit_code':0,'jobs_after':[],'profile':profile,
+             'command':['open','-n','--args','--path',str(ROOT),'--script',uri]}
         (folder/'environment.json').write_text(json.dumps(env));(folder/'engine.txt').write_text('controlled metadata fixture; no native run\n')
         return profile,env
 
@@ -50,6 +51,92 @@ class RelocationProvenanceTests(unittest.TestCase):
             for reported in [None,{CAPTURE:'elsewhere.gd'},{CAPTURE:PLAN[CAPTURE]['target'],'unknown':'bad'}]:
                 with self.subTest(reported=reported),self.assertRaises(ValueError):
                     module('grass_methods').launch(folder,profile,{'source_paths':reported})
+
+    def grass_layouts(self):
+        """Exercise both trusted source schemes; payload cannot choose either URI."""
+        return [('legacy','res://'+CAPTURE,None),
+                ('current','res://'+PLAN[CAPTURE]['target'],{'source_paths':{CAPTURE:PLAN[CAPTURE]['target']}})]
+
+    def check_grass_command(self,command,source,*,accepted):
+        """Call the real reader on owned metadata files; no engine or native frames are fabricated."""
+        with tempfile.TemporaryDirectory() as temporary:
+            folder=Path(temporary);profile,env=self.launch_fixture(folder,'unused')
+            env['command']=command;(folder/'environment.json').write_text(json.dumps(env))
+            if accepted:
+                self.assertEqual(module('grass_methods').launch(folder,profile,source),env)
+            else:
+                with self.assertRaisesRegex(ValueError,'wrong launch'):
+                    module('grass_methods').launch(folder,profile,source)
+
+    def test_grass_script_only_in_user_payload_is_rejected(self):
+        for layout,uri,source in self.grass_layouts():
+            for separator in ['--','++']:
+                for engine in [[],['--script=res://tools/wrong.gd'],['-s','res://tools/wrong.gd']]:
+                    with self.subTest(layout=layout,separator=separator,engine=engine):
+                        command=['open','-n','--args','--path',str(ROOT),*engine,separator,'--script',uri]
+                        self.check_grass_command(command,source,accepted=False)
+
+    def test_grass_first_user_separator_ends_engine_arguments(self):
+        for layout,uri,source in self.grass_layouts():
+            for first,second in [('--','++'),('++','--')]:
+                with self.subTest(layout=layout,first=first):
+                    command=['open','-n','--args','--path',str(ROOT),first,second,'--script',uri]
+                    self.check_grass_command(command,source,accepted=False)
+
+    def test_grass_conflicting_engine_script_forms_are_rejected(self):
+        for layout,uri,source in self.grass_layouts():
+            for conflicting in [['--script',uri],['--script=res://tools/wrong.gd'],
+                                ['-s','res://tools/wrong.gd'],['-s=res://tools/wrong.gd'],['-sres://tools/wrong.gd']]:
+                with self.subTest(layout=layout,conflicting=conflicting):
+                    command=['open','-n','--args','--script',uri,*conflicting,'--','--output=fixture']
+                    self.check_grass_command(command,source,accepted=False)
+
+    def test_grass_correct_engine_script_ignores_payload_flags(self):
+        for layout,uri,source in self.grass_layouts():
+            for separator in ['--','++']:
+                with self.subTest(layout=layout,separator=separator):
+                    command=['open','-n','--args','--script',uri,separator,'--script','res://tools/payload.gd',
+                             '-s','payload','--script=payload','--headless']
+                    self.check_grass_command(command,source,accepted=True)
+
+    def test_grass_headless_engine_remains_rejected(self):
+        for layout,uri,source in self.grass_layouts():
+            for separator in ['--','++']:
+                with self.subTest(layout=layout,separator=separator):
+                    command=['open','-n','--args','--headless','--script',uri,separator,'--output=fixture']
+                    self.check_grass_command(command,source,accepted=False)
+
+    def test_grass_command_requires_string_arguments(self):
+        for layout,uri,source in self.grass_layouts():
+            for command in [None,[],['open',7,'--script',uri],['open',{},'--script',uri]]:
+                with self.subTest(layout=layout,command=command):
+                    self.check_grass_command(command,source,accepted=False)
+
+    def test_grass_wrapped_engine_launch_positive_controls(self):
+        for layout,uri,source in self.grass_layouts():
+            for separator in [None,'--','++']:
+                with self.subTest(layout=layout,separator=separator):
+                    command=['open','-n','--args','--path',str(ROOT),'--script',uri]
+                    if separator:command.extend([separator,'--output=fixture'])
+                    self.check_grass_command(command,source,accepted=True)
+
+    def test_grass_wrapper_options_cannot_supply_engine_script(self):
+        for layout,uri,source in self.grass_layouts():
+            with self.subTest(layout=layout):
+                command=['open','--script',uri,'--args','--path',str(ROOT),'--','--output=fixture']
+                self.check_grass_command(command,source,accepted=False)
+
+    def test_grass_raw_engine_launch_positive_control(self):
+        for layout,uri,source in self.grass_layouts():
+            with self.subTest(layout=layout):
+                command=['/fixture/Godot','--path',str(ROOT),'--script',uri,'++','--output=fixture']
+                self.check_grass_command(command,source,accepted=True)
+
+    def test_grass_duplicate_wrapper_forwarding_is_rejected(self):
+        for layout,uri,source in self.grass_layouts():
+            with self.subTest(layout=layout):
+                command=['open','--args','--args','--script',uri,'--','--output=fixture']
+                self.check_grass_command(command,source,accepted=False)
 
     def source_fixture(self,temporary):
         root=Path(temporary);(root/'project.godot').write_text('; marker\n');(root/'VERSION').write_text('qa\n')

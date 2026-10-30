@@ -87,14 +87,24 @@ def provenance(folder,mode):
 
 
 def launch(target,profile,source=None):
-    """Bind exactly one launch URI to legacy absence or a complete known captured-path record."""
+    """Bind one engine script before user arguments to the known legacy/current capture URI."""
     env=read(target/'environment.json'); command=env['command']; log=(target/'engine.txt').read_text()
     require(env['exit_code']==0 and env['jobs_after']==[] and env['profile']==profile and profile.startswith('Codex-VRENDER-002-'),'native launch/profile failed')
     paths=recorded_paths(CAPTURE_SOURCE,(source or {}).get('source_paths',{}))
     logical=CAPTURE_SOURCE[0]; expected='res://'+paths.get(logical,logical)
-    require(isinstance(command,list),'wrong launch')
-    index=command.index('--script') if command.count('--script')==1 else -1
-    require('--headless' not in command and index>=0 and index+1<len(command) and command[index+1]==expected,'wrong launch')
+    require(isinstance(command,list) and command and all(isinstance(arg,str) for arg in command),'wrong launch')
+    boundary=next((index for index,arg in enumerate(command) if arg in {'--','++'}),len(command))
+    engine=command[:boundary]
+    if Path(command[0]).name=='open':
+        # macOS open forwards only the arguments following its single --args marker.
+        require(engine.count('--args')==1,'wrong launch')
+        engine=engine[engine.index('--args')+1:]
+    else:
+        engine=engine[1:]
+    # The capture protocol emits the long two-token form; competing aliases are ambiguous.
+    require(not any(arg.startswith(('--script=','-s')) for arg in engine),'wrong launch')
+    index=engine.index('--script') if engine.count('--script')==1 else -1
+    require('--headless' not in engine and index>=0 and index+1<len(engine) and engine[index+1]==expected,'wrong launch')
     require('ERROR:' not in log and 'SCRIPT ERROR' not in log,'native engine error')
     return env
 

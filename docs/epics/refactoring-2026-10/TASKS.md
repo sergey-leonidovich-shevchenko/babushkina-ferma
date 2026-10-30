@@ -116,6 +116,8 @@
 
 Подробные назначения/исключения и все raw: [foliage/shared](../../reports/refactor-03/foliage-shared/README.md). P3 родительского ревью: живые counters379 исправлены на35 Python/15 tools-тестов; frozen отчёт379 не переписан.
 
+**Доработка P2 0.0.381:** P2 REFACTOR-03, кандидат0.0.381: `qa.foliage.test_relocation_provenance` проверяет20 случаев, включая10 новых тестов/54 подслучая границы engine/user argv. Parent2c856d7d дал32 failed subtests/4 errors, текущий reader20/0 на том же test SHA. Поиск script завершается на первом --/++; open --args и прямой Godot разделены, дубли/конфликтующие формы отклоняются, payload-флаги не влияют на engine. Все10 прежних test-методов и остальные функции reader сохранены;18 старых Grass controls и исторический stdout проходят без изменений. Parent380 не принят из-за P2;03 остаётся in_progress/PR21draft до новых полных TESTING, exact-head review/CI и решения Team Lead. Frozen evidence и runtime не переписаны. [Доказательства](../../reports/refactor-03/launch-boundary-review/README.md).
+
 ## REFACTOR-04 — Сгруппировать профильные suites и helpers без потери запуска
 
 **Статус:** blocked · **Приоритет:** P2 · **Объём:** M · **Тип:** refactor.

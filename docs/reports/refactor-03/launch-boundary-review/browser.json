@@ -1,0 +1,40 @@
+{
+  "task": "REFACTOR-03",
+  "version": "0.0.381",
+  "tab": "27",
+  "desktop": {
+    "height": 900,
+    "link": [
+      {
+        "download": "result.json",
+        "href": "http://127.0.0.1:4193/generated/attachments/e1989171bc0c83565fc83e7d9ec67214ec02e64e00f6a4e405421e16231d044b.json",
+        "text": "Проверка границы аргументов381"
+      }
+    ],
+    "p2": true,
+    "scrollWidth": 1280,
+    "url": "http://127.0.0.1:4193/#/guides/project-refactoring",
+    "version": true,
+    "width": 1280
+  },
+  "mobile": {
+    "height": 844,
+    "link": "http://127.0.0.1:4193/generated/attachments/e1989171bc0c83565fc83e7d9ec67214ec02e64e00f6a4e405421e16231d044b.json",
+    "scrollWidth": 390,
+    "url": "http://127.0.0.1:4193/#/guides/project-refactoring",
+    "version": true,
+    "width": 390
+  },
+  "card": {
+    "candidate381": true,
+    "in_progress": true,
+    "pr": true,
+    "scrollWidth": 1280,
+    "url": "http://127.0.0.1:4193/#/development/tasks/refactoring--REFACTOR-03",
+    "width": 1280
+  },
+  "read_only": true,
+  "user4175_untouched": true,
+  "download_not_claimed": true,
+  "heading_locator_miss": "initial locator expected ID in heading; actual task title observed then card verified by rendered text"
+}
