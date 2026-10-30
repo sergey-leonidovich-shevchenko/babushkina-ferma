@@ -1,0 +1,42 @@
+# Проверки изменяемого кода
+
+Python инструментов качества — 3.11, Godot — официальный 4.7.1. Это окружение проверок; существующие игровые launcher не меняют требования из-за установки линтера. Установка из корня проекта:
+
+```sh
+python3.11 -m venv tmp/quality-venv
+tmp/quality-venv/bin/python -m pip install -r tools/quality/requirements.txt
+export FARM_GODOT_BIN="/абсолютный/путь/к/Godot"
+tmp/quality-venv/bin/python tools/run.py quality.check
+```
+
+Из другой cwd передайте абсолютный путь к `tools/run.py`. Для pre-commit активируйте это окружение, чтобы `python3` использовал те же версии. Gate сверяет все закреплённые зависимости; CI устанавливает этот же requirements и выполняет тот же check. Ruff — единственный Python lint/format; mypy — единственная проверка типов Python. GDScript проверяют gdformat, gdlint и настоящий Godot. Общие architecture, Game/normal/F10, performance и Wiki проверки остаются обязательными.
+
+Явное исправление и профильные проверки:
+
+```sh
+tmp/quality-venv/bin/python tools/run.py quality.check fix
+tmp/quality-venv/bin/python tools/run.py quality.test_quality
+tmp/quality-venv/bin/python tools/run.py quality.self_review --output /tmp/новый-quality-report
+```
+
+`check` не исправляет исходники. `fix` применяет Ruff safe fixes/format и gdformat к выбранным файлам; после него прочитайте diff и повторите check/профильные тесты. Он не форматирует неизменённый legacy-код и не трогает frozen reports. CI не запускает fix.
+
+## Baseline и область
+
+[Baseline](../../docs/reports/refactor-07/baseline/legacy-sources.json) содержит SHA256 всех1220 принятых исходников вне `docs/reports`, base46432885. Изменение любого байта включает **весь файл** в текущие lint/format/type правила; новые файлы baseline не наследуют. Регенерации baseline командой fix нет, его подпись закреплена в reader. Новые вложенные Python/GDScript в scripts/tests/tools/wiki/scripts обнаруживаются и при старом скрывающем правиле Git ignore. Symlink источников/каталогов отклоняются. Остальные отслеживаемые исходники тоже учитываются независимо от каталога. Исторические `docs/reports/**` исключены целиком: там executable evidence с собственными SHA и readers, изменения требуют отдельной приёмки provenance, а не autofix. Установленный Godot, caches и node_modules не входят в исходники.
+
+Новые и изменённые Python-файлы проверяются Ruff и mypy целиком. Аннотации функций обязательны; тела без аннотаций тоже анализируются. Импортируемый старый код не получает массовый выпуск ошибок mypy (`follow_imports=silent`); явные ошибки в выбранных файлах не подавляются. Узкое `type: ignore`/Godot `@warning_ignore` должно объяснять реальную границу и проверяться ревьюером; глобального ignore-all нет.
+
+Read-only аудит также выявил ограничения парсеров: gdtoolkit отклоняет21 старую компактную конструкцию с compound statement после `;`; Ruff format отклоняет три старых присваивания переменной `match` после `;`, хотя Python3.11 их разбирает. При изменении такого файла разнесите операции по строкам вручную, затем повторите fix/check. Исключения для новых/изменённых файлов не добавлены; автоматическое исправление всех возможных форм не обещается. [Сырые результаты](../../docs/reports/refactor-07/legacy-audit/summary.json).
+
+## Реальная семантика Godot
+
+При изменении GDScript создаётся отдельная временная копия ресурсов и источников. В ней выполняются свежий импорт и `--check-only` каждого выбранного файла. Ни cache, ни UID, ни изменяемый файл не связаны symlink/hardlink с исходным проектом. Новые предупреждения `untyped_declaration`, `unsafe_call_argument`, `unsafe_cast`, `unsafe_method_access`, `unsafe_property_access`, `unsafe_void_return` загружаются как ошибки **при старте движка**. В копиях побайтно неизменённых legacy-зависимостей добавляется только `@warning_ignore_start` этих шести новых предупреждений; семантические ошибки и прежние предупреждения продолжают проверяться. Выбранный файл не получает исключение.
+
+Малая проба показала две особенности4.7.1: установка предупреждений перед `GDScript.reload()` не включила нужные отказы; `--check-only` пишет compile errors в stderr, но может вернуть0. Gate поэтому проверяет и код выхода, и журнал. Компиляция может выполнять `_static_init`, хотя `_initialize` не запускается; изоляция проекта необходима. Это не запуск игры, не кадры GPU и не измерение FPS. gdlint проверяет стиль/сложность, а не заменяет Godot type analyzer.
+
+## Самопроверка producer
+
+`self_review` создаёт собственный clone с общей **читаемой** object database и настоящий linked worktree; берёт текущие working sources, а не старую реализацию из baseline. Live и исторические входы проверяются раздельно. Реальные alpha CLI и migration create API создают новые внешние каталоги. Проверяются JSON, все8 картинок, namespace `res://tools/migration_capture.gd`, запрет перезаписи и внутренней цели. Настоящий collector проходит импорт/compile/headless и выдаёт capture.json; у headless нет GPU-кадров/FPS-допуска. Чужие cwd/PYTHONPATH/GIT/index/config и окружение сохраняются, собственный временный worktree/clone удаляется вместе с родителем. Подробный журнал и результат остаются в явно указанном новом внешнем каталоге.
+
+Этот профиль покрывает названные producer. Перед ревью других изменённых контрактов нужны их собственные реальные сценарии по [CODE_REVIEW](../../docs/CODE_REVIEW.md).

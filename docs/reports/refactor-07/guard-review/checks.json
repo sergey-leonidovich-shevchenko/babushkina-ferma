@@ -1,0 +1,55 @@
+[
+  {
+    "name": "pre-guard-same-regression",
+    "argv": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python3",
+      "-c",
+      "import importlib.util,sys,tools.quality,unittest; spec=importlib.util.spec_from_file_location(\"tools.quality.godot\",sys.argv[1]); m=importlib.util.module_from_spec(spec);sys.modules[spec.name]=m;spec.loader.exec_module(m);from tools.quality.test_quality import SelectionTests; suite=unittest.TestSuite([SelectionTests(\"test_semantic_helpers_cannot_write_to_checkout_or_existing_directory\")]);r=unittest.TextTestRunner(verbosity=2).run(suite);sys.exit(not r.wasSuccessful())",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-07/guard-review/pre-guard.godot.py.txt"
+    ],
+    "code": 1,
+    "seconds": 0.12
+  },
+  {
+    "name": "current-same-regression",
+    "argv": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python3",
+      "tools/run.py",
+      "quality.test_quality",
+      "SelectionTests.test_semantic_helpers_cannot_write_to_checkout_or_existing_directory",
+      "-v"
+    ],
+    "code": 0,
+    "seconds": 0.338
+  },
+  {
+    "name": "current-whole-quality-suite",
+    "argv": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python3",
+      "tools/run.py",
+      "quality.test_quality"
+    ],
+    "code": 0,
+    "seconds": 48.608
+  },
+  {
+    "name": "current-full-static-gate",
+    "argv": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python3",
+      "tools/run.py",
+      "quality.check"
+    ],
+    "code": 0,
+    "seconds": 8.935
+  },
+  {
+    "name": "current-real-game-source-mirror",
+    "argv": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python3",
+      "-c",
+      "from tools.quality.godot import analyze;from tools.quality.selection import baseline;from tools.common.paths import project_root;r=project_root();raise SystemExit(analyze(r,[\"scripts/systems/furniture_facing_system.gd\"],baseline(r)))"
+    ],
+    "code": 0,
+    "seconds": 45.423
+  }
+]

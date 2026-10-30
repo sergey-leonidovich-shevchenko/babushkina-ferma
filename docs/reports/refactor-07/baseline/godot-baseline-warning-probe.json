@@ -1,0 +1,30 @@
+[
+  {
+    "dependency": "func old(x):\n\treturn x\n",
+    "source": "extends \"res://base.gd\"\n\nfunc value(x: int) -> int:\n\treturn x\n",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": ""
+  },
+  {
+    "dependency": "func old(x):\n\treturn x\n",
+    "source": "extends \"res://base.gd\"\n\nfunc value(x) -> int:\n\treturn int(x)\n",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": "SCRIPT ERROR: Parse Error: Parameter \"x\" has no static type. (Warning treated as error.)\n          at: GDScript::reload (res://good.gd:3)\nERROR: Failed to load script \"res://good.gd\" with error \"Parse error\".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n"
+  },
+  {
+    "dependency": "func old(x) -> int:\n\treturn \"wrong\"\n",
+    "source": "extends \"res://base.gd\"\n\nfunc value(x: int) -> int:\n\treturn x\n",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": "SCRIPT ERROR: Parse Error: Could not resolve class \"res://base.gd\".\n          at: GDScript::reload (res://good.gd:1)\nERROR: Failed to load script \"res://good.gd\" with error \"Parse error\".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n"
+  },
+  {
+    "dependency": "func old(x) -> int:\n\treturn \"wrong\"\n",
+    "source": "extends \"res://base.gd\"\n\nfunc value(x) -> int:\n\treturn int(x)\n",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": "SCRIPT ERROR: Parse Error: Could not resolve class \"res://base.gd\".\n          at: GDScript::reload (res://good.gd:1)\nSCRIPT ERROR: Parse Error: Parameter \"x\" has no static type. (Warning treated as error.)\n          at: GDScript::reload (res://good.gd:3)\nERROR: Failed to load script \"res://good.gd\" with error \"Parse error\".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n"
+  }
+]

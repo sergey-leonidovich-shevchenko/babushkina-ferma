@@ -1,0 +1,15 @@
+QUALITY: 6 whole changed/new files
+  tools/quality/check.py
+  tools/quality/godot.py
+  tools/quality/process.py
+  tools/quality/selection.py
+  tools/quality/self_review.py
+  tools/quality/test_quality.py
+All checks passed!
+QUALITY STEP ruff: 0.033s
+6 files already formatted
+QUALITY STEP ruff: 0.025s
+tools/quality/test_quality.py:114: error: Module "os" does not explicitly export attribute "sys"  [attr-defined]
+Found 1 error in 1 file (checked 6 source files)
+QUALITY STEP mypy: 8.998s
+QUALITY: 1 failed steps; 10.381s

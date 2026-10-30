@@ -1,0 +1,42 @@
+{
+  "check.py": {
+    "before_sha256": "d9ab1df9ed2b5a604647d821d6ca9e278eaab4d348ba2f5138d50fae5e27512c",
+    "after_sha256": "8fe93fb6fc9512acb9675843c4d0874e6a96333ce6448f28bd4f4d721d6dc22f",
+    "executable_ast_unchanged_ignoring_docstrings": true
+  },
+  "fixture_validation.py": {
+    "before_sha256": "c8dcbe3975a91df4f5222da98bd11a4447da0282ca77f9313d61634d8a7bce16",
+    "after_sha256": "2bd3278846fd1499d04059e2a13bba099afc510e2c1cee77a6a841f0c632da83",
+    "executable_ast_unchanged_ignoring_docstrings": true
+  },
+  "godot.py": {
+    "before_sha256": "8014b6691b7ac320519d85feff62d20e449aa5c797f96edfa2938b0519e7942f",
+    "after_sha256": "aea7dc2d0e08e4765e704de64116a9db31e8a3724ff16a64ebb1349c9666da7a",
+    "executable_ast_unchanged_ignoring_docstrings": true
+  },
+  "preservation.py": {
+    "before_sha256": "86b75940093f282f4845ec08ad8fcaae0db377c02747c1d586915e72d225c787",
+    "after_sha256": "d2c1ba669630dce88a280fc7c81e897c059a84b900d65c949ec82b157b886fa5",
+    "executable_ast_unchanged_ignoring_docstrings": true
+  },
+  "process.py": {
+    "before_sha256": "4655884003aa12d756d8d65c4072db68ac850c86b4ac0498bf98e5a7e38894e1",
+    "after_sha256": "11740d098f709b5a2dd8d924aca39e28efa49457b60a613fcc0d2dfe371715ef",
+    "executable_ast_unchanged_ignoring_docstrings": true
+  },
+  "selection.py": {
+    "before_sha256": "ceaa185293aab8dbab37b8333ead57daa884ed7878cb0706325026074b5a5893",
+    "after_sha256": "8fe0c455e8c1b5460821ec1505a2fa4d21a9d58a072ce844e287318943ad0334",
+    "executable_ast_unchanged_ignoring_docstrings": true
+  },
+  "self_review.py": {
+    "before_sha256": "4685560c0b71a08ebef49ff4d826dbff2e117ac61e34ae990e16898be6e5b1a4",
+    "after_sha256": "1ed17e1f7b7869bf5ead3d109665ef652e788e2222811ca99e8aaea97ee8dac6",
+    "executable_ast_unchanged_ignoring_docstrings": true
+  },
+  "test_quality.py": {
+    "before_sha256": "b6978f267b959f082af7adfa91dbb2a5c1be81f5b8447d24394e142036bebe95",
+    "after_sha256": "3888e24e4dbcacdf24586ba24ba7656519360cd95d522a7dd3421416c38fbc26",
+    "executable_ast_unchanged_ignoring_docstrings": true
+  }
+}

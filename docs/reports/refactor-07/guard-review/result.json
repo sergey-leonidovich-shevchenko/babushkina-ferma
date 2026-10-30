@@ -1,0 +1,7 @@
+{
+  "old_source_sha256": "d362c91ed4eba68dc1a67d2182d660be264ef79dbc4121b4318181d7a9766a65",
+  "old_source_matches_initial_freeze": true,
+  "same_test_source_sha256": "b6978f267b959f082af7adfa91dbb2a5c1be81f5b8447d24394e142036bebe95",
+  "final_source_freeze_unchanged": true,
+  "scope": "External mirror/configuration destination guards plus one real regression. All other quality/runtime source bytes remain at initial freeze; final whole suite/static/actual-Godot mirror repeated."
+}

@@ -1,0 +1,15 @@
+QUALITY: 7 whole changed/new files
+  tools/quality/check.py
+  tools/quality/fixture_validation.py
+  tools/quality/godot.py
+  tools/quality/process.py
+  tools/quality/selection.py
+  tools/quality/self_review.py
+  tools/quality/test_quality.py
+All checks passed!
+QUALITY STEP ruff: 0.121s
+7 files already formatted
+QUALITY STEP ruff: 0.029s
+Success: no issues found in 7 source files
+QUALITY STEP mypy: 10.717s
+QUALITY: 0 failed steps; 12.173s

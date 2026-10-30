@@ -1,0 +1,88 @@
+[
+  {
+    "name": "old-actual-regression",
+    "argv": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python3",
+      "-c",
+      "import hashlib,importlib.machinery,importlib.util,json,sys,tools.quality,unittest\nloader=importlib.machinery.SourceFileLoader(\"tools.quality.godot\",sys.argv[1])\nspec=importlib.util.spec_from_loader(loader.name,loader)\nmodule=importlib.util.module_from_spec(spec)\nsys.modules[spec.name]=module\nloader.exec_module(module)\nif module.__file__!=sys.argv[1]:raise RuntimeError(\"wrong old module\")\nfrom tools.quality.test_quality import SelectionTests\ncase=SelectionTests(\"test_semantic_helpers_cannot_write_to_checkout_or_existing_directory\")\nresult=unittest.TextTestRunner(verbosity=2).run(unittest.TestSuite([case]))\nobserved={\"tests_run\":result.testsRun,\"failures\":len(result.failures),\"errors\":len(result.errors),\"actual_old_mirror_failure\":any(\"SameFileError\" in trace for test,trace in result.errors),\"test_id\":case.id(),\"old_sha256\":hashlib.sha256(open(sys.argv[1],\"rb\").read()).hexdigest()}\nprint(\"ACTUAL OLD TEST: \"+json.dumps(observed),flush=True)\nif result.testsRun!=1 or len(result.errors)!=1 or not observed[\"actual_old_mirror_failure\"]:raise RuntimeError(\"not the required old regression outcome\")\nsys.exit(1)\n",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-07/guard-review/pre-guard.godot.py.txt"
+    ],
+    "code": 1,
+    "seconds": 0.329
+  },
+  {
+    "name": "current-same-regression",
+    "argv": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python3",
+      "tools/run.py",
+      "quality.test_quality",
+      "SelectionTests.test_semantic_helpers_cannot_write_to_checkout_or_existing_directory",
+      "-v"
+    ],
+    "code": 0,
+    "seconds": 0.283
+  },
+  {
+    "name": "current-whole-suite",
+    "argv": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python3",
+      "tools/run.py",
+      "quality.test_quality"
+    ],
+    "code": 0,
+    "seconds": 55.251
+  },
+  {
+    "name": "current-static",
+    "argv": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python3",
+      "tools/run.py",
+      "quality.check"
+    ],
+    "code": 0,
+    "seconds": 9.772
+  },
+  {
+    "name": "current-real-mirror",
+    "argv": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python3",
+      "-c",
+      "from tools.quality.godot import analyze;from tools.quality.selection import baseline;from tools.common.paths import project_root;r=project_root();raise SystemExit(analyze(r,[\"scripts/systems/furniture_facing_system.gd\"],baseline(r)))"
+    ],
+    "code": 0,
+    "seconds": 45.79
+  },
+  {
+    "name": "current-producers",
+    "argv": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python3",
+      "tools/run.py",
+      "quality.self_review",
+      "--output",
+      "/tmp/farm07-russian-final-producers-20261030-01"
+    ],
+    "code": 0,
+    "seconds": 24.827
+  },
+  {
+    "name": "version",
+    "argv": [
+      "python3",
+      "tools/run.py",
+      "planning.bump_version",
+      "--check"
+    ],
+    "code": 0,
+    "seconds": 0.077
+  },
+  {
+    "name": "documentation",
+    "argv": [
+      "python3",
+      "tools/run.py",
+      "quality.check_documentation"
+    ],
+    "code": 0,
+    "seconds": 2.131
+  }
+]

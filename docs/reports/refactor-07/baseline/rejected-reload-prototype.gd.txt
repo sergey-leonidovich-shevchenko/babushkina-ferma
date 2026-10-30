@@ -1,0 +1,25 @@
+extends SceneTree
+## Compiles selected source without constructing its class or starting the game.
+
+
+func _initialize() -> void:
+	for warning: String in [
+		"untyped_declaration",
+		"unsafe_call_argument",
+		"unsafe_cast",
+		"unsafe_method_access",
+		"unsafe_property_access",
+		"unsafe_void_return",
+	]:
+		ProjectSettings.set_setting("debug/gdscript/warnings/" + warning, 2)
+	var failures: int = 0
+	for path: String in OS.get_cmdline_user_args():
+		var script: GDScript = GDScript.new()
+		script.resource_path = path
+		script.source_code = FileAccess.get_file_as_string(path)
+		var result: Error = script.reload()
+		if result != OK:
+			push_error("Quality analyzer rejected %s: %s" % [path, result])
+			failures += 1
+	print("GODOT ANALYZER: %d files, %d failed" % [OS.get_cmdline_user_args().size(), failures])
+	quit(0 if failures == 0 else 1)

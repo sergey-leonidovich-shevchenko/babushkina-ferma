@@ -1,0 +1,27 @@
+{
+  "mode": "f10",
+  "valid": true,
+  "budget_passed": true,
+  "status": "passed",
+  "average_fps": 59.7,
+  "minimum_fps": 50,
+  "samples": [
+    60,
+    58,
+    60,
+    59,
+    60,
+    60,
+    60,
+    60,
+    60,
+    60
+  ],
+  "window_us": 10000000,
+  "actual_close_us": 10010361,
+  "window_frames": 597,
+  "profile": "Codex-Performance-3c5788683c0947f9bb6abc24587471f0",
+  "cap_before": 0,
+  "cap_after": 60,
+  "startup_us": 1362369
+}

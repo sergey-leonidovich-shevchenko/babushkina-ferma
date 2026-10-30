@@ -2,9 +2,11 @@
 
 Полная REFACTOR-03 принята через [PR №21](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21): head `7976630ce372d3e7ac0c15b154ca7377d398450c`, [независимое ревью 5708056404](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5708056404), CI 8/8 и решение Team Lead. Фактический merge `dd506fdd2cb98f1364c0e367c9f73c670064a6d0` от 30 октября 2026 имеет то же дерево, что проверенный head. Все 779 назначений учтены, в корне tools 11 исходников при лимите 30; сохранены 304 канонических UID и 37 логических полей 21 модуля.
 
-[Запись приёмки REFACTOR-03](../../docs/reports/refactor-03/closeout/completion.json). Исторические отчёты и планы сохранены. Учёт проходит отдельный PR с собственными проверками и независимой приёмкой.
+[Запись приёмки REFACTOR-03](../../docs/reports/refactor-03/closeout/completion.json). Учёт принят и влит через [PR26](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/26), merge46432885; карточка03done от30.10.2026. Исторические отчёты и планы сохранены.
 
 Текущий порядок после принятия учёта03: **REFACTOR-07 → REFACTOR-06 → первая overworld до VMAP-003** по актуальным карточкам и полным зависимостям. Одновременно одна задача; решения, ревью и обычные approved merge выполняются агентами без дополнительных вопросов владельцу.
+
+В работе **REFACTOR-07**: единый check новых/изменённых Python и GDScript, закреплённые Ruff/mypy/gdtoolkit и реальный анализатор Godot. [Установка, команды, baseline и ограничения](code-quality.md). Старый код не форматируется массово; frozen evidence сохраняются. Самопроверка вызывает настоящие producer во внешнем проекте и связанном Git worktree; это не игровая/FPS-приёмка. Статус in_progress сохраняется до независимого ревью точного head, CI и решения Team Lead.
 
 ## История промежуточных пакетов
 

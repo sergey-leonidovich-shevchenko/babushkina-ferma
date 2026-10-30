@@ -112,7 +112,7 @@
       "title": "Рефакторинг структуры проекта",
       "format": "markdown",
       "group": "technology",
-      "expected": 7,
+      "expected": 8,
       "epics": [
         {
           "id": "REFACTOR",

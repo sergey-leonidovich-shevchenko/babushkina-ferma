@@ -1,0 +1,30 @@
+[
+  {
+    "rule": "res://good.gd",
+    "source": "extends \"res://base.gd\"\n\nfunc value(x: int) -> int:\n\treturn x\n",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": ""
+  },
+  {
+    "rule": "res://good.gd",
+    "source": "extends \"res://base.gd\"\n\nfunc value(x) -> int:\n\treturn int(x)\n",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": ""
+  },
+  {
+    "rule": "res://",
+    "source": "extends \"res://base.gd\"\n\nfunc value(x: int) -> int:\n\treturn x\n",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": "SCRIPT ERROR: Parse Error: Parameter \"x\" has no static type. (Warning treated as error.)\n          at: GDScript::reload (res://base.gd:3)\nSCRIPT ERROR: Parse Error: Function \"old()\" has no static return type. (Warning treated as error.)\n          at: GDScript::reload (res://base.gd:3)\nSCRIPT ERROR: Compile Error: Failed to compile depended scripts.\n          at: GDScript::reload (res://good.gd:0)\nERROR: Failed to load script \"res://good.gd\" with error \"Compilation failed\".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n"
+  },
+  {
+    "rule": "res://",
+    "source": "extends \"res://base.gd\"\n\nfunc value(x) -> int:\n\treturn int(x)\n",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": "SCRIPT ERROR: Parse Error: Parameter \"x\" has no static type. (Warning treated as error.)\n          at: GDScript::reload (res://good.gd:3)\nERROR: Failed to load script \"res://good.gd\" with error \"Parse error\".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n"
+  }
+]

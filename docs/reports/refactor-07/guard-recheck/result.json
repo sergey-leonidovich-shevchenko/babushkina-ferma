@@ -1,0 +1,13 @@
+{
+  "old_control_valid": true,
+  "old_test_executed": true,
+  "old_tests_run": 1,
+  "old_error": "SameFileError in actual mirror on owned fixture",
+  "current_same_case_passed": true,
+  "same_test_source_sha256": "3888e24e4dbcacdf24586ba24ba7656519360cd95d522a7dd3421416c38fbc26",
+  "old_source_sha256": "d362c91ed4eba68dc1a67d2182d660be264ef79dbc4121b4318181d7a9766a65",
+  "old_matches_initial_freeze": true,
+  "final_source_freeze_unchanged": true,
+  "frozen_files": 28,
+  "supersedes": "guard-review/pre-guard-same-regression.txt loader failure; that log is retained and is not a red regression."
+}

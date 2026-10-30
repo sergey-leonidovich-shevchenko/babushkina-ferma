@@ -121,8 +121,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install --no-install-recommends -y zsh ripgrep fonts-noto-cjk fonts-liberation
-      - name: Install pinned image tooling
-        run: python -m pip install Pillow==11.3.0
+      - name: Install pinned quality tooling
+        run: python -m pip install -r tools/quality/requirements.txt
       - name: Download Godot 4.7.1
         run: |
           mkdir -p .ci
@@ -131,6 +131,10 @@ jobs:
           chmod +x .ci/Godot_v4.7.1-stable_linux.x86_64
       - name: Import Godot resources
         run: '"$FARM_GODOT_BIN" --headless --editor --path . --quit'
+      - name: Check whole changed source files
+        run: python tools/run.py quality.check
+      - name: Exercise real public producers in isolated Git worktree
+        run: python tools/run.py quality.self_review --output "${{ runner.temp }}/refactor07-self-review-${{ github.run_id }}-${{ github.run_attempt }}"
       - name: Check architecture
         run: zsh tools/check_architecture.sh
       - name: Run automated tests

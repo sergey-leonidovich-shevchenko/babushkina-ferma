@@ -1,0 +1,145 @@
+[
+  {
+    "name": "gdformat-before",
+    "args": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/gdformat",
+      "--check",
+      "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/probe.gd"
+    ],
+    "code": 1,
+    "seconds": 1.464,
+    "stdout": "",
+    "stderr": "would reformat /var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/probe.gd\n1 file would be reformatted, 0 files would be left unchanged.\n"
+  },
+  {
+    "name": "gdformat-fix-owned-copy",
+    "args": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/gdformat",
+      "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/probe.gd"
+    ],
+    "code": 0,
+    "seconds": 0.35,
+    "stdout": "reformatted /var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/probe.gd\n1 file reformatted, 0 files left unchanged.\n",
+    "stderr": ""
+  },
+  {
+    "name": "gdformat-after",
+    "args": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/gdformat",
+      "--check",
+      "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/probe.gd"
+    ],
+    "code": 0,
+    "seconds": 0.332,
+    "stdout": "1 file would be left unchanged\n",
+    "stderr": ""
+  },
+  {
+    "name": "gdlint-copy",
+    "args": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/gdlint",
+      "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/probe.gd"
+    ],
+    "code": 0,
+    "seconds": 0.797,
+    "stdout": "Success: no problems found\n",
+    "stderr": ""
+  },
+  {
+    "name": "ruff-lint-before",
+    "args": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/ruff",
+      "check",
+      "--isolated",
+      "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/paths.py"
+    ],
+    "code": 0,
+    "seconds": 0.84,
+    "stdout": "All checks passed!\n",
+    "stderr": ""
+  },
+  {
+    "name": "ruff-format-before",
+    "args": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/ruff",
+      "format",
+      "--isolated",
+      "--check",
+      "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/paths.py"
+    ],
+    "code": 1,
+    "seconds": 0.021,
+    "stdout": "unformatted: File would be reformatted\n  --> /var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/paths.py:2:1\n   |\n1  | \"\"\"\u041d\u0430\u0445\u043e\u0434\u0438\u0442 \u043f\u0440\u043e\u0435\u043a\u0442 \u043f\u043e \u0438\u0441\u0445\u043e\u0434\u043d\u0438\u043a\u0443 \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u0430, \u043d\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u043e \u043e\u0442 cwd \u0438 \u0433\u043b\u0443\u0431\u0438\u043d\u044b \u043f\u0430\u043a\u0435\u0442\u0430.\"\"\"\n2  +\n3  | from __future__ import annotations\n--------------------------------------------------------------------------------\n12 |     for candidate in (start, *start.parents):\n   -         if ((candidate / \"project.godot\").is_file()\n   -                 and (candidate / \"VERSION\").is_file()\n   -                 and (candidate / \"tools\").is_dir()):\n13 +         if (\n14 +             (candidate / \"project.godot\").is_file()\n15 +             and (candidate / \"VERSION\").is_file()\n16 +             and (candidate / \"tools\").is_dir()\n17 +         ):\n18 |             return candidate\n   |\n\n1 file would be reformatted\n",
+    "stderr": ""
+  },
+  {
+    "name": "ruff-format-fix-owned-copy",
+    "args": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/ruff",
+      "format",
+      "--isolated",
+      "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/paths.py"
+    ],
+    "code": 0,
+    "seconds": 0.02,
+    "stdout": "1 file reformatted\n",
+    "stderr": ""
+  },
+  {
+    "name": "ruff-format-after",
+    "args": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/ruff",
+      "format",
+      "--isolated",
+      "--check",
+      "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/paths.py"
+    ],
+    "code": 0,
+    "seconds": 0.018,
+    "stdout": "1 file already formatted\n",
+    "stderr": ""
+  },
+  {
+    "name": "mypy-typed-existing-copy",
+    "args": [
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/mypy",
+      "--strict",
+      "--python-version",
+      "3.11",
+      "--cache-dir",
+      "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/mypy",
+      "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm07 compatibility kkumulnx/paths.py"
+    ],
+    "code": 0,
+    "seconds": 4.766,
+    "stdout": "Success: no issues found in 1 source file\n",
+    "stderr": ""
+  },
+  {
+    "name": "godot-version",
+    "args": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--version"
+    ],
+    "code": 0,
+    "seconds": 0.424,
+    "stdout": "4.7.1.stable.official.a13da4feb\n",
+    "stderr": ""
+  },
+  {
+    "name": "godot-existing-gd-check-only",
+    "args": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/held_weapon_review.gd"
+    ],
+    "code": 0,
+    "seconds": 10.094,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": ""
+  }
+]

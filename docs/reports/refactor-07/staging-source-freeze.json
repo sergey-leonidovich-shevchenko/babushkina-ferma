@@ -1,0 +1,114 @@
+{
+  ".gdlintrc": {
+    "sha256": "f272829994f7478cc47f5c54b8eb9262334a7877bfa4ee2b95c676e4fe25f1d6",
+    "mode": 420
+  },
+  ".githooks/pre-commit": {
+    "sha256": "bbe52889adde9a61ba9d099432c773a0c1f9af6e61d9f99c27c69db5a6992878",
+    "mode": 493
+  },
+  ".github/workflows/ci.yml": {
+    "sha256": "eb4dd079d3cac5b51d033f141d54af29815e99c3cca3283bd1a1e6ffee596197",
+    "mode": 420
+  },
+  "TESTING.md": {
+    "sha256": "b4c4fabf6876429ebf6fd96a1a77ffa46d32db000775363b5a54a007e25bb302",
+    "mode": 420
+  },
+  "VERSION": {
+    "sha256": "743266254c329e2f14660f5ed3db0a742253f51de5f5ee526dcbcdcaff687bdc",
+    "mode": 420
+  },
+  "docs/CODE_REVIEW.md": {
+    "sha256": "213ef1fdd6ecc318dfae0a2a2e993b028bdb51a6d6d475222a596fa3ddb5f192",
+    "mode": 420
+  },
+  "docs/backlog/README.md": {
+    "sha256": "f583c01a82cd22904d78a51e2c51759275fe714e52e4b4f1d1f7b66ef0aaca0e",
+    "mode": 420
+  },
+  "docs/epics/refactoring-2026-10/README.md": {
+    "sha256": "55989d28f627b4998ea744a68949ff9e49d0536956280f221d0d5aa162d2f4cc",
+    "mode": 420
+  },
+  "docs/epics/refactoring-2026-10/TASKS.md": {
+    "sha256": "7939b011dcc298254ae720beeb43204e27a838f4f6bcc52a21a4011caa9bdbe0",
+    "mode": 420
+  },
+  "project.godot": {
+    "sha256": "6c7af232c88219ee161eaf0d35c95c47d207fa7df7f1c93ad5accb094656f332",
+    "mode": 420
+  },
+  "pyproject.toml": {
+    "sha256": "732ed7fb6aae932e630356e26baeacafcf049a2e9eb7167497707db6800688bf",
+    "mode": 420
+  },
+  "tools/README.md": {
+    "sha256": "eb47e4f6ac59292c4aff26972add453f400a6da3e9ba9f93a6103211c401969b",
+    "mode": 420
+  },
+  "tools/quality/README.md": {
+    "sha256": "a3e32a21e04be030fd2909e7fad499d68d3fa6d8906d5af689af07c49f089f71",
+    "mode": 420
+  },
+  "tools/quality/check.py": {
+    "sha256": "8fe93fb6fc9512acb9675843c4d0874e6a96333ce6448f28bd4f4d721d6dc22f",
+    "mode": 420
+  },
+  "tools/quality/check_architecture.sh": {
+    "sha256": "dce437a23e5693f626081e41eaae17c169a00e56bd136eab1013ed47d551dba4",
+    "mode": 493
+  },
+  "tools/quality/fixture_validation.py": {
+    "sha256": "2bd3278846fd1499d04059e2a13bba099afc510e2c1cee77a6a841f0c632da83",
+    "mode": 420
+  },
+  "tools/quality/godot.py": {
+    "sha256": "aea7dc2d0e08e4765e704de64116a9db31e8a3724ff16a64ebb1349c9666da7a",
+    "mode": 420
+  },
+  "tools/quality/preservation.py": {
+    "sha256": "d2c1ba669630dce88a280fc7c81e897c059a84b900d65c949ec82b157b886fa5",
+    "mode": 420
+  },
+  "tools/quality/process.py": {
+    "sha256": "11740d098f709b5a2dd8d924aca39e28efa49457b60a613fcc0d2dfe371715ef",
+    "mode": 420
+  },
+  "tools/quality/requirements.txt": {
+    "sha256": "7493b1478e745ddc78539bebc84e75fd9a5da2b673898342da1f01ff67d391c3",
+    "mode": 420
+  },
+  "tools/quality/selection.py": {
+    "sha256": "8fe0c455e8c1b5460821ec1505a2fa4d21a9d58a072ce844e287318943ad0334",
+    "mode": 420
+  },
+  "tools/quality/self_review.py": {
+    "sha256": "1ed17e1f7b7869bf5ead3d109665ef652e788e2222811ca99e8aaea97ee8dac6",
+    "mode": 420
+  },
+  "tools/quality/test_quality.py": {
+    "sha256": "3888e24e4dbcacdf24586ba24ba7656519360cd95d522a7dd3421416c38fbc26",
+    "mode": 420
+  },
+  "wiki/articles/code-quality.md": {
+    "sha256": "a5f5157ab36507b1cab562877bfca7859217f4f472d058a5b35c94a47d4bf155",
+    "mode": 420
+  },
+  "wiki/articles/index.json": {
+    "sha256": "840105960896fc1e885f062f053ad2544a40412627b6bc1ad5b6a4e9954753c0",
+    "mode": 420
+  },
+  "wiki/articles/project-refactoring.md": {
+    "sha256": "031363e5a3c21d2b3bc5a4b6b17bffe0d1d89e43f8820a85a1407407dbf5127e",
+    "mode": 420
+  },
+  "wiki/planning/sources.json": {
+    "sha256": "f3275c5d2ccf724561f1df3d61f8b4f485b2088efa56c2b357049c471e3e9a51",
+    "mode": 420
+  },
+  "Бабушкина ферма.app/Contents/Info.plist": {
+    "sha256": "24bd15a3b22df0e702bbbab8974ed4b53d87c9a177d42aaf35ea6b8c986d68f2",
+    "mode": 420
+  }
+}

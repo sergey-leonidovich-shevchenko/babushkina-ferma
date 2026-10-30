@@ -1,0 +1,47 @@
+[
+  {
+    "name": "fresh-import",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started \u0418\u043d\u0438\u0446\u0438\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u0440\u043e\u0435\u043a\u0442\u0430 (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | \u0421\u043a\u0430\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b \u0444\u0430\u0439\u043b\u043e\u0432\u2026\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | \u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430 \u0433\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u044b\u0445 \u0438\u043c\u0435\u043d \u043a\u043b\u0430\u0441\u0441\u043e\u0432\u2026\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | \u041f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 GDExtensions\u2026\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | \u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0441\u043a\u0440\u0438\u043f\u0442\u043e\u0432 \u0430\u0432\u0442\u043e\u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438\u2026\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | \u0418\u043d\u0438\u0446\u0438\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u043b\u0430\u0433\u0438\u043d\u043e\u0432\u2026\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | \u041d\u0430\u0447\u0430\u043b\u043e \u0441\u043a\u0430\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0444\u0430\u0439\u043b\u043e\u0432\u2026\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started \u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044f \u0433\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u044b\u0445 \u043a\u043b\u0430\u0441\u0441\u043e\u0432\u2026 (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started \u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430 \u0440\u0435\u0434\u0430\u043a\u0442\u043e\u0440\u0430 (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | \u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430 \u043c\u0430\u043a\u0435\u0442\u0430 \u0440\u0435\u0434\u0430\u043a\u0442\u043e\u0440\u0430\u2026\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | \u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430 \u0434\u043e\u043a-\u043f\u0430\u043d\u0435\u043b\u0438\u2026\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n",
+    "stderr": "",
+    "seconds": 8.579
+  },
+  {
+    "name": "good",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nGODOT ANALYZER: 1 files, 0 failed\n",
+    "stderr": "",
+    "seconds": 0.446
+  },
+  {
+    "name": "semantic",
+    "code": 1,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nGODOT ANALYZER: 1 files, 1 failed\n",
+    "stderr": "SCRIPT ERROR: Parse Error: Cannot return a value of type \"String\" as \"int\".\n          at: GDScript::reload (res://semantic.gd:4)\n          GDScript backtrace (most recent call first):\n              [0] _initialize (/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/quality/godot_analyze.gd:20)\nSCRIPT ERROR: Parse Error: Cannot return value of type \"String\" because the function return type is \"int\".\n          at: GDScript::reload (res://semantic.gd:4)\n          GDScript backtrace (most recent call first):\n              [0] _initialize (/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/quality/godot_analyze.gd:20)\nERROR: Quality analyzer rejected res://semantic.gd: 43\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _initialize (/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/quality/godot_analyze.gd:22)\n",
+    "seconds": 0.454
+  },
+  {
+    "name": "untyped",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nGODOT ANALYZER: 1 files, 0 failed\n",
+    "stderr": "",
+    "seconds": 0.452
+  },
+  {
+    "name": "unsafe",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nGODOT ANALYZER: 1 files, 0 failed\n",
+    "stderr": "",
+    "seconds": 0.594
+  },
+  {
+    "name": "static",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\nGODOT ANALYZER: 1 files, 0 failed\n",
+    "stderr": "",
+    "seconds": 0.457
+  },
+  {
+    "static_initializer_executed": true
+  }
+]
