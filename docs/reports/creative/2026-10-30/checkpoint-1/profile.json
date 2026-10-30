@@ -1,0 +1,81 @@
+{
+  "base": "464328853c2fbbed1410ac0312de75c3fee7cfa2",
+  "newIdeas": 10,
+  "priorIdeasPreserved": 241,
+  "priorAssessmentsPreserved": 80,
+  "reservedPriorIds": 301,
+  "nextUsed": [
+    302,
+    311
+  ],
+  "independentEpics": 10,
+  "implementationBacklog": 44,
+  "proposedActors": 10,
+  "dialogueNodes": 30,
+  "writtenReplies": 90,
+  "futureScenarios": 60,
+  "futureScenariosRun": 0,
+  "editorStatus": "in_progress",
+  "dependencyGraph": "valid",
+  "oldQueuesPreserved": true,
+  "gameplayImplemented": false,
+  "proposalSHA256": "a0551162bb61336804867cba9bc57e1ead180f04f69b099585b1b762a5f1ff6f",
+  "publishedHeads": [
+    {
+      "number": 25,
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/25",
+      "head": "4f77b3092fdd4e197e337699f0ece507da33902f",
+      "branch": "codex/idea-review-20261029-new-horizons",
+      "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "draft": true
+    },
+    {
+      "number": 24,
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/24",
+      "head": "979ccd5948b535726e72c0744d49c13971692394",
+      "branch": "codex/idea-review-20261028-evening-crafts",
+      "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "draft": true
+    },
+    {
+      "number": 23,
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/23",
+      "head": "6f0f54c764dd3bf0aa8766c547a13684ef02acb2",
+      "branch": "codex/title-00-location-boss-reveals",
+      "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "draft": true
+    },
+    {
+      "number": 22,
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/22",
+      "head": "9d7bec42bfb527fa80f4c65f78e950c95bcf3b57",
+      "branch": "codex/idea-review-20261028-community-secrets",
+      "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "draft": true
+    },
+    {
+      "number": 20,
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/20",
+      "head": "3144b7636fea29a7ad1b4ef1d467858219a537de",
+      "branch": "codex/idea-review-20261027-village-choices",
+      "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "draft": true
+    },
+    {
+      "number": 13,
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/13",
+      "head": "2c193432fbe31222f94d7b2167486f7f4b54b435",
+      "branch": "codex/idea-review-20261026-boundaries",
+      "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+      "draft": true
+    },
+    {
+      "number": 2,
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/2",
+      "head": "9592ad3f65ea5e219580fb13027d4981df4d0fbb",
+      "branch": "codex/idea-review-20261023-evening",
+      "base": "fe5919686aed1b6ea66cd1112a8075a57d448946",
+      "draft": true
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "checkedAt": "2026-10-30T05:12:37.276Z",
+  "version": "0.0.383",
+  "url": "http://127.0.0.1:4211/#/guides/creative-review-2026-10-30",
+  "apiPort": 4210,
+  "counts": {
+    "ideas": 251,
+    "epics": 178,
+    "tasks": 2090,
+    "articles": 1200
+  },
+  "articles": [
+    {
+      "id": "IDEA-302",
+      "heading": true,
+      "planned": true,
+      "dialogue": true,
+      "futureF": true,
+      "ratings": true,
+      "version383": true
+    },
+    {
+      "id": "IDEA-303",
+      "heading": true,
+      "planned": true,
+      "dialogue": true,
+      "futureF": true,
+      "ratings": true,
+      "version383": true
+    },
+    {
+      "id": "IDEA-304",
+      "heading": true,
+      "planned": true,
+      "dialogue": true,
+      "futureF": true,
+      "ratings": true,
+      "version383": true
+    },
+    {
+      "id": "IDEA-305",
+      "heading": true,
+      "planned": true,
+      "dialogue": true,
+      "futureF": true,
+      "ratings": true,
+      "version383": true
+    },
+    {
+      "id": "IDEA-306",
+      "heading": true,
+      "planned": true,
+      "dialogue": true,
+      "futureF": true,
+      "ratings": true,
+      "version383": true
+    },
+    {
+      "id": "IDEA-307",
+      "heading": true,
+      "planned": true,
+      "dialogue": true,
+      "futureF": true,
+      "ratings": true,
+      "version383": true
+    },
+    {
+      "id": "IDEA-308",
+      "heading": true,
+      "planned": true,
+      "dialogue": true,
+      "futureF": true,
+      "ratings": true,
+      "version383": true
+    },
+    {
+      "id": "IDEA-309",
+      "heading": true,
+      "planned": true,
+      "dialogue": true,
+      "futureF": true,
+      "ratings": true,
+      "version383": true
+    },
+    {
+      "id": "IDEA-310",
+      "heading": true,
+      "planned": true,
+      "dialogue": true,
+      "futureF": true,
+      "ratings": true,
+      "version383": true
+    },
+    {
+      "id": "IDEA-311",
+      "heading": true,
+      "planned": true,
+      "dialogue": true,
+      "futureF": true,
+      "ratings": true,
+      "version383": true
+    }
+  ],
+  "epic302Tasks": 4,
+  "task30202Dependencies": [
+    "IDEA-302-01",
+    "VMAP-003",
+    "IDEA-232-04"
+  ],
+  "card307SixScores": true,
+  "card307Cost": 5,
+  "card307Risk": 5,
+  "searchElixirFinds310": true,
+  "tabFocus": "state filter",
+  "responsive": {
+    "width": 390,
+    "height": 900,
+    "card310": true,
+    "article310": true,
+    "viewportReset": true
+  },
+  "stateMutations": false,
+  "limits": "Wiki only; new gameplay/F/audience/FPS/GPU not accepted"
+}

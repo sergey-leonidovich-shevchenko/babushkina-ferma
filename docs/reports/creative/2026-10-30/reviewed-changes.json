@@ -1,0 +1,55 @@
+{
+  "base": "464328853c2fbbed1410ac0312de75c3fee7cfa2",
+  "previousReviewHead": "4f77b3092fdd4e197e337699f0ece507da33902f",
+  "previousTechnicalCutoff": "c47b78add8813392769be8b9d5dfba9b8d5fa1d5",
+  "mainNewGameplay": false,
+  "unchangedRuntimePaths": [
+    "scripts",
+    "scenes",
+    "main.tscn"
+  ],
+  "onlyAssetDocChanges": [
+    "assets/game/audio/README.md",
+    "assets/game/characters/grandmother_v2/README.md",
+    "assets/game/environment/BUILDABLE_FENCE_ATLAS.md",
+    "assets/game/interiors/README.md",
+    "assets/game/tiles/editor/README.md",
+    "assets/game/ui/celestial_dial_v1/README.md"
+  ],
+  "toolsRootSourceCount": 11,
+  "reviewedCommits": [
+    "464328853c2fbbed1410ac0312de75c3fee7cfa2 2026-10-30T11:00:28+05:00 Merge pull request #26: record REFACTOR-03 completion",
+    "dd506fdd2cb98f1364c0e367c9f73c670064a6d0 2026-10-30T09:25:10+05:00 Merge pull request #21: REFACTOR-03 tools layout",
+    "37aad5430e6395a1a3d370976f86c6126a430315 2026-10-30T08:33:59+05:00 docs: record accepted REFACTOR-03 completion",
+    "7976630ce372d3e7ac0c15b154ca7377d398450c 2026-10-30T06:56:30+05:00 fix(qa): separate engine and user launch arguments (REFACTOR-03)",
+    "2c856d7d3d0a185735f17bdc5fa3f8c258b836d8 2026-10-30T05:33:35+05:00 refactor(tools): complete Foliage and shared tools layout (REFACTOR-03)",
+    "108ad126d00eb141658928aa3d68588c5af34db7 2026-10-30T02:11:36+05:00 refactor(tools): move Ground tools and preserve consumers (REFACTOR-03)",
+    "c1cdd9f5842eaf2286be38bd8f95d18767d03c11 2026-10-29T19:42:33+05:00 fix(tools): isolate ground Git readers and refresh live commands (REFACTOR-03)"
+  ],
+  "seenReference": {
+    "path": "docs/reports/visual-overhaul/vart-001/scene-a.png",
+    "SHA256": "79e0797fd154c079fda867c1c5b52c4ffeb76c755a2cd9f78f7f974c6c00b799",
+    "scope": "Viewed existing soft landscape reference, not a new gameplay capture"
+  },
+  "existingSources": [
+    "scripts/systems/contract_system.gd",
+    "scripts/systems/fishing_system.gd",
+    "scripts/systems/alchemy_system.gd",
+    "scripts/systems/alchemy_learning_system.gd",
+    "docs/epics/echo-puzzles-2026-10/README.md",
+    "docs/epics/pack-2026-10/TASKS.md",
+    "docs/epics/relic-2026-10/README.md"
+  ],
+  "proposalIDs": [
+    "IDEA-302",
+    "IDEA-303",
+    "IDEA-304",
+    "IDEA-305",
+    "IDEA-306",
+    "IDEA-307",
+    "IDEA-308",
+    "IDEA-309",
+    "IDEA-310",
+    "IDEA-311"
+  ]
+}
