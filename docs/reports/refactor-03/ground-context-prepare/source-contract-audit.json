@@ -1,0 +1,111 @@
+{
+  "frozen_sha256": "bef5233df7f09ab065cd19728a008debd97707aa297167868d97f8ffc92c1090",
+  "modules": [
+    {
+      "module": "tools.axial_road_collect",
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "module": "tools.qa.camera.camera_quantization",
+      "fields": 1,
+      "equal": true
+    },
+    {
+      "module": "tools.decoration_collect",
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "module": "tools.garden_collect",
+      "fields": 3,
+      "equal": true
+    },
+    {
+      "module": "tools.grass_methods",
+      "fields": 1,
+      "equal": true
+    },
+    {
+      "module": "tools.ground_edge_collect",
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "module": "tools.ground_layers",
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "module": "tools.ground_seasons_collect",
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "module": "tools.meadow_collect",
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "module": "tools.qa.world.object_command_collect",
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "module": "tools.plaza_collect",
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "module": "tools.qa.camera.presentation_pose",
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "module": "tools.qa.camera.reference_zoom",
+      "fields": 3,
+      "equal": true
+    },
+    {
+      "module": "tools.qa.camera.reference_zoom_perf",
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "module": "tools.qa.world.render_order",
+      "fields": 1,
+      "equal": true
+    },
+    {
+      "module": "tools.road_network_collect",
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "module": "tools.terrain_revision_collect",
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "module": "tools.qa.camera.visual_coordinates",
+      "fields": 1,
+      "equal": true
+    },
+    {
+      "module": "tools.qa.camera.visual_motion",
+      "fields": 1,
+      "equal": true
+    },
+    {
+      "module": "tools.qa.art.visual_perspective",
+      "fields": 1,
+      "equal": true
+    },
+    {
+      "module": "tools.qa.art.visual_scale",
+      "fields": 1,
+      "equal": true
+    }
+  ],
+  "fields": 37
+}

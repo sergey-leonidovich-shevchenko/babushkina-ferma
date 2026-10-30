@@ -1,0 +1,14 @@
+[
+  {
+    "path": "TESTING.md",
+    "sha256": "79abe0898b46aa252d6faa457272ab23c3ac29d5fce2ba9080e4debb277e3555"
+  },
+  {
+    "path": "wiki/articles/project-refactoring.md",
+    "sha256": "4fbcbd6f9e89cde7a5292fb8ca32fa069052915777e5b57ad844ac68e556b26e"
+  },
+  {
+    "path": "docs/epics/refactoring-2026-10/TASKS.md",
+    "sha256": "79dced2f674abfd93b778b6776a2f6118defd6f75f42210b50e505b47292690c"
+  }
+]

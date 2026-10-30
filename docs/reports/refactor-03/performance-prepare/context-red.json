@@ -1,0 +1,14 @@
+{
+  "base": "c6f323d821455bfcfb025a03ae18f00e8cbe0f05",
+  "read_only_before": true,
+  "tests": 5,
+  "exit": 1,
+  "test_sha256": "f5ad680bc1d09c1d6aa2bd3db7e2e103ddd77d5c3db95db754e05b3ac616467f",
+  "raw_sha256": "daae0ef930c10ad0b3f516a66e5f23e07a20b4659682b4edbdeb29c1240e14c8",
+  "tail": [
+    "----------------------------------------------------------------------",
+    "Ran 5 tests in 1.364s",
+    "",
+    "FAILED (failures=4, errors=1)"
+  ]
+}

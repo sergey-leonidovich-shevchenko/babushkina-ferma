@@ -1,0 +1,18 @@
+{
+  "history_same_test_source": true,
+  "history_test_SHA256": "836d0baa70bd668322d9f3cdc9c13266a6ae5ee097fff86dbbb8180250106bae",
+  "history_methods": 12,
+  "history_red_failures": 1,
+  "history_red_errors": 10,
+  "history_parent_positive_control": 1,
+  "history_green_exit": 0,
+  "helper_new_API_methods": 16,
+  "producer_same_test_source": true,
+  "producer_test_SHA256": "2c44dd8874905d5ea81967f255a05314b89704c840e0539f81d06265cc2e6d3b",
+  "producer_methods": 13,
+  "producer_before_after_exit": 0,
+  "old_context_methods": 19,
+  "old_context_source_unchanged": true,
+  "fake_inventory_context_open": true,
+  "native_Game_GPU_FPS_admission": false
+}

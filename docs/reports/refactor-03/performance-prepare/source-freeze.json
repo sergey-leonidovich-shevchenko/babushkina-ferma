@@ -1,0 +1,32 @@
+{
+  "version": "0.0.370",
+  "base": "c6f323d821455bfcfb025a03ae18f00e8cbe0f05",
+  "source_SHA256": {
+    ".gitignore": "7c4fb0bb462de94f6de89642d6b4b833bbaf3d0c2b870696baa58555e1f4dc38",
+    "QA_CHECKLIST.md": "92f18a7dafb037bf58f5024ead553c3d881c5ad9730d3bd1857009980774a9fe",
+    "TESTING.md": "8482ead8a5ba9cb6083d1b638694d04692f5c6c5e727a5b39dc5bb713bc14285",
+    "VERSION": "d0a4dd0d9d52f999267041cb94eb7601b3b64322b01bbddbe2b8915f02198bf0",
+    "docs/DEVELOPMENT.md": "b83eb9333f89e8d83b9eef373bcaeaefd8f6253f7059cdadb43536ae7f34a008",
+    "docs/epics/refactoring-2026-10/TASKS.md": "be391568e526fe7663366b30ae9bebb96b2bd8e1052fe8a7e3f3f4bed61fb2e0",
+    "project.godot": "486d3795bb3e1085e8e5157174eee69ef81572e88d90920612c6653942a00f53",
+    "tools/README.md": "98dc3d55ccc75ec373bcd603eaf107d50d5a01cf800433ba4ead086bfb989331",
+    "tools/analyze_optimization_audit.py": "83b59c6e8ee6bef01fcefafa6e60452336bf9672de251beaf45b484f86a4c975",
+    "tools/analyze_storage_perf.py": "1f8bd88206d2ce9c923d363ea3a3742b6c110d8b69b85b21fe03db81036d9a26",
+    "tools/audit_save_crashes.py": "e833bac3298073d894181db7a9e0038ddc09adfdf345f221650965ec743c8958",
+    "tools/optimization_asset_audit.py": "49ee8ecb54fc1e26bb532cdee67234a3c8beeca3242436548a7d375b0ea368fd",
+    "tools/perf_contract.py": "ad500749cc85272a4c57ac74178ef8e0635265771872d8a14b8d7a55582678e0",
+    "tools/perf_contract_collect.py": "0ad2b4f4d73846c17b09af76c05cfe8cc5eefc65892118ad5c681eebc6a88e8a",
+    "tools/performance_gate.py": "ab91e666e263f90fa2ed5fee717b9acbe944e41bc9ca5b20e8a979e2ce99255a",
+    "tools/performance_gate.sh": "39925eee1a92b227df4f265281f7d3504d5a4c3601e10ac9854775dd2c551cce",
+    "tools/performance_protocol.py": "d626ac5286b9d441caec02baebb92d33ffa0d5f9e365e7410183db7248e99ba3",
+    "tools/qa/performance/__init__.py": "439148dd550549f409f40eeb5b301ace3688a9f6414139a4e96b4388a8b3514b",
+    "tools/qa/performance/test_performance_context.py": "f5ad680bc1d09c1d6aa2bd3db7e2e103ddd77d5c3db95db754e05b3ac616467f",
+    "tools/quality/check_architecture.sh": "9d71727a1f3667f0ab838a685c960fbcab8b5049f454716aaa945ef7d898c876",
+    "tools/smoke_test.sh": "6c9644cf8fd0108277a9338d05e280cd27993760165b7c755e553de2ab821946",
+    "tools/test_optimization_audit.py": "10fb0a6884f2b7ce87f1d7a1323344a94e8d8e41a0cea95dd7b766885fb46f45",
+    "tools/test_redraw_output.py": "794549d1e1df33052c47321dbe3785277ec2db2a10c3f422faca981f0fdfb379",
+    "wiki/articles/project-refactoring.md": "0bd437257e3c61310887c640a182e5f56029014d8b733a2c398bc59ffba2abe0",
+    "Бабушкина ферма.app/Contents/Info.plist": "eddaf14df892cc72ec4ebd690ab086b535117e2443431d91a23747e3711d9fea"
+  },
+  "removed_paths": []
+}

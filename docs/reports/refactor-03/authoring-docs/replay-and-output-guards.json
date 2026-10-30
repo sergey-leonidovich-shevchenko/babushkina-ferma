@@ -1,0 +1,31 @@
+{
+  "matching_31_entries_and_57_historical_files": true,
+  "same_five_real_CLI_results": true,
+  "Godot_parse_only_each": 14,
+  "initial_source_preserved": "profile-initial.py.txt",
+  "original_raw_unchanged": true,
+  "refusals": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "docs/reports/refactor-03/authoring-docs/check-consumers.py",
+        "--output",
+        "docs/reports/refactor-03/authoring-docs/consumers.json"
+      ],
+      "exit": 2,
+      "stdout": "",
+      "stderr": "usage: check-consumers.py [-h] [--output OUTPUT]\ncheck-consumers.py: error: нужен новый JSON вне assets; прежние данные не перезаписываются\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "docs/reports/refactor-03/authoring-docs/check-consumers.py",
+        "--output",
+        "assets/refactor03-docs-should-not-exist.json"
+      ],
+      "exit": 2,
+      "stdout": "",
+      "stderr": "usage: check-consumers.py [-h] [--output OUTPUT]\ncheck-consumers.py: error: нужен новый JSON вне assets; прежние данные не перезаписываются\n"
+    }
+  ]
+}

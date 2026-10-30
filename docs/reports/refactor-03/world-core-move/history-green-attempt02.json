@@ -1,0 +1,14 @@
+{
+  "label": "history-green-attempt02",
+  "command": [
+    "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+    "qa.world.test_world_source_history"
+  ],
+  "exit": 0,
+  "methods": 13,
+  "test_SHA256": "7bbb6dca965fa32d62dd48ac8f8f83dc02a5a2c305b4c2e5d88d761e2ca4bc73",
+  "raw_sha256": "a0d82f917eed9efd2493ff7a0afcca3123714fc9e28ac33d1900b4de41ec7b43",
+  "native_frames": 0,
+  "Game_new": false
+}

@@ -1,0 +1,1 @@
+{"dependency_count": 1029, "texture_count": 300, "rgba8_estimate": 434520940, "texture_disk_bytes": 114929913}

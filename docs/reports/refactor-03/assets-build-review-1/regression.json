@@ -1,0 +1,12 @@
+{
+  "test_source": "tools/assets/migration/test_migration_fixture.py",
+  "test_sha256": "f27b72d94d74f4c3258624b385b27add299c9da2b1c547a09637f40ef71f63c6",
+  "before_producer_sha256": "6c7ff37faae158f862bd96de505c7c9caae3f8d7eb477775f44062faaf79044d",
+  "after_producer_sha256": "1ed687be451ca59c64dd3fcf9d2fd661ebea79f9d95852bf557806f566d42f73",
+  "red_tests": 3,
+  "red_errors": 3,
+  "red_sha256": "d6d03ad93aa2137a25573c342d8664f950ac8638f560ca53c5e40dda4558cb12",
+  "green_tests": 3,
+  "green_errors": 0,
+  "green_sha256": "994ee6e274bc950d8db3eded1534669c010c8e17fb56951b1d8690832d5d23e3"
+}

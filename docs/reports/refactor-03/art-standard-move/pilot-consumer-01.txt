@@ -1,0 +1,56 @@
+{
+  "task": "VRELEASE-002",
+  "base_commit": "cc55ff9a3a2b1bfaf8e6887c912a7b4b1c474fa7",
+  "performance_eligible": false,
+  "focus_required": false,
+  "standalone_study": true,
+  "full_map_accepted": false,
+  "live_pilot_accepted": false,
+  "predecessors": 51,
+  "scope_cells": 960,
+  "max_cells": 1000,
+  "windows": {
+    "1152": {
+      "png": 22,
+      "draw_callbacks": 152,
+      "study_pairs": 8,
+      "changed_pixels": {
+        "a-front": 85144,
+        "a-back": 85144,
+        "a-bridge": 85144,
+        "a-grid": 85144,
+        "b-front": 85144,
+        "b-back": 85144,
+        "b-bridge": 85144,
+        "b-grid": 85144
+      },
+      "outside_props_equal": true,
+      "ordinary_rollback_equal": true,
+      "old_slot_loaded": true,
+      "home_enter_exit": true,
+      "visible_frames": 22,
+      "focused_frames": 22
+    },
+    "1280": {
+      "png": 22,
+      "draw_callbacks": 152,
+      "study_pairs": 8,
+      "changed_pixels": {
+        "a-front": 104965,
+        "a-back": 104965,
+        "a-bridge": 104965,
+        "a-grid": 104965,
+        "b-front": 104965,
+        "b-back": 104965,
+        "b-bridge": 104965,
+        "b-grid": 104965
+      },
+      "outside_props_equal": true,
+      "ordinary_rollback_equal": true,
+      "old_slot_loaded": true,
+      "home_enter_exit": true,
+      "visible_frames": 22,
+      "focused_frames": 22
+    }
+  }
+}

@@ -73,7 +73,7 @@ for redraw_mode in normal f10; do
 		redraw_options+=(--benchmark-debug-overlay)
 	fi
 	set +e
-	"$game_godot" --headless --path . --script res://tools/redraw_frame_review.gd -- "${redraw_options[@]}" >"$test_log" 2>&1
+	"$game_godot" --headless --path . --script res://tools/qa/performance/redraw_frame_review.gd -- "${redraw_options[@]}" >"$test_log" 2>&1
 	redraw_code=$?
 	set -e
 	if [[ -n "$redraw_capture_root" ]]; then

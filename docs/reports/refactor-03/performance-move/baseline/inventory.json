@@ -1,0 +1,893 @@
+{
+  "base": "9a2ad81fb77282c4f52261e694653b28b21f01b8",
+  "version": "0.0.370",
+  "root_sources": 314,
+  "assignments": {
+    "tools/analyze_optimization_audit.py": {
+      "target": "tools/qa/performance/analyze_optimization_audit.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/analyze_storage_perf.py": {
+      "target": "tools/qa/performance/analyze_storage_perf.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/audit_save_crashes.py": {
+      "target": "tools/qa/performance/audit_save_crashes.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/boss_cpu_review.gd": {
+      "target": "tools/qa/performance/boss_cpu_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/boss_cpu_review.gd.uid": {
+      "target": "tools/qa/performance/boss_cpu_review.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/boss_cpu_review.gd"
+    },
+    "tools/cave_boss_frame_review.gd": {
+      "target": "tools/qa/performance/cave_boss_frame_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/cave_boss_frame_review.gd.uid": {
+      "target": "tools/qa/performance/cave_boss_frame_review.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/cave_boss_frame_review.gd"
+    },
+    "tools/cpu_profile_game.gd": {
+      "target": "tools/qa/performance/cpu_profile_game.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/geometry_benchmark.gd": {
+      "target": "tools/qa/performance/geometry_benchmark.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/inspector_benchmark.gd": {
+      "target": "tools/qa/performance/inspector_benchmark.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/lazy_item_storage_perf.gd": {
+      "target": "tools/qa/performance/lazy_item_storage_perf.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/lazy_item_storage_perf.gd.uid": {
+      "target": "tools/qa/performance/lazy_item_storage_perf.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/lazy_item_storage_perf.gd"
+    },
+    "tools/optimization_asset_audit.py": {
+      "target": "tools/qa/performance/optimization_asset_audit.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/optimization_audit_boss.gd": {
+      "target": "tools/qa/performance/optimization_audit_boss.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/optimization_audit_boss.gd.uid": {
+      "target": "tools/qa/performance/optimization_audit_boss.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/optimization_audit_boss.gd"
+    },
+    "tools/optimization_audit_route.gd": {
+      "target": "tools/qa/performance/optimization_audit_route.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/optimization_audit_route.gd.uid": {
+      "target": "tools/qa/performance/optimization_audit_route.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/optimization_audit_route.gd"
+    },
+    "tools/optimization_audit_sweep.gd": {
+      "target": "tools/qa/performance/optimization_audit_sweep.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/optimization_audit_sweep.gd.uid": {
+      "target": "tools/qa/performance/optimization_audit_sweep.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/optimization_audit_sweep.gd"
+    },
+    "tools/perf_contract.py": {
+      "target": "tools/qa/performance/perf_contract.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/perf_contract_capture.gd": {
+      "target": "tools/qa/performance/perf_contract_capture.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/perf_contract_capture.gd.uid": {
+      "target": "tools/qa/performance/perf_contract_capture.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/perf_contract_capture.gd"
+    },
+    "tools/perf_contract_collect.py": {
+      "target": "tools/qa/performance/perf_contract_collect.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/performance_gate.py": {
+      "target": "tools/qa/performance/performance_gate.py",
+      "family": "performance",
+      "action": "move_implementation_keep_public_facade",
+      "public_entry": "tools/performance_gate.py",
+      "exception_reason": "Frozen исполняемый redraw_compare.py:22 импортирует performance_gate после ROOT/tools и присваивает gate.SAMPLER:81. Один import/CLI facade обязан сохранять идентичность модуля, API и перенаправление mutable globals; реализация в qa/performance."
+    },
+    "tools/performance_gate.sh": {
+      "target": "tools/qa/performance/performance_gate.sh",
+      "family": "performance",
+      "action": "move_implementation_keep_public_facade",
+      "public_entry": "tools/performance_gate.sh",
+      "exception_reason": "Публичный CPU gate Actions; окружение и коды отказа сохраняются."
+    },
+    "tools/performance_protocol.py": {
+      "target": "tools/qa/performance/performance_protocol.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/redraw_frame_review.gd": {
+      "target": "tools/qa/performance/redraw_frame_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/redraw_frame_review.gd.uid": {
+      "target": "tools/qa/performance/redraw_frame_review.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/redraw_frame_review.gd"
+    },
+    "tools/runtime_cleanup_review.gd": {
+      "target": "tools/qa/performance/runtime_cleanup_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/runtime_cleanup_review.gd.uid": {
+      "target": "tools/qa/performance/runtime_cleanup_review.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/runtime_cleanup_review.gd"
+    },
+    "tools/runtime_cleanup_soak.gd": {
+      "target": "tools/qa/performance/runtime_cleanup_soak.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/runtime_cleanup_soak.gd.uid": {
+      "target": "tools/qa/performance/runtime_cleanup_soak.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/runtime_cleanup_soak.gd"
+    },
+    "tools/runtime_frame_review.gd": {
+      "target": "tools/qa/performance/runtime_frame_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/save_crash_worker.gd": {
+      "target": "tools/qa/performance/save_crash_worker.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/save_crash_worker.gd.uid": {
+      "target": "tools/qa/performance/save_crash_worker.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/save_crash_worker.gd"
+    },
+    "tools/smoke_test.sh": {
+      "target": "tools/qa/performance/smoke_test.sh",
+      "family": "performance",
+      "action": "move_implementation_keep_public_facade",
+      "public_entry": "tools/smoke_test.sh",
+      "exception_reason": "Публичный smoke-вход Actions; прежний CLI и 180 кадров сохраняются."
+    },
+    "tools/storage_perf_game.gd": {
+      "target": "tools/qa/performance/storage_perf_game.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/storage_perf_game.gd.uid": {
+      "target": "tools/qa/performance/storage_perf_game.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/storage_perf_game.gd"
+    },
+    "tools/storage_perf_review.gd": {
+      "target": "tools/qa/performance/storage_perf_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/storage_perf_review.gd.uid": {
+      "target": "tools/qa/performance/storage_perf_review.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/storage_perf_review.gd"
+    },
+    "tools/test_optimization_audit.py": {
+      "target": "tools/qa/performance/test_optimization_audit.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/test_perf_contract.py": {
+      "target": "tools/qa/performance/test_perf_contract.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/test_performance_gate.py": {
+      "target": "tools/qa/performance/test_performance_gate.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/test_redraw_output.py": {
+      "target": "tools/qa/performance/test_redraw_output.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/test_storage_perf.py": {
+      "target": "tools/qa/performance/test_storage_perf.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/wildlife_query_review.gd": {
+      "target": "tools/qa/performance/wildlife_query_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/wildlife_query_review.gd.uid": {
+      "target": "tools/qa/performance/wildlife_query_review.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/wildlife_query_review.gd"
+    }
+  },
+  "sources": {
+    "tools/analyze_optimization_audit.py": {
+      "sha256": "83b59c6e8ee6bef01fcefafa6e60452336bf9672de251beaf45b484f86a4c975",
+      "mode": 420
+    },
+    "tools/analyze_storage_perf.py": {
+      "sha256": "1f8bd88206d2ce9c923d363ea3a3742b6c110d8b69b85b21fe03db81036d9a26",
+      "mode": 420
+    },
+    "tools/audit_save_crashes.py": {
+      "sha256": "e833bac3298073d894181db7a9e0038ddc09adfdf345f221650965ec743c8958",
+      "mode": 420
+    },
+    "tools/boss_cpu_review.gd": {
+      "sha256": "69dcf8fb0ef9ce227a56734face52c8d8638a40dcbe2429f8b52657ec2a899fb",
+      "mode": 420
+    },
+    "tools/boss_cpu_review.gd.uid": {
+      "sha256": "02d1c3990498b23456cddb211363c360970977cc174a73edae31a381c242b9a9",
+      "mode": 420
+    },
+    "tools/cave_boss_frame_review.gd": {
+      "sha256": "e9bff6f13eaa9d0bc0510772ce0011e57f3d53886a562722c611a39985735f4b",
+      "mode": 420
+    },
+    "tools/cave_boss_frame_review.gd.uid": {
+      "sha256": "e08d864136837039e7f32879a72c3397b8848c72f07ee0327de4247ab98f4f79",
+      "mode": 420
+    },
+    "tools/cpu_profile_game.gd": {
+      "sha256": "dd14df2746997b165e6c315a6f03ac36f66f70a6f400e8167345424313ddeed2",
+      "mode": 420
+    },
+    "tools/geometry_benchmark.gd": {
+      "sha256": "568e3ebc3c7df4de1a0a78f7a74e1cd82bfad236524b2ff07b9d6b4e3b633234",
+      "mode": 420
+    },
+    "tools/inspector_benchmark.gd": {
+      "sha256": "b62c55af1c746c59a971ed3ec177afddc4f1b69528d108e68d2be1182b15d6ae",
+      "mode": 420
+    },
+    "tools/lazy_item_storage_perf.gd": {
+      "sha256": "03882868af2882563a1a0dfe40fcfadf4667d12a2fa9695e7ed664b7844905df",
+      "mode": 420
+    },
+    "tools/lazy_item_storage_perf.gd.uid": {
+      "sha256": "37d1be208edcfe3adc85ccbc599bc7bffb2196e3377adf88f7ac8fd6d39af7dc",
+      "mode": 420
+    },
+    "tools/optimization_asset_audit.py": {
+      "sha256": "49ee8ecb54fc1e26bb532cdee67234a3c8beeca3242436548a7d375b0ea368fd",
+      "mode": 420
+    },
+    "tools/optimization_audit_boss.gd": {
+      "sha256": "be3a60683b37749fd0151457cd82074dee5c3039fdf8d4e1ebe5fae5a0d23297",
+      "mode": 420
+    },
+    "tools/optimization_audit_boss.gd.uid": {
+      "sha256": "843fcbb2cb5bfdd8702bc8cc23af459ae248533f0545b30d6ed8bdd90ccecc2e",
+      "mode": 420
+    },
+    "tools/optimization_audit_route.gd": {
+      "sha256": "978a957218aa9010e0a3d2c86ddc2aba4c7fae1368e7609f44c65a4e43441373",
+      "mode": 420
+    },
+    "tools/optimization_audit_route.gd.uid": {
+      "sha256": "d83e632322f067ae9ba2cf50a6150ecf32fb646df479421cdc1312fc51288c24",
+      "mode": 420
+    },
+    "tools/optimization_audit_sweep.gd": {
+      "sha256": "4d07d99584f8af4282f5a1c3df9489e37fb410b9b2f4e46bca7f456885d1c572",
+      "mode": 420
+    },
+    "tools/optimization_audit_sweep.gd.uid": {
+      "sha256": "8b160fd9ae511b3b8b30fc7f717ca6a6852b06ccee28e85a696aad8abaa8d1ad",
+      "mode": 420
+    },
+    "tools/perf_contract.py": {
+      "sha256": "ad500749cc85272a4c57ac74178ef8e0635265771872d8a14b8d7a55582678e0",
+      "mode": 420
+    },
+    "tools/perf_contract_capture.gd": {
+      "sha256": "858c174ae4185a3f968dad701f4000e3a00834e9d49e86a5bb123932516db80c",
+      "mode": 420
+    },
+    "tools/perf_contract_capture.gd.uid": {
+      "sha256": "20ff8da5169e382e6b30d138cf6b44d5c20c857b7dbea1453e7f5fef21916792",
+      "mode": 420
+    },
+    "tools/perf_contract_collect.py": {
+      "sha256": "0ad2b4f4d73846c17b09af76c05cfe8cc5eefc65892118ad5c681eebc6a88e8a",
+      "mode": 420
+    },
+    "tools/performance_gate.py": {
+      "sha256": "ab91e666e263f90fa2ed5fee717b9acbe944e41bc9ca5b20e8a979e2ce99255a",
+      "mode": 420
+    },
+    "tools/performance_gate.sh": {
+      "sha256": "39925eee1a92b227df4f265281f7d3504d5a4c3601e10ac9854775dd2c551cce",
+      "mode": 493
+    },
+    "tools/performance_protocol.py": {
+      "sha256": "d626ac5286b9d441caec02baebb92d33ffa0d5f9e365e7410183db7248e99ba3",
+      "mode": 420
+    },
+    "tools/redraw_frame_review.gd": {
+      "sha256": "e16c4ad9a2c7613883a95c2155c1e3009a7317e3ed361dab161346474e6ace8b",
+      "mode": 420
+    },
+    "tools/redraw_frame_review.gd.uid": {
+      "sha256": "3e8c8a16098421b380820cf390f268efe39729f8675b08244d2e8b055c0814ed",
+      "mode": 420
+    },
+    "tools/runtime_cleanup_review.gd": {
+      "sha256": "500db5a3ccf1efdef1ec9934f770c1aced2ebfc533db36ad6a6cc78adc9ab2e3",
+      "mode": 420
+    },
+    "tools/runtime_cleanup_review.gd.uid": {
+      "sha256": "c1655659a00a2d743befd67e16b58f341a0f273705289e916d68127110dd6c5b",
+      "mode": 420
+    },
+    "tools/runtime_cleanup_soak.gd": {
+      "sha256": "83c6d412c954f309c0e924127493bbda9977f09de24e6940fb5be4b7fc92783d",
+      "mode": 420
+    },
+    "tools/runtime_cleanup_soak.gd.uid": {
+      "sha256": "242050c3e291d6018d971beec56d1a9ab8544bf9acb5c490f61acb3ade0a1a2f",
+      "mode": 420
+    },
+    "tools/runtime_frame_review.gd": {
+      "sha256": "f96137078c4c23c0538720c3148381cff14420ff90b209d6aadc74e0f31224a8",
+      "mode": 420
+    },
+    "tools/save_crash_worker.gd": {
+      "sha256": "4b56545c7eba0f1a4cb0ee29d34d789fc2c2bd6eb5e4234c2563aaaf6cfa3cea",
+      "mode": 420
+    },
+    "tools/save_crash_worker.gd.uid": {
+      "sha256": "51ed8df0e6eacd5accba6b37e7e5803c5f896ad84a7901906be500317330cd11",
+      "mode": 420
+    },
+    "tools/smoke_test.sh": {
+      "sha256": "6c9644cf8fd0108277a9338d05e280cd27993760165b7c755e553de2ab821946",
+      "mode": 493
+    },
+    "tools/storage_perf_game.gd": {
+      "sha256": "45eac5d7db18f96599062ab7aacb66c35325b8ee8bc8698e9d794f88a9065939",
+      "mode": 420
+    },
+    "tools/storage_perf_game.gd.uid": {
+      "sha256": "52005ca091588e37b18c43d80fbe2a46810bf58ebfdf353924e715a75cc9a2da",
+      "mode": 420
+    },
+    "tools/storage_perf_review.gd": {
+      "sha256": "3402f97f00b222dcb7328861e99ddb725003e7bf04781fa4afb8d0d337663281",
+      "mode": 420
+    },
+    "tools/storage_perf_review.gd.uid": {
+      "sha256": "6ef71cbcdcec7d56b6f440ac9a9d948e3b32032c826764a5f5fc409723bf6a8d",
+      "mode": 420
+    },
+    "tools/test_optimization_audit.py": {
+      "sha256": "10fb0a6884f2b7ce87f1d7a1323344a94e8d8e41a0cea95dd7b766885fb46f45",
+      "mode": 420
+    },
+    "tools/test_perf_contract.py": {
+      "sha256": "431c5dc355c9bc928307e866bc9bab97ab239433af73c958665e5a96051ed9c3",
+      "mode": 420
+    },
+    "tools/test_performance_gate.py": {
+      "sha256": "e7e8ece30e1c13752ad31cd36cfc294115444808e6244f5f220ac02e03f24c13",
+      "mode": 420
+    },
+    "tools/test_redraw_output.py": {
+      "sha256": "794549d1e1df33052c47321dbe3785277ec2db2a10c3f422faca981f0fdfb379",
+      "mode": 420
+    },
+    "tools/test_storage_perf.py": {
+      "sha256": "c3e46a8731aea9b5d5a015fc922be8b12aa98baaad6ad0cff1715f2e9382951f",
+      "mode": 420
+    },
+    "tools/wildlife_query_review.gd": {
+      "sha256": "fea804ee5e0dbec6c173a9ce8dfe37b95fa2f8d54f28abfc795de93f9b67602a",
+      "mode": 420
+    },
+    "tools/wildlife_query_review.gd.uid": {
+      "sha256": "c7e0005a7d4e64da0be0203d14c8ed8462a417241e1d59d04dd5bb82103fd2a8",
+      "mode": 420
+    },
+    ".gitignore": {
+      "sha256": "7c4fb0bb462de94f6de89642d6b4b833bbaf3d0c2b870696baa58555e1f4dc38",
+      "mode": 420
+    },
+    ".gitattributes": {
+      "sha256": "dc6fc8dcdb21ad16e5b2f416bc0ce628c169822388b2b848c8b26764603c8764",
+      "mode": 420
+    },
+    "VERSION": {
+      "sha256": "d0a4dd0d9d52f999267041cb94eb7601b3b64322b01bbddbe2b8915f02198bf0",
+      "mode": 420
+    },
+    "project.godot": {
+      "sha256": "486d3795bb3e1085e8e5157174eee69ef81572e88d90920612c6653942a00f53",
+      "mode": 420
+    },
+    "Бабушкина ферма.app/Contents/Info.plist": {
+      "sha256": "eddaf14df892cc72ec4ebd690ab086b535117e2443431d91a23747e3711d9fea",
+      "mode": 420
+    },
+    "tools/quality/check_architecture.sh": {
+      "sha256": "9d71727a1f3667f0ab838a685c960fbcab8b5049f454716aaa945ef7d898c876",
+      "mode": 493
+    },
+    "run_tests.sh": {
+      "sha256": "e353cc417dff6fe971bb44754e91b21100074e6b174f116a2f4f4d1b7d789a93",
+      "mode": 493
+    },
+    "tools/README.md": {
+      "sha256": "98dc3d55ccc75ec373bcd603eaf107d50d5a01cf800433ba4ead086bfb989331",
+      "mode": 420
+    },
+    "wiki/articles/project-refactoring.md": {
+      "sha256": "0bd437257e3c61310887c640a182e5f56029014d8b733a2c398bc59ffba2abe0",
+      "mode": 420
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "sha256": "be391568e526fe7663366b30ae9bebb96b2bd8e1052fe8a7e3f3f4bed61fb2e0",
+      "mode": 420
+    },
+    "PERFORMANCE.md": {
+      "sha256": "d0d4279e1a6460f4b1109b3f6baccfaef50c80f423494c12cffc95ecfe1812ad",
+      "mode": 420
+    },
+    "QA_CHECKLIST.md": {
+      "sha256": "92f18a7dafb037bf58f5024ead553c3d881c5ad9730d3bd1857009980774a9fe",
+      "mode": 420
+    },
+    "TESTING.md": {
+      "sha256": "8482ead8a5ba9cb6083d1b638694d04692f5c6c5e727a5b39dc5bb713bc14285",
+      "mode": 420
+    },
+    "docs/DEVELOPMENT.md": {
+      "sha256": "b83eb9333f89e8d83b9eef373bcaeaefd8f6253f7059cdadb43536ae7f34a008",
+      "mode": 420
+    },
+    "docs/MODULAR_VILLAGE.md": {
+      "sha256": "8262f5af8a05297dfac492541206acbaa846925658e68c5ae9251287615202a3",
+      "mode": 420
+    },
+    "tools/analyze_visual_baseline.py": {
+      "sha256": "b1b852c37a933f3104509bcd53a70a2979d16dcee34c40e8a4e42f4aaa4d9499",
+      "mode": 420
+    },
+    "tools/analyze_water_audit.py": {
+      "sha256": "404b0ddfdb26ced985f7035f1ca79cbe6607dd2b72451e66abaefde4ee043566",
+      "mode": 420
+    },
+    "tools/axial_road_collect.py": {
+      "sha256": "b135f9189dcf1afc4f13ec3cbd2e41341904d79811c5c5e9d7d5426ce78b7b1b",
+      "mode": 420
+    },
+    "tools/axial_road_verify.py": {
+      "sha256": "3c8b1df3a9b94d2bb7ec08140f37f1a6ecc905099094a61d56995a8e266af531",
+      "mode": 420
+    },
+    "tools/decoration_collect.py": {
+      "sha256": "ecfe3565021ab0aae6e704e282c053715b83c023b2c1e8771f2409abc7743a5b",
+      "mode": 420
+    },
+    "tools/decoration_verify.py": {
+      "sha256": "9e914343359312ca7750fab7b8a2a282e064b6f9dda1151ca7785b28d07e3ee3",
+      "mode": 420
+    },
+    "tools/foliage_contact_collect.py": {
+      "sha256": "3d72fc095d278592c52e39eae0105d9338d1e157f998b36833f932f79c1b00c3",
+      "mode": 420
+    },
+    "tools/foliage_pause_collect.py": {
+      "sha256": "182f8c3928e3bd3e80baa4a2df61cc766f04dfb1f1b178f30ae7528ce1c5072b",
+      "mode": 420
+    },
+    "tools/foliage_recovery_collect.py": {
+      "sha256": "d7ddde2014c3c06a3cbb2d91dd0873b4666d1b6f825f4eec70cede94aff29520",
+      "mode": 420
+    },
+    "tools/foliage_root_collect.py": {
+      "sha256": "e38e35c643165bf63043a9c5c4713572e206201a32d1f6006b91c601fc15c0bd",
+      "mode": 420
+    },
+    "tools/foliage_speed_collect.py": {
+      "sha256": "cc8399e0d4cb872ea30f649755b926ba9cd4e5111dfb76751d8652446aee01f9",
+      "mode": 420
+    },
+    "tools/foliage_uv_collect.py": {
+      "sha256": "372bfa73cc46cd3d0eba744d4e23c13421f9572a69f19577a00167f161e2fc42",
+      "mode": 420
+    },
+    "tools/foliage_visibility_collect.py": {
+      "sha256": "cb3681c86301fa4d5eb354e1610d8f9c47ca40c62ecd0ece5c13b5f92c132446",
+      "mode": 420
+    },
+    "tools/foliage_wind_collect.py": {
+      "sha256": "af1cc111e3e11caf89b74f9e31095dba18e937e8440048d237d7c55b717b878d",
+      "mode": 420
+    },
+    "tools/garden_collect.py": {
+      "sha256": "2342517a2dd98dcc855b297d0493e4ea6210d6536dfebbb8c9cc8040d3098307",
+      "mode": 420
+    },
+    "tools/garden_verify.py": {
+      "sha256": "388f112219c0893fc0037eea0dc2cacacd9bfee0a6b8fbee2890bfb2f6859f0a",
+      "mode": 420
+    },
+    "tools/grass_compare_collect.py": {
+      "sha256": "435fe36c6a38ab95074f527ae009fe7c9cab6b193564463a1e9d977084181044",
+      "mode": 420
+    },
+    "tools/grass_methods.py": {
+      "sha256": "5bd1592e14cb8528f9025e69f1e43a57132947e4e9ef44dc6e3d12eccc7503c0",
+      "mode": 420
+    },
+    "tools/ground_edge_collect.py": {
+      "sha256": "622e7b4c531a0a0449659043c4b50190d6caab4e13b7409192292102b8ca8d2e",
+      "mode": 420
+    },
+    "tools/ground_edge_verify.py": {
+      "sha256": "3c9247e4b2d3ea6839ac6a708de3775069719f59a785ed542a19c52927b9fc95",
+      "mode": 420
+    },
+    "tools/ground_layers.py": {
+      "sha256": "05378b53e50d621e9444d444c3a14c1796832b52eaefd4ca1d91d80adc73b624",
+      "mode": 420
+    },
+    "tools/ground_seasons_collect.py": {
+      "sha256": "959f6681d2574c577a62083cc2102a0a6a07ce936a5eacfbc8022a435d15b774",
+      "mode": 420
+    },
+    "tools/ground_seasons_verify.py": {
+      "sha256": "dfd461a36071da505a39e79d149bba6dc716d9c52238908fea74781b1a2f969a",
+      "mode": 420
+    },
+    "tools/meadow_collect.py": {
+      "sha256": "67321021541d24f4a90ca02d76580e87f198f2efde1f53dbf23fb44f6cfe3685",
+      "mode": 420
+    },
+    "tools/meadow_verify.py": {
+      "sha256": "6f0a9116bc49b4c361da726eedfb3cc19c928db9e636ac903e4535f4857edd7a",
+      "mode": 420
+    },
+    "tools/object_command_collect.py": {
+      "sha256": "59bb38b3ad01683064f452d3df6e203ab40d836561a30cde61909f6db037dd4d",
+      "mode": 420
+    },
+    "tools/object_command_verify.py": {
+      "sha256": "effc62c4967b4ea53af06f79d9a3c7d01f820baa9d233a59499f0bc3871dffe9",
+      "mode": 420
+    },
+    "tools/pilot_pass_collect.py": {
+      "sha256": "84278633523856f5b6d387b31a7c68e60cf3a3e764fe695fa020f386fac6910b",
+      "mode": 420
+    },
+    "tools/pilot_pass_verify.py": {
+      "sha256": "5f8c5e2abc4caa6cb5cef008576e900e4b069c1511c8ffa92c22416cef68713f",
+      "mode": 420
+    },
+    "tools/pilot_static_collect.py": {
+      "sha256": "3996a1ad108b5be84488ce66d372f64f2719b48c18c2b95fef8ce58a374bc62e",
+      "mode": 420
+    },
+    "tools/pilot_static_verify.py": {
+      "sha256": "669e686e0fbe8fe9a1d15a934d557087cc0174fc0fa4bed6f4fe65a050ac82ee",
+      "mode": 420
+    },
+    "tools/plant_depth_collect.py": {
+      "sha256": "6031c1944f4523ea35b45f5c0f4557f689418e9f32db055c7fa456b6f7382821",
+      "mode": 420
+    },
+    "tools/plaza_collect.py": {
+      "sha256": "c533203d56e70d07e15900860508767ee2095753fafe7ee238a34c1c4781bb8b",
+      "mode": 420
+    },
+    "tools/plaza_verify.py": {
+      "sha256": "d006c5e568376c8db9cb5f9b85f90db1b2a3c1d9db7828a9be738eefe58c0315",
+      "mode": 420
+    },
+    "tools/post_motion_collect.py": {
+      "sha256": "78aa99b4430e75c86a1ef9e9eb39a7a8cd9c07f5c02603c2b0d584f7934e13c2",
+      "mode": 420
+    },
+    "tools/qa/performance/test_performance_context.py": {
+      "sha256": "f5ad680bc1d09c1d6aa2bd3db7e2e103ddd77d5c3db95db754e05b3ac616467f",
+      "mode": 420
+    },
+    "tools/road_network_collect.py": {
+      "sha256": "4d52f7443cbefde3c3db1cb0f2581ede7bab1d4fa06f1cb306829a72214102f2",
+      "mode": 420
+    },
+    "tools/road_network_verify.py": {
+      "sha256": "d1c1ca6b6e049e5dccac7bd4eecbe28121514924fa8ff4e44699923f0e4a9104",
+      "mode": 420
+    },
+    "tools/shadow_inventory_collect.py": {
+      "sha256": "29542f96ad2f19e9242f29a335b79f90d581ec3fc5a881570b6387e1f35c403c",
+      "mode": 420
+    },
+    "tools/terrain_revision_collect.py": {
+      "sha256": "eccfff121c066289ac3abb29b9a2d5dc99cda8f173fdabe01f9fac8f1643ce66",
+      "mode": 420
+    },
+    "tools/terrain_revision_verify.py": {
+      "sha256": "0ff1ccc1e49aa2f7336a77d4c02fcb9a48130f70f3ffa127b44170cc2a51d649",
+      "mode": 420
+    },
+    "tools/transient_save_collect.py": {
+      "sha256": "2b0e343b7af23ef67e49deabaea1e30d4b3c6aaa4d1afae42c236e4e819629e6",
+      "mode": 420
+    },
+    "tools/village_bench_collect.py": {
+      "sha256": "2803c491fa273a72dd12b9de8be51ebe4de4ccbdc3a750195fe82283bced6b55",
+      "mode": 420
+    },
+    "tools/village_bench_verify.py": {
+      "sha256": "8199ca81e3c62fe0163e05db703ea593d0a5fdae61999e8e4d7b0507ac10c8f2",
+      "mode": 420
+    },
+    "tools/village_board_collect.py": {
+      "sha256": "90142878633098179b646dd5c02ceef2a5a279c4b72a2f7245690120fefd6ed7",
+      "mode": 420
+    },
+    "tools/village_board_verify.py": {
+      "sha256": "7a66a2a500264328619fd0f06a926af0ac30612b2852918ef73a3cc878dd101a",
+      "mode": 420
+    },
+    "tools/village_fence_collect.py": {
+      "sha256": "8e2e2b0c4ad796a982f7549c962e0719c27eabe65728f247ab4e023694d94fe1",
+      "mode": 420
+    },
+    "tools/village_fence_verify.py": {
+      "sha256": "c111d4e2bffdc1e9bd8e79b2e02a520baeea7c7c803be7ec78e8cbde62399ff8",
+      "mode": 420
+    },
+    "tools/village_lamp_collect.py": {
+      "sha256": "0652228607d1a646c5ab08f06ac9e2c0b0892ce70e5089a22048efd034cf9bc3",
+      "mode": 420
+    },
+    "tools/village_lamp_verify.py": {
+      "sha256": "3933d23698e9fafc0cfe3801400b84739d7aab117b85f2c1931ad4a6950cea27",
+      "mode": 420
+    },
+    "tools/village_street_collect.py": {
+      "sha256": "ef816afd927fbe857f4a54ba94ad9368bd723261a3f704d89f459937d84eda63",
+      "mode": 420
+    },
+    "tools/village_street_verify.py": {
+      "sha256": "dc79bb5a1e7e289c909b22ff75027f67e60dc74f03670b3bf6e4347694b16336",
+      "mode": 420
+    },
+    "tools/village_trade_collect.py": {
+      "sha256": "e6e0b6278448349eb5785e9903887830b03f2c8146b8d551d288100fff2c4fd0",
+      "mode": 420
+    },
+    "tools/village_trade_verify.py": {
+      "sha256": "3cc38841b8371a847fc25e6d2e8aca62b44cdac8f4664c828343a1a8d77d0782",
+      "mode": 420
+    }
+  },
+  "consumers": [
+    ".gitignore",
+    ".gitattributes",
+    "VERSION",
+    "project.godot",
+    "Бабушкина ферма.app/Contents/Info.plist",
+    "tools/quality/check_architecture.sh",
+    "run_tests.sh",
+    "tools/README.md",
+    "wiki/articles/project-refactoring.md",
+    "docs/epics/refactoring-2026-10/TASKS.md",
+    "PERFORMANCE.md",
+    "QA_CHECKLIST.md",
+    "TESTING.md",
+    "docs/DEVELOPMENT.md",
+    "docs/MODULAR_VILLAGE.md",
+    "tools/analyze_visual_baseline.py",
+    "tools/analyze_water_audit.py",
+    "tools/axial_road_collect.py",
+    "tools/axial_road_verify.py",
+    "tools/decoration_collect.py",
+    "tools/decoration_verify.py",
+    "tools/foliage_contact_collect.py",
+    "tools/foliage_pause_collect.py",
+    "tools/foliage_recovery_collect.py",
+    "tools/foliage_root_collect.py",
+    "tools/foliage_speed_collect.py",
+    "tools/foliage_uv_collect.py",
+    "tools/foliage_visibility_collect.py",
+    "tools/foliage_wind_collect.py",
+    "tools/garden_collect.py",
+    "tools/garden_verify.py",
+    "tools/grass_compare_collect.py",
+    "tools/grass_methods.py",
+    "tools/ground_edge_collect.py",
+    "tools/ground_edge_verify.py",
+    "tools/ground_layers.py",
+    "tools/ground_seasons_collect.py",
+    "tools/ground_seasons_verify.py",
+    "tools/meadow_collect.py",
+    "tools/meadow_verify.py",
+    "tools/object_command_collect.py",
+    "tools/object_command_verify.py",
+    "tools/pilot_pass_collect.py",
+    "tools/pilot_pass_verify.py",
+    "tools/pilot_static_collect.py",
+    "tools/pilot_static_verify.py",
+    "tools/plant_depth_collect.py",
+    "tools/plaza_collect.py",
+    "tools/plaza_verify.py",
+    "tools/post_motion_collect.py",
+    "tools/qa/performance/test_performance_context.py",
+    "tools/road_network_collect.py",
+    "tools/road_network_verify.py",
+    "tools/shadow_inventory_collect.py",
+    "tools/terrain_revision_collect.py",
+    "tools/terrain_revision_verify.py",
+    "tools/transient_save_collect.py",
+    "tools/village_bench_collect.py",
+    "tools/village_bench_verify.py",
+    "tools/village_board_collect.py",
+    "tools/village_board_verify.py",
+    "tools/village_fence_collect.py",
+    "tools/village_fence_verify.py",
+    "tools/village_lamp_collect.py",
+    "tools/village_lamp_verify.py",
+    "tools/village_street_collect.py",
+    "tools/village_street_verify.py",
+    "tools/village_trade_collect.py",
+    "tools/village_trade_verify.py"
+  ],
+  "python_consumers": [
+    "tools/analyze_visual_baseline.py",
+    "tools/analyze_water_audit.py",
+    "tools/axial_road_collect.py",
+    "tools/axial_road_verify.py",
+    "tools/decoration_collect.py",
+    "tools/decoration_verify.py",
+    "tools/foliage_contact_collect.py",
+    "tools/foliage_pause_collect.py",
+    "tools/foliage_recovery_collect.py",
+    "tools/foliage_root_collect.py",
+    "tools/foliage_speed_collect.py",
+    "tools/foliage_uv_collect.py",
+    "tools/foliage_visibility_collect.py",
+    "tools/foliage_wind_collect.py",
+    "tools/garden_collect.py",
+    "tools/garden_verify.py",
+    "tools/grass_compare_collect.py",
+    "tools/grass_methods.py",
+    "tools/ground_edge_collect.py",
+    "tools/ground_edge_verify.py",
+    "tools/ground_layers.py",
+    "tools/ground_seasons_collect.py",
+    "tools/ground_seasons_verify.py",
+    "tools/meadow_collect.py",
+    "tools/meadow_verify.py",
+    "tools/object_command_collect.py",
+    "tools/object_command_verify.py",
+    "tools/pilot_pass_collect.py",
+    "tools/pilot_pass_verify.py",
+    "tools/pilot_static_collect.py",
+    "tools/pilot_static_verify.py",
+    "tools/plant_depth_collect.py",
+    "tools/plaza_collect.py",
+    "tools/plaza_verify.py",
+    "tools/post_motion_collect.py",
+    "tools/qa/performance/test_performance_context.py",
+    "tools/road_network_collect.py",
+    "tools/road_network_verify.py",
+    "tools/shadow_inventory_collect.py",
+    "tools/terrain_revision_collect.py",
+    "tools/terrain_revision_verify.py",
+    "tools/transient_save_collect.py",
+    "tools/village_bench_collect.py",
+    "tools/village_bench_verify.py",
+    "tools/village_board_collect.py",
+    "tools/village_board_verify.py",
+    "tools/village_fence_collect.py",
+    "tools/village_fence_verify.py",
+    "tools/village_lamp_collect.py",
+    "tools/village_lamp_verify.py",
+    "tools/village_street_collect.py",
+    "tools/village_street_verify.py",
+    "tools/village_trade_collect.py",
+    "tools/village_trade_verify.py"
+  ],
+  "gd_consumers": [],
+  "live_documents": [
+    "PERFORMANCE.md",
+    "QA_CHECKLIST.md",
+    "TESTING.md",
+    "docs/DEVELOPMENT.md",
+    "docs/MODULAR_VILLAGE.md"
+  ],
+  "local_UID": [
+    {
+      "old_path": "tools/cpu_profile_game.gd.uid",
+      "target": "tools/qa/performance/cpu_profile_game.gd.uid",
+      "sha256": "f0a30e22ae4e98c74b8f4b4d661743bda2e36efcb27e24525b9b4166b556245e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/geometry_benchmark.gd.uid",
+      "target": "tools/qa/performance/geometry_benchmark.gd.uid",
+      "sha256": "ecca6dffcdfe45c7a2be9abecbe375aac4f1f717ccad9181c0a87678c5e57429",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/inspector_benchmark.gd.uid",
+      "target": "tools/qa/performance/inspector_benchmark.gd.uid",
+      "sha256": "a97a67cb96087ab57ad2a0c81410da67f34497d4e873a5a39eaf5942060f0e44",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/runtime_frame_review.gd.uid",
+      "target": "tools/qa/performance/runtime_frame_review.gd.uid",
+      "sha256": "83ab22f3865e9c17a883a278a04c5ef76141642cfa4d2868fe813acd8799dd7a",
+      "mode": 420
+    }
+  ],
+  "source_review": 5690964419,
+  "Team_intermediate_accepted": true,
+  "CI370_final_pending": false,
+  "CI370_success": 8
+}

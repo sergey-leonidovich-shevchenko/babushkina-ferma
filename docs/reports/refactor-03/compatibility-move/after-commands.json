@@ -1,0 +1,1573 @@
+[
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--editor",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--quit"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-001.txt",
+    "sha256": "69b4bb2c78333811eac0717eb1b86ffe521ca05049a286a3248cf07a513c00a1"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/action_lifecycle_native.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-002.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/alchemy_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-003.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/alchemy_catalog_export.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-004.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/alchemy_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-005.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/apiary_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-006.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/apiary_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-007.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/artisan_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-008.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/artisan_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-009.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/basement_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-010.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/basement_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-011.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/basement_ui_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-012.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/boss_balance_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-013.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/character_polish_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-014.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/compact_dialogue_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-015.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/compact_dialogue_preview.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-016.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/compact_dialogue_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-017.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/compact_hud_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-018.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/content_reference_audit.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-019.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/cooking_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-020.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/cooking_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-021.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/depth_guardian_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-022.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/depth_guardian_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-023.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/design_audit_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-024.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/design_audit_gallery.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-025.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/design_audit_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-026.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/dev_cabinet_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-027.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/dev_cabinet_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-028.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/dropped_loot_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-029.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/dropped_loot_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-030.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/end_to_end_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-031.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/end_to_end_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-032.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/farm_bounds_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-033.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/farm_bounds_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-034.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/farm_cursor_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-035.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/farm_native.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-036.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/farm_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-037.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/focus_pause_native.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-038.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/front_facing_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-039.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/front_facing_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-040.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/furnace_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-041.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/furnace_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-042.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/generate_adaptive_hud_previews.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-043.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/generate_hero_pose_preview.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-044.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/generate_ui_layout_audit.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-045.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/grandmother_animation_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-046.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/held_weapon_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-047.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/held_weapon_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-048.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/hero_actions_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-049.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/hero_actions_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-050.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/house_furniture_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-051.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/house_furniture_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-052.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/kitchen_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-053.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/kitchen_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-054.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/lazy_item_icons_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-055.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/livestock_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-056.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/paper_theme_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-057.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/paper_theme_reference_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-058.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/paper_theme_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-059.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/player_contact_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-060.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/player_contact_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-061.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/prepared_pixels_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-062.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/prop_edges_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-063.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/qa_teleport_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-064.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/qa_teleport_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-065.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/ranged_combat_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-066.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/ranged_combat_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-067.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/recovery_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-068.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/recovery_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-069.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/research_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-070.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/research_catalog_export.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-071.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/research_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-072.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/resident_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-073.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/runtime_comfort_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-074.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/runtime_maintenance_tests.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-075.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/safe_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-076.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/skeleton_aim_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-077.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/startup_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-078.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/storage_actions_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-079.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/storage_window_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-080.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/terrain_cache_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-081.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/tree_occlusion_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-082.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/workshops_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-083.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/workshops_catalog_export.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-084.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/workshops_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-085.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/world_native.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-086.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/world_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-087.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/compatibility/world_workbench_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-088.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/assets/slicing/slice_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-089.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/water_fishing_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-090.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/water_navigation_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-091.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/water_topology_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-092.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--script",
+      "res://tools/qa/compatibility/content_reference_audit.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-093.txt",
+    "sha256": "a7efb7282e9888a32f71903ca1e8876281b3283c85b4593b71bcd0703d7237be"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--script",
+      "res://tools/qa/compatibility/qa_teleport_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-094.txt",
+    "sha256": "99e4993a0f05f6c371f2cfede51de8d2f92e14e4c900a2f3238d48e4e4e5d9f1"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--script",
+      "res://tools/qa/compatibility/held_weapon_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-095.txt",
+    "sha256": "2c2e57902c889fa7f339d1fa57afdae7053ea5da8553be3ec6fa704accae74f0"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--script",
+      "res://tools/qa/compatibility/farm_review.gd",
+      "--",
+      "--output=/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/catalog.json"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-096.txt",
+    "sha256": "4601d1dcd4c26add345bca4d755d6eb10d55058bd517c8a486bc439fd50c8b31"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.compatibility.farm_cycles",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/catalog.json",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/cycles.json"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-097.txt",
+    "sha256": "8e909e7112b6a309aa9a7961ffc3e98ad634a7df83b423acb5a1ff40c86c34d2"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.compatibility.check_alchemy_reports"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 1,
+    "exit": 1,
+    "log": "after-098.txt",
+    "sha256": "c7f361113f47b896c19f057322574db19219ab26478102e70efea21d225a2249"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.compatibility.test_compatibility_cli"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/compatibility after ljdgjkdh/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-099.txt",
+    "sha256": "50e56e120ca4d7e5aca85f107b431f070720c0ca69d81568923e7a33f9fa0b00"
+  }
+]

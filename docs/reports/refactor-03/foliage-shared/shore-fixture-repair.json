@@ -1,0 +1,7 @@
+{
+  "before_SHA256": "697680e0dde904383273081b70a8dc4144239abdd8ece081ddf6a1af4d2d56cc",
+  "after_SHA256": "ab6bffa2583464d63e7eefa81e80ace6f9588342a50442c338502d7e43f6dd79",
+  "change": "real copy source and target use canonical input paths; original archived metadata and all ten test methods/assertions stay exact",
+  "test_methods_removed": 0,
+  "failed_profile": "after-attempt02/after-profile.json"
+}

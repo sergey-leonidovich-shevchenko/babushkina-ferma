@@ -1,0 +1,1454 @@
+{
+  "base": "7a2d7a5917bede86b3ffa850b1d5c83e9e8cc0bd",
+  "root_before": 245,
+  "root_sources_after_moves": 153,
+  "moves": [
+    {
+      "old_path": "tools/analyze_water_audit.py",
+      "target": "tools/qa/world/analyze_water_audit.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "855f0556645d6ec3c0fe41e885b2a2ad4ed729af",
+      "bytes": 4491,
+      "sha256": "404b0ddfdb26ced985f7035f1ca79cbe6607dd2b72451e66abaefde4ee043566"
+    },
+    {
+      "old_path": "tools/object_command_canvas.gd",
+      "target": "tools/qa/world/object_command_canvas.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "8f1f4df6c02200aff130070d397a3e2b3ed9668b",
+      "bytes": 2919,
+      "sha256": "7d528c4ef0a6df79feb00ca306f66119ff686db0312fe3a4c9a6569a64032184"
+    },
+    {
+      "old_path": "tools/object_command_canvas.gd.uid",
+      "target": "tools/qa/world/object_command_canvas.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/object_command_canvas.gd",
+      "mode": "100644",
+      "blob": "dda937ce5797961978f62e4bdd468a72d2b20976",
+      "bytes": 19,
+      "sha256": "bae0165e18f985c8bb5db3445dc181a9e83444aea44a341c4b58a28a9a6d1dc3"
+    },
+    {
+      "old_path": "tools/object_command_capture.gd",
+      "target": "tools/qa/world/object_command_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "0fc385b3fc1c2256c018dd8a8f73f886ac35be30",
+      "bytes": 11154,
+      "sha256": "85adef283d9421bb5d14f5dc91edce4dc6b126cf5459b93d68f7295f769a0fc3"
+    },
+    {
+      "old_path": "tools/object_command_capture.gd.uid",
+      "target": "tools/qa/world/object_command_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/object_command_capture.gd",
+      "mode": "100644",
+      "blob": "a44983da4ba237b640c73781416ad357832228b4",
+      "bytes": 20,
+      "sha256": "e7d705d2212313c6f9fd766df68ad92e39165fd599b675a64343e263161581e7"
+    },
+    {
+      "old_path": "tools/object_command_collect.py",
+      "target": "tools/qa/world/object_command_collect.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "4bddb3e8c4fd65964717399f33097919cc84954f",
+      "bytes": 6463,
+      "sha256": "59bb38b3ad01683064f452d3df6e203ab40d836561a30cde61909f6db037dd4d"
+    },
+    {
+      "old_path": "tools/object_command_review.gd",
+      "target": "tools/qa/world/object_command_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "3a0b5904d43c5060b0f960b7467a49994943c84b",
+      "bytes": 1473,
+      "sha256": "e4d564447a4e1692d18f2f5cee950325b1fb03609aed084c54e329a289cc2305"
+    },
+    {
+      "old_path": "tools/object_command_review.gd.uid",
+      "target": "tools/qa/world/object_command_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/object_command_review.gd",
+      "mode": "100644",
+      "blob": "7e4cc4f2bda6b6d80b5ceff283912517945b0357",
+      "bytes": 20,
+      "sha256": "6cba7637aeaf4280670cede9b280ab09a26d383d505df71145a992d9b02e00a4"
+    },
+    {
+      "old_path": "tools/object_command_verify.py",
+      "target": "tools/qa/world/object_command_verify.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "6e02389dfed5e13fc1834249ff8186f979451888",
+      "bytes": 9736,
+      "sha256": "effc62c4967b4ea53af06f79d9a3c7d01f820baa9d233a59499f0bc3871dffe9"
+    },
+    {
+      "old_path": "tools/pilot_pass_capture.gd",
+      "target": "tools/qa/world/pilot_pass_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "73beea84943776b1dc96ba8a24e4e5c5e1e948e6",
+      "bytes": 8692,
+      "sha256": "b1f166a73b17def2c041b165a56efc017a315961e46844a4a7144f47ee1a0ffb"
+    },
+    {
+      "old_path": "tools/pilot_pass_capture.gd.uid",
+      "target": "tools/qa/world/pilot_pass_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/pilot_pass_capture.gd",
+      "mode": "100644",
+      "blob": "1a4b221be55a40cac8b966723c71b2734f123b00",
+      "bytes": 20,
+      "sha256": "3eea56b562fba36fc83cfab335add785e5bcef7833875440b988d66eb908ea12"
+    },
+    {
+      "old_path": "tools/pilot_pass_collect.py",
+      "target": "tools/qa/world/pilot_pass_collect.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "1e9dfeb79318bcb73415ba7bf2d011e381272254",
+      "bytes": 4164,
+      "sha256": "84278633523856f5b6d387b31a7c68e60cf3a3e764fe695fa020f386fac6910b"
+    },
+    {
+      "old_path": "tools/pilot_pass_game.gd",
+      "target": "tools/qa/world/pilot_pass_game.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "997d1c69a4cc65be82ad8ef94668054207ba2e9a",
+      "bytes": 914,
+      "sha256": "e50489d807bd692c93a8125fb614a6ff667802176c15bdaf40ee533108cd4661"
+    },
+    {
+      "old_path": "tools/pilot_pass_game.gd.uid",
+      "target": "tools/qa/world/pilot_pass_game.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/pilot_pass_game.gd",
+      "mode": "100644",
+      "blob": "e86a70569725c17db825a4192ed9cd4cb563a297",
+      "bytes": 20,
+      "sha256": "cfa62dcde746476a78162dd126a44f0e09e1dbed1cefb5b3fa0b51f47477a0c5"
+    },
+    {
+      "old_path": "tools/pilot_pass_review.gd",
+      "target": "tools/qa/world/pilot_pass_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "cd24ca4adf3cf719f080d856ca685d2e404dd327",
+      "bytes": 900,
+      "sha256": "ec1542805907b057cfa2fb1153f1277eda941e1d2ecc426d16a905dcd0f0ea78"
+    },
+    {
+      "old_path": "tools/pilot_pass_review.gd.uid",
+      "target": "tools/qa/world/pilot_pass_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/pilot_pass_review.gd",
+      "mode": "100644",
+      "blob": "c71fd6959b14fd79e6b7a076b0cfa44ddfd6e180",
+      "bytes": 19,
+      "sha256": "fe382e39dc17984eab9f87078c3e69b645120a2e0af8df75ba252213b93f5386"
+    },
+    {
+      "old_path": "tools/pilot_pass_verify.py",
+      "target": "tools/qa/world/pilot_pass_verify.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "e880880869944f77431a3d088497c65b1c93e48a",
+      "bytes": 10612,
+      "sha256": "5f8c5e2abc4caa6cb5cef008576e900e4b069c1511c8ffa92c22416cef68713f"
+    },
+    {
+      "old_path": "tools/pilot_static_audit.py",
+      "target": "tools/qa/world/pilot_static_audit.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "45b4ffb2abbd117d3406f5a99bfef8836decc90b",
+      "bytes": 3896,
+      "sha256": "832e9cad10b9764bf1774b77673757044467be37859fb1b5712f65d4895838a2"
+    },
+    {
+      "old_path": "tools/pilot_static_capture.gd",
+      "target": "tools/qa/world/pilot_static_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "4d85ebb137172030b349081501dde1aee065f843",
+      "bytes": 8163,
+      "sha256": "95b140d83053a832672f36dc96e338abcc68518189bfc550863390c0b8e2df64"
+    },
+    {
+      "old_path": "tools/pilot_static_capture.gd.uid",
+      "target": "tools/qa/world/pilot_static_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/pilot_static_capture.gd",
+      "mode": "100644",
+      "blob": "ff36aac45bfeac943ff7f351698842de220f5ccd",
+      "bytes": 20,
+      "sha256": "e32b5583f9489d90bcf3aa1bb8891024823a473c28fea6769f3a601c85c8dd10"
+    },
+    {
+      "old_path": "tools/pilot_static_collect.py",
+      "target": "tools/qa/world/pilot_static_collect.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "3af312772f124a427b4928c75124b51241c78ef9",
+      "bytes": 4054,
+      "sha256": "d1238844b739d11673449dc5e78a0032ac37321af67aeb069cc3a16352c09a34"
+    },
+    {
+      "old_path": "tools/pilot_static_scene.gd",
+      "target": "tools/qa/world/pilot_static_scene.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "4c3a8bccdc7b4a25bd075391300f16af9b7dabb0",
+      "bytes": 5085,
+      "sha256": "8645087ffc276eddbca36e559cb849ae2273845c8cba796960eef61576f6d602"
+    },
+    {
+      "old_path": "tools/pilot_static_scene.gd.uid",
+      "target": "tools/qa/world/pilot_static_scene.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/pilot_static_scene.gd",
+      "mode": "100644",
+      "blob": "1a4524309fcf0ccb1d4230da4da5681511f9e29e",
+      "bytes": 20,
+      "sha256": "acfa6dba186f987a4caa81bd37b44794668887a970707ea75f7a36fa701529d8"
+    },
+    {
+      "old_path": "tools/pilot_static_verify.py",
+      "target": "tools/qa/world/pilot_static_verify.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "3d933cfaa25681435279e20d808466cf0914fa01",
+      "bytes": 7810,
+      "sha256": "34b8023fa9b3d2440b7d3e5174a1a7411103c30ac4a8f228eb6b3ca5a6b82d78"
+    },
+    {
+      "old_path": "tools/post_motion_capture.gd",
+      "target": "tools/qa/world/post_motion_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "7770240ec71e5c2ce1c94befd19b34acbeb4a33a",
+      "bytes": 9529,
+      "sha256": "d4b21e17e24c72aa23ef4a36923b1a86aefa6c2a40d8444430e340023ed2bd2a"
+    },
+    {
+      "old_path": "tools/post_motion_capture.gd.uid",
+      "target": "tools/qa/world/post_motion_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/post_motion_capture.gd",
+      "mode": "100644",
+      "blob": "078ece2c98b0c49fbcde08c8c31146d3080c89e9",
+      "bytes": 18,
+      "sha256": "ccb0fa15a8bca34dd9aecf5e109b5a56ce69b9107970e21ce651a8ae6e0a7861"
+    },
+    {
+      "old_path": "tools/post_motion_collect.py",
+      "target": "tools/qa/world/post_motion_collect.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "4694e253ab5278b9cc0f41db76c7ee36c2559813",
+      "bytes": 5112,
+      "sha256": "78aa99b4430e75c86a1ef9e9eb39a7a8cd9c07f5c02603c2b0d584f7934e13c2"
+    },
+    {
+      "old_path": "tools/post_motion_game.gd",
+      "target": "tools/qa/world/post_motion_game.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "3c46fbfd7399e3ccc6ba7549c5597b5d390ba8f8",
+      "bytes": 590,
+      "sha256": "06fcc91942101f954f45c3581a4bc3a6a0fc860238afd50952601d87c4e14818"
+    },
+    {
+      "old_path": "tools/post_motion_game.gd.uid",
+      "target": "tools/qa/world/post_motion_game.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/post_motion_game.gd",
+      "mode": "100644",
+      "blob": "79ca7e9544dccfee91c8140b601706aa067f70d4",
+      "bytes": 20,
+      "sha256": "e0dd73e0d45dbe8eb99d39144bd654f085cac22068e2b5b5cf59aab94996bc6f"
+    },
+    {
+      "old_path": "tools/post_motion_review.gd",
+      "target": "tools/qa/world/post_motion_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "0ebcd9f60b667b7c38cbf14dcc8c0f932b197d06",
+      "bytes": 841,
+      "sha256": "f4bfef13811e875b5b67681180576bafa5065eafb9c4ff1ccf9f71ba718e9c2c"
+    },
+    {
+      "old_path": "tools/post_motion_review.gd.uid",
+      "target": "tools/qa/world/post_motion_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/post_motion_review.gd",
+      "mode": "100644",
+      "blob": "d98e37ebb060cc3db70db3d684f53f1186d62de7",
+      "bytes": 20,
+      "sha256": "0c372cc83c4cb9b1e2cfdc9c5fb3d70ebc11af296164033b6e718c63a9b81140"
+    },
+    {
+      "old_path": "tools/post_motion_verify.py",
+      "target": "tools/qa/world/post_motion_verify.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "5539e0b2488838c33baa1786f98bd130b5ec9873",
+      "bytes": 10120,
+      "sha256": "dc262ec15f91a46ed54e99b7ac6975cc24a8663cec803fab2342485c97f76428"
+    },
+    {
+      "old_path": "tools/render_order.py",
+      "target": "tools/qa/world/render_order.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "ff610d3559ac2f4df1296740a17fad57395cb3a0",
+      "bytes": 13562,
+      "sha256": "a4773d6953446ebf0d4c8f61b274d071b4b6ef9dfb99f5808352f156c4ed9f42"
+    },
+    {
+      "old_path": "tools/render_order_capture.gd",
+      "target": "tools/qa/world/render_order_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "4c2c46e4b5b82b5911dcaac9eaa29f6959329f5e",
+      "bytes": 7401,
+      "sha256": "ed8c1e21a42df0222639b3f1ab08a9ea1d89b29359f780c20efaf903bcdbc7da"
+    },
+    {
+      "old_path": "tools/render_order_capture.gd.uid",
+      "target": "tools/qa/world/render_order_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/render_order_capture.gd",
+      "mode": "100644",
+      "blob": "91ca6907c730b72ec0e234ffb13fba04b7a1acc2",
+      "bytes": 20,
+      "sha256": "2dd3dfff29d4f3d2fb831954619db0ed2581ca66a3203fcb88eb33079c65e49b"
+    },
+    {
+      "old_path": "tools/shadow_inventory.py",
+      "target": "tools/qa/world/shadow_inventory.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "9aec976275c16a5604c321733834e169c743a859",
+      "bytes": 8729,
+      "sha256": "e535439f02d2be23224afd6284b297f1c09048aecccd06dcf44553232a5aa8fd"
+    },
+    {
+      "old_path": "tools/shadow_inventory_canvas.gd",
+      "target": "tools/qa/world/shadow_inventory_canvas.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "7c69bb5466509e4ccac4cdf75235b26e49e00c3d",
+      "bytes": 2791,
+      "sha256": "fea546fabe6e8808762f04bda6a1a322e9cb2f79b2def98f976c5d3d2aac7a15"
+    },
+    {
+      "old_path": "tools/shadow_inventory_canvas.gd.uid",
+      "target": "tools/qa/world/shadow_inventory_canvas.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/shadow_inventory_canvas.gd",
+      "mode": "100644",
+      "blob": "893a463de9fb18e7d19aa3fc4c9b93b2dcd91d4e",
+      "bytes": 20,
+      "sha256": "b31913d0e6d1fb870eb97a62ec443a625e4472b65f5ecd0dab4a92c9fcaf6e31"
+    },
+    {
+      "old_path": "tools/shadow_inventory_capture.gd",
+      "target": "tools/qa/world/shadow_inventory_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "25b687d7c3fd5035bd418ecf803cdbd9ab14fdcd",
+      "bytes": 5373,
+      "sha256": "e3bdfccd0ae2aec058f93fb79fb70879654005626347383b8119500cf4f7f12a"
+    },
+    {
+      "old_path": "tools/shadow_inventory_capture.gd.uid",
+      "target": "tools/qa/world/shadow_inventory_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/shadow_inventory_capture.gd",
+      "mode": "100644",
+      "blob": "5e2172152de0abda388621c785c1cbe4ea7f7625",
+      "bytes": 19,
+      "sha256": "6317cf7ff791798d9febbdf47fe84c7ffbbe5d736f1d761434ff2ebcbadd513d"
+    },
+    {
+      "old_path": "tools/shadow_inventory_collect.py",
+      "target": "tools/qa/world/shadow_inventory_collect.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "83072b2feb613c0a13e92d9210cc12b1fed34f86",
+      "bytes": 3835,
+      "sha256": "29542f96ad2f19e9242f29a335b79f90d581ec3fc5a881570b6387e1f35c403c"
+    },
+    {
+      "old_path": "tools/shadow_inventory_verify.py",
+      "target": "tools/qa/world/shadow_inventory_verify.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "024d464b6961a75f1ea1830d1619740f02d76b2a",
+      "bytes": 10045,
+      "sha256": "1cfd97a09d81aa2b091c5b31ff795bd2ca35594be8d2a1d0f70248b2bb61cbce"
+    },
+    {
+      "old_path": "tools/test_object_command.py",
+      "target": "tools/qa/world/test_object_command.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "91069758f83f4c4263d17288797d1d1bb1e23a46",
+      "bytes": 8281,
+      "sha256": "f682e49a5d786a68a170aaca4bf427089ee4c188f8d6fbbda096ab7fa52dca0a"
+    },
+    {
+      "old_path": "tools/test_pilot_pass.py",
+      "target": "tools/qa/world/test_pilot_pass.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "df1ea186c36d91e90bae9ce4f7447855046ab447",
+      "bytes": 3314,
+      "sha256": "18a43cab0edd6efe545dd90db9da672e2a631f19ee83117f9462ed78908066c2"
+    },
+    {
+      "old_path": "tools/test_pilot_static.py",
+      "target": "tools/qa/world/test_pilot_static.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "78c70fe8b036ebb899cb1177b7844db564f7a479",
+      "bytes": 2844,
+      "sha256": "9637f61fb01df622c081ce43307d1fc5a6d959f8b7cb743a0337c05b578003bc"
+    },
+    {
+      "old_path": "tools/test_post_motion.py",
+      "target": "tools/qa/world/test_post_motion.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "90b3ff628d05593a5dfe47f2524b6912921e9d8b",
+      "bytes": 3641,
+      "sha256": "77530b3bf5123d324404b2e8d1cd3144673c5264346175b19f6110fa9954d24c"
+    },
+    {
+      "old_path": "tools/test_render_order.py",
+      "target": "tools/qa/world/test_render_order.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "d855f7aef856a091a3ce6d2bde4e0958a4a9f929",
+      "bytes": 7820,
+      "sha256": "d8f356cae3c459614fefe526b37c4a7a2e3560f43006a5d731538bc139fd272e"
+    },
+    {
+      "old_path": "tools/test_shadow_inventory.py",
+      "target": "tools/qa/world/test_shadow_inventory.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "2fb3059abb68850465338e01021c8a6bca7136f2",
+      "bytes": 4694,
+      "sha256": "63f03ab880ed8e986b1d9549b8cc785ec142f6c292b8af3485b11f0622404054"
+    },
+    {
+      "old_path": "tools/test_transient_save.py",
+      "target": "tools/qa/world/test_transient_save.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "67d5d9bac560d55051c5c0ea7fccfd870a0c9d97",
+      "bytes": 3204,
+      "sha256": "9ae9fd5c485b9533b64539d9fee09cef2c5bd364f2641d8dc552623812e35053"
+    },
+    {
+      "old_path": "tools/test_village_bench.py",
+      "target": "tools/qa/world/test_village_bench.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "49b12daa13031f3d1b97041470276f7abb6f6319",
+      "bytes": 4290,
+      "sha256": "32e5dff064d95322c9d83069c1c5e6839c2ac43d2daa6798be8c7e401e9484fd"
+    },
+    {
+      "old_path": "tools/test_village_board.py",
+      "target": "tools/qa/world/test_village_board.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "36f03671a5b1a355b46f699d9028f4ae999c99ba",
+      "bytes": 3199,
+      "sha256": "b73ecaedd2529ae1c0a27e21135daf00173546e3313db153116a2faeee42f818"
+    },
+    {
+      "old_path": "tools/test_village_fence.py",
+      "target": "tools/qa/world/test_village_fence.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "340ee3d9507704296a5d5e371c304183876e04f7",
+      "bytes": 2461,
+      "sha256": "094e713a941bc3c9f2987433cf748e8b5afccefaec1306eb397b34a0000befe8"
+    },
+    {
+      "old_path": "tools/test_village_lamp.py",
+      "target": "tools/qa/world/test_village_lamp.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "08151049bc558565fbb4f00d00fa960f39c9b628",
+      "bytes": 6337,
+      "sha256": "874339796002613bcf9d153c9797dd9ac2b13ddec1c2a268f1a0f110270ee7ab"
+    },
+    {
+      "old_path": "tools/test_village_street.py",
+      "target": "tools/qa/world/test_village_street.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "e50084f3c25a2e7c35529da28eac6be10203d823",
+      "bytes": 4901,
+      "sha256": "d44f6990c264204aa7851de191c31fea0d774a8c83dfddda37d9f8562daec64e"
+    },
+    {
+      "old_path": "tools/test_village_trade.py",
+      "target": "tools/qa/world/test_village_trade.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "aff7cddc2e7171ffc3c68d0bef9112e5a2e00f1b",
+      "bytes": 2524,
+      "sha256": "1f306ccf1ceae3b84c3b4e4c189d8f6a19008d9da98ab99722b74dd49575009c"
+    },
+    {
+      "old_path": "tools/test_water_audit.py",
+      "target": "tools/qa/world/test_water_audit.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "796dfa388e5d341285be7601be9716acadec146a",
+      "bytes": 3950,
+      "sha256": "be9933a8b38396f41469c4668d8b9f93163cfae1ff7eade759a42894aa947ad0"
+    },
+    {
+      "old_path": "tools/transient_save_capture.gd",
+      "target": "tools/qa/world/transient_save_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "f73010cfd5c7744a80d3242230b3d7b3e614fa4b",
+      "bytes": 4767,
+      "sha256": "09f64f6743456d39f724ff5c445bc6d3d587390c3b27c8d71bf78b2744834714"
+    },
+    {
+      "old_path": "tools/transient_save_capture.gd.uid",
+      "target": "tools/qa/world/transient_save_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/transient_save_capture.gd",
+      "mode": "100644",
+      "blob": "a1ef9b3095221c9ead2cfc88287e7fd920228039",
+      "bytes": 20,
+      "sha256": "0cd93714938318f66217187d6da816a323dd8b71b03f348ebc8d341e1523f715"
+    },
+    {
+      "old_path": "tools/transient_save_collect.py",
+      "target": "tools/qa/world/transient_save_collect.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "3a0495e8322f03a090aabd79f66ad4cf8c3b97cf",
+      "bytes": 3736,
+      "sha256": "2b0e343b7af23ef67e49deabaea1e30d4b3c6aaa4d1afae42c236e4e819629e6"
+    },
+    {
+      "old_path": "tools/transient_save_probe.gd",
+      "target": "tools/qa/world/transient_save_probe.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "0ce50e8baaab60b53cf955d1bb4c8c49f17ec117",
+      "bytes": 2061,
+      "sha256": "45947cd69410bdc03fa50b06772c4f6e4587019a310b791b61e0ba533f15f0c2"
+    },
+    {
+      "old_path": "tools/transient_save_probe.gd.uid",
+      "target": "tools/qa/world/transient_save_probe.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/transient_save_probe.gd",
+      "mode": "100644",
+      "blob": "f60d1d9da30142dc29f0a36643136ba4e94de124",
+      "bytes": 20,
+      "sha256": "095d2f7c5dbe64c07f4901640fe79d1a1778733027c4f931b70553b8bbc7b254"
+    },
+    {
+      "old_path": "tools/transient_save_review.gd",
+      "target": "tools/qa/world/transient_save_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "f4f26cf9b2278e06b5200f250e7075c46afe8655",
+      "bytes": 737,
+      "sha256": "9a64f46a5b543c8ebd054a3a17b8a3e0f66305bb67ccfc1252b1717e0cd0db8b"
+    },
+    {
+      "old_path": "tools/transient_save_review.gd.uid",
+      "target": "tools/qa/world/transient_save_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/transient_save_review.gd",
+      "mode": "100644",
+      "blob": "9343396ada43b01cd64fe14acf707f2565743296",
+      "bytes": 20,
+      "sha256": "529e5bc0477cac12965be4062c2f8082c3faef48cd9bb937f2e626c79dabcc71"
+    },
+    {
+      "old_path": "tools/transient_save_verify.py",
+      "target": "tools/qa/world/transient_save_verify.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "77dd838892e84f575b05ec0fddbc7b65387604d0",
+      "bytes": 5722,
+      "sha256": "b28d76168286e53ab19928739225c85005bd4e7d93f6c4ab41816c6ba56fe050"
+    },
+    {
+      "old_path": "tools/village_bench_assets.py",
+      "target": "tools/qa/world/village_bench_assets.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "1461511a0adffbd578e767f308259d24f06890fa",
+      "bytes": 5639,
+      "sha256": "fb1a4aa366d42df2bee694d2799e3fa2537d0e51c2a254cc7da3302d46e2923a"
+    },
+    {
+      "old_path": "tools/village_bench_capture.gd",
+      "target": "tools/qa/world/village_bench_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "d8151aeab0e486ee9ce144a58ffc3e2e22e0303a",
+      "bytes": 5866,
+      "sha256": "68df5641c4864ec2af595cdf61dcc0490c1a178e2dcda5c24966622379785dd1"
+    },
+    {
+      "old_path": "tools/village_bench_capture.gd.uid",
+      "target": "tools/qa/world/village_bench_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_bench_capture.gd",
+      "mode": "100644",
+      "blob": "9f2d7d2daeb7a647d19707a1ad01841c7ef7f08d",
+      "bytes": 20,
+      "sha256": "6e34a5bbd2c33a14e2dd939920b4ce05a299e119e7f20a948cf9291d7e7ae6aa"
+    },
+    {
+      "old_path": "tools/village_bench_collect.py",
+      "target": "tools/qa/world/village_bench_collect.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "20817e0cbd5002a5115daa995cf14dad38d54b16",
+      "bytes": 4245,
+      "sha256": "2803c491fa273a72dd12b9de8be51ebe4de4ccbdc3a750195fe82283bced6b55"
+    },
+    {
+      "old_path": "tools/village_bench_gallery.gd",
+      "target": "tools/qa/world/village_bench_gallery.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "0d5ab01ef0b18d8ef8460a4e290d95988910b5dc",
+      "bytes": 2652,
+      "sha256": "0a73c739bffd558d17f5e3a799f0061a60963e34ce4b35a5eeea5cd8d8778d6b"
+    },
+    {
+      "old_path": "tools/village_bench_gallery.gd.uid",
+      "target": "tools/qa/world/village_bench_gallery.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_bench_gallery.gd",
+      "mode": "100644",
+      "blob": "1c1f3ab215c4e3ae8bdeaf38e3c871be0ed4a1da",
+      "bytes": 20,
+      "sha256": "913e3dcec108452229e8b4fea08b90e2df0e8fba132d799b5f79d40bbadfc850"
+    },
+    {
+      "old_path": "tools/village_bench_leg_capture.gd",
+      "target": "tools/qa/world/village_bench_leg_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "1d121157bd6cf8aaf9630e120dbaee651e99332a",
+      "bytes": 4380,
+      "sha256": "4e470d18b5465fa076562bd23c989779d559335b6f4c0b68effad36edc997ac1"
+    },
+    {
+      "old_path": "tools/village_bench_leg_capture.gd.uid",
+      "target": "tools/qa/world/village_bench_leg_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_bench_leg_capture.gd",
+      "mode": "100644",
+      "blob": "6a361383a94b7eb20b80308d7b5e1352c3ed11f1",
+      "bytes": 20,
+      "sha256": "00f1d4d9634c2299d8f9a20dd9023dbedc5b6454704cfab87e4700430e3ace9c"
+    },
+    {
+      "old_path": "tools/village_bench_review.gd",
+      "target": "tools/qa/world/village_bench_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "2b43448aa9e267ea817e7f987b1aeb3d91ba0f20",
+      "bytes": 844,
+      "sha256": "1c146d23ce7150f2c7c580f0b5029867991d5ab72c453b963675d6c5585a6a66"
+    },
+    {
+      "old_path": "tools/village_bench_review.gd.uid",
+      "target": "tools/qa/world/village_bench_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_bench_review.gd",
+      "mode": "100644",
+      "blob": "2bfca4951b6bb722ca4ac8c967ec1e23ade3557b",
+      "bytes": 19,
+      "sha256": "3e403814600eab2c8f0623de58c4e549769497756e6f2b8d13b44c0ec9eae330"
+    },
+    {
+      "old_path": "tools/village_bench_verify.py",
+      "target": "tools/qa/world/village_bench_verify.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "d6eaeae5c8b8866af0c5059c6475b6467c1cae3d",
+      "bytes": 8437,
+      "sha256": "8199ca81e3c62fe0163e05db703ea593d0a5fdae61999e8e4d7b0507ac10c8f2"
+    },
+    {
+      "old_path": "tools/village_board_assets.py",
+      "target": "tools/qa/world/village_board_assets.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "a3c8546cb879600d7705b14366e325703f67245c",
+      "bytes": 6594,
+      "sha256": "c653192084bd220f7777a3ba0b64b5ef0a1892a8362eab9c1b0b2b4ecc6ca440"
+    },
+    {
+      "old_path": "tools/village_board_capture.gd",
+      "target": "tools/qa/world/village_board_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "b13b53f930a42d4251e4fb51913de3f349da9009",
+      "bytes": 7037,
+      "sha256": "de7914dcb23aafec770de098500873fbb16cef4886445c3bc7bc648351d642d8"
+    },
+    {
+      "old_path": "tools/village_board_capture.gd.uid",
+      "target": "tools/qa/world/village_board_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_board_capture.gd",
+      "mode": "100644",
+      "blob": "7457c04053df719ed09f6f1c5abe17dd910e2c3a",
+      "bytes": 20,
+      "sha256": "675265c214ba39c3de92d3a1d74de6e2ea29e7a03def7b72784cb58af21c581a"
+    },
+    {
+      "old_path": "tools/village_board_collect.py",
+      "target": "tools/qa/world/village_board_collect.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "f90c1bdf7baaa7f66bd76490d98112ad0cb582d3",
+      "bytes": 4962,
+      "sha256": "90142878633098179b646dd5c02ceef2a5a279c4b72a2f7245690120fefd6ed7"
+    },
+    {
+      "old_path": "tools/village_board_gallery.gd",
+      "target": "tools/qa/world/village_board_gallery.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "841ea9c931e6862b2dfa6ea3bfd27dfbf8f0ea56",
+      "bytes": 2786,
+      "sha256": "930d89f2ee193f91959584c2295ba4efc0afd4a2bf3470f8270b0ff3b70c8194"
+    },
+    {
+      "old_path": "tools/village_board_gallery.gd.uid",
+      "target": "tools/qa/world/village_board_gallery.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_board_gallery.gd",
+      "mode": "100644",
+      "blob": "65a9ebbbe4674861c58d2458afda3a9398d9e94a",
+      "bytes": 20,
+      "sha256": "e5efed3c9caecbe60ddcbc2373c3c38d659f48906a9241d4205fefe4ce66e97b"
+    },
+    {
+      "old_path": "tools/village_board_review.gd",
+      "target": "tools/qa/world/village_board_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "310bf0601cfeaa8a06cd172282032a2abc7cbf15",
+      "bytes": 889,
+      "sha256": "319682950fe6c7a1883a6fcc09b492b88514c368a3bc0080b3c2c6777c1a7af6"
+    },
+    {
+      "old_path": "tools/village_board_review.gd.uid",
+      "target": "tools/qa/world/village_board_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_board_review.gd",
+      "mode": "100644",
+      "blob": "95d987adf5a325b6900ca909357b5c0e2515831b",
+      "bytes": 20,
+      "sha256": "621cea918140e0ff043ec02758ab7f2041120803529e1dd8b5a8380e35e2363c"
+    },
+    {
+      "old_path": "tools/village_board_verify.py",
+      "target": "tools/qa/world/village_board_verify.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "94041079c204e2b052fdcad4182b46f5441a0e25",
+      "bytes": 10720,
+      "sha256": "7a66a2a500264328619fd0f06a926af0ac30612b2852918ef73a3cc878dd101a"
+    },
+    {
+      "old_path": "tools/village_clearance_review.gd",
+      "target": "tools/qa/world/village_clearance_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "3ade37ef20e0b179a94b6e8c94e6ab6905942cb4",
+      "bytes": 2882,
+      "sha256": "033d49112f97aa673268f62e3a3e947c9a6d6ec596cd553be5d3473cbd615af4"
+    },
+    {
+      "old_path": "tools/village_fence_assets.py",
+      "target": "tools/qa/world/village_fence_assets.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "ff2f75fc40aee323f3834e594ed6d2a8ab0c7570",
+      "bytes": 4380,
+      "sha256": "b847e5b85bd7c075a91c5083aa64b644b54461e883b1437214b730729d25fb7d"
+    },
+    {
+      "old_path": "tools/village_fence_capture.gd",
+      "target": "tools/qa/world/village_fence_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "562a29f1c1c8936dc016eadddd1b9b350aa53c41",
+      "bytes": 6447,
+      "sha256": "0be1a89b8f9e6eeacaa42a4d0bcdb8866579411ab46a513c6d9d0d9fc5fc98a4"
+    },
+    {
+      "old_path": "tools/village_fence_capture.gd.uid",
+      "target": "tools/qa/world/village_fence_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_fence_capture.gd",
+      "mode": "100644",
+      "blob": "ada880cb0577b3ac77e5aaceb34b276cb1602d99",
+      "bytes": 19,
+      "sha256": "ba5ffa39b2da4955e06888a464fc167c7256abb69344598c936100fe71f2a196"
+    },
+    {
+      "old_path": "tools/village_fence_collect.py",
+      "target": "tools/qa/world/village_fence_collect.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "7ae7e006b5a2f8b20c0528a5fe918bbb72debe1d",
+      "bytes": 4579,
+      "sha256": "8e2e2b0c4ad796a982f7549c962e0719c27eabe65728f247ab4e023694d94fe1"
+    },
+    {
+      "old_path": "tools/village_fence_gallery.gd",
+      "target": "tools/qa/world/village_fence_gallery.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "36fb03386ab8a6fa3a34babdb76858a547c9295d",
+      "bytes": 2000,
+      "sha256": "f79a18fbbe0c6513bb3275aeccacee8099180f286b8f7d3381d1f7b68c718974"
+    },
+    {
+      "old_path": "tools/village_fence_gallery.gd.uid",
+      "target": "tools/qa/world/village_fence_gallery.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_fence_gallery.gd",
+      "mode": "100644",
+      "blob": "ce5c6ac913d6e0507a2a4dce4c6a80fc9298636e",
+      "bytes": 20,
+      "sha256": "9b9eb2a9a2b6cf3382bbeb1e2959f0b6f85ae58f81a02a9608aa237c59bfacad"
+    },
+    {
+      "old_path": "tools/village_fence_review.gd",
+      "target": "tools/qa/world/village_fence_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "dfb2383ad358ee3d22c8d467547109d8a508ce3f",
+      "bytes": 881,
+      "sha256": "54c730adbea780ca690d0ae94466ed86601ee3d19172049b44db26d65762f154"
+    },
+    {
+      "old_path": "tools/village_fence_review.gd.uid",
+      "target": "tools/qa/world/village_fence_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_fence_review.gd",
+      "mode": "100644",
+      "blob": "2c9f4f24af380a7006cedea87b796d3a6df6a758",
+      "bytes": 20,
+      "sha256": "35f85acf227b60a73bf7aa136d871acb587712114d33e795109a7d51e6a147e7"
+    },
+    {
+      "old_path": "tools/village_fence_verify.py",
+      "target": "tools/qa/world/village_fence_verify.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "7559ac0fe920541adaf8c95d5785b149aa22e0ec",
+      "bytes": 9438,
+      "sha256": "c111d4e2bffdc1e9bd8e79b2e02a520baeea7c7c803be7ec78e8cbde62399ff8"
+    },
+    {
+      "old_path": "tools/village_lamp_assets.py",
+      "target": "tools/qa/world/village_lamp_assets.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "07dfe0b83221f8484be551025bb16bd1ac036a2d",
+      "bytes": 5809,
+      "sha256": "e2e95f5a60651b8152661b43658a75546b083ac9bf5857460dd14e8c68e12e4a"
+    },
+    {
+      "old_path": "tools/village_lamp_capture.gd",
+      "target": "tools/qa/world/village_lamp_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "de766b6657960c491217d84b1b112511f6f22a72",
+      "bytes": 6804,
+      "sha256": "5cd7c45151c173dd143cee86843d40731db510590fbe781eb0b7b4edb2df6e05"
+    },
+    {
+      "old_path": "tools/village_lamp_capture.gd.uid",
+      "target": "tools/qa/world/village_lamp_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_lamp_capture.gd",
+      "mode": "100644",
+      "blob": "12e712ba21c679a984d368182f1c4fc7378413c5",
+      "bytes": 19,
+      "sha256": "25a47b6440849669fc509eaaab59068de032480be3cdec2ce9e3f871c3fec2ac"
+    },
+    {
+      "old_path": "tools/village_lamp_collect.py",
+      "target": "tools/qa/world/village_lamp_collect.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "3f9679a2aa6412dfbe926a3f40f73eca25dfd71b",
+      "bytes": 4380,
+      "sha256": "0652228607d1a646c5ab08f06ac9e2c0b0892ce70e5089a22048efd034cf9bc3"
+    },
+    {
+      "old_path": "tools/village_lamp_gallery.gd",
+      "target": "tools/qa/world/village_lamp_gallery.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "f67c049ad2f4c698bdaa3e194580596055554a9a",
+      "bytes": 2780,
+      "sha256": "4ac24f4a621e2a5509e4ae889095aa50616bd3e6dd67128d9e1050bd9a09dee0"
+    },
+    {
+      "old_path": "tools/village_lamp_gallery.gd.uid",
+      "target": "tools/qa/world/village_lamp_gallery.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_lamp_gallery.gd",
+      "mode": "100644",
+      "blob": "dd031706e0f4a8b2dd54fdfa7e76be43d130e46c",
+      "bytes": 19,
+      "sha256": "c848c7c20a30b2b4ee088cc3f717880880cb8b2f78d746d549f1fc952fea1a0a"
+    },
+    {
+      "old_path": "tools/village_lamp_review.gd",
+      "target": "tools/qa/world/village_lamp_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "f3b6f0cd921a7d5987a504c9f4af54a0115e9d0a",
+      "bytes": 879,
+      "sha256": "fe3fb9efee348980e086d140e51f34dc231d8935a4da03f27d9055349448ba2e"
+    },
+    {
+      "old_path": "tools/village_lamp_review.gd.uid",
+      "target": "tools/qa/world/village_lamp_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_lamp_review.gd",
+      "mode": "100644",
+      "blob": "1624edb5f835a9511427e7f2689efc958c9a7347",
+      "bytes": 20,
+      "sha256": "5ed02a68b31765d07830b3ee31b3ced642ae613a1e421a925c44ed0ff403bcc0"
+    },
+    {
+      "old_path": "tools/village_lamp_verify.py",
+      "target": "tools/qa/world/village_lamp_verify.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "87e9d80a44f75387cbc47d56e3c1072c6180991a",
+      "bytes": 12476,
+      "sha256": "3933d23698e9fafc0cfe3801400b84739d7aab117b85f2c1931ad4a6950cea27"
+    },
+    {
+      "old_path": "tools/village_map_review.gd",
+      "target": "tools/qa/world/village_map_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "68ed6ae3a0260f47d75e4854e77f8d56eadfb039",
+      "bytes": 2568,
+      "sha256": "d053a13e85a273792339c4a6b2804908b59ff942478166850793ed7b52ceefe9"
+    },
+    {
+      "old_path": "tools/village_regions_capture.gd",
+      "target": "tools/qa/world/village_regions_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "8043892def0463e0db9c7b784482c978c0058240",
+      "bytes": 4158,
+      "sha256": "08e62e89101c9cc23d2dd28179298d386d4b0d670ac27acc07be1efb128817e1"
+    },
+    {
+      "old_path": "tools/village_regions_capture.gd.uid",
+      "target": "tools/qa/world/village_regions_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_regions_capture.gd",
+      "mode": "100644",
+      "blob": "c734f5be9bcb771d6d9e47d21bf3c3b872e20803",
+      "bytes": 19,
+      "sha256": "fa230c17b0e64825bf8a436f16cb0549aca7d6f6c7412136557a40ba31d0d1cd"
+    },
+    {
+      "old_path": "tools/village_regions_review.gd",
+      "target": "tools/qa/world/village_regions_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "ce302c96110ff7b4f47e212abcce7e2ff1a2392e",
+      "bytes": 2316,
+      "sha256": "d98153a7c573e805ea48312b7b9a399204f77fe9e5ecef5e37904129e1580fd8"
+    },
+    {
+      "old_path": "tools/village_regions_review.gd.uid",
+      "target": "tools/qa/world/village_regions_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_regions_review.gd",
+      "mode": "100644",
+      "blob": "352f65afcb08a55fc15b7d97c5957c105b36298c",
+      "bytes": 20,
+      "sha256": "341c8ff5584f627b04c77d0959c87ef3a9f1c7b949e05d1e9bb9222f8bee49fe"
+    },
+    {
+      "old_path": "tools/village_street_assets.py",
+      "target": "tools/qa/world/village_street_assets.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "59b6b9adf07a7b7dea9da130e27c7fae89a96c1c",
+      "bytes": 6589,
+      "sha256": "024e543910d32295c07330f2f46cee44aebb5e72a8640d0e450ca7308d286c0d"
+    },
+    {
+      "old_path": "tools/village_street_capture.gd",
+      "target": "tools/qa/world/village_street_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "04167bd16918e4f2e7ed24580a03e376ab559aa9",
+      "bytes": 6169,
+      "sha256": "45dcd4b3b1e94838f726a86c363e5013762b08e11059e31be8c884c85cb58a5c"
+    },
+    {
+      "old_path": "tools/village_street_capture.gd.uid",
+      "target": "tools/qa/world/village_street_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_street_capture.gd",
+      "mode": "100644",
+      "blob": "9b3d62889f3ea1cd46870751eeb872f0699e5f4e",
+      "bytes": 20,
+      "sha256": "6d8588d665694ab8a6afa0366812a25155db0ed1bb8d6e873a28bd8cdb2ecf75"
+    },
+    {
+      "old_path": "tools/village_street_collect.py",
+      "target": "tools/qa/world/village_street_collect.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "1fb7a179832a875c1407fc9641d6044c6281e18c",
+      "bytes": 4466,
+      "sha256": "ef816afd927fbe857f4a54ba94ad9368bd723261a3f704d89f459937d84eda63"
+    },
+    {
+      "old_path": "tools/village_street_gallery.gd",
+      "target": "tools/qa/world/village_street_gallery.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "cf7c6a9c2998b7fb4312f0e66a4b7e8cc7f6598e",
+      "bytes": 2765,
+      "sha256": "b38d3dc195c2bff403623f742ee9cba81c87605f2dcdd14aafa2e544a20e7590"
+    },
+    {
+      "old_path": "tools/village_street_gallery.gd.uid",
+      "target": "tools/qa/world/village_street_gallery.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_street_gallery.gd",
+      "mode": "100644",
+      "blob": "b8ca3ec1b72edce21fd8f5cc1105d796e348c810",
+      "bytes": 20,
+      "sha256": "06d4184bd97486b2ff1ef2b5ef98652fcef26d17afd93cb38fbb5a99e662ae82"
+    },
+    {
+      "old_path": "tools/village_street_review.gd",
+      "target": "tools/qa/world/village_street_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "6d1db225e79d65f9a3cd4cb620cb291196f988fa",
+      "bytes": 862,
+      "sha256": "7c1b04ecea59a114f1f1cd1f0862396741b14c77c31e807bd692dd090be4e192"
+    },
+    {
+      "old_path": "tools/village_street_review.gd.uid",
+      "target": "tools/qa/world/village_street_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_street_review.gd",
+      "mode": "100644",
+      "blob": "f0168f921df7d0349cb912911594c040871e509b",
+      "bytes": 20,
+      "sha256": "d0b493dbde19d68b17730585595deae59fd31f73a33979aeb7c784dc70994867"
+    },
+    {
+      "old_path": "tools/village_street_verify.py",
+      "target": "tools/qa/world/village_street_verify.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "9cf94a42e15c66b5fabad6267918dfbe7930e32d",
+      "bytes": 10004,
+      "sha256": "bc0becdefd6565aad86d8732664e6bf7f0379d7371455af860d0ad27abd70ec9"
+    },
+    {
+      "old_path": "tools/village_trade_assets.py",
+      "target": "tools/qa/world/village_trade_assets.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "118934d917708636d49136ae26b3091401ae8421",
+      "bytes": 6751,
+      "sha256": "bd4d9b589e132a3b9c70587f2920e131e4a072b15c0f83ea7b3f703eeec7c1c5"
+    },
+    {
+      "old_path": "tools/village_trade_capture.gd",
+      "target": "tools/qa/world/village_trade_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "b8c184ff72d70ae03d9e09957be94186ee4c6730",
+      "bytes": 8052,
+      "sha256": "31f13c6d172a3222740524f37be9d7e28af2d01d179a73c157ce02a300d65c99"
+    },
+    {
+      "old_path": "tools/village_trade_capture.gd.uid",
+      "target": "tools/qa/world/village_trade_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_trade_capture.gd",
+      "mode": "100644",
+      "blob": "a0f246ba4740f97a016f505a04fa4ae772f69077",
+      "bytes": 20,
+      "sha256": "df0adbc774a0b09b40d8215bf67c4609d08671dd869147e32a758c79e91104de"
+    },
+    {
+      "old_path": "tools/village_trade_collect.py",
+      "target": "tools/qa/world/village_trade_collect.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "6e5b6b902054325c6b239b15e1d815285befc37b",
+      "bytes": 4687,
+      "sha256": "e6e0b6278448349eb5785e9903887830b03f2c8146b8d551d288100fff2c4fd0"
+    },
+    {
+      "old_path": "tools/village_trade_gallery.gd",
+      "target": "tools/qa/world/village_trade_gallery.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "6c1cd1bb2efdda131cf34bad1086a0cce22f69b1",
+      "bytes": 2786,
+      "sha256": "ee106068d35ceafd57c73e5c75a10ad297af16c720a78b6e0db1f49cca799074"
+    },
+    {
+      "old_path": "tools/village_trade_gallery.gd.uid",
+      "target": "tools/qa/world/village_trade_gallery.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_trade_gallery.gd",
+      "mode": "100644",
+      "blob": "31fb2b88611e43f0c364674b43f87f7e2f408cad",
+      "bytes": 20,
+      "sha256": "beabc0657e19a9ea80ed412747b53e46ff3eb1a6d214ee193ffdfc574607829d"
+    },
+    {
+      "old_path": "tools/village_trade_review.gd",
+      "target": "tools/qa/world/village_trade_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "2f906f10dafdda8fba9fee4ac69a41c500c00299",
+      "bytes": 889,
+      "sha256": "ae3ad1e7f730284c193a604c130ffdc01d7891e2ed47993c995e9efd4e914a11"
+    },
+    {
+      "old_path": "tools/village_trade_review.gd.uid",
+      "target": "tools/qa/world/village_trade_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_trade_review.gd",
+      "mode": "100644",
+      "blob": "a066a04b8f0f2b34413ec8aa040b7e465cb05223",
+      "bytes": 20,
+      "sha256": "9d57c9d0cdf8809404b0c72c4e4dac50ea6eb045f861e85e2629d0dc57038def"
+    },
+    {
+      "old_path": "tools/village_trade_verify.py",
+      "target": "tools/qa/world/village_trade_verify.py",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "599b432b9dbfbd48a00335cc3d941198a2d01cf6",
+      "bytes": 9937,
+      "sha256": "3cc38841b8371a847fc25e6d2e8aca62b44cdac8f4664c828343a1a8d77d0782"
+    },
+    {
+      "old_path": "tools/water_fishing_capture.gd",
+      "target": "tools/qa/world/water_fishing_capture.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "d343b267987645e79b431804196d13bbff89fba7",
+      "bytes": 4075,
+      "sha256": "f56770f79d80eb8419d77d05344ff17c6d56e7a5e1032d6c427c889cecb12248"
+    },
+    {
+      "old_path": "tools/water_fishing_capture.gd.uid",
+      "target": "tools/qa/world/water_fishing_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/water_fishing_capture.gd",
+      "mode": "100644",
+      "blob": "c41fbb97080161c345e31f0d83e5e3534eaca277",
+      "bytes": 19,
+      "sha256": "d334970b55b9356c16e1c452df60a9f92b61050ce0512d5ca35377abdfdc0e72"
+    },
+    {
+      "old_path": "tools/water_fishing_review.gd",
+      "target": "tools/qa/world/water_fishing_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "5e5c0424d768920e704a64f69fb83ba403c64dac",
+      "bytes": 733,
+      "sha256": "797c0de1841edb9aa5ce5a1014102b698bb735678b4bcc36ac11ef86e4b8cd05"
+    },
+    {
+      "old_path": "tools/water_fishing_review.gd.uid",
+      "target": "tools/qa/world/water_fishing_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/water_fishing_review.gd",
+      "mode": "100644",
+      "blob": "00dd67a1b2ccc6d86ad7578928e55d2acdd0a072",
+      "bytes": 19,
+      "sha256": "8e3c6066ae559fb912e579e7a15d6fd95c1590aa277127a991e8436f3672ee0a"
+    },
+    {
+      "old_path": "tools/water_navigation_review.gd",
+      "target": "tools/qa/world/water_navigation_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "78d45bc552828de930f9fee99dc05539ab839835",
+      "bytes": 1047,
+      "sha256": "d5e4c149f99548dccb61a11ba67a3939359a3c1f408f958f39974d8edb53d26c"
+    },
+    {
+      "old_path": "tools/water_navigation_review.gd.uid",
+      "target": "tools/qa/world/water_navigation_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/water_navigation_review.gd",
+      "mode": "100644",
+      "blob": "06185c22a4ee37acec6b266766f852ab50cc2732",
+      "bytes": 20,
+      "sha256": "c9bf2ac25f620af2cbff81bee5d79d6823700f774f803c82e407b4171df9cb42"
+    },
+    {
+      "old_path": "tools/water_topology_review.gd",
+      "target": "tools/qa/world/water_topology_review.gd",
+      "family": "world",
+      "action": "move",
+      "mode": "100644",
+      "blob": "c1f245eebf7b25fdcbfd03caae78a17519567240",
+      "bytes": 558,
+      "sha256": "3304e043f796ebba342f4d5184630df3504e7c1d96889041130d650640ed7f65"
+    },
+    {
+      "old_path": "tools/water_topology_review.gd.uid",
+      "target": "tools/qa/world/water_topology_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/water_topology_review.gd",
+      "mode": "100644",
+      "blob": "9fd4c967e9cbd81f3a794a938fb39ed67ad7a72a",
+      "bytes": 20,
+      "sha256": "5485ddb88492c4822a92138bc87100ef8d0370202f1d022f154c4762c499fbe5"
+    }
+  ],
+  "local_UID": [
+    {
+      "old_path": "tools/village_clearance_review.gd.uid",
+      "target": "tools/qa/world/village_clearance_review.gd.uid",
+      "value": "uid://cm5k72l1semf3",
+      "tracked": false,
+      "sha256": "e561900240fd963aeeda253cc5279f2e67e001db47cf574b3ef1c8853dce1de8",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/village_map_review.gd.uid",
+      "target": "tools/qa/world/village_map_review.gd.uid",
+      "value": "uid://qbyddjxvum43",
+      "tracked": false,
+      "sha256": "2b0a4e2414f803155350a7aeaaec13c6cf08c3eb9a0cd9f85e7e0bbea7ea3bb8",
+      "mode": 420
+    }
+  ],
+  "deferred_shared_anchors": {
+    "tools/visual_camera_points.gd": {
+      "sha256": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+      "mode": 420
+    },
+    "tools/visual_camera_points.gd.uid": {
+      "sha256": "a55f0a0d5f3c7282001b2948151ff688710ea135fa2583b06e91f60c92887110",
+      "mode": 420
+    },
+    "tools/encode_coordinate_video.swift": {
+      "sha256": "a450da5cb35c57cc5846c435b4b04657c6d6fc8ac4e75dba70872991c8cf5d83",
+      "mode": 420
+    },
+    "tools/render_order_game.gd": {
+      "sha256": "662ad6e5af52bc95eb8d2804a7390ee5007caa88325aca2f7835873243a0000b",
+      "mode": 420
+    },
+    "tools/render_order_game.gd.uid": {
+      "sha256": "7b49ff32159df62e69774b82710e23c012563014d9c03ef14d04f95448069352",
+      "mode": 420
+    },
+    "tools/water_audit.gd": {
+      "sha256": "1918bd5b35130c78586c3336820ea716435b289e8e9d2144ddb0b69188766a6a",
+      "mode": 420
+    },
+    "tools/shore_kit.py": {
+      "sha256": "4cf87c73a16741a3ac726d6c94d7e15bc10b3325e0daddc030a867600cbacb67",
+      "mode": 420
+    },
+    "tools/test_shore_kit.py": {
+      "sha256": "b47dd201a65a55ac8d27817cfa7a2cdaad51d7ccdaa69cfb8aaf628bb311c5d8",
+      "mode": 420
+    },
+    "tools/shore_kit_canvas.gd": {
+      "sha256": "0d0555359b58fc4cb5652b1b68fc89d40091d0147cfc6aae09f657a0900086f9",
+      "mode": 420
+    },
+    "tools/shore_kit_capture.gd": {
+      "sha256": "e4fdce42684be4183aae47cf790b5acd8bc741817321037c78a2f59395f655ec",
+      "mode": 420
+    },
+    "tools/shore_kit_review.gd": {
+      "sha256": "32d0a6e9b739d9a884e27104662035f51bee139c6d1a34d3726ea9c0638a3065",
+      "mode": 420
+    }
+  },
+  "final_task_complete": false
+}

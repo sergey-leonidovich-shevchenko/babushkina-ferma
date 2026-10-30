@@ -1,0 +1,10 @@
+{
+  "pid": 16909,
+  "command": "node docs/reports/refactor-03/qa-server.mjs",
+  "cwd": "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+  "port": 4193,
+  "own_tab15_closed": true,
+  "viewport_reset": true,
+  "user4175_untouched": true,
+  "signal": "SIGTERM"
+}

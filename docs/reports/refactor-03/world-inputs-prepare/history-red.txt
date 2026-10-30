@@ -1,0 +1,192 @@
+EEEEEfatal: path 'tools/object_command_canvas.gd' does not exist in '976539109f2c65ca9f6347b263431a8f4f0c2b56'
+Efatal: path 'tools/object_command_canvas.gd' does not exist in 'c4db90bcc6ad69544a0af402f89aa5edce6ecd84'
+E.EEEF
+======================================================================
+ERROR: test_bench_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_bench_reads_new_git_alias_with_old_archive_keys)
+Actual bench provenance uses canonical Git blobs while inputs retain exact old keys.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 114, in test_bench_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(bench)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 93, in check_reader
+    if module in[bench,board,fence,lamp,street,trade]:result=module.provenance(folder,'before')
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_bench_verify.py", line 37, in provenance
+    require(historical.returncode==0 and hashlib.sha256(historical.stdout).hexdigest()==digest,'source does not match Git base')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 37, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: source does not match Git base
+
+======================================================================
+ERROR: test_board_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_board_reads_new_git_alias_with_old_archive_keys)
+Actual board provenance keeps its exact coverage and artifact/index checks.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 118, in test_board_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(board)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 93, in check_reader
+    if module in[bench,board,fence,lamp,street,trade]:result=module.provenance(folder,'before')
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_board_verify.py", line 40, in provenance
+    require(historical.returncode==0 and hashlib.sha256(historical.stdout).hexdigest()==digest,'source does not match Git base')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 37, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: source does not match Git base
+
+======================================================================
+ERROR: test_fence_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_fence_reads_new_git_alias_with_old_archive_keys)
+Actual fence provenance reaches the same complete input envelope in the new Git tree.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 122, in test_fence_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(fence)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 93, in check_reader
+    if module in[bench,board,fence,lamp,street,trade]:result=module.provenance(folder,'before')
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_fence_verify.py", line 38, in provenance
+    require(historical.returncode==0 and hashlib.sha256(historical.stdout).hexdigest()==digest,'source does not match Git base')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 37, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: source does not match Git base
+
+======================================================================
+ERROR: test_lamp_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_lamp_reads_new_git_alias_with_old_archive_keys)
+Actual lamp provenance cannot require a deleted physical legacy tool.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 126, in test_lamp_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(lamp)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 93, in check_reader
+    if module in[bench,board,fence,lamp,street,trade]:result=module.provenance(folder,'before')
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_lamp_verify.py", line 41, in provenance
+    require(historical.returncode==0 and hashlib.sha256(historical.stdout).hexdigest()==digest,'source does not match Git base')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 37, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: source does not match Git base
+
+======================================================================
+ERROR: test_object_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_object_reads_new_git_alias_with_old_archive_keys)
+Actual object provenance preserves base_sources and optional overlay policy.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 138, in test_object_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(objects)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 94, in check_reader
+    elif module is objects:result=module.provenance(folder)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/object_command_verify.py", line 42, in provenance
+    require(historical==source['base_sources'][name],'historical base changed')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 37, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base changed
+
+======================================================================
+ERROR: test_pilot_pass_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_pilot_pass_reads_new_git_alias_with_old_archive_keys)
+Actual pilot pass source checker retains phase/source/index policy.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 142, in test_pilot_pass_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(pilot_pass)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 95, in check_reader
+    elif module is pilot_pass:result=module.provenance('before')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_pass_verify.py", line 35, in provenance
+    raw=subprocess.check_output(['git','show',data['base_commit']+':'+name],cwd=ROOT, env=git_environment());require(hashlib.sha256(raw).hexdigest()==digest,'input differs from base: '+name)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '976539109f2c65ca9f6347b263431a8f4f0c2b56:tools/object_command_canvas.gd']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_post_motion_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_post_motion_reads_new_git_alias_with_old_archive_keys)
+Actual post-motion source checker retains all source and artifact hashes without fake native frames.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 150, in test_post_motion_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(motion)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 97, in check_reader
+    elif module is motion:result=module.validate_source(folder,'before')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/post_motion_verify.py", line 84, in validate_source
+    original=subprocess.check_output(['git','show',source['base_commit']+':'+name],cwd=ROOT, env=git_environment())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', 'c4db90bcc6ad69544a0af402f89aa5edce6ecd84:tools/object_command_canvas.gd']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_static_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_static_reads_new_git_alias_with_old_archive_keys)
+Actual static source checker composes its old art contract with the World aliases.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 146, in test_static_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(static)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 96, in check_reader
+    elif module is static:result=module.provenance()
+                                 ^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_static_verify.py", line 50, in provenance
+    require(old.returncode==0 and hashlib.sha256(old.stdout).hexdigest()==digest,'input not from Git base: '+name)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 37, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: input not from Git base: tools/object_command_canvas.gd
+
+======================================================================
+ERROR: test_street_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_street_reads_new_git_alias_with_old_archive_keys)
+Already Git-isolated street provenance still needs the exact moved-source alias.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 130, in test_street_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(street)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 93, in check_reader
+    if module in[bench,board,fence,lamp,street,trade]:result=module.provenance(folder,'before')
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_street_verify.py", line 51, in provenance
+    require(historical.returncode==0 and hashlib.sha256(historical.stdout).hexdigest()==digest,'source does not match Git base')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 37, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: source does not match Git base
+
+======================================================================
+ERROR: test_trade_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_trade_reads_new_git_alias_with_old_archive_keys)
+Actual trade provenance uses the pinned new tree without live fallback.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 134, in test_trade_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(trade)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 93, in check_reader
+    if module in[bench,board,fence,lamp,street,trade]:result=module.provenance(folder,'before')
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_trade_verify.py", line 40, in provenance
+    require(historical.returncode==0 and hashlib.sha256(historical.stdout).hexdigest()==digest,'source does not match Git base: '+name)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 37, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: source does not match Git base: tools/object_command_canvas.gd
+
+======================================================================
+FAIL: test_water_folder_follows_nested_source_project (__main__.WorldSourceHistoryTests.test_water_folder_follows_nested_source_project)
+Actual water analyzer locates report output under its own project rather than a fixed parent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 168, in test_water_folder_follows_nested_source_project
+    self.assertEqual(Path(json.loads(result.stdout)),root/'docs/reports/water-2026-10')
+AssertionError: Posix[66 chars]er nested source xvzhbw2g/tools/qa/docs/reports/water-2026-10') != Posix[66 chars]er nested source xvzhbw2g/docs/reports/water-2026-10')
+
+----------------------------------------------------------------------
+Ran 12 tests in 31.648s
+
+FAILED (failures=1, errors=10)

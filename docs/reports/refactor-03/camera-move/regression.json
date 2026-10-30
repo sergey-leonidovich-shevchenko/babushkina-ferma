@@ -1,0 +1,11 @@
+{
+  "same_layout_test_source": true,
+  "test_SHA256": "6b3388d8bfa7dd4c83d74d91c50726edd3e9d0362d19d55facf9d0ea932a090e",
+  "methods": 3,
+  "red_failures": 6,
+  "red_errors": 1,
+  "green_exit": 0,
+  "old_context_methods": 12,
+  "current_inputs_fixture_adapted": true,
+  "native_Game_GPU_FPS_admission": false
+}

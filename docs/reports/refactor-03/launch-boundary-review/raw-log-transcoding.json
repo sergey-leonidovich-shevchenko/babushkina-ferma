@@ -1,0 +1,93 @@
+[
+  {
+    "raw_path": "baseline/pinned-godot-cli-help.txt",
+    "stored_path": "baseline/pinned-godot-cli-help.txt.gz",
+    "raw_SHA256": "b2c4a337f0a66b8ae5703a6a0d358ed7754f0c0a6b0d915d56180734c300774b",
+    "stored_SHA256": "5220e7e6cfe51188508b3258b7e8a08281b9b9fb0317bf64e37bed82b0e33a7f",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "current-green.txt",
+    "stored_path": "current-green.txt.gz",
+    "raw_SHA256": "ed1e29e8d52376352b4fd211147d5ade0dd510362b4de77e419401e3f3964400",
+    "stored_SHA256": "70f09ebcddcf82b14544ef02167c9122aba6643531b3caeb850af0c9515e71ff",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-01/architecture.txt",
+    "stored_path": "gates-01/architecture.txt.gz",
+    "raw_SHA256": "01d95b9af67d4e72b836324112b30362ac64e989a473bda11be08f1fc70347cd",
+    "stored_SHA256": "da4e0ee30f58d6e38862c35b4ddd90e7febf5f10ba56336dbbcc9fabd8c57962",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-01/game.txt",
+    "stored_path": "gates-01/game.txt.gz",
+    "raw_SHA256": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+    "stored_SHA256": "0e733c608d5f0bcc2eaf0370ae7831b537abc8c69db5d49b67311e790f15a2b3",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-01/headless/f10/engine.txt",
+    "stored_path": "gates-01/headless/f10/engine.txt.gz",
+    "raw_SHA256": "1852ec12fdd9306c2aa0bd279e20cef9dc771bb3a41327b42cf529e08587a1c2",
+    "stored_SHA256": "57d5ed02a4b1fe5471b7765f3f9370fa6b3c7853987e899f748c13d80f66fc88",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-01/headless/normal/engine.txt",
+    "stored_path": "gates-01/headless/normal/engine.txt.gz",
+    "raw_SHA256": "6c7d954a20dc357b5e72db8796d44d6627eb8f09b5c5c81b9425f357e8cda379",
+    "stored_SHA256": "66ed02bab1b53bdad3198128b19f6a23b15e57ed38c721ce7ead96abdf63c4d2",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "gates-01/wiki.txt",
+    "stored_path": "gates-01/wiki.txt.gz",
+    "raw_SHA256": "1b768b4b9671337c4bb231e429eabee721c25f45f5a7b89b3f226aab2a437e50",
+    "stored_SHA256": "1e9ea9b9716a8115dca40cd9a641dad0ccda05bfc51e695f2e3376db83450933",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "historical-current.txt",
+    "stored_path": "historical-current.txt.gz",
+    "raw_SHA256": "30fa13c74c07112dd04448bb975d5352608308b8675ed0bdd89eb486bf8bebdf",
+    "stored_SHA256": "b47aefa7c195eb3b5c426c14b79cc584746ac7330059d1cc6dca3e1340dd2fcd",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "old-grass-controls.txt",
+    "stored_path": "old-grass-controls.txt.gz",
+    "raw_SHA256": "e977409d53edb8f0e3fc2b5f75f9a62ba9ef846cc3b971ccf24ddc907a650db7",
+    "stored_SHA256": "eceb17fe60d8fff6a3a165098c62d4de66dda0ba1335f473f9daf17b72e5b6e6",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "parent-red-attempt01.txt",
+    "stored_path": "parent-red-attempt01.txt.gz",
+    "raw_SHA256": "c048a0c32f69e320fc5cd293cae6fc7ede81f402014ddf9f3f649a789f46e674",
+    "stored_SHA256": "266f604e9e15816b47e9f16db608f3b0e601c9846b59e31b042f70b97b680018",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "parent-red.txt",
+    "stored_path": "parent-red.txt.gz",
+    "raw_SHA256": "412b3d9e68acacc51f52571ffbb58374f6e2547548964cc101f44c431a2b0a8c",
+    "stored_SHA256": "5f5addb883aa385e82a56bebc8d0b9373fdfd03235d076c59bf057d484482b90",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "repro-current-green.txt",
+    "stored_path": "repro-current-green.txt.gz",
+    "raw_SHA256": "c9cff2d587293a82f049ab8a2bb609175d97134a59c7736e72d5fdbb1391dc95",
+    "stored_SHA256": "557ef452c8ced963a3740c3ec55004d49287f6c2cc5817506bd4163540e2e5c2",
+    "raw_bytes_changed": false
+  },
+  {
+    "raw_path": "repro-parent-red.txt",
+    "stored_path": "repro-parent-red.txt.gz",
+    "raw_SHA256": "80226e1cc34394f55748a6e5d2601492cabe5923a422340592c25b8f93799fe3",
+    "stored_SHA256": "1813540c2f90c280a8f269c253795a3d7fb53cfa2afda4dfd93ea0d6850b30d0",
+    "raw_bytes_changed": false
+  }
+]

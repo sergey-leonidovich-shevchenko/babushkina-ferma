@@ -65,11 +65,11 @@
 
 ```bash
 tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-context-hud
-tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/generate_adaptive_hud_previews.gd
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa/compatibility/generate_adaptive_hud_previews.gd
 ```
 
 Нативный эталон хранится в `assets/generated/ui/context_hud_ingame_preview.png`. Физические варианты и отдельный manifest с размерами и SHA-256 находятся в `assets/generated/ui/adaptive_hud`. Ручной маршрут находится в [QA-чек-листе](../QA_CHECKLIST.md#581-контекстный-и-ненавязчивый-hud).
 
-Основные 28 UI-кадров дополнительно имеют perceptual-отпечаток 8×8. Exact SHA остаётся диагностикой, но небольшие различия GPU или сглаживания шрифта не ломают CI; изменение крупной панели превышает локальный и суммарный пороги. После утверждённого визуального изменения manifest обновляется только скриптом `python3 tools/update_ui_visual_manifest.py`.
+Основные 28 UI-кадров дополнительно имеют perceptual-отпечаток 8×8. Exact SHA остаётся диагностикой, но небольшие различия GPU или сглаживания шрифта не ломают CI; изменение крупной панели превышает локальный и суммарный пороги. После утверждённого визуального изменения manifest обновляется только скриптом `python3 tools/run.py assets.authoring.update_ui_visual_manifest`.
 
 [К документации](README.md)

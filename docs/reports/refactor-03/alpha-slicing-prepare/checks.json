@@ -1,0 +1,493 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "alpha/slicing history preparation; physical move pending",
+  "version": "0.0.367",
+  "base": "482ed19c8833764b96e3130cec536b2dd6790eed",
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.367",
+      "started_at": "2026-10-28T15:55:44.341422+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T16:18:26.684897+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.367",
+      "started_at": "2026-10-28T16:18:26.685741+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T16:24:31.869572+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.367",
+      "started_at": "2026-10-28T16:24:31.870395+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T16:25:22.891837+00:00"
+    }
+  ],
+  "initial_gate_failure_retained": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.367",
+      "started_at": "2026-10-28T15:31:04.971189+00:00",
+      "exit": 1,
+      "finished_at": "2026-10-28T15:52:28.999499+00:00"
+    }
+  ],
+  "initial_failure": "QA worktree had no initial Godot texture import",
+  "architecture_suites": 90,
+  "architecture_cases": 1235,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "new_history_cases": 8,
+  "before_export_frames": 5603,
+  "root_sources": 420,
+  "physical_moves": 0,
+  "user_queue_after_full03": [
+    "REFACTOR-07",
+    "REFACTOR-06",
+    "first overworld route through VMAP-003"
+  ],
+  "user_stop_cancelled": true,
+  "REFACTOR06_started": false,
+  "Task_Complete_added": false,
+  "full_task03_accepted": false,
+  "GPU_FPS_admission": false,
+  "source_SHA256": {
+    ".gitignore": "9436a103463a7a4445da7555cc011b303326f2e72e2db20191ab438f64aa3db1",
+    "AGENTS.md": "7458f1bd8b9a6b94d5ac4469072ce23851b810e7f6c4cdaef6aac6a7cad35a18",
+    "TESTING.md": "1eb4565d3c238ee59874d0a7270d62fbdeb9ebf09e68d88ed70464091ea5cc9d",
+    "VERSION": "f4b94b4bfb3aa9cc2b16a1ef3baff0ed4554bf56c76f0e24bd3fa0a3c10a6f57",
+    "docs/epics/refactoring-2026-10/TASKS.md": "d0c9c6d70ba2b00f3f8968450c52dbbca374430180ec54db3d79d424cd527006",
+    "project.godot": "4551524c5efe38abe7a33ac5bd9ed2a1c3a73cf3462c4d182b62a25ef5f35c01",
+    "tools/alpha_audit.py": "851126b3970b67a1131a7a54b2aa8062bba6d5a6a465aa268e729ebd8d9a3a9f",
+    "tools/alpha_proof.py": "0661b395f69c2624a5a5c1d0e8665d06e0e9c3e1131ed99efb274bf1dfe10f14",
+    "tools/assets/alpha/__init__.py": "33458af49eddd21966b6670ee7360eaa1e9237ad2a8c0fa8ea04c69aca351218",
+    "tools/assets/alpha/test_processing_history.py": "ee9c5a52cdc7cb36aa899c8d212ca8fbca878b547dbadd2d96f35c78256f38c2",
+    "tools/quality/check_architecture.sh": "999a6bde6e0fc6543e16273317da0074de1b8b5a9115946e699236a40778252c",
+    "tools/slice_audit.py": "c1944c2e187ab922a5765e437aa9e4d235fd446bc69fc8d1d40457f9845f1d9d",
+    "tools/slice_proof.py": "0e67e1999ac302ad245a66027a4d391335063ad74fd4a96a64aa05a216673bab",
+    "wiki/articles/project-refactoring.md": "04927a6dcb0e1fa95f372587fd4d4ecd2b5e6baac6fcb59885fa917f3e858017",
+    "Бабушкина ферма.app/Contents/Info.plist": "69c99ff0759e39c4b02553d43b8acacaf16c40f8b068800988831a917b6214a2"
+  },
+  "report_files": [
+    {
+      "path": "PLAN.md",
+      "sha256": "8740ef8bdb511ed44a84218bdee5d080191840728d432ca7832cd4c39f0a15af",
+      "bytes": 3922
+    },
+    {
+      "path": "README.md",
+      "sha256": "96a305bbcbe86e26e667b2a1f4bf7359489bfe3abb1e922ca77a5e284997f2c6",
+      "bytes": 8063
+    },
+    {
+      "path": "audit.py",
+      "sha256": "b0e66013298b7c77585a30c2bc5c8cf062e119b58582f16bfd11bfdff08ea7e7",
+      "bytes": 9203
+    },
+    {
+      "path": "baseline/AGENTS.md.gz",
+      "sha256": "3599ed26af691f44fc10373fb2df24ce300f0475a4ba6365dc00e09730332c05",
+      "bytes": 4398
+    },
+    {
+      "path": "baseline/TESTING.md.gz",
+      "sha256": "5f3df964e4d99fc15089063867c38f051edc43932c222706d1254ad3c10446b1",
+      "bytes": 43745
+    },
+    {
+      "path": "baseline/VERSION.gz",
+      "sha256": "73edbc85192d5c86d69d989f660a53e8e2579c28ed0df2bc6e0de6caff206ae1",
+      "bytes": 28
+    },
+    {
+      "path": "baseline/ci-366.json",
+      "sha256": "0938a1b860eacd0387baa8405a80271ad40c456a3abcd1c6d1aaa0c9eb636dde",
+      "bytes": 3901
+    },
+    {
+      "path": "baseline/docs--epics--refactoring-2026-10--TASKS.md.gz",
+      "sha256": "f82da148e89e9d1f3af7e372a3d7eaa8621f9d2fe8f107c9fee9d8d41878e8e2",
+      "bytes": 7337
+    },
+    {
+      "path": "baseline/export-inventory.json.gz",
+      "sha256": "5ead21d19a8a8ba07d9eef865bd937ae0bc70348d661074a4df3f14ca06d9d3e",
+      "bytes": 445724
+    },
+    {
+      "path": "baseline/inventory.json",
+      "sha256": "c98462adb54563e8176760f26b3d1add7f996ebd6690f548a4ab33ba1437fb93",
+      "bytes": 8306
+    },
+    {
+      "path": "baseline/project.godot.gz",
+      "sha256": "fb92bf670e6d4efb821dd8ce0b99fc4dfe97a3c9b2e9d6289e81715c0be228b3",
+      "bytes": 607
+    },
+    {
+      "path": "baseline/review-366.json",
+      "sha256": "5e8bdc93fb60b72cc1134c3d825c77e38401ee09634fb5f1c62b225f6b6a85b3",
+      "bytes": 4167
+    },
+    {
+      "path": "baseline/tools--alpha_audit.py.gz",
+      "sha256": "bb948535a186b670d8db16e94b4260fbc9d28429660d039aea7fc3efb8ce1cb5",
+      "bytes": 3446
+    },
+    {
+      "path": "baseline/tools--alpha_capture.gd.gz",
+      "sha256": "a1fa894a3d036690a94fc38c850240950644e4e72ff76e7092d63605922bf801",
+      "bytes": 2434
+    },
+    {
+      "path": "baseline/tools--alpha_fixtures.py.gz",
+      "sha256": "64f987ae2f1550cd9422876a3d1d7b3c66c31a210fc0f0e78d2f9069710d8c68",
+      "bytes": 1326
+    },
+    {
+      "path": "baseline/tools--alpha_metrics.py.gz",
+      "sha256": "8aeace20133dc60cdfb10252c0205342bdc2ab74f8fc7203049ac899f5824030",
+      "bytes": 2198
+    },
+    {
+      "path": "baseline/tools--alpha_policy.json.gz",
+      "sha256": "7c22f9806a0c7a7d6e9a3a2dd74c73878c60994fed32547bb5b0ac0e440d55f0",
+      "bytes": 1112
+    },
+    {
+      "path": "baseline/tools--alpha_proof.py.gz",
+      "sha256": "74dfaccd03f9d0f1e3e18bc651dcf494ea801330f93f6696fe23491836ad41c5",
+      "bytes": 2540
+    },
+    {
+      "path": "baseline/tools--quality--check_architecture.sh.gz",
+      "sha256": "1b46c9f5790651f2756153802169a0be15de9684fafab245100c0db5c73af006",
+      "bytes": 1988
+    },
+    {
+      "path": "baseline/tools--slice_audit.py.gz",
+      "sha256": "81facdb5fdcb8a84d193b58fa545e60d64c4e1869bb8423ce5f10e7292f10570",
+      "bytes": 5145
+    },
+    {
+      "path": "baseline/tools--slice_capture.gd.gz",
+      "sha256": "31c2d6a1e5b0944800cf1c5dd818895b87149e8982326944dc34115ac9fc8da2",
+      "bytes": 3301
+    },
+    {
+      "path": "baseline/tools--slice_catalogs.gd.gz",
+      "sha256": "ae89dfd845d07aeb29715264c74a24e90c6f0a0a560e8ade231e806886496de4",
+      "bytes": 1298
+    },
+    {
+      "path": "baseline/tools--slice_export.gd.gz",
+      "sha256": "948312b378bb4fd2685a0b01187cee5cae11796d42db19c39b13984f9d87dede",
+      "bytes": 4354
+    },
+    {
+      "path": "baseline/tools--slice_legacy_capture.gd.gz",
+      "sha256": "6095543f9f517f7d3dd16d7f38d2dec17a9e0f88e67cb578f761b7410e5556b3",
+      "bytes": 2540
+    },
+    {
+      "path": "baseline/tools--slice_metrics.py.gz",
+      "sha256": "a5ba17832584c911d053a9a55f73cbd8873a233fddf14c534a2990ad6df07d45",
+      "bytes": 1588
+    },
+    {
+      "path": "baseline/tools--slice_policy.json.gz",
+      "sha256": "6dc8e6124c4a980144ce0df7e472f9ca1e70167210cdcd76b562b90d67d4b0cc",
+      "bytes": 3343
+    },
+    {
+      "path": "baseline/tools--slice_proof.py.gz",
+      "sha256": "3c923dd071ccda7c400afb6e9f9edc5b7b136b0948ff85b70e72e6d6adf7c0de",
+      "bytes": 2766
+    },
+    {
+      "path": "baseline/tools--slice_review.gd.gz",
+      "sha256": "eff93a359efa38b3313027e5ebc8e9c5ab8ca501bcb494ae69b15a174221aa55",
+      "bytes": 330
+    },
+    {
+      "path": "baseline/tools--test_alpha_audit.py.gz",
+      "sha256": "b214623a45b6d98c179daf9a993da32a504908926351a98b93c8bddbed18dfd2",
+      "bytes": 3194
+    },
+    {
+      "path": "baseline/tools--test_alpha_proof.py.gz",
+      "sha256": "76c6ab1a05087c04c9cd31ce70a55bbb32a0318bca43933d3f087a3bf58504c6",
+      "bytes": 1470
+    },
+    {
+      "path": "baseline/tools--test_slice_audit.py.gz",
+      "sha256": "54adbac21f67cddcc92ce0ce9e35578e5636ca92ee6fdc5a150fa461d99e1cf8",
+      "bytes": 3521
+    },
+    {
+      "path": "baseline/tools--test_slice_proof.py.gz",
+      "sha256": "ec2d197e7b96e3b072dc05ff61364ecee23f466c620eeb36eac1f55b7b47b61c",
+      "bytes": 1482
+    },
+    {
+      "path": "baseline/wiki--articles--project-refactoring.md.gz",
+      "sha256": "59532f2d797b99e8f77f22281cde9434745f7a26518400528e57091317ac5b3a",
+      "bytes": 7121
+    },
+    {
+      "path": "baseline/Бабушкина ферма.app--Contents--Info.plist.gz",
+      "sha256": "6bb23fbaa73ea779bde4a0f47cd639f7ef5fa1be73d7126e4fa88588ad477732",
+      "bytes": 393
+    },
+    {
+      "path": "browser-article.json",
+      "sha256": "00c231f096aab905023830c075cc7a8f5510f439b44d63c6916d1ef7f8d4b4f3",
+      "bytes": 31040
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "2885a3ee8e57c045009260cce8dd6afd25a257e4b7d1b4bbcdc9543b1757ac31",
+      "bytes": 409
+    },
+    {
+      "path": "browser-desktop.png",
+      "sha256": "e1ab109ecbb28e3c64f29e9b2838eb1bfc55dca0a95ae03611c3664620fddf89",
+      "bytes": 196021
+    },
+    {
+      "path": "browser-mobile.json",
+      "sha256": "684c341fcb18a5690f697734d380c07c6193972d7c868bf5ed73dc44d2ab2192",
+      "bytes": 31021
+    },
+    {
+      "path": "browser-mobile.png",
+      "sha256": "31e1fac4243602abfcbaf3750e8c1c91aa6fa7d8fbfe8d612e816485b2194e52",
+      "bytes": 60983
+    },
+    {
+      "path": "browser-task.json",
+      "sha256": "ca0e8b3a679dd0cfc94695e0b321f53a7534767abceac8dacdb6e013d1d00cd2",
+      "bytes": 12206
+    },
+    {
+      "path": "catalog-01.txt",
+      "sha256": "8e1ffec28638c12722c5bf9181a366795fe45af0a83abac55d642f132220197f",
+      "bytes": 124
+    },
+    {
+      "path": "catalog-check.mjs",
+      "sha256": "c5f7c38a6a215e703452ae56922e1842f6ae4e19db959819f177e5e12a11b573",
+      "bytes": 2158
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "5ab5b744376155fe34030cc556294d7ac5a8f9767fdd050a72c4a4f79cf3c243",
+      "bytes": 466
+    },
+    {
+      "path": "docs-update-01.txt",
+      "sha256": "c830ceb13ae438494b8f40dc5db65e865177a32d62dfa4b03f982131c20275ff",
+      "bytes": 51
+    },
+    {
+      "path": "environment-repair.json",
+      "sha256": "205a2a057602c5ebb92f448ae007a2df630744113551d5c3f2c55de602be4c07",
+      "bytes": 516
+    },
+    {
+      "path": "existing-test-exits-01.json",
+      "sha256": "8110690dea952ae2f1e12f2ce3d75612b3930a3fbdabe2984e173a75e7e7550f",
+      "bytes": 231
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "71fb3a05441e547e555c5b0ae7740de441a19c94594cefe790dad700981c3732",
+      "bytes": 16597
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "127ba9360d5fa2fd425e98dc3a2e6a487666ca8280ea640f4e37ee914b8f6285",
+      "bytes": 249
+    },
+    {
+      "path": "gates-02/architecture.txt",
+      "sha256": "b2e2a6b9e7be81eb778239808abb03761ef6a869137ae68646b3beff12210ce9",
+      "bytes": 13541
+    },
+    {
+      "path": "gates-02/game.txt",
+      "sha256": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+      "bytes": 1356
+    },
+    {
+      "path": "gates-02/gate-exits.json",
+      "sha256": "67b2f01bb94d120921bcb14c77bc47d143768d305072278e53cba3fc08c93529",
+      "bytes": 733
+    },
+    {
+      "path": "gates-02/headless/f10/engine.txt",
+      "sha256": "406404c9d62324caab32397c7542fffeb7be0eb356051312592a50a27a81af71",
+      "bytes": 11110
+    },
+    {
+      "path": "gates-02/headless/f10/frames.jsonl",
+      "sha256": "68cfa4c2a1262aebae0594befd205a3f9376c3fe7caf1a1d6d5335731dec692e",
+      "bytes": 9219
+    },
+    {
+      "path": "gates-02/headless/f10/summary.json",
+      "sha256": "4f46a1ff5fb9e6f897b6232bbee2fead6009237c98eccc23122057bed687802d",
+      "bytes": 1743
+    },
+    {
+      "path": "gates-02/headless/normal/engine.txt",
+      "sha256": "16548f11e043b3c8c782f4e949107a81667ee4fbf5bc73a1117c6bcd2374f13c",
+      "bytes": 10996
+    },
+    {
+      "path": "gates-02/headless/normal/frames.jsonl",
+      "sha256": "507e7e9629920c13345a90f4f5222e05cd728d933501a2ced4bb2867e740d63c",
+      "bytes": 9102
+    },
+    {
+      "path": "gates-02/headless/normal/summary.json",
+      "sha256": "3a11047ee67baac0d0acd8a1212ffe8ebc68fda7aee9f862cbf7bbd36e7a7627",
+      "bytes": 1746
+    },
+    {
+      "path": "gates-02/wiki.txt",
+      "sha256": "267d9dd0e692c98d17350f22837f8c46629a6d064bbe075795e079fb8a11e1d7",
+      "bytes": 13817
+    },
+    {
+      "path": "history-qa-01.txt",
+      "sha256": "67d91964e0495387336d668ab1d3cfe42833d5d9b5467cc76dd82a9b808c2594",
+      "bytes": 106
+    },
+    {
+      "path": "history-tests-01.txt",
+      "sha256": "7112c953fb83d37d31eabe0d1e263d965e74bb1ef90de92d86540a20eece8dca",
+      "bytes": 105
+    },
+    {
+      "path": "history-tests-02.txt",
+      "sha256": "38aa46cad1ec5f55c6753241f2b0575578b92ec1d472256e3bf986a9d1532ea1",
+      "bytes": 106
+    },
+    {
+      "path": "live-documents.json",
+      "sha256": "b47d57c686011857fd8d4f50e2267e6cece3691ac9ded9bef49f12b69bd7757f",
+      "bytes": 521
+    },
+    {
+      "path": "profile-01.txt",
+      "sha256": "782ba32f9e37048489871457d8ef796bb96ce2e50f4c631a890fd5783b770046",
+      "bytes": 96
+    },
+    {
+      "path": "profile.json",
+      "sha256": "2dfe1fb61875b2ff56f6dbb42633c8c1b6d5f7c242fa0329cea8cc0de484766e",
+      "bytes": 1782935
+    },
+    {
+      "path": "profile.py",
+      "sha256": "3e0f2592eed34a4e2b302703bdf57a878c274c09041b2c7a7d93203bfc5424f1",
+      "bytes": 9068
+    },
+    {
+      "path": "qa-context.json",
+      "sha256": "1e2b736a6f1aa83693a6ec33ca9a4dabab4a2ff5d024877d0fcc42f24cf0a23f",
+      "bytes": 5349
+    },
+    {
+      "path": "qa-export-after-import-01.txt",
+      "sha256": "77cb0a975360bbad816b601fd2d0679cb18b3acf9d5738501793f8073244d462",
+      "bytes": 157
+    },
+    {
+      "path": "qa-fresh-import-01.txt",
+      "sha256": "dad0ffff2baab8d80666ac7a12dee6377a9fa80256f97934447d313980464ccf",
+      "bytes": 366283
+    },
+    {
+      "path": "scope-01.txt",
+      "sha256": "c9aee9278f6d5468cb13e9289f5ad028ff3cc4bd57df0cffd07261b35ec68d4c",
+      "bytes": 82
+    },
+    {
+      "path": "scope-02.txt",
+      "sha256": "636a3c6a8fba8aacb7205a8bb2dd94c928dfd30a81de0e8057f9a5623bee1536",
+      "bytes": 82
+    },
+    {
+      "path": "scope.json",
+      "sha256": "9a628d7450345e3cf51cb707e01fad3d3ed131635ea008336fab3e4c7a5c9dda",
+      "bytes": 1668
+    },
+    {
+      "path": "seal-01.txt",
+      "sha256": "ef83137154b8d686ea714461ff9df731f301348454c5db228aa035d503c30358",
+      "bytes": 65
+    },
+    {
+      "path": "seal.py",
+      "sha256": "ec109bc62401333e085c6c560d8427df0ed021f883b1982b316054f827a636a5",
+      "bytes": 3674
+    },
+    {
+      "path": "source-freeze.json",
+      "sha256": "8bd3714fc0a10a2ef190f103bfea7a909a9b913b213c171563fd7f89f428b552",
+      "bytes": 1618
+    },
+    {
+      "path": "test_alpha_audit-01.txt",
+      "sha256": "5492f481a92feedb7da3aa6dd109f53b9036010604b97373e7c4fc06a210541e",
+      "bytes": 111
+    },
+    {
+      "path": "test_alpha_proof-01.txt",
+      "sha256": "a08148d1210be9f0c2065b174f3327767020829f223596e25ceee1f146391603",
+      "bytes": 103
+    },
+    {
+      "path": "test_slice_audit-01.txt",
+      "sha256": "719639e4f9dd12aee738e182a49ae379c5b0fd2e6a217154ba251c02a5f8047a",
+      "bytes": 113
+    },
+    {
+      "path": "test_slice_proof-01.txt",
+      "sha256": "e663e06b417aa3ca694834d11ed008b6be1d96390ca34602a93bfc86a8852dd0",
+      "bytes": 104
+    },
+    {
+      "path": "update-docs.py",
+      "sha256": "ec10a6c132e751af9028da10bd152cefb74014649a57f29863210af5f62bd87a",
+      "bytes": 5652
+    },
+    {
+      "path": "version-01.txt",
+      "sha256": "eb9364a71620248241cdb68fb621e4d1924d896c161da6c286f3ba6274fbb498",
+      "bytes": 28
+    }
+  ]
+}

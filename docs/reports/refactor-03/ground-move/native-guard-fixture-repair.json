@@ -1,0 +1,12 @@
+{
+  "fixture_only": true,
+  "product_code_changed": false,
+  "first_after": "layout-green-attempt01.txt: 22 cases,9 failures, no errors",
+  "reason": "native-frame guard incorrectly counted exact archived source PNGs",
+  "fix": "exclude inputs namespace from native-frame search; all source PNG/hash assertions remain",
+  "unused_import_removed": "subprocess in new tools test, caught by expanded audit",
+  "before_SHA256": "cf827eee4b40c49cce99ca631e5a0929c9520a1b7e191cece78e83f9f2c61f94",
+  "after_SHA256": "291056b0766604460c869c7957ea40a1235983197f1bbce0a73a0f6645225e6e",
+  "test_methods_removed": 0,
+  "source_SHA_not_claimed_equal": true
+}

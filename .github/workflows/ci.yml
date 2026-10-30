@@ -52,19 +52,19 @@ jobs:
       - name: Import resources for the actual HUD
         run: '"$FARM_GODOT_BIN" --headless --editor --path . --quit'
       - name: Verify fixed inputs and negative controls
-        run: python tools/test_preview_portability.py
+        run: python tools/run.py assets.contracts.test_preview_portability
       - name: Verify reviewed exact export contract and negative controls
         run: |
-          python tools/item_export_contract.py
-          python tools/test_item_export_contract.py
-          "$FARM_GODOT_BIN" --headless --path . --script res://tools/item_export_contract_review.gd
+          python tools/run.py assets.contracts.item_export_contract
+          python tools/run.py assets.contracts.test_item_export_contract
+          "$FARM_GODOT_BIN" --headless --path . --script res://tools/assets/contracts/item_export_contract_review.gd
       - name: Collect resampling data and Linux HUD frames
         run: |
           if [ "$RUNNER_OS" = "Linux" ]; then
             export LIBGL_ALWAYS_SOFTWARE=1
-            xvfb-run -a -s "-screen 0 1152x648x24" python tools/preview_portability.py --capture .ci/platform-repro --ui
+            xvfb-run -a -s "-screen 0 1152x648x24" python tools/run.py assets.contracts.preview_portability --capture .ci/platform-repro --ui
           else
-            python tools/preview_portability.py --capture .ci/platform-repro
+            python tools/run.py assets.contracts.preview_portability --capture .ci/platform-repro
           fi
       - name: Preserve fixed-input diagnostics and actual HUD frames
         if: always()

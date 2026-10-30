@@ -1,0 +1,73 @@
+{
+  "base": "7a2d7a5917bede86b3ffa850b1d5c83e9e8cc0bd",
+  "before_producer_methods": 14,
+  "after_producer_methods": 14,
+  "before_history_methods": 13,
+  "after_history_methods": 13,
+  "before_history_errors": 1,
+  "new_test_non_import_AST_equal_after_one_fixture_address_normalization": true,
+  "old_API_methods": 16,
+  "old_context_methods": 19,
+  "commands": [
+    {
+      "label": "helper-green",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.world.test_source_inputs"
+      ],
+      "exit": 0,
+      "methods": 16,
+      "test_SHA256": "19d6e7d7674424e2831217145fa4bab88aa12f42374625061bac0469329209cc",
+      "raw_sha256": "759edf06d2e9b51e019dcd3a58b3f414a323dc5b2f13f67ab4a7eaa0325bf9bf",
+      "native_frames": 0,
+      "Game_new": false
+    },
+    {
+      "label": "producers-after",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.world.test_world_producers"
+      ],
+      "exit": 0,
+      "methods": 14,
+      "test_SHA256": "aba7104858673b20271333fb7d5b7ff315c628d6ea41704c8725fc250b688226",
+      "raw_sha256": "3c86f6dc0fe41b121c0a7444f4812b752b4baeb5591b81c9f57fc8b7fe11b076",
+      "native_frames": 0,
+      "Game_new": false
+    },
+    {
+      "label": "history-green-attempt02",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.world.test_world_source_history"
+      ],
+      "exit": 0,
+      "methods": 13,
+      "test_SHA256": "7bbb6dca965fa32d62dd48ac8f8f83dc02a5a2c305b4c2e5d88d761e2ca4bc73",
+      "raw_sha256": "a0d82f917eed9efd2493ff7a0afcca3123714fc9e28ac33d1900b4de41ec7b43",
+      "native_frames": 0,
+      "Game_new": false
+    },
+    {
+      "label": "context-after",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+        "qa.world.test_world_context"
+      ],
+      "exit": 0,
+      "methods": 19,
+      "test_SHA256": "70c398c6579582e34106897d1d4f354ed6b47469a62f73d528c0d4c805134a6a",
+      "raw_sha256": "4e528e1a16cfbe1d6a34f8080bc15543851bc0192cf9f0b7b3e359876171d92f",
+      "native_frames": 0,
+      "Game_new": false
+    }
+  ],
+  "fake_open_exit": 17,
+  "native_frames_new": 0,
+  "Game_new": false,
+  "GPU_FPS_admission": false
+}

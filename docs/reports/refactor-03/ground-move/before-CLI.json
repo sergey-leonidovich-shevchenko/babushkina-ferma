@@ -1,0 +1,293 @@
+[
+  {
+    "logical": "ground_layers",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py",
+      "verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-01.txt",
+    "SHA256": "dadbf243b5c025d7a9413f4a9cb5b7f2df16449917aa77a826aca6265c64c347",
+    "unit_cases": []
+  },
+  {
+    "logical": "axial_road_verify",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/axial_road_verify.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-02.txt",
+    "SHA256": "439d6ec877668ef0031228f3fe7b462aa9b4274afe2fe9bc5f459bcf7117dd8c",
+    "unit_cases": []
+  },
+  {
+    "logical": "decoration_verify",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/decoration_verify.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-03.txt",
+    "SHA256": "d412a89735cd5fb28ac551d88493240be0e53580ff0fdc4fae2db4341c1377a6",
+    "unit_cases": []
+  },
+  {
+    "logical": "garden_verify",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/garden_verify.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-04.txt",
+    "SHA256": "93d4d4ed8b4cb640b29078afc7eb10c61edacc05a9d4da4c429aa14bc0190ccc",
+    "unit_cases": []
+  },
+  {
+    "logical": "ground_edge_verify",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_edge_verify.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-05.txt",
+    "SHA256": "5900d6044011792d209d1bf65f52fc9cbd5b2c393385a223e3bae9ffb4aedf25",
+    "unit_cases": []
+  },
+  {
+    "logical": "ground_seasons_verify",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_seasons_verify.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-06.txt",
+    "SHA256": "1b85d2254949f3f0619152a0b4531572d17c775d5069a88a9f79a5cab2b37d10",
+    "unit_cases": []
+  },
+  {
+    "logical": "meadow_verify",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/meadow_verify.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-07.txt",
+    "SHA256": "be8f3c48d8ebf1095e1fab049013b7281a80c71d8106981d458c6784a4e1e1b7",
+    "unit_cases": []
+  },
+  {
+    "logical": "plaza_verify",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/plaza_verify.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-08.txt",
+    "SHA256": "e014104534146581c07fa2c74fdff002a5bd01829858154d14300a591b221bc2",
+    "unit_cases": []
+  },
+  {
+    "logical": "road_network_verify",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/road_network_verify.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-09.txt",
+    "SHA256": "86d5cd293c0cf81a082774e836ad3c57670f55ac8aaa969aa32cfe1febcc17b4",
+    "unit_cases": []
+  },
+  {
+    "logical": "terrain_revision_verify",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/terrain_revision_verify.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-10.txt",
+    "SHA256": "697d026de9f5b7ffe9bdf89e8be605dd2886254ed8d36cbca5640e46450aa3db",
+    "unit_cases": []
+  },
+  {
+    "logical": "test_ground_layers",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_ground_layers.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-11.txt",
+    "SHA256": "2b812f457ea5d1b620d13dd1c6f4127b657a2b043be22ecff6cc6f56d1fc6403",
+    "unit_cases": [
+      20
+    ]
+  },
+  {
+    "logical": "test_axial_road",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_axial_road.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-12.txt",
+    "SHA256": "1d83585b97486319bb9c2fff2996c7435fd78e26e63e611aae2ad6791d35db6b",
+    "unit_cases": [
+      11
+    ]
+  },
+  {
+    "logical": "test_decoration_rules",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_decoration_rules.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-13.txt",
+    "SHA256": "d409b05401a975416b91c5291bf46a9e7d2aea13ad6a13fbaf45e4859fa004da",
+    "unit_cases": [
+      10
+    ]
+  },
+  {
+    "logical": "test_garden_soil",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_garden_soil.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-14.txt",
+    "SHA256": "2313f3080a74b1eaafce18d5e57dc8c31f3bcffa59df236889bc7242a73abdcb",
+    "unit_cases": [
+      12
+    ]
+  },
+  {
+    "logical": "test_ground_edge",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_ground_edge.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-15.txt",
+    "SHA256": "31fee74ca91764ff428912a09870cbe01b998b86899b47ff32b2bbbf7fdc0d92",
+    "unit_cases": [
+      9
+    ]
+  },
+  {
+    "logical": "test_ground_seasons",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_ground_seasons.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-16.txt",
+    "SHA256": "8c16e47adc72faa56769280ad8baac2fb483a8461125b39a1aba7804f282a19e",
+    "unit_cases": [
+      11
+    ]
+  },
+  {
+    "logical": "test_meadow_ground",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_meadow_ground.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-17.txt",
+    "SHA256": "86c967a00f06ad033ecab8fdfd48f0dfe4f7c54ecd2a5af426df39e10af79aa8",
+    "unit_cases": [
+      7
+    ]
+  },
+  {
+    "logical": "test_plaza_ground",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_plaza_ground.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-18.txt",
+    "SHA256": "7724c49597cae31e2ea71147430444ee9376de1da92559d856b61842486ed797",
+    "unit_cases": [
+      10
+    ]
+  },
+  {
+    "logical": "test_road_network",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_road_network.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-19.txt",
+    "SHA256": "9c95060112ad49455ae17a54bf3b90e5657eb7883b686f911be4ff87f460201f",
+    "unit_cases": [
+      9
+    ]
+  },
+  {
+    "logical": "test_terrain_revision",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_terrain_revision.py"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-20.txt",
+    "SHA256": "9a621d00b6bb7443c7fd925c5b3a19c848a8b2f123c196d8eeb343f881f24084",
+    "unit_cases": [
+      9
+    ]
+  },
+  {
+    "logical": "qa.ground.test_ground_context",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.ground.test_ground_context"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-21.txt",
+    "SHA256": "c63bd01eee461ab491bf5f140c99ee0b6974072e1098fd6d599f71dd29606720",
+    "unit_cases": [
+      10
+    ]
+  },
+  {
+    "logical": "qa.performance.test_surface_producers",
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.test_surface_producers"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground before foreign ajxrqw5k",
+    "exit": 0,
+    "log": "before-CLI-22.txt",
+    "SHA256": "8d09afc766f5613580911e751113b2151c963f7c497b162f99fdbb05151bfe2d",
+    "unit_cases": [
+      9
+    ]
+  }
+]

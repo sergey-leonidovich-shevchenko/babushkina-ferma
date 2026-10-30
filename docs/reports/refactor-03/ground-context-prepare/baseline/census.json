@@ -1,0 +1,3210 @@
+{
+  "read_only": true,
+  "base": "c47b78add8813392769be8b9d5dfba9b8d5fa1d5",
+  "accepted_parent_review": 5697669336,
+  "version": "0.0.377",
+  "source_moves_planned": 71,
+  "tracked_UID_moves_planned": 42,
+  "root_before": 153,
+  "root_after_planned": 82,
+  "current_map_before": 267,
+  "current_map_after_planned": 380,
+  "moves": [
+    {
+      "old_path": "tools/axial_road_board.gd",
+      "target": "tools/qa/ground/axial_road_board.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "7b518729026832aca8c19f4e2fdd55b8197bb9f1",
+      "bytes": 1782,
+      "sha256": "82aac8007a27b1a185e6737cabe2cd7a5091236b89119000ed99e48b7d99c84e"
+    },
+    {
+      "old_path": "tools/axial_road_board.gd.uid",
+      "target": "tools/qa/ground/axial_road_board.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/axial_road_board.gd",
+      "mode": "100644",
+      "blob": "fc52df5c081b741844400abe22e74d9555c68f12",
+      "bytes": 20,
+      "sha256": "31c7c0b9657bf31ba7d1d8bfab1ffc0f4b639401ab53c825b01b77f096d1e076"
+    },
+    {
+      "old_path": "tools/axial_road_builder.gd",
+      "target": "tools/qa/ground/axial_road_builder.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "67679375011d86190cf1341f7f94af09856a55dd",
+      "bytes": 2738,
+      "sha256": "4f5eac369ad8558ef172ad3e7c66cf662fb90b0e05b1895bc410d777cf4b75ff"
+    },
+    {
+      "old_path": "tools/axial_road_builder.gd.uid",
+      "target": "tools/qa/ground/axial_road_builder.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/axial_road_builder.gd",
+      "mode": "100644",
+      "blob": "75b7320d8ab85c8f544f0eb2b5266a7b9f0cb5b7",
+      "bytes": 20,
+      "sha256": "697bc663138139a2230000d308043e4ee526a55e746c131b5b05c80f9d7a8191"
+    },
+    {
+      "old_path": "tools/axial_road_capture.gd",
+      "target": "tools/qa/ground/axial_road_capture.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "7c503ad6fdfd72368938a4e2f3dabd72e4899b5e",
+      "bytes": 8311,
+      "sha256": "274288cfeddfb80ed3bb8683ac1deb38bf00974bc5b836d804b27ee88e82fd97"
+    },
+    {
+      "old_path": "tools/axial_road_capture.gd.uid",
+      "target": "tools/qa/ground/axial_road_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/axial_road_capture.gd",
+      "mode": "100644",
+      "blob": "8f9576e827f7dd20c7cd02605c57339f38cd6886",
+      "bytes": 19,
+      "sha256": "2fcd9e1f187aed865ffb6e428752e334094ecc4c8672a92ea88515b10d80735d"
+    },
+    {
+      "old_path": "tools/axial_road_collect.py",
+      "target": "tools/qa/ground/axial_road_collect.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "56f4b1fa78945100b7606f840a1a54e35899bae3",
+      "bytes": 5039,
+      "sha256": "b135f9189dcf1afc4f13ec3cbd2e41341904d79811c5c5e9d7d5426ce78b7b1b"
+    },
+    {
+      "old_path": "tools/axial_road_compile.gd",
+      "target": "tools/qa/ground/axial_road_compile.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "9aa5a629e522ad190dd8a6b2d51d6e3a0101e655",
+      "bytes": 1676,
+      "sha256": "940f2c7ddc65234a3e994f3f2130067cda91b062822cdff787009fd079b0f3f6"
+    },
+    {
+      "old_path": "tools/axial_road_compile.gd.uid",
+      "target": "tools/qa/ground/axial_road_compile.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/axial_road_compile.gd",
+      "mode": "100644",
+      "blob": "c4eda2e7705bd18e640168478eddb9f8f5423152",
+      "bytes": 20,
+      "sha256": "8224d9f212b7d233e6464ccd9aecda215418c096da5961cf178f0ea920420e90"
+    },
+    {
+      "old_path": "tools/axial_road_field.gd",
+      "target": "tools/qa/ground/axial_road_field.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "d8ae4efb1725352de39889ac85f92bed2c56f3fb",
+      "bytes": 1510,
+      "sha256": "f3013bcd942cc69fa427be9a2a3e317df16bd0c7d58c954ea2fdd5ccb60ebfeb"
+    },
+    {
+      "old_path": "tools/axial_road_field.gd.uid",
+      "target": "tools/qa/ground/axial_road_field.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/axial_road_field.gd",
+      "mode": "100644",
+      "blob": "40757b1f72d19f2b7422aa31ad0cf5b2425c15a7",
+      "bytes": 20,
+      "sha256": "d195f046142001b580c4fc4e1c5c8fa56180bdd515ca5a7c7f458a89a143dd1f"
+    },
+    {
+      "old_path": "tools/axial_road_review.gd",
+      "target": "tools/qa/ground/axial_road_review.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "e25919ab947adc7169059d85d85be76f1cb50f4f",
+      "bytes": 842,
+      "sha256": "e0e109c55e451b145a04700e8a3590f9340441dcf4354f1575b7ba83841c7fed"
+    },
+    {
+      "old_path": "tools/axial_road_review.gd.uid",
+      "target": "tools/qa/ground/axial_road_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/axial_road_review.gd",
+      "mode": "100644",
+      "blob": "2ba06dcd31d8c4af0220a7332f621b91f18969a7",
+      "bytes": 20,
+      "sha256": "4b72114f9d71e05cd7ce4aa0bb4d13b1876a649b985dffd6c5164e05b1a90d3e"
+    },
+    {
+      "old_path": "tools/axial_road_verify.py",
+      "target": "tools/qa/ground/axial_road_verify.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "150c2441e0de53b7f7ca27c0a18651fc783e7da2",
+      "bytes": 9237,
+      "sha256": "3c8b1df3a9b94d2bb7ec08140f37f1a6ecc905099094a61d56995a8e266af531"
+    },
+    {
+      "old_path": "tools/decoration_capture.gd",
+      "target": "tools/qa/ground/decoration_capture.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "d5cf303c32d87b35e6a4293789d46e4c697cf1cf",
+      "bytes": 8221,
+      "sha256": "6f44901cc840efcf17f8f66bb4d25ff1afdfbc619d030e94e846b8a8eb2d7db1"
+    },
+    {
+      "old_path": "tools/decoration_capture.gd.uid",
+      "target": "tools/qa/ground/decoration_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/decoration_capture.gd",
+      "mode": "100644",
+      "blob": "e6803db73ca7770272288888558454cbc0025f15",
+      "bytes": 19,
+      "sha256": "a19091aa0aec7ce0145ef70d4b286c13954fdd9f0257e25ddea6a08657904e16"
+    },
+    {
+      "old_path": "tools/decoration_collect.py",
+      "target": "tools/qa/ground/decoration_collect.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "00c3b5361a9506fbb04daa9dbef774b3c723866c",
+      "bytes": 7276,
+      "sha256": "ecfe3565021ab0aae6e704e282c053715b83c023b2c1e8771f2409abc7743a5b"
+    },
+    {
+      "old_path": "tools/decoration_overlay.gd",
+      "target": "tools/qa/ground/decoration_overlay.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "5a30aa07f69209eaebb8b04da946aca852ee4724",
+      "bytes": 306,
+      "sha256": "50dc00eed8ab39029f59402c7a3099dd6c237205262f7e4a60266367f2071ce9"
+    },
+    {
+      "old_path": "tools/decoration_overlay.gd.uid",
+      "target": "tools/qa/ground/decoration_overlay.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/decoration_overlay.gd",
+      "mode": "100644",
+      "blob": "8ad4ceb0836cbe07cda63bab06d10c9fa798b936",
+      "bytes": 20,
+      "sha256": "bea6461ffcb12ce4b2a52e36db49267b14d569b50cb02885548c2590e17e91a7"
+    },
+    {
+      "old_path": "tools/decoration_review.gd",
+      "target": "tools/qa/ground/decoration_review.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "51c57b1a1e0dc04764bb1f33a66e65fd688239a9",
+      "bytes": 1143,
+      "sha256": "1d722ceb46bab08829b14956c935894a93e5edea8925b3bdf1fbdd3ec9524c22"
+    },
+    {
+      "old_path": "tools/decoration_review.gd.uid",
+      "target": "tools/qa/ground/decoration_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/decoration_review.gd",
+      "mode": "100644",
+      "blob": "aa558eb6ce2c091ba3a481599fd2542911fc74ea",
+      "bytes": 20,
+      "sha256": "a2812adbd09a58350558f3071c5d0dbdd379ff1bc4d1b784981550ea68b1fdaa"
+    },
+    {
+      "old_path": "tools/decoration_verify.py",
+      "target": "tools/qa/ground/decoration_verify.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "8699a9bfa7ad1df6df08704701cdf783133d4eb6",
+      "bytes": 12086,
+      "sha256": "9e914343359312ca7750fab7b8a2a282e064b6f9dda1151ca7785b28d07e3ee3"
+    },
+    {
+      "old_path": "tools/garden_board.gd",
+      "target": "tools/qa/ground/garden_board.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "ff89b7b6770380bead8aa5e1776c6241482a7907",
+      "bytes": 1215,
+      "sha256": "14e6e7f9f03cd6e0afb4853bccf431b184b17a176cedfa8a13d740d3d50327fe"
+    },
+    {
+      "old_path": "tools/garden_board.gd.uid",
+      "target": "tools/qa/ground/garden_board.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/garden_board.gd",
+      "mode": "100644",
+      "blob": "db91146e8efc209ec8739071af299b14670338cf",
+      "bytes": 20,
+      "sha256": "080421fb954c393da8e24d9eafb57e84d292fe81382ae101b43e19fd934526b0"
+    },
+    {
+      "old_path": "tools/garden_capture.gd",
+      "target": "tools/qa/ground/garden_capture.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "4fb8b9a740e2805b562e09f33d380a5fbcd2954c",
+      "bytes": 9904,
+      "sha256": "dc6b6bdf44f6c955990ee3c7565a46f4bf24e110343f7917ec5bc53384fd8cd3"
+    },
+    {
+      "old_path": "tools/garden_capture.gd.uid",
+      "target": "tools/qa/ground/garden_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/garden_capture.gd",
+      "mode": "100644",
+      "blob": "150e98fa3edccdef1a2f719cf04541b8957e79ef",
+      "bytes": 19,
+      "sha256": "c17efc92a39ba0b63fb4ec792246c0fc9503f074905a5eae269b414c1a00d5ed"
+    },
+    {
+      "old_path": "tools/garden_collect.py",
+      "target": "tools/qa/ground/garden_collect.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "7cac8a34df2c1fe858e725bed3716be1664755cc",
+      "bytes": 5428,
+      "sha256": "2342517a2dd98dcc855b297d0493e4ea6210d6536dfebbb8c9cc8040d3098307"
+    },
+    {
+      "old_path": "tools/garden_import.gd",
+      "target": "tools/qa/ground/garden_import.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "4bf051b4cd01dbae8117a3efebaf777f93a34e21",
+      "bytes": 632,
+      "sha256": "4537e1c215fc6814e81572f74f8e596e7d8abdec80e595d87755581e297b9eb2"
+    },
+    {
+      "old_path": "tools/garden_import.gd.uid",
+      "target": "tools/qa/ground/garden_import.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/garden_import.gd",
+      "mode": "100644",
+      "blob": "e5eac8d27da0c5bde7150d0152dee8fb742e836e",
+      "bytes": 20,
+      "sha256": "ae57abfe50ed5f9e417b87f06fce72e90fa8fe977c68c4dd0c02ff6f802dddcf"
+    },
+    {
+      "old_path": "tools/garden_review.gd",
+      "target": "tools/qa/ground/garden_review.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "a039f4e87c1d077836babddbf454c43dc590b9c5",
+      "bytes": 856,
+      "sha256": "353bd919d4582470760caa44da57ef5dd24dd6d4cc2033e6007050c7f7458449"
+    },
+    {
+      "old_path": "tools/garden_review.gd.uid",
+      "target": "tools/qa/ground/garden_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/garden_review.gd",
+      "mode": "100644",
+      "blob": "7cd25f694fe3e72900f3f7ba8a3070ee49bc1814",
+      "bytes": 18,
+      "sha256": "6d552bee05a62084ca845b2d72de4fcdb11e81afcab889ef8d885fffc4d0b2df"
+    },
+    {
+      "old_path": "tools/garden_verify.py",
+      "target": "tools/qa/ground/garden_verify.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "bf21a17aab6338e03d2edc6cd13687f3729e25f6",
+      "bytes": 11042,
+      "sha256": "388f112219c0893fc0037eea0dc2cacacd9bfee0a6b8fbee2890bfb2f6859f0a"
+    },
+    {
+      "old_path": "tools/ground_edge_board.gd",
+      "target": "tools/qa/ground/ground_edge_board.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "43bcb8403c8917f0f900e51e5c7b2eccc176b1ff",
+      "bytes": 1709,
+      "sha256": "c7925a7e592572f2497cadffbcc47358578cc2dbf204d2d35d97d292e5cbb476"
+    },
+    {
+      "old_path": "tools/ground_edge_board.gd.uid",
+      "target": "tools/qa/ground/ground_edge_board.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_edge_board.gd",
+      "mode": "100644",
+      "blob": "910351194cc9dbe6a5d41c6293990c5f230de94a",
+      "bytes": 20,
+      "sha256": "ab29c4503bdd45045b4bc4ac37338cf69ba4ad6e120858a7375db29dbdda9483"
+    },
+    {
+      "old_path": "tools/ground_edge_builder.gd",
+      "target": "tools/qa/ground/ground_edge_builder.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "6fceecf0293f1717040251f6252a2c82824c02e2",
+      "bytes": 2739,
+      "sha256": "6e3360cfabf5454cfb977b270273cd5037869d3eda3512f1d84473e81b68dfc3"
+    },
+    {
+      "old_path": "tools/ground_edge_builder.gd.uid",
+      "target": "tools/qa/ground/ground_edge_builder.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_edge_builder.gd",
+      "mode": "100644",
+      "blob": "e1373a4969be4f031b8a7eb699bfdb438630e6cd",
+      "bytes": 20,
+      "sha256": "b7481abdebf720e3749f67e14fa829c6e9285a8d5ac3519342209bb24d9a1ad8"
+    },
+    {
+      "old_path": "tools/ground_edge_capture.gd",
+      "target": "tools/qa/ground/ground_edge_capture.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "7d2c4c181d243a9dad7ad2969dba361c57074241",
+      "bytes": 8273,
+      "sha256": "c4314d06a08401ae81925d0c88eb4de125fb91dd467728bd4eb46b99985828b9"
+    },
+    {
+      "old_path": "tools/ground_edge_capture.gd.uid",
+      "target": "tools/qa/ground/ground_edge_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_edge_capture.gd",
+      "mode": "100644",
+      "blob": "eaa352c8f23d0ffaf63d8c62aac06d53768aa7b1",
+      "bytes": 20,
+      "sha256": "42ed28f8497de1e024b259f57d1af87e5a7dbdf7d287b4ad29e519b8e83a55f6"
+    },
+    {
+      "old_path": "tools/ground_edge_collect.py",
+      "target": "tools/qa/ground/ground_edge_collect.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "4d27987b214657d105865442dc2ed06362795bad",
+      "bytes": 4860,
+      "sha256": "622e7b4c531a0a0449659043c4b50190d6caab4e13b7409192292102b8ca8d2e"
+    },
+    {
+      "old_path": "tools/ground_edge_compile.gd",
+      "target": "tools/qa/ground/ground_edge_compile.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "45a009a7005416b23e88fed6ed8ab56c5481ea6b",
+      "bytes": 1508,
+      "sha256": "be74bdf4a046b46fe54571e625099b858b9a73a966a254fca3bfeeb8576568a1"
+    },
+    {
+      "old_path": "tools/ground_edge_compile.gd.uid",
+      "target": "tools/qa/ground/ground_edge_compile.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_edge_compile.gd",
+      "mode": "100644",
+      "blob": "d9b6e9ec4cf19be34e69a80b1613bd65c6d7f236",
+      "bytes": 20,
+      "sha256": "20eee3ce6b63372fcdde949f077c738ec447b6080cf04afcce1f538e2477db5a"
+    },
+    {
+      "old_path": "tools/ground_edge_field.gd",
+      "target": "tools/qa/ground/ground_edge_field.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "cf134a52ddf23ce862d6a7ef67191febea47797b",
+      "bytes": 1507,
+      "sha256": "8cec18c6fc061b692fb66c5a0a6309f24cc7a7da6fb7d103c31f581be20d1e30"
+    },
+    {
+      "old_path": "tools/ground_edge_field.gd.uid",
+      "target": "tools/qa/ground/ground_edge_field.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_edge_field.gd",
+      "mode": "100644",
+      "blob": "9f5a3f6e113c6bb6c55d9faf1cc1c8df201ce461",
+      "bytes": 20,
+      "sha256": "afd806b8108f5fa920c21de562ac7775378558d868843eba6a2fc90d1e6e9483"
+    },
+    {
+      "old_path": "tools/ground_edge_review.gd",
+      "target": "tools/qa/ground/ground_edge_review.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "79810117757d40c41590da68bb7705cbb211dfd1",
+      "bytes": 844,
+      "sha256": "6caed11816e4112f075a921a34eaa71c40954db335bd44083b419efcf883c53a"
+    },
+    {
+      "old_path": "tools/ground_edge_review.gd.uid",
+      "target": "tools/qa/ground/ground_edge_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_edge_review.gd",
+      "mode": "100644",
+      "blob": "df762ccc1d23119f928e1109a4ca746dbdeb2b7b",
+      "bytes": 20,
+      "sha256": "ddf80e0831e301f99a53568a7402d6e7c1349625c6dc4be5c7dfea406e46b0c1"
+    },
+    {
+      "old_path": "tools/ground_edge_verify.py",
+      "target": "tools/qa/ground/ground_edge_verify.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "789bc30a8a4edca882213f5c5b1840ba897f42cd",
+      "bytes": 8486,
+      "sha256": "3c9247e4b2d3ea6839ac6a708de3775069719f59a785ed542a19c52927b9fc95"
+    },
+    {
+      "old_path": "tools/ground_layers.py",
+      "target": "tools/qa/ground/ground_layers.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "520da61d4b581f9248c4803d8f37cfd4eca0349e",
+      "bytes": 16491,
+      "sha256": "05378b53e50d621e9444d444c3a14c1796832b52eaefd4ca1d91d80adc73b624"
+    },
+    {
+      "old_path": "tools/ground_layers_capture.gd",
+      "target": "tools/qa/ground/ground_layers_capture.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "10d0f45e38111874078a9249ad3e9dc2a67ed451",
+      "bytes": 12596,
+      "sha256": "602c757643f49f991820e683d9c834efeff294d89509cc3a3db0fdf53a3b7117"
+    },
+    {
+      "old_path": "tools/ground_layers_capture.gd.uid",
+      "target": "tools/qa/ground/ground_layers_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_layers_capture.gd",
+      "mode": "100644",
+      "blob": "23935d34bc940b7850882cf1b91b5139016164c4",
+      "bytes": 20,
+      "sha256": "a92cc82d1bfb6ae2aaca7d568efc221159feaae123cf3c0c0fe5c97257568f1d"
+    },
+    {
+      "old_path": "tools/ground_layers_review.gd",
+      "target": "tools/qa/ground/ground_layers_review.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "63cf9b00f051cf7eccee1091da2713db3dd8e917",
+      "bytes": 909,
+      "sha256": "a6da016fc8be94f3b20fa056d0924d44dbec3b1d0494113edcc98b3fc91adbc4"
+    },
+    {
+      "old_path": "tools/ground_layers_review.gd.uid",
+      "target": "tools/qa/ground/ground_layers_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_layers_review.gd",
+      "mode": "100644",
+      "blob": "db5bd3c7a3ed6ce367e74d4f69aa020c563f9785",
+      "bytes": 20,
+      "sha256": "022d609d4882063cc9dc309e1f602669306243efcfa77dcef4065c12aa374659"
+    },
+    {
+      "old_path": "tools/ground_seasons_capture.gd",
+      "target": "tools/qa/ground/ground_seasons_capture.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "bdb390c3ae049f05cf70e7af5a35deddd11c2641",
+      "bytes": 8989,
+      "sha256": "c71148a8005eadd1440c522fd63ce9a47c0c84015f34e8b7ebe67a6fad55c439"
+    },
+    {
+      "old_path": "tools/ground_seasons_capture.gd.uid",
+      "target": "tools/qa/ground/ground_seasons_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_seasons_capture.gd",
+      "mode": "100644",
+      "blob": "d441e2f95125ce15633f7f65017ba3fd96af2adf",
+      "bytes": 20,
+      "sha256": "025efd254de944ddd2e283cda422b0bab244301ecabd83d04f34820bb676eb57"
+    },
+    {
+      "old_path": "tools/ground_seasons_collect.py",
+      "target": "tools/qa/ground/ground_seasons_collect.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "5531947fd6919c8ffc8dc4baa1f687aa5d056816",
+      "bytes": 7742,
+      "sha256": "959f6681d2574c577a62083cc2102a0a6a07ce936a5eacfbc8022a435d15b774"
+    },
+    {
+      "old_path": "tools/ground_seasons_fixture.gd",
+      "target": "tools/qa/ground/ground_seasons_fixture.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "ae6df168515c9648028a0673a73d161eb1d2cbcb",
+      "bytes": 3690,
+      "sha256": "e5afc617fabde18419e6ce1d0a84a70e952fa3028bbf2c1d5cb2cba47787b111"
+    },
+    {
+      "old_path": "tools/ground_seasons_fixture.gd.uid",
+      "target": "tools/qa/ground/ground_seasons_fixture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_seasons_fixture.gd",
+      "mode": "100644",
+      "blob": "8d702bcf7dd9dc8ff087ca0c918ea7a445e8bc3c",
+      "bytes": 19,
+      "sha256": "79d0c378d8aa8d81fd96fc7b672f7c8e168c4cf3088592148e2dee3dfc07e8b2"
+    },
+    {
+      "old_path": "tools/ground_seasons_review.gd",
+      "target": "tools/qa/ground/ground_seasons_review.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "95dcdc4f2913b35aabee3de70cd3428c44ffbd04",
+      "bytes": 834,
+      "sha256": "130a1c3aeea1cff9682584dc81b05c233a796b459e6e8b9b0bdbeb5a50cbb878"
+    },
+    {
+      "old_path": "tools/ground_seasons_review.gd.uid",
+      "target": "tools/qa/ground/ground_seasons_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_seasons_review.gd",
+      "mode": "100644",
+      "blob": "eef20cc40dc886232b59603c070615bae7a725da",
+      "bytes": 20,
+      "sha256": "137dae04871d8d903a6f399d4f54ba9935e5e360efd24c601d7239efa4e8574f"
+    },
+    {
+      "old_path": "tools/ground_seasons_verify.py",
+      "target": "tools/qa/ground/ground_seasons_verify.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "21a41f0f910985a798fc85a6bd2a09793277f5a9",
+      "bytes": 11278,
+      "sha256": "dfd461a36071da505a39e79d149bba6dc716d9c52238908fea74781b1a2f969a"
+    },
+    {
+      "old_path": "tools/meadow_board.gd",
+      "target": "tools/qa/ground/meadow_board.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "918ff4df2f478cb5bd6d09985234ec335a08ddad",
+      "bytes": 1000,
+      "sha256": "21d437d82cb3742fffdd1eaba111f9e0eccf1ea53d37dafb4532aae95055b99e"
+    },
+    {
+      "old_path": "tools/meadow_board.gd.uid",
+      "target": "tools/qa/ground/meadow_board.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/meadow_board.gd",
+      "mode": "100644",
+      "blob": "5fd99d0895c648fcf2ce25bd742007f99e770aa3",
+      "bytes": 20,
+      "sha256": "9ba5213cee190a8a08c92ab1a33b228916aba985ed42b2282f57e32e433e41d2"
+    },
+    {
+      "old_path": "tools/meadow_capture.gd",
+      "target": "tools/qa/ground/meadow_capture.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "8ac5ff7a944c10b64576723836561d08943bf67c",
+      "bytes": 8211,
+      "sha256": "05cbce38759c980bd19acb6741b89a3d13a6827fb874dc1fab23b31d86b1e046"
+    },
+    {
+      "old_path": "tools/meadow_capture.gd.uid",
+      "target": "tools/qa/ground/meadow_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/meadow_capture.gd",
+      "mode": "100644",
+      "blob": "d9b61a30128109bc2d9c31da2397c8c490882ee9",
+      "bytes": 20,
+      "sha256": "84afa23972201ce1b8bbfb54539eb9b1ee4c8dab5cadbd61ac182a17b0e1c5d0"
+    },
+    {
+      "old_path": "tools/meadow_collect.py",
+      "target": "tools/qa/ground/meadow_collect.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "41fd48c0a3f99c73beae8203743f12868953e424",
+      "bytes": 4812,
+      "sha256": "67321021541d24f4a90ca02d76580e87f198f2efde1f53dbf23fb44f6cfe3685"
+    },
+    {
+      "old_path": "tools/meadow_import.gd",
+      "target": "tools/qa/ground/meadow_import.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "48d65169917966d71c27ecc5f341f518fe1b224f",
+      "bytes": 690,
+      "sha256": "4c3ca8b91e0a97ce2d840c7a55776ff40a195a365c6161cd1be90510f3e7ca68"
+    },
+    {
+      "old_path": "tools/meadow_import.gd.uid",
+      "target": "tools/qa/ground/meadow_import.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/meadow_import.gd",
+      "mode": "100644",
+      "blob": "cc2a529187476d9b191c0f66632756cd91466ffc",
+      "bytes": 20,
+      "sha256": "caae8e9238555c52325ddacebc8f07375a7cb8d3e56cfbd3b3a260729bd6243a"
+    },
+    {
+      "old_path": "tools/meadow_review.gd",
+      "target": "tools/qa/ground/meadow_review.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "684687b962f60729138f337661a26dda107904ac",
+      "bytes": 787,
+      "sha256": "b773d3497b474fd64cee9de2c3dc235d1290f04e702979d23a922f5398d52708"
+    },
+    {
+      "old_path": "tools/meadow_review.gd.uid",
+      "target": "tools/qa/ground/meadow_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/meadow_review.gd",
+      "mode": "100644",
+      "blob": "b0e99669adb1d109477acd2e60d541e47387cf40",
+      "bytes": 20,
+      "sha256": "80af0b70cc04169a103044638ba8e6824167eb4b4f31b4d2e983037c5f25e36d"
+    },
+    {
+      "old_path": "tools/meadow_verify.py",
+      "target": "tools/qa/ground/meadow_verify.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "84113908458d320f530c45a813ebdec1bcbc1723",
+      "bytes": 7197,
+      "sha256": "6f0a9116bc49b4c361da726eedfb3cc19c928db9e636ac903e4535f4857edd7a"
+    },
+    {
+      "old_path": "tools/plaza_board.gd",
+      "target": "tools/qa/ground/plaza_board.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "5757cacb9150c79c8a3d348d7523e87bd2621482",
+      "bytes": 917,
+      "sha256": "6b2c32075652cfb3ece25ec0693ccdecb09ef892de4defe02c73d23b3e1558ec"
+    },
+    {
+      "old_path": "tools/plaza_board.gd.uid",
+      "target": "tools/qa/ground/plaza_board.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_board.gd",
+      "mode": "100644",
+      "blob": "d3d2ab5ae248676cfc1e78fa8c119fc3ec92fd3c",
+      "bytes": 20,
+      "sha256": "21ac77af69bba21735fc0f6c6a5d8238b78e076c00b86ce1e5dc706e043e9b82"
+    },
+    {
+      "old_path": "tools/plaza_builder.gd",
+      "target": "tools/qa/ground/plaza_builder.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "f0e86cdaec8cbbc507aed88fa0d5ea8c4309205a",
+      "bytes": 2957,
+      "sha256": "a707c8a12a6e07b327d6685ba297d8941fabdd20ae7c63cae914548d7866371e"
+    },
+    {
+      "old_path": "tools/plaza_builder.gd.uid",
+      "target": "tools/qa/ground/plaza_builder.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_builder.gd",
+      "mode": "100644",
+      "blob": "17bc6e9ba846a61c01b151a41aa7b599134c4c6b",
+      "bytes": 20,
+      "sha256": "d3375800dcfd37d6c17510291f2a2aad57e334853b9dc9840a85d1129a07a23e"
+    },
+    {
+      "old_path": "tools/plaza_capture.gd",
+      "target": "tools/qa/ground/plaza_capture.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "3a2b86dd1744aa189cf4f9ce88de440e7b8d82af",
+      "bytes": 9089,
+      "sha256": "33f9a3c34a6a0255f7fd81da54b0afc78783d75bf03b470b4b7a23028fa83ce0"
+    },
+    {
+      "old_path": "tools/plaza_capture.gd.uid",
+      "target": "tools/qa/ground/plaza_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_capture.gd",
+      "mode": "100644",
+      "blob": "d9a38154f81d62c59e1179e7c2d4811b739c4fcc",
+      "bytes": 19,
+      "sha256": "88ffc185427d24f10b8929e71669463b5703e993b44892edb002e9f94a61b0f3"
+    },
+    {
+      "old_path": "tools/plaza_collect.py",
+      "target": "tools/qa/ground/plaza_collect.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "3fb515c0580684a28946f599446cfa629d64dc8a",
+      "bytes": 5853,
+      "sha256": "c533203d56e70d07e15900860508767ee2095753fafe7ee238a34c1c4781bb8b"
+    },
+    {
+      "old_path": "tools/plaza_compile.gd",
+      "target": "tools/qa/ground/plaza_compile.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "e3d948fd93c81b827fc942f0a0cb10a9adba93a3",
+      "bytes": 1245,
+      "sha256": "969aca99b14f781d0d13bb3aea442a85bcaf5ba2b99b1797221ebfedd9424538"
+    },
+    {
+      "old_path": "tools/plaza_compile.gd.uid",
+      "target": "tools/qa/ground/plaza_compile.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_compile.gd",
+      "mode": "100644",
+      "blob": "d89e0256bb44b82d29ec50bfce29402eff3169cb",
+      "bytes": 19,
+      "sha256": "d5ce26c2d7ea20ba1f1e05fe44c98179bd323603b4d0bb00ca472839ad702f64"
+    },
+    {
+      "old_path": "tools/plaza_field.gd",
+      "target": "tools/qa/ground/plaza_field.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "3061d2bdc04fbd9f8cf10307eafbfbc775c9339d",
+      "bytes": 2125,
+      "sha256": "2c4384cda4a0fbdb099acd7589ae24b198e58336c4abf8a0612c0a911ded020c"
+    },
+    {
+      "old_path": "tools/plaza_field.gd.uid",
+      "target": "tools/qa/ground/plaza_field.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_field.gd",
+      "mode": "100644",
+      "blob": "d245aa15b369dd4881c0098ec74ced3c659d4c85",
+      "bytes": 20,
+      "sha256": "a18b06934fe03afa181feebf6d4e2b06e65c213023d6971d083dacf51f08c208"
+    },
+    {
+      "old_path": "tools/plaza_import.gd",
+      "target": "tools/qa/ground/plaza_import.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "3f4c499e6933a841312c5f59e54a3d8faf8220b7",
+      "bytes": 697,
+      "sha256": "d395f243713032e4e09c80d1a8e593e831ea240da4adafb3b1878f1d6ee82986"
+    },
+    {
+      "old_path": "tools/plaza_import.gd.uid",
+      "target": "tools/qa/ground/plaza_import.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_import.gd",
+      "mode": "100644",
+      "blob": "3d7e4d70566f3df1e4d55b7a4a0247be72cd34c3",
+      "bytes": 20,
+      "sha256": "2e89934657a8636acfe9bba84a7f2c83a2a970719dde20ffca9f2f93f054e9df"
+    },
+    {
+      "old_path": "tools/plaza_review.gd",
+      "target": "tools/qa/ground/plaza_review.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "a7e78a7763de4134aad5e8a2671a861daa3d6e84",
+      "bytes": 845,
+      "sha256": "c6dacef3dd0fbfc1f2aa376437bfb742109bef40fc709fdfb5575e54da98746f"
+    },
+    {
+      "old_path": "tools/plaza_review.gd.uid",
+      "target": "tools/qa/ground/plaza_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_review.gd",
+      "mode": "100644",
+      "blob": "deeb8aec26cc3eb141ad4ef4c626d40d505a796f",
+      "bytes": 20,
+      "sha256": "f3bec48e94c08a51812486db83a2ac47f6b1f1c6cba7149fe07751c69efa5077"
+    },
+    {
+      "old_path": "tools/plaza_verify.py",
+      "target": "tools/qa/ground/plaza_verify.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "85818de59feed71f6cc12123f97282f4da44fb01",
+      "bytes": 10394,
+      "sha256": "d006c5e568376c8db9cb5f9b85f90db1b2a3c1d9db7828a9be738eefe58c0315"
+    },
+    {
+      "old_path": "tools/road_network_board.gd",
+      "target": "tools/qa/ground/road_network_board.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "43b53338d3e5ca18de128b5918aad139124dd81b",
+      "bytes": 2105,
+      "sha256": "ef808380b60ebeabcca386822db314236cc48dd20152b23a13d8472677ce1a4f"
+    },
+    {
+      "old_path": "tools/road_network_board.gd.uid",
+      "target": "tools/qa/ground/road_network_board.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/road_network_board.gd",
+      "mode": "100644",
+      "blob": "3e6b900ef1308385a8e950f349d84db13fc4872c",
+      "bytes": 20,
+      "sha256": "b84683434399f1ef86accfe1d8a8fe9f56d593d09ec9546f0c08eb4fb71a1e0e"
+    },
+    {
+      "old_path": "tools/road_network_builder.gd",
+      "target": "tools/qa/ground/road_network_builder.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "cba2cd56fed3568b0a769e5d6217c74ba9e053cc",
+      "bytes": 4576,
+      "sha256": "6ab1f77cd66fc7d20418bf47c327b2526f5da575633b12499c9b7ad579d4409c"
+    },
+    {
+      "old_path": "tools/road_network_builder.gd.uid",
+      "target": "tools/qa/ground/road_network_builder.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/road_network_builder.gd",
+      "mode": "100644",
+      "blob": "61c6053bbc6c75014719c4f58835e6b97621bc89",
+      "bytes": 19,
+      "sha256": "7b69a7f228334939c03e297ea9146c27fc00c041fa0ac9a19a4fc2b453547517"
+    },
+    {
+      "old_path": "tools/road_network_capture.gd",
+      "target": "tools/qa/ground/road_network_capture.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "c34bcfba9a1cf1f47b48092046f6652cc7f16737",
+      "bytes": 8497,
+      "sha256": "f66f53c331c062d03782afb39b771b6fb6b8620dd6266df78d2399d06c1ccd4c"
+    },
+    {
+      "old_path": "tools/road_network_capture.gd.uid",
+      "target": "tools/qa/ground/road_network_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/road_network_capture.gd",
+      "mode": "100644",
+      "blob": "f061fe97c747532cfc49ba7174d7992885f1894f",
+      "bytes": 20,
+      "sha256": "776a71bce491c5320d7c3aa026e169d12631016175999b6e81f4efa688e96fa9"
+    },
+    {
+      "old_path": "tools/road_network_collect.py",
+      "target": "tools/qa/ground/road_network_collect.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "b16075eaa567c8d1d7078826a3a97108c8f8f4a0",
+      "bytes": 5289,
+      "sha256": "4d52f7443cbefde3c3db1cb0f2581ede7bab1d4fa06f1cb306829a72214102f2"
+    },
+    {
+      "old_path": "tools/road_network_compile.gd",
+      "target": "tools/qa/ground/road_network_compile.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "6816e67b5ba161d04f1d113d6c27fcaa52c27e20",
+      "bytes": 1552,
+      "sha256": "4b42aa042dae87759e204a1596f434ed1be0287d08177acba2fe8d73b67fb2a5"
+    },
+    {
+      "old_path": "tools/road_network_compile.gd.uid",
+      "target": "tools/qa/ground/road_network_compile.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/road_network_compile.gd",
+      "mode": "100644",
+      "blob": "9d90c93a276b73813f71c4f3f9b0cd9d295ea9c5",
+      "bytes": 20,
+      "sha256": "ff162198116bedb28ae2fdd3f7447d1a8341fc4fe98359850fde1872f08087d5"
+    },
+    {
+      "old_path": "tools/road_network_review.gd",
+      "target": "tools/qa/ground/road_network_review.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "b61eaab310f93ef3e403f6bdb43f3bb9a9681762",
+      "bytes": 845,
+      "sha256": "02e4e92b1ba2ca9fc659a13daea38776b1102abf3ea6f8db05a5acafa7b97ec1"
+    },
+    {
+      "old_path": "tools/road_network_review.gd.uid",
+      "target": "tools/qa/ground/road_network_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/road_network_review.gd",
+      "mode": "100644",
+      "blob": "f1f07d6be09248f36799d5875f6786581272e6ff",
+      "bytes": 20,
+      "sha256": "42bc27fdbac865343b9df59ec592cf34ac402e6261189f14ea59fe71a85977dc"
+    },
+    {
+      "old_path": "tools/road_network_verify.py",
+      "target": "tools/qa/ground/road_network_verify.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "39763e3caf6f754a486972f269cbac027a34e546",
+      "bytes": 10270,
+      "sha256": "d1c1ca6b6e049e5dccac7bd4eecbe28121514924fa8ff4e44699923f0e4a9104"
+    },
+    {
+      "old_path": "tools/terrain_revision_capture.gd",
+      "target": "tools/qa/ground/terrain_revision_capture.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "90252aa07e99813f214bb67fcf0d4623d54d38d4",
+      "bytes": 11291,
+      "sha256": "69be1e20f17bd1f366c6cb88bcac69597b2347d239a1f4c08e4401575892c37d"
+    },
+    {
+      "old_path": "tools/terrain_revision_capture.gd.uid",
+      "target": "tools/qa/ground/terrain_revision_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/terrain_revision_capture.gd",
+      "mode": "100644",
+      "blob": "cdae65978a57083bbf2e073aabfd5b324261c364",
+      "bytes": 20,
+      "sha256": "96e349adc6c831d5b8f91397fe587f9704dd88c6f10ca0ac8322765319059dae"
+    },
+    {
+      "old_path": "tools/terrain_revision_collect.py",
+      "target": "tools/qa/ground/terrain_revision_collect.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "2936402c0ff9529aa130b768157261f214c4530c",
+      "bytes": 7466,
+      "sha256": "eccfff121c066289ac3abb29b9a2d5dc99cda8f173fdabe01f9fac8f1643ce66"
+    },
+    {
+      "old_path": "tools/terrain_revision_review.gd",
+      "target": "tools/qa/ground/terrain_revision_review.gd",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "220248cbd196f74b96b2e5717c0bfadf8e5a2dd4",
+      "bytes": 817,
+      "sha256": "f89da8aab3955d513635c51816e2683af16bcafdc3eaa2a14618ea7b67ad2bd4"
+    },
+    {
+      "old_path": "tools/terrain_revision_review.gd.uid",
+      "target": "tools/qa/ground/terrain_revision_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/terrain_revision_review.gd",
+      "mode": "100644",
+      "blob": "ba37913ed83bae1407f08a526398c8039f13411e",
+      "bytes": 20,
+      "sha256": "f1e6a4de3b64f48d98091075be27dcffd63ef7ff7f55cfdd3b26e2d4304964b6"
+    },
+    {
+      "old_path": "tools/terrain_revision_verify.py",
+      "target": "tools/qa/ground/terrain_revision_verify.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "bb008f0bc079051cfb33ce90457209d23863d38b",
+      "bytes": 13735,
+      "sha256": "0ff1ccc1e49aa2f7336a77d4c02fcb9a48130f70f3ffa127b44170cc2a51d649"
+    },
+    {
+      "old_path": "tools/test_axial_road.py",
+      "target": "tools/qa/ground/test_axial_road.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "594ae06230c964392201815cedbec2a7b451b982",
+      "bytes": 4125,
+      "sha256": "d3953637c34f54d30d57a412aad6a4bf669af66095f79c32d2e5739943e479b5"
+    },
+    {
+      "old_path": "tools/test_decoration_rules.py",
+      "target": "tools/qa/ground/test_decoration_rules.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "41bfc374eeb3e2547eca1421ac92569a8ac403f2",
+      "bytes": 4236,
+      "sha256": "65f7c7bd822366dbaf7a53db4933767282a414f2873dbf2c58cf80250a594559"
+    },
+    {
+      "old_path": "tools/test_garden_soil.py",
+      "target": "tools/qa/ground/test_garden_soil.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "7c83c4171d994b288c0f3e83d3728f9c19c40818",
+      "bytes": 6030,
+      "sha256": "fd3c8aeab866dfccd2c4b58cc626b5b6b5f56b7873510f4331edbcea18853234"
+    },
+    {
+      "old_path": "tools/test_ground_edge.py",
+      "target": "tools/qa/ground/test_ground_edge.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "e1187c8d877ab55764325e17007c463859f878a6",
+      "bytes": 3707,
+      "sha256": "f9618188bb9c3ecbcefeffe66c3bb253c271c9e34472d9c8336201f27b8b24f6"
+    },
+    {
+      "old_path": "tools/test_ground_layers.py",
+      "target": "tools/qa/ground/test_ground_layers.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "3057be972ac32bda60fac22a59525e9fcc6d6c9e",
+      "bytes": 7931,
+      "sha256": "5fbda567d4fee6dfd14b61db11b0cfdc8dc7aafc8a67a0bdeca3a5e4d128ac56"
+    },
+    {
+      "old_path": "tools/test_ground_seasons.py",
+      "target": "tools/qa/ground/test_ground_seasons.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "e9b49d6a7b07d5beddac8949c1e7c5f59834784a",
+      "bytes": 5050,
+      "sha256": "3bfe34edf3e1c872e1bbe9e2c0dec30cf55a4cab3b724d78ae3897f9ad9f21dd"
+    },
+    {
+      "old_path": "tools/test_meadow_ground.py",
+      "target": "tools/qa/ground/test_meadow_ground.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "db0f9802642963fc1027935365e670c8a413e7ff",
+      "bytes": 3326,
+      "sha256": "1b6cd62ace8ce4bd7866f7f3e6bc11185884eb724c2f2499fc475fc873872412"
+    },
+    {
+      "old_path": "tools/test_plaza_ground.py",
+      "target": "tools/qa/ground/test_plaza_ground.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "9c66e9a0880dacfb5ff7fb180c531a6df2bc5aaf",
+      "bytes": 5198,
+      "sha256": "f4f24907674138d5412f825943a854c3c134448076e2163f294ca21b733e62e9"
+    },
+    {
+      "old_path": "tools/test_road_network.py",
+      "target": "tools/qa/ground/test_road_network.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "aff76048fbec008373b74b840600af4bd872941c",
+      "bytes": 4645,
+      "sha256": "9b66bf0b2f56ea9c1a82673cf0abd353919fe675176b48d7c798aa9336257652"
+    },
+    {
+      "old_path": "tools/test_terrain_revision.py",
+      "target": "tools/qa/ground/test_terrain_revision.py",
+      "family": "ground",
+      "action": "move",
+      "mode": "100644",
+      "blob": "4ea314f1e7672f44a97a84ddfb1f1497547f1b6f",
+      "bytes": 3963,
+      "sha256": "cbe27a281153723f36cf0019486c4929b97a5dfda1b74a271eb62a2ef242ee5c"
+    }
+  ],
+  "modules": {
+    "tools/axial_road_collect.py": {
+      "sha256": "fa8d1c721230d9b6c452ffe27a929c9baad07087b59946fddc9710231feda8a6",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [
+        {
+          "line": 43,
+          "code": "subprocess.run(['git', 'show', base + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 41,
+          "code": "ROOT / name"
+        },
+        {
+          "line": 49,
+          "code": "ROOT / 'tools/Godot.app'"
+        },
+        {
+          "line": 69,
+          "code": "ROOT / p"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import shutil"
+        },
+        {
+          "line": 12,
+          "code": "import signal"
+        },
+        {
+          "line": 13,
+          "code": "import subprocess"
+        },
+        {
+          "line": 14,
+          "code": "import uuid"
+        },
+        {
+          "line": 15,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 16,
+          "code": "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        },
+        {
+          "line": 58,
+          "code": "import os"
+        }
+      ],
+      "fields": [
+        {
+          "line": 18,
+          "code": "SOURCES = ['scripts/presentation/ground_edge_masks.gd', 'scripts/presentation/village_terrain_canvas.gd', 'scripts/presentation/village_ground_layer.gd', 'scripts/presentation/village_region_terrain.gd', 'scripts/systems/village_terrain_renderer.gd', 'scripts/world_background.gd', 'assets/game/locations/overworld/axial_road_masks/main.res', 'assets/game/locations/overworld/axial_road_masks/connectors.res', 'scripts/systems/village_map_data.gd', 'scripts/systems/village_region_data.gd', 'scripts/systems/navigation_system.gd', 'scripts/systems/world_farming_system.gd', 'scripts/presentation/meadow_ground.gd', 'scripts/presentation/visual_reference_mode.gd', 'scripts/systems/world_projection_system.gd', 'tools/visual_camera_points.gd', 'tools/render_order_game.gd', 'tools/axial_road_capture.gd', 'tools/axial_road_board.gd', 'tools/axial_road_collect.py', 'tools/axial_road_compile.gd', 'tools/axial_road_builder.gd', 'tools/axial_road_field.gd', 'project.godot', 'main.tscn']"
+        },
+        {
+          "line": 28,
+          "code": "OVERLAY = set(SOURCES[:8] + [p for p in SOURCES if p.startswith('tools/axial_road_')] + ['project.godot'])"
+        }
+      ]
+    },
+    "tools/axial_road_verify.py": {
+      "sha256": "6707169a4b41d75a80894225ee78ec20074db0df59478c3712e1e7d7fea9e1c6",
+      "mode": 420,
+      "roots": [
+        {
+          "line": 20,
+          "code": "REPORT = ROOT / 'docs/reports/visual-overhaul/vground-004'"
+        }
+      ],
+      "git_calls": [
+        {
+          "line": 61,
+          "code": "subprocess.run(['git', 'show', source['base_commit'] + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        },
+        {
+          "line": 72,
+          "code": "subprocess.run(['git', 'ls-files', '--error-unmatch', '--', *names], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 20,
+          "code": "ROOT / 'docs/reports/visual-overhaul/vground-004'"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import json"
+        },
+        {
+          "line": 12,
+          "code": "import subprocess"
+        },
+        {
+          "line": 13,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 14,
+          "code": "from PIL import Image, ImageChops, ImageStat"
+        },
+        {
+          "line": 15,
+          "code": "from axial_road_collect import ROOT, SOURCES, OVERLAY"
+        },
+        {
+          "line": 16,
+          "code": "from tools.qa.world.render_order import require, validate_draws"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import sha, write"
+        },
+        {
+          "line": 18,
+          "code": "from ground_layers import cold_draws"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        }
+      ],
+      "fields": []
+    },
+    "tools/decoration_collect.py": {
+      "sha256": "ac124add85c88cf57313211a676fc9ebaee3186cf031f52309230c994b52587f",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [
+        {
+          "line": 88,
+          "code": "subprocess.run(['git', 'show', base + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 86,
+          "code": "ROOT / name"
+        },
+        {
+          "line": 94,
+          "code": "ROOT / 'tools/Godot.app'"
+        },
+        {
+          "line": 115,
+          "code": "ROOT / p"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import json"
+        },
+        {
+          "line": 12,
+          "code": "import shutil"
+        },
+        {
+          "line": 13,
+          "code": "import signal"
+        },
+        {
+          "line": 14,
+          "code": "import subprocess"
+        },
+        {
+          "line": 15,
+          "code": "import uuid"
+        },
+        {
+          "line": 16,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        },
+        {
+          "line": 103,
+          "code": "import os"
+        }
+      ],
+      "fields": [
+        {
+          "line": 19,
+          "code": "SOURCES = ['assets/game/farming/crops/atlases/annual_a.png', 'assets/game/locations/overworld/modular/bridge_modular_v1.png', 'assets/game/locations/overworld/modular/dirt_material_v1.png', 'assets/game/locations/overworld/modular/garden_loam_v1.png', 'assets/game/locations/overworld/modular/garden_loam_v1.png.import', 'assets/game/locations/overworld/modular/grass_painted_v2.png', 'assets/game/locations/overworld/modular/path_material_v1.png', 'assets/game/locations/overworld/modular/plaza_limestone_v1.png', 'assets/game/locations/overworld/modular/plaza_limestone_v1.png.import', 'assets/game/locations/overworld/modular/stone_material_v1.png', 'assets/game/locations/overworld/modular/water_material_v1.png', 'assets/game/locations/overworld/plaza_masks/apron.res', 'assets/game/locations/overworld/plaza_masks/contact.res', 'assets/game/locations/overworld/plaza_masks/stone.res', 'assets/game/locations/overworld/road_network_masks/connectors.res', 'assets/game/locations/overworld/road_network_masks/main.res', 'assets/game/tiles/editor/terrain/ground_farm_soil.png', 'main.tscn', 'project.godot', 'scripts/presentation/farm_renderer.gd', 'scripts/presentation/garden_soil.gd', 'scripts/presentation/ground_edge_masks.gd', 'scripts/presentation/meadow_ground.gd', 'scripts/presentation/plaza_ground.gd', 'scripts/presentation/village_decoration_rules.gd', 'scripts/presentation/village_ground_layer.gd', 'scripts/presentation/village_region_terrain.gd', 'scripts/presentation/village_terrain_canvas.gd', 'scripts/presentation/visual_reference_mode.gd', 'scripts/systems/apiary_data.gd', 'scripts/systems/building_system.gd', 'scripts/systems/cardinal_path_system.gd', 'scripts/systems/farm_visual_system.gd', 'scripts/systems/livestock_data.gd', 'scripts/systems/navigation_system.gd', 'scripts/systems/village_ambient_renderer.gd', 'scripts/systems/village_layout_system.gd', 'scripts/systems/village_map_data.gd', 'scripts/systems/village_region_data.gd', 'scripts/systems/village_terrain_renderer.gd', 'scripts/systems/water_layout_data.gd', 'scripts/systems/world_farming_system.gd', 'scripts/systems/world_projection_system.gd', 'scripts/world_background.gd', 'tests/suites/decoration_rules_suite.gd', 'tools/decoration_capture.gd', 'tools/decoration_collect.py', 'tools/decoration_overlay.gd', 'tools/decoration_review.gd', 'tools/ground_edge_field.gd', 'tools/render_order_game.gd', 'tools/visual_camera_points.gd']"
+        },
+        {
+          "line": 71,
+          "code": "OVERLAY = {'scripts/presentation/village_decoration_rules.gd', 'scripts/world_background.gd', 'project.godot', 'tools/decoration_capture.gd', 'tools/decoration_overlay.gd', 'tools/decoration_collect.py', 'tests/suites/decoration_rules_suite.gd', 'tools/decoration_review.gd'}"
+        }
+      ]
+    },
+    "tools/decoration_verify.py": {
+      "sha256": "1f19ae7fe0377372c800988d60bea589270ef667e7aaa4cfc97003162ac5c885",
+      "mode": 420,
+      "roots": [
+        {
+          "line": 20,
+          "code": "REPORT = ROOT / 'docs/reports/visual-overhaul/vground-008'"
+        }
+      ],
+      "git_calls": [
+        {
+          "line": 115,
+          "code": "subprocess.run(['git', 'show', source['base_commit'] + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        },
+        {
+          "line": 126,
+          "code": "subprocess.run(['git', 'ls-files', '--error-unmatch', '--', *names], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 20,
+          "code": "ROOT / 'docs/reports/visual-overhaul/vground-008'"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import json"
+        },
+        {
+          "line": 12,
+          "code": "import math"
+        },
+        {
+          "line": 13,
+          "code": "import subprocess"
+        },
+        {
+          "line": 14,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 15,
+          "code": "from PIL import Image, ImageChops, ImageDraw"
+        },
+        {
+          "line": 16,
+          "code": "from decoration_collect import ROOT, SOURCES, OVERLAY"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import sha, write"
+        },
+        {
+          "line": 18,
+          "code": "from tools.qa.world.render_order import require, validate_draws"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        }
+      ],
+      "fields": []
+    },
+    "tools/garden_collect.py": {
+      "sha256": "de30fae1f9c6de7fcbb14e2e11252faf36e7481249ca82f599f225dda6c67cff",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [
+        {
+          "line": 44,
+          "code": "subprocess.run(['git', 'show', base + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 42,
+          "code": "ROOT / name"
+        },
+        {
+          "line": 50,
+          "code": "ROOT / 'tools/Godot.app'"
+        },
+        {
+          "line": 70,
+          "code": "ROOT / p"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import json"
+        },
+        {
+          "line": 12,
+          "code": "import shutil"
+        },
+        {
+          "line": 13,
+          "code": "import signal"
+        },
+        {
+          "line": 14,
+          "code": "import subprocess"
+        },
+        {
+          "line": 15,
+          "code": "import uuid"
+        },
+        {
+          "line": 16,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write"
+        },
+        {
+          "line": 19,
+          "code": "from plaza_collect import SOURCES as PLAZA_SOURCES"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        },
+        {
+          "line": 59,
+          "code": "import os"
+        }
+      ],
+      "fields": [
+        {
+          "line": 20,
+          "code": "SOURCES = [p for p in PLAZA_SOURCES if not p.startswith('tools/plaza_')]"
+        },
+        {
+          "line": 25,
+          "code": "OVERLAY = {'scripts/presentation/garden_soil.gd', 'scripts/presentation/farm_renderer.gd', 'scripts/presentation/village_terrain_canvas.gd', 'scripts/systems/village_terrain_renderer.gd', 'scripts/world_background.gd', 'project.godot', 'assets/game/locations/overworld/modular/garden_loam_v1.png', 'assets/game/locations/overworld/modular/garden_loam_v1.png.import', 'tools/garden_capture.gd', 'tools/garden_board.gd', 'tools/garden_collect.py', 'tools/garden_import.gd'}"
+        }
+      ]
+    },
+    "tools/garden_verify.py": {
+      "sha256": "0903a697c212e7edbb9ded470d5143710381880533265b586ea9d4f2e09f786b",
+      "mode": 420,
+      "roots": [
+        {
+          "line": 20,
+          "code": "REPORT = ROOT / 'docs/reports/visual-overhaul/vground-007'"
+        }
+      ],
+      "git_calls": [
+        {
+          "line": 69,
+          "code": "subprocess.run(['git', 'show', source['base_commit'] + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        },
+        {
+          "line": 80,
+          "code": "subprocess.run(['git', 'ls-files', '--error-unmatch', '--', *names], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 20,
+          "code": "ROOT / 'docs/reports/visual-overhaul/vground-007'"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import json"
+        },
+        {
+          "line": 12,
+          "code": "import subprocess"
+        },
+        {
+          "line": 13,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 14,
+          "code": "from PIL import Image, ImageChops, ImageStat"
+        },
+        {
+          "line": 15,
+          "code": "from garden_collect import ROOT, SOURCES, OVERLAY"
+        },
+        {
+          "line": 16,
+          "code": "from tools.qa.world.render_order import require, validate_draws"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import sha, write"
+        },
+        {
+          "line": 18,
+          "code": "from ground_layers import cold_draws"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        }
+      ],
+      "fields": []
+    },
+    "tools/ground_edge_collect.py": {
+      "sha256": "3b3e4d598e3f2695c82a938d75b5b5a968365db84802acf0098c4572adfdc264",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [
+        {
+          "line": 43,
+          "code": "subprocess.run(['git', 'show', base + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 41,
+          "code": "ROOT / name"
+        },
+        {
+          "line": 49,
+          "code": "ROOT / 'tools/Godot.app'"
+        },
+        {
+          "line": 69,
+          "code": "ROOT / p"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import shutil"
+        },
+        {
+          "line": 12,
+          "code": "import signal"
+        },
+        {
+          "line": 13,
+          "code": "import subprocess"
+        },
+        {
+          "line": 14,
+          "code": "import uuid"
+        },
+        {
+          "line": 15,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 16,
+          "code": "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        },
+        {
+          "line": 58,
+          "code": "import os"
+        }
+      ],
+      "fields": [
+        {
+          "line": 18,
+          "code": "SOURCES = ['scripts/presentation/ground_edge_masks.gd', 'scripts/presentation/village_terrain_canvas.gd', 'scripts/presentation/village_ground_layer.gd', 'scripts/presentation/village_region_terrain.gd', 'scripts/systems/village_terrain_renderer.gd', 'scripts/world_background.gd', 'assets/game/locations/overworld/ground_masks/main.res', 'assets/game/locations/overworld/ground_masks/connectors.res', 'scripts/systems/village_map_data.gd', 'scripts/systems/village_region_data.gd', 'scripts/systems/navigation_system.gd', 'scripts/systems/world_farming_system.gd', 'scripts/presentation/meadow_ground.gd', 'scripts/presentation/visual_reference_mode.gd', 'scripts/systems/world_projection_system.gd', 'tools/visual_camera_points.gd', 'tools/render_order_game.gd', 'tools/ground_edge_capture.gd', 'tools/ground_edge_board.gd', 'tools/ground_edge_collect.py', 'tools/ground_edge_compile.gd', 'tools/ground_edge_builder.gd', 'tools/ground_edge_field.gd', 'project.godot', 'main.tscn']"
+        },
+        {
+          "line": 28,
+          "code": "OVERLAY = set(SOURCES[:8] + [p for p in SOURCES if p.startswith('tools/ground_edge_')] + ['project.godot'])"
+        }
+      ]
+    },
+    "tools/ground_edge_verify.py": {
+      "sha256": "0e2356a2d82297e3ecb5ff470dd381f1b2b6f34f1d913afe22f0de9df63fb66a",
+      "mode": 420,
+      "roots": [
+        {
+          "line": 20,
+          "code": "REPORT = ROOT / 'docs/reports/visual-overhaul/vground-003'"
+        }
+      ],
+      "git_calls": [
+        {
+          "line": 61,
+          "code": "subprocess.run(['git', 'show', source['base_commit'] + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        },
+        {
+          "line": 72,
+          "code": "subprocess.run(['git', 'ls-files', '--error-unmatch', '--', *names], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 20,
+          "code": "ROOT / 'docs/reports/visual-overhaul/vground-003'"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import json"
+        },
+        {
+          "line": 12,
+          "code": "import subprocess"
+        },
+        {
+          "line": 13,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 14,
+          "code": "from PIL import Image, ImageChops, ImageStat"
+        },
+        {
+          "line": 15,
+          "code": "from ground_edge_collect import ROOT, SOURCES, OVERLAY"
+        },
+        {
+          "line": 16,
+          "code": "from tools.qa.world.render_order import require, validate_draws"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import sha, write"
+        },
+        {
+          "line": 18,
+          "code": "from ground_layers import cold_draws"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        }
+      ],
+      "fields": []
+    },
+    "tools/ground_layers.py": {
+      "sha256": "48b42c5ed5a9be0fbd9a9fe800a087ed9ae5fcdd752c0b3789d0fd4cc429e3ba",
+      "mode": 420,
+      "roots": [
+        {
+          "line": 28,
+          "code": "REPORT = ROOT / 'docs/reports/visual-overhaul/vrender-003'"
+        }
+      ],
+      "git_calls": [
+        {
+          "line": 49,
+          "code": "subprocess.check_output(['git', '--no-replace-objects', 'show', commit + ':' + physical], cwd=ROOT, env=git_environment())",
+          "clean_env": true
+        },
+        {
+          "line": 110,
+          "code": "subprocess.run(['git', 'ls-files', '--error-unmatch', '--', *paths], cwd=ROOT, capture_output=True, env=git_environment())",
+          "clean_env": true
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 28,
+          "code": "ROOT / 'docs/reports/visual-overhaul/vrender-003'"
+        },
+        {
+          "line": 67,
+          "code": "ROOT / 'tools/Godot.app'"
+        }
+      ],
+      "imports": [
+        {
+          "line": 3,
+          "code": "from __future__ import annotations"
+        },
+        {
+          "line": 9,
+          "code": "import argparse"
+        },
+        {
+          "line": 10,
+          "code": "import gzip"
+        },
+        {
+          "line": 11,
+          "code": "import hashlib"
+        },
+        {
+          "line": 12,
+          "code": "import io"
+        },
+        {
+          "line": 13,
+          "code": "import json"
+        },
+        {
+          "line": 14,
+          "code": "import os"
+        },
+        {
+          "line": 15,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 16,
+          "code": "import shutil"
+        },
+        {
+          "line": 17,
+          "code": "import signal"
+        },
+        {
+          "line": 18,
+          "code": "import subprocess"
+        },
+        {
+          "line": 19,
+          "code": "import uuid"
+        },
+        {
+          "line": 20,
+          "code": "from PIL import Image, ImageChops"
+        },
+        {
+          "line": 21,
+          "code": "from tools.common.git import git_environment"
+        },
+        {
+          "line": 22,
+          "code": "from tools.qa.performance.source_history import LEGACY_HELPER, historical_helper"
+        },
+        {
+          "line": 23,
+          "code": "from tools.assets.contracts.source_paths import current_source"
+        },
+        {
+          "line": 24,
+          "code": "from tools.qa.performance.perf_contract_collect import ROOT, context, jobs, command, sha, write, native_pid"
+        },
+        {
+          "line": 25,
+          "code": "from grass_methods import require, image_difference"
+        },
+        {
+          "line": 26,
+          "code": "from tools.qa.world.render_order import validate_draws"
+        },
+        {
+          "line": 5,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 6,
+          "code": "from common.paths import project_root"
+        }
+      ],
+      "fields": [
+        {
+          "line": 29,
+          "code": "OVERLAY = ['scripts/world_background.gd', 'scripts/presentation/village_terrain_canvas.gd', 'scripts/presentation/village_ground_layer.gd', 'scripts/presentation/village_ground_clock.gd', 'scripts/systems/village_terrain_renderer.gd', 'scripts/systems/village_ambient_renderer.gd', 'scripts/systems/water_visual_system.gd', 'scripts/core/game_loop.gd', 'scripts/presentation/terrain_cutout.gdshader', 'project.godot']"
+        },
+        {
+          "line": 32,
+          "code": "SOURCES = OVERLAY + ['main.tscn', 'scripts/game_core.gd', 'scripts/systems/world_projection_system.gd', 'scripts/presentation/visual_reference_mode.gd', 'tools/visual_camera_points.gd', 'tools/render_order_game.gd', 'tools/ground_layers_capture.gd', 'tools/ground_layers_review.gd', 'tools/ground_layers.py', 'tools/perf_contract_collect.py', 'tests/suites/ground_layers_suite.gd']"
+        },
+        {
+          "line": 38,
+          "code": "EXTRA = ['cold-reference', 'direct-fallback', 'direct-return', 'water-white', 'water-tinted', 'live-zero', 'live-five', 'live-paused', 'live-resumed']"
+        }
+      ]
+    },
+    "tools/ground_seasons_collect.py": {
+      "sha256": "3b9733ec4e929bc50ae6ee57eb44e52cec67eecfaa195d5b72926154709c9c10",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [
+        {
+          "line": 101,
+          "code": "subprocess.run(['git', 'show', base + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 99,
+          "code": "ROOT / name"
+        },
+        {
+          "line": 107,
+          "code": "ROOT / 'tools/Godot.app'"
+        },
+        {
+          "line": 128,
+          "code": "ROOT / p"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import json"
+        },
+        {
+          "line": 12,
+          "code": "import shutil"
+        },
+        {
+          "line": 13,
+          "code": "import signal"
+        },
+        {
+          "line": 14,
+          "code": "import subprocess"
+        },
+        {
+          "line": 15,
+          "code": "import uuid"
+        },
+        {
+          "line": 16,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        },
+        {
+          "line": 116,
+          "code": "import os"
+        }
+      ],
+      "fields": [
+        {
+          "line": 19,
+          "code": "SOURCES = ['assets/game/farming/crops/atlases/annual_a.png', 'assets/game/locations/overworld/axial_road_masks/connectors.res', 'assets/game/locations/overworld/axial_road_masks/main.res', 'assets/game/locations/overworld/ground_masks/connectors.res', 'assets/game/locations/overworld/ground_masks/main.res', 'assets/game/locations/overworld/modular/bridge_modular_v1.png', 'assets/game/locations/overworld/modular/dirt_material_v1.png', 'assets/game/locations/overworld/modular/garden_loam_v1.png', 'assets/game/locations/overworld/modular/garden_loam_v1.png.import', 'assets/game/locations/overworld/modular/grass_painted_v2.png', 'assets/game/locations/overworld/modular/path_material_v1.png', 'assets/game/locations/overworld/modular/plaza_limestone_v1.png', 'assets/game/locations/overworld/modular/plaza_limestone_v1.png.import', 'assets/game/locations/overworld/modular/stone_material_v1.png', 'assets/game/locations/overworld/modular/water_material_v1.png', 'assets/game/locations/overworld/plaza_masks/apron.res', 'assets/game/locations/overworld/plaza_masks/contact.res', 'assets/game/locations/overworld/plaza_masks/stone.res', 'assets/game/locations/overworld/road_network_masks/connectors.res', 'assets/game/locations/overworld/road_network_masks/main.res', 'assets/game/tiles/editor/terrain/ground_farm_soil.png', 'main.tscn', 'project.godot', 'scripts/game_core.gd', 'scripts/presentation/farm_renderer.gd', 'scripts/presentation/garden_soil.gd', 'scripts/presentation/ground_edge_masks.gd', 'scripts/presentation/meadow_ground.gd', 'scripts/presentation/plaza_ground.gd', 'scripts/presentation/terrain_cutout.gdshader', 'scripts/presentation/terrain_local_revision.gd', 'scripts/presentation/terrain_region_clear.gd', 'scripts/presentation/village_decoration_rules.gd', 'scripts/presentation/village_ground_layer.gd', 'scripts/presentation/village_region_terrain.gd', 'scripts/presentation/village_terrain_canvas.gd', 'scripts/presentation/visual_reference_mode.gd', 'scripts/systems/apiary_data.gd', 'scripts/systems/building_system.gd', 'scripts/systems/cardinal_path_system.gd', 'scripts/systems/farm_visual_system.gd', 'scripts/systems/livestock_data.gd', 'scripts/systems/navigation_system.gd', 'scripts/systems/village_ambient_renderer.gd', 'scripts/systems/village_layout_system.gd', 'scripts/systems/village_map_data.gd', 'scripts/systems/village_region_data.gd', 'scripts/systems/village_terrain_renderer.gd', 'scripts/systems/water_layout_data.gd', 'scripts/systems/world_event_system.gd', 'scripts/systems/world_farming_system.gd', 'scripts/systems/world_projection_system.gd', 'scripts/world_background.gd', 'tests/suites/axial_road_suite.gd', 'tests/suites/ground_seasons_suite.gd', 'tools/ground_edge_field.gd', 'tools/ground_seasons_capture.gd', 'tools/ground_seasons_collect.py', 'tools/ground_seasons_fixture.gd', 'tools/ground_seasons_review.gd', 'tools/render_order_game.gd', 'tools/visual_camera_points.gd']"
+        },
+        {
+          "line": 81,
+          "code": "OVERLAY = {'project.godot', 'tests/suites/ground_seasons_suite.gd', 'tools/ground_seasons_capture.gd', 'tools/ground_seasons_collect.py', 'tools/ground_seasons_fixture.gd', 'tools/ground_seasons_review.gd'}"
+        }
+      ]
+    },
+    "tools/ground_seasons_verify.py": {
+      "sha256": "ad2b20846e1387b624e06d21b811b379f8d9726f6608d2f39fba353458f7f2bb",
+      "mode": 420,
+      "roots": [
+        {
+          "line": 20,
+          "code": "REPORT = ROOT / 'docs/reports/visual-overhaul/vground-010'"
+        }
+      ],
+      "git_calls": [
+        {
+          "line": 38,
+          "code": "subprocess.run(['git', 'show', source['base_commit'] + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        },
+        {
+          "line": 48,
+          "code": "subprocess.run(['git', 'ls-files', '--error-unmatch', '--', *names], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 20,
+          "code": "ROOT / 'docs/reports/visual-overhaul/vground-010'"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import copy"
+        },
+        {
+          "line": 10,
+          "code": "import gzip"
+        },
+        {
+          "line": 11,
+          "code": "import hashlib"
+        },
+        {
+          "line": 12,
+          "code": "import json"
+        },
+        {
+          "line": 13,
+          "code": "import subprocess"
+        },
+        {
+          "line": 14,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 15,
+          "code": "from PIL import Image, ImageChops, ImageStat"
+        },
+        {
+          "line": 16,
+          "code": "from ground_seasons_collect import ROOT, SOURCES, OVERLAY"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import sha, write"
+        },
+        {
+          "line": 18,
+          "code": "from tools.qa.world.render_order import require, validate_draws"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        }
+      ],
+      "fields": []
+    },
+    "tools/meadow_collect.py": {
+      "sha256": "ed267a924dbe9f88eadaba46dcd1318bba7129277accba5613e99cb6fa824374",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [
+        {
+          "line": 42,
+          "code": "subprocess.run(['git', 'show', base + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 40,
+          "code": "ROOT / name"
+        },
+        {
+          "line": 48,
+          "code": "ROOT / 'tools/Godot.app'"
+        },
+        {
+          "line": 68,
+          "code": "ROOT / p"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import shutil"
+        },
+        {
+          "line": 12,
+          "code": "import signal"
+        },
+        {
+          "line": 13,
+          "code": "import subprocess"
+        },
+        {
+          "line": 14,
+          "code": "import uuid"
+        },
+        {
+          "line": 15,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 16,
+          "code": "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        },
+        {
+          "line": 57,
+          "code": "import os"
+        }
+      ],
+      "fields": [
+        {
+          "line": 18,
+          "code": "SOURCES = ['scripts/presentation/meadow_ground.gd', 'scripts/presentation/village_terrain_canvas.gd', 'scripts/systems/village_terrain_renderer.gd', 'scripts/world_background.gd', 'assets/game/locations/overworld/modular/grass_painted_v2.png', 'assets/game/locations/overworld/modular/grass_painted_v2.png.import', 'scripts/systems/village_map_data.gd', 'scripts/systems/navigation_system.gd', 'scripts/systems/world_farming_system.gd', 'scripts/presentation/visual_reference_mode.gd', 'scripts/systems/world_projection_system.gd', 'tools/visual_camera_points.gd', 'tools/render_order_game.gd', 'tools/meadow_capture.gd', 'tools/meadow_board.gd', 'tools/meadow_collect.py', 'tools/meadow_import.gd', 'project.godot', 'main.tscn']"
+        },
+        {
+          "line": 26,
+          "code": "OVERLAY = set(SOURCES[:6] + ['tools/meadow_capture.gd', 'tools/meadow_board.gd', 'tools/meadow_collect.py', 'tools/meadow_import.gd', 'project.godot'])"
+        }
+      ]
+    },
+    "tools/meadow_verify.py": {
+      "sha256": "eaff4dd059545b990fe6186516dca17e35b3aceb0fc0e1f65343e731a464e84e",
+      "mode": 420,
+      "roots": [
+        {
+          "line": 20,
+          "code": "REPORT = ROOT / 'docs/reports/visual-overhaul/vground-001'"
+        }
+      ],
+      "git_calls": [
+        {
+          "line": 61,
+          "code": "subprocess.run(['git', 'show', source['base_commit'] + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        },
+        {
+          "line": 72,
+          "code": "subprocess.run(['git', 'ls-files', '--error-unmatch', '--', *names], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 20,
+          "code": "ROOT / 'docs/reports/visual-overhaul/vground-001'"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import json"
+        },
+        {
+          "line": 12,
+          "code": "import subprocess"
+        },
+        {
+          "line": 13,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 14,
+          "code": "from PIL import Image, ImageChops, ImageStat"
+        },
+        {
+          "line": 15,
+          "code": "from meadow_collect import ROOT, SOURCES, OVERLAY"
+        },
+        {
+          "line": 16,
+          "code": "from tools.qa.world.render_order import require, validate_draws"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import sha, write"
+        },
+        {
+          "line": 18,
+          "code": "from ground_layers import cold_draws"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        }
+      ],
+      "fields": []
+    },
+    "tools/plaza_collect.py": {
+      "sha256": "62db9860366419ee02d5fe7daab5ad31f517e15ffc78b0a3021add8df4316230",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [
+        {
+          "line": 44,
+          "code": "subprocess.run(['git', 'show', base + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 42,
+          "code": "ROOT / name"
+        },
+        {
+          "line": 50,
+          "code": "ROOT / 'tools/Godot.app'"
+        },
+        {
+          "line": 70,
+          "code": "ROOT / p"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import json"
+        },
+        {
+          "line": 12,
+          "code": "import shutil"
+        },
+        {
+          "line": 13,
+          "code": "import signal"
+        },
+        {
+          "line": 14,
+          "code": "import subprocess"
+        },
+        {
+          "line": 15,
+          "code": "import uuid"
+        },
+        {
+          "line": 16,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        },
+        {
+          "line": 59,
+          "code": "import os"
+        }
+      ],
+      "fields": [
+        {
+          "line": 19,
+          "code": "SOURCES = ['scripts/presentation/plaza_ground.gd', 'scripts/presentation/village_terrain_canvas.gd', 'scripts/systems/village_terrain_renderer.gd', 'scripts/world_background.gd', 'assets/game/locations/overworld/modular/plaza_limestone_v1.png', 'assets/game/locations/overworld/modular/plaza_limestone_v1.png.import', 'assets/game/locations/overworld/plaza_masks/apron.res', 'assets/game/locations/overworld/plaza_masks/contact.res', 'assets/game/locations/overworld/plaza_masks/stone.res', 'tools/plaza_capture.gd', 'tools/plaza_board.gd', 'tools/plaza_collect.py', 'tools/plaza_compile.gd', 'tools/plaza_builder.gd', 'tools/plaza_field.gd', 'tools/plaza_import.gd', 'scripts/presentation/ground_edge_masks.gd', 'scripts/presentation/village_ground_layer.gd', 'scripts/presentation/village_region_terrain.gd', 'scripts/presentation/meadow_ground.gd', 'scripts/systems/village_map_data.gd', 'scripts/systems/village_region_data.gd', 'scripts/systems/cardinal_path_system.gd', 'scripts/systems/navigation_system.gd', 'scripts/systems/world_farming_system.gd', 'scripts/presentation/visual_reference_mode.gd', 'scripts/systems/world_projection_system.gd', 'tools/visual_camera_points.gd', 'tools/render_order_game.gd', 'tools/ground_edge_field.gd', 'project.godot', 'main.tscn']"
+        },
+        {
+          "line": 29,
+          "code": "OVERLAY = set(SOURCES[:16] + ['project.godot'])"
+        }
+      ]
+    },
+    "tools/plaza_verify.py": {
+      "sha256": "2a930b5cae9cf04bfd808f186c9fb7e042c7391362643c382b411798401267ce",
+      "mode": 420,
+      "roots": [
+        {
+          "line": 20,
+          "code": "REPORT = ROOT / 'docs/reports/visual-overhaul/vground-006'"
+        }
+      ],
+      "git_calls": [
+        {
+          "line": 68,
+          "code": "subprocess.run(['git', 'show', source['base_commit'] + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        },
+        {
+          "line": 79,
+          "code": "subprocess.run(['git', 'ls-files', '--error-unmatch', '--', *names], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 20,
+          "code": "ROOT / 'docs/reports/visual-overhaul/vground-006'"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import json"
+        },
+        {
+          "line": 12,
+          "code": "import subprocess"
+        },
+        {
+          "line": 13,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 14,
+          "code": "from PIL import Image, ImageChops, ImageStat"
+        },
+        {
+          "line": 15,
+          "code": "from plaza_collect import ROOT, SOURCES, OVERLAY"
+        },
+        {
+          "line": 16,
+          "code": "from tools.qa.world.render_order import require, validate_draws"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import sha, write"
+        },
+        {
+          "line": 18,
+          "code": "from ground_layers import cold_draws"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        }
+      ],
+      "fields": []
+    },
+    "tools/road_network_collect.py": {
+      "sha256": "441b53491e39282686a51a2dc7953f30aca033d69d05fc7f46a25c5df12cca23",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [
+        {
+          "line": 45,
+          "code": "subprocess.run(['git', 'show', base + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 43,
+          "code": "ROOT / name"
+        },
+        {
+          "line": 51,
+          "code": "ROOT / 'tools/Godot.app'"
+        },
+        {
+          "line": 71,
+          "code": "ROOT / p"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import shutil"
+        },
+        {
+          "line": 12,
+          "code": "import signal"
+        },
+        {
+          "line": 13,
+          "code": "import subprocess"
+        },
+        {
+          "line": 14,
+          "code": "import uuid"
+        },
+        {
+          "line": 15,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 16,
+          "code": "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        },
+        {
+          "line": 60,
+          "code": "import os"
+        }
+      ],
+      "fields": [
+        {
+          "line": 18,
+          "code": "SOURCES = ['scripts/presentation/ground_edge_masks.gd', 'scripts/presentation/village_terrain_canvas.gd', 'scripts/presentation/village_ground_layer.gd', 'scripts/presentation/village_region_terrain.gd', 'scripts/systems/village_terrain_renderer.gd', 'scripts/world_background.gd', 'assets/game/locations/overworld/axial_road_masks/main.res', 'assets/game/locations/overworld/axial_road_masks/connectors.res', 'scripts/systems/village_map_data.gd', 'scripts/systems/village_region_data.gd', 'scripts/systems/navigation_system.gd', 'scripts/systems/world_farming_system.gd', 'scripts/presentation/meadow_ground.gd', 'scripts/presentation/visual_reference_mode.gd', 'scripts/systems/world_projection_system.gd', 'tools/visual_camera_points.gd', 'tools/render_order_game.gd', 'tools/road_network_capture.gd', 'tools/road_network_board.gd', 'tools/road_network_collect.py', 'tools/axial_road_compile.gd', 'tools/axial_road_builder.gd', 'tools/axial_road_field.gd', 'project.godot', 'main.tscn']"
+        },
+        {
+          "line": 32,
+          "code": "OVERLAY = set(SOURCES[:6] + [p for p in SOURCES if p.startswith('tools/road_network') or '/road_network_masks/' in p] + ['project.godot'])"
+        }
+      ]
+    },
+    "tools/road_network_verify.py": {
+      "sha256": "4b5c5031d4a8263e9811c3db64ef0c5636bf9939a675cc81d3ba4c270ff2fa02",
+      "mode": 420,
+      "roots": [
+        {
+          "line": 20,
+          "code": "REPORT = ROOT / 'docs/reports/visual-overhaul/vground-005'"
+        }
+      ],
+      "git_calls": [
+        {
+          "line": 61,
+          "code": "subprocess.run(['git', 'show', source['base_commit'] + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        },
+        {
+          "line": 72,
+          "code": "subprocess.run(['git', 'ls-files', '--error-unmatch', '--', *names], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 20,
+          "code": "ROOT / 'docs/reports/visual-overhaul/vground-005'"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import json"
+        },
+        {
+          "line": 12,
+          "code": "import subprocess"
+        },
+        {
+          "line": 13,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 14,
+          "code": "from PIL import Image, ImageChops, ImageStat"
+        },
+        {
+          "line": 15,
+          "code": "from road_network_collect import ROOT, SOURCES, OVERLAY"
+        },
+        {
+          "line": 16,
+          "code": "from tools.qa.world.render_order import require, validate_draws"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import sha, write"
+        },
+        {
+          "line": 18,
+          "code": "from ground_layers import cold_draws"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        }
+      ],
+      "fields": []
+    },
+    "tools/terrain_revision_collect.py": {
+      "sha256": "1866f34273e4a671c535542f98945514bb425b2d2ecd60bfc42fc8bd01191685",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [
+        {
+          "line": 95,
+          "code": "subprocess.run(['git', 'show', base + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 93,
+          "code": "ROOT / name"
+        },
+        {
+          "line": 101,
+          "code": "ROOT / 'tools/Godot.app'"
+        },
+        {
+          "line": 122,
+          "code": "ROOT / p"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import gzip"
+        },
+        {
+          "line": 10,
+          "code": "import hashlib"
+        },
+        {
+          "line": 11,
+          "code": "import json"
+        },
+        {
+          "line": 12,
+          "code": "import shutil"
+        },
+        {
+          "line": 13,
+          "code": "import signal"
+        },
+        {
+          "line": 14,
+          "code": "import subprocess"
+        },
+        {
+          "line": 15,
+          "code": "import uuid"
+        },
+        {
+          "line": 16,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        },
+        {
+          "line": 110,
+          "code": "import os"
+        }
+      ],
+      "fields": [
+        {
+          "line": 19,
+          "code": "SOURCES = ['assets/game/farming/crops/atlases/annual_a.png', 'assets/game/locations/overworld/modular/bridge_modular_v1.png', 'assets/game/locations/overworld/modular/dirt_material_v1.png', 'assets/game/locations/overworld/modular/garden_loam_v1.png', 'assets/game/locations/overworld/modular/garden_loam_v1.png.import', 'assets/game/locations/overworld/modular/grass_painted_v2.png', 'assets/game/locations/overworld/modular/path_material_v1.png', 'assets/game/locations/overworld/modular/plaza_limestone_v1.png', 'assets/game/locations/overworld/modular/plaza_limestone_v1.png.import', 'assets/game/locations/overworld/modular/stone_material_v1.png', 'assets/game/locations/overworld/modular/water_material_v1.png', 'assets/game/locations/overworld/plaza_masks/apron.res', 'assets/game/locations/overworld/plaza_masks/contact.res', 'assets/game/locations/overworld/plaza_masks/stone.res', 'assets/game/locations/overworld/road_network_masks/connectors.res', 'assets/game/locations/overworld/road_network_masks/main.res', 'assets/game/tiles/editor/terrain/ground_farm_soil.png', 'main.tscn', 'project.godot', 'scripts/presentation/farm_renderer.gd', 'scripts/presentation/garden_soil.gd', 'scripts/presentation/ground_edge_masks.gd', 'scripts/presentation/meadow_ground.gd', 'scripts/presentation/plaza_ground.gd', 'scripts/presentation/terrain_cutout.gdshader', 'scripts/presentation/terrain_local_revision.gd', 'scripts/presentation/terrain_region_clear.gd', 'scripts/presentation/village_decoration_rules.gd', 'scripts/presentation/village_ground_layer.gd', 'scripts/presentation/village_region_terrain.gd', 'scripts/presentation/village_terrain_canvas.gd', 'scripts/presentation/visual_reference_mode.gd', 'scripts/systems/apiary_data.gd', 'scripts/systems/building_system.gd', 'scripts/systems/cardinal_path_system.gd', 'scripts/systems/farm_visual_system.gd', 'scripts/systems/livestock_data.gd', 'scripts/systems/navigation_system.gd', 'scripts/systems/village_ambient_renderer.gd', 'scripts/systems/village_layout_system.gd', 'scripts/systems/village_map_data.gd', 'scripts/systems/village_region_data.gd', 'scripts/systems/village_terrain_renderer.gd', 'scripts/systems/water_layout_data.gd', 'scripts/systems/world_farming_system.gd', 'scripts/systems/world_projection_system.gd', 'scripts/world_background.gd', 'tests/suites/terrain_revision_suite.gd', 'tools/ground_edge_field.gd', 'tools/render_order_game.gd', 'tools/terrain_revision_capture.gd', 'tools/terrain_revision_collect.py', 'tools/terrain_revision_review.gd', 'tools/visual_camera_points.gd']"
+        },
+        {
+          "line": 73,
+          "code": "OVERLAY = {'project.godot', 'scripts/presentation/terrain_local_revision.gd', 'scripts/presentation/terrain_region_clear.gd', 'scripts/world_background.gd', 'tests/suites/terrain_revision_suite.gd', 'tools/terrain_revision_capture.gd', 'tools/terrain_revision_collect.py', 'tools/terrain_revision_review.gd'}"
+        }
+      ]
+    },
+    "tools/terrain_revision_verify.py": {
+      "sha256": "27e9cb03377a889c1e5e35db97eef404e8e6e7fdb9d46c6216c11d18ad17d332",
+      "mode": 420,
+      "roots": [
+        {
+          "line": 21,
+          "code": "REPORT = ROOT / 'docs/reports/visual-overhaul/vground-009'"
+        }
+      ],
+      "git_calls": [
+        {
+          "line": 130,
+          "code": "subprocess.check_output(['git', 'show', base + ':' + relative], cwd=ROOT)",
+          "clean_env": false
+        },
+        {
+          "line": 90,
+          "code": "subprocess.run(['git', 'show', source['base_commit'] + ':' + name], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        },
+        {
+          "line": 100,
+          "code": "subprocess.run(['git', 'ls-files', '--error-unmatch', '--', *names], cwd=ROOT, capture_output=True)",
+          "clean_env": false
+        }
+      ],
+      "ROOT_reads": [
+        {
+          "line": 21,
+          "code": "ROOT / 'docs/reports/visual-overhaul/vground-009'"
+        },
+        {
+          "line": 130,
+          "code": "ROOT / relative"
+        }
+      ],
+      "imports": [
+        {
+          "line": 8,
+          "code": "import argparse"
+        },
+        {
+          "line": 9,
+          "code": "import copy"
+        },
+        {
+          "line": 10,
+          "code": "import gzip"
+        },
+        {
+          "line": 11,
+          "code": "import hashlib"
+        },
+        {
+          "line": 12,
+          "code": "import json"
+        },
+        {
+          "line": 13,
+          "code": "import subprocess"
+        },
+        {
+          "line": 14,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 15,
+          "code": "from PIL import Image, ImageChops, ImageDraw"
+        },
+        {
+          "line": 16,
+          "code": "from terrain_revision_collect import ROOT, SOURCES, OVERLAY"
+        },
+        {
+          "line": 17,
+          "code": "from tools.qa.performance.perf_contract_collect import sha, write"
+        },
+        {
+          "line": 18,
+          "code": "from tools.qa.world.render_order import require, validate_draws"
+        },
+        {
+          "line": 19,
+          "code": "from ground_layers import cold_draws"
+        },
+        {
+          "line": 4,
+          "code": "from common.launch import prepare_imports"
+        },
+        {
+          "line": 5,
+          "code": "from common.paths import project_root"
+        }
+      ],
+      "fields": []
+    },
+    "tools/test_axial_road.py": {
+      "sha256": "d3953637c34f54d30d57a412aad6a4bf669af66095f79c32d2e5739943e479b5",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [],
+      "ROOT_reads": [],
+      "imports": [
+        {
+          "line": 3,
+          "code": "import copy"
+        },
+        {
+          "line": 4,
+          "code": "import unittest"
+        },
+        {
+          "line": 5,
+          "code": "from axial_road_verify import PAIRS, metadata, retained, profile, flat_end_profile"
+        }
+      ],
+      "fields": []
+    },
+    "tools/test_decoration_rules.py": {
+      "sha256": "65f7c7bd822366dbaf7a53db4933767282a414f2873dbf2c58cf80250a594559",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [],
+      "ROOT_reads": [],
+      "imports": [
+        {
+          "line": 3,
+          "code": "import copy"
+        },
+        {
+          "line": 4,
+          "code": "import shutil"
+        },
+        {
+          "line": 5,
+          "code": "import tempfile"
+        },
+        {
+          "line": 6,
+          "code": "import unittest"
+        },
+        {
+          "line": 7,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 8,
+          "code": "from PIL import Image"
+        },
+        {
+          "line": 9,
+          "code": "from decoration_verify import REPORT, load, metadata, policy, images, water_overlap, provenance"
+        }
+      ],
+      "fields": []
+    },
+    "tools/test_garden_soil.py": {
+      "sha256": "fd3c8aeab866dfccd2c4b58cc626b5b6b5f56b7873510f4331edbcea18853234",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [],
+      "ROOT_reads": [],
+      "imports": [
+        {
+          "line": 3,
+          "code": "import copy"
+        },
+        {
+          "line": 4,
+          "code": "import tempfile"
+        },
+        {
+          "line": 5,
+          "code": "import unittest"
+        },
+        {
+          "line": 6,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 7,
+          "code": "from PIL import Image, ImageDraw"
+        },
+        {
+          "line": 8,
+          "code": "from garden_verify import PAIRS, metadata, retained, garden_mask, wetness, process_policy, seams, engine_log"
+        }
+      ],
+      "fields": []
+    },
+    "tools/test_ground_edge.py": {
+      "sha256": "f9618188bb9c3ecbcefeffe66c3bb253c271c9e34472d9c8336201f27b8b24f6",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [],
+      "ROOT_reads": [],
+      "imports": [
+        {
+          "line": 3,
+          "code": "import copy"
+        },
+        {
+          "line": 4,
+          "code": "import unittest"
+        },
+        {
+          "line": 5,
+          "code": "from ground_edge_verify import PAIRS, metadata, retained, profile"
+        }
+      ],
+      "fields": []
+    },
+    "tools/test_ground_layers.py": {
+      "sha256": "5fbda567d4fee6dfd14b61db11b0cfdc8dc7aafc8a67a0bdeca3a5e4d128ac56",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [],
+      "ROOT_reads": [],
+      "imports": [
+        {
+          "line": 3,
+          "code": "import copy"
+        },
+        {
+          "line": 4,
+          "code": "import gzip"
+        },
+        {
+          "line": 5,
+          "code": "import json"
+        },
+        {
+          "line": 6,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 7,
+          "code": "import shutil"
+        },
+        {
+          "line": 8,
+          "code": "import tempfile"
+        },
+        {
+          "line": 9,
+          "code": "import unittest"
+        },
+        {
+          "line": 10,
+          "code": "from unittest import mock"
+        },
+        {
+          "line": 11,
+          "code": "from PIL import Image"
+        },
+        {
+          "line": 12,
+          "code": "import ground_layers as g"
+        }
+      ],
+      "fields": []
+    },
+    "tools/test_ground_seasons.py": {
+      "sha256": "3bfe34edf3e1c872e1bbe9e2c0dec30cf55a4cab3b724d78ae3897f9ad9f21dd",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [],
+      "ROOT_reads": [],
+      "imports": [
+        {
+          "line": 3,
+          "code": "import copy"
+        },
+        {
+          "line": 4,
+          "code": "import shutil"
+        },
+        {
+          "line": 5,
+          "code": "import tempfile"
+        },
+        {
+          "line": 6,
+          "code": "import unittest"
+        },
+        {
+          "line": 7,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 8,
+          "code": "from PIL import Image"
+        },
+        {
+          "line": 9,
+          "code": "from ground_seasons_verify import REPORT, load, metadata, geometry_and_retention, pixels, provenance"
+        },
+        {
+          "line": 67,
+          "code": "import json"
+        }
+      ],
+      "fields": []
+    },
+    "tools/test_meadow_ground.py": {
+      "sha256": "1b6cd62ace8ce4bd7866f7f3e6bc11185884eb724c2f2499fc475fc873872412",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [],
+      "ROOT_reads": [],
+      "imports": [
+        {
+          "line": 3,
+          "code": "import copy"
+        },
+        {
+          "line": 4,
+          "code": "import unittest"
+        },
+        {
+          "line": 5,
+          "code": "from meadow_verify import PAIRS, metadata, retained"
+        }
+      ],
+      "fields": []
+    },
+    "tools/test_plaza_ground.py": {
+      "sha256": "f4f24907674138d5412f825943a854c3c134448076e2163f294ca21b733e62e9",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [],
+      "ROOT_reads": [],
+      "imports": [
+        {
+          "line": 3,
+          "code": "import copy"
+        },
+        {
+          "line": 4,
+          "code": "import tempfile"
+        },
+        {
+          "line": 5,
+          "code": "import unittest"
+        },
+        {
+          "line": 6,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 7,
+          "code": "from PIL import Image, ImageDraw"
+        },
+        {
+          "line": 8,
+          "code": "from plaza_verify import PAIRS, metadata, retained, plaza_mask, quiet_material, process_policy"
+        }
+      ],
+      "fields": []
+    },
+    "tools/test_road_network.py": {
+      "sha256": "9b66bf0b2f56ea9c1a82673cf0abd353919fe675176b48d7c798aa9336257652",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [],
+      "ROOT_reads": [],
+      "imports": [
+        {
+          "line": 3,
+          "code": "import copy"
+        },
+        {
+          "line": 4,
+          "code": "import tempfile"
+        },
+        {
+          "line": 5,
+          "code": "import unittest"
+        },
+        {
+          "line": 6,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 7,
+          "code": "from PIL import Image, ImageDraw"
+        },
+        {
+          "line": 8,
+          "code": "from road_network_verify import PAIRS, metadata, retained, network_agreement"
+        }
+      ],
+      "fields": []
+    },
+    "tools/test_terrain_revision.py": {
+      "sha256": "cbe27a281153723f36cf0019486c4929b97a5dfda1b74a271eb62a2ef242ee5c",
+      "mode": 420,
+      "roots": [],
+      "git_calls": [],
+      "ROOT_reads": [],
+      "imports": [
+        {
+          "line": 3,
+          "code": "import copy"
+        },
+        {
+          "line": 4,
+          "code": "import tempfile"
+        },
+        {
+          "line": 5,
+          "code": "import unittest"
+        },
+        {
+          "line": 6,
+          "code": "from pathlib import Path"
+        },
+        {
+          "line": 7,
+          "code": "from PIL import Image"
+        },
+        {
+          "line": 8,
+          "code": "from terrain_revision_verify import REPORT, load, metadata, metrics, local_pixels, equal"
+        }
+      ],
+      "fields": []
+    }
+  }
+}

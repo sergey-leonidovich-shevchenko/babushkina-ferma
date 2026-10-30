@@ -4,7 +4,7 @@ const UV:=preload("res://scripts/presentation/foliage_uv.gd")
 const Roots:=preload("res://scripts/presentation/foliage_root_profile.gd")
 const Ambient:=preload("res://scripts/systems/village_ambient_renderer.gd")
 const RootSuite:=preload("res://tests/suites/foliage_root_suite.gd")
-const Points:=preload("res://tools/visual_camera_points.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
 
 ## Проверяет все регионы, отражения, ограничение выборки, фиксированные ряды и независимость материалов.
 static func run(ctx:SceneTree)->void:

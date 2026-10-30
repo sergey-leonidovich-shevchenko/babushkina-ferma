@@ -1,0 +1,161 @@
+"""Проверяет живые инструкции после переноса, не пересобирая игровые ресурсы."""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import struct
+import subprocess
+import sys
+import tempfile
+
+ROOT = next(p for p in Path(__file__).resolve().parents if (p / 'project.godot').is_file())
+sys.path.insert(0, str(ROOT))
+from tools.common.git import git_environment
+from tools.common.launch import module_name
+
+REPORT = Path(__file__).resolve().parent
+BEFORE = 'f02481b275a76192564b2ab57b80316579b95634'
+
+
+def git(*args):
+    return subprocess.check_output(['git', '-C', str(ROOT), *args], env=git_environment())
+
+
+def digest(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def main():
+    """Разрешает только адресные правки документации и выполняет настоящий CLI в disposable fixture."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, default=REPORT / 'consumers.json')
+    args = parser.parse_args()
+    output = args.output.resolve()
+    if output.exists() or output.suffix != '.json' or output.is_relative_to(ROOT / 'assets'):
+        parser.error('нужен новый JSON вне assets; прежние данные не перезаписываются')
+    migration = json.loads((REPORT.parent / 'authoring-move/migration.json').read_bytes())
+    sources = [row for row in migration['moves'] if row['old_path'].endswith(('.py', '.gd'))]
+    pattern = re.compile('|'.join(re.escape(row['old_path']) for row in sources))
+    documents = json.loads((REPORT / 'documents.json').read_bytes())['documents']
+    for row in documents:
+        assert digest(git('show', BEFORE + ':' + row['path'])) == row['old_sha256']
+        assert digest((ROOT / row['path']).read_bytes()) == row['new_sha256']
+    allowed = {row['path'] for row in documents} | {'VERSION', 'project.godot', 'Бабушкина ферма.app/Contents/Info.plist'}
+    changed = set(git('diff', '--name-only', '-z', BEFORE).decode().split('\0')) - {''}
+    own_report = 'docs/reports/refactor-03/authoring-docs/'
+    assert all(name in allowed or name.startswith(own_report) for name in changed), sorted(changed - allowed)
+    retained = []
+    provenance = {
+        'tools/asset_provenance.json', 'wiki/articles/tools-migration-map.md',
+        'assets/game/items/painted/catalog.gd', 'assets/game/items/ui/catalog.gd',
+        'assets/game/world_sprite_manifest.json',
+        'assets/game/licenses/generated-buildings-and-companions.txt',
+        'assets/game/licenses/generated_visual_atlases.txt',
+        'assets/game/licenses/world_loot_atlas_v1.txt',
+    }
+    text_suffixes = {'.md', '.json', '.py', '.gd', '.html', '.ts', '.sh', '.mjs', '.yml', '.yaml', '.txt'}
+    for name in git('ls-files', '-z').decode().split('\0'):
+        if not name or name.startswith(own_report) or Path(name).suffix not in text_suffixes:
+            continue
+        try:
+            raw = (ROOT / name).read_bytes()
+            text = raw.decode()
+        except (OSError, UnicodeError):
+            continue
+        hits = [{'line': i + 1, 'paths': pattern.findall(line)} for i, line in enumerate(text.splitlines()) if pattern.search(line)]
+        if not hits:
+            continue
+        frozen = name.startswith(('docs/reports/', 'docs/concepts/')) or name in provenance
+        assert frozen, 'stale live reference: ' + name
+        assert raw == git('show', BEFORE + ':' + name), 'historical reference changed: ' + name
+        retained.append({'path': name, 'sha256': digest(raw), 'reason': 'immutable report/concept or recorded provenance/generated header', 'hits': hits})
+    resolved = []
+    for row in sources:
+        path = ROOT / row['target']
+        assert path.read_bytes() == git('show', BEFORE + ':' + row['target'])
+        assert not (ROOT / row['old_path']).exists()
+        if path.suffix == '.py':
+            command = '.'.join(Path(row['target']).with_suffix('').parts[1:])
+            assert module_name(command, ROOT) == 'tools.' + command
+            compile(path.read_bytes(), row['target'], 'exec')
+            resolved.append({'old': row['old_path'], 'command': 'python3 tools/run.py ' + command})
+        else:
+            resolved.append({'old': row['old_path'], 'command': 'res://' + row['target']})
+
+    old = subprocess.run([sys.executable, 'tools/update_ui_visual_manifest.py', '--help'], cwd=ROOT,
+                         capture_output=True, text=True, env=git_environment(), timeout=20)
+    assert old.returncode == 2 and 'No such file' in old.stderr
+    calls = [{'case': 'old address reproduces review', 'exit': old.returncode, 'stdout': old.stdout, 'stderr': old.stderr}]
+    manifest = Path('assets/generated/ui/visual_regression_manifest.json')
+    actual_manifest = (ROOT / manifest).read_bytes()
+    actual = json.loads(actual_manifest)
+    protected = {manifest: digest(actual_manifest)}
+    for entry in actual['references']:
+        path = manifest.parent / entry['file']
+        protected[path] = digest((ROOT / path).read_bytes())
+    with tempfile.TemporaryDirectory(prefix='authoring QA docs with spaces ') as temporary:
+        folder = Path(temporary)
+        fixture = folder / 'project'
+        for relative in ['VERSION', 'project.godot', 'tools/run.py', 'tools/__init__.py',
+                         'tools/assets/__init__.py', 'tools/assets/authoring/__init__.py',
+                         'tools/assets/authoring/update_ui_visual_manifest.py',
+                         *[str(p.relative_to(ROOT)) for p in (ROOT / 'tools/common').glob('*.py')],
+                         *[str(path) for path in protected]]:
+            target = fixture / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(ROOT / relative, target)
+        command = [sys.executable, 'tools/run.py', 'assets.authoring.update_ui_visual_manifest']
+        result = subprocess.run(command, cwd=fixture, capture_output=True, text=True, timeout=30)
+        assert result.returncode == 0, result.stderr
+        generated = json.loads((fixture / manifest).read_bytes())
+        assert len(generated['references']) == len(actual['references']) == 28
+        assert [entry['file'] for entry in generated['references']] == [entry['file'] for entry in actual['references']]
+        for entry in generated['references']:
+            raw = (fixture / manifest.parent / entry['file']).read_bytes()
+            assert entry['sha256'] == digest(raw)
+            assert (entry['width'], entry['height']) == struct.unpack('>II', raw[16:24])
+            assert len(entry['perceptual']['rgb_hex']) == 384
+        calls.append({'case': 'documented new CLI in own fixture', 'command': command,
+                      'exit': result.returncode, 'stdout': result.stdout, 'stderr': result.stderr, 'references': 28})
+        for damaged in ['missing PNG', 'invalid PNG', 'invalid manifest']:
+            broken = folder / damaged
+            shutil.copytree(fixture, broken)
+            image = broken / manifest.parent / actual['references'][0]['file']
+            if damaged == 'missing PNG':
+                image.unlink()
+            elif damaged == 'invalid PNG':
+                image.write_bytes(b'not a PNG')
+            else:
+                (broken / manifest).write_bytes(b'{')
+            before = (broken / manifest).read_bytes()
+            result = subprocess.run(command, cwd=broken, capture_output=True, text=True, timeout=30)
+            assert result.returncode == 1 and (broken / manifest).read_bytes() == before
+            calls.append({'case': damaged, 'exit': result.returncode, 'stdout': result.stdout,
+                          'stderr': result.stderr, 'fixture_manifest_unchanged': True})
+    assert not folder.exists()
+    for path, expected in protected.items():
+        assert digest((ROOT / path).read_bytes()) == expected, path
+    godot = os.environ['FARM_GODOT_BIN']
+    native = []
+    for row in sources:
+        if not row['target'].endswith('.gd'):
+            continue
+        command = [godot, '--headless', '--path', str(ROOT), '--check-only', '--script', 'res://' + row['target']]
+        result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, timeout=60)
+        assert result.returncode == 0 and 'ERROR:' not in result.stderr, (row['target'], result.stderr)
+        native.append({'command': command, 'exit': result.returncode, 'stdout': result.stdout, 'stderr': result.stderr})
+    result = {'review': '5671433003', 'before': BEFORE, 'version': (ROOT / 'VERSION').read_text().strip(),
+              'live_documents': len(documents), 'source_entries_resolved_without_execution': resolved,
+              'retained_historical_references': retained, 'real_CLI_controls': calls,
+              'godot_parse_only': native, 'game_assets_and_manifest_unchanged': True,
+              'temporary_removed': True, 'full_task03_accepted': False}
+    with output.open('x') as stream:
+        stream.write(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
+    print(json.dumps({'documents': len(documents), 'resolved': len(sources), 'historical_reference_files_preserved': len(retained), 'CLI_cases': len(calls), 'Godot_parse_only': len(native)}))
+
+
+if __name__ == '__main__':
+    main()

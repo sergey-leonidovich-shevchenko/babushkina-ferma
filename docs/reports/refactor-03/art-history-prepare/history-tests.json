@@ -1,0 +1,12 @@
+{
+  "version": "0.0.362",
+  "command": "python3 tools/run.py common.test_history",
+  "exit": 0,
+  "tests": 21,
+  "raw": "history-tests-03.txt",
+  "stdout_and_stderr": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 6.320s\n\nOK\n",
+  "source_SHA256": {
+    "tools/common/history.py": "670748c23645cb5bab436f0878d8a274bab1591f8ff24c0bf40fea79d86d157e",
+    "tools/common/test_history.py": "037ffb38d7d9ba80d6a136bd2efffcc595e66153e2cea753770049c35b85c215"
+  }
+}

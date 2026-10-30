@@ -1,0 +1,1 @@
+Same 21 real tests: ownership guard removed -> one failure; current -> pass; production unchanged

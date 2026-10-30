@@ -1,0 +1,68 @@
+{
+  "base": "832964d4de4a0a0207500dd185039642738874e7",
+  "changes": [
+    {
+      "path": "tools/visual_scale.py",
+      "before_sha256": "c9de9f43e58a774682618410a760a7ae192ed15dbaf0efc16177b7bd22a22b04",
+      "after_sha256": "f1cafeda6295bf1a6ea677214feff84cc217d89fe2a0d2407c4509b258f9017b",
+      "historical_source_pins": 0,
+      "physically_moved": false
+    },
+    {
+      "path": "tools/visual_palette.py",
+      "before_sha256": "bffbbbf68bf3943728091317d581083732089d7111f2c2f901f91720b0a47e20",
+      "after_sha256": "0d46c3e102102e7f2e5043aca50c0d6d30d7634bae168d1428f69ee792eb54ca",
+      "historical_source_pins": 0,
+      "physically_moved": false
+    },
+    {
+      "path": "tools/visual_perspective.py",
+      "before_sha256": "5c5e3f172da47b49f1422cde5cb94d3344b367b8a587410912b7db51ada09300",
+      "after_sha256": "35f51f780cd056319f7b2a09038b5f33df607b5b2ec90a1192785c372c5bd1b4",
+      "historical_source_pins": 0,
+      "physically_moved": false
+    },
+    {
+      "path": "tools/visual_edges.py",
+      "before_sha256": "d2c96a1d315fb3b526a7483689e4898c44eb394b6e7a36f4e4816491a42b59ce",
+      "after_sha256": "41887c01b2ed4414c28c474ad40856e753e0d7c48047a1cf3b2042edcbaaef5a",
+      "historical_source_pins": 0,
+      "physically_moved": false
+    },
+    {
+      "path": "tools/visual_density.py",
+      "before_sha256": "ce2cf008d7a01a54b000584caca7eeec260def9675d349ce0af35724e01fa212",
+      "after_sha256": "82cfab0e41d53b18bfc380c6beb914a2fc89207d2e6c6bd2e41937430ccccef2",
+      "historical_source_pins": 1,
+      "physically_moved": false
+    },
+    {
+      "path": "tools/visual_light.py",
+      "before_sha256": "d58f642add5a236a5f51752b498c81025bc6a34590a92b3fd6f8f793ba125e7b",
+      "after_sha256": "15865e90968d07bd399b374ca02ea474d597803978b23b0a87cf2912b6a2018a",
+      "historical_source_pins": 1,
+      "physically_moved": false
+    },
+    {
+      "path": "tools/visual_modules.py",
+      "before_sha256": "83c757ff5fd523dc2e6d6fb3746d360769c02c1d0505473b3b151d0af722fa7d",
+      "after_sha256": "ba9c3033c01f16d189ca320fc1b24d3c7b0a13e8bec038283986d60f268a7812",
+      "historical_source_pins": 1,
+      "physically_moved": false
+    },
+    {
+      "path": "tools/visual_reuse.py",
+      "before_sha256": "ad175d8c64f1e3afd513c6072e5f426ea1dcd26c5e7585093615d1cde32d0f3a",
+      "after_sha256": "5deb25a32f847a058552300bd604f6c5da7b3fe92a1f3fb8371e1c1ad018828c",
+      "historical_source_pins": 2,
+      "physically_moved": false
+    }
+  ],
+  "physical_moves": 0,
+  "pins": 5,
+  "root_sources": 504,
+  "new_sources": [
+    "tools/common/history.py",
+    "tools/common/test_history.py"
+  ]
+}

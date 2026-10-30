@@ -1,0 +1,46 @@
+[
+  {
+    "case": "valid_before_user_separator",
+    "accepted": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "--script",
+      "res://tools/qa/foliage/grass_compare/capture.gd",
+      "--",
+      "--output=fixture"
+    ]
+  },
+  {
+    "case": "script_only_inside_user_payload",
+    "accepted": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "--",
+      "--script",
+      "res://tools/qa/foliage/grass_compare/capture.gd"
+    ]
+  },
+  {
+    "case": "wrong_assignment_and_expected_payload",
+    "accepted": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "--script=res://tools/wrong.gd",
+      "--",
+      "--script",
+      "res://tools/qa/foliage/grass_compare/capture.gd"
+    ]
+  }
+]

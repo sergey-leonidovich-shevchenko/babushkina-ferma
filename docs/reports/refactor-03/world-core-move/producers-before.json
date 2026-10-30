@@ -1,0 +1,20 @@
+{
+  "base": "7a2d7a5917bede86b3ffa850b1d5c83e9e8cc0bd",
+  "label": "producer14",
+  "exit": 0,
+  "methods": 14,
+  "before_test_SHA256": "c52bbb3a8b64d156ac7b71c078b16b2e8df0ac03c54f201e020a1ae328a006ea",
+  "after_test_SHA256": "aba7104858673b20271333fb7d5b7ff315c628d6ea41704c8725fc250b688226",
+  "non_import_AST_equal": true,
+  "actual_cli": [
+    "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+    "-c",
+    "import runpy,sys;sys.path[:0]=sys.argv[1:3];sys.argv=sys.argv[3:];runpy.run_path(sys.argv[0],run_name=\"__main__\")",
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools",
+    "/private/tmp/refactor03-test-world-producer14-before377.py"
+  ],
+  "raw_sha256": "0ee761eeefc243e00c5cd71ad7d30ca531b2aa9de60274f76c12e942991fee59",
+  "product_mutated": false,
+  "native_frames": 0
+}

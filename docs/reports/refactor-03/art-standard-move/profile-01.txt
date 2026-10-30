@@ -1,0 +1,43 @@
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-03/art-standard-move/profile.py", line 171, in <module>
+    main()
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-03/art-standard-move/profile.py", line 78, in main
+    assert ast.dump(ast.parse(old), include_attributes=False) == ast.dump(Addresses().visit(ast.parse(new)), include_attributes=False), row['target']
+                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/ast.py", line 418, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/ast.py", line 494, in generic_visit
+    value = self.visit(value)
+            ^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/ast.py", line 418, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/ast.py", line 494, in generic_visit
+    value = self.visit(value)
+            ^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/ast.py", line 418, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/ast.py", line 494, in generic_visit
+    value = self.visit(value)
+            ^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/ast.py", line 418, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/ast.py", line 494, in generic_visit
+    value = self.visit(value)
+            ^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/ast.py", line 418, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/ast.py", line 503, in generic_visit
+    new_node = self.visit(old_value)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/ast.py", line 418, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-03/art-standard-move/profile.py", line 47, in visit_Dict
+    kept = [(k, v) for k, v in zip(node.keys, node.values()) if not (isinstance(k, ast.Constant) and k.value == 'source_paths')]
+                                              ^^^^^^^^^^^^^
+TypeError: 'list' object is not callable

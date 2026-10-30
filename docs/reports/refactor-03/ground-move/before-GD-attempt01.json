@@ -1,0 +1,8 @@
+{
+  "exit": -6,
+  "first_compile": "tools/axial_road_board.gd",
+  "reason": "default Godot logger could not write user://logs under sandbox and engine crashed",
+  "CLI22_exit0": true,
+  "repair": "explicit owned --log-file; retain original raw; reuse exact unchanged CLI logs",
+  "native_frames": 0
+}

@@ -1,0 +1,65 @@
+{
+  "base": "482ed19c8833764b96e3130cec536b2dd6790eed",
+  "version": "0.0.367",
+  "root_sources": 420,
+  "historical_fields": 37,
+  "all_ignored_UID_preserved": 85,
+  "anchor_preserved": true,
+  "physical_moves": 0,
+  "planned_assignments_intact": 19,
+  "new_history_cases": 8,
+  "unchanged_function_AST": [
+    "alpha_audit.inspect",
+    "alpha_audit.paths",
+    "alpha_audit.read",
+    "alpha_audit.sha",
+    "alpha_audit.write_report",
+    "alpha_proof.measurements",
+    "slice_audit.digest",
+    "slice_audit.evaluate",
+    "slice_audit.export",
+    "slice_audit.read",
+    "slice_audit.signature",
+    "slice_proof.comparisons"
+  ],
+  "changed_functions_require_behavior_tests": {
+    "alpha_audit": [
+      "check",
+      "main",
+      "scan"
+    ],
+    "alpha_proof": [
+      "validate"
+    ],
+    "slice_audit": [
+      "check",
+      "inputs",
+      "main"
+    ],
+    "slice_proof": [
+      "validate"
+    ]
+  },
+  "other_six_refactor_cards_unchanged": true,
+  "parallel07_excluded_from_QA": true,
+  "old_reports_runtime_artwork_plans_GD_UID_policies_unchanged_by_Git_scope": true,
+  "full_task03_accepted": false,
+  "REFACTOR06_started": false,
+  "source_paths": [
+    ".gitignore",
+    "AGENTS.md",
+    "TESTING.md",
+    "VERSION",
+    "docs/epics/refactoring-2026-10/TASKS.md",
+    "project.godot",
+    "tools/alpha_audit.py",
+    "tools/alpha_proof.py",
+    "tools/assets/alpha/__init__.py",
+    "tools/assets/alpha/test_processing_history.py",
+    "tools/quality/check_architecture.sh",
+    "tools/slice_audit.py",
+    "tools/slice_proof.py",
+    "wiki/articles/project-refactoring.md",
+    "Бабушкина ферма.app/Contents/Info.plist"
+  ]
+}

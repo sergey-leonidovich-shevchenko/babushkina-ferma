@@ -1,0 +1,1299 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "camera40 physical move",
+  "version": "0.0.374",
+  "base": "d2ff4bde558196f808bef0486db1c0aaa0302ab9",
+  "prior_source_review": 5692493268,
+  "prior_Team_intermediate_accepted": true,
+  "prior_CI_success": 8,
+  "root_before": 285,
+  "root_sources": 245,
+  "physical_source_moves": 40,
+  "tracked_UID_moves": 2,
+  "ignored_UID_moves": 15,
+  "deferred_shared_sources": 2,
+  "source_map_entries": 133,
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.374",
+      "started_at": "2026-10-29T02:09:11.244818+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-29T02:31:55.138702+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.374",
+      "started_at": "2026-10-29T02:31:55.139594+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-29T02:38:27.994190+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.374",
+      "started_at": "2026-10-29T02:38:27.995222+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-29T02:39:24.032221+00:00"
+    }
+  ],
+  "architecture_suites": 97,
+  "architecture_cases": 1277,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "same_test_source_red_green": {
+    "same_layout_test_source": true,
+    "test_SHA256": "6b3388d8bfa7dd4c83d74d91c50726edd3e9d0362d19d55facf9d0ea932a090e",
+    "methods": 3,
+    "red_failures": 6,
+    "red_errors": 1,
+    "green_exit": 0,
+    "old_context_methods": 12,
+    "current_inputs_fixture_adapted": true,
+    "native_Game_GPU_FPS_admission": false
+  },
+  "functions_address_normalized": 266,
+  "historical_fields_preserved": 37,
+  "author_UID_preserved": 85,
+  "anchor_preserved": true,
+  "actual_profile_commands_each": 40,
+  "GD_parse_only_each": 17,
+  "historical_stdout_byte_equal": 11,
+  "decoded_frames_exact": 16,
+  "contact_sheet_exact": true,
+  "profile_Game_new": false,
+  "profile_native_GPU_FPS_admission": false,
+  "plot_history_repair": {
+    "actual_failure": "after-015.txt, test_decoded_video_review_provenance, deleted old decoder path",
+    "source_path": "tools/qa/camera/test_presentation_pose.py",
+    "before_SHA256": "587b3b88a5e807e5264ef9155e1e44aca172171e7c49cef9c400b0f3062fe124",
+    "after_SHA256": "f82ffbb72d450a2c135b9572686f4942d80cd7bc837f2ee9a780114e80c721a5",
+    "decoder_exact_bytes_preserved": true,
+    "plot_history_commit": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "plot_history_path": "tools/pose_video_strip.py",
+    "plot_history_SHA256": "89d6198c307c16d79e4517973c1c47fc95079cdabb4056925465204ad4a03943",
+    "proof_source_json_unchanged": true,
+    "old_assertion_IDs_and_checks_preserved": true,
+    "no_live_source_fallback": true
+  },
+  "full_task03_accepted": false,
+  "Task_Complete_added": false,
+  "source_SHA256": {
+    ".gitignore": "da91ee4e4394ad67db392fa45bc58e16c31d38c89eb1190e74cf945014521938",
+    "QA_CHECKLIST.md": "f377ef674e8bd0e5bb64e4d6bec3407c8e2fc1c627f40d515302e5895c855c9e",
+    "TESTING.md": "69df1269237ab881678bf165a54f38fa5e8110d12aacf6e9242abcd45202cba5",
+    "VERSION": "e1f1c0efa6458121a7d76a0a3e41fffd817e132c7a4779a93f1bb8af7dc02c0d",
+    "docs/DEVELOPMENT.md": "55ef4618d8ba8d346b429fed9a2e33e07a8d0321c07f1b998a717be2995ec8c0",
+    "docs/epics/refactoring-2026-10/TASKS.md": "db6b1a7adef1c91604c618e86c97f7b314c15293e847af6efa34c9c7b6713ad1",
+    "project.godot": "a1484757313211cabddb98b18cbacaf35e2a57969418d7938ebc2e4532a421dd",
+    "tests/suites/visual_motion_suite.gd": "d7420a38589530396266e2ddc2c7343f57e6ec826e19fde008dc96de1769d2a0",
+    "tools/README.md": "ecd4d3e2cb2c9b6d1a35e0f1fc87e09e72a42b4497355cd21a6f864548c1c881",
+    "tools/assets/contracts/source_paths.py": "4de742eadb3b9f9ab5fdeae4a863622041f5f15882558653d629ac184bc6c033",
+    "tools/assets/contracts/test_source_paths.py": "91c902333a1f829252dda00aa8bbbb2bd18e0101aa1c3153f42995616f894293",
+    "tools/qa/camera/analyze_visual_baseline.py": "bb0397da505f620465f1615f16bc546e4c96baaf7fface79d8aba61843b0f424",
+    "tools/qa/camera/camera_quantization.py": "4aa71842fba70ec49e6faecf37e098c6589163fadf687e11fc71ac984a42453a",
+    "tools/qa/camera/camera_quantization_capture.gd": "f5338cb7428b13e2f2ef1456a77939188e802de65944477d217050b85076b2be",
+    "tools/qa/camera/camera_quantization_review.gd": "06a8369e15c91b4e2c69acc73aa7137e3df6068445a65edd6ce0be40bc62b7e8",
+    "tools/qa/camera/check_native_frame_reports.py": "4948cdef8c958a7f46852846aebe3758ff3a3297fd3de2d327c8088c57f85ebc",
+    "tools/qa/camera/pose_video_frames.swift": "6bce8ca5dac0f455dfdf3142eda4a5f87b0966b336fbd70523ebe6714b1f0ef4",
+    "tools/qa/camera/pose_video_strip.py": "c407995b2f47a6fcabb2830e381de55210752fe903a91094d310b9830d66029e",
+    "tools/qa/camera/presentation_pose.py": "aca970d2bf84daa70311d4dfc7ae034c1aba9cf4ba163725c41c52af3bebeae6",
+    "tools/qa/camera/presentation_pose_capture.gd": "843fa350add0a4baf2171425c541eaf809e92d35b0a6f5a3ed27d6a386ef793e",
+    "tools/qa/camera/presentation_pose_live.gd": "19f85beef3deb7de12289c2b6dbf8b0c3ec27deac74d863fff1255b3d18db72f",
+    "tools/qa/camera/presentation_pose_review.gd": "48adaf9f3ba92b24fd003da4a972265fe2fd8578098b6d0af4fb2c270b892636",
+    "tools/qa/camera/reference_zoom.py": "fba6cb5ce469da4922dc63f842d00ab86fd35b4646fa887fc0e6d1a77544400a",
+    "tools/qa/camera/reference_zoom_capture.gd": "7a1b3951e404ac56711ea68668c6ac860ec02448a145cc3c0a18f61fe6682fa7",
+    "tools/qa/camera/reference_zoom_live.gd": "d6aa158451b589faba4b054d1e94b6655de519d60c6e7c48ada5c4500fb77c1e",
+    "tools/qa/camera/reference_zoom_perf.py": "b319b88e4b88ec922ad6f54ff3829ad6a986e6ccd77d068b5403f3d5301411e8",
+    "tools/qa/camera/reference_zoom_review.gd": "f6317023388c67c525491ca26b82803f1d0f2f707f64b94f86b2c373e5050527",
+    "tools/qa/camera/run_visual_baseline.py": "0f59f1bfb808567de3732f0e9a107ecb062217d966e660f6349826827d15ce78",
+    "tools/qa/camera/test_camera_context.py": "1f3432b8bfca8ee502b545fb84c0c790d59a1ae13689c3a5908e58d7cda9cdc4",
+    "tools/qa/camera/test_camera_layout.py": "6b3388d8bfa7dd4c83d74d91c50726edd3e9d0362d19d55facf9d0ea932a090e",
+    "tools/qa/camera/test_camera_quantization.py": "de6536855f480e5c1476dd0b969876bf1f70332401dca68a87a18b0fcec885f7",
+    "tools/qa/camera/test_presentation_pose.py": "f82ffbb72d450a2c135b9572686f4942d80cd7bc837f2ee9a780114e80c721a5",
+    "tools/qa/camera/test_reference_zoom.py": "dc2b436bca0066fb7fdd8e66431d418bc12cad327c595fb3c1b914d2716ab0e7",
+    "tools/qa/camera/test_visual_baseline.py": "69efb756344fd39c3c752037b5ff39f58178fae979928885cce4188bf0b27142",
+    "tools/qa/camera/test_visual_camera.py": "54de0feb08539401092a1fbfa65c12b3a0a3f6c6761c4adf82470980c6ebaf7a",
+    "tools/qa/camera/test_visual_coordinates.py": "6cc21c7cd606146cdb7a92fdab352629695136e23f171c15288f1e0d0d8bd64f",
+    "tools/qa/camera/test_visual_hardware.py": "ea5c2522b70d9ec726fbda5b3758befa8c19caf6c5c1119e2482284625e81310",
+    "tools/qa/camera/test_visual_motion.py": "4ab651d57fd71a30f317ecedd235489194270e5d749c4316c21b21e08eb79a3f",
+    "tools/qa/camera/test_visual_static.py": "0c3ae690e5df7ed27c9d39baee965a3d1c3895d706b7780884aff1d31d15fde6",
+    "tools/qa/camera/visual_baseline.gd": "90832cc9dc35c0a7639c7ad3990a2c91fef6f7e58188fb18ef7e0cfe4618caae",
+    "tools/qa/camera/visual_camera.py": "bd4e55dd5cbcf133e91c5204978705b553fbde8314cbbfeb51e09492ead272c7",
+    "tools/qa/camera/visual_camera_capture.gd": "b3cb880ca15a336cc9b3563e415d1bb2cb9948eda69edfe8a2c11a3c38ee4c81",
+    "tools/qa/camera/visual_camera_review.gd": "a45e6e6c02f37da5e6348c4ece4e8a4d4e20aa84528048b2added93042c3138f",
+    "tools/qa/camera/visual_coordinates.py": "a0050317f1f14b080bcba61e018b5cc791c3f8702157369257d2759e575941b1",
+    "tools/qa/camera/visual_coordinates_capture.gd": "e449170d10c65b7e6b390ee0b948a747ae100f56bbfb0fe2efd6d9209743e204",
+    "tools/qa/camera/visual_coordinates_capture.gd.uid": "b758acdc95aa3010d8faab460d4f2142494701f4223ce0306fd9a540bc5e690e",
+    "tools/qa/camera/visual_coordinates_review.gd": "92b474316b2057429178e213835bf9ba8afcdf0e1a28bcdc4f34d087b0a24a6b",
+    "tools/qa/camera/visual_coordinates_review.gd.uid": "2b9f993ccebe597589190f08d40dd8b9e7d6c69905ed81e1618024888a5f95ec",
+    "tools/qa/camera/visual_hardware.py": "bcf5934ab8d3edd142650cb0e02fa9313ead6ba35dbf64b2126a843103f54a7c",
+    "tools/qa/camera/visual_motion.py": "79e26ced54ec45ddbb66f0add52aa95914edc5fa9eaba741e054283823bcdd57",
+    "tools/qa/camera/visual_motion_capture.gd": "c27b0135c02a6038db50a5bd50c121ca20eb9ee1f1a99fb123427433d768855d",
+    "tools/qa/camera/visual_motion_review.gd": "ea227cd4d35f9a8739a7a6a8ed2b56bfdf3da1d6de5fb56324993e3b41622183",
+    "tools/qa/camera/visual_motion_route.gd": "236ae36f5d685c38c285010345801661c966e75a211b22cf4c8ef8494da20546",
+    "tools/qa/camera/visual_static.py": "05c769d1d745dae8e39e93059eac4eb53e94c8587e9eef0b9e4e9c4d8d1cc813",
+    "tools/qa/camera/visual_static_capture.gd": "55994e826c3cf147c9d33253df25a561ccd33293fa74226efbf4d4767fdaae6a",
+    "tools/quality/check_architecture.sh": "92e9c8a53a00e57eb021ff488b86fa10c1f31e974bb2bebfdfbe8a3377e08fb6",
+    "wiki/articles/project-refactoring.md": "9c0a5552753cb414ecb7f0732be8bf8940aa82f32def4031cd468c4bc554f6b1",
+    "wiki/articles/visual-camera-motion.md": "d9c41464514cc99fc32ab798f7570fe21b30cd5f50cd26504a1b54293034784a",
+    "wiki/articles/visual-hardware.md": "0245649e50f3019b32d64d6293e955f551a40fb6cd0fb064662b844ddf513f40",
+    "wiki/articles/visual-motion.md": "70f3807f362d1bd531d41e785792e071f8c7cdbbf30036150a2b9d83cfef8035",
+    "wiki/articles/visual-pose.md": "05db1dcdb310e4f12d76fa6b40150a5ab2b79497aeadc83428384a6615c149f9",
+    "Бабушкина ферма.app/Contents/Info.plist": "796e3772292459817ad96e079f8094893a399f27fe21ff8beb1288abeea9a204"
+  },
+  "removed_source_paths": [
+    "tools/analyze_visual_baseline.py",
+    "tools/camera_quantization.py",
+    "tools/camera_quantization_capture.gd",
+    "tools/camera_quantization_review.gd",
+    "tools/check_native_frame_reports.py",
+    "tools/pose_video_frames.swift",
+    "tools/pose_video_strip.py",
+    "tools/presentation_pose.py",
+    "tools/presentation_pose_capture.gd",
+    "tools/presentation_pose_live.gd",
+    "tools/presentation_pose_review.gd",
+    "tools/reference_zoom.py",
+    "tools/reference_zoom_capture.gd",
+    "tools/reference_zoom_live.gd",
+    "tools/reference_zoom_perf.py",
+    "tools/reference_zoom_review.gd",
+    "tools/run_visual_baseline.py",
+    "tools/test_camera_quantization.py",
+    "tools/test_presentation_pose.py",
+    "tools/test_reference_zoom.py",
+    "tools/test_visual_baseline.py",
+    "tools/test_visual_camera.py",
+    "tools/test_visual_coordinates.py",
+    "tools/test_visual_hardware.py",
+    "tools/test_visual_motion.py",
+    "tools/test_visual_static.py",
+    "tools/visual_baseline.gd",
+    "tools/visual_camera.py",
+    "tools/visual_camera_capture.gd",
+    "tools/visual_camera_review.gd",
+    "tools/visual_coordinates.py",
+    "tools/visual_coordinates_capture.gd",
+    "tools/visual_coordinates_capture.gd.uid",
+    "tools/visual_coordinates_review.gd",
+    "tools/visual_coordinates_review.gd.uid",
+    "tools/visual_hardware.py",
+    "tools/visual_motion.py",
+    "tools/visual_motion_capture.gd",
+    "tools/visual_motion_review.gd",
+    "tools/visual_motion_route.gd",
+    "tools/visual_static.py",
+    "tools/visual_static_capture.gd"
+  ],
+  "report_files": [
+    {
+      "path": "README.md",
+      "sha256": "8e248725a6e6dd0d59470f0e569c02461588938b5a6e234e08f15154f70018f9",
+      "bytes": 4947
+    },
+    {
+      "path": "after-001.txt",
+      "sha256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a",
+      "bytes": 40
+    },
+    {
+      "path": "after-002.txt",
+      "sha256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a",
+      "bytes": 40
+    },
+    {
+      "path": "after-003.txt",
+      "sha256": "c7de2f0ce0e867869aec2adbdd2a5fd94cbc3edc6f18afaa333cf3980ca4db6f",
+      "bytes": 43
+    },
+    {
+      "path": "after-004.txt",
+      "sha256": "ec953c3bc9072708142b71d2310937b74006f5ad8a21e50e48d74c5830ad73ee",
+      "bytes": 80
+    },
+    {
+      "path": "after-005.txt",
+      "sha256": "51a37ed5ae9c819b41f6657391f602550a4bea51b6ee64147e1999302ebdccc7",
+      "bytes": 1579
+    },
+    {
+      "path": "after-006.txt",
+      "sha256": "9148781c5f1eb1cd164a226576ecc60d2283bc9f21900d6d5e93fcb1415ae48f",
+      "bytes": 1153
+    },
+    {
+      "path": "after-007.txt",
+      "sha256": "2d54cd307b002f0a10b60452c871128c6fca29c3ff2c3f413b586cc4094b55e4",
+      "bytes": 970
+    },
+    {
+      "path": "after-008.txt",
+      "sha256": "be3a775d36bca884269827366f5b1ab837d18ca691ad59f34466f370abf9b4e3",
+      "bytes": 7292
+    },
+    {
+      "path": "after-009.txt",
+      "sha256": "167d682959c996bb9e38dc579c117475b8b760a8e84a34f0c8b6020b0df578f4",
+      "bytes": 646
+    },
+    {
+      "path": "after-010.txt",
+      "sha256": "51c23b483859e6089c97471db7cae87ad82b59bec669447374c59e297688c277",
+      "bytes": 1919
+    },
+    {
+      "path": "after-011.txt",
+      "sha256": "4d6834761b10304e29615b2d609184aa56aeee49a6eebae0e785df63a312eae0",
+      "bytes": 362
+    },
+    {
+      "path": "after-012.txt",
+      "sha256": "ecb5a6f9a860c3eefd5ef779c3b2bec29afeb56d49a71e3b63589d8ec62f2298",
+      "bytes": 110
+    },
+    {
+      "path": "after-013.txt",
+      "sha256": "20b2040c8b3cbd00383c45adfa71cc49a52b9f8baa889b031acce5986e5a19c7",
+      "bytes": 107
+    },
+    {
+      "path": "after-014.txt",
+      "sha256": "74a7126db3bd80a8bf412ddad7338897ca025dfbdf31d42e792490544ff52b51",
+      "bytes": 122
+    },
+    {
+      "path": "after-015.txt",
+      "sha256": "9c8ef553441fc3faa7ccd467ff6df37c8e6eab139d8cfaa0b9047236e0e16101",
+      "bytes": 1695
+    },
+    {
+      "path": "after-attempt02-001.txt",
+      "sha256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a",
+      "bytes": 40
+    },
+    {
+      "path": "after-attempt02-002.txt",
+      "sha256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a",
+      "bytes": 40
+    },
+    {
+      "path": "after-attempt02-003.txt",
+      "sha256": "c7de2f0ce0e867869aec2adbdd2a5fd94cbc3edc6f18afaa333cf3980ca4db6f",
+      "bytes": 43
+    },
+    {
+      "path": "after-attempt02-004.txt",
+      "sha256": "ec953c3bc9072708142b71d2310937b74006f5ad8a21e50e48d74c5830ad73ee",
+      "bytes": 80
+    },
+    {
+      "path": "after-attempt02-005.txt",
+      "sha256": "51a37ed5ae9c819b41f6657391f602550a4bea51b6ee64147e1999302ebdccc7",
+      "bytes": 1579
+    },
+    {
+      "path": "after-attempt02-006.txt",
+      "sha256": "9148781c5f1eb1cd164a226576ecc60d2283bc9f21900d6d5e93fcb1415ae48f",
+      "bytes": 1153
+    },
+    {
+      "path": "after-attempt02-007.txt",
+      "sha256": "2d54cd307b002f0a10b60452c871128c6fca29c3ff2c3f413b586cc4094b55e4",
+      "bytes": 970
+    },
+    {
+      "path": "after-attempt02-008.txt",
+      "sha256": "be3a775d36bca884269827366f5b1ab837d18ca691ad59f34466f370abf9b4e3",
+      "bytes": 7292
+    },
+    {
+      "path": "after-attempt02-009.txt",
+      "sha256": "167d682959c996bb9e38dc579c117475b8b760a8e84a34f0c8b6020b0df578f4",
+      "bytes": 646
+    },
+    {
+      "path": "after-attempt02-010.txt",
+      "sha256": "51c23b483859e6089c97471db7cae87ad82b59bec669447374c59e297688c277",
+      "bytes": 1919
+    },
+    {
+      "path": "after-attempt02-011.txt",
+      "sha256": "4d6834761b10304e29615b2d609184aa56aeee49a6eebae0e785df63a312eae0",
+      "bytes": 362
+    },
+    {
+      "path": "after-attempt02-012.txt",
+      "sha256": "6c6b2c8cd1661adf9dc5a3a8480278dd55967f487a3f57db19f5b216e85887d8",
+      "bytes": 110
+    },
+    {
+      "path": "after-attempt02-013.txt",
+      "sha256": "8265c7840fb8d79f3970221f2b05440135a7d5b1d80e00f19e955e091f72f3ea",
+      "bytes": 107
+    },
+    {
+      "path": "after-attempt02-014.txt",
+      "sha256": "2cffb04a716829cb3f123c105b3f44226b9dbd2564d01119e72f94b340535ec5",
+      "bytes": 122
+    },
+    {
+      "path": "after-attempt02-015.txt",
+      "sha256": "757343ef4b852f1cb15d5029cc7ce14038e75452664b2d7e23bd2cd6d8c5591d",
+      "bytes": 115
+    },
+    {
+      "path": "after-attempt02-016.txt",
+      "sha256": "e21a2883cdbb74f8bb722a8fe62e76f26b84dab3732ddc15bee64229c96b4a5f",
+      "bytes": 125
+    },
+    {
+      "path": "after-attempt02-017.txt",
+      "sha256": "d0e56041465b1d768831232718f9efdee2771318fc585c02643508e4af43154a",
+      "bytes": 116
+    },
+    {
+      "path": "after-attempt02-018.txt",
+      "sha256": "384d9800d523b7f269c573a662068e5912ce4bab6ba581d80e5010d49430adae",
+      "bytes": 109
+    },
+    {
+      "path": "after-attempt02-019.txt",
+      "sha256": "b46931c892bcf92795d5a1da0d00dd01e3a2532490d17404effe9654933a9c33",
+      "bytes": 110
+    },
+    {
+      "path": "after-attempt02-020.txt",
+      "sha256": "47304513cda78533f57f46dba4f762644c02afd3a356cdbdace60cf90e1ed0cd",
+      "bytes": 116
+    },
+    {
+      "path": "after-attempt02-021.txt",
+      "sha256": "4c2d5b21bda3d0d962e8edb544a9622312d826d9b5b5aa4b242226146c799e42",
+      "bytes": 503
+    },
+    {
+      "path": "after-attempt02-022.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-023.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-024.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-025.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-026.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-027.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-028.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-029.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-030.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-031.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-032.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-033.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-034.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-035.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-036.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-037.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-038.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "after-attempt02-039.txt.gz",
+      "sha256": "ac53f4947de106a6e5090a55efba7940c6c9162e06b0ecf5d4ac2527d6b95fe2",
+      "bytes": 486
+    },
+    {
+      "path": "after-attempt02-040.txt",
+      "sha256": "d89c6415d679426e11416656794a5b4cfa2bd1cf1e03ad8fdc7ff6619bff08cf",
+      "bytes": 62
+    },
+    {
+      "path": "after-attempt02-commands.json",
+      "sha256": "989f88f687dbe3730f6d13d31cb2902a08c2c1a481dec30c28d6dbd65a92a308",
+      "bytes": 23783
+    },
+    {
+      "path": "after-commands.json",
+      "sha256": "81284e6ccef39c050389cf9dba426169b9ce924627a21b50a5f463afb9394d81",
+      "bytes": 7344
+    },
+    {
+      "path": "after-contact-sheet-source.json",
+      "sha256": "67417ed9b8351c04e872475e820ef56ca37e0533ebb6d145b3e5e7fbc5f6a04c",
+      "bytes": 3230
+    },
+    {
+      "path": "after-profile.json",
+      "sha256": "32de9859c8a43ba2c209b85035eeeef8161d6816c8e04cace2f59ebb081e30a0",
+      "bytes": 30151
+    },
+    {
+      "path": "apply-journal.json",
+      "sha256": "ccdf775f97fe7c63d15c85e2b06e015b267e8439215791fa14ddb2c7156b518f",
+      "bytes": 10925
+    },
+    {
+      "path": "apply.py",
+      "sha256": "0681c7d9a69eb89a22e315d1cb6c66f93b319cbff73cf2a5732449baaef8f858",
+      "bytes": 7247
+    },
+    {
+      "path": "audit.py",
+      "sha256": "dc96eb935ddc962419cef87ffa9b54dcb6ee6fef16af3962bfddfbd5fd2ba0e9",
+      "bytes": 11500
+    },
+    {
+      "path": "baseline/.gitignore.gz",
+      "sha256": "c972f79e3eb8a27d1ef252597805da083fb4b753667979ded7f152b56c6219f7",
+      "bytes": 5306
+    },
+    {
+      "path": "baseline/QA_CHECKLIST.md.gz",
+      "sha256": "47a9dfb2a29fa02bfb39250437bf4d0e21bf49ed1cae2051e06a9a6f7455b62e",
+      "bytes": 113844
+    },
+    {
+      "path": "baseline/TESTING.md.gz",
+      "sha256": "72a48130fa3d8ef2cc56302ff6374232024da83af619d6bf1aa816a57387c468",
+      "bytes": 45608
+    },
+    {
+      "path": "baseline/VERSION.gz",
+      "sha256": "1ecbf3e7d18b9a5f63601fcc00df83409ddf67dbd06f1620a52c1d7a6bb753f3",
+      "bytes": 28
+    },
+    {
+      "path": "baseline/camera-layout-test.py",
+      "sha256": "6b3388d8bfa7dd4c83d74d91c50726edd3e9d0362d19d55facf9d0ea932a090e",
+      "bytes": 7038
+    },
+    {
+      "path": "baseline/ci373-final.json",
+      "sha256": "a7bc491f36263252aabbe7e214d319641e3ed9f985409c412e72127fe1218858",
+      "bytes": 3326
+    },
+    {
+      "path": "baseline/docs--DEVELOPMENT.md.gz",
+      "sha256": "c4d3cf10507e34af05b5b15ee41987d111b4af7f7bccff9ea09e927a9aca2845",
+      "bytes": 44065
+    },
+    {
+      "path": "baseline/docs--epics--refactoring-2026-10--TASKS.md.gz",
+      "sha256": "a36a6d277bcd19674b116fe8430ccf523429021be6d1ba660a7cafc9aa61c669",
+      "bytes": 9827
+    },
+    {
+      "path": "baseline/inventory-before-wiki-consumers.json.gz",
+      "sha256": "6ef57a3d1571d53101e55dd1c3f62e5902683a0d1a98dc6b58a7ae1bdefe0bd1",
+      "bytes": 6898
+    },
+    {
+      "path": "baseline/inventory.json",
+      "sha256": "66c247c706a6f08b3f00eeb5121ab214f42b667437f2fd8c54d3ecc1cf4437b4",
+      "bytes": 30082
+    },
+    {
+      "path": "baseline/layout-test-before-anchor.py.gz",
+      "sha256": "c0ebf2a24bd3dab51948c8f08b6a1bf601094f8ca640f0b5dcf350e9109e4a62",
+      "bytes": 2438
+    },
+    {
+      "path": "baseline/move-plan.json",
+      "sha256": "fba94f4023fb09feee9357817ee997433f99b59c95eacd2877a2e592babc2c82",
+      "bytes": 680762
+    },
+    {
+      "path": "baseline/project.godot.gz",
+      "sha256": "45532d80416a77b3f9db390056d21c17bd15d18b76923f4708834e88ef78ac1c",
+      "bytes": 604
+    },
+    {
+      "path": "baseline/reviews373.json",
+      "sha256": "4503bdee00b0de6a7c44afad4e47fa5cc7f1b2daf5942b436df8a698248189e3",
+      "bytes": 4443
+    },
+    {
+      "path": "baseline/tests--suites--visual_motion_suite.gd.gz",
+      "sha256": "a958a8b4ee2d5204fa6033b194763e785adfdff9185901f08774b3abf32ca8f4",
+      "bytes": 1454
+    },
+    {
+      "path": "baseline/tools--README.md.gz",
+      "sha256": "ec69d97ca5e946bf2d4c6d27d0a81c07d08a94000789e722f2c40ea2e6ccd227",
+      "bytes": 6625
+    },
+    {
+      "path": "baseline/tools--analyze_visual_baseline.py.gz",
+      "sha256": "f33697ff1965151713785f77a84d2a34c8d906f07a9cfb7819f6f36e9a7afecc",
+      "bytes": 3724
+    },
+    {
+      "path": "baseline/tools--assets--contracts--source_paths.py.gz",
+      "sha256": "c9e69b39b3a0d335a5aa1ac93a0f33286fdf7eb4566605efac28f01f09078c9f",
+      "bytes": 2315
+    },
+    {
+      "path": "baseline/tools--assets--contracts--test_source_paths.py.gz",
+      "sha256": "794cced21c7cc6fcdab8c2eccc554c9aaeace624f1ddaf212b7dcd292ea92044",
+      "bytes": 2663
+    },
+    {
+      "path": "baseline/tools--camera_quantization.py.gz",
+      "sha256": "eb7a02104466f5bf1c5a8df1107b1832d2b2cb4dc78510e96cdb7c61a5c4cd47",
+      "bytes": 5347
+    },
+    {
+      "path": "baseline/tools--camera_quantization_capture.gd.gz",
+      "sha256": "eb57385244821208a6fca627ccd58b2a86fb60a597bf14b7f910b4c5ec83b489",
+      "bytes": 4508
+    },
+    {
+      "path": "baseline/tools--camera_quantization_review.gd.gz",
+      "sha256": "0c77727736f66731773b0f57a6b516e337b932eacb5b03d5cbd1741f95c51c2a",
+      "bytes": 567
+    },
+    {
+      "path": "baseline/tools--check_native_frame_reports.py.gz",
+      "sha256": "6ffa1865c1df4f091006aad4aceb6b806c5920544fa4e72b4bc69f1efeabc751",
+      "bytes": 791
+    },
+    {
+      "path": "baseline/tools--pose_video_frames.swift.gz",
+      "sha256": "831139e4439ba3c2afc3c3b682c1839f6f6c1bdb73dd0fb20c38307a222fb550",
+      "bytes": 935
+    },
+    {
+      "path": "baseline/tools--pose_video_strip.py.gz",
+      "sha256": "e74d765137b093539f5707afa3fc028826d133395ba264d4b8381a97a2401991",
+      "bytes": 1276
+    },
+    {
+      "path": "baseline/tools--presentation_pose.py.gz",
+      "sha256": "aa79707ab1ae06240e6c5d2566e72c92ee3c81cf93d4dc17bfb44742537af377",
+      "bytes": 5959
+    },
+    {
+      "path": "baseline/tools--presentation_pose_capture.gd.gz",
+      "sha256": "fa42c74911139bc5d9b2765c08dd1cf8c81aa9a4e99c78a84084ba9ac6385c4f",
+      "bytes": 3956
+    },
+    {
+      "path": "baseline/tools--presentation_pose_live.gd.gz",
+      "sha256": "05c2f6ecf59f63572abf50caa0947eb86d934a74811f5e29011376f6eb7e64f1",
+      "bytes": 1684
+    },
+    {
+      "path": "baseline/tools--presentation_pose_review.gd.gz",
+      "sha256": "96887d2bbf779658f8daf4280b9695e3d7c0a86357d307ef8723b44212b1d224",
+      "bytes": 542
+    },
+    {
+      "path": "baseline/tools--qa--camera--test_camera_context.py.gz",
+      "sha256": "38dd815c7f0ef797c61c974ccd90e6d17e07fa57927efdac835d6f8839ebf6da",
+      "bytes": 4057
+    },
+    {
+      "path": "baseline/tools--quality--check_architecture.sh.gz",
+      "sha256": "ec8ca22a231fc7a33d40e0a1befd1ae0ed096bfcfaeeb0e1913a5d8b2129c70d",
+      "bytes": 2086
+    },
+    {
+      "path": "baseline/tools--reference_zoom.py.gz",
+      "sha256": "f6745177e20bfbd5f91317e4dd2382f3e9257a91f8f5fbdeb2b4b9511d92faef",
+      "bytes": 6180
+    },
+    {
+      "path": "baseline/tools--reference_zoom_capture.gd.gz",
+      "sha256": "eb09ad1476dcf292426ef586e6527c5acb962badf8fdafa665f13abc8c6a8752",
+      "bytes": 4292
+    },
+    {
+      "path": "baseline/tools--reference_zoom_live.gd.gz",
+      "sha256": "fe21960a09c1b6d2dec1c6285aae362705c92f1aea4fda48b65abdc2c9c94a76",
+      "bytes": 2807
+    },
+    {
+      "path": "baseline/tools--reference_zoom_perf.py.gz",
+      "sha256": "e71864048c5d1789d1a092fb1e662b47715499a19363a6b06197d2094d7fb623",
+      "bytes": 5041
+    },
+    {
+      "path": "baseline/tools--reference_zoom_review.gd.gz",
+      "sha256": "1725e1781acfacfcb691d4cff0dba8170129100fc74f9ae6be67b252a88c3346",
+      "bytes": 1081
+    },
+    {
+      "path": "baseline/tools--run_visual_baseline.py.gz",
+      "sha256": "a9e438752907331ab4d5eed4726e5e42492b42928cc56e9560b80f49c4911a96",
+      "bytes": 2852
+    },
+    {
+      "path": "baseline/tools--test_camera_quantization.py.gz",
+      "sha256": "ce39431d8daf857c008ef74b8a2e28813370b4289f66bc978ef3a0ae0b8e01aa",
+      "bytes": 2317
+    },
+    {
+      "path": "baseline/tools--test_presentation_pose.py.gz",
+      "sha256": "04c68e44576d2f19b99b64f53766176bd1eb6e2fcac1d7d5009ad32147dee8a6",
+      "bytes": 2638
+    },
+    {
+      "path": "baseline/tools--test_reference_zoom.py.gz",
+      "sha256": "d8227323606c0faac25311d2fd7ecb6c93d28f83d885b4989f403ed267160df0",
+      "bytes": 3314
+    },
+    {
+      "path": "baseline/tools--test_visual_baseline.py.gz",
+      "sha256": "a1da50a7fdc2ca5b73f34bdaa1360bf8f043c92e45de66b476b11fb64a7b8c59",
+      "bytes": 3431
+    },
+    {
+      "path": "baseline/tools--test_visual_camera.py.gz",
+      "sha256": "0b5d40ff1613fe6e1772d754f3ce8c43b8821a23c6f31d8449211a9ceab794e7",
+      "bytes": 1666
+    },
+    {
+      "path": "baseline/tools--test_visual_coordinates.py.gz",
+      "sha256": "ed210cdefc4ae57a82a6afa493b3cf18605a37a9974f9027e9c6cfbde006a7d4",
+      "bytes": 1890
+    },
+    {
+      "path": "baseline/tools--test_visual_hardware.py.gz",
+      "sha256": "72e273fa03f1667240cb391f1c878842f226d4ea1894eac726ee3a5b27db135d",
+      "bytes": 5005
+    },
+    {
+      "path": "baseline/tools--test_visual_motion.py.gz",
+      "sha256": "be6765937e60023bf68168ee9564d694c76c23728baa6f9030c313cc71926901",
+      "bytes": 3692
+    },
+    {
+      "path": "baseline/tools--test_visual_static.py.gz",
+      "sha256": "d8f56d150606fed1b32b01576245725dd2b14d980f98f0f9a9975ec3769da1c9",
+      "bytes": 1931
+    },
+    {
+      "path": "baseline/tools--visual_baseline.gd.gz",
+      "sha256": "acd27b0a6110acb9ef96a038fe2327b6fdfdaca57638b88ca32c7b4fd2f225a8",
+      "bytes": 4801
+    },
+    {
+      "path": "baseline/tools--visual_camera.py.gz",
+      "sha256": "d01b7f309933ccf56f71cc814c1f93545b104daee3fa7563600291ae55cb8cef",
+      "bytes": 4648
+    },
+    {
+      "path": "baseline/tools--visual_camera_capture.gd.gz",
+      "sha256": "afb320d0f2ae06f7d156ef520c6e9924d683a168ba0c22d1312447080ce5b114",
+      "bytes": 2094
+    },
+    {
+      "path": "baseline/tools--visual_camera_review.gd.gz",
+      "sha256": "f3e82d1f63b62eb763610fc00d8480fc90faf6cba4506a6600a1d21d12790d92",
+      "bytes": 1562
+    },
+    {
+      "path": "baseline/tools--visual_coordinates.py.gz",
+      "sha256": "3c6290a2f7c405515f4eec5fde049d67ab9317404393050c1914d977e7f90acd",
+      "bytes": 4694
+    },
+    {
+      "path": "baseline/tools--visual_coordinates_capture.gd.gz",
+      "sha256": "568ff57f27b7ad739e0a0ed6b0cc1d01380f2e86b9493388c147e32f144bef50",
+      "bytes": 4125
+    },
+    {
+      "path": "baseline/tools--visual_coordinates_capture.gd.uid.gz",
+      "sha256": "27d0c7781e18f9f450aaa9d89866027a86107ac8a74ee1585d09cc5309095627",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--visual_coordinates_review.gd.gz",
+      "sha256": "e4789bf70f40f6ba58f6dafb26aaba79862510b99bb28e8729c0c029e914d296",
+      "bytes": 546
+    },
+    {
+      "path": "baseline/tools--visual_coordinates_review.gd.uid.gz",
+      "sha256": "425152eb30141743f3e621b3b937a4e34cf3a3a98a6e57335b67518020ca7cc1",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--visual_hardware.py.gz",
+      "sha256": "a1a8f2e8dc51cb5436cbf1f76f11ab5ab71e2fe8935a13295577479f09389612",
+      "bytes": 5040
+    },
+    {
+      "path": "baseline/tools--visual_motion.py.gz",
+      "sha256": "0349a7c00aa307563b6e1d654db272255320aa49298d8f6e3ff05fc9ed37b1b0",
+      "bytes": 8077
+    },
+    {
+      "path": "baseline/tools--visual_motion_capture.gd.gz",
+      "sha256": "708d9523c6450d5c7b86ef2d95ddc2e8a6ad41658a906edc8fa69ee5867778a1",
+      "bytes": 3188
+    },
+    {
+      "path": "baseline/tools--visual_motion_review.gd.gz",
+      "sha256": "b4553e656425dc073d776fcc162e8912467e1a84a69290349b135f10bf5c8912",
+      "bytes": 543
+    },
+    {
+      "path": "baseline/tools--visual_motion_route.gd.gz",
+      "sha256": "8fc6583407aaa13e0b05b59ce7a5fa7935188524725fe7f76efe5cd52b3edf19",
+      "bytes": 2770
+    },
+    {
+      "path": "baseline/tools--visual_static.py.gz",
+      "sha256": "973966019bb5a17006203cfc8141254ed5617c15729bc18b3bed6ccaa8fa729d",
+      "bytes": 3728
+    },
+    {
+      "path": "baseline/tools--visual_static_capture.gd.gz",
+      "sha256": "8b0d0d6182280afbec393b93413015f497c5b9de6feb3d7cbc752323c5c2cb4e",
+      "bytes": 2592
+    },
+    {
+      "path": "baseline/wiki--articles--project-refactoring.md.gz",
+      "sha256": "684f68288d421af7cfe6638cea64ee87be14052f8882a92ca3f9e93edac99771",
+      "bytes": 9626
+    },
+    {
+      "path": "baseline/wiki--articles--visual-camera-motion.md.gz",
+      "sha256": "ceeabaa9f4d61776b49d9e268a85e7264c6dde0c1bb33815e55b1718cefe17ec",
+      "bytes": 2357
+    },
+    {
+      "path": "baseline/wiki--articles--visual-hardware.md.gz",
+      "sha256": "bf1263f7580fa0ce4bf95db239bbdd5fb42b53a2d373a9e6426a8f681e810547",
+      "bytes": 2681
+    },
+    {
+      "path": "baseline/wiki--articles--visual-motion.md.gz",
+      "sha256": "ce28a61cfbe7cf470750ad567c998791bd051248ffb48a403b08134421a0ef67",
+      "bytes": 2247
+    },
+    {
+      "path": "baseline/wiki--articles--visual-pose.md.gz",
+      "sha256": "9a0ec3131f829020c22e9effcc033e3a961fb4aeb4792e201bb603eb78a8697e",
+      "bytes": 2441
+    },
+    {
+      "path": "baseline/Бабушкина ферма.app--Contents--Info.plist.gz",
+      "sha256": "1b088a892886efecbee9026d99195e59f76f0ee01f2b42f529a72863ce197ba7",
+      "bytes": 393
+    },
+    {
+      "path": "baseline-before-uid-schema.py.gz",
+      "sha256": "0ce7ffe7bbf5d2c298f8ac5965683248b99131b26d5ca631d3505d7f06d56fb8",
+      "bytes": 1664
+    },
+    {
+      "path": "baseline-live-consumers.json",
+      "sha256": "68a5d4c4ed07619875d5ae069fa69dde2cadc62fca02841165a99829c0e64e64",
+      "bytes": 382
+    },
+    {
+      "path": "baseline-preparation-repair.json",
+      "sha256": "88fd8642daf86e8cc9ec55e74e35bb68d71bde25519cb163b9c2508b359090d6",
+      "bytes": 386
+    },
+    {
+      "path": "baseline.py",
+      "sha256": "7bd7f143a48b55c86f5ca330a01b5beb3777baf1759c34ed48fde138c3310906",
+      "bytes": 4703
+    },
+    {
+      "path": "before-001.txt",
+      "sha256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a",
+      "bytes": 40
+    },
+    {
+      "path": "before-002.txt",
+      "sha256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a",
+      "bytes": 40
+    },
+    {
+      "path": "before-003.txt",
+      "sha256": "c7de2f0ce0e867869aec2adbdd2a5fd94cbc3edc6f18afaa333cf3980ca4db6f",
+      "bytes": 43
+    },
+    {
+      "path": "before-004.txt",
+      "sha256": "ec953c3bc9072708142b71d2310937b74006f5ad8a21e50e48d74c5830ad73ee",
+      "bytes": 80
+    },
+    {
+      "path": "before-005.txt",
+      "sha256": "51a37ed5ae9c819b41f6657391f602550a4bea51b6ee64147e1999302ebdccc7",
+      "bytes": 1579
+    },
+    {
+      "path": "before-006.txt",
+      "sha256": "9148781c5f1eb1cd164a226576ecc60d2283bc9f21900d6d5e93fcb1415ae48f",
+      "bytes": 1153
+    },
+    {
+      "path": "before-007.txt",
+      "sha256": "2d54cd307b002f0a10b60452c871128c6fca29c3ff2c3f413b586cc4094b55e4",
+      "bytes": 970
+    },
+    {
+      "path": "before-008.txt",
+      "sha256": "be3a775d36bca884269827366f5b1ab837d18ca691ad59f34466f370abf9b4e3",
+      "bytes": 7292
+    },
+    {
+      "path": "before-009.txt",
+      "sha256": "167d682959c996bb9e38dc579c117475b8b760a8e84a34f0c8b6020b0df578f4",
+      "bytes": 646
+    },
+    {
+      "path": "before-010.txt",
+      "sha256": "51c23b483859e6089c97471db7cae87ad82b59bec669447374c59e297688c277",
+      "bytes": 1919
+    },
+    {
+      "path": "before-011.txt",
+      "sha256": "4d6834761b10304e29615b2d609184aa56aeee49a6eebae0e785df63a312eae0",
+      "bytes": 362
+    },
+    {
+      "path": "before-012.txt",
+      "sha256": "a06c56bad0d40cb00d91c078e6921a8c1ff12686d9503fda8ac3f934ce9f5632",
+      "bytes": 110
+    },
+    {
+      "path": "before-013.txt",
+      "sha256": "0e2428fb18f202c9b269024fb86763cb9ecf940b4b0ab2d0bc9e4c4b53a35a51",
+      "bytes": 107
+    },
+    {
+      "path": "before-014.txt",
+      "sha256": "ffed90a434f02457dcb7eca30a555f6abfbaa3d9ecb8d71b9802aac338f82005",
+      "bytes": 122
+    },
+    {
+      "path": "before-015.txt",
+      "sha256": "1ec6bfc788c776b73255f80b12c57f104e6e1e13e6f4f12207bb1a53483f1c8e",
+      "bytes": 115
+    },
+    {
+      "path": "before-016.txt",
+      "sha256": "d4d9892422364093792be595a8e6787a90986d272ad40b2025f329c9b1872ff0",
+      "bytes": 125
+    },
+    {
+      "path": "before-017.txt",
+      "sha256": "8823526575dfccc707b79473c9b1e2055271a9dcbb84cad173965ea96bea026e",
+      "bytes": 116
+    },
+    {
+      "path": "before-018.txt",
+      "sha256": "5d244aefbd163e8f5db1d19e5f4e31a0968afd177d793baf808a3c12de8fdf6d",
+      "bytes": 109
+    },
+    {
+      "path": "before-019.txt",
+      "sha256": "696d358330e21b904332dace2502a2c89915698aff2ba449ff437c18b148d9a0",
+      "bytes": 110
+    },
+    {
+      "path": "before-020.txt",
+      "sha256": "738f5b7ec421c922cf27b573d1139290236002cef3a02a011b2ef25e8cb78e87",
+      "bytes": 116
+    },
+    {
+      "path": "before-021.txt",
+      "sha256": "7636bb3b18802bf8c69f9aa63b8046dfff559cce7306a0c9c5d9b5445eec08f9",
+      "bytes": 503
+    },
+    {
+      "path": "before-022.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-023.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-024.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-025.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-026.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-027.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-028.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-029.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-030.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-031.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-032.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-033.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-034.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-035.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-036.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-037.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-038.txt.gz",
+      "sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856",
+      "bytes": 88
+    },
+    {
+      "path": "before-039.txt.gz",
+      "sha256": "c205c167ba65647295294aa3b220de8e3ff8400d52b0b4f661d849c6ee665c48",
+      "bytes": 479
+    },
+    {
+      "path": "before-040.txt",
+      "sha256": "d89c6415d679426e11416656794a5b4cfa2bd1cf1e03ad8fdc7ff6619bff08cf",
+      "bytes": 62
+    },
+    {
+      "path": "before-commands.json",
+      "sha256": "6c8ef9633f8cf7ea561205f479ebd21c396fb09b6504e22e453e1414388a6d63",
+      "bytes": 22780
+    },
+    {
+      "path": "before-contact-sheet-source.json",
+      "sha256": "4c8942be1c238a2abf080f2b1a28e504c260ed2ef5623f55c7fd6b9fcf9e21cd",
+      "bytes": 3230
+    },
+    {
+      "path": "before-profile.json",
+      "sha256": "7fd6d815acf1112d11890a28ef400328495708cafeb47c2edd5248a6735c6cc7",
+      "bytes": 29058
+    },
+    {
+      "path": "browser-article.json",
+      "sha256": "6de1e630858b023d60298366f7304b58432028e6f730df2b7f13e486dae300f8",
+      "bytes": 263
+    },
+    {
+      "path": "browser-before-ready.json",
+      "sha256": "a77de0b8998d74e4d7e006d617157013b8266ad4f569e74ba28ca89b9f3d075f",
+      "bytes": 152
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "074c9b523120279122ac19e1de849ddeb6367c1e1fc46f5fd7d8bfcf827d7d61",
+      "bytes": 196
+    },
+    {
+      "path": "browser-desktop.png",
+      "sha256": "993d14d12045eee5e9d75a5f515e4629e9fbdf702b0621b76a316a2d4afa9af5",
+      "bytes": 188731
+    },
+    {
+      "path": "browser-mobile.json",
+      "sha256": "8dd66c43fdedb55a5048d824b1858d00a0a954da7f47669d5a6cb19b80c69fbf",
+      "bytes": 98
+    },
+    {
+      "path": "browser-mobile.png",
+      "sha256": "6a01f70aabe9e7e777f62b3a1c24141eb5d8bb799cce70ad0d52ab5b3a424120",
+      "bytes": 61052
+    },
+    {
+      "path": "browser-task.json",
+      "sha256": "d9a6f1395544ff69ccef04bb9436dc0a4c59dfc0bcf592be4fac2d5b2e682083",
+      "bytes": 146
+    },
+    {
+      "path": "catalog-check.mjs",
+      "sha256": "7ae6d7f0d00ebb0fd2223b3a5ec18083d8742cccac2a6a74ff924e2db1900464",
+      "bytes": 2329
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "6340eb96c6365366c8909de7ddc68b7632fda5eee2ebe17f02fe0886362cba2c",
+      "bytes": 435
+    },
+    {
+      "path": "docs.py",
+      "sha256": "d41e456a251fefb2962284e3a131f65f53697a40ad980c0ede25223bc904ae65",
+      "bytes": 6432
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "797aa2f6a10c7b5d95e4c7e690feecc33f3a63dc332aa815ffc21bd02eb2155d",
+      "bytes": 14919
+    },
+    {
+      "path": "gates-01/game.txt",
+      "sha256": "7784f232bd6e91bcea9742627efdc28ca744874c9b7a1dbffaeb9c5f75eb4769",
+      "bytes": 2594
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "19cb235c730982d271af3e00cff4db65750b8929e13896aed6d92bebdb48d0ad",
+      "bytes": 733
+    },
+    {
+      "path": "gates-01/headless/f10/engine.txt",
+      "sha256": "58b039e50f95e5bc4e6a2e3cf8ab9e88c08bd229113ed5ca0dc17a7b1ce3e4ef",
+      "bytes": 11107
+    },
+    {
+      "path": "gates-01/headless/f10/frames.jsonl",
+      "sha256": "274db8ac68fbc221968c52cc772329f959dd16a2a004af2e2d8ca52a4f5ea525",
+      "bytes": 9216
+    },
+    {
+      "path": "gates-01/headless/f10/summary.json",
+      "sha256": "352c92bb983ac822d6aa2c95de3f8fa27889310b735e31a86635e188f565c459",
+      "bytes": 1743
+    },
+    {
+      "path": "gates-01/headless/normal/engine.txt",
+      "sha256": "6e695e72832367e1db740ef83c5041dca641e7a0593321652c4751334cb42192",
+      "bytes": 11052
+    },
+    {
+      "path": "gates-01/headless/normal/frames.jsonl",
+      "sha256": "bedb31014c1bf5325bdb733fa28b4eae3ee216fcf5cd70bba251f1d677f1ee5c",
+      "bytes": 9158
+    },
+    {
+      "path": "gates-01/headless/normal/summary.json",
+      "sha256": "514ede2c8f54291287d0da23aa7e2fe90ee5b134d4882a6d7d6c48cadb21f0ce",
+      "bytes": 1746
+    },
+    {
+      "path": "gates-01/wiki.txt",
+      "sha256": "719823cd2eb9a1f980b560471cfc806d43b9df37df5442abab8461e63f8ac058",
+      "bytes": 13820
+    },
+    {
+      "path": "history-repair.py",
+      "sha256": "644762bda83cbd02502e4b9d0c8e6e842fe50473610921a0a0a05eb4b300eadc",
+      "bytes": 2365
+    },
+    {
+      "path": "layout-green-01.json",
+      "sha256": "664274d880df78b9ad9536178a3328d6c4ae4f0e3e78abcc69d7120c118f3ac8",
+      "bytes": 185
+    },
+    {
+      "path": "layout-green-01.txt",
+      "sha256": "03ebe586969d0c313493c684396484301c0f73da846ff5b2fc5127235d5b1ec8",
+      "bytes": 101
+    },
+    {
+      "path": "layout-red-attempt01.json",
+      "sha256": "a8cccd4732ccb953e655296eac69033b1a677e2531296a32fc1d3b2db0bbbd4a",
+      "bytes": 239
+    },
+    {
+      "path": "layout-red-attempt01.txt",
+      "sha256": "1b8555ce2dbc6821c87271f45e4294007019993b973f51e178269efd35a2315d",
+      "bytes": 5336
+    },
+    {
+      "path": "layout-red.json",
+      "sha256": "43c336c552d41177764726653d4c04e5ae6f551e2fb32290916762eb83cfedc4",
+      "bytes": 239
+    },
+    {
+      "path": "layout-red.txt",
+      "sha256": "ee79664fd927eae847da3fe5056857a6bf37a114dd5dbd0deee93c01f77f008e",
+      "bytes": 5344
+    },
+    {
+      "path": "migration.json",
+      "sha256": "5dbe705cd4d6b6de53de6126f9df717bd861e972390fb2bba2873f1b623ad9c3",
+      "bytes": 20693
+    },
+    {
+      "path": "plan-before-runtime-fixtures.json.gz",
+      "sha256": "8fa571c8d8f31cdcd269b193ec4ab68b4d67c1bc48650a8936e6783b8532f4e7",
+      "bytes": 97401
+    },
+    {
+      "path": "plan-before-uid-schema.json.gz",
+      "sha256": "8ac857a2d74b37aff0628bd4853e486849a1828c7297429128ad774a770c9274",
+      "bytes": 96687
+    },
+    {
+      "path": "plan-before-uid-schema.py.gz",
+      "sha256": "86be379cb2985fb102bccbd5e69c82db738152ee63a09786ce4ce905804fbe2b",
+      "bytes": 3284
+    },
+    {
+      "path": "plan-generator-before-runtime-fixtures.py.gz",
+      "sha256": "2869dfc58bca3b8813692baef879d2a1ed9931906b5d9aaabe866fa2d62e37ef",
+      "bytes": 3351
+    },
+    {
+      "path": "plan.py",
+      "sha256": "eb15c59520680ba17fffcbef6edcd2e653c0c0ce2e37c9b53b1fc081592a9986",
+      "bytes": 10704
+    },
+    {
+      "path": "plot-history-repair.json",
+      "sha256": "5dbf055eff4e8514c7517b1de0861eed13978d6b2529d58ae5fe8c6f4a210090",
+      "bytes": 718
+    },
+    {
+      "path": "pose-test-before-history-pin.py.gz",
+      "sha256": "7c27da53c0431ba046bee7aec17446ce7b83b4a40e6d3358467c79cc6e87edcf",
+      "bytes": 2837
+    },
+    {
+      "path": "profile-attempt01.py.gz",
+      "sha256": "e385aacda58743f32fee0a88d74142a640f9e8cb0b55e460a0603e945f651526",
+      "bytes": 2592
+    },
+    {
+      "path": "profile.py",
+      "sha256": "ec61001675660369ea9ed0120fb4b05896e21574104f8c5cab8ceaf0fa10906f",
+      "bytes": 6181
+    },
+    {
+      "path": "regression.json",
+      "sha256": "1ee2bdce853a9ecc8636fe3398af71db32c6d33442c073a26b928e522b15e9f9",
+      "bytes": 311
+    },
+    {
+      "path": "scope.json",
+      "sha256": "e6ea9e06ea87fc3962dafeb1447df537a76125912439ab020ab0c7b910168b12",
+      "bytes": 4909
+    },
+    {
+      "path": "seal.py",
+      "sha256": "af6e3d5e82f9b91f0d376806dc5492578a2b11e09bc4a02edb5ff15d1267051d",
+      "bytes": 6700
+    },
+    {
+      "path": "source-freeze.json",
+      "sha256": "8096680b5ec4381ec46c0351406b4586270f63871e339588257b938fdfd231e9",
+      "bytes": 6992
+    }
+  ]
+}

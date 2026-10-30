@@ -1,0 +1,246 @@
+[
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.analyze_optimization_audit",
+      "--folder",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/optimization"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-01.txt",
+    "sha256": "63ead902c9f9856fb90beb83aaa5b54c7b1cced3f7bdd2019c6062ea87c9d28d"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.analyze_storage_perf",
+      "--folder",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/storage"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-02.txt",
+    "sha256": "85c957a4969de856982ac54a9dd24779a477bed79cadd171472fff3eb76c45b7"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.optimization_asset_audit",
+      "--output",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/asset-graph.json"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-03.txt",
+    "sha256": "db5174ebe31959d13f004cface7b15b4761247008f468a2656f69221175a2ce2"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.perf_contract"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-04.txt",
+    "sha256": "ab8aa78a9a68029028d15b16e567694df64a64af10f3f1058b9e991d18bf021b"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.perf_contract",
+      "--controls",
+      "--output",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/visual-overhaul/vperf-001/controls"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-05.txt",
+    "sha256": "f0e22cfe05c458eca705a1c906046b9d698da532c750490dfbb098a40680a5ec"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/performance_gate.py",
+      "--help"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-06.txt",
+    "sha256": "908bcfe478bcf05fda6cb59d7829b774a3a842947304a059e9f6c45a335f06b5"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.perf_contract_collect",
+      "--help"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-07.txt",
+    "sha256": "ecbb8ed197b69bdea8479631a152fac969f602fec978d7f792f0a8ddf71e8673"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/performance_gate.py",
+      "--output",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/existing output"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 1,
+    "exit": 1,
+    "log": "after-attempt03-08.txt",
+    "sha256": "f752ee598b2e22a1c9a9000da2c936e34699fc22743383aad5f6727389aa6694"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.perf_contract_collect",
+      "--output",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/existing output"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 1,
+    "exit": 1,
+    "log": "after-attempt03-09.txt",
+    "sha256": "ccdc0733dd8ac07767687e11927d340ac966ddceea8eb73232e5f896154468ae"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.audit_save_crashes",
+      "--godot",
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--output",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/crash-boundaries.json"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-10.txt",
+    "sha256": "9d8636d840c716a165a46f90667207fe7c882b2d25b577d650442b10ed06d156"
+  },
+  {
+    "command": [
+      "zsh",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/smoke_test.sh"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-11.txt",
+    "sha256": "97603abe4fd87157130738f91bb13555899012a386b261a9dbd172bfdb04d610"
+  },
+  {
+    "command": [
+      "zsh",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/performance_gate.sh",
+      "--help"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-12.txt",
+    "sha256": "908bcfe478bcf05fda6cb59d7829b774a3a842947304a059e9f6c45a335f06b5"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.test_performance_context"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-13.txt",
+    "sha256": "5f6648d1b2e7c07b98e4bb1b1f84651f5372b82804163acb89baa282e27d0a83"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.test_optimization_audit"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-14.txt",
+    "sha256": "cad4b5a6c7a3ead5c109e2d6fde865e8a8e6bb34d6d5fec7c4bd9f3be355982d"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.test_storage_perf"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-15.txt",
+    "sha256": "6273232de4d3ef7acd4ecafa5c86beeeb974f56586b21089a2990b3f72facbe6"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.test_performance_gate"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-16.txt",
+    "sha256": "6dee8c1f953942a0145489696fee0ad3ce1c98516e6f7a40b34df9c118bb7c8e"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.test_perf_contract"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-17.txt",
+    "sha256": "8497ca755b83b2e8519054dd2d2b4a6c582f45052a4cab3ec70b2e126b0b734c"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.test_redraw_output"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-18.txt",
+    "sha256": "1f22911cbebf49feac97e5b80bed84d893855e23347b33076bcf94e653cf1eef"
+  },
+  {
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.test_performance_layout"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance preparation after zv4rp04x/foreign cwd",
+    "expected": 0,
+    "exit": 0,
+    "log": "after-attempt03-19.txt",
+    "sha256": "5c40e957f5c2f95b5b7678cea12014d906a7f6e803601ad02f4fe17dd835df53"
+  }
+]

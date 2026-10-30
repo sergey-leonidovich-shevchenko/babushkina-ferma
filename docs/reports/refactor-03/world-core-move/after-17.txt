@@ -1,0 +1,1 @@
+BENCH ASSETS: three views, four real annotated feet, exact alpha/derivatives, uniform 0.25 scale

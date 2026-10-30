@@ -2,7 +2,7 @@ extends RefCounted
 const Speed:=preload("res://scripts/presentation/foliage_speed.gd")
 const Contact:=preload("res://scripts/presentation/foliage_contact.gd")
 const Wind:=preload("res://scripts/presentation/foliage_wind.gd")
-const Points:=preload("res://tools/visual_camera_points.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
 
 ## Проверяет ограниченную силу, настоящие шаги разных частот, упор и скольжение, паузу и сброс временных данных.
 static func run(ctx:SceneTree)->void:

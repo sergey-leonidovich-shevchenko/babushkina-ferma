@@ -34,6 +34,29 @@ done
 
 python3 tools/run.py planning.bump_version --check
 python3 tools/run.py common.test_infrastructure
+python3 tools/run.py common.test_history
+python3 tools/run.py qa.art.test_current_paths
+python3 tools/run.py assets.migration.test_scanner_history
+python3 tools/run.py assets.migration.test_migration_fixture
+python3 tools/run.py assets.alpha.test_processing_history
+python3 tools/run.py assets.alpha.test_street_consumer
+python3 tools/run.py qa.compatibility.test_compatibility_cli
+python3 tools/run.py qa.performance.test_performance_context
+python3 tools/run.py qa.performance.test_performance_layout
+python3 tools/run.py qa.performance.test_surface_producers
+python3 tools/run.py qa.camera.test_camera_context
+python3 tools/run.py qa.camera.test_camera_layout
+python3 tools/run.py qa.world.test_world_context
+python3 tools/run.py qa.ground.test_ground_context
+python3 tools/run.py qa.ground.test_ground_layout
+python3 tools/run.py qa.ground.test_compiled_sources
+python3 tools/run.py qa.foliage.test_foliage_context
+python3 tools/run.py qa.foliage.test_relocation_provenance
+python3 tools/run.py qa.foliage.test_foliage_producers
+python3 tools/run.py qa.world.test_source_inputs
+python3 tools/run.py qa.world.test_world_source_history
+python3 tools/run.py qa.world.test_world_producers
+python3 tools/run.py assets.contracts.test_source_paths
 python3 tools/run.py planning.test_task_batch
 
 if rg -n '^func draw_' scripts/game.gd >/dev/null; then
@@ -43,161 +66,162 @@ fi
 
 python3 tools/run.py quality.check_documentation
 python3 tools/run.py quality.test_documentation
-python3 tools/test_world_sprite_manifest.py
-python3 tools/check_world_sprite_manifest.py
-python3 tools/test_optimization_audit.py
-python3 tools/test_storage_perf.py
-python3 tools/test_sprite_cleanup.py
-python3 tools/check_sprite_cleanup.py
+python3 tools/run.py assets.contracts.test_world_sprite_manifest
+python3 tools/run.py assets.contracts.check_world_sprite_manifest
+python3 tools/run.py qa.performance.test_optimization_audit
+python3 tools/run.py qa.performance.test_storage_perf
+python3 tools/run.py assets.contracts.test_sprite_cleanup
+python3 tools/run.py assets.contracts.check_sprite_cleanup
 python3 tools/run.py planning.project_backlog
 python3 tools/run.py planning.test_project_backlog
-python3 tools/test_water_audit.py
+python3 tools/run.py qa.world.test_water_audit
 python3 tools/run.py planning.visual_backlog
 python3 tools/run.py planning.test_visual_backlog
-python3 tools/test_visual_baseline.py
-python3 tools/visual_hardware.py verify >/dev/null
-python3 tools/test_visual_hardware.py
-python3 tools/visual_motion.py verify >/dev/null
-python3 tools/visual_motion.py verify-controls >/dev/null
-python3 tools/test_visual_motion.py
-python3 tools/visual_camera.py check
-python3 tools/test_visual_camera.py
-python3 tools/test_visual_static.py
-python3 tools/visual_coordinates.py verify
-python3 tools/test_visual_coordinates.py
-python3 tools/camera_quantization.py verify >/dev/null
-python3 tools/test_camera_quantization.py
-python3 tools/presentation_pose.py verify >/dev/null
-python3 tools/test_presentation_pose.py
-python3 tools/reference_zoom.py verify >/dev/null
-python3 tools/reference_zoom_perf.py verify >/dev/null
-python3 tools/test_reference_zoom.py
-python3 tools/test_perf_contract.py
-python3 tools/perf_contract.py >/dev/null
-python3 tools/perf_contract.py --controls --output docs/reports/visual-overhaul/vperf-001/controls >/dev/null
-python3 tools/render_order.py >/dev/null
-python3 tools/test_render_order.py
-python3 tools/grass_methods.py all >/dev/null
-python3 tools/test_grass_methods.py
-python3 tools/ground_layers.py verify >/dev/null
-python3 tools/test_ground_layers.py
-python3 tools/meadow_verify.py >/dev/null
-python3 tools/test_meadow_ground.py
-python3 tools/ground_edge_verify.py >/dev/null
-python3 tools/test_ground_edge.py
-python3 tools/axial_road_verify.py >/dev/null
-python3 tools/test_axial_road.py
-python3 tools/road_network_verify.py >/dev/null
-python3 tools/test_road_network.py
-python3 tools/plaza_verify.py >/dev/null
-python3 tools/test_plaza_ground.py
-python3 tools/garden_verify.py >/dev/null
-python3 tools/test_garden_soil.py
-python3 tools/decoration_verify.py >/dev/null
-python3 tools/test_decoration_rules.py
-python3 tools/terrain_revision_verify.py >/dev/null
-python3 tools/test_terrain_revision.py
-python3 tools/ground_seasons_verify.py >/dev/null
-python3 tools/test_ground_seasons.py
-python3 tools/object_command_verify.py >/dev/null
-python3 tools/test_object_command.py
-python3 tools/village_bench_verify.py >/dev/null
-python3 tools/test_village_bench.py
-python3 tools/village_street_verify.py >/dev/null
-python3 tools/test_village_street.py
-python3 tools/village_board_verify.py >/dev/null
-python3 tools/test_village_board.py
-python3 tools/village_trade_verify.py >/dev/null
-python3 tools/test_village_trade.py
-python3 tools/pilot_static_audit.py >/dev/null
-python3 tools/pilot_static_verify.py >/dev/null
-python3 tools/test_pilot_static.py
-python3 tools/pilot_pass_verify.py >/dev/null
-python3 tools/test_pilot_pass.py
-python3 tools/post_motion_verify.py >/dev/null
-python3 tools/test_post_motion.py
-python3 tools/plant_depth_verify.py >/dev/null
-python3 tools/test_plant_depth.py
-python3 tools/transient_save_verify.py >/dev/null
-python3 tools/test_transient_save.py
-python3 tools/foliage_root_verify.py >/dev/null
-python3 tools/test_foliage_root.py
-python3 tools/foliage_uv_verify.py >/dev/null
-python3 tools/test_foliage_uv.py
-python3 tools/foliage_wind_verify.py >/dev/null
-python3 tools/test_foliage_wind.py
-python3 tools/foliage_contact_verify.py >/dev/null
-python3 tools/test_foliage_contact.py
-python3 tools/foliage_speed_verify.py >/dev/null
-python3 tools/test_foliage_speed.py
-python3 tools/foliage_recovery_verify.py >/dev/null
-python3 tools/test_foliage_recovery.py
-python3 tools/shadow_inventory_verify.py >/dev/null
-python3 tools/test_shadow_inventory.py
-python3 tools/village_fence_verify.py >/dev/null
-python3 tools/test_village_fence.py
-python3 tools/village_lamp_verify.py >/dev/null
-python3 tools/test_village_lamp.py
-python3 tools/visual_scale.py verify
-python3 tools/test_visual_scale.py
-python3 tools/visual_palette.py
-python3 tools/test_visual_palette.py
-python3 tools/visual_perspective.py
-python3 tools/test_visual_perspective.py
-python3 tools/visual_edges.py
-python3 tools/test_visual_edges.py
-python3 tools/visual_density.py
-python3 tools/test_visual_density.py
-python3 tools/visual_light.py
-python3 tools/test_visual_light.py
-python3 tools/visual_modules.py
-python3 tools/test_visual_modules.py
-python3 tools/visual_reuse.py
-python3 tools/test_visual_reuse.py
-python3 tools/visual_icons.py
-python3 tools/test_visual_icons.py
-python3 tools/visual_pipeline.py
-python3 tools/test_visual_pipeline.py
-python3 tools/visual_resources.py
-python3 tools/test_visual_resources.py
-python3 tools/visual_sampling.py
-python3 tools/test_visual_sampling.py
-python3 tools/padded_atlases.py
-python3 tools/test_padded_atlases.py
-python3 tools/texture_intents.py
-python3 tools/test_texture_intents.py
-python3 tools/item_sizes.py
-python3 tools/test_item_sizes.py
-python3 tools/preview_portability.py
-python3 tools/test_preview_portability.py
-python3 tools/item_export_contract.py
-python3 tools/test_item_export_contract.py
-python3 tools/test_performance_gate.py
+python3 tools/run.py qa.camera.test_visual_baseline
+python3 tools/run.py qa.camera.visual_hardware verify >/dev/null
+python3 tools/run.py qa.camera.test_visual_hardware
+python3 tools/run.py qa.camera.visual_motion verify >/dev/null
+python3 tools/run.py qa.camera.visual_motion verify-controls >/dev/null
+python3 tools/run.py qa.camera.test_visual_motion
+python3 tools/run.py qa.camera.visual_camera check
+python3 tools/run.py qa.camera.test_visual_camera
+python3 tools/run.py qa.camera.test_visual_static
+python3 tools/run.py qa.camera.visual_coordinates verify
+python3 tools/run.py qa.camera.test_visual_coordinates
+python3 tools/run.py qa.camera.camera_quantization verify >/dev/null
+python3 tools/run.py qa.camera.test_camera_quantization
+python3 tools/run.py qa.camera.presentation_pose verify >/dev/null
+python3 tools/run.py qa.camera.test_presentation_pose
+python3 tools/run.py qa.camera.reference_zoom verify >/dev/null
+python3 tools/run.py qa.camera.reference_zoom_perf verify >/dev/null
+python3 tools/run.py qa.camera.test_reference_zoom
+python3 tools/run.py qa.performance.test_perf_contract
+python3 tools/run.py qa.performance.perf_contract >/dev/null
+python3 tools/run.py qa.performance.perf_contract --controls --output docs/reports/visual-overhaul/vperf-001/controls >/dev/null
+python3 tools/run.py qa.world.render_order >/dev/null
+python3 tools/run.py qa.world.test_render_order
+python3 tools/run.py qa.foliage.grass_methods all >/dev/null
+python3 tools/run.py qa.foliage.test_grass_methods
+python3 tools/run.py qa.ground.ground_layers verify >/dev/null
+python3 tools/run.py qa.ground.test_ground_layers
+python3 tools/run.py qa.ground.meadow_verify >/dev/null
+python3 tools/run.py qa.ground.test_meadow_ground
+python3 tools/run.py qa.ground.ground_edge_verify >/dev/null
+python3 tools/run.py qa.ground.test_ground_edge
+python3 tools/run.py qa.ground.axial_road_verify >/dev/null
+python3 tools/run.py qa.ground.test_axial_road
+python3 tools/run.py qa.ground.road_network_verify >/dev/null
+python3 tools/run.py qa.ground.test_road_network
+python3 tools/run.py qa.ground.plaza_verify >/dev/null
+python3 tools/run.py qa.ground.test_plaza_ground
+python3 tools/run.py qa.ground.garden_verify >/dev/null
+python3 tools/run.py qa.ground.test_garden_soil
+python3 tools/run.py qa.ground.decoration_verify >/dev/null
+python3 tools/run.py qa.ground.test_decoration_rules
+python3 tools/run.py qa.ground.terrain_revision_verify >/dev/null
+python3 tools/run.py qa.ground.test_terrain_revision
+python3 tools/run.py qa.ground.ground_seasons_verify >/dev/null
+python3 tools/run.py qa.ground.test_ground_seasons
+python3 tools/run.py qa.world.object_command_verify >/dev/null
+python3 tools/run.py qa.world.test_object_command
+python3 tools/run.py qa.world.village_bench_verify >/dev/null
+python3 tools/run.py qa.world.test_village_bench
+python3 tools/run.py qa.world.village_street_verify >/dev/null
+python3 tools/run.py qa.world.test_village_street
+python3 tools/run.py qa.world.village_board_verify >/dev/null
+python3 tools/run.py qa.world.test_village_board
+python3 tools/run.py qa.world.village_trade_verify >/dev/null
+python3 tools/run.py qa.world.test_village_trade
+python3 tools/run.py qa.world.pilot_static_audit >/dev/null
+python3 tools/run.py qa.world.pilot_static_verify >/dev/null
+python3 tools/run.py qa.world.test_pilot_static
+python3 tools/run.py qa.world.pilot_pass_verify >/dev/null
+python3 tools/run.py qa.world.test_pilot_pass
+python3 tools/run.py qa.world.post_motion_verify >/dev/null
+python3 tools/run.py qa.world.test_post_motion
+python3 tools/run.py qa.foliage.plant_depth_verify >/dev/null
+python3 tools/run.py qa.foliage.test_plant_depth
+python3 tools/run.py qa.world.transient_save_verify >/dev/null
+python3 tools/run.py qa.world.test_transient_save
+python3 tools/run.py qa.foliage.foliage_root_verify >/dev/null
+python3 tools/run.py qa.foliage.test_foliage_root
+python3 tools/run.py qa.foliage.foliage_uv_verify >/dev/null
+python3 tools/run.py qa.foliage.test_foliage_uv
+python3 tools/run.py qa.foliage.foliage_wind_verify >/dev/null
+python3 tools/run.py qa.foliage.test_foliage_wind
+python3 tools/run.py qa.foliage.foliage_contact_verify >/dev/null
+python3 tools/run.py qa.foliage.test_foliage_contact
+python3 tools/run.py qa.foliage.foliage_speed_verify >/dev/null
+python3 tools/run.py qa.foliage.test_foliage_speed
+python3 tools/run.py qa.foliage.foliage_recovery_verify >/dev/null
+python3 tools/run.py qa.foliage.test_foliage_recovery
+python3 tools/run.py qa.world.shadow_inventory_verify >/dev/null
+python3 tools/run.py qa.world.test_shadow_inventory
+python3 tools/run.py qa.world.village_fence_verify >/dev/null
+python3 tools/run.py qa.world.test_village_fence
+python3 tools/run.py qa.world.village_lamp_verify >/dev/null
+python3 tools/run.py qa.world.test_village_lamp
+python3 tools/run.py qa.art.visual_scale verify
+python3 tools/run.py qa.art.test_visual_scale
+python3 tools/run.py qa.art.visual_palette
+python3 tools/run.py qa.art.test_visual_palette
+python3 tools/run.py qa.art.visual_perspective
+python3 tools/run.py qa.art.test_visual_perspective
+python3 tools/run.py qa.art.visual_edges
+python3 tools/run.py qa.art.test_visual_edges
+python3 tools/run.py qa.art.visual_density
+python3 tools/run.py qa.art.test_visual_density
+python3 tools/run.py qa.art.visual_light
+python3 tools/run.py qa.art.test_visual_light
+python3 tools/run.py qa.art.visual_modules
+python3 tools/run.py qa.art.test_visual_modules
+python3 tools/run.py qa.art.visual_reuse
+python3 tools/run.py qa.art.test_visual_reuse
+python3 tools/run.py assets.contracts.visual_icons
+python3 tools/run.py assets.contracts.test_visual_icons
+python3 tools/run.py assets.contracts.visual_pipeline
+python3 tools/run.py assets.contracts.test_visual_pipeline
+python3 tools/run.py assets.contracts.visual_resources
+python3 tools/run.py assets.contracts.test_visual_resources
+python3 tools/run.py assets.contracts.visual_sampling
+python3 tools/run.py assets.contracts.test_visual_sampling
+python3 tools/run.py assets.contracts.padded_atlases
+python3 tools/run.py assets.contracts.test_padded_atlases
+python3 tools/run.py assets.contracts.texture_intents
+python3 tools/run.py assets.contracts.test_texture_intents
+python3 tools/run.py assets.contracts.item_sizes
+python3 tools/run.py assets.contracts.test_item_sizes
+python3 tools/run.py assets.contracts.preview_portability
+python3 tools/run.py assets.contracts.test_preview_portability
+python3 tools/run.py assets.contracts.item_export_contract
+python3 tools/run.py assets.contracts.test_item_export_contract
+python3 tools/run.py qa.performance.test_performance_gate
 python3 docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/test_causal.py
 python3 docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/test_redraw_observer.py
-python3 tools/test_redraw_output.py
-python3 tools/test_foliage_pause.py
-python3 tools/foliage_pause_verify.py
-python3 tools/foliage_visibility_verify.py
-python3 tools/test_foliage_visibility.py
-python3 tools/alpha_audit.py
-python3 tools/test_alpha_audit.py
-python3 tools/test_alpha_proof.py
-python3 tools/slice_audit.py
-python3 tools/test_slice_audit.py
-python3 tools/test_slice_proof.py
-python3 tools/asset_migration.py
-python3 tools/test_asset_migration.py
-python3 tools/test_migration_proof.py
-python3 tools/asset_report.py
-python3 tools/test_asset_report.py
-python3 tools/test_asset_pack_proof.py
+python3 tools/run.py qa.performance.test_redraw_output
+python3 tools/run.py qa.foliage.test_foliage_pause
+python3 tools/run.py qa.foliage.foliage_pause_verify
+python3 tools/run.py qa.foliage.foliage_visibility_verify
+python3 tools/run.py qa.foliage.test_foliage_visibility
+python3 tools/run.py assets.alpha.alpha_audit
+python3 tools/run.py assets.alpha.test_alpha_audit
+python3 tools/run.py assets.alpha.test_alpha_proof
+python3 tools/run.py assets.slicing.slice_audit
+python3 tools/run.py assets.slicing.test_slice_audit
+python3 tools/run.py assets.slicing.test_slice_proof
+python3 tools/run.py assets.migration.asset_migration
+python3 tools/run.py assets.migration.test_asset_migration
+python3 tools/run.py assets.migration.test_migration_proof
+python3 tools/run.py build.test_asset_report_history
+python3 tools/run.py assets.contracts.asset_report
+python3 tools/run.py assets.contracts.test_asset_report
+python3 tools/run.py build.test_asset_pack_proof
 python3 tools/run.py planning.pilot_rollout
 python3 tools/run.py planning.test_pilot_rollout
-python3 tools/artist_packet.py
-python3 tools/test_artist_packet.py
-python3 tools/shore_kit.py
-python3 tools/test_shore_kit.py
-python3 tools/analyze_visual_baseline.py docs/reports/visual-overhaul/vbase-001/native >/dev/null
+python3 tools/run.py build.artist_packet
+python3 tools/run.py build.test_artist_packet
+python3 tools/run.py qa.world.shore_kit
+python3 tools/run.py qa.world.test_shore_kit
+python3 tools/run.py qa.camera.analyze_visual_baseline docs/reports/visual-overhaul/vbase-001/native >/dev/null
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"

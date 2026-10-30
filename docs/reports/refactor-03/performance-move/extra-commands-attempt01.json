@@ -1,0 +1,317 @@
+[
+  {
+    "kind": "actual editor import",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--editor",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--quit"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-001.txt",
+    "sha256": "6ee4baa44addaafda65550abd8094da2d451bc1496438a2e1db49b43a9c8d53e"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/boss_cpu_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-002.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/cave_boss_frame_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-003.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/cpu_profile_game.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-004.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/geometry_benchmark.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-005.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/inspector_benchmark.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-006.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/lazy_item_storage_perf.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-007.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/optimization_audit_boss.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-008.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/optimization_audit_route.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-009.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/optimization_audit_sweep.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-010.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/perf_contract_capture.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-011.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/redraw_frame_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-012.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/runtime_cleanup_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-013.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/runtime_cleanup_soak.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-014.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/runtime_frame_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-015.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/save_crash_worker.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-016.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/storage_perf_game.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-017.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/storage_perf_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-018.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual canonical GD parse",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/performance/wildlife_query_review.gd"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 0,
+    "log": "extra-019.txt",
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24"
+  },
+  {
+    "kind": "actual direct consumer import",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "-c",
+      "import runpy; runpy.run_path('/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/analyze_visual_baseline.py',run_name=\"qa_direct_import\")"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/performance move native and imports bu4nz852/foreign cwd",
+    "exit": 1,
+    "log": "extra-020.txt",
+    "sha256": "11463cf15e22546538f9f3fe3797e15adf088688fd7f8b817330db4d1a934926"
+  }
+]

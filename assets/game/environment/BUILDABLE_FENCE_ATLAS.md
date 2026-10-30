@@ -11,7 +11,7 @@
 Финальный атлас воспроизводимо нормализуется командой:
 
 ```bash
-python3 tools/build_fence_atlas.py
+python3 tools/run.py assets.authoring.build_fence_atlas
 ```
 
 Игровая геометрия использует базовую ячейку 24×24. Обычный сегмент занимает одну

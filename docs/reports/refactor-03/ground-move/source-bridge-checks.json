@@ -1,0 +1,161 @@
+{
+  "phase": "source hash bridge after actual gate01 failures",
+  "source_patch": "source-bridge-patch.json",
+  "tests": 2,
+  "provenance_checks": 101,
+  "fresh_checks": 36,
+  "fresh_masks": 9,
+  "targeted_compiles": [
+    {
+      "source": "tools/qa/ground/ground_edge_compile.gd",
+      "source_SHA256": "867b86c4a94b748efebaeb0fc5875d5b8eed698a047c513e84d3fc5f8abe99b2",
+      "exit": 0,
+      "log": "bridge-compile-ground_edge_compile.txt.gz",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "source": "tests/suites/ground_edge_suite.gd",
+      "source_SHA256": "12defda99fa2190d72c856a137d106604a5dade71f2519ca4f780d0e4487b9b8",
+      "exit": 0,
+      "log": "bridge-compile-ground_edge_suite.txt.gz",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "source": "tools/qa/ground/axial_road_compile.gd",
+      "source_SHA256": "a5127c3d29c159bd8b26cfe02346ae238f2e75eafbf8e2614a4291c42ad72036",
+      "exit": 0,
+      "log": "bridge-compile-axial_road_compile.txt.gz",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "source": "tests/suites/axial_road_suite.gd",
+      "source_SHA256": "ca5f55cdef2df88d8af123dbda157421e31c0f0ad0f7dd4837a26397a48bbd62",
+      "exit": 0,
+      "log": "bridge-compile-axial_road_suite.txt.gz",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "source": "tools/qa/ground/road_network_compile.gd",
+      "source_SHA256": "b077a94f507cf8cff817b4228f05da5593bcf8436555bfb8aa72a581bca36545",
+      "exit": 0,
+      "log": "bridge-compile-road_network_compile.txt.gz",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "source": "tests/suites/road_network_suite.gd",
+      "source_SHA256": "48fc17332678c9bdf962ec864fb87f03615bf45e59733b26927fc142dcab00f0",
+      "exit": 0,
+      "log": "bridge-compile-road_network_suite.txt.gz",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "source": "tools/qa/ground/plaza_compile.gd",
+      "source_SHA256": "4dacf7d8e115034e7c920588a33c32516544a867ef09f7063b03d91f087fe376",
+      "exit": 0,
+      "log": "bridge-compile-plaza_compile.txt.gz",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "source": "tests/suites/plaza_ground_suite.gd",
+      "source_SHA256": "c8211144d9ba13e88a9718b8815655570a0926c492e6984a0519b39375822dbe",
+      "exit": 0,
+      "log": "bridge-compile-plaza_ground_suite.txt.gz",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "source": "tools/qa/ground/compiled_sources.gd",
+      "source_SHA256": "499c19267d7e86e92683cd257ff3c06520ee0df9290de661b52c6a1758fa03ae",
+      "exit": 0,
+      "log": "bridge-compile-compiled_sources.txt.gz",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    },
+    {
+      "source": "tools/qa/ground/compiled_sources_review.gd",
+      "source_SHA256": "4c115ff7d5e6ee38e6f2e55c0c4b9a795e175e0992b89ecdc8d23010e5637dce",
+      "exit": 0,
+      "log": "bridge-compile-compiled_sources_review.txt.gz",
+      "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+    }
+  ],
+  "test_log": "source-bridge-test-attempt02.txt",
+  "test_log_SHA256": "07164137d9ea51a17743a206526d139d281e3a8e9389e069ef323d9b8dfd2aac",
+  "runtime_resources": [
+    {
+      "path": "assets/game/locations/overworld/ground_masks/connectors.res",
+      "SHA256": "f670970b74360c9855503a45355a3050e4eef701c33cc5d70561e53882cce2e5",
+      "unchanged": true
+    },
+    {
+      "path": "assets/game/locations/overworld/ground_masks/main.res",
+      "SHA256": "b26c699447a4478345e510d4f086f0a21d5d7fd29b2ebcbfd7f223dd5666b589",
+      "unchanged": true
+    },
+    {
+      "path": "assets/game/locations/overworld/axial_road_masks/connectors.res",
+      "SHA256": "5f5632de67780e484c813759fe2c5d22ee7099b01ed0d1abc0abe0e744fe4ca5",
+      "unchanged": true
+    },
+    {
+      "path": "assets/game/locations/overworld/axial_road_masks/main.res",
+      "SHA256": "2db8d3874f0d95373fc687ed641e04657e90cbb02446544c57814952f8acb622",
+      "unchanged": true
+    },
+    {
+      "path": "assets/game/locations/overworld/road_network_masks/connectors.res",
+      "SHA256": "b910169abfff84bd0720f9c1273649ad7f98da316cbf613d815c66f9cdb7e3d4",
+      "unchanged": true
+    },
+    {
+      "path": "assets/game/locations/overworld/road_network_masks/main.res",
+      "SHA256": "31a90e08a5d03b3a9c5c1af5269b12237d60c9bad9cd52fdc2c2540bac713a82",
+      "unchanged": true
+    },
+    {
+      "path": "assets/game/locations/overworld/plaza_masks/apron.res",
+      "SHA256": "9907a780936d7e2ef4edb53caeedcd090060445342ff3abeea11f8dff54ee081",
+      "unchanged": true
+    },
+    {
+      "path": "assets/game/locations/overworld/plaza_masks/contact.res",
+      "SHA256": "1b23b21d183e26207b872c4e897dd702e13683741c6877b631942f4ca85c78e5",
+      "unchanged": true
+    },
+    {
+      "path": "assets/game/locations/overworld/plaza_masks/stone.res",
+      "SHA256": "6648a9cfab3223ce4f7d670e38387bf30bf38adef5ea9c5ac27631a6ee942ee8",
+      "unchanged": true
+    }
+  ],
+  "new_QA_UID": {
+    "tools/qa/ground/compiled_sources.gd.uid": "facc09a21643f95e8e15518ae26ad47d891cbdb2b72d738e5392ccebf9816654",
+    "tools/qa/ground/compiled_sources_review.gd.uid": "cbad66c36b0be70b454df68066016f8e129ba493fbdb6e26c1e2f2e39a9e04c5"
+  },
+  "UID_preserved": 302,
+  "all_tools_UID": 304,
+  "editor_logs": [
+    {
+      "log": "bridge-editor-stdout.gz",
+      "raw_SHA256": "8633c5c71eb3171eafd5b3324082167d23b4b3537e17c50291a8d9109aee640c",
+      "stored_SHA256": "76c368016b93e7a055d2247a50775067f379bb1b0ddf27c3ae628c34f69e229d"
+    },
+    {
+      "log": "bridge-editor-engine.log.gz",
+      "raw_SHA256": "504e70c44ed496366e5804fab72f0383e76d6d44a790e0e30ba6f1a8b9bfd690",
+      "stored_SHA256": "73563db768d70dc3cf3f2906139d952222fc4b66b0c862d55f81764ae00c0f33"
+    }
+  ],
+  "editor_log_limit": "exit0 UID discovery, but sandbox CA/settings errors retained; not a clean editor admission",
+  "before_freeze_retained": "before-source-bridge/source-freeze.json",
+  "native_frames": 0,
+  "FPS_admission": false
+}

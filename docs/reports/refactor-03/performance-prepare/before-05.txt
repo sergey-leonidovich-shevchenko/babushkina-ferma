@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/perf_contract.py", line 251, in <module>
+    print(json.dumps(action(args.output.resolve()),indent=2))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/perf_contract.py", line 228, in verify_controls
+    provenance(folder,[['resize',30,'resize'],['pause',30,'pause']])
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/perf_contract.py", line 131, in provenance
+    require(isinstance(source.get('complete'),bool) and (source['complete'] or not complete_required)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/perf_contract.py", line 24, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: collection incomplete/schedule mismatch

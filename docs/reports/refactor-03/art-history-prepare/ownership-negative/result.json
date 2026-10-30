@@ -1,0 +1,20 @@
+{
+  "kind": "explicit mutation control, not an archived original red source",
+  "only_registration_guard_removed": true,
+  "production_unchanged": true,
+  "temporary_removed": true,
+  "cases": [
+    {
+      "variant": "without-registration",
+      "exit": 1,
+      "source_sha256": "16b5cfe9ef6a793d746ba426f4aadf9b70db863a607021ef9373429c8d70320f",
+      "test_sha256": "037ffb38d7d9ba80d6a136bd2efffcc595e66153e2cea753770049c35b85c215"
+    },
+    {
+      "variant": "current",
+      "exit": 0,
+      "source_sha256": "670748c23645cb5bab436f0878d8a274bab1591f8ff24c0bf40fea79d86d157e",
+      "test_sha256": "037ffb38d7d9ba80d6a136bd2efffcc595e66153e2cea753770049c35b85c215"
+    }
+  ]
+}

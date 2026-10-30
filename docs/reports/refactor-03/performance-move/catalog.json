@@ -1,0 +1,16 @@
+{
+  "version": "0.0.371",
+  "source_public_dist_equal": true,
+  "states": {
+    "02": "done",
+    "03": "in_progress",
+    "06": "blocked"
+  },
+  "history": 83,
+  "VMAP_accepted": false,
+  "root_sources": 285,
+  "profile_attachment_equal": true,
+  "profile_href": "generated/attachments/b8577c0e19c5b8aa180c1f13b93597f2e0b8b7f080feb349d2beaa48c98f7ee5.json",
+  "parallel07_excluded_from_QA": true,
+  "refactor_cards_in_candidate": 7
+}

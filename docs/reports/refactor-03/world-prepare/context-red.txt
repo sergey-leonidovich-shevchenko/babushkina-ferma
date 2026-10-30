@@ -1,0 +1,442 @@
+EEEEfatal: path 'docs/epics/visual-overhaul-2026-10/backlog.json' exists on disk, but not in 'cc55ff9a3a2b1bfaf8e6887c912a7b4b1c474fa7'
+EEEFFFfatal: path 'scripts/probe.gd' exists on disk, but not in '4408b6a1e0f0ee487d2fc5e6e275c5a3cfd2f86f'
+EEEFFFFFFFFFEfatal: path 'assets/game/basement/workbench_1_east.tres' exists on disk, but not in '979d8a9361174a8628b32b4f3d8abf8cb6a5689c'
+Efatal: path 'assets/game/basement/workbench_1_east.tres' exists on disk, but not in '2f844d14e4ea6ab6c56503c694135dc29e0eb4a2'
+EEfatal: path 'assets/game/visual_resources.json' exists on disk, but not in '85ae79d809ebe15958900afde0115a72845e5d1c'
+EE.EEfatal: not a tree object
+E
+======================================================================
+ERROR: test_bench_archive_under_foreign_git (__main__.WorldContextTests.test_bench_archive_under_foreign_git) (phase='before')
+Bench's historical blobs and tracked native proof use their own repository.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 104, in prop_reader
+    self.assertEqual(module.provenance(folder,phase),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_bench_verify.py", line 26, in provenance
+    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'missing base commit')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing base commit
+
+======================================================================
+ERROR: test_bench_archive_under_foreign_git (__main__.WorldContextTests.test_bench_archive_under_foreign_git) (phase='after')
+Bench's historical blobs and tracked native proof use their own repository.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 104, in prop_reader
+    self.assertEqual(module.provenance(folder,phase),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_bench_verify.py", line 26, in provenance
+    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'missing base commit')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing base commit
+
+======================================================================
+ERROR: test_board_archive_under_foreign_git (__main__.WorldContextTests.test_board_archive_under_foreign_git) (phase='before')
+Board's two complete phases retain every source/artifact signature.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 104, in prop_reader
+    self.assertEqual(module.provenance(folder,phase),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_board_verify.py", line 29, in provenance
+    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'missing base commit')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing base commit
+
+======================================================================
+ERROR: test_board_archive_under_foreign_git (__main__.WorldContextTests.test_board_archive_under_foreign_git) (phase='after')
+Board's two complete phases retain every source/artifact signature.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 104, in prop_reader
+    self.assertEqual(module.provenance(folder,phase),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_board_verify.py", line 29, in provenance
+    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'missing base commit')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing base commit
+
+======================================================================
+ERROR: test_dependency_audit_under_foreign_git (__main__.WorldContextTests.test_dependency_audit_under_foreign_git)
+All51 canonical predecessor claims still resolve to exact evidence at the old base.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 155, in test_dependency_audit_under_foreign_git
+    self.assertEqual(pilot_audit.verify(),json.loads((pilot_audit.REPORT/'dependency-audit.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_static_audit.py", line 51, in verify
+    data=load(REPORT/'dependency-audit.json');assert data==audit(data['base_commit']);return data
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_static_audit.py", line 22, in audit
+    program=git_json(base,'docs/epics/visual-overhaul-2026-10/backlog.json');plan=git_json(base,'docs/reports/visual-overhaul/vrelease-001/plan.json')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_static_audit.py", line 17, in git_json
+    raw=subprocess.check_output(['git','show',base+':'+path],cwd=ROOT)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', 'cc55ff9a3a2b1bfaf8e6887c912a7b4b1c474fa7:docs/epics/visual-overhaul-2026-10/backlog.json']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_fence_archive_under_foreign_git (__main__.WorldContextTests.test_fence_archive_under_foreign_git) (phase='before')
+Fence's Git commit/index checks ignore caller overrides.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 104, in prop_reader
+    self.assertEqual(module.provenance(folder,phase),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_fence_verify.py", line 27, in provenance
+    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'missing base commit')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing base commit
+
+======================================================================
+ERROR: test_fence_archive_under_foreign_git (__main__.WorldContextTests.test_fence_archive_under_foreign_git) (phase='after')
+Fence's Git commit/index checks ignore caller overrides.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 104, in prop_reader
+    self.assertEqual(module.provenance(folder,phase),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_fence_verify.py", line 27, in provenance
+    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'missing base commit')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing base commit
+
+======================================================================
+ERROR: test_fresh_shadow_source_envelope (__main__.WorldContextTests.test_fresh_shadow_source_envelope)
+Actual shadow collector validates its own production bytes before the explicit native stop.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 255, in test_fresh_shadow_source_envelope
+    self.producer_envelope(shadow_collect)
+  File "/private/tmp/refactor03-test-world-context375.py", line 228, in producer_envelope
+    else:module.collect(output)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/shadow_inventory_collect.py", line 24, in collect
+    if hashlib.sha256(subprocess.check_output(['git','show',base+':'+n],cwd=ROOT)).hexdigest()!=sources[n]:raise ValueError('production mismatch: '+n)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '4408b6a1e0f0ee487d2fc5e6e275c5a3cfd2f86f:scripts/probe.gd']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_lamp_archive_under_foreign_git (__main__.WorldContextTests.test_lamp_archive_under_foreign_git) (phase='before')
+Lamp's existing native archives are read without modifying them.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 104, in prop_reader
+    self.assertEqual(module.provenance(folder,phase),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_lamp_verify.py", line 30, in provenance
+    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'missing base commit')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing base commit
+
+======================================================================
+ERROR: test_lamp_archive_under_foreign_git (__main__.WorldContextTests.test_lamp_archive_under_foreign_git) (phase='after')
+Lamp's existing native archives are read without modifying them.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 104, in prop_reader
+    self.assertEqual(module.provenance(folder,phase),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_lamp_verify.py", line 30, in provenance
+    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'missing base commit')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing base commit
+
+======================================================================
+ERROR: test_object_archive_under_foreign_git (__main__.WorldContextTests.test_object_archive_under_foreign_git)
+Descriptor provenance retains real Git blobs, overlay constraints and indexed artifacts.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 139, in test_object_archive_under_foreign_git
+    self.assertEqual(object_verify.provenance(folder),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/object_command_verify.py", line 40, in provenance
+    require(old.returncode==0 or name in OVERLAY,'historical input absent')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical input absent
+
+======================================================================
+ERROR: test_pilot_pass_archive_under_foreign_git (__main__.WorldContextTests.test_pilot_pass_archive_under_foreign_git)
+Both source-bound pass phases enforce the same one-adapter production diff.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 145, in test_pilot_pass_archive_under_foreign_git
+    self.assertEqual(pilot_pass.provenance(phase),json.loads((pilot_pass.REPORT/'native'/phase/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_pass_verify.py", line 34, in provenance
+    raw=subprocess.check_output(['git','show',data['base_commit']+':'+name],cwd=ROOT);require(hashlib.sha256(raw).hexdigest()==digest,'input differs from base: '+name)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '979d8a9361174a8628b32b4f3d8abf8cb6a5689c:assets/game/basement/workbench_1_east.tres']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_post_motion_archive_under_foreign_git (__main__.WorldContextTests.test_post_motion_archive_under_foreign_git)
+Both post-motion phases retain exact source changes and native artifact signatures.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 162, in test_post_motion_archive_under_foreign_git
+    self.assertEqual(post_motion.validate_source(folder,phase),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/post_motion_verify.py", line 79, in validate_source
+    original=subprocess.check_output(['git','show',source['base_commit']+':'+name],cwd=ROOT)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '2f844d14e4ea6ab6c56503c694135dc29e0eb4a2:assets/game/basement/workbench_1_east.tres']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_render_order_archive_under_foreign_git (__main__.WorldContextTests.test_render_order_archive_under_foreign_git)
+The real historical rendering verifier still accepts exactly its preserved report.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 133, in test_render_order_archive_under_foreign_git
+    self.assertEqual(render_order.verify(),json.loads((render_order.REPORT/'summary.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 151, in verify
+    require(subprocess.run(['git','cat-file','-e',source['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'Git base absent')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Git base absent
+
+======================================================================
+ERROR: test_shadow_archive_under_foreign_git (__main__.WorldContextTests.test_shadow_archive_under_foreign_git)
+Complete raster ownership/native contacts still use real historical Git blobs and tree.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 180, in test_shadow_archive_under_foreign_git
+    self.assertEqual(shadow_verify.verify(),json.loads((shadow_verify.REPORT/'summary.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/shadow_inventory_verify.py", line 39, in verify
+    catalog=json.loads(git(base,'assets/game/visual_resources.json'));expected=set()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/shadow_inventory_verify.py", line 26, in git
+    return subprocess.check_output(['git','show',base+':'+name],cwd=ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '85ae79d809ebe15958900afde0115a72845e5d1c:assets/game/visual_resources.json']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_static_archive_under_foreign_git (__main__.WorldContextTests.test_static_archive_under_foreign_git)
+Static archive preserves the repaired historical alias and own Git-index requirement.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 150, in test_static_archive_under_foreign_git
+    self.assertEqual(pilot_static.provenance(),json.loads((pilot_static.REPORT/'native/static/source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_static_verify.py", line 52, in provenance
+    files=[str(p.relative_to(ROOT)) for p in folder.rglob('*') if p.is_file()];require(subprocess.run(['git','ls-files','--error-unmatch','--',*files],cwd=ROOT,capture_output=True).returncode==0,'proof missing from index')
+                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: proof missing from index
+
+======================================================================
+ERROR: test_trade_archive_under_foreign_git (__main__.WorldContextTests.test_trade_archive_under_foreign_git) (phase='before')
+Trade's original source coverage and artifact/index policy remain exact.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 104, in prop_reader
+    self.assertEqual(module.provenance(folder,phase),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_trade_verify.py", line 29, in provenance
+    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'missing base commit')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing base commit
+
+======================================================================
+ERROR: test_trade_archive_under_foreign_git (__main__.WorldContextTests.test_trade_archive_under_foreign_git) (phase='after')
+Trade's original source coverage and artifact/index policy remain exact.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 104, in prop_reader
+    self.assertEqual(module.provenance(folder,phase),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_trade_verify.py", line 29, in provenance
+    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'missing base commit')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing base commit
+
+======================================================================
+ERROR: test_transient_archive_under_foreign_git (__main__.WorldContextTests.test_transient_archive_under_foreign_git)
+Accepted asset tree/full script coverage/save diff remain bound to the historical base.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 172, in test_transient_archive_under_foreign_git
+    self.assertEqual(transient.provenance(folder,phase,changes),json.loads((folder/'source.json').read_text()))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/transient_save_verify.py", line 38, in provenance
+    expected=set(subprocess.check_output(['git','ls-tree','-r','--name-only',base],cwd=ROOT,text=True).splitlines())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'ls-tree', '-r', '--name-only', '9225275e519bfbc4861e95295f9f68db9f3ed516']' returned non-zero exit status 128.
+
+======================================================================
+FAIL: test_fresh_object_source_envelope (__main__.WorldContextTests.test_fresh_object_source_envelope)
+Actual object collector must preserve own base-source digests under foreign Git overrides.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 251, in test_fresh_object_source_envelope
+    self.producer_envelope(object_collect)
+  File "/private/tmp/refactor03-test-world-context375.py", line 236, in producer_envelope
+    self.assertEqual(source['base_sources'][name],digest)
+AssertionError: None != '5d404710f261c02eeadcf6f97a7d68e89e2b3190d3cfa9b6d330b20065340396'
+
+======================================================================
+FAIL: test_fresh_render_contract_uses_own_git (__main__.WorldContextTests.test_fresh_render_contract_uses_own_git)
+The real writer authors fresh JSON only in owned scratch; source SHA and own commit are real.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 190, in test_fresh_render_contract_uses_own_git
+    self.assertEqual(source['base_commit'],expected)
+AssertionError: '3c7dc85d92a4b2cd626bc84af8530ea98e048cbc' != '6b13af8ebf9ec603705c6d4e04577ce8774095da'
+- 3c7dc85d92a4b2cd626bc84af8530ea98e048cbc
++ 6b13af8ebf9ec603705c6d4e04577ce8774095da
+
+
+======================================================================
+FAIL: test_fresh_shadow_inventory_uses_own_git (__main__.WorldContextTests.test_fresh_shadow_inventory_uses_own_git)
+Real inventory JSON/CSV writes precede the explicitly stopped platform-specific contact sheets.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 201, in test_fresh_shadow_inventory_uses_own_git
+    self.assertEqual(source['base_commit'],expected)
+AssertionError: '3c7dc85d92a4b2cd626bc84af8530ea98e048cbc' != '6b13af8ebf9ec603705c6d4e04577ce8774095da'
+- 3c7dc85d92a4b2cd626bc84af8530ea98e048cbc
++ 6b13af8ebf9ec603705c6d4e04577ce8774095da
+
+
+======================================================================
+FAIL: test_nested_actual_source_roots (__main__.WorldContextTests.test_nested_actual_source_roots) (module='post_motion_verify')
+Nine real source copies locate their project at arbitrary depth, including paths with spaces.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 96, in test_nested_actual_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd/tools/qa') != Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd')
+
+======================================================================
+FAIL: test_nested_actual_source_roots (__main__.WorldContextTests.test_nested_actual_source_roots) (module='render_order')
+Nine real source copies locate their project at arbitrary depth, including paths with spaces.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 96, in test_nested_actual_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd/tools/qa') != Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd')
+
+======================================================================
+FAIL: test_nested_actual_source_roots (__main__.WorldContextTests.test_nested_actual_source_roots) (module='shadow_inventory')
+Nine real source copies locate their project at arbitrary depth, including paths with spaces.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 96, in test_nested_actual_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd/tools/qa') != Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd')
+
+======================================================================
+FAIL: test_nested_actual_source_roots (__main__.WorldContextTests.test_nested_actual_source_roots) (module='village_bench_assets')
+Nine real source copies locate their project at arbitrary depth, including paths with spaces.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 96, in test_nested_actual_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd/tools/qa') != Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd')
+
+======================================================================
+FAIL: test_nested_actual_source_roots (__main__.WorldContextTests.test_nested_actual_source_roots) (module='village_board_assets')
+Nine real source copies locate their project at arbitrary depth, including paths with spaces.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 96, in test_nested_actual_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd/tools/qa') != Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd')
+
+======================================================================
+FAIL: test_nested_actual_source_roots (__main__.WorldContextTests.test_nested_actual_source_roots) (module='village_fence_assets')
+Nine real source copies locate their project at arbitrary depth, including paths with spaces.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 96, in test_nested_actual_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd/tools/qa') != Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd')
+
+======================================================================
+FAIL: test_nested_actual_source_roots (__main__.WorldContextTests.test_nested_actual_source_roots) (module='village_lamp_assets')
+Nine real source copies locate their project at arbitrary depth, including paths with spaces.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 96, in test_nested_actual_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd/tools/qa') != Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd')
+
+======================================================================
+FAIL: test_nested_actual_source_roots (__main__.WorldContextTests.test_nested_actual_source_roots) (module='village_street_assets')
+Nine real source copies locate their project at arbitrary depth, including paths with spaces.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 96, in test_nested_actual_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd/tools/qa') != Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd')
+
+======================================================================
+FAIL: test_nested_actual_source_roots (__main__.WorldContextTests.test_nested_actual_source_roots) (module='village_trade_assets')
+Nine real source copies locate their project at arbitrary depth, including paths with spaces.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-context375.py", line 96, in test_nested_actual_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd/tools/qa') != Posix[40 chars]dgvtstvkrkz20h0000gn/T/world nested project xdrw6xgd')
+
+----------------------------------------------------------------------
+Ran 19 tests in 13.480s
+
+FAILED (failures=12, errors=19)

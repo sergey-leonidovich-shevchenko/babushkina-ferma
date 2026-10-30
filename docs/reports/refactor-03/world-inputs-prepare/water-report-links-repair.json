@@ -1,0 +1,31 @@
+{
+  "failed_gate": "gates-01/architecture.txt",
+  "reason": "Copied real Water Markdown retained its exact relative raw links, but raw inputs were not beside it",
+  "repair": "Add only exact copies of the four already-hashed raw JSON under matching report-relative paths; preserve both writer output bytes",
+  "product_source_changed": false,
+  "writer_outputs_changed": false,
+  "source_freeze_unchanged": true,
+  "raw_copies": [
+    {
+      "source": "docs/reports/water-2026-10/before/native-1152.json",
+      "report_copy": "before/native-1152.json",
+      "sha256": "a59a69dc7d825ebcaf9e0f78c89924294f5edfe4ec3fc0965d6b71cd21abace5"
+    },
+    {
+      "source": "docs/reports/water-2026-10/before/native-1920.json",
+      "report_copy": "before/native-1920.json",
+      "sha256": "a39a426940f2d3c66bca4e24b3f0cd12f28e5412f1a165467043ea8eae49b4e0"
+    },
+    {
+      "source": "docs/reports/water-2026-10/before/native-3584.json",
+      "report_copy": "before/native-3584.json",
+      "sha256": "c97450dee6a7f55e32cb413e80d7d4530dd5121c082c151350f445e0b1826be9"
+    },
+    {
+      "source": "docs/reports/water-2026-10/before-f10/native-1152.json",
+      "report_copy": "before-f10/native-1152.json",
+      "sha256": "7d255fdd67587699493fad6be5c4b2cd30eae6ae2ad65a60e603928abb7b7327"
+    }
+  ],
+  "authoritative_gates": "gates-02"
+}

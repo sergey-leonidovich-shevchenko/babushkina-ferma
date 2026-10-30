@@ -1,0 +1,922 @@
+[
+  {
+    "logical": "tools/object_command_canvas.gd",
+    "physical": "tools/qa/world/object_command_canvas.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/object_command_canvas.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-01.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "7d528c4ef0a6df79feb00ca306f66119ff686db0312fe3a4c9a6569a64032184",
+    "original_log": "after-gd-01.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/object_command_capture.gd",
+    "physical": "tools/qa/world/object_command_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/object_command_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-02.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "f0597ba395ec5baf837ab5d198e43aa9387fb29750bede5b72257745ae65bc64",
+    "original_log": "after-gd-02.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/object_command_review.gd",
+    "physical": "tools/qa/world/object_command_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/object_command_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-03.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "3e54bc3416d10d569431b1d9a7efcac3843dd786995a16769c670692d65bb051",
+    "original_log": "after-gd-03.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/pilot_pass_capture.gd",
+    "physical": "tools/qa/world/pilot_pass_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/pilot_pass_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-04.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "2f90e801589db62dea205c1824f421d7a53fff3773b165f48acadfcc81aab039",
+    "original_log": "after-gd-04.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/pilot_pass_game.gd",
+    "physical": "tools/qa/world/pilot_pass_game.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/pilot_pass_game.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-05.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "e50489d807bd692c93a8125fb614a6ff667802176c15bdaf40ee533108cd4661",
+    "original_log": "after-gd-05.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/pilot_pass_review.gd",
+    "physical": "tools/qa/world/pilot_pass_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/pilot_pass_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-06.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "ec1542805907b057cfa2fb1153f1277eda941e1d2ecc426d16a905dcd0f0ea78",
+    "original_log": "after-gd-06.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/pilot_static_capture.gd",
+    "physical": "tools/qa/world/pilot_static_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/pilot_static_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-07.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "54f05cad460a4eb8d9377a429c499baa1c9dcaf6f75ff8cab72609c281b2aef5",
+    "original_log": "after-gd-07.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/pilot_static_scene.gd",
+    "physical": "tools/qa/world/pilot_static_scene.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/pilot_static_scene.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-08.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "5e03c32c11f1b516261b8fc7414cd53136463dfdd200a1d07d8300f688603e54",
+    "original_log": "after-gd-08.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/post_motion_capture.gd",
+    "physical": "tools/qa/world/post_motion_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/post_motion_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-09.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "f804cf42c1be81a6234f21121fc4fae457268eb915c83ea89b952fc678237648",
+    "original_log": "after-gd-09.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/post_motion_game.gd",
+    "physical": "tools/qa/world/post_motion_game.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/post_motion_game.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-10.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "06fcc91942101f954f45c3581a4bc3a6a0fc860238afd50952601d87c4e14818",
+    "original_log": "after-gd-10.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/post_motion_review.gd",
+    "physical": "tools/qa/world/post_motion_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/post_motion_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-11.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "f4bfef13811e875b5b67681180576bafa5065eafb9c4ff1ccf9f71ba718e9c2c",
+    "original_log": "after-gd-11.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/render_order_capture.gd",
+    "physical": "tools/qa/world/render_order_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/render_order_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-12.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "ed8c1e21a42df0222639b3f1ab08a9ea1d89b29359f780c20efaf903bcdbc7da",
+    "original_log": "after-gd-12.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/shadow_inventory_canvas.gd",
+    "physical": "tools/qa/world/shadow_inventory_canvas.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/shadow_inventory_canvas.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-13.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "fea546fabe6e8808762f04bda6a1a322e9cb2f79b2def98f976c5d3d2aac7a15",
+    "original_log": "after-gd-13.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/shadow_inventory_capture.gd",
+    "physical": "tools/qa/world/shadow_inventory_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/shadow_inventory_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-14.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "ddbb80101e915069aba15bfbfacc95fea1d5c7ea9713ade5788b5713d16bb677",
+    "original_log": "after-gd-14.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/transient_save_capture.gd",
+    "physical": "tools/qa/world/transient_save_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/transient_save_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-15.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "99a48c2b4492a90c7bd6cbc68e1149e93981d46bdc2504d85f9fb052bd5fc624",
+    "original_log": "after-gd-15.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/transient_save_probe.gd",
+    "physical": "tools/qa/world/transient_save_probe.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/transient_save_probe.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-16.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "45947cd69410bdc03fa50b06772c4f6e4587019a310b791b61e0ba533f15f0c2",
+    "original_log": "after-gd-16.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/transient_save_review.gd",
+    "physical": "tools/qa/world/transient_save_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/transient_save_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-17.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "9a64f46a5b543c8ebd054a3a17b8a3e0f66305bb67ccfc1252b1717e0cd0db8b",
+    "original_log": "after-gd-17.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_bench_capture.gd",
+    "physical": "tools/qa/world/village_bench_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_bench_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-18.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "2340b2d63d6fb0724b41357bf08af2ec5855de3671d71f37564f5dd68c12a56d",
+    "original_log": "after-gd-18.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_bench_gallery.gd",
+    "physical": "tools/qa/world/village_bench_gallery.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_bench_gallery.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-19.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "0a73c739bffd558d17f5e3a799f0061a60963e34ce4b35a5eeea5cd8d8778d6b",
+    "original_log": "after-gd-19.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_bench_leg_capture.gd",
+    "physical": "tools/qa/world/village_bench_leg_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_bench_leg_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-20.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "4e470d18b5465fa076562bd23c989779d559335b6f4c0b68effad36edc997ac1",
+    "original_log": "after-gd-20.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_bench_review.gd",
+    "physical": "tools/qa/world/village_bench_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_bench_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-21.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "1c146d23ce7150f2c7c580f0b5029867991d5ab72c453b963675d6c5585a6a66",
+    "original_log": "after-gd-21.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_board_capture.gd",
+    "physical": "tools/qa/world/village_board_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_board_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-22.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "cd415d716f148a750b87300775f4f6ca85a1d148f257d3553c34cd1254d0d9f8",
+    "original_log": "after-gd-22.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_board_gallery.gd",
+    "physical": "tools/qa/world/village_board_gallery.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_board_gallery.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-23.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "930d89f2ee193f91959584c2295ba4efc0afd4a2bf3470f8270b0ff3b70c8194",
+    "original_log": "after-gd-23.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_board_review.gd",
+    "physical": "tools/qa/world/village_board_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_board_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-24.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "319682950fe6c7a1883a6fcc09b492b88514c368a3bc0080b3c2c6777c1a7af6",
+    "original_log": "after-gd-24.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_clearance_review.gd",
+    "physical": "tools/qa/world/village_clearance_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_clearance_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-25.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "033d49112f97aa673268f62e3a3e947c9a6d6ec596cd553be5d3473cbd615af4",
+    "original_log": "after-gd-25.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_fence_capture.gd",
+    "physical": "tools/qa/world/village_fence_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_fence_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-26.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "8bae038be3afd286abcd9687f39b467f9035ed6fd1e3946095612c5e7d7efc42",
+    "original_log": "after-gd-26.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_fence_gallery.gd",
+    "physical": "tools/qa/world/village_fence_gallery.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_fence_gallery.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-27.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "f79a18fbbe0c6513bb3275aeccacee8099180f286b8f7d3381d1f7b68c718974",
+    "original_log": "after-gd-27.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_fence_review.gd",
+    "physical": "tools/qa/world/village_fence_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_fence_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-28.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "54c730adbea780ca690d0ae94466ed86601ee3d19172049b44db26d65762f154",
+    "original_log": "after-gd-28.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_lamp_capture.gd",
+    "physical": "tools/qa/world/village_lamp_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_lamp_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-29.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "a87521fbf6359a11533ce5239d4f79a04daaf878ca3c6935de971233814ad58f",
+    "original_log": "after-gd-29.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_lamp_gallery.gd",
+    "physical": "tools/qa/world/village_lamp_gallery.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_lamp_gallery.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-30.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "4ac24f4a621e2a5509e4ae889095aa50616bd3e6dd67128d9e1050bd9a09dee0",
+    "original_log": "after-gd-30.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_lamp_review.gd",
+    "physical": "tools/qa/world/village_lamp_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_lamp_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-31.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "fe3fb9efee348980e086d140e51f34dc231d8935a4da03f27d9055349448ba2e",
+    "original_log": "after-gd-31.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_map_review.gd",
+    "physical": "tools/qa/world/village_map_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_map_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-32.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "d053a13e85a273792339c4a6b2804908b59ff942478166850793ed7b52ceefe9",
+    "original_log": "after-gd-32.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_regions_capture.gd",
+    "physical": "tools/qa/world/village_regions_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_regions_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-33.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "08e62e89101c9cc23d2dd28179298d386d4b0d670ac27acc07be1efb128817e1",
+    "original_log": "after-gd-33.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_regions_review.gd",
+    "physical": "tools/qa/world/village_regions_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_regions_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-34.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "d98153a7c573e805ea48312b7b9a399204f77fe9e5ecef5e37904129e1580fd8",
+    "original_log": "after-gd-34.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_street_capture.gd",
+    "physical": "tools/qa/world/village_street_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_street_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-35.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "726dd21b521f53569ae37b7017848b6c8a2fdf43844a5f04a9e84c17c067fd6a",
+    "original_log": "after-gd-35.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_street_gallery.gd",
+    "physical": "tools/qa/world/village_street_gallery.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_street_gallery.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-36.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "b38d3dc195c2bff403623f742ee9cba81c87605f2dcdd14aafa2e544a20e7590",
+    "original_log": "after-gd-36.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_street_review.gd",
+    "physical": "tools/qa/world/village_street_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_street_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-37.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "7c1b04ecea59a114f1f1cd1f0862396741b14c77c31e807bd692dd090be4e192",
+    "original_log": "after-gd-37.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_trade_capture.gd",
+    "physical": "tools/qa/world/village_trade_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_trade_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-38.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "eebbe6b2d2b7eabc76901e778059d4589377a064ec311dd8485b84652aa082f8",
+    "original_log": "after-gd-38.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_trade_gallery.gd",
+    "physical": "tools/qa/world/village_trade_gallery.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_trade_gallery.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-39.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "ee106068d35ceafd57c73e5c75a10ad297af16c720a78b6e0db1f49cca799074",
+    "original_log": "after-gd-39.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/village_trade_review.gd",
+    "physical": "tools/qa/world/village_trade_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/village_trade_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-40.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "ae3ad1e7f730284c193a604c130ffdc01d7891e2ed47993c995e9efd4e914a11",
+    "original_log": "after-gd-40.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/water_fishing_capture.gd",
+    "physical": "tools/qa/world/water_fishing_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/water_fishing_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-41.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "f56770f79d80eb8419d77d05344ff17c6d56e7a5e1032d6c427c889cecb12248",
+    "original_log": "after-gd-41.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/water_fishing_review.gd",
+    "physical": "tools/qa/world/water_fishing_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/water_fishing_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-42.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "ce91e887b9f49bc9f3d17b863107a2492db1d15ba5360a29a7bb999a24a9e1ec",
+    "original_log": "after-gd-42.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/water_navigation_review.gd",
+    "physical": "tools/qa/world/water_navigation_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/water_navigation_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-43.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "45cb6d336eef6e3064210a003a7be87779e49e3e9024e4fc6e34d9119c23cd2f",
+    "original_log": "after-gd-43.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/water_topology_review.gd",
+    "physical": "tools/qa/world/water_topology_review.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/qa/world/water_topology_review.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-44.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "92025f483f056fd8e3e75a2f28577875672c1584ebfe32cb060670d662bdcdea",
+    "original_log": "after-gd-44.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/plant_depth_capture.gd",
+    "physical": "tools/plant_depth_capture.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/plant_depth_capture.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-45.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "c85483837ffbac5401ba743ca20761d9f07bf6d2901d2ff8740fd2e89aa8ca4f",
+    "original_log": "after-gd-45.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "logical": "tools/plant_depth_game.gd",
+    "physical": "tools/plant_depth_game.gd",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--check-only",
+      "--script",
+      "res://tools/plant_depth_game.gd"
+    ],
+    "exit": 0,
+    "log": "after-gd-46.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "source_SHA256": "28775bd2509c06f57fe35bf3ca9381104386aed65aac87588faae46895ad8737",
+    "original_log": "after-gd-46.txt",
+    "storage": "gzip",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  }
+]

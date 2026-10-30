@@ -1,0 +1,22 @@
+[
+  {
+    "gate": "architecture",
+    "command": [
+      "tools/check_architecture.sh"
+    ],
+    "version": "0.0.379",
+    "started_at": "2026-10-29T19:18:35.305801+00:00",
+    "exit": 0,
+    "finished_at": "2026-10-29T19:52:49.481392+00:00"
+  },
+  {
+    "gate": "game",
+    "command": [
+      "./run_tests.sh"
+    ],
+    "version": "0.0.379",
+    "started_at": "2026-10-29T19:52:49.482434+00:00",
+    "exit": 1,
+    "finished_at": "2026-10-29T19:58:27.473902+00:00"
+  }
+]

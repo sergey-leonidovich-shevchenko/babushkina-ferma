@@ -1,0 +1,15 @@
+Capture 1/2
+.Rejected; see /private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera actual producer 10gormrk/new output/run-1/stdout.txt
+CAPTURE base
+..MOTION run-1
+..CAPTURE base-physical
+.CAPTURE base-rounded
+...Static capture 1/2
+.Rejected: /private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera actual producer tfz9xid9/new output/run-1/stdout.txt
+CAPTURE base-100
+.LIVE base-100-1
+.
+----------------------------------------------------------------------
+Ran 12 tests in 10.346s
+
+OK

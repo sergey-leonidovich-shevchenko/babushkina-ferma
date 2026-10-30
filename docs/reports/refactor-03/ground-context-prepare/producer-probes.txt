@@ -1,0 +1,14 @@
+test_axial_road (__main__.GroundProducerProbe.test_axial_road) ... ok
+test_decoration (__main__.GroundProducerProbe.test_decoration) ... ok
+test_garden (__main__.GroundProducerProbe.test_garden) ... ok
+test_ground_edge (__main__.GroundProducerProbe.test_ground_edge) ... ok
+test_ground_seasons (__main__.GroundProducerProbe.test_ground_seasons) ... ok
+test_meadow (__main__.GroundProducerProbe.test_meadow) ... ok
+test_plaza (__main__.GroundProducerProbe.test_plaza) ... ok
+test_road_network (__main__.GroundProducerProbe.test_road_network) ... ok
+test_terrain_revision (__main__.GroundProducerProbe.test_terrain_revision) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 18.346s
+
+OK

@@ -1,0 +1,13 @@
+{
+  "pid": 26295,
+  "command": "node docs/reports/refactor-03/qa-server.mjs",
+  "cwd": "p26295\nfcwd\nn/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm\n",
+  "signal": "SIGTERM",
+  "own_tab_closed": true,
+  "viewport_reset": true,
+  "user_server4175_untouched": true,
+  "closed_tab_id": "22",
+  "own_server_stop_confirmed": true,
+  "own_server_exit": 143,
+  "after_lossless_raw_storage": true
+}

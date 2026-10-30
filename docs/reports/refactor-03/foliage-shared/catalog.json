@@ -1,0 +1,21 @@
+{
+  "version": "0.0.380",
+  "source_public_dist_equal": true,
+  "states": {
+    "02": "done",
+    "03": "in_progress",
+    "06": "blocked"
+  },
+  "history": 83,
+  "VMAP_accepted": false,
+  "root_sources": 11,
+  "source_moves": 77,
+  "map": 491,
+  "original_plan_rows": 779,
+  "profile_attachment_equal": true,
+  "profile_href": "generated/attachments/867322c31693f08c9dd79d77cff80537472cbd975a69887ffe2f4af20ab176bd.json",
+  "full_map_attachment_equal": true,
+  "full_map_href": "generated/attachments/ba2ee1f25d8595a5cb76d12cfd1ec5bd01025b8280783a383368894679c285ae.json",
+  "parallel07_excluded_from_QA": true,
+  "refactor_cards": 7
+}

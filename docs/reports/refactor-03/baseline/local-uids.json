@@ -1,0 +1,523 @@
+{
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "local_only_UID": [
+    {
+      "old_path": "tools/alpha_capture.gd.uid",
+      "target": "tools/assets/alpha/alpha_capture.gd.uid",
+      "value": "uid://5t736l84wiws",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/asset_game_probe.gd.uid",
+      "target": "tools/assets/contracts/asset_game_probe.gd.uid",
+      "value": "uid://b6oj1u17lylsa",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/asset_pack_probe.gd.uid",
+      "target": "tools/build/asset_pack_probe.gd.uid",
+      "value": "uid://1ic5kt3w8ef",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/boss_balance_review.gd.uid",
+      "target": "tools/qa/compatibility/boss_balance_review.gd.uid",
+      "value": "uid://ce5k6755vw0fq",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/build_clean_interior_atlas.gd.uid",
+      "target": "tools/assets/authoring/build_clean_interior_atlas.gd.uid",
+      "value": "uid://cjdnskud18fbc",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/build_village_materials.gd.uid",
+      "target": "tools/assets/authoring/build_village_materials.gd.uid",
+      "value": "uid://ckqo120mnir35",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/build_village_props.gd.uid",
+      "target": "tools/assets/authoring/build_village_props.gd.uid",
+      "value": "uid://op88cfb4bnb",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/camera_quantization_capture.gd.uid",
+      "target": "tools/qa/camera/camera_quantization_capture.gd.uid",
+      "value": "uid://bnb38c1s3wa63",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/camera_quantization_review.gd.uid",
+      "target": "tools/qa/camera/camera_quantization_review.gd.uid",
+      "value": "uid://hcvw5p3skmfp",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/character_polish_capture.gd.uid",
+      "target": "tools/qa/compatibility/character_polish_capture.gd.uid",
+      "value": "uid://u5poahlqx2rg",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/compact_hud_review.gd.uid",
+      "target": "tools/qa/compatibility/compact_hud_review.gd.uid",
+      "value": "uid://cap2r167da6tg",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/cooking_capture.gd.uid",
+      "target": "tools/qa/compatibility/cooking_capture.gd.uid",
+      "value": "uid://bia814tn1ujxy",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/cooking_review.gd.uid",
+      "target": "tools/qa/compatibility/cooking_review.gd.uid",
+      "value": "uid://b0b21f7s13crr",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/cpu_profile_game.gd.uid",
+      "target": "tools/qa/performance/cpu_profile_game.gd.uid",
+      "value": "uid://bth8ylrr4oxla",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/extract_farm_icons.gd.uid",
+      "target": "tools/assets/authoring/extract_farm_icons.gd.uid",
+      "value": "uid://bc1hlfm0bs21a",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/extract_farmyard_sprites.gd.uid",
+      "target": "tools/assets/authoring/extract_farmyard_sprites.gd.uid",
+      "value": "uid://3kjyo1crigys",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/farm_bounds_capture.gd.uid",
+      "target": "tools/qa/compatibility/farm_bounds_capture.gd.uid",
+      "value": "uid://c7xka8pdimwwj",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/farm_cursor_review.gd.uid",
+      "target": "tools/qa/compatibility/farm_cursor_review.gd.uid",
+      "value": "uid://b44uis3e7pky1",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/generate_adaptive_hud_previews.gd.uid",
+      "target": "tools/qa/compatibility/generate_adaptive_hud_previews.gd.uid",
+      "value": "uid://syoocokmt4kk",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/generate_hero_pose_preview.gd.uid",
+      "target": "tools/qa/compatibility/generate_hero_pose_preview.gd.uid",
+      "value": "uid://caynwasqt2tk8",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/generate_ui_layout_audit.gd.uid",
+      "target": "tools/qa/compatibility/generate_ui_layout_audit.gd.uid",
+      "value": "uid://b2j5gvfiei8hs",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/geometry_benchmark.gd.uid",
+      "target": "tools/qa/performance/geometry_benchmark.gd.uid",
+      "value": "uid://cw6ao1icfm3ox",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/grandmother_animation_review.gd.uid",
+      "target": "tools/qa/compatibility/grandmother_animation_review.gd.uid",
+      "value": "uid://d3kv4w85cpbwm",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/hero_actions_capture.gd.uid",
+      "target": "tools/qa/compatibility/hero_actions_capture.gd.uid",
+      "value": "uid://8tg3370i06ct",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/hero_actions_review.gd.uid",
+      "target": "tools/qa/compatibility/hero_actions_review.gd.uid",
+      "value": "uid://bregcjevkwn1v",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/inspector_benchmark.gd.uid",
+      "target": "tools/qa/performance/inspector_benchmark.gd.uid",
+      "value": "uid://bwl31jcrib5pt",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/item_sizes_capture.gd.uid",
+      "target": "tools/assets/contracts/item_sizes_capture.gd.uid",
+      "value": "uid://cvr5lowsu4jqa",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/item_sizes_review.gd.uid",
+      "target": "tools/assets/contracts/item_sizes_review.gd.uid",
+      "value": "uid://c6b21re25xgp4",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/item_ui_fitter.gd.uid",
+      "target": "tools/assets/contracts/item_ui_fitter.gd.uid",
+      "value": "uid://5p6xsu6x7lf5",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/livestock_review.gd.uid",
+      "target": "tools/qa/compatibility/livestock_review.gd.uid",
+      "value": "uid://c8qcgi5mhhn0b",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/migration_capture.gd.uid",
+      "target": "tools/assets/migration/migration_capture.gd.uid",
+      "value": "uid://g6sbbs6s2muo",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/padded_atlas_capture.gd.uid",
+      "target": "tools/assets/contracts/padded_atlas_capture.gd.uid",
+      "value": "uid://ccqoleimu4xis",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/padded_atlas_review.gd.uid",
+      "target": "tools/assets/contracts/padded_atlas_review.gd.uid",
+      "value": "uid://mug3mwbfqox2",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/player_contact_capture.gd.uid",
+      "target": "tools/qa/compatibility/player_contact_capture.gd.uid",
+      "value": "uid://be6viw0ncqha4",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/player_contact_review.gd.uid",
+      "target": "tools/qa/compatibility/player_contact_review.gd.uid",
+      "value": "uid://d0x735sapv5hv",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/prepare_celestial_dial.gd.uid",
+      "target": "tools/assets/authoring/prepare_celestial_dial.gd.uid",
+      "value": "uid://cbsnjan2j0ejm",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/prepare_character_walk.gd.uid",
+      "target": "tools/assets/authoring/prepare_character_walk.gd.uid",
+      "value": "uid://by0a8nduq4qx4",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/prepare_hero_actions.gd.uid",
+      "target": "tools/assets/authoring/prepare_hero_actions.gd.uid",
+      "value": "uid://qibr172a5gag",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/prepare_skeleton_v2.gd.uid",
+      "target": "tools/assets/authoring/prepare_skeleton_v2.gd.uid",
+      "value": "uid://bia17i2pavkds",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/presentation_pose_capture.gd.uid",
+      "target": "tools/qa/camera/presentation_pose_capture.gd.uid",
+      "value": "uid://w5x2fwkrus88",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/presentation_pose_live.gd.uid",
+      "target": "tools/qa/camera/presentation_pose_live.gd.uid",
+      "value": "uid://dy5c53rxl120p",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/presentation_pose_review.gd.uid",
+      "target": "tools/qa/camera/presentation_pose_review.gd.uid",
+      "value": "uid://cgajrpt8u2etf",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/prop_edges_capture.gd.uid",
+      "target": "tools/qa/compatibility/prop_edges_capture.gd.uid",
+      "value": "uid://dae7ubfwoqkku",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/ranged_combat_capture.gd.uid",
+      "target": "tools/qa/compatibility/ranged_combat_capture.gd.uid",
+      "value": "uid://dpchsnbi8bha0",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/ranged_combat_review.gd.uid",
+      "target": "tools/qa/compatibility/ranged_combat_review.gd.uid",
+      "value": "uid://ntr4tnwg4isc",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/reference_zoom_capture.gd.uid",
+      "target": "tools/qa/camera/reference_zoom_capture.gd.uid",
+      "value": "uid://rmpdh860u4hl",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/reference_zoom_live.gd.uid",
+      "target": "tools/qa/camera/reference_zoom_live.gd.uid",
+      "value": "uid://d3f8q7wkqypwp",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/reference_zoom_review.gd.uid",
+      "target": "tools/qa/camera/reference_zoom_review.gd.uid",
+      "value": "uid://s2384kkhcb62",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/resident_review.gd.uid",
+      "target": "tools/qa/compatibility/resident_review.gd.uid",
+      "value": "uid://bp6tc755l7n4w",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/runtime_comfort_review.gd.uid",
+      "target": "tools/qa/compatibility/runtime_comfort_review.gd.uid",
+      "value": "uid://cxb7t8tkxh6yn",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/runtime_frame_review.gd.uid",
+      "target": "tools/qa/performance/runtime_frame_review.gd.uid",
+      "value": "uid://bnc22pdmm56rn",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/shore_kit_canvas.gd.uid",
+      "target": "tools/qa/world/shore_kit_canvas.gd.uid",
+      "value": "uid://b4gaa1w2e7l8x",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/shore_kit_capture.gd.uid",
+      "target": "tools/qa/world/shore_kit_capture.gd.uid",
+      "value": "uid://d0njvqehhwccf",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/shore_kit_review.gd.uid",
+      "target": "tools/qa/world/shore_kit_review.gd.uid",
+      "value": "uid://cghtf6qdhb82j",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/slice_capture.gd.uid",
+      "target": "tools/assets/slicing/slice_capture.gd.uid",
+      "value": "uid://blxplnujkf3sf",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/slice_catalogs.gd.uid",
+      "target": "tools/assets/slicing/slice_catalogs.gd.uid",
+      "value": "uid://dkbpo66xbicfd",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/slice_export.gd.uid",
+      "target": "tools/assets/slicing/slice_export.gd.uid",
+      "value": "uid://begjpidcxkgem",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/slice_legacy_capture.gd.uid",
+      "target": "tools/assets/slicing/slice_legacy_capture.gd.uid",
+      "value": "uid://45qs8gap2mgj",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/slice_review.gd.uid",
+      "target": "tools/assets/slicing/slice_review.gd.uid",
+      "value": "uid://bsi3llrhmd124",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/terrain_cache_review.gd.uid",
+      "target": "tools/qa/compatibility/terrain_cache_review.gd.uid",
+      "value": "uid://dcrb1iltov4n4",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/texture_data_probe.gd.uid",
+      "target": "tools/assets/contracts/texture_data_probe.gd.uid",
+      "value": "uid://cy1qee6l3mpsw",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/texture_data_room_capture.gd.uid",
+      "target": "tools/assets/contracts/texture_data_room_capture.gd.uid",
+      "value": "uid://cxc6n8x00enuy",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/texture_intent_review.gd.uid",
+      "target": "tools/assets/contracts/texture_intent_review.gd.uid",
+      "value": "uid://bvxqdow0ohiq3",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/tree_occlusion_review.gd.uid",
+      "target": "tools/qa/compatibility/tree_occlusion_review.gd.uid",
+      "value": "uid://occpu7oxbqpu",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/village_clearance_review.gd.uid",
+      "target": "tools/qa/world/village_clearance_review.gd.uid",
+      "value": "uid://cm5k72l1semf3",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/village_map_review.gd.uid",
+      "target": "tools/qa/world/village_map_review.gd.uid",
+      "value": "uid://qbyddjxvum43",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_baseline.gd.uid",
+      "target": "tools/qa/camera/visual_baseline.gd.uid",
+      "value": "uid://bli8q2rbhgtt",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_camera_capture.gd.uid",
+      "target": "tools/qa/camera/visual_camera_capture.gd.uid",
+      "value": "uid://24m4h2w5w63o",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_camera_points.gd.uid",
+      "target": "tools/qa/camera/visual_camera_points.gd.uid",
+      "value": "uid://c3w8ftwc15vnl",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_camera_review.gd.uid",
+      "target": "tools/qa/camera/visual_camera_review.gd.uid",
+      "value": "uid://cvarcj06tguwu",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_icons_capture.gd.uid",
+      "target": "tools/assets/contracts/visual_icons_capture.gd.uid",
+      "value": "uid://jbed02e5y43v",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_light_capture.gd.uid",
+      "target": "tools/qa/art/visual_light_capture.gd.uid",
+      "value": "uid://bbh5adah3fpfw",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_modules_capture.gd.uid",
+      "target": "tools/qa/art/visual_modules_capture.gd.uid",
+      "value": "uid://b2mx0g8a0nt5v",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_motion_capture.gd.uid",
+      "target": "tools/qa/camera/visual_motion_capture.gd.uid",
+      "value": "uid://8uuljru6a6ym",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_motion_review.gd.uid",
+      "target": "tools/qa/camera/visual_motion_review.gd.uid",
+      "value": "uid://cr8tnvvvkvh27",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_motion_route.gd.uid",
+      "target": "tools/qa/camera/visual_motion_route.gd.uid",
+      "value": "uid://cu7oghfjir47i",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_pipeline_capture.gd.uid",
+      "target": "tools/assets/contracts/visual_pipeline_capture.gd.uid",
+      "value": "uid://fjcc6aqfhgr2",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_pipeline_review.gd.uid",
+      "target": "tools/assets/contracts/visual_pipeline_review.gd.uid",
+      "value": "uid://dfipuht11h36w",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_resource_capture.gd.uid",
+      "target": "tools/assets/contracts/visual_resource_capture.gd.uid",
+      "value": "uid://pk0l5la3gbt7",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_resources_review.gd.uid",
+      "target": "tools/assets/contracts/visual_resources_review.gd.uid",
+      "value": "uid://bgjqonqa7ncsh",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_reuse_capture.gd.uid",
+      "target": "tools/qa/art/visual_reuse_capture.gd.uid",
+      "value": "uid://delcwbwkjsxmc",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_reuse_sources.gd.uid",
+      "target": "tools/qa/art/visual_reuse_sources.gd.uid",
+      "value": "uid://omsbak28p3bs",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_sampling_capture.gd.uid",
+      "target": "tools/assets/contracts/visual_sampling_capture.gd.uid",
+      "value": "uid://ddiude7j2ygvq",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_sampling_review.gd.uid",
+      "target": "tools/assets/contracts/visual_sampling_review.gd.uid",
+      "value": "uid://b38jukhbtkvs7",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/visual_static_capture.gd.uid",
+      "target": "tools/qa/camera/visual_static_capture.gd.uid",
+      "value": "uid://yk4pwrlrk00f",
+      "tracked": false
+    }
+  ],
+  "count": 85,
+  "policy": "move bytes with source, keep ignored; do not generate or silently track",
+  "retained_anchor_local_UID": {
+    "path": "tools/water_audit.gd.uid",
+    "value": "uid://bv2s0ed2vg8pt",
+    "sha256": "3e613ca5cfa3761342e235c9757b333f92a0c477eac93f86624c52a0f37d9adf",
+    "move": false
+  }
+}

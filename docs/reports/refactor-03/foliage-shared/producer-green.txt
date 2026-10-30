@@ -1,0 +1,13 @@
+WIND NATIVE 1152
+.GRASS NATIVE 1152
+..PLANT DEPTH NATIVE after 1152
+.RECOVERY NATIVE 1152
+.ROOT NATIVE 1152
+.SPEED NATIVE 1152
+.UV NATIVE 1152
+..WIND NATIVE 1152
+.
+----------------------------------------------------------------------
+Ran 10 tests in 52.832s
+
+OK

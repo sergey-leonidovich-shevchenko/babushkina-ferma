@@ -1,0 +1,29 @@
+{
+  "task": "VCOMPAT-001",
+  "base_commit": "9225275e519bfbc4861e95295f9f68db9f3ed516",
+  "save_version": 2,
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "windows": {
+    "1152": {
+      "before_png": 2,
+      "after_png": 2,
+      "draw_callbacks": 8,
+      "full_gameplay_equal": true,
+      "rgba_pairs": 2,
+      "native_gpu_reference": true,
+      "before_unsafe_accepted": true,
+      "after_primary_backup_preserved": true
+    },
+    "1280": {
+      "before_png": 2,
+      "after_png": 2,
+      "draw_callbacks": 8,
+      "full_gameplay_equal": true,
+      "rgba_pairs": 2,
+      "native_gpu_reference": true,
+      "before_unsafe_accepted": true,
+      "after_primary_backup_preserved": true
+    }
+  }
+}

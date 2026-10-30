@@ -1,0 +1,28 @@
+[
+  {
+    "id": "PRR_kwDOTqkhCs8AAAABUxqE-A",
+    "state": "COMMENTED",
+    "body": "INTERMEDIATE SOURCE REVIEW PASS — exact head81bec22e0b447054a631707e9e12179e222a57c2 (0.0.368), increment7dbd5b2c..81bec22e, base main d609ab4f. Новых обязательных замечаний в этом пакете не найдено. P3 raw-whitespace независимо исправлен и закрыт: reply4405687768, полный diff-check exit0.\n\nНезависимо проверены19 перемещений (17source/2JSON),40 baseline Git/gzip/mode,42 current SHA/97 raw digest,6 собственных ignored UID; все18852 прежних report blobs, runtime/artwork/planning и остальные6 карточек сохранены. Карта90 соответствует принятому плану. Пять Python AST отличаются только объявленной адаптацией imports/producer;6 GD — URI/точной metadata map;2 metrics и2policy JSON побайтно прежние. Все56 прежних test methods/assertions сохранены с явным71→90 table rename. Historical contract37fields/21modules и85 авторских ignored UID+anchor сверены readonly. Root403, в candidate-tree7 карточек, чужой параллельный план07 не включён.\n\nСобственные проверки без запуска Game:8 history cases на Python3.11 и3.9,2 street cases на3.9;10 CLI из foreign cwd с чужими PYTHONPATH/GIT_DIR/index/config (включая58 профильных tests),9 точных controls и запрет перезаписи. Отдельный настоящий data Git содержитD609, code Git его не имеет:5 положительных pins и6 обязательных отказов, index/config сохранены. На одном неизменном source новых2 street-тестов с actual Git/file I/O воспроизведены archived before red1error/2tests → current green2/0; SHA капсулы и test source совпадают.\n\nСобственные12 native вызовов: fresh headless editor import,6 check-only parse, безопасный geometry review440/0 и4 отказа до Game.new с сохранением sentinel/отсутствием вывода. Настоящий slice exporter и public --report на ПК не исполнял: они вызывают Game.new/_ready. Вместо этого независимо пересчитаны5603 signatures и PNG/RGBA из сохранённых before/after inventories: оба набора совпадают; inventory/source SHA, точная map2, current и historical input SHA проверены. Авторский реальный export отделён от моей проверки архива. Собственные временные проекты удалены, review checkout чист.\n\nCI exact368 на последнем чтении7/8 success: PRrun40760014601 полностью success, включая test123069085901 (raw91 suites/1237cases, Game53520/0, redraw90/0×2, smoke180,6 valid budget-passed performance окон10s/10samples). Mac/Linux25+14tests/411checks и Linux UI after_issues/errors=[]/artifacts подтверждены raw; Wiki145/0 в обоих runs. Push test123069054005 ещё in_progress; его успех не объявляю. Авторские локальные91/1237, Game53502/0 и Wiki145/0 проверены как сохранённые raw.\n\nЭто промежуточная приёмка alpha/slicing, НЕ полный APPROVED REFACTOR-03 и НЕ разрешение merge/Task-Complete. PR остаётся draft/in_progress: root403 пока выше конечного бюджета≤30. Сводка направляется только Team Lead Agent; дальнейшая работа — по действующей очереди после его решения.",
+    "submitted_at": "2026-10-28T20:25:39Z",
+    "author": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+      "id": null
+    }
+  },
+  {
+    "id": "PRR_kwDOTqkhCs8AAAABUxtT2A",
+    "state": "COMMENTED",
+    "body": "CI CONFIRMED 8/8 SUCCESS — exact head81bec22e0b447054a631707e9e12179e222a57c2 (0.0.368). Дополнение к независимому промежуточному source review5689214200: завершились все8 checks именно этого head, без зачёта367.\n\nPRrun40760014601/test123069085901 и pushrun40760005264/test123069054005: оба полных raw независимо прочитаны (525304/524146 chars). Каждый содержит91 Python suites/1237cases, architecture whitespace PASS, Game53520/0, normal/F10 redraw90/0×2, smoke180 и6 разных performance folder/profile: valid=true, budget_passed=true, status=passed, window_us=10000000,10samples. Mac/Linux jobs123069086044/123069085574/123069053953/123069053852:25+14tests,411checks/failures=[], успешная публикация платформенных artifacts; оба Linux UI after_issues/errors пусты. Оба Wiki jobs123069085755/123069053413 дают145/0.\n\nВсе новые результаты относятся к опубликованному exact368. Собственные проверки на ПК описаны в source review; Game/export на ПК я не запускал. Новых замечаний нет, P3 закрыт. Это завершает только независимую промежуточную проверку данного пакета; вся REFACTOR-03 остаётся draft/in_progress с root403>≤30, полного APPROVED/Task-Complete/разрешения merge нет. Итог направлен только Team Lead Agent для продолжения принятой очереди.",
+    "submitted_at": "2026-10-28T20:29:13Z",
+    "author": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+      "id": null
+    }
+  }
+]

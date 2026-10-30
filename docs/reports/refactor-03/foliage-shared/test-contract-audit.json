@@ -1,0 +1,16 @@
+{
+  "source_map_old": 380,
+  "source_map_current": 491,
+  "map_additions_exact_original": 111,
+  "map_functions_unchanged": true,
+  "existing_contract_test_only_expands_plan_and_count": true,
+  "context_test_methods_removed": 0,
+  "context_before_SHA256": "6e44017dd9de92e8a999373dece7dcbec230f56654d88cb73c5f00cf09c37adf",
+  "context_after_SHA256": "ec59b9d210c0127c43381aac68ef283901097c1f5529bb3f90a1d047b895cabb",
+  "context_normalization": [
+    "explicit child sys.path from code checkout",
+    "explicit source root argument",
+    "honest load_reader docstring"
+  ],
+  "four_old_ROOT_counterfactual": "context-root-counterfactual.json"
+}

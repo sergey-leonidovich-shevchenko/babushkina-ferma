@@ -1,6 +1,6 @@
 # Паспорт графического ресурса — VPIPELINE-002/003/005
 
-Версия схемы — `1`. [Рабочий каталог](../assets/game/visual_resources.json), [загрузчик](../scripts/systems/visual_resource_catalog.gd), [валидатор](../tools/visual_resources.py). В этой задаче переведён один пилот: действующий дубовый стол, три вида. Это контракт подготовки графики, не внедрение нового художественного набора.
+Версия схемы — `1`. [Рабочий каталог](../assets/game/visual_resources.json), [загрузчик](../scripts/systems/visual_resource_catalog.gd), [валидатор](../tools/assets/contracts/visual_resources.py). В этой задаче переведён один пилот: действующий дубовый стол, три вида. Это контракт подготовки графики, не внедрение нового художественного набора.
 
 ## Две таблицы и один владелец геометрии
 
@@ -30,7 +30,7 @@
 
 [Политика назначений](../assets/game/visual_texture_intents.json) также содержит `data_rgba8`: lossless без цветового преобразования, исправления прозрачного края, premultiply, normal/channel преобразований, уменьшения и mipmaps. Игровых масок пока нет; будущий владелец воды/растительности создаёт их по этому контракту. `TextureIntentSystem.material` проверяет простые `canvas_item` sampler2D: у цвета обязателен `source_color`, у данных запрещён; явные nearest/linear и `repeat_disable`, без неизвестных объявлений и привязок. Материал удерживается владельцем вне покадрового цикла.
 
-`python3 tools/texture_intents.py` сверяет политику, импорт и числовую нативную матрицу Compatibility/Mobile LDR/HDR; [отчёт VPIPELINE-005](reports/visual-overhaul/vpipeline-005/README.md) объясняет все допуски, отрицательные контроли и границы. Сам импорт не гарантирует правильную роль sampler.
+`python3 tools/run.py assets.contracts.texture_intents` сверяет политику, импорт и числовую нативную матрицу Compatibility/Mobile LDR/HDR; [отчёт VPIPELINE-005](reports/visual-overhaul/vpipeline-005/README.md) объясняет все допуски, отрицательные контроли и границы. Сам импорт не гарантирует правильную роль sampler.
 
 ## Реальный пилот
 
@@ -50,6 +50,6 @@ VPIPELINE-004 дополнительно подключает [пакет UI-а�
 
 ## Проверка
 
-`python3 tools/visual_resources.py` проверяет настоящий каталог. `python3 tools/test_visual_resources.py` создаёт собственные PNG: переименование, двойная плотность, порча изображения, обрезанная/пустая альфа, выход за границы, потерянное качество, дубли ID, неправильный импорт и раздельный мастер. Тестовое качество не является новым художественным ресурсом игры.
+`python3 tools/run.py assets.contracts.visual_resources` проверяет настоящий каталог. `python3 tools/run.py assets.contracts.test_visual_resources` создаёт собственные PNG: переименование, двойная плотность, порча изображения, обрезанная/пустая альфа, выход за границы, потерянное качество, дубли ID, неправильный импорт и раздельный мастер. Тестовое качество не является новым художественным ресурсом игры.
 
-Профиль Godot: `tools/visual_resources_review.gd`; общий набор включает `VisualResourceSuite`. `tools/visual_resource_capture.gd` снимает комнату и лист трёх ракурсов в отдельном профиле, при одной камере и остановленной симуляции. [Отчёт](reports/visual-overhaul/vpipeline-002/README.md). Перед commit/push обязателен `TESTING.md`, для Wiki — `pnpm check`.
+Профиль Godot: `tools/assets/contracts/visual_resources_review.gd`; общий набор включает `VisualResourceSuite`. `tools/assets/contracts/visual_resource_capture.gd` снимает комнату и лист трёх ракурсов в отдельном профиле, при одной камере и остановленной симуляции. [Отчёт](reports/visual-overhaul/vpipeline-002/README.md). Перед commit/push обязателен `TESTING.md`, для Wiki — `pnpm check`.

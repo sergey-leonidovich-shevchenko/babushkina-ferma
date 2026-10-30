@@ -1,0 +1,29 @@
+[
+  {
+    "name": "documentation",
+    "command": [
+      "python3",
+      "tools/run.py",
+      "quality.check_documentation"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "version",
+    "command": [
+      "python3",
+      "tools/bump_version.py",
+      "--check"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "backlog",
+    "command": [
+      "python3",
+      "tools/run.py",
+      "planning.project_backlog"
+    ],
+    "exit": 0
+  }
+]

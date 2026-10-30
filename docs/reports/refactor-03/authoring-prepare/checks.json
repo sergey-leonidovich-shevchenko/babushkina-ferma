@@ -1,0 +1,424 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "authoring source-root preparation; full task in_progress",
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "version": "0.0.357",
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.357",
+      "started_at": "2026-10-27T04:42:24.614774+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T05:05:48.050845+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.357",
+      "started_at": "2026-10-27T05:05:48.051736+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T05:14:25.865815+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.357",
+      "started_at": "2026-10-27T05:14:25.866866+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T05:15:40.415086+00:00"
+    }
+  ],
+  "architecture_suites": 83,
+  "architecture_cases": 1148,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "profile": {
+    "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "version": "0.0.357",
+    "AST_and_byte_guard_files": 16,
+    "pixel_cases": 3,
+    "real_negative_cases": [
+      "\u041c\u043e\u0441\u0442 (0, 0, 18, 16) \u043d\u0435 \u043f\u043e\u043c\u0435\u0449\u0430\u0435\u0442\u0441\u044f \u0432 \u0445\u043e\u043b\u0441\u0442 (2, 2): (9, 8)",
+      "\u041f\u0443\u0441\u0442\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c \u043c\u043e\u0441\u0442\u0430: (0, 0, 18, 16)"
+    ],
+    "arbitrary_cwd_hostile_PYTHONPATH_GIT": [
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+          "/Users/sergeyshevchenko/my farm/tools/run.py",
+          "build_forest_tree_atlas",
+          "--help"
+        ],
+        "exit": 0,
+        "stdout": "usage: build_forest_tree_atlas.py [-h] [--project PROJECT]\n\noptions:\n  -h, --help         show this help message and exit\n  --project PROJECT\n"
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+          "/Users/sergeyshevchenko/my farm/tools/run.py",
+          "build_level_editor_tiles",
+          "--help"
+        ],
+        "exit": 0,
+        "stdout": "usage: build_level_editor_tiles.py [-h] [--project PROJECT]\n\noptions:\n  -h, --help         show this help message and exit\n  --project PROJECT\n"
+      }
+    ],
+    "temporary_removed": true,
+    "repository_paths_unchanged": true
+  },
+  "real_worktree_preview": "preview.json",
+  "guide_only_rechecks": [
+    "wiki-correction.json",
+    "wiki-correction-retry.json",
+    "wiki-summary.json"
+  ],
+  "browser": "browser.json",
+  "scope": "scope-publication.json",
+  "publication_checks": [
+    {
+      "name": "documentation",
+      "command": [
+        "python3",
+        "tools/run.py",
+        "quality.check_documentation"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "version",
+      "command": [
+        "python3",
+        "tools/bump_version.py",
+        "--check"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "backlog",
+      "command": [
+        "python3",
+        "tools/run.py",
+        "planning.project_backlog"
+      ],
+      "exit": 0
+    }
+  ],
+  "Task_Complete_added": false,
+  "root_tools_sources": 544,
+  "physical_moves": 0,
+  "full_task03_accepted": false,
+  "VMAP_FPS_admission": false,
+  "source_SHA256": {
+    "TESTING.md": "4ce8abe16928eddf037d4f61e805b09eaf7543c615d41b2edfabca09e9410b37",
+    "VERSION": "3bad20e7a44d0ac54360c37d18ae03259d59473029732cb311ad0afa76d0101b",
+    "docs/DEVELOPMENT.md": "81a5a6adf5c95ed88809ce19c2406bd824ce4d78b980ff945020ed16ecf7d4eb",
+    "docs/epics/refactoring-2026-10/README.md": "0fa0b5f15eb5374fc53153cbc8eee0f69eb8a1a3c10736bda9a15922a9a2c3e1",
+    "docs/epics/refactoring-2026-10/TASKS.md": "c2ee8e6ecf0d073c9ef217a4fb50e2fed4a4530f1c3a0dc7288e07c6ee7971ad",
+    "project.godot": "80b2d2134a450efa14ad537e1c04da465680c6de1aefe1bcc97ef18c7c0d090b",
+    "tools/README.md": "5f268f8f85e9c158854a170d3c6ac79e36993a0e211cadd90701937c37babf7d",
+    "tools/build_bridge_sprites.py": "38623d88c48b4acbef43100fa6bd406d013ba30fc46ad4fab91d426a77bf42c4",
+    "tools/build_building_sprites.py": "a50638c1699ed7b36db82b69fdf1afd1745abd48fd58dee4ae50eac1f56849c9",
+    "tools/build_editor_transition_tiles.py": "b4674b74503d4f88ddbd263c533eb7ba5e98eccb595bb08f0e00ea12307c1f08",
+    "tools/build_environment_sprites.py": "c18b583b0fdc3077cb6bdd2dee41e90147ecb4bfca820e08d961fa5af3c393db",
+    "tools/build_fence_atlas.py": "2bd29190490d1201282e6fbb9f1a37325fdf44798fc875b4cfa70b81b4978df3",
+    "tools/build_forest_tree_atlas.py": "9610d95795513197b632588df9898a2e88962ca7929a77f8fd7e5622b3293838",
+    "tools/build_level_editor_tiles.py": "3d579e97121f80782d971c1aaab6f7729463066ba170a0760be1637b05e849b5",
+    "tools/build_ui_kit.py": "6971f7092b680d85937340fb7811dc3e97bd6be8951ffb54423c300dd9fed8e8",
+    "tools/build_village_prop_atlas.py": "a542cf4c6b724ab6c8c6e19561542513736b973839f30dfa3f292d4e6ba95df0",
+    "tools/extract_artisan_assets.py": "db9dce9d1257d7be866fc150c11dd79e1c8ecf9ba1e318f3b059d134e45b7317",
+    "tools/extract_basement_atlases.py": "6c1b287bc5aef52812a33e4a271e1b56bd3913ad45bd0d650c8f3b50a73f322a",
+    "tools/extract_kitchen_atlases.py": "6c092f97ff592b0a3deccf55658c7e0fd876e84c7540611789fb286b688d61db",
+    "tools/measure_character_walk.py": "b3afa696ee0148fbf86b89793f5309cd8994e0f2f207f07439b597d03444baa3",
+    "tools/measure_hero_actions.py": "9106b58118de2d629a409125b37f558d5e7a23706b0d0d25f7eb843a828c2507",
+    "tools/slice_item_icons.py": "21431d962e4ff86dd7deb470c426e3bbfc69fc3f17352beb81e49df7a1972368",
+    "tools/update_ui_visual_manifest.py": "b2e3dd94ac292d209c62d9c11dff2e5742d9c6dad09016819f032a2e8aa8ba9b",
+    "wiki/articles/index.json": "60e9e16349b233d0d4c5c022c6cba406aa029a7ea65d0fa58493e826e39083c3",
+    "wiki/articles/project-refactoring.md": "01a9b5a76f241cae4dab11982196745e37cd92c94a05365c562b2c54495d6483",
+    "wiki/articles/visual-pilot.md": "665bc04d02f3e1fe812f5d61c25fc6967438f85472179a4ca96f5695d2f78ddf",
+    "\u0411\u0430\u0431\u0443\u0448\u043a\u0438\u043d\u0430 \u0444\u0435\u0440\u043c\u0430.app/Contents/Info.plist": "692a4bcc58de7dd673ac59d847015c61cba6dc623dfec573deff779192cfcac3"
+  },
+  "report_files": [
+    {
+      "path": "PLAN.md",
+      "sha256": "5974a1bdf786be475283ba262e15144105062810e4b26962b45dec49745c3c05",
+      "bytes": 4881
+    },
+    {
+      "path": "README.md",
+      "sha256": "c3cf2ed08c937bb0e16f82b9198d415ebae8d80573391c99a7687cfbd5dc58f4",
+      "bytes": 7262
+    },
+    {
+      "path": "authoring-prepare/browser-cleanup.json",
+      "sha256": "a5b75779e79a2b441f533adddf82c23be92aaa6614c5e6e6441fb65417f4fbba",
+      "bytes": 229
+    },
+    {
+      "path": "authoring-prepare/browser-guide-final.json",
+      "sha256": "a2134db5b1d94f0c87808095b3a5093264b8054cef5fb2c98d3c87e8a35802e9",
+      "bytes": 19663
+    },
+    {
+      "path": "authoring-prepare/browser-guides.json",
+      "sha256": "9df15c140992f69dadd6115354deb4b33c7065cf1d136055b0f42d9c5b511c3f",
+      "bytes": 86969
+    },
+    {
+      "path": "authoring-prepare/browser-mobile-final.json",
+      "sha256": "20fcd2e35fdf95ed289b633b54a6d263fd5182fbbb91dbd567873fabd821b876",
+      "bytes": 751
+    },
+    {
+      "path": "authoring-prepare/browser-mobile-final.png",
+      "sha256": "1abceeff1bdd7e05a803de3e7b5aed32ea5053fecfacf888f92faf00bbdb1481",
+      "bytes": 42611
+    },
+    {
+      "path": "authoring-prepare/browser-mobile.json",
+      "sha256": "0b1264b2cf707c7f859247eeca4e2f3241c7166bfd10124128974e8e3ac433c1",
+      "bytes": 62
+    },
+    {
+      "path": "authoring-prepare/browser-mobile.png",
+      "sha256": "cfa6befba536ced53986f270c56ef7a65df4f7583a7fa973eadb32f562b3d6f5",
+      "bytes": 59420
+    },
+    {
+      "path": "authoring-prepare/browser-task.json",
+      "sha256": "d566f15c1772c49263e9258d3f367307a9d011994ecf1d4a79cf9fbd25a59427",
+      "bytes": 13051
+    },
+    {
+      "path": "authoring-prepare/browser.json",
+      "sha256": "cb9619b8d6561b196eea8694b5fc3f8ffaf367a70aec40c8bbf70a145924ade2",
+      "bytes": 4144
+    },
+    {
+      "path": "authoring-prepare/catalog.json",
+      "sha256": "41f18b9b1f28436b49e4cab5807192c10097b8c4d73f059d29824185a5918d83",
+      "bytes": 616
+    },
+    {
+      "path": "authoring-prepare/gates-01/architecture.txt",
+      "sha256": "f23bff04f61170cc5f6e345f5708035475c6f4d8d0f8b94f383d90d7f92d663a",
+      "bytes": 12764
+    },
+    {
+      "path": "authoring-prepare/gates-01/game.txt",
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+      "bytes": 1804
+    },
+    {
+      "path": "authoring-prepare/gates-01/gate-exits.json",
+      "sha256": "26e98bd6315951dd4ce4b5ca455747cd063fb934a1b0e69e17d7789a4f615888",
+      "bytes": 733
+    },
+    {
+      "path": "authoring-prepare/gates-01/headless/f10/engine.txt",
+      "sha256": "636374e0fb360fc30ba96816b99ecdae9620a306a1873329a036b4915264c94c",
+      "bytes": 11049
+    },
+    {
+      "path": "authoring-prepare/gates-01/headless/f10/frames.jsonl",
+      "sha256": "518f1170bac6741c4fae4ef24708466bd32f00133185ffeec07675b4e4fd2128",
+      "bytes": 9158
+    },
+    {
+      "path": "authoring-prepare/gates-01/headless/f10/summary.json",
+      "sha256": "22ef17181889dc5a5302b020c3f0f433312945e597005cc96b471b138969845c",
+      "bytes": 1743
+    },
+    {
+      "path": "authoring-prepare/gates-01/headless/normal/engine.txt",
+      "sha256": "ecc021d214e1bc13bc25085e2bea02cf1b914fbec625a163ebd1abe2929235dd",
+      "bytes": 11052
+    },
+    {
+      "path": "authoring-prepare/gates-01/headless/normal/frames.jsonl",
+      "sha256": "13f6812ac334ca26b9b716dc4d6fc5278fba5fe859c8b9c995f87566a10e97fd",
+      "bytes": 9158
+    },
+    {
+      "path": "authoring-prepare/gates-01/headless/normal/summary.json",
+      "sha256": "f0e6a9de5491aad1837403746742f4bd97a023a462a881d762e1645d0c96ea6f",
+      "bytes": 1746
+    },
+    {
+      "path": "authoring-prepare/gates-01/wiki.txt",
+      "sha256": "820ce7620aac5a41af3a53ef47b5ada17c33077dad4bcd29419cff2eaeb02952",
+      "bytes": 13842
+    },
+    {
+      "path": "authoring-prepare/preview.json",
+      "sha256": "8cc22b9dcca1a4fb589ae510e74944580f26dea55a58b453c21010195f1ae636",
+      "bytes": 3682
+    },
+    {
+      "path": "authoring-prepare/profile.json",
+      "sha256": "87f286ebd01a662a9b8133f2995dbf9d71707bfc228904d71a5088ae1895d2b4",
+      "bytes": 1261
+    },
+    {
+      "path": "authoring-prepare/publication-backlog.txt",
+      "sha256": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a",
+      "bytes": 53
+    },
+    {
+      "path": "authoring-prepare/publication-documentation.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "bytes": 105
+    },
+    {
+      "path": "authoring-prepare/publication-version.txt",
+      "sha256": "5eeb6552524312ddfe3e792f0c8e8e5dc2d975ea30e322d7fc31ec2d8d8a419e",
+      "bytes": 30
+    },
+    {
+      "path": "authoring-prepare/publication.json",
+      "sha256": "b6ea7b50529cab20c562a21805a27ffe79677bd7c67ce51f71593aff8c5a21d4",
+      "bytes": 430
+    },
+    {
+      "path": "authoring-prepare/scope-isolated.json",
+      "sha256": "32a08dc93d7afb0dde1208dcd1060154be3ccca7d7bc86b56a8e1314ede7dca6",
+      "bytes": 1355
+    },
+    {
+      "path": "authoring-prepare/scope-publication.json",
+      "sha256": "2575d42f5b4f02c6c1ed5eafe9cbea4fb6c75424c6def88d20b8e3eccd616cbe",
+      "bytes": 1539
+    },
+    {
+      "path": "authoring-prepare/scope.json",
+      "sha256": "d9ed5ef7d3896eb7f6554b7b4ff8898a7b4c4daecdda4b9686bed635ff0d2e4d",
+      "bytes": 1282
+    },
+    {
+      "path": "authoring-prepare/sources.json",
+      "sha256": "996b1f3d981f5997428305d9496b4c19d31da94f7df33ebdeb15143aca39c4fc",
+      "bytes": 6306
+    },
+    {
+      "path": "authoring-prepare/wiki-correction-retry.json",
+      "sha256": "9b7ea91eeee2c91f8744ffbf9afd955710b58cf84e99d6dae6d680670de8217f",
+      "bytes": 341
+    },
+    {
+      "path": "authoring-prepare/wiki-correction-retry.txt",
+      "sha256": "236b364d4c977c3be03f9a991bc73b5a9c49551d262fb2f2c7d0a3beef3ec2e9",
+      "bytes": 13841
+    },
+    {
+      "path": "authoring-prepare/wiki-correction.json",
+      "sha256": "74239c3fb9c4007ba840184f1ff56dd85ea554eccefa4016a41950dc22dbcc98",
+      "bytes": 310
+    },
+    {
+      "path": "authoring-prepare/wiki-correction.txt",
+      "sha256": "00584cbe0c5b82038017e89a0a9432b5ffdcb8dc4a8fa27a5dd6a42cf04b93c1",
+      "bytes": 507
+    },
+    {
+      "path": "authoring-prepare/wiki-summary.json",
+      "sha256": "1ee03241e1753b6a4caba7261da9c75494607a372ed16e6fd15921b7237e9786",
+      "bytes": 314
+    },
+    {
+      "path": "authoring-prepare/wiki-summary.txt",
+      "sha256": "14931b423fc94fcb6adbac059b48aad15444c98a6b4a582e05acc7c5dc99cd36",
+      "bytes": 13839
+    },
+    {
+      "path": "baseline/accepted-pr19-ci.json",
+      "sha256": "f63b2539833ad906580342286dcf80b9ea61798ca31a51650ad1901a74c19451",
+      "bytes": 3901
+    },
+    {
+      "path": "baseline/accepted-pr19.json",
+      "sha256": "63bcf85a8e94a4d943b5fb4044a450b7c4f8cdd71f3adee6344ef59992051706",
+      "bytes": 20886
+    },
+    {
+      "path": "baseline/blobs.json.gz",
+      "sha256": "a081932e1d2c37b677d4bd692b67140eabafae7ac7b4b419feb31304e801a207",
+      "bytes": 754698
+    },
+    {
+      "path": "baseline/branch-cleanup.json",
+      "sha256": "d2a8e5791f720721231df6c75856fb642079fb0e1db3f8c43d5f7675ed48deff",
+      "bytes": 397
+    },
+    {
+      "path": "baseline/local-uids.json",
+      "sha256": "ea2a049bff8d6ec8cf3078a8cd22f519479b079ffd863804dc9d55053456fcba",
+      "bytes": 17046
+    },
+    {
+      "path": "baseline/migration.json",
+      "sha256": "ff5b7c194e624787d320f7052de6a19bb8bdfa3218e6539c8e959e25fac8e126",
+      "bytes": 338461
+    },
+    {
+      "path": "baseline/source-contracts.json",
+      "sha256": "bef5233df7f09ab065cd19728a008debd97707aa297167868d97f8ffc92c1090",
+      "bytes": 57925
+    },
+    {
+      "path": "catalog-check.mjs",
+      "sha256": "79eb216be3880937318bfdd4db5588c56087b29ceeaddd928c234b7c68529984",
+      "bytes": 1968
+    },
+    {
+      "path": "inventory.py",
+      "sha256": "f36597e637a9f215cb4eaa7b920ff97a01230b9a1767634892e5570a8572e7c7",
+      "bytes": 3617
+    },
+    {
+      "path": "move-authoring.py",
+      "sha256": "98d0e63143b93914a4d1be57270712867b09c42e069c7e0a8e50072acab30139",
+      "bytes": 6829
+    },
+    {
+      "path": "prepare-authoring.py",
+      "sha256": "62484cb30e6b9ec78fe8f29c0096d606603a3695d70e22b5e85269dc8163b92f",
+      "bytes": 2445
+    },
+    {
+      "path": "preview-authoring.py",
+      "sha256": "e5ba8bfb353f80207f8327b5cdb5742c8ed4dd626e8cb8fd404818a47652ad93",
+      "bytes": 6616
+    },
+    {
+      "path": "profile-authoring.py",
+      "sha256": "922e3956cdb67edda860c77b3d76c054def8201798f8b8a43e1d446f1a6b95ca",
+      "bytes": 5725
+    },
+    {
+      "path": "qa-server.mjs",
+      "sha256": "54d0b23b16d20516e8967d010dd58261110c734eabd0c3084e204dc43df2d86f",
+      "bytes": 876
+    },
+    {
+      "path": "run-gates.py",
+      "sha256": "167258b993986e386b6248fb42f8fcaf41c2bd9fa3a5be6ff926240d67dc764f",
+      "bytes": 2304
+    },
+    {
+      "path": "snapshot-contracts.py",
+      "sha256": "ae1dbd7565072b2f671750689b16036da4ade82fe84ff080c003e42f4d8ad141",
+      "bytes": 2977
+    }
+  ]
+}

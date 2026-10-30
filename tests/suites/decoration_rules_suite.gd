@@ -2,7 +2,7 @@ extends RefCounted
 
 const Rules := preload("res://scripts/presentation/village_decoration_rules.gd")
 const Map := preload("res://scripts/systems/village_map_data.gd")
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 
 ## Проверяет весь след декора, ручной приоритет, ограниченность и сохранность игровой геометрии.
 static func run(context: SceneTree) -> void:

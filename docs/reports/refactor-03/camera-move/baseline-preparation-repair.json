@@ -1,0 +1,6 @@
+{
+  "failed_baseline": "KeyError: sha256 in original local_UID row, before any source edit",
+  "failed_dependent_profile": "missing baseline/move-plan.json; no profile command started",
+  "repair": "Enrich original UID values with exact current bytes/mode and resume only the owned partial baseline after verifying every file against accepted373.",
+  "product_source_unchanged": true
+}

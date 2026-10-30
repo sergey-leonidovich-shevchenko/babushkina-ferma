@@ -280,7 +280,7 @@ Linear и nearest сравниваются адресно; изменение о
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vpipeline-007/README.md, docs/reports/visual-overhaul/vpipeline-007/legacy-baseline.json, docs/reports/visual-overhaul/vpipeline-007/proof.json, docs/reports/visual-overhaul/vpipeline-007/native/capture.json, tools/alpha_audit.py, tools/alpha_metrics.py, tools/test_alpha_audit.py, tools/test_alpha_proof.py, wiki/articles/alpha-edges.md, wiki/articles/alpha-candidates.md.
+Доказательства: docs/reports/visual-overhaul/vpipeline-007/README.md, docs/reports/visual-overhaul/vpipeline-007/legacy-baseline.json, docs/reports/visual-overhaul/vpipeline-007/proof.json, docs/reports/visual-overhaul/vpipeline-007/native/capture.json, tools/assets/alpha/alpha_audit.py, tools/assets/alpha/alpha_metrics.py, tools/assets/alpha/test_alpha_audit.py, tools/assets/alpha/test_alpha_proof.py, wiki/articles/alpha-edges.md, wiki/articles/alpha-candidates.md.
 
 <a id="vpipeline-008"></a>
 
@@ -320,7 +320,7 @@ Linear и nearest сравниваются адресно; изменение о
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vpipeline-008/README.md, docs/reports/visual-overhaul/vpipeline-008/proof.json, docs/reports/visual-overhaul/vpipeline-008/legacy-slices.json, docs/reports/visual-overhaul/vpipeline-008/after/inventory.json, docs/reports/visual-overhaul/vpipeline-008/after/measurements.json, docs/reports/visual-overhaul/vpipeline-008/before-native/capture.json, docs/reports/visual-overhaul/vpipeline-008/after-native/capture.json, docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json, docs/reports/visual-overhaul/vpipeline-008/browser.json, docs/reports/visual-overhaul/vpipeline-008/verification.json, tools/slice_audit.py, tools/slice_metrics.py, tools/slice_export.gd, tools/slice_catalogs.gd, tools/slice_policy.json, tools/slice_proof.py, tools/test_slice_audit.py, tools/test_slice_proof.py, tests/suites/atlas_source_geometry_suite.gd, wiki/articles/sprite-slices.md, wiki/articles/slice-risks.md.
+Доказательства: docs/reports/visual-overhaul/vpipeline-008/README.md, docs/reports/visual-overhaul/vpipeline-008/proof.json, docs/reports/visual-overhaul/vpipeline-008/legacy-slices.json, docs/reports/visual-overhaul/vpipeline-008/after/inventory.json, docs/reports/visual-overhaul/vpipeline-008/after/measurements.json, docs/reports/visual-overhaul/vpipeline-008/before-native/capture.json, docs/reports/visual-overhaul/vpipeline-008/after-native/capture.json, docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json, docs/reports/visual-overhaul/vpipeline-008/browser.json, docs/reports/visual-overhaul/vpipeline-008/verification.json, tools/assets/slicing/slice_audit.py, tools/assets/slicing/slice_metrics.py, tools/assets/slicing/slice_export.gd, tools/assets/slicing/slice_catalogs.gd, tools/assets/slicing/slice_policy.json, tools/assets/slicing/slice_proof.py, tools/assets/slicing/test_slice_audit.py, tools/assets/slicing/test_slice_proof.py, tests/suites/atlas_source_geometry_suite.gd, wiki/articles/sprite-slices.md, wiki/articles/slice-risks.md.
 
 <a id="vpipeline-009"></a>
 

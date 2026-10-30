@@ -1,0 +1,21 @@
+............E
+======================================================================
+ERROR: test_water_folder_follows_nested_source_project (__main__.WorldSourceHistoryTests.test_water_folder_follows_nested_source_project)
+Actual water analyzer locates report output under its own project rather than a fixed parent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/test_world_source_history.py", line 166, in test_water_folder_follows_nested_source_project
+    target.write_bytes((render_order.ROOT/'tools/analyze_water_audit.py').read_bytes())
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/analyze_water_audit.py'
+
+----------------------------------------------------------------------
+Ran 13 tests in 172.268s
+
+FAILED (errors=1)

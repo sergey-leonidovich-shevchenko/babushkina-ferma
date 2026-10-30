@@ -1,0 +1,218 @@
+[
+  {
+    "layout": "legacy",
+    "delimiter": "--",
+    "case": "valid",
+    "expected_accept": true,
+    "actual_accept": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "--script",
+      "res://tools/grass_compare/capture.gd",
+      "--",
+      "--output=fixture"
+    ]
+  },
+  {
+    "layout": "legacy",
+    "delimiter": "--",
+    "case": "only_user_payload",
+    "expected_accept": false,
+    "actual_accept": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "--",
+      "--script",
+      "res://tools/grass_compare/capture.gd"
+    ]
+  },
+  {
+    "layout": "legacy",
+    "delimiter": "--",
+    "case": "wrong_short_script",
+    "expected_accept": false,
+    "actual_accept": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "-s",
+      "res://wrong.gd",
+      "--",
+      "--script",
+      "res://tools/grass_compare/capture.gd"
+    ]
+  },
+  {
+    "layout": "legacy",
+    "delimiter": "++",
+    "case": "valid",
+    "expected_accept": true,
+    "actual_accept": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "--script",
+      "res://tools/grass_compare/capture.gd",
+      "++",
+      "--output=fixture"
+    ]
+  },
+  {
+    "layout": "legacy",
+    "delimiter": "++",
+    "case": "only_user_payload",
+    "expected_accept": false,
+    "actual_accept": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "++",
+      "--script",
+      "res://tools/grass_compare/capture.gd"
+    ]
+  },
+  {
+    "layout": "legacy",
+    "delimiter": "++",
+    "case": "wrong_short_script",
+    "expected_accept": false,
+    "actual_accept": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "-s",
+      "res://wrong.gd",
+      "++",
+      "--script",
+      "res://tools/grass_compare/capture.gd"
+    ]
+  },
+  {
+    "layout": "current",
+    "delimiter": "--",
+    "case": "valid",
+    "expected_accept": true,
+    "actual_accept": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "--script",
+      "res://tools/qa/foliage/grass_compare/capture.gd",
+      "--",
+      "--output=fixture"
+    ]
+  },
+  {
+    "layout": "current",
+    "delimiter": "--",
+    "case": "only_user_payload",
+    "expected_accept": false,
+    "actual_accept": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "--",
+      "--script",
+      "res://tools/qa/foliage/grass_compare/capture.gd"
+    ]
+  },
+  {
+    "layout": "current",
+    "delimiter": "--",
+    "case": "wrong_short_script",
+    "expected_accept": false,
+    "actual_accept": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "-s",
+      "res://wrong.gd",
+      "--",
+      "--script",
+      "res://tools/qa/foliage/grass_compare/capture.gd"
+    ]
+  },
+  {
+    "layout": "current",
+    "delimiter": "++",
+    "case": "valid",
+    "expected_accept": true,
+    "actual_accept": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "--script",
+      "res://tools/qa/foliage/grass_compare/capture.gd",
+      "++",
+      "--output=fixture"
+    ]
+  },
+  {
+    "layout": "current",
+    "delimiter": "++",
+    "case": "only_user_payload",
+    "expected_accept": false,
+    "actual_accept": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "++",
+      "--script",
+      "res://tools/qa/foliage/grass_compare/capture.gd"
+    ]
+  },
+  {
+    "layout": "current",
+    "delimiter": "++",
+    "case": "wrong_short_script",
+    "expected_accept": false,
+    "actual_accept": true,
+    "command": [
+      "open",
+      "-n",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+      "-s",
+      "res://wrong.gd",
+      "++",
+      "--script",
+      "res://tools/qa/foliage/grass_compare/capture.gd"
+    ]
+  }
+]

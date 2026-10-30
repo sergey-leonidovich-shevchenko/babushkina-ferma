@@ -1,0 +1,455 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "first physical authoring package; full task in_progress",
+  "prepared_head": "0352c5f286dc90c5fa324347b9ceadeb6a8e9350",
+  "version": "0.0.358",
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.358",
+      "started_at": "2026-10-27T06:34:00.071885+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T07:01:09.059867+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.358",
+      "started_at": "2026-10-27T07:01:09.061121+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T07:09:00.767369+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.358",
+      "started_at": "2026-10-27T07:09:00.770123+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T07:10:09.669163+00:00"
+    }
+  ],
+  "architecture_suites": 84,
+  "architecture_cases": 1159,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "profile": "profile.json",
+  "scope": "scope.json",
+  "browser": [
+    "browser-refresh.json",
+    "browser-guide.json",
+    "browser-attachment.json",
+    "browser-mobile.json"
+  ],
+  "publication": "publication.json",
+  "Task_Complete_added": false,
+  "root_tools_sources": 513,
+  "physical_moves": 36,
+  "full_task03_accepted": false,
+  "VMAP_FPS_admission": false,
+  "source_SHA256": {
+    ".gitignore": "fb204b2886e10d8361ef48fe216acceade3aba0a409e5a5feb774ff40303f0eb",
+    "TESTING.md": "5ab6995aca8055adb884a553d83af78091e5e73b35c31d0788e7d29d0718a2bf",
+    "VERSION": "fe22e593e7c334f09e11034865016dcdd95d8ec61f7063f4929afe4b01c44aae",
+    "docs/DEVELOPMENT.md": "a0ee065a132e1c3ae836ba450aef31d5e73606ec9370091b999a1f98e52d9903",
+    "docs/epics/refactoring-2026-10/README.md": "4b3026b624ab833305bb9ce36686f189a72adce32d27d0a9248d55a573d06d79",
+    "docs/epics/refactoring-2026-10/TASKS.md": "c0373ade2674a25db7ac5717c66577e19265e0777dcee178cc0e656663f282a0",
+    "docs/reports/refactor-03/profile-authoring-move.py": "55e38659877bec50c783ad83c1b0e541169dda5275bc2e1ad017238b98a7c07a",
+    "project.godot": "4b8b2453b720d19626da246d2c7d94e86d92f9e2b4bb023c9bf36f929e2177da",
+    "tools/README.md": "d62c64f9b30e1ebfc119c46c9db98235f0d7125f426765d5849bb228288669ea",
+    "tools/asset_provenance.json": "2f7c84e37530932935ce14bdcdbbee28790cbf9d1260e0e30c4422512d166951",
+    "tools/asset_report.py": "10b2bc02c6d7c5b39e3879567c534ee5df51d4bbe42d0c0d6b325cd569939d5c",
+    "tools/assets/__init__.py": "d92031cc76078c3f75c08a3c78d5f9bdce40efbcd4a518379a6befe3c85ee999",
+    "tools/assets/authoring/__init__.py": "5e9b18ebf90f13e237dd8e19dc349aa4b4ece5b6b905c6a19cd4c0f622ca23dd",
+    "tools/assets/authoring/build_bridge_sprites.py": "38623d88c48b4acbef43100fa6bd406d013ba30fc46ad4fab91d426a77bf42c4",
+    "tools/assets/authoring/build_building_sprites.py": "a50638c1699ed7b36db82b69fdf1afd1745abd48fd58dee4ae50eac1f56849c9",
+    "tools/assets/authoring/build_clean_interior_atlas.gd": "ec2daac50f44ef0f3b0fd67a6056d3051acfd2ec0a788f9baf7889a4b64f051e",
+    "tools/assets/authoring/build_editor_transition_tiles.py": "b4674b74503d4f88ddbd263c533eb7ba5e98eccb595bb08f0e00ea12307c1f08",
+    "tools/assets/authoring/build_environment_sprites.py": "c18b583b0fdc3077cb6bdd2dee41e90147ecb4bfca820e08d961fa5af3c393db",
+    "tools/assets/authoring/build_fence_atlas.py": "2bd29190490d1201282e6fbb9f1a37325fdf44798fc875b4cfa70b81b4978df3",
+    "tools/assets/authoring/build_forest_tree_atlas.py": "9610d95795513197b632588df9898a2e88962ca7929a77f8fd7e5622b3293838",
+    "tools/assets/authoring/build_house_furniture.gd": "b23f69b29b3b1dde5cb7bdf2a921f3e90d09cbd1b012fa42295bb8be6488f902",
+    "tools/assets/authoring/build_house_furniture.gd.uid": "5fd470424d61510ca47f103e7a0e54c4fb4c47411efe9579cd6a93e57dc8c9c8",
+    "tools/assets/authoring/build_item_ui_textures.gd": "6208c9dd28199580f35f3b571cb205da1370a5826e156fa9e2ee59592b57927f",
+    "tools/assets/authoring/build_item_ui_textures.gd.uid": "160b2e0340774a74aa33d5923b184ae3a8f19d41acc138aaded3e43a67fa057c",
+    "tools/assets/authoring/build_level_editor_tiles.py": "3d579e97121f80782d971c1aaab6f7729463066ba170a0760be1637b05e849b5",
+    "tools/assets/authoring/build_painted_item_icons.gd": "5be3f88ac3c95f861c32a6da31df7da0e966e514fe4ded6f0bc16b4814bbe939",
+    "tools/assets/authoring/build_painted_item_icons.gd.uid": "c21efe2728d70f4210fac0f33eb55c8e85b9c951a8560658945196e57e322c54",
+    "tools/assets/authoring/build_prepared_pixels.gd": "02db8b66acd247c217059f0ea0f0d3efbe73e848c9d690b7a4d85fe71823c361",
+    "tools/assets/authoring/build_prepared_pixels.gd.uid": "fbb7b0452e9dc1c04497cb148e6f56400afc8b5a146b5311c7fc408de5124d46",
+    "tools/assets/authoring/build_ui_kit.py": "6971f7092b680d85937340fb7811dc3e97bd6be8951ffb54423c300dd9fed8e8",
+    "tools/assets/authoring/build_village_materials.gd": "62dfefb5a6e57cda3344f34111c99cfc90886709c7306339b8948a66497b8881",
+    "tools/assets/authoring/build_village_prop_atlas.py": "a542cf4c6b724ab6c8c6e19561542513736b973839f30dfa3f292d4e6ba95df0",
+    "tools/assets/authoring/build_village_props.gd": "4414ca14e2ffe2e1239a045a9a9139229a86515d38fd3bb88ed141fb7a27f06d",
+    "tools/assets/authoring/extract_artisan_assets.py": "db9dce9d1257d7be866fc150c11dd79e1c8ecf9ba1e318f3b059d134e45b7317",
+    "tools/assets/authoring/extract_basement_atlases.py": "6c1b287bc5aef52812a33e4a271e1b56bd3913ad45bd0d650c8f3b50a73f322a",
+    "tools/assets/authoring/extract_farm_icons.gd": "7ef8bd3ed4e7a69f7381ad047b62a0a40e7abaadbeda0fee400dc99378486d55",
+    "tools/assets/authoring/extract_farmyard_sprites.gd": "b5824e1ee1ede097ef5953d267273f5faa345cbfa0b50088380fd581848e2111",
+    "tools/assets/authoring/extract_hero_combat_sprites.gd": "0cc58c2cf89db036572e7c996e4a5f983b198ab0d3534c0ec5c917f5efa06e18",
+    "tools/assets/authoring/extract_hero_combat_sprites.gd.uid": "63c6102b2dcb1fb87b1f5d706a37f12b834ac26ca21a89229dc89311e4f7064e",
+    "tools/assets/authoring/extract_kitchen_atlases.py": "6c092f97ff592b0a3deccf55658c7e0fd876e84c7540611789fb286b688d61db",
+    "tools/assets/authoring/measure_character_walk.py": "4e7d4085949410e31579ea3c8f65dc4c41377578a2a6ae52a1ed0e4fcc21995c",
+    "tools/assets/authoring/measure_hero_actions.py": "9106b58118de2d629a409125b37f558d5e7a23706b0d0d25f7eb843a828c2507",
+    "tools/assets/authoring/measure_skeleton_regions.py": "e7aa5fdedd5523427762386e8c8327cab1d9228ea3e0b96b99734e157e6b9834",
+    "tools/assets/authoring/prepare_celestial_dial.gd": "38a1f47b4820fca8da24c57ce6a9d8b6ce84af3d1204ba415d8ac8ddabcc903e",
+    "tools/assets/authoring/prepare_character_walk.gd": "dc5bd0d59bd655770a5b58873640f64215e5d65a5d40cd637caa969ef8f356b4",
+    "tools/assets/authoring/prepare_hero_actions.gd": "87b837632a55ee180e158db393080d2f814bd4de4244f432b6522084e76c9b1e",
+    "tools/assets/authoring/prepare_skeleton_v2.gd": "3a4630da303a9f0c572ce6f2be81a7123a0e4f2878efc3bdac51b3d1f074607c",
+    "tools/assets/authoring/slice_item_icons.py": "21431d962e4ff86dd7deb470c426e3bbfc69fc3f17352beb81e49df7a1972368",
+    "tools/assets/authoring/update_ui_visual_manifest.py": "b2e3dd94ac292d209c62d9c11dff2e5742d9c6dad09016819f032a2e8aa8ba9b",
+    "tools/build/__init__.py": "aa194c0dfb39c7cb21ec81463b328602c5fe241e4df1c3402d0abc76e04d5e56",
+    "tools/build/test_asset_report_history.py": "7b252055c56faa4c068c20b64638a7aae2b42cf99abc11a847ea227baeb2c032",
+    "tools/quality/check_architecture.sh": "ad7f64d696b5110c2a0dd59611e7fef01ddcbd8e811c2562bc5c948437a35524",
+    "wiki/articles/project-refactoring.md": "72f03890e97e42a0c01d7fe78691d2ab09e8e7a364444c145239f160177b8e99",
+    "wiki/articles/visual-pilot.md": "7d44a5d5f99fab143fe806bdf2f9807f411313d5699a2789d743d877d78e5e6e",
+    "Бабушкина ферма.app/Contents/Info.plist": "342ef9fa420cbc48936fd67e97e0a79abd02df9958e84d90082d695731effb11"
+  },
+  "report_files": [
+    {
+      "path": "README.md",
+      "sha256": "3b2947b4ac72816929c9708b9944e12b3461cf4cced05b566b6150afadf3cf2b",
+      "bytes": 9086
+    },
+    {
+      "path": "browser-attachment.json",
+      "sha256": "87045b1d83371048e798cc286360503c7d45a671c98e82ade95f95f2d5deb9ef",
+      "bytes": 3260
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "fb7ebb9d0390d26315216ce51a28f1fdd6dde71d5e6f7c7445fe7a5b779181d4",
+      "bytes": 126
+    },
+    {
+      "path": "browser-guide.json",
+      "sha256": "c3492a1e4b2d8c31d82f28d53a229b9252b6034d8272ffd0035718e2bdfea61a",
+      "bytes": 20594
+    },
+    {
+      "path": "browser-guide.png",
+      "sha256": "f4dd06160c9f25c712bad9a03337d0c41a3d4986a00d0675efa4b0e365efe105",
+      "bytes": 137217
+    },
+    {
+      "path": "browser-mobile.json",
+      "sha256": "ff0618551a082a77e0a9e0da77f32c75baaf3bc5ccdf6011f99c151ca6220e6a",
+      "bytes": 20847
+    },
+    {
+      "path": "browser-mobile.png",
+      "sha256": "ea6286fa9f2d8bfffc385037ef1f97f0729cbfba14a78cb139efba673e965c63",
+      "bytes": 58929
+    },
+    {
+      "path": "browser-refresh.json",
+      "sha256": "25c3357837228b0758191e8379c9ef2c1b92edbb8ae7033c51556d27e8bbb57f",
+      "bytes": 516
+    },
+    {
+      "path": "browser-route.json",
+      "sha256": "c44d3532501ba48847303184f6763a8cb30d6abcc72e04546c572dacf7f61ebe",
+      "bytes": 61126
+    },
+    {
+      "path": "catalog-check.mjs",
+      "sha256": "77db549d6ca9df04e710fbba29d421af676087a634402fa82f0aee3129e8aa73",
+      "bytes": 2385
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "b2a629dc77fe600859b72eea2eb62edbf6f0b634d58d4f37bc6d578addda3a23",
+      "bytes": 681
+    },
+    {
+      "path": "check-scope.py",
+      "sha256": "f690bb0bd82fc554e7382f5489860701c31f68a93c3e4c107f804c0ca3c951e3",
+      "bytes": 6398
+    },
+    {
+      "path": "consumer-history/asset-report-before.py.txt",
+      "sha256": "7416897cd170de09fc258b199ca1c7af537d8a9823be94b8b4bd2fd49be60385",
+      "bytes": 10692
+    },
+    {
+      "path": "consumer-history/asset-report-red.py.txt",
+      "sha256": "e59f21ef39d3db2196f8cda05e9b17c8a416864b26fba5db7c2a349d9d7b6140",
+      "bytes": 11007
+    },
+    {
+      "path": "consumer-history/before.json",
+      "sha256": "0a3709c57996f63ced63743290be1fa1047c86265c7e8c15a5cd825b9fd0d0a3",
+      "bytes": 339
+    },
+    {
+      "path": "consumer-history/focused-asset-report.txt",
+      "sha256": "89eeea35d5e4878b7333ec57931029f6580156559e3255c08cecf59f84b75259",
+      "bytes": 122
+    },
+    {
+      "path": "consumer-history/focused-costs.txt",
+      "sha256": "bbcb0c1624470ce005f79c07a8c9854dafec0b349e41fb714614e0735c420ac3",
+      "bytes": 116
+    },
+    {
+      "path": "consumer-history/focused-history.txt",
+      "sha256": "559b5c2d051c2bddda3600005c244f82aa76fb3ff7dcb2af337335b3c6e6b2e0",
+      "bytes": 1347
+    },
+    {
+      "path": "consumer-history/focused-pack-proof.txt",
+      "sha256": "745578ca85a2522e1611d4a33c79c006a66199961217ff34a4c30fb4e78940a4",
+      "bytes": 110
+    },
+    {
+      "path": "consumer-history/focused.json",
+      "sha256": "86277cda6b5b0436e43a8996c8f34e04cb889fffad448338b8f558422c1ce188",
+      "bytes": 535
+    },
+    {
+      "path": "consumer-history/green.json",
+      "sha256": "9c1dfd6f3616ec94df9852c061304e851489692f2329695c3e082be353c7c4db",
+      "bytes": 325
+    },
+    {
+      "path": "consumer-history/green.txt",
+      "sha256": "7c78e12b43e609b46894b18e78b7e1207df271878792973b59aac76355757620",
+      "bytes": 1347
+    },
+    {
+      "path": "consumer-history/red.json",
+      "sha256": "a71a67eb38c8e9192bcd6665ec61b80e214df8466a4920f3b279dc1708cb8e63",
+      "bytes": 376
+    },
+    {
+      "path": "consumer-history/red.txt",
+      "sha256": "b17222165a5da09e8c4721432fd79f5e9d9c6342e17399e378f18eb75968a85d",
+      "bytes": 13218
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "4b68e5125d67efdb4c2453f883ca0866582df8975e3178110206ce2582a7e0bf",
+      "bytes": 11854
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "a436b9799679a6a3f121aad79de11f51f1f91051f11574102d67fe1b3839cc4d",
+      "bytes": 249
+    },
+    {
+      "path": "gates-02/architecture.txt",
+      "sha256": "6d110920eefc305dd029c663aae3f13eaa6e5163b3547380c8060ff518bd4e62",
+      "bytes": 12876
+    },
+    {
+      "path": "gates-02/game.txt",
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+      "bytes": 1804
+    },
+    {
+      "path": "gates-02/gate-exits.json",
+      "sha256": "47ca69271a03197cf779896615af1e509b53a5bb7e44bcc7e9c5bc65e3815070",
+      "bytes": 733
+    },
+    {
+      "path": "gates-02/headless/f10/engine.txt",
+      "sha256": "0abf84c320e3651c15618cc4e5c1bb1c4ad95a39212d8076e157da871eb123d2",
+      "bytes": 11049
+    },
+    {
+      "path": "gates-02/headless/f10/frames.jsonl",
+      "sha256": "2bbf9544ab42137503b8f17f0dd5fbcc87a5692e790253f4641ff27a23da6f4e",
+      "bytes": 9158
+    },
+    {
+      "path": "gates-02/headless/f10/summary.json",
+      "sha256": "18372b04cae4f73fa197c0b52b947394a677a700cfc9f24a90b2a0cc0b927b42",
+      "bytes": 1743
+    },
+    {
+      "path": "gates-02/headless/normal/engine.txt",
+      "sha256": "6c704714ec6ed2681aca6efd51100f6734549cec35937c1cb5a149afb36b2e39",
+      "bytes": 11065
+    },
+    {
+      "path": "gates-02/headless/normal/frames.jsonl",
+      "sha256": "614cec90e5c43e4c11d07e587bb7188f449d42c87e227017ef3847a131bed4da",
+      "bytes": 9171
+    },
+    {
+      "path": "gates-02/headless/normal/summary.json",
+      "sha256": "ff74451fc48ce3d66c602ebdffdef9e3f7327ba8c19b2bd8ee0269499728baeb",
+      "bytes": 1746
+    },
+    {
+      "path": "gates-02/wiki.txt",
+      "sha256": "e24abf57c136400d0d989a491e5f223396fe6953ad2cd7166426ff9585632162",
+      "bytes": 14244
+    },
+    {
+      "path": "godot-build_clean_interior_atlas.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-build_house_furniture.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-build_item_ui_textures.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-build_painted_item_icons.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-build_prepared_pixels.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-build_village_materials.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-build_village_props.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-checks.json",
+      "sha256": "c10685abc888b242c30a7688e73d73acc207f84749b1a3e29a5c506d1b51048d",
+      "bytes": 6179
+    },
+    {
+      "path": "godot-editor-import.txt",
+      "sha256": "4988f88b8fbafeaab19cea06d2a875c5d1fa74eceaff3c7e12390616485f6f1f",
+      "bytes": 2724
+    },
+    {
+      "path": "godot-extract_farm_icons.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-extract_farmyard_sprites.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-extract_hero_combat_sprites.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-prepare_celestial_dial.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-prepare_character_walk.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-prepare_hero_actions.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "godot-prepare_skeleton_v2.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "migration.json",
+      "sha256": "39915540dcc473d56a444f0515ce7d324d50189fa7a931ecbb50dbd740be24ce",
+      "bytes": 14077
+    },
+    {
+      "path": "profile-initial.py.txt",
+      "sha256": "6d850bc67c7fa28e233522fca7c80bc10697e96caa08e793f7c931463b065462",
+      "bytes": 5711
+    },
+    {
+      "path": "profile-output-guards.json",
+      "sha256": "8962edd3f6ac66056ca29db1993ea98fe7c0d085a4e36cccf2d36aa3cf984fed",
+      "bytes": 1683
+    },
+    {
+      "path": "profile-replay.json",
+      "sha256": "29f408a36a012363233a2ffbd1a0a04849cc4f2b3839014d8b4dedfc6f2bbb65",
+      "bytes": 1186
+    },
+    {
+      "path": "profile.json",
+      "sha256": "29f408a36a012363233a2ffbd1a0a04849cc4f2b3839014d8b4dedfc6f2bbb65",
+      "bytes": 1186
+    },
+    {
+      "path": "publication.json",
+      "sha256": "a98f3283ebb6ee5bfbb15d818cc0cc0c89a8fe691e19c125ab453874b902cc87",
+      "bytes": 675
+    },
+    {
+      "path": "replay-prepare/preview-authoring.py.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "replay-prepare/preview-authoring.py.stdout.txt",
+      "sha256": "04e7fdb029b0b2a18e1e8a4d0889daf7d378bcb1a77f49f7474f4f7769614a8f",
+      "bytes": 105
+    },
+    {
+      "path": "replay-prepare/preview.json",
+      "sha256": "375320a9fee99b2860e72474d663c903a2a8884e1400ac2d13e2426ac871b35c",
+      "bytes": 3682
+    },
+    {
+      "path": "replay-prepare/profile-authoring.py.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "replay-prepare/profile-authoring.py.stdout.txt",
+      "sha256": "577426d279010ca245db1a21f657fd402a71f9768ddd1021aa3e34192231f60c",
+      "bytes": 83
+    },
+    {
+      "path": "replay-prepare/profile.json",
+      "sha256": "f77909ac80789c590039e819918d6fbe069dcb9cb3fa818ba5c33235747a4091",
+      "bytes": 1423
+    },
+    {
+      "path": "replay-prepare/result.json",
+      "sha256": "700bcd2f41a881d5385be36de3ad8ab5d4839616c9c9325cab40d950bf92e8ce",
+      "bytes": 988
+    },
+    {
+      "path": "replay-prepare.py",
+      "sha256": "fddb77b10f3edb4f453d886b648f5370017fd7ce474ffef9f42dd23dc402a3f7",
+      "bytes": 4064
+    },
+    {
+      "path": "scope.json",
+      "sha256": "7f7e9d4372e1d6d29620d70408529311b18d7e90f223bc92d7130f591e9f437e",
+      "bytes": 3236
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "exit": 1,
+  "stage": "report image dimensions",
+  "actual_first_desktop": [
+    1024,
+    720
+  ],
+  "expected_CSS_viewport": [
+    1280,
+    900
+  ],
+  "reason": "capture retained previous compositor surface before resize settled",
+  "fix": "retake after a separate observation; JPEG signature/size read with Pillow; bytes not edited",
+  "product_source_changed": false,
+  "full_gates_changed": false
+}

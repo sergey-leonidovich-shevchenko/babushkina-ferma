@@ -1,0 +1,10 @@
+{
+  "command": [
+    "python3",
+    "tools/test_artist_packet.py",
+    "-v"
+  ],
+  "exit": 1,
+  "tests_sha256": "33df51d0cb2b8feeb7f716bae88da4ffbb94d28e5210fe4822f876959aedce6f",
+  "production_source": "artist-packet-before.py.txt"
+}

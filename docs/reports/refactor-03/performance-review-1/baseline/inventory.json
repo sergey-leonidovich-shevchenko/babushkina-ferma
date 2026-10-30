@@ -1,0 +1,95 @@
+{
+  "base": "f134dd9b7f2cf0741a0ace939d26fc247178cbad",
+  "version": "0.0.371",
+  "root_sources": 285,
+  "sources": {
+    "tools/grass_compare_collect.py": {
+      "sha256": "268f6e66789ce344f47be02c9e28fe6eb934857507a270dec7effa77c668d512",
+      "mode": 420
+    },
+    "tools/ground_layers.py": {
+      "sha256": "ed6eba4fbd10e9da4edd142f0293a7e166aee3db290dd7535cc679b456e757a1",
+      "mode": 420
+    },
+    "tools/grass_methods.py": {
+      "sha256": "c50701ee7f8fb4d416c8830e9071d72bb4eaa4511da69900d334ac3521f8d397",
+      "mode": 420
+    },
+    "tools/assets/contracts/source_paths.py": {
+      "sha256": "060ce42562c888078e900a06a342fe0f1713590b937d0132dbed1fc4462c9439",
+      "mode": 420
+    },
+    "tools/assets/contracts/test_source_paths.py": {
+      "sha256": "aeed42a95fe0975f566fc491cdb0214395ea9c56729c662df9d6f1490ea01efb",
+      "mode": 420
+    },
+    "tools/quality/check_architecture.sh": {
+      "sha256": "517b8f808df7b1f2c0b1e853a56756d58dcb6fc6e980b07087a1c2bca5848969",
+      "mode": 493
+    },
+    ".gitattributes": {
+      "sha256": "59673470578af305751d82cc213910aa6232e6c984ed59ade759965e07b99749",
+      "mode": 420
+    },
+    "VERSION": {
+      "sha256": "6c80ceedfd43dd54e25070e0039d25b96271ae7d560c2f67f4c8b325bdbddb31",
+      "mode": 420
+    },
+    "project.godot": {
+      "sha256": "35f47727158b7e9e04ef6c60fb6391ca00729e773761d79e42831eb17e9368f9",
+      "mode": 420
+    },
+    "Бабушкина ферма.app/Contents/Info.plist": {
+      "sha256": "3aea8c3c6ec3c672c85a538aa0cf62be266fa157eefa520234dc86f7b86b0245",
+      "mode": 420
+    },
+    "TESTING.md": {
+      "sha256": "5e035c89072fd406a1a0594da29abf49eec344d40fc2f071f3811bf9cdac15f0",
+      "mode": 420
+    },
+    "QA_CHECKLIST.md": {
+      "sha256": "0ef0ed5dabe845f5f5605115c59b07feb9f3f6df41950814d17a46108b5bf524",
+      "mode": 420
+    },
+    "docs/DEVELOPMENT.md": {
+      "sha256": "56ca8e505f4f9fab7f6a23b0b8d37faea7e99cd0c13cb40061aac938dc33ff9d",
+      "mode": 420
+    },
+    "tools/README.md": {
+      "sha256": "b6afbe7d0c04207899aaf855aafbef4b8705bea9258060196b4f43f8c457895b",
+      "mode": 420
+    },
+    "wiki/articles/project-refactoring.md": {
+      "sha256": "2d69d66e85d369c8f3759721508f1d8675db217140ff2d544dc6b28da78344f8",
+      "mode": 420
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "sha256": "0ab5a05d80d8930fb99e67679e5d93f63a92ee7743c4b90ee92ed7d30a7032c1",
+      "mode": 420
+    }
+  },
+  "consumers": [
+    "tools/grass_compare_collect.py",
+    "tools/ground_layers.py",
+    "tools/grass_methods.py",
+    "tools/assets/contracts/source_paths.py",
+    "tools/assets/contracts/test_source_paths.py",
+    "tools/quality/check_architecture.sh",
+    ".gitattributes",
+    "VERSION",
+    "project.godot",
+    "Бабушкина ферма.app/Contents/Info.plist",
+    "TESTING.md",
+    "QA_CHECKLIST.md",
+    "docs/DEVELOPMENT.md",
+    "tools/README.md",
+    "wiki/articles/project-refactoring.md",
+    "docs/epics/refactoring-2026-10/TASKS.md"
+  ],
+  "local_UID": [],
+  "review": 5691592934,
+  "review_state": "CHANGES_REQUESTED",
+  "Team_priority_P2": true,
+  "CI371_success": 8,
+  "scope": "repair2realproducerinput/copy/recheck and subsequent Git reader alias; no newtask/noUIDmove/noGame/GPUadmission"
+}

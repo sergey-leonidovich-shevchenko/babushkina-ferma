@@ -1,0 +1,200 @@
+fatal: not a tree object
+EFFFF.fatal: not a tree object: 8d4e166f9fb796468f7a93f75b4213ca2f7ee57e
+E.fatal: not a tree object
+Efatal: not a tree object
+Efatal: not a tree object
+Efatal: not a tree object
+EEfatal: not a tree object
+E
+======================================================================
+ERROR: test_contact_source_before_pixels (__main__.FoliageContextTests.test_contact_source_before_pixels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 47, in test_contact_source_before_pixels
+    self.reader_boundary('foliage_contact_verify','pixels')
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 43, in reader_boundary
+    with self.assertRaises(BeforeFrameAnalysis):module.verify(folder)
+                                                ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_contact_verify.py", line 105, in verify
+    names=subprocess.check_output(['git','ls-tree','-r','--name-only',base],cwd=ROOT,text=True).splitlines();expected={n for n in names if n.startswith('scripts/') and n.endswith(('.gd','.gdshader'))}|set(RUNTIME)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'ls-tree', '-r', '--name-only', '785d1967f2c9d1a56fc5b62c315144e0974e5fe8']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_pause_source_before_pixels (__main__.FoliageContextTests.test_pause_source_before_pixels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 50, in test_pause_source_before_pixels
+    self.reader_boundary('foliage_pause_verify','pixels')
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 43, in reader_boundary
+    with self.assertRaises(BeforeFrameAnalysis):module.verify(folder)
+                                                ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_pause_verify.py", line 189, in verify
+    inputs(REPORT, plan, plan.get('source_capsule_file', 'inputs' + suffix + '.zip'))
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_pause_verify.py", line 167, in inputs
+    raw = subprocess.check_output(['git', 'archive', plan['base_commit'], *runtime_paths], cwd=ROOT)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'archive', '8d4e166f9fb796468f7a93f75b4213ca2f7ee57e', 'scripts', 'main.tscn', 'project.godot', 'assets/game/environment/village_ambient_atlas_v1.png']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_recovery_source_before_pixels (__main__.FoliageContextTests.test_recovery_source_before_pixels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 53, in test_recovery_source_before_pixels
+    self.reader_boundary('foliage_recovery_verify','pixels')
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 43, in reader_boundary
+    with self.assertRaises(BeforeFrameAnalysis):module.verify(folder)
+                                                ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_recovery_verify.py", line 511, in verify
+    names = subprocess.check_output(
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'ls-tree', '-r', '--name-only', 'fe5919686aed1b6ea66cd1112a8075a57d448946']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_root_source_before_frames (__main__.FoliageContextTests.test_root_source_before_frames)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 56, in test_root_source_before_frames
+    self.reader_boundary('foliage_root_verify','frames')
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 43, in reader_boundary
+    with self.assertRaises(BeforeFrameAnalysis):module.verify(folder)
+                                                ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_root_verify.py", line 100, in verify
+    baseline=set(subprocess.check_output(['git','ls-tree','-r','--name-only',base],cwd=ROOT,text=True).splitlines())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'ls-tree', '-r', '--name-only', '5dd9ddc4b5c894972f29c382ad4c9eb084703fa5']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_speed_source_before_pixels (__main__.FoliageContextTests.test_speed_source_before_pixels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 59, in test_speed_source_before_pixels
+    self.reader_boundary('foliage_speed_verify','pixels')
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 43, in reader_boundary
+    with self.assertRaises(BeforeFrameAnalysis):module.verify(folder)
+                                                ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_speed_verify.py", line 140, in verify
+    names=subprocess.check_output(['git','ls-tree','-r','--name-only',base],cwd=ROOT,text=True).splitlines();expected={n for n in names if n.startswith('scripts/') and n.endswith(('.gd','.gdshader'))}|set(RUNTIME)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'ls-tree', '-r', '--name-only', 'ff5b2d2c7e6abf7a98d98d3c90b37650c9318101']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_uv_source_before_frames (__main__.FoliageContextTests.test_uv_source_before_frames)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 62, in test_uv_source_before_frames
+    self.reader_boundary('foliage_uv_verify','records')
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 43, in reader_boundary
+    with self.assertRaises(BeforeFrameAnalysis):module.verify(folder)
+                                                ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_uv_verify.py", line 96, in verify
+    baseline=set(subprocess.check_output(['git','ls-tree','-r','--name-only',base],cwd=ROOT,text=True).splitlines())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'ls-tree', '-r', '--name-only', 'e3b3db2383a4d29295f9192205f77ae19d73e7a4']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_visibility_source_before_coverage (__main__.FoliageContextTests.test_visibility_source_before_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 66, in test_visibility_source_before_coverage
+    self.reader_boundary('foliage_visibility_verify','verify_coverage',module.REPORT/'native')
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 41, in reader_boundary
+    source=folder/'source.json';before=source.read_bytes()
+                                       ^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/visual-overhaul/vfoliage-010/native/source.json'
+
+======================================================================
+ERROR: test_wind_source_before_pixels (__main__.FoliageContextTests.test_wind_source_before_pixels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 69, in test_wind_source_before_pixels
+    self.reader_boundary('foliage_wind_verify','pixels')
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 43, in reader_boundary
+    with self.assertRaises(BeforeFrameAnalysis):module.verify(folder)
+                                                ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/foliage_wind_verify.py", line 119, in verify
+    production={n for n in subprocess.check_output(['git','ls-tree','-r','--name-only',base],cwd=ROOT,text=True).splitlines() if n.startswith('scripts/') and n.endswith(('.gd','.gdshader'))}|set(RUNTIME)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'ls-tree', '-r', '--name-only', '7cf646e22f04353aa4220979623baa852d1d4a9a']' returned non-zero exit status 128.
+
+======================================================================
+FAIL: test_four_actual_nested_source_roots (__main__.FoliageContextTests.test_four_actual_nested_source_roots) (module='foliage_wind_verify')
+Run real copied modules in a separate process; dependencies/Git are never mocked.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 102, in test_four_actual_nested_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[42 chars]vtstvkrkz20h0000gn/T/foliage nested project ptjmovw8/tools/qa') != Posix[42 chars]vtstvkrkz20h0000gn/T/foliage nested project ptjmovw8')
+
+======================================================================
+FAIL: test_four_actual_nested_source_roots (__main__.FoliageContextTests.test_four_actual_nested_source_roots) (module='foliage_pause_verify')
+Run real copied modules in a separate process; dependencies/Git are never mocked.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 102, in test_four_actual_nested_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[42 chars]vtstvkrkz20h0000gn/T/foliage nested project ptjmovw8/tools/qa') != Posix[42 chars]vtstvkrkz20h0000gn/T/foliage nested project ptjmovw8')
+
+======================================================================
+FAIL: test_four_actual_nested_source_roots (__main__.FoliageContextTests.test_four_actual_nested_source_roots) (module='foliage_visibility_evidence')
+Run real copied modules in a separate process; dependencies/Git are never mocked.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 102, in test_four_actual_nested_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[42 chars]vtstvkrkz20h0000gn/T/foliage nested project ptjmovw8/tools/qa') != Posix[42 chars]vtstvkrkz20h0000gn/T/foliage nested project ptjmovw8')
+
+======================================================================
+FAIL: test_four_actual_nested_source_roots (__main__.FoliageContextTests.test_four_actual_nested_source_roots) (module='plant_depth_verify')
+Run real copied modules in a separate process; dependencies/Git are never mocked.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-foliage-context380.py", line 102, in test_four_actual_nested_source_roots
+    self.assertEqual(Path(json.loads(result.stdout)),root)
+AssertionError: Posix[42 chars]vtstvkrkz20h0000gn/T/foliage nested project ptjmovw8/tools/qa') != Posix[42 chars]vtstvkrkz20h0000gn/T/foliage nested project ptjmovw8')
+
+----------------------------------------------------------------------
+Ran 11 tests in 17.767s
+
+FAILED (failures=4, errors=8)

@@ -1,6 +1,6 @@
 extends RefCounted
 
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Legacy := preload("res://docs/reports/visual-overhaul/vcamera-002/legacy_camera_system.gd")
 const Actor := preload("res://scripts/systems/animation_renderer.gd")
 const Scale := preload("res://scripts/systems/ui_scale_system.gd")

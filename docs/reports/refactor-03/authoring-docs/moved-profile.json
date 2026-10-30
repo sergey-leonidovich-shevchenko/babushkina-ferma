@@ -1,0 +1,33 @@
+{
+  "version": "0.0.359",
+  "prepared_head": "0352c5f286dc90c5fa324347b9ceadeb6a8e9350",
+  "verified_moves": 36,
+  "compiled_python": 17,
+  "tracked_UID": 5,
+  "ignored_UID_preserved": 9,
+  "AST_GDScript_bytes_and_modes_preserved": true,
+  "real_negative_cases": 2,
+  "real_new_CLI": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.authoring.build_forest_tree_atlas",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: build_forest_tree_atlas.py [-h] [--project PROJECT]\n\noptions:\n  -h, --help         show this help message and exit\n  --project PROJECT\n"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/my farm/tools/run.py",
+        "assets.authoring.build_level_editor_tiles",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "usage: build_level_editor_tiles.py [-h] [--project PROJECT]\n\noptions:\n  -h, --help         show this help message and exit\n  --project PROJECT\n"
+    }
+  ],
+  "temporary_removed": true
+}

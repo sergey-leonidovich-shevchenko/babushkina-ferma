@@ -1,0 +1,161 @@
+EEEEEEEEEEEE
+======================================================================
+ERROR: test_actual_import_and_duplicate_option (__main__.TextureIntentTests.test_actual_import_and_duplicate_option)
+Подмена настоящего импорта обнаруживается даже при правильной декларации паспорта.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/contracts/test_texture_intents.py", line 20, in setUp
+    path=self.root/relative; path.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/relative,path)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/my farm/tools/texture_data_probe.gd'
+
+======================================================================
+ERROR: test_alpha_border_negative_control_is_required (__main__.TextureIntentTests.test_alpha_border_negative_control_is_required)
+Отрицательный импорт обязан на самом деле изменить скрытые значения.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/contracts/test_texture_intents.py", line 20, in setUp
+    path=self.root/relative; path.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/relative,path)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/my farm/tools/texture_data_probe.gd'
+
+======================================================================
+ERROR: test_changed_mask_even_with_new_checksum (__main__.TextureIntentTests.test_changed_mask_even_with_new_checksum)
+Изменённый тестовый PNG не принимается после простой перезаписи его контрольной суммы.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/contracts/test_texture_intents.py", line 20, in setUp
+    path=self.root/relative; path.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/relative,path)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/my farm/tools/texture_data_probe.gd'
+
+======================================================================
+ERROR: test_changed_native_pixel_and_full_room_rgb (__main__.TextureIntentTests.test_changed_native_pixel_and_full_room_rgb)
+Полностью непрозрачные кадры сравниваются по RGB, а не только по неизменной альфе.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/contracts/test_texture_intents.py", line 20, in setUp
+    path=self.root/relative; path.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/relative,path)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/my farm/tools/texture_data_probe.gd'
+
+======================================================================
+ERROR: test_destructive_data_options_and_boolean_types (__main__.TextureIntentTests.test_destructive_data_options_and_boolean_types)
+Ни одна разрушающая RGBA настройка не проходит как допустимый числовой профиль.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/contracts/test_texture_intents.py", line 20, in setUp
+    path=self.root/relative; path.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/relative,path)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/my farm/tools/texture_data_probe.gd'
+
+======================================================================
+ERROR: test_fresh_deterministic_fixture_and_no_overwrite (__main__.TextureIntentTests.test_fresh_deterministic_fixture_and_no_overwrite)
+Два новых стенда получают одинаковые байты; существующий стенд не перезаписывается.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/contracts/test_texture_intents.py", line 20, in setUp
+    path=self.root/relative; path.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/relative,path)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/my farm/tools/texture_data_probe.gd'
+
+======================================================================
+ERROR: test_gamma_negative_and_guard_cannot_be_faked (__main__.TextureIntentTests.test_gamma_negative_and_guard_cannot_be_faked)
+Без разницы между правильной и ошибочной HDR-выборкой либо без отказа фабрики приёмки нет.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/contracts/test_texture_intents.py", line 20, in setUp
+    path=self.root/relative; path.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/relative,path)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/my farm/tools/texture_data_probe.gd'
+
+======================================================================
+ERROR: test_imported_hidden_rgb_and_alpha_are_exact (__main__.TextureIntentTests.test_imported_hidden_rgb_and_alpha_are_exact)
+Изменение скрытого RGB или альфы в readback импорта не маскируется видимым изображением.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/contracts/test_texture_intents.py", line 20, in setUp
+    path=self.root/relative; path.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/relative,path)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/my farm/tools/texture_data_probe.gd'
+
+======================================================================
+ERROR: test_incomplete_nan_and_wrong_framebuffer (__main__.TextureIntentTests.test_incomplete_nan_and_wrong_framebuffer)
+Матрица обязана содержать все texel и конечные значения в настоящем формате выбранного режима.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/contracts/test_texture_intents.py", line 20, in setUp
+    path=self.root/relative; path.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/relative,path)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/my farm/tools/texture_data_probe.gd'
+
+======================================================================
+ERROR: test_missing_or_numerical_role_on_visual_drawing (__main__.TextureIntentTests.test_missing_or_numerical_role_on_visual_drawing)
+Рисунок не получает роль по имени файла и не может стать числовой маской.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/contracts/test_texture_intents.py", line 20, in setUp
+    path=self.root/relative; path.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/relative,path)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/my farm/tools/texture_data_probe.gd'
+
+======================================================================
+ERROR: test_shader_provenance_and_room_state_are_locked (__main__.TextureIntentTests.test_shader_provenance_and_room_state_are_locked)
+Смена фабрики или игрового состояния делает старую приёмку явно устаревшей.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/contracts/test_texture_intents.py", line 20, in setUp
+    path=self.root/relative; path.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/relative,path)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/my farm/tools/texture_data_probe.gd'
+
+======================================================================
+ERROR: test_valid_policy_and_all_native_proof (__main__.TextureIntentTests.test_valid_policy_and_all_native_proof)
+Действующий паспорт, полный импорт и три настоящих режима GPU проходят вместе.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/contracts/test_texture_intents.py", line 20, in setUp
+    path=self.root/relative; path.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/relative,path)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/my farm/tools/texture_data_probe.gd'
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.035s
+
+FAILED (errors=12)

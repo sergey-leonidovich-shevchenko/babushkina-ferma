@@ -1,0 +1,28 @@
+..
+----------------------------------------------------------------------
+Ran 2 tests in 11.960s
+
+OK
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+GROUND MASK main { "step": 2, "feather": 4.5, "period_world": 384.0, "size": [2400.0, 1368.0], "radius": 36.0, "color_independent": true, "vertices": 42957, "indices": 223386 } error=0
+GROUND MASK connectors { "step": 2, "feather": 4.5, "period_world": 384.0, "size": [2400.0, 1368.0], "radius": 36.0, "color_independent": true, "vertices": 12471, "indices": 65154 } error=0
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+GROUND MASK main { "step": 2, "feather": 4.5, "period_world": 384.0, "size": [2400.0, 1368.0], "radius": 36.0, "color_independent": true, "vertices": 44362, "indices": 231120, "shape": "axial-rounded-box", "corner": 4.0 } error=0
+GROUND MASK connectors { "step": 2, "feather": 4.5, "period_world": 384.0, "size": [2400.0, 1368.0], "radius": 36.0, "color_independent": true, "vertices": 13113, "indices": 68784, "shape": "axial-rounded-box", "corner": 4.0 } error=0
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+main {"color_independent":true,"corner":4.0,"feather":4.5,"indices":214092,"occupied_cells":129401,"owner":0,"period_world":384.0,"radius":36.0,"shape":"axial-union-partition","size":[2400.0,1368.0],"step":2,"vertices":41192}
+connectors {"color_independent":true,"corner":4.0,"feather":4.5,"indices":61644,"occupied_cells":36609,"owner":1,"period_world":384.0,"radius":36.0,"shape":"axial-union-partition","size":[2400.0,1368.0],"step":2,"vertices":11878}
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+apron {"bounds":[1080.0,528.0,528.0,312.0],"cell_world":192.0,"chips":22,"color_independent":true,"indices":34542,"kind":"apron","step":2,"vertices":6426}
+contact {"bounds":[1080.0,528.0,528.0,312.0],"cell_world":192.0,"chips":22,"color_independent":true,"indices":28380,"kind":"contact","step":2,"vertices":5632}
+stone {"bounds":[1080.0,528.0,528.0,312.0],"cell_world":192.0,"chips":22,"color_independent":true,"indices":20970,"kind":"stone","step":2,"vertices":4319}
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+COMPILED SOURCES fresh: 36 checks, 0 failed
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+COMPILED SOURCES provenance: 101 checks, 0 failed

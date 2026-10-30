@@ -8,7 +8,7 @@
 
 ## Самостоятельные спрайты
 
-Встроенный imagegen создал исходники [животных](sources/animals.png), [построек](sources/props.png) и [иконок](sources/icons.png); точные запросы сохранены в [prompts.json](prompts.json). Исходные RGBA-файлы сохранены без изменений. Измеренные области фигур находятся в [regions.json](regions.json). Нарезка и подготовка игровых размеров выполняется Godot: `tools/extract_farmyard_sprites.gd` и `tools/extract_farm_icons.gd`.
+Встроенный imagegen создал исходники [животных](sources/animals.png), [построек](sources/props.png) и [иконок](sources/icons.png); точные запросы сохранены в [prompts.json](prompts.json). Исходные RGBA-файлы сохранены без изменений. Измеренные области фигур находятся в [regions.json](regions.json). Нарезка и подготовка игровых размеров выполняется Godot: `res://tools/assets/authoring/extract_farmyard_sprites.gd` и `res://tools/assets/authoring/extract_farm_icons.gd`.
 
 Игровой каталог: [assets/game/farmyard/v1](../../../../assets/game/farmyard/v1). Четыре вида × шесть поз — 24 независимых PNG: покой, два шага, еда, сон и фронт. Правый профиль получается зеркальным отражением. Шесть самостоятельных построек повторно используются с существующими секциями ограды и тайлами земли. Большие концепт-листы не загружаются во время игры. Мягкие контактные тени рисуются отдельно.
 

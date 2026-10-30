@@ -1,0 +1,231 @@
+{
+  "runs": {
+    "base-100-1": {
+      "median_ms": 33.432500000000005,
+      "p95_ms": 43.72979999999993,
+      "p99_ms": 66.46010999999997,
+      "max_ms": 68.338,
+      "sample_seconds": 8.335159999999998,
+      "draw_calls_median": 173.0,
+      "static_bytes_max": 131817215.0,
+      "texture_bytes_max": 683335708.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "base-100-2": {
+      "median_ms": 33.425,
+      "p95_ms": 37.809649999999976,
+      "p99_ms": 50.87296999999999,
+      "max_ms": 53.588,
+      "sample_seconds": 8.118193000000003,
+      "draw_calls_median": 173.0,
+      "static_bytes_max": 131817215.0,
+      "texture_bytes_max": 683335708.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "base-100-3": {
+      "median_ms": 33.38,
+      "p95_ms": 35.131899999999995,
+      "p99_ms": 36.190329999999996,
+      "max_ms": 37.359,
+      "sample_seconds": 8.001945999999993,
+      "draw_calls_median": 173.0,
+      "static_bytes_max": 131814171.0,
+      "texture_bytes_max": 683335708.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "base-120-1": {
+      "median_ms": 33.25,
+      "p95_ms": 35.9368,
+      "p99_ms": 36.36586,
+      "max_ms": 37.483,
+      "sample_seconds": 8.000820999999997,
+      "draw_calls_median": 149.0,
+      "static_bytes_max": 131805371.0,
+      "texture_bytes_max": 683335708.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "base-120-2": {
+      "median_ms": 32.6425,
+      "p95_ms": 36.4221,
+      "p99_ms": 47.62166999999994,
+      "max_ms": 50.413,
+      "sample_seconds": 7.574381999999991,
+      "draw_calls_median": 148.5,
+      "static_bytes_max": 131800939.0,
+      "texture_bytes_max": 683335708.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "base-120-3": {
+      "median_ms": 33.3815,
+      "p95_ms": 36.49334999999999,
+      "p99_ms": 43.81975999999992,
+      "max_ms": 52.209,
+      "sample_seconds": 8.065626000000007,
+      "draw_calls_median": 153.0,
+      "static_bytes_max": 131807805.0,
+      "texture_bytes_max": 683335708.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "full-hd-100-1": {
+      "median_ms": 33.296,
+      "p95_ms": 35.09985,
+      "p99_ms": 39.26041999999994,
+      "max_ms": 44.054,
+      "sample_seconds": 7.999973000000003,
+      "draw_calls_median": 173.0,
+      "static_bytes_max": 133354195.0,
+      "texture_bytes_max": 695394328.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "full-hd-100-2": {
+      "median_ms": 30.255000000000003,
+      "p95_ms": 46.143499999999996,
+      "p99_ms": 51.70580999999999,
+      "max_ms": 61.269,
+      "sample_seconds": 7.313845000000004,
+      "draw_calls_median": 171.0,
+      "static_bytes_max": 133351047.0,
+      "texture_bytes_max": 695394328.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "full-hd-100-3": {
+      "median_ms": 33.438,
+      "p95_ms": 35.57505,
+      "p99_ms": 44.399869999999936,
+      "max_ms": 54.108,
+      "sample_seconds": 8.049425999999997,
+      "draw_calls_median": 173.0,
+      "static_bytes_max": 133354195.0,
+      "texture_bytes_max": 695394328.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "full-hd-120-1": {
+      "median_ms": 33.3655,
+      "p95_ms": 39.089749999999995,
+      "p99_ms": 44.27137999999995,
+      "max_ms": 54.235,
+      "sample_seconds": 8.083877,
+      "draw_calls_median": 153.0,
+      "static_bytes_max": 133347981.0,
+      "texture_bytes_max": 695394328.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "full-hd-120-2": {
+      "median_ms": 33.3295,
+      "p95_ms": 35.731449999999995,
+      "p99_ms": 36.96844,
+      "max_ms": 42.544,
+      "sample_seconds": 8.000770999999999,
+      "draw_calls_median": 152.0,
+      "static_bytes_max": 133345057.0,
+      "texture_bytes_max": 695394328.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "full-hd-120-3": {
+      "median_ms": 33.921,
+      "p95_ms": 50.843349999999994,
+      "p99_ms": 54.69661,
+      "max_ms": 56.043,
+      "sample_seconds": 8.685241999999993,
+      "draw_calls_median": 154.0,
+      "static_bytes_max": 133348205.0,
+      "texture_bytes_max": 695394328.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "retina-2x-100-1": {
+      "median_ms": 33.175,
+      "p95_ms": 41.03235,
+      "p99_ms": 45.338309999999964,
+      "max_ms": 50.556,
+      "sample_seconds": 8.051439000000002,
+      "draw_calls_median": 173.0,
+      "static_bytes_max": 134925299.0,
+      "texture_bytes_max": 704790552.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "retina-2x-100-2": {
+      "median_ms": 33.293499999999995,
+      "p95_ms": 38.450199999999995,
+      "p99_ms": 42.74364999999999,
+      "max_ms": 43.509,
+      "sample_seconds": 8.000037000000003,
+      "draw_calls_median": 173.0,
+      "static_bytes_max": 134922071.0,
+      "texture_bytes_max": 704790552.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "retina-2x-100-3": {
+      "median_ms": 33.327,
+      "p95_ms": 36.11964999999999,
+      "p99_ms": 40.07565999999999,
+      "max_ms": 41.872,
+      "sample_seconds": 8.016634999999996,
+      "draw_calls_median": 173.0,
+      "static_bytes_max": 134925299.0,
+      "texture_bytes_max": 704790552.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "retina-2x-120-1": {
+      "median_ms": 34.064499999999995,
+      "p95_ms": 61.14124999999999,
+      "p99_ms": 67.38147,
+      "max_ms": 79.948,
+      "sample_seconds": 8.835939999999994,
+      "draw_calls_median": 152.0,
+      "static_bytes_max": 134919085.0,
+      "texture_bytes_max": 704790552.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "retina-2x-120-2": {
+      "median_ms": 33.18,
+      "p95_ms": 39.79579999999999,
+      "p99_ms": 43.22297,
+      "max_ms": 46.744,
+      "sample_seconds": 8.02665,
+      "draw_calls_median": 153.0,
+      "static_bytes_max": 134915857.0,
+      "texture_bytes_max": 704790552.0,
+      "budget_60fps_candidate": "FAIL"
+    },
+    "retina-2x-120-3": {
+      "median_ms": 33.138000000000005,
+      "p95_ms": 36.1407,
+      "p99_ms": 43.062009999999994,
+      "max_ms": 43.987,
+      "sample_seconds": 8.001154999999994,
+      "draw_calls_median": 153.0,
+      "static_bytes_max": 134918861.0,
+      "texture_bytes_max": 704790552.0,
+      "budget_60fps_candidate": "FAIL"
+    }
+  },
+  "comparison": {
+    "base": {
+      "control_p95_median_ms": 37.809649999999976,
+      "close_p95_median_ms": 36.4221,
+      "p95_ratio": 0.9633016967890479,
+      "relative_guard": "PASS",
+      "rule": "median of 3 native p95; candidate <= control * 1.15 + 0.3 ms; independent from the unchanged absolute FPS budget"
+    },
+    "full-hd": {
+      "control_p95_median_ms": 35.57505,
+      "close_p95_median_ms": 39.089749999999995,
+      "p95_ratio": 1.0987967690839506,
+      "relative_guard": "PASS",
+      "rule": "median of 3 native p95; candidate <= control * 1.15 + 0.3 ms; independent from the unchanged absolute FPS budget"
+    },
+    "retina-2x": {
+      "control_p95_median_ms": 38.450199999999995,
+      "close_p95_median_ms": 39.79579999999999,
+      "p95_ratio": 1.0349959167962715,
+      "relative_guard": "PASS",
+      "rule": "median of 3 native p95; candidate <= control * 1.15 + 0.3 ms; independent from the unchanged absolute FPS budget"
+    }
+  },
+  "absolute_budget": {
+    "p95_ms": 18.5,
+    "p99_ms": 33.333,
+    "max_ms": 100
+  },
+  "release_performance_accepted": false
+}

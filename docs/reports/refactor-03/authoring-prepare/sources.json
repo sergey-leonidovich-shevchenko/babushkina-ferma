@@ -1,0 +1,117 @@
+{
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "files": [
+    {
+      "path": "tools/build_bridge_sprites.py",
+      "target": "tools/assets/authoring/build_bridge_sprites.py",
+      "before": "744669810d501fc232d6740f977db0ca81aa0026e76fc4a3a067b02cb6cd06f6",
+      "prepared": "38623d88c48b4acbef43100fa6bd406d013ba30fc46ad4fab91d426a77bf42c4",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/build_building_sprites.py",
+      "target": "tools/assets/authoring/build_building_sprites.py",
+      "before": "9b5047fb0a82622d47fc6d227ab364f37c0f43f656608a25baaf5fc00b074eee",
+      "prepared": "a50638c1699ed7b36db82b69fdf1afd1745abd48fd58dee4ae50eac1f56849c9",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/build_editor_transition_tiles.py",
+      "target": "tools/assets/authoring/build_editor_transition_tiles.py",
+      "before": "f35f5608dbf0b2111cf7bd453ede4baf4f891b12200d51435a5c5c0e76bd88f4",
+      "prepared": "b4674b74503d4f88ddbd263c533eb7ba5e98eccb595bb08f0e00ea12307c1f08",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/build_environment_sprites.py",
+      "target": "tools/assets/authoring/build_environment_sprites.py",
+      "before": "f23735d4d157a291db92fa955d7dea06f358fe94b05bf72ebaac6ca819650e9c",
+      "prepared": "c18b583b0fdc3077cb6bdd2dee41e90147ecb4bfca820e08d961fa5af3c393db",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/build_fence_atlas.py",
+      "target": "tools/assets/authoring/build_fence_atlas.py",
+      "before": "0c64eab5e1cbab0820922c252d7490992b9b61320eb497402aaf1df8664bff22",
+      "prepared": "2bd29190490d1201282e6fbb9f1a37325fdf44798fc875b4cfa70b81b4978df3",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/build_forest_tree_atlas.py",
+      "target": "tools/assets/authoring/build_forest_tree_atlas.py",
+      "before": "87b17d2267983180d3978353caf209638174c7e0573f50a7e31ee3e4e649f166",
+      "prepared": "9610d95795513197b632588df9898a2e88962ca7929a77f8fd7e5622b3293838",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/build_level_editor_tiles.py",
+      "target": "tools/assets/authoring/build_level_editor_tiles.py",
+      "before": "bead3c43288af7188c4ce0775fcf0d209edbb8dcba606618eb83103219f18b7a",
+      "prepared": "3d579e97121f80782d971c1aaab6f7729463066ba170a0760be1637b05e849b5",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/build_ui_kit.py",
+      "target": "tools/assets/authoring/build_ui_kit.py",
+      "before": "f3b7bf332129a0a96648a538690aa79ea1d2f953420d493b96e2859878db7131",
+      "prepared": "6971f7092b680d85937340fb7811dc3e97bd6be8951ffb54423c300dd9fed8e8",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/build_village_prop_atlas.py",
+      "target": "tools/assets/authoring/build_village_prop_atlas.py",
+      "before": "bd446eed3ea39da1422a99044b8c15013b3529416f8449f589fbc1ce3d9546fa",
+      "prepared": "a542cf4c6b724ab6c8c6e19561542513736b973839f30dfa3f292d4e6ba95df0",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/extract_artisan_assets.py",
+      "target": "tools/assets/authoring/extract_artisan_assets.py",
+      "before": "726571c1dfc40e92121b4055b14c994b95787b00ecc660d800b0b8a0af0dfb92",
+      "prepared": "db9dce9d1257d7be866fc150c11dd79e1c8ecf9ba1e318f3b059d134e45b7317",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/extract_basement_atlases.py",
+      "target": "tools/assets/authoring/extract_basement_atlases.py",
+      "before": "3e4a7cee4b1ce4d2e1e8941d1ff517beddfb10179c6c86fdd3bdee6681ebb1af",
+      "prepared": "6c1b287bc5aef52812a33e4a271e1b56bd3913ad45bd0d650c8f3b50a73f322a",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/extract_kitchen_atlases.py",
+      "target": "tools/assets/authoring/extract_kitchen_atlases.py",
+      "before": "ac47a3962590512deda6cf2d132efdc43377cbbc8d3eba1820a999ec107ed3fa",
+      "prepared": "6c092f97ff592b0a3deccf55658c7e0fd876e84c7540611789fb286b688d61db",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/measure_character_walk.py",
+      "target": "tools/assets/authoring/measure_character_walk.py",
+      "before": "362e6019974d3693b93ea773d7e73cdb69c115e38dbf1ec9d99e1cd2f5c95480",
+      "prepared": "b3afa696ee0148fbf86b89793f5309cd8994e0f2f207f07439b597d03444baa3",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/measure_hero_actions.py",
+      "target": "tools/assets/authoring/measure_hero_actions.py",
+      "before": "03d2e16993ec8b3cb5b0dcdf0774a09e51c80c31b3a39754a8a51918d9d8c7e0",
+      "prepared": "9106b58118de2d629a409125b37f558d5e7a23706b0d0d25f7eb843a828c2507",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/slice_item_icons.py",
+      "target": "tools/assets/authoring/slice_item_icons.py",
+      "before": "6868d8e8676cf8983475860aa05e0610f073f23f4381042f7a2d8b301508a204",
+      "prepared": "21431d962e4ff86dd7deb470c426e3bbfc69fc3f17352beb81e49df7a1972368",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    },
+    {
+      "path": "tools/update_ui_visual_manifest.py",
+      "target": "tools/assets/authoring/update_ui_visual_manifest.py",
+      "before": "63df331ef4b3a72b58222e02eb5863ed9f7063c65590103acb95ade9bb868bd1",
+      "prepared": "b2e3dd94ac292d209c62d9c11dff2e5742d9c6dad09016819f032a2e8aa8ba9b",
+      "change": "accepted project_root replaces fixed parent depth; algorithms unchanged"
+    }
+  ]
+}

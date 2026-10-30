@@ -1,0 +1,1 @@
+{"actual_CLI": 16, "source_moves": 23, "UID": 3, "GD_parse": 9, "headless_refusals": 5}

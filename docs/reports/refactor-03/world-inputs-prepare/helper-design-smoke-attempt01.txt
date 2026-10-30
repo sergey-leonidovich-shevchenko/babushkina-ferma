@@ -1,0 +1,17 @@
+...............E
+======================================================================
+ERROR: test_world_alias_table_matches_the_accepted_map (__main__.SourceInputsTests.test_world_alias_table_matches_the_accepted_map)
+The helper cannot invent a third World location or silently drop a planned source/UID.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-source-inputs376.py", line 36, in test_world_alias_table_matches_the_accepted_map
+    root=project_root(__file__)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/common/paths.py", line 16, in project_root
+    raise RuntimeError(f"Не найден корень проекта для {source}")
+RuntimeError: Не найден корень проекта для /private/tmp/refactor03-test-source-inputs376.py
+
+----------------------------------------------------------------------
+Ran 16 tests in 5.390s
+
+FAILED (errors=1)

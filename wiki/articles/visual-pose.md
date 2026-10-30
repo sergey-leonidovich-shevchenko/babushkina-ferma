@@ -49,9 +49,9 @@
 [Числа](../../docs/reports/visual-overhaul/vcamera-003/metrics.json) · [Автоматические callbacks](../../docs/reports/visual-overhaul/vcamera-003/live-callbacks.json) · [Происхождение нативной серии](../../docs/reports/visual-overhaul/vcamera-003/native/source.json).
 
 ```sh
-tools/Godot.app/Contents/MacOS/Godot --headless --path . --script tools/presentation_pose_review.gd
-python3 tools/presentation_pose.py verify
-python3 tools/test_presentation_pose.py
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script tools/qa/camera/presentation_pose_review.gd
+python3 tools/run.py qa.camera.presentation_pose verify
+python3 tools/run.py qa.camera.test_presentation_pose
 ```
 
 [Карточка VCAMERA-003](#/development/tasks/visual--VCAMERA-003?queue=village-pilot) · [Принятая дробная камера](visual-camera-motion.md) · [Первый живописный участок](visual-pilot.md).

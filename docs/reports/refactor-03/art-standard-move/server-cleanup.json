@@ -1,0 +1,10 @@
+{
+  "status": {
+    "app": "moon-valley-wiki",
+    "project": "REFACTOR-03-QA",
+    "pid": 46204,
+    "planning": 1
+  },
+  "own_server_SIGTERM": true,
+  "user_4175_untouched": true
+}

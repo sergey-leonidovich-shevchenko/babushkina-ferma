@@ -1,0 +1,86 @@
+{
+  "task": "REFACTOR-03",
+  "parent": "2c856d7d3d0a185735f17bdc5fa3f8c258b836d8",
+  "parent_review": "CHANGES REQUESTED / P2 engine/user CLI boundary",
+  "source_permalink": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/2c856d7d3d0a185735f17bdc5fa3f8c258b836d8/tools/qa/foliage/grass_methods.py#L96-L97",
+  "parent_reader_SHA256": "e9d59c1189e43e7fd44e14dc7e14c252cfed0edcca954d6f6b3952ecbc23db28",
+  "current_reader_SHA256": "ea774bb5bfac03ff476ad4655727d2d7900b59b759b0fa3ff586598b84cbd5de",
+  "same_red_green_test_SHA256": "707e481badaf4eae1280c4bd1e671bcfc87295fbe7544bacbbd39a1a73f196e5",
+  "test_cases": 20,
+  "old_test_methods_unchanged": 10,
+  "added_test_methods": 10,
+  "new_semantic_subcases": 54,
+  "parent_failed_subtests": 32,
+  "parent_errors": 4,
+  "current_passed": 20,
+  "actual_reviewer_replay": [
+    {
+      "case": "valid_before_user_separator",
+      "command": [
+        "open",
+        "-n",
+        "--args",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+        "--script",
+        "res://tools/qa/foliage/grass_compare/capture.gd",
+        "--",
+        "--output=fixture"
+      ],
+      "parent": {
+        "accepted": true
+      },
+      "current": {
+        "accepted": true
+      }
+    },
+    {
+      "case": "script_only_inside_user_payload",
+      "command": [
+        "open",
+        "-n",
+        "--args",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+        "--",
+        "--script",
+        "res://tools/qa/foliage/grass_compare/capture.gd"
+      ],
+      "parent": {
+        "accepted": true
+      },
+      "current": {
+        "accepted": false,
+        "error": "wrong launch"
+      }
+    },
+    {
+      "case": "wrong_assignment_and_expected_payload",
+      "command": [
+        "open",
+        "-n",
+        "--args",
+        "--path",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactoring-plan/my farm",
+        "--script=res://tools/wrong.gd",
+        "--",
+        "--script",
+        "res://tools/qa/foliage/grass_compare/capture.gd"
+      ],
+      "parent": {
+        "accepted": true
+      },
+      "current": {
+        "accepted": false,
+        "error": "wrong launch"
+      }
+    }
+  ],
+  "engine_launched": false,
+  "native_frames": 0,
+  "FPS_admission": false,
+  "full_gates": "required separately for candidate381",
+  "full03_done": false,
+  "Task_Complete": false,
+  "main_changed": false
+}

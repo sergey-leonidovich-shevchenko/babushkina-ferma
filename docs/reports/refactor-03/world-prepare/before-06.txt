@@ -1,0 +1,97 @@
+TRADE ASSETS: eight exact RGBA derivatives, four props, three cardinal views and explicit neutral aliases
+{
+  "task": "VPROP-007",
+  "base_commit": "4ff434f6d27eb85fdb5c49cff0c1d3878c2174aa",
+  "performance_eligible": false,
+  "focus_required": false,
+  "focus_scope": "static visible-window readbacks only; no native input, timing or FPS acceptance",
+  "kinds": [
+    "stall",
+    "crate",
+    "barrel",
+    "sack"
+  ],
+  "views": [
+    "south",
+    "west",
+    "east"
+  ],
+  "windows": {
+    "1152": {
+      "before_png": 25,
+      "after_png": 41,
+      "draw_callbacks": 328,
+      "changed_pixels": {
+        "market-0-72": 21766,
+        "market-0--12": 22018,
+        "market--80-12": 26233,
+        "market-80-12": 21732,
+        "sack-0-closed": 5810,
+        "sack-0-opened": 4891,
+        "sack-1-closed": 6326,
+        "sack-1-opened": 5484,
+        "sack-2-closed": 11233,
+        "sack-2-opened": 10735,
+        "sack-3-closed": 10880,
+        "sack-3-opened": 10992,
+        "sack-4-closed": 8719,
+        "sack-4-opened": 7789,
+        "event-festival-control": 0,
+        "event-traveler-control": 6992,
+        "event-raid-control": 4255,
+        "shop-control": 24214,
+        "sale-control": 24384,
+        "bridge-west": 20012,
+        "bridge-east": 3957,
+        "manual-pause": 2489,
+        "interior": 0,
+        "market-control": 0,
+        "returned": 21789
+      },
+      "outside_props_equal": true,
+      "gallery_backgrounds": 4,
+      "visible_frames": 66,
+      "focused_frames": 0,
+      "sack_slots": 5,
+      "real_openings": 5
+    },
+    "1280": {
+      "before_png": 25,
+      "after_png": 41,
+      "draw_callbacks": 328,
+      "changed_pixels": {
+        "market-0-72": 26897,
+        "market-0--12": 27135,
+        "market--80-12": 32434,
+        "market-80-12": 26909,
+        "sack-0-closed": 7173,
+        "sack-0-opened": 6051,
+        "sack-1-closed": 7840,
+        "sack-1-opened": 6773,
+        "sack-2-closed": 13880,
+        "sack-2-opened": 13234,
+        "sack-3-closed": 13398,
+        "sack-3-opened": 13488,
+        "sack-4-closed": 10756,
+        "sack-4-opened": 9624,
+        "event-festival-control": 0,
+        "event-traveler-control": 8632,
+        "event-raid-control": 5252,
+        "shop-control": 29832,
+        "sale-control": 30127,
+        "bridge-west": 24856,
+        "bridge-east": 4935,
+        "manual-pause": 3204,
+        "interior": 0,
+        "market-control": 0,
+        "returned": 26919
+      },
+      "outside_props_equal": true,
+      "gallery_backgrounds": 4,
+      "visible_frames": 66,
+      "focused_frames": 0,
+      "sack_slots": 5,
+      "real_openings": 5
+    }
+  }
+}

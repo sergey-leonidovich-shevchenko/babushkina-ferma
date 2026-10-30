@@ -1,0 +1,14 @@
+{
+  "own_tab_id": "11",
+  "own_tab_closed": true,
+  "viewport_reset": true,
+  "user_tabs_untouched": true,
+  "own_server_pid": 38429,
+  "user_server4175_untouched": true,
+  "download_clicked": false,
+  "own_server_command": "node docs/reports/refactor-03/qa-server.mjs",
+  "own_server_cwd_verified": true,
+  "own_server_stop_signal": "SIGTERM",
+  "own_server_exit": 143,
+  "own_server_stop_confirmed": true
+}

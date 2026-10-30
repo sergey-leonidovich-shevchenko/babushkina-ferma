@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "tools/run.py",
+    "build.test_asset_report_history",
+    "-v"
+  ],
+  "exit": 0,
+  "test_sha256": "7b252055c56faa4c068c20b64638a7aae2b42cf99abc11a847ea227baeb2c032",
+  "same_red_corpus": true,
+  "reader_source_sha256": "81dbb389372da012278eb6f10577225a032d2ed54b59246e2e24a252eb0ad961"
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "label": "grass-reader",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/grass_methods.py",
+      "all"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/surface reader foreign cwd pur444j3",
+    "exit": 0,
+    "log": "grass-reader.txt",
+    "sha256": "30fa13c74c07112dd04448bb975d5352608308b8675ed0bdd89eb486bf8bebdf"
+  },
+  {
+    "label": "ground-reader",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py",
+      "verify"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/surface reader foreign cwd pur444j3",
+    "exit": 0,
+    "log": "ground-reader.txt",
+    "sha256": "dadbf243b5c025d7a9413f4a9cb5b7f2df16449917aa77a826aca6265c64c347"
+  },
+  {
+    "label": "grass-tests",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "test_grass_methods"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/surface reader foreign cwd pur444j3",
+    "exit": 0,
+    "log": "grass-tests.txt",
+    "sha256": "56b968f82f838f223a45c227030d9a0fbc1a7aeaeda3b6aa43d9ddfb6d1dda4b"
+  },
+  {
+    "label": "ground-tests",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "test_ground_layers"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/surface reader foreign cwd pur444j3",
+    "exit": 0,
+    "log": "ground-tests.txt",
+    "sha256": "b15e4352eb5cc5904beaf069e583158f7380c79ff9aaac93fd69ae95e7d63c32"
+  },
+  {
+    "label": "known-path-tests",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "assets.contracts.test_source_paths"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/surface reader foreign cwd pur444j3",
+    "exit": 0,
+    "log": "known-path-tests.txt",
+    "sha256": "0a49bbac3d453c8c76af09d6d451e48d437b3e9ad7185d7f41895ca93a5da5ca"
+  },
+  {
+    "label": "producer-tests",
+    "command": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.performance.test_surface_producers"
+    ],
+    "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/surface reader foreign cwd pur444j3",
+    "exit": 0,
+    "log": "producer-tests.txt",
+    "sha256": "23e6ad26808a41318e2bb9b29d940af3b6b44ea06c91335d077298f4c72c60bf"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "label": "helper-green",
+  "command": [
+    "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+    "qa.world.test_source_inputs"
+  ],
+  "exit": 0,
+  "methods": 16,
+  "test_SHA256": "19d6e7d7674424e2831217145fa4bab88aa12f42374625061bac0469329209cc",
+  "raw_sha256": "759edf06d2e9b51e019dcd3a58b3f414a323dc5b2f13f67ab4a7eaa0325bf9bf",
+  "native_frames": 0,
+  "Game_new": false
+}

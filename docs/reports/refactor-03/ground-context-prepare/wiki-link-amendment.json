@@ -1,0 +1,10 @@
+{
+  "path": "wiki/articles/project-refactoring.md",
+  "before_sha256": "4389782c1d97f8de085a013f8ecfc0a73a872c759055275aa357199d28b9e8f0",
+  "after_sha256": "1a4162f4cc61328028f7aa0d27e37eb46eb3514a1da01f2eced41917296c5e40",
+  "timing": "during architecture, before Wiki build; final documentation rechecked separately",
+  "reason": "new report README would become a generic search link; use supported exact JSON attachment",
+  "functional_code_changed": false,
+  "other30_candidate_paths_unchanged": true,
+  "documentation_recheck": "documentation-after-profile.txt, exit0"
+}

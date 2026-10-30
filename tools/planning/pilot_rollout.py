@@ -5,7 +5,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-from migration_inventory import git_bytes
+from tools.assets.migration.migration_inventory import git_bytes
 
 from tools.common.paths import project_root
 

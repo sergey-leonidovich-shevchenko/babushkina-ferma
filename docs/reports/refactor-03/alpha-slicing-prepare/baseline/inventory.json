@@ -1,0 +1,250 @@
+{
+  "base": "482ed19c8833764b96e3130cec536b2dd6790eed",
+  "version": "0.0.366",
+  "root_sources": 420,
+  "planned_assignments": {
+    "tools/alpha_audit.py": {
+      "target": "tools/assets/alpha/alpha_audit.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_capture.gd": {
+      "target": "tools/assets/alpha/alpha_capture.gd",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_fixtures.py": {
+      "target": "tools/assets/alpha/alpha_fixtures.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_metrics.py": {
+      "target": "tools/assets/alpha/alpha_metrics.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_policy.json": {
+      "target": "tools/assets/alpha/alpha_policy.json",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_proof.py": {
+      "target": "tools/assets/alpha/alpha_proof.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/slice_audit.py": {
+      "target": "tools/assets/slicing/slice_audit.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_capture.gd": {
+      "target": "tools/assets/slicing/slice_capture.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_catalogs.gd": {
+      "target": "tools/assets/slicing/slice_catalogs.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_export.gd": {
+      "target": "tools/assets/slicing/slice_export.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_legacy_capture.gd": {
+      "target": "tools/assets/slicing/slice_legacy_capture.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_metrics.py": {
+      "target": "tools/assets/slicing/slice_metrics.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_policy.json": {
+      "target": "tools/assets/slicing/slice_policy.json",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_proof.py": {
+      "target": "tools/assets/slicing/slice_proof.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_review.gd": {
+      "target": "tools/assets/slicing/slice_review.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/test_alpha_audit.py": {
+      "target": "tools/assets/alpha/test_alpha_audit.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/test_alpha_proof.py": {
+      "target": "tools/assets/alpha/test_alpha_proof.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/test_slice_audit.py": {
+      "target": "tools/assets/slicing/test_slice_audit.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/test_slice_proof.py": {
+      "target": "tools/assets/slicing/test_slice_proof.py",
+      "family": "assets-slicing",
+      "action": "move"
+    }
+  },
+  "sources": {
+    "TESTING.md": {
+      "sha256": "79abe0898b46aa252d6faa457272ab23c3ac29d5fce2ba9080e4debb277e3555",
+      "mode": 420
+    },
+    "VERSION": {
+      "sha256": "fdf616178aa3047f3fffafd7bbbf314f8d4a0f75a1cfedab4a656a16b11c8150",
+      "mode": 420
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "sha256": "79dced2f674abfd93b778b6776a2f6118defd6f75f42210b50e505b47292690c",
+      "mode": 420
+    },
+    "project.godot": {
+      "sha256": "fba8f1ca2e0f02a20a9ee17b33dca96e665f87d3b82d5f5fc239f78ba9f83b08",
+      "mode": 420
+    },
+    "tools/alpha_audit.py": {
+      "sha256": "a128d3cb14ec423f26eb7ee4b1565c84eaf9208cb8ea08ae34703075776b9d15",
+      "mode": 420
+    },
+    "tools/alpha_capture.gd": {
+      "sha256": "0a5dce5a6f558f21cb03bcdf47a0189d2639d3ebf7ed5ee0a7c6e8aba57fc81a",
+      "mode": 420
+    },
+    "tools/alpha_fixtures.py": {
+      "sha256": "e0a8755ec14574f27015ce3be1004da9ce196d380247ca9b2433e21cfe76b412",
+      "mode": 420
+    },
+    "tools/alpha_metrics.py": {
+      "sha256": "f301d32d7ebf3d2c80a0aeb210089b78f8d06377da54751324a837a18381f17b",
+      "mode": 420
+    },
+    "tools/alpha_policy.json": {
+      "sha256": "566214f14980294d36ace4fdee5f659e8ba5de44ba8903602e2f083b5b1a7e5c",
+      "mode": 420
+    },
+    "tools/alpha_proof.py": {
+      "sha256": "205c4d2debafd6f75f8a289041314039b250b742fce56d25ff15ebe6eb18118b",
+      "mode": 420
+    },
+    "tools/quality/check_architecture.sh": {
+      "sha256": "b6e70162a94719d5d997428f47443eef975aeed091d1e63b3cdcd53659c1c1f1",
+      "mode": 493
+    },
+    "tools/slice_audit.py": {
+      "sha256": "2813e4402492ab40f5bd973f8be6423e1756a2e1566c1021230a8fef1da6502f",
+      "mode": 420
+    },
+    "tools/slice_capture.gd": {
+      "sha256": "a5784861a412f0842c9513ed751d3e99cf3fd0ea1f4d5a56ba3ab07f0b78611d",
+      "mode": 420
+    },
+    "tools/slice_catalogs.gd": {
+      "sha256": "4953f2b4dd14887826fc06f7e6ae946676a7cde9887fae13678ce70dc04dcfc8",
+      "mode": 420
+    },
+    "tools/slice_export.gd": {
+      "sha256": "f4c1bbd6ed24392b35483297d3f93f4badc575bbf3a7f1542422880879023dd0",
+      "mode": 420
+    },
+    "tools/slice_legacy_capture.gd": {
+      "sha256": "2e3df3edd52107d8a1d477109d4bec572f7d49e3a02db6c0933bd5e8c636d6ff",
+      "mode": 420
+    },
+    "tools/slice_metrics.py": {
+      "sha256": "32dd7871ee05ee5531d90d0533005a0302afa87be658035471ac9ad4b54dde86",
+      "mode": 420
+    },
+    "tools/slice_policy.json": {
+      "sha256": "31e86a7279992cb85829be80337224dd658224a481bb10a7c474c981feed247c",
+      "mode": 420
+    },
+    "tools/slice_proof.py": {
+      "sha256": "6d372d0c2982dcf187f1c8c69003e67d7283ac0830387ba89fbd2d223cf81bce",
+      "mode": 420
+    },
+    "tools/slice_review.gd": {
+      "sha256": "f5b437ed6004824ab1151f7c08b1cd5219ebf7f135f40ef646040a3a2c490123",
+      "mode": 420
+    },
+    "tools/test_alpha_audit.py": {
+      "sha256": "16d8a991840e1ab5dd358678f9e4595c0087044259ebfadd45e3804831bac353",
+      "mode": 420
+    },
+    "tools/test_alpha_proof.py": {
+      "sha256": "9e5ebbc2023aa3cc0eab3f6aee1d25190fdaf59bc552ed11b60359b096868d6f",
+      "mode": 420
+    },
+    "tools/test_slice_audit.py": {
+      "sha256": "dcb632180c53ffccec8ca054ab8157f14c7111d465144e180300ad7da3da4b99",
+      "mode": 420
+    },
+    "tools/test_slice_proof.py": {
+      "sha256": "1ce6da422eb427eb9a6487e9356f3f7b0283d257041ebe6d1c793d344a68d01c",
+      "mode": 420
+    },
+    "wiki/articles/project-refactoring.md": {
+      "sha256": "4fbcbd6f9e89cde7a5292fb8ca32fa069052915777e5b57ad844ac68e556b26e",
+      "mode": 420
+    },
+    "Бабушкина ферма.app/Contents/Info.plist": {
+      "sha256": "06855e666e7ae8475bb291d0452375946d11beae1c0a865a5a9bf8d61d1b21be",
+      "mode": 420
+    },
+    "AGENTS.md": {
+      "sha256": "267422961d0fa7305cf8040cac2969ba283593c1c3c41ee9e80b69e93004e358",
+      "mode": 420
+    }
+  },
+  "local_UID": [
+    {
+      "old_path": "tools/alpha_capture.gd.uid",
+      "target": "tools/assets/alpha/alpha_capture.gd.uid",
+      "sha256": "c7056f3c166570920c497a9213b21e367d40ee2ba22dafa8ac7c23da0d79be47",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/slice_capture.gd.uid",
+      "target": "tools/assets/slicing/slice_capture.gd.uid",
+      "sha256": "02660dcfcf2d6457c10100e1eac46bb43161f5cda2877fe4f6f1d0dc402ab472",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/slice_catalogs.gd.uid",
+      "target": "tools/assets/slicing/slice_catalogs.gd.uid",
+      "sha256": "fc1aa868e72d2ca9340e22a63110f9269ff7683f5ca714531498a973d9f5e73b",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/slice_export.gd.uid",
+      "target": "tools/assets/slicing/slice_export.gd.uid",
+      "sha256": "bfdb64f3fb2f8c140c25feea4c424e7c8b08db0dd2ac032a08af78d7d7c7f149",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/slice_legacy_capture.gd.uid",
+      "target": "tools/assets/slicing/slice_legacy_capture.gd.uid",
+      "sha256": "90b39c4440d1b86701218bc595f9336edaae845e2200b344f248e3efc75775f8",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/slice_review.gd.uid",
+      "target": "tools/assets/slicing/slice_review.gd.uid",
+      "sha256": "4bceca0d651fd337a699d2bb3907fa8afc5267e564117eda5f8225240bde9d95",
+      "tracked": false
+    }
+  ]
+}

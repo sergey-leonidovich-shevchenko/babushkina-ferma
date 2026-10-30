@@ -1,0 +1,377 @@
+FFEEEEEEEE.EEEFFEEEEEEEE
+======================================================================
+ERROR: test_axial_history (__main__.GroundLayoutTests.test_axial_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 177, in test_axial_history
+    def test_axial_history(self): self.reader('axial_road')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 106, in reader
+    self.assertEqual(module.provenance(folder), source)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/axial_road_verify.py", line 64, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_axial_producer (__main__.GroundLayoutTests.test_axial_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 187, in test_axial_producer
+    def test_axial_producer(self): self.producer('axial_road')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 151, in producer
+    module.collect(output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/axial_road_collect.py", line 42, in collect
+    target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground actual producer d9qbwer9/owned project/tools/axial_road_capture.gd'
+
+======================================================================
+ERROR: test_decoration_history (__main__.GroundLayoutTests.test_decoration_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 178, in test_decoration_history
+    def test_decoration_history(self): self.reader('decoration')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 106, in reader
+    self.assertEqual(module.provenance(folder), source)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/decoration_verify.py", line 119, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_decoration_producer (__main__.GroundLayoutTests.test_decoration_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 188, in test_decoration_producer
+    def test_decoration_producer(self): self.producer('decoration')
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 151, in producer
+    module.collect(output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/decoration_collect.py", line 87, in collect
+    target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground actual producer i1pw_6gw/owned project/tools/decoration_capture.gd'
+
+======================================================================
+ERROR: test_edge_history (__main__.GroundLayoutTests.test_edge_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 180, in test_edge_history
+    def test_edge_history(self): self.reader('ground_edge')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 106, in reader
+    self.assertEqual(module.provenance(folder), source)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_edge_verify.py", line 64, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_edge_producer (__main__.GroundLayoutTests.test_edge_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 190, in test_edge_producer
+    def test_edge_producer(self): self.producer('ground_edge')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 151, in producer
+    module.collect(output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_edge_collect.py", line 42, in collect
+    target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground actual producer 1s8_qtog/owned project/tools/ground_edge_capture.gd'
+
+======================================================================
+ERROR: test_garden_history (__main__.GroundLayoutTests.test_garden_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 179, in test_garden_history
+    def test_garden_history(self): self.reader('garden')
+                                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 106, in reader
+    self.assertEqual(module.provenance(folder), source)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/garden_verify.py", line 72, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_garden_producer (__main__.GroundLayoutTests.test_garden_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 189, in test_garden_producer
+    def test_garden_producer(self): self.producer('garden')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 151, in producer
+    module.collect(output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/garden_collect.py", line 43, in collect
+    target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground actual producer lhug16t7/owned project/tools/ground_edge_field.gd'
+
+======================================================================
+ERROR: test_layers_producer (__main__.GroundLayoutTests.test_layers_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 191, in test_layers_producer
+    def test_layers_producer(self): self.producer('ground_layers')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 151, in producer
+    module.collect(output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py", line 59, in collect
+    'sources':{p:sha(current_source(ROOT,p)) for p in SOURCES},'base_sources':{},'artifacts':{}}
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py", line 59, in <dictcomp>
+    'sources':{p:sha(current_source(ROOT,p)) for p in SOURCES},'base_sources':{},'artifacts':{}}
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/perf_contract_collect.py", line 46, in sha
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground actual producer y7556nxk/owned project/tools/ground_layers_capture.gd'
+
+======================================================================
+ERROR: test_meadow_history (__main__.GroundLayoutTests.test_meadow_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 183, in test_meadow_history
+    def test_meadow_history(self): self.reader('meadow')
+                                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 106, in reader
+    self.assertEqual(module.provenance(folder), source)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/meadow_verify.py", line 64, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_meadow_producer (__main__.GroundLayoutTests.test_meadow_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 193, in test_meadow_producer
+    def test_meadow_producer(self): self.producer('meadow')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 151, in producer
+    module.collect(output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/meadow_collect.py", line 41, in collect
+    target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground actual producer zbvrjpu3/owned project/tools/meadow_capture.gd'
+
+======================================================================
+ERROR: test_plaza_history (__main__.GroundLayoutTests.test_plaza_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 184, in test_plaza_history
+    def test_plaza_history(self): self.reader('plaza')
+                                  ^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 106, in reader
+    self.assertEqual(module.provenance(folder), source)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/plaza_verify.py", line 71, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_plaza_producer (__main__.GroundLayoutTests.test_plaza_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 194, in test_plaza_producer
+    def test_plaza_producer(self): self.producer('plaza')
+                                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 151, in producer
+    module.collect(output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/plaza_collect.py", line 43, in collect
+    target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground actual producer ppbybukl/owned project/tools/plaza_capture.gd'
+
+======================================================================
+ERROR: test_revision_history (__main__.GroundLayoutTests.test_revision_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 186, in test_revision_history
+    def test_revision_history(self): self.reader('terrain_revision')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 106, in reader
+    self.assertEqual(module.provenance(folder), source)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/terrain_revision_verify.py", line 92, in provenance
+    require(old.returncode==0 or name in OVERLAY,'historical input absent')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical input absent
+
+======================================================================
+ERROR: test_revision_producer (__main__.GroundLayoutTests.test_revision_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 196, in test_revision_producer
+    def test_revision_producer(self): self.producer('terrain_revision')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 151, in producer
+    module.collect(output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/terrain_revision_collect.py", line 94, in collect
+    target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground actual producer 4zhz92vv/owned project/tools/ground_edge_field.gd'
+
+======================================================================
+ERROR: test_roads_history (__main__.GroundLayoutTests.test_roads_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 185, in test_roads_history
+    def test_roads_history(self): self.reader('road_network')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 106, in reader
+    self.assertEqual(module.provenance(folder), source)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/road_network_verify.py", line 64, in provenance
+    require(historical==source['base_sources'][name],'historical base differs')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical base differs
+
+======================================================================
+ERROR: test_roads_producer (__main__.GroundLayoutTests.test_roads_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 195, in test_roads_producer
+    def test_roads_producer(self): self.producer('road_network')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 151, in producer
+    module.collect(output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/road_network_collect.py", line 44, in collect
+    target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground actual producer l06zwlu5/owned project/tools/road_network_capture.gd'
+
+======================================================================
+ERROR: test_seasons_history (__main__.GroundLayoutTests.test_seasons_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 182, in test_seasons_history
+    def test_seasons_history(self): self.reader('ground_seasons')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 106, in reader
+    self.assertEqual(module.provenance(folder), source)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_seasons_verify.py", line 40, in provenance
+    require(old.returncode==0 or name in OVERLAY,'historical input absent')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/render_order.py", line 38, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: historical input absent
+
+======================================================================
+ERROR: test_seasons_producer (__main__.GroundLayoutTests.test_seasons_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 192, in test_seasons_producer
+    def test_seasons_producer(self): self.producer('ground_seasons')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 151, in producer
+    module.collect(output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_seasons_collect.py", line 100, in collect
+    target=folder/'inputs'/name; target.parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(ROOT/name,target)
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 256, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/Ground actual producer dlx4vagz/owned project/tools/ground_edge_field.gd'
+
+======================================================================
+FAIL: test_ambiguous_ground_git_aliases_are_rejected (__main__.GroundLayoutTests.test_ambiguous_ground_git_aliases_are_rejected) (module='ground_edge')
+Neither the shared ground-layers reader nor ordinary surface readers may choose two aliases.
+----------------------------------------------------------------------
+ValueError: historical base differs
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 231, in test_ambiguous_ground_git_aliases_are_rejected
+    with self.assertRaisesRegex(ValueError, 'ambiguous'):
+AssertionError: "ambiguous" does not match "historical base differs"
+
+======================================================================
+FAIL: test_ambiguous_ground_git_aliases_are_rejected (__main__.GroundLayoutTests.test_ambiguous_ground_git_aliases_are_rejected) (module='ground_layers')
+Neither the shared ground-layers reader nor ordinary surface readers may choose two aliases.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 231, in test_ambiguous_ground_git_aliases_are_rejected
+    with self.assertRaisesRegex(ValueError, 'ambiguous'):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_missing_canonical_ground_input_never_reads_stale_legacy (__main__.GroundLayoutTests.test_missing_canonical_ground_input_never_reads_stale_legacy) (module='ground_edge')
+Both collector families must fail on the exact missing canonical address, without launching.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 214, in test_missing_canonical_ground_input_never_reads_stale_legacy
+    self.assertEqual(Path(missing.exception.filename), canonical)
+AssertionError: Posix[84 chars]9j_ilhia/owned project/tools/ground_edge_board.gd') != Posix[84 chars]9j_ilhia/owned project/tools/qa/ground/ground_edge_capture.gd')
+
+======================================================================
+FAIL: test_missing_canonical_ground_input_never_reads_stale_legacy (__main__.GroundLayoutTests.test_missing_canonical_ground_input_never_reads_stale_legacy) (module='ground_layers')
+Both collector families must fail on the exact missing canonical address, without launching.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-ground-layout379.py", line 214, in test_missing_canonical_ground_input_never_reads_stale_legacy
+    self.assertEqual(Path(missing.exception.filename), canonical)
+AssertionError: Posix[86 chars]urh7r3/owned project/tools/ground_layers_review.gd') != Posix[86 chars]urh7r3/owned project/tools/qa/ground/ground_layers_capture.gd')
+
+----------------------------------------------------------------------
+Ran 22 tests in 28.674s
+
+FAILED (failures=4, errors=19)

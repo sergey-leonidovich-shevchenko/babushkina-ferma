@@ -1,0 +1,1 @@
+SLICE AUDIT: {"frames": 5603, "textures": 2824, "atlas_resources": 321, "warning_frames": 1786} ; geometry valid; existing tight frames remain explicit debt

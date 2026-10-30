@@ -1,0 +1,11 @@
+{
+  "pid": 60746,
+  "command": "node docs/reports/refactor-03/qa-server.mjs",
+  "cwd": "p60746\nfcwd\nn/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm\n",
+  "signal": "SIGTERM",
+  "own_tab_closed": true,
+  "viewport_reset": true,
+  "user_server4175_untouched": true,
+  "own_server_stop_confirmed": true,
+  "own_server_exit": 143
+}

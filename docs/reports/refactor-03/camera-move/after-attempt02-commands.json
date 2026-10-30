@@ -1,0 +1,598 @@
+[
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.visual_camera",
+      "check"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-001.txt",
+    "raw_SHA256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a",
+    "stored_SHA256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.visual_camera",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-002.txt",
+    "raw_SHA256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a",
+    "stored_SHA256": "4ffed96b5bc7bc1a465fe19ed7002c9eb5dd77a163d874bdcf03d2b0704f7b5a"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.visual_static",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-003.txt",
+    "raw_SHA256": "c7de2f0ce0e867869aec2adbdd2a5fd94cbc3edc6f18afaa333cf3980ca4db6f",
+    "stored_SHA256": "c7de2f0ce0e867869aec2adbdd2a5fd94cbc3edc6f18afaa333cf3980ca4db6f"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.visual_coordinates",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-004.txt",
+    "raw_SHA256": "ec953c3bc9072708142b71d2310937b74006f5ad8a21e50e48d74c5830ad73ee",
+    "stored_SHA256": "ec953c3bc9072708142b71d2310937b74006f5ad8a21e50e48d74c5830ad73ee"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.camera_quantization",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-005.txt",
+    "raw_SHA256": "51a37ed5ae9c819b41f6657391f602550a4bea51b6ee64147e1999302ebdccc7",
+    "stored_SHA256": "51a37ed5ae9c819b41f6657391f602550a4bea51b6ee64147e1999302ebdccc7"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.presentation_pose",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-006.txt",
+    "raw_SHA256": "9148781c5f1eb1cd164a226576ecc60d2283bc9f21900d6d5e93fcb1415ae48f",
+    "stored_SHA256": "9148781c5f1eb1cd164a226576ecc60d2283bc9f21900d6d5e93fcb1415ae48f"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.reference_zoom",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-007.txt",
+    "raw_SHA256": "2d54cd307b002f0a10b60452c871128c6fca29c3ff2c3f413b586cc4094b55e4",
+    "stored_SHA256": "2d54cd307b002f0a10b60452c871128c6fca29c3ff2c3f413b586cc4094b55e4"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.reference_zoom_perf",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-008.txt",
+    "raw_SHA256": "be3a775d36bca884269827366f5b1ab837d18ca691ad59f34466f370abf9b4e3",
+    "stored_SHA256": "be3a775d36bca884269827366f5b1ab837d18ca691ad59f34466f370abf9b4e3"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.visual_motion",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-009.txt",
+    "raw_SHA256": "167d682959c996bb9e38dc579c117475b8b760a8e84a34f0c8b6020b0df578f4",
+    "stored_SHA256": "167d682959c996bb9e38dc579c117475b8b760a8e84a34f0c8b6020b0df578f4"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.visual_hardware",
+      "verify"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-010.txt",
+    "raw_SHA256": "51c23b483859e6089c97471db7cae87ad82b59bec669447374c59e297688c277",
+    "stored_SHA256": "51c23b483859e6089c97471db7cae87ad82b59bec669447374c59e297688c277"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.check_native_frame_reports"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-011.txt",
+    "raw_SHA256": "4d6834761b10304e29615b2d609184aa56aeee49a6eebae0e785df63a312eae0",
+    "stored_SHA256": "4d6834761b10304e29615b2d609184aa56aeee49a6eebae0e785df63a312eae0"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_visual_camera"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-012.txt",
+    "raw_SHA256": "6c6b2c8cd1661adf9dc5a3a8480278dd55967f487a3f57db19f5b216e85887d8",
+    "stored_SHA256": "6c6b2c8cd1661adf9dc5a3a8480278dd55967f487a3f57db19f5b216e85887d8"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_visual_coordinates"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-013.txt",
+    "raw_SHA256": "8265c7840fb8d79f3970221f2b05440135a7d5b1d80e00f19e955e091f72f3ea",
+    "stored_SHA256": "8265c7840fb8d79f3970221f2b05440135a7d5b1d80e00f19e955e091f72f3ea"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_camera_quantization"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-014.txt",
+    "raw_SHA256": "2cffb04a716829cb3f123c105b3f44226b9dbd2564d01119e72f94b340535ec5",
+    "stored_SHA256": "2cffb04a716829cb3f123c105b3f44226b9dbd2564d01119e72f94b340535ec5"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_presentation_pose"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-015.txt",
+    "raw_SHA256": "757343ef4b852f1cb15d5029cc7ce14038e75452664b2d7e23bd2cd6d8c5591d",
+    "stored_SHA256": "757343ef4b852f1cb15d5029cc7ce14038e75452664b2d7e23bd2cd6d8c5591d"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_reference_zoom"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-016.txt",
+    "raw_SHA256": "e21a2883cdbb74f8bb722a8fe62e76f26b84dab3732ddc15bee64229c96b4a5f",
+    "stored_SHA256": "e21a2883cdbb74f8bb722a8fe62e76f26b84dab3732ddc15bee64229c96b4a5f"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_visual_motion"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-017.txt",
+    "raw_SHA256": "d0e56041465b1d768831232718f9efdee2771318fc585c02643508e4af43154a",
+    "stored_SHA256": "d0e56041465b1d768831232718f9efdee2771318fc585c02643508e4af43154a"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_visual_static"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-018.txt",
+    "raw_SHA256": "384d9800d523b7f269c573a662068e5912ce4bab6ba581d80e5010d49430adae",
+    "stored_SHA256": "384d9800d523b7f269c573a662068e5912ce4bab6ba581d80e5010d49430adae"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_visual_baseline"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-019.txt",
+    "raw_SHA256": "b46931c892bcf92795d5a1da0d00dd01e3a2532490d17404effe9654933a9c33",
+    "stored_SHA256": "b46931c892bcf92795d5a1da0d00dd01e3a2532490d17404effe9654933a9c33"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_visual_hardware"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-020.txt",
+    "raw_SHA256": "47304513cda78533f57f46dba4f762644c02afd3a356cdbdace60cf90e1ed0cd",
+    "stored_SHA256": "47304513cda78533f57f46dba4f762644c02afd3a356cdbdace60cf90e1ed0cd"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.test_camera_context"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-021.txt",
+    "raw_SHA256": "4c2d5b21bda3d0d962e8edb544a9622312d826d9b5b5aa4b242226146c799e42",
+    "stored_SHA256": "4c2d5b21bda3d0d962e8edb544a9622312d826d9b5b5aa4b242226146c799e42"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-21.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/camera_quantization_capture.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-022.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-22.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/camera_quantization_review.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-023.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-23.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/presentation_pose_capture.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-024.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-24.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/presentation_pose_live.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-025.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-25.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/presentation_pose_review.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-026.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-26.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/reference_zoom_capture.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-027.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-27.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/reference_zoom_live.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-028.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-28.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/reference_zoom_review.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-029.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-29.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/visual_baseline.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-030.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-30.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/visual_camera_capture.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-031.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-31.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/visual_camera_review.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-032.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-32.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/visual_coordinates_capture.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-033.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-33.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/visual_coordinates_review.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-034.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-34.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/visual_motion_capture.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-035.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-35.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/visual_motion_review.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-036.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-36.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/visual_motion_route.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-037.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm",
+      "--log-file",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/parse-37.log",
+      "--check-only",
+      "--script",
+      "res://tools/qa/camera/visual_static_capture.gd"
+    ],
+    "kind": "GD",
+    "exit": 0,
+    "log": "after-attempt02-038.txt.gz",
+    "raw_SHA256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "stored_SHA256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "argv": [
+      "swift",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/camera/pose_video_frames.swift",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/visual-overhaul/vcamera-003/native/base-physical/walk.mp4",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/visual-overhaul/vcamera-003/native/base-shared/walk.mp4",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/decoded"
+    ],
+    "kind": "Swift",
+    "exit": 0,
+    "log": "after-attempt02-039.txt.gz",
+    "raw_SHA256": "b17fc54701f71c00569aee9172f4592c68169f75e03e6b847d26bafc045aa02b",
+    "stored_SHA256": "ac53f4947de106a6e5090a55efba7940c6c9162e06b0ecf5d4ac2527d6b95fe2"
+  },
+  {
+    "argv": [
+      "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+      "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py",
+      "qa.camera.pose_video_strip",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/decoded",
+      "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera move after zdn0r5jd/contact sheet"
+    ],
+    "kind": "CLI",
+    "exit": 0,
+    "log": "after-attempt02-040.txt",
+    "raw_SHA256": "d89c6415d679426e11416656794a5b4cfa2bd1cf1e03ad8fdc7ff6619bff08cf",
+    "stored_SHA256": "d89c6415d679426e11416656794a5b4cfa2bd1cf1e03ad8fdc7ff6619bff08cf"
+  }
+]

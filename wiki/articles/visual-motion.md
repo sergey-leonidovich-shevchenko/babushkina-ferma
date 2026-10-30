@@ -44,11 +44,11 @@
 [План маршрута](../../docs/reports/visual-overhaul/vbase-005/routes.json) · [Подписи и исходники пары](../../docs/reports/visual-overhaul/vbase-005/native/source.json) · [Подписи четырёх отказов](../../docs/reports/visual-overhaul/vbase-005/controls/source.json).
 
 ```sh
-python3 tools/visual_motion.py verify
-python3 tools/visual_motion.py verify-controls
-python3 tools/test_visual_motion.py
+python3 tools/run.py qa.camera.visual_motion verify
+python3 tools/run.py qa.camera.visual_motion verify-controls
+python3 tools/run.py qa.camera.test_visual_motion
 # Новая съёмка только в новый каталог:
-python3 tools/visual_motion.py capture --output /private/tmp/farm-motion-new
+python3 tools/run.py qa.camera.visual_motion capture --output /private/tmp/farm-motion-new
 ```
 
 Маршрут нужен ближайшим [VCAMERA-002](#/development/tasks/visual--VCAMERA-002) и [VCAMERA-003](#/development/tasks/visual--VCAMERA-003), затем живому пилоту. Штатный полный обход всей карты и обоих мостов остаётся за [VMAP-003](#/development/tasks/visual--VMAP-003). [Карточка VBASE-005](#/development/tasks/visual--VBASE-005?queue=village-pilot) · [Эталон и порядок работы](visual-pilot.md).

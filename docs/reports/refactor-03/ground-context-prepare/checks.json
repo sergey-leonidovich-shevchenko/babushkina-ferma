@@ -1,0 +1,366 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "Ground context preparation",
+  "version": "0.0.378",
+  "base": "c47b78add8813392769be8b9d5dfba9b8d5fa1d5",
+  "parent_review": 5697669336,
+  "parent_CI_success": 8,
+  "full03_done": false,
+  "Task_Complete": false,
+  "main_changed": false,
+  "physical_moves": 0,
+  "root_sources": 153,
+  "current_map": 267,
+  "cleaned_Git_calls": 28,
+  "Git_modules": 18,
+  "new_real_archive_cases": 10,
+  "parent_errors": 9,
+  "current_errors": 0,
+  "test_source_equal": true,
+  "additional_actual_producer_profiles": 9,
+  "partial_producer_proofs_rejected": 9,
+  "source_contract_fields": 37,
+  "source_contract_modules": 21,
+  "unused_import_audit_modules": 19,
+  "live_current_targets": 32,
+  "architecture_suites": 102,
+  "architecture_cases": 1349,
+  "Game_passed": 53502,
+  "Game_failed": 0,
+  "normal_F10_passed_each": 90,
+  "Wiki_passed": 145,
+  "Wiki_failed": 0,
+  "native_frames": 0,
+  "FPS_admission": false,
+  "source_SHA256": {
+    ".gitignore": "53c2f9e03ec10eadad621e3561bb0c398e2148e57bfd0860380e627f46a9bc6a",
+    "QA_CHECKLIST.md": "c00fcb4d269343bf8aaabf297cd28381b4e5d0859b62a45c2bd9abcb74ef1eed",
+    "TESTING.md": "ad04368ee8dbb7cb01d737fc906d944fa900f88e5736500ff14eaaef6e12c411",
+    "VERSION": "fdd7c4ae6e19498d49759d127a5befce131ec63025501a87708e0ca41c9a9aa8",
+    "docs/DEVELOPMENT.md": "f1c805a4868e4220c459a22ce3a6b05cb9a3bca0da70dd01972628aefdefc24c",
+    "docs/epics/refactoring-2026-10/TASKS.md": "4665b1590107bf1bd701df691c37586b8f47eec6f0441df9f8a72412c697be43",
+    "project.godot": "1a9ce089d70180876fa0e054e5e7f6590d4ba3feb7621147971bc7508c2b7ab6",
+    "tools/axial_road_collect.py": "0a03448ffb5ce313ffddf29b77a5b9320314797bcdfad3f564be3dccdda724ad",
+    "tools/axial_road_verify.py": "1a663bfcdf5d4035870773dc732bdb88320d4eca69646ea26cedaf86a11be4db",
+    "tools/decoration_collect.py": "f27d3e4149c55d9a6fd47aeebdc2a990bde6e9cd532f4414f7afc957761dcf54",
+    "tools/decoration_verify.py": "fec58347bd6956f3acbdafd196e0c0c21733c6e4fb24822a41e8bca5601709a0",
+    "tools/garden_collect.py": "382eb9a394fd3e19226cb31cba00c52b44043f6d407128deab885d1c30c42ce4",
+    "tools/garden_verify.py": "b6c7526799b6d8b221683cb3e80a5e8321f9dddc81b70c0abbb3e293950a3c2e",
+    "tools/ground_edge_collect.py": "5e8baeb01a952e50371285bd3409dbe4927a48effbeb8e13ea917f7055ad588d",
+    "tools/ground_edge_verify.py": "25e66db823abf324dd9432c40854f6ad141176c6d63a980634edbd13757f9207",
+    "tools/ground_seasons_collect.py": "f72df5691accbfc0da4ce7480f2a7b9971fecb0300b4cce105095904d565f380",
+    "tools/ground_seasons_verify.py": "c0298e55157188c30d71232adaf64f223563644d842d01e1c4550f4b4206b817",
+    "tools/meadow_collect.py": "f14570b700005d35db4a2564f8b879caba5dc9514047911357211588a0dbedb0",
+    "tools/meadow_verify.py": "af438875fb6c74a8310162715b6f1c63243b63eacd698d953d69ce0981bac529",
+    "tools/plant_depth_verify.py": "a7063102d0062a175893ad89b32aec9cc045db40bf3f8cdc01510704bef34bbd",
+    "tools/plaza_collect.py": "e39b08643a8b115aa941337ba8234ef86f17accd98ce7d2d225db04b86a303c1",
+    "tools/plaza_verify.py": "ad5e04eaa65c0a21f6d64bb203ab4a8ba72f8f9d79da8acb8f11c69d63babae2",
+    "tools/quality/check_architecture.sh": "cfdf6b97c56b9ed9523609ec2826fa6d0d9267d304843f17bc09a2fcae60ae8b",
+    "tools/road_network_collect.py": "a68fd33555c72dafb4fbe1bb55cff37653497d0bef1586240b70a0f400187f27",
+    "tools/road_network_verify.py": "eeb0ad3b47a99733014b4f4d30cc0633ec75efb7e675ac7b27e76ff7b713295d",
+    "tools/terrain_revision_collect.py": "b5c64b77ac5da98a8ae1269204bc69607782987c24c9b9d01cd5e63be3d8533d",
+    "tools/terrain_revision_verify.py": "bcd1155812cf95be4bd888a7d713586995e973a72ef9e2298187081f0c690eb0",
+    "wiki/articles/project-refactoring.md": "1a4162f4cc61328028f7aa0d27e37eb46eb3514a1da01f2eced41917296c5e40",
+    "Бабушкина ферма.app/Contents/Info.plist": "9a08ecba6559de9b436019aa05dbc131888b467daa4e0504a166ab5a4d0fd1cf",
+    "tools/qa/ground/__init__.py": "5cb5b2760280597a1644502754180fc40a4ab102097317d8f98494ad62bc3be4",
+    "tools/qa/ground/test_ground_context.py": "92e8e02409880272e2ab397b866621351d28b57fd473424ada5003a93d5f7725"
+  },
+  "report_files": [
+    {
+      "path": "PLAN.json",
+      "sha256": "b7d468482c72938bc4ae620f1802e298adc9af2f459001d16f8d0bd0258c03d9",
+      "bytes": 676
+    },
+    {
+      "path": "README.md",
+      "sha256": "d26ee0e21c06b0331086d0652add8a484911e291889362d3b14c87840a06500e",
+      "bytes": 6651
+    },
+    {
+      "path": "all-Git-calls.json",
+      "sha256": "0b44c7f2a4a5423438b7a92cdcc43a838f6874ff4b923b82efb9856a11634594",
+      "bytes": 3362
+    },
+    {
+      "path": "audit.py",
+      "sha256": "fc745d2acebdc73eb5ba5e336eedd2cb7c88225acca09204e2f050dc4365acef",
+      "bytes": 6005
+    },
+    {
+      "path": "baseline/UID-before-Game.json",
+      "sha256": "05656d1077b78dcbd6b33118292402ab63a4ddb3dc64475f78fc8477f3ae9167",
+      "bytes": 46466
+    },
+    {
+      "path": "baseline/census.json",
+      "sha256": "df220f19f63e410c36d8a5f2e5923e88fb46687228474037bd7537462923ec63",
+      "bytes": 107384
+    },
+    {
+      "path": "baseline/context-red.json",
+      "sha256": "ee479dbd4bbb3701460ad02476e4fa47894098ce8c26d91ddda9a023b0407e8f",
+      "bytes": 299
+    },
+    {
+      "path": "baseline/context-red.txt",
+      "sha256": "d6d9c439bbc15ea14fda4b7fa289d0bccaaf81a4af992931169bc671c0d09d5c",
+      "bytes": 10551
+    },
+    {
+      "path": "baseline/prepare-attempt01.json",
+      "sha256": "def38c2f7b82525c562abe51cb17f0903056a78ea2e546b4124424248db4d1f1",
+      "bytes": 511
+    },
+    {
+      "path": "baseline/test_ground_context.py",
+      "sha256": "92e8e02409880272e2ab397b866621351d28b57fd473424ada5003a93d5f7725",
+      "bytes": 3178
+    },
+    {
+      "path": "browser-article.json",
+      "sha256": "4b2accf1fcf5e99a982433bded500032710f82c5081b0e9d08d8f97ebc0ad7f2",
+      "bytes": 377
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "f93f5f77d7ff4afa2c8500a5353eef2d10e0e4843a2baa8073398af5b5589549",
+      "bytes": 319
+    },
+    {
+      "path": "browser-cleanup.py",
+      "sha256": "146ee322e3f050ae2b959c24ab83ab380c3a775fc9f842aa39e2f46751eac903",
+      "bytes": 1922
+    },
+    {
+      "path": "browser-desktop.png",
+      "sha256": "dd4254c3505aca194b3df652f684de2e574b12ede59ce6c86520d07238ef0e1c",
+      "bytes": 188365
+    },
+    {
+      "path": "browser-mobile.json",
+      "sha256": "12a36a05082687b1979c1003e6eb3d63c18ef1e76885fa6ecbfbd368ad330131",
+      "bytes": 130
+    },
+    {
+      "path": "browser-mobile.png",
+      "sha256": "83bb69d3635251d56aa85ad172fdc66389f1980d16fe3ca56250133ecfef08ef",
+      "bytes": 60548
+    },
+    {
+      "path": "browser-task.json",
+      "sha256": "bf526e2326c26800923576a33e7ec3544ff5b00e7bfcab6586318554d29dcdd4",
+      "bytes": 150
+    },
+    {
+      "path": "candidate-source.json",
+      "sha256": "80581d6f1081221c3154d463ed9c87a1ec46298fd2b4faee794d53bc663e86b0",
+      "bytes": 3103
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "9dc2bf526dd74ba66cfddb48ce6bab22135fb549d92cb6bf7c9cd21e3653d71e",
+      "bytes": 481
+    },
+    {
+      "path": "check-catalog.mjs",
+      "sha256": "45a4f1c028e25470de9d16789cedcd70f0bda9c0da3c5ca844b86eedacc71481",
+      "bytes": 2385
+    },
+    {
+      "path": "context-green.txt",
+      "sha256": "5f4aa91d02fe31d1b247edef763a849e1628f971517abbe06c9de612a22ba3a2",
+      "bytes": 110
+    },
+    {
+      "path": "documentation-after-profile.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "bytes": 105
+    },
+    {
+      "path": "documentation-attempt01.json",
+      "sha256": "4ee924918c970def1a1cbdea753be2a2de5184ff9b052cd1d7bdce676a918ddd",
+      "bytes": 265
+    },
+    {
+      "path": "freeze-source.py",
+      "sha256": "f819a5fe09ccd0b6442a94c8e176297650ad7ec9a519c5921197f56296dc7e6f",
+      "bytes": 1183
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "566e077d7d82837e1775d9752767df520a85240bc371e06d7441895ba57633b7",
+      "bytes": 3554
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "2ea1a2e6781b4e36fe5dba9deb3e93e66eaa3579d6f7560a54eb196708972eba",
+      "bytes": 249
+    },
+    {
+      "path": "gates-02/architecture.txt",
+      "sha256": "e51e6db8dcd8cd587c31461bf7e75487be745edbd8d497168dd4691935b19ff6",
+      "bytes": 15855
+    },
+    {
+      "path": "gates-02/game.txt",
+      "sha256": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+      "bytes": 1356
+    },
+    {
+      "path": "gates-02/gate-exits.json",
+      "sha256": "02571898a55d8387f683a6f44dc945940e0b47d4e284c3929f62f487fc8b8501",
+      "bytes": 733
+    },
+    {
+      "path": "gates-02/headless/f10/engine.txt",
+      "sha256": "6f61f86c67bc2be7d685b1aa3d8be62c1764967fb55a679795f25015ed876451",
+      "bytes": 11012
+    },
+    {
+      "path": "gates-02/headless/f10/frames.jsonl",
+      "sha256": "f56e1985a1576e54a2a7600f306d9cc426e77840d45df011083d43de6ca10133",
+      "bytes": 9121
+    },
+    {
+      "path": "gates-02/headless/f10/summary.json",
+      "sha256": "cd0a416796f9094151674f8aae6911a684320cb39ff7da9ea03e89161304d1fb",
+      "bytes": 1743
+    },
+    {
+      "path": "gates-02/headless/normal/engine.txt",
+      "sha256": "89f59eb36f9a86c36af8a6f7f3765a5602ee49740410ada77cc3d6a490bf0577",
+      "bytes": 11074
+    },
+    {
+      "path": "gates-02/headless/normal/frames.jsonl",
+      "sha256": "e56b1c3ad73d68f6ec392576975dce82a38b5cfea23aba0c9ff3c7fd5d56eea3",
+      "bytes": 9180
+    },
+    {
+      "path": "gates-02/headless/normal/summary.json",
+      "sha256": "4fabb6cc283af46876d07f278db12742f4fe4b501033f5ca2dc23d6067f1d2b2",
+      "bytes": 1746
+    },
+    {
+      "path": "gates-02/wiki.txt",
+      "sha256": "77e5df3de91e32c1353761daf9fd093673c72cd1b83cf188f98b0d1c913182f2",
+      "bytes": 13808
+    },
+    {
+      "path": "live-command-audit.json",
+      "sha256": "390d7ac8e03956086eef95e4836c50a3e3140f25c4a287f34bd0fb8398e8dc15",
+      "bytes": 3429
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "78b6d5d8529011189ba82acf348c09ae530221d4f318e5cb38d2202eb88d291d",
+      "bytes": 6931
+    },
+    {
+      "path": "producer-probes/axial_road.json",
+      "sha256": "2295afd5f631122b0e9a30b36e393228a9daacf784bc671af4118abaf26c586e",
+      "bytes": 445
+    },
+    {
+      "path": "producer-probes/decoration.json",
+      "sha256": "d53d01d4c3a129013fc9f954ca493781710fb4523a59ff7ab59265039eb5d6b6",
+      "bytes": 445
+    },
+    {
+      "path": "producer-probes/garden.json",
+      "sha256": "e71ed30bea683fda91d16268aa3c225c3e8c3b796b8f2ddb72bc6ec0622f6b52",
+      "bytes": 441
+    },
+    {
+      "path": "producer-probes/ground_edge.json",
+      "sha256": "5a9816c165f8d7d4df5d6fb361c8d947e895eac0ae914bbb036fffeee10a2042",
+      "bytes": 446
+    },
+    {
+      "path": "producer-probes/ground_seasons.json",
+      "sha256": "d27bac17902d50d795855486186d018410e7bf1ee2f6896887aaa0119fafb2ac",
+      "bytes": 449
+    },
+    {
+      "path": "producer-probes/meadow.json",
+      "sha256": "8944146a309cac676ee165c286c1886fb8dd82d9c68bc6f58b816fcca5570d46",
+      "bytes": 441
+    },
+    {
+      "path": "producer-probes/plaza.json",
+      "sha256": "cee49f841ea763f878fb202e055b849583627a0d9b84bf3e429a5df62fa8d589",
+      "bytes": 440
+    },
+    {
+      "path": "producer-probes/road_network.json",
+      "sha256": "3e22316168572ccd29d38934fb80caf3d9541a31a7b11c877003de8d120cae6f",
+      "bytes": 447
+    },
+    {
+      "path": "producer-probes/terrain_revision.json",
+      "sha256": "89d565a09e63598b50c15977cef1e08e3f821ee9d13d4361e52b59eee5e3fcd3",
+      "bytes": 451
+    },
+    {
+      "path": "producer-probes.py",
+      "sha256": "f44050359d09dd37a0a844732a8e41693ad1020221b9d32068ba5b936610be15",
+      "bytes": 4779
+    },
+    {
+      "path": "producer-probes.txt",
+      "sha256": "9a67c946358905176dedc33cc93e909e365f0819423ae8daffa2fc59905c2a71",
+      "bytes": 729
+    },
+    {
+      "path": "profile.json",
+      "sha256": "4dce636b8dac201f933985997e66ba55636b099428267351c7bb53181a597834",
+      "bytes": 908
+    },
+    {
+      "path": "publish.py",
+      "sha256": "7f2d783af9eee1df9028c7a605d8259d88009cf9b2e57c90d5648da517c347af",
+      "bytes": 7049
+    },
+    {
+      "path": "seal.py",
+      "sha256": "cd9ab65f5ab674b3f7d48c6ff433c1a866bfd21a43c870daee98d7bce6da78c0",
+      "bytes": 7105
+    },
+    {
+      "path": "semantic-audit.json",
+      "sha256": "699a778bc3a64ee68c6afbf4c626fc431a7a3531d29a61c0419c8f440231665f",
+      "bytes": 1902
+    },
+    {
+      "path": "source-contract-audit.json",
+      "sha256": "fd0c29520cc96e5f69237805d1be58be92dfb4f0cd2f3932928f0cac7fca9031",
+      "bytes": 2207
+    },
+    {
+      "path": "source-edits.json",
+      "sha256": "6e96c6132626324c18787d2e49274b88e0d7eec6de2ae4d31e0385ca8df3e1bd",
+      "bytes": 5960
+    },
+    {
+      "path": "unused-import-audit.json",
+      "sha256": "2946da11ea289687b5e363dfa9855c549622a0e8e7b78497bcb7c857b20ee763",
+      "bytes": 189
+    },
+    {
+      "path": "wiki-link-amendment.json",
+      "sha256": "da73995e78cafecce674f259b832c7fd37e590335816eea6fed471255771fcf3",
+      "bytes": 577
+    },
+    {
+      "path": "write-docs.py",
+      "sha256": "67b523a11c4fa709f7bb0ebf6c589eef6db5b1eec3b1bc6bb67e14f1b958e4b5",
+      "bytes": 7723
+    }
+  ],
+  "independent_review": "required for exact published head",
+  "current_CI": "not yet published",
+  "review_scope": "full local Git and exact incremental commit; PR file-list API is truncated",
+  "other_cards_and_frozen_reports_unchanged": true,
+  "all_tools_UID_bytes_mode_preserved": 302,
+  "source_snapshot_timing": "30 paths fixed throughout; article JSON-link finalized during architecture before Wiki build; separate final documentation recheck and amendment retained"
+}

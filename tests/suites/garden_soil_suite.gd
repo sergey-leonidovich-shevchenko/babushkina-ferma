@@ -1,7 +1,7 @@
 extends RefCounted
 
 const Soil := preload("res://scripts/presentation/garden_soil.gd")
-const Points := preload("res://tools/visual_camera_points.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Rules := preload("res://tests/suites/axial_road_suite.gd")
 
 ## Проверяет границы почвы, сохранность обработки и ограниченность графического кеша.

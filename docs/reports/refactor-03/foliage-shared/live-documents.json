@@ -1,0 +1,9 @@
+{
+  "changed": [
+    "QA_CHECKLIST.md",
+    "TESTING.md",
+    "docs/epics/refactoring-2026-10/TASKS.md",
+    "tools/README.md",
+    "wiki/articles/project-refactoring.md"
+  ]
+}

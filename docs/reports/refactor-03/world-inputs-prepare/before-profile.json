@@ -1,0 +1,400 @@
+{
+  "phase": "before",
+  "base": "e205c00729214358308f14c46b63c3bd2fdde2d9",
+  "commands": [
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-01.txt",
+      "sha256": "a8b33fe1ea335b55d13195c79cc2097cdeeca2dc6f68525603d9d238e24c19e3"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/object_command_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-02.txt",
+      "sha256": "5b31e9f962a7f212d22d6a94b9fef2e930b8ee03d0ccd47496f370802cc75b94"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_bench_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-03.txt",
+      "sha256": "b955501e4d12f72d9746e290f696b4fe6868eb0bc4fd887edde0787fe09e7132"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_street_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-04.txt",
+      "sha256": "41585925b5661d98a12d62bdad6406d7cffaac8ebe2bce4c9077ee08f178907c"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_board_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-05.txt",
+      "sha256": "0c137126cf8e40e7fec228bf6552ecd4836c66eea3a3e17a4e367664f4fe5fc7"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_trade_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-06.txt",
+      "sha256": "a64120b8f652240ffcc8256cb155271574174300deed7898705b7091c6766c32"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_static_audit.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-07.txt",
+      "sha256": "947feae97d59dfc997b88449b8b42d4646ecae9bf3da5ef8c5d7cd39b2ee1c1d"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_static_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-08.txt",
+      "sha256": "0ac7b394f4d018f1992e597bd243dcb378d277c40510364982a54b59501d55c3"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/pilot_pass_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-09.txt",
+      "sha256": "109a15219fac2d704b566751abf98dac95b2c7c8317e6f82cdc1358fbfb26114"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/post_motion_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-10.txt",
+      "sha256": "1dc63f59899b335798519165a55796ab9e34e34e4aae2fbfa46afb61a0907808"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/transient_save_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-11.txt",
+      "sha256": "c02e5b029adcd5cbee90f7d2968005a2c6a8d31db3676f9e8283516487c50030"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/shadow_inventory_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-12.txt",
+      "sha256": "09d934675e93e758a1eed330398bd1f7185108c21bad2f5ebfeec6379cc96d65"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_fence_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-13.txt",
+      "sha256": "4ebe1432a86edfe4b2070d2d7be825c9d46da6382754913bdcaa4d17817e9822"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_lamp_verify.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-14.txt",
+      "sha256": "ae3f24d30158a74119457377c678e04e7628f641efa1db4483e1307d65f7d0b4"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/shore_kit.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-15.txt",
+      "sha256": "9a61715da3f3ccc9f52ff17784d0b0ba9a94836a13954d7361331a87b277a69e"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_bench_assets.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-16.txt",
+      "sha256": "96d7695fdf193e5fd2ba502eb91a01ea1d5eab2c809734399c9a64a3c78ab00b"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_board_assets.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-17.txt",
+      "sha256": "eacbd7f43c3e33f18cee3e6f3524fa01a0f4ca84b7693c894859b3eb20e80770"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_fence_assets.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-18.txt",
+      "sha256": "8bb62b49ebf6c2de6d13905fcb8aaa2b9a3e2e9c2c2a97aa92fc7019af22eec3"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_lamp_assets.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-19.txt",
+      "sha256": "be359d6971cf3a2a9dc6ecdfceafeadf6d527ea4901a7376ceaafe2f320b3b7e"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_street_assets.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-20.txt",
+      "sha256": "ddf8b934ccfb115381328253284014ed015a1ebcc61adfc4d5a43b20978949cb"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_trade_assets.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-21.txt",
+      "sha256": "46f360290fd83ca1920b46fe5d3103cd5e75076ed166c640a2377d29fe020956"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_render_order.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-22.txt",
+      "sha256": "646edab53d2e85a287af4f0fa4c08c06d0aca6397d3642cc208d4bebd117a7cf"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_object_command.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-23.txt",
+      "sha256": "e579070262f5bb71ac6b60e1c63a0dd4971611159a8787465f8d63c01c3c1753"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_village_bench.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-24.txt",
+      "sha256": "d166edae6c4c54e7f280acb32e27d93ba2e0b4e2c5de3a507711c6f3b401ea14"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_village_street.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-25.txt",
+      "sha256": "c934cf32f3f4e20faf2a61055a22803f4851b9309b8a532c272bae2e33de2d00"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_village_board.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-26.txt",
+      "sha256": "68dd10b59c64303c167d2ebf75c36c1cef1d2b1de528e7c9f7349ff2cdb179f8"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_village_trade.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-27.txt",
+      "sha256": "457509cb510b8b8bd0763cbf17e3602aba853b4a5fdad2975f1c012cdcd6fbe0"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_pilot_static.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-28.txt",
+      "sha256": "42d69187bcbbe4c9b37cd95283b4eec9775e1c9e263be3d714c9edf2e7a6957c"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_pilot_pass.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-29.txt",
+      "sha256": "7e8e72e14e788e2edc5c05f0b569b61c10778c7f1bc174e4c71389a980c68a61"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_post_motion.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-30.txt",
+      "sha256": "1720f72e8c8d4d264379158d5ba27df96331040644a0f6f111298c83c1ad4174"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_transient_save.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-31.txt",
+      "sha256": "914d31c5b26880a66593e09869c6320776bc08ca18a9ad6a45333564fc3beb59"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_shadow_inventory.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-32.txt",
+      "sha256": "cd0540bde3fe14f114ffbb5947740615ce4715df61dce4d33484dda9cb19dfe8"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_village_fence.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-33.txt",
+      "sha256": "18201eaf56e0b810093480ae1293105fe8e47751169a627b0f0b1bd494c5faa2"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_village_lamp.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-34.txt",
+      "sha256": "686aedb5a3cd2ca8fefdbac387a453385cf34f591e9fb15df8c1125e481ccdbe"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_shore_kit.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-35.txt",
+      "sha256": "7add364c52350ec083755ac59aa1281b2d0e3cc776f9ade07c9ec40bbce293bc"
+    },
+    {
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/test_water_audit.py"
+      ],
+      "cwd": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/world inputs before foreign ony12xyj",
+      "exit": 0,
+      "log": "before-36.txt",
+      "sha256": "6273232de4d3ef7acd4ecafa5c86beeeb974f56586b21089a2990b3f72facbe6"
+    }
+  ],
+  "foreign_cwd": true,
+  "foreign_Git_overrides": false,
+  "foreign_Git_index_config_unchanged": true,
+  "historical_verifier_commands": 15,
+  "asset_verifier_commands": 6,
+  "old_negative_suites": 15,
+  "actual_owned_Water_writer": {
+    "real_module_main": true,
+    "owned_raw_mirror": true,
+    "raw_input_SHA256": {
+      "before/native-1152.json": "a59a69dc7d825ebcaf9e0f78c89924294f5edfe4ec3fc0965d6b71cd21abace5",
+      "before/native-1920.json": "a39a426940f2d3c66bca4e24b3f0cd12f28e5412f1a165467043ea8eae49b4e0",
+      "before/native-3584.json": "c97450dee6a7f55e32cb413e80d7d4530dd5121c082c151350f445e0b1826be9",
+      "before-f10/native-1152.json": "7d255fdd67587699493fad6be5c4b2cd30eae6ae2ad65a60e603928abb7b7327"
+    },
+    "outputs": {
+      "baseline-analysis.json": {
+        "file": "before-water-baseline-analysis.json",
+        "sha256": "7e6e7606cdfb89ea05eae0334391ae589235ca602be5cb030c08ddc1ccd3163e"
+      },
+      "native-summary.md": {
+        "file": "before-water-native-summary.md",
+        "sha256": "2034b8c94c0597cacf0b74a0d5377314bb44ac8639b4bb498233516619a12702"
+      }
+    },
+    "diagnostic_old_repeats": 48,
+    "native_frames_new": 0,
+    "Game_new": false,
+    "GPU_FPS_admission": false
+  },
+  "Game_new": false,
+  "native_sessions": 0,
+  "GPU_FPS_admission": false,
+  "input_reports_unmodified": true
+}

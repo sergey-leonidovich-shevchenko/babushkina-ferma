@@ -1,0 +1,412 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "assets/build source-root and scanner history preparation",
+  "version": "0.0.364",
+  "base": "8579b883b36dfb94f7f088515863185df0a212f0",
+  "authoritative_gates": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.364",
+      "started_at": "2026-10-27T21:42:50.922660+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T22:04:16.402925+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.364",
+      "started_at": "2026-10-27T22:04:16.404266+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T22:10:56.882601+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.364",
+      "started_at": "2026-10-27T22:10:56.883810+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-27T22:11:51.951937+00:00"
+    }
+  ],
+  "architecture_suites": 87,
+  "architecture_cases": 1204,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "changed_Python": 16,
+  "physical_moves": 0,
+  "root_sources": 481,
+  "user_stop_after_full03": true,
+  "REFACTOR06_started": false,
+  "Task_Complete_added": false,
+  "full_task03_accepted": false,
+  "GPU_FPS_admission": false,
+  "source_SHA256": {
+    ".gitignore": "b99c6c64f98e5d57442d1ba7fe91700cac87b7050c56fb636decdb9f5ed41e67",
+    "QA_CHECKLIST.md": "9b32217aa89d6ae0fa2afa70e5744c83542ae1dad079b09333f7aca7328c4fda",
+    "TESTING.md": "64223d4504279ebcbfc5082743804ad2112e7180f3b2bc49002b527bee1e54b8",
+    "VERSION": "0c5001d126e1a6e9b923b87c28e4020860dece00e3a3bfa3533ad7f32b9a7220",
+    "docs/epics/refactoring-2026-10/TASKS.md": "4ec25d000ddb9b53e3c0ea360d75962a6c4dcd22dbae673510e2e09fef01fd56",
+    "project.godot": "a4d0f69cf717893a676650f9f8b777b82604326bf0f6a9b78065c12bf29060d2",
+    "tools/README.md": "2cf3c063c41cb4e17ceed7482c90100abb214919e4b465aac76396bbac91a4e9",
+    "tools/artist_packet.py": "78a4cb1d85d6c1e97c9ecf1349823b7612384f7641a716aefdaa0edc1ac20b88",
+    "tools/asset_migration.py": "1c34686f0468ceae433c443effce64513d32175d18119709bcd4376cb6eb7770",
+    "tools/asset_report.py": "1083143bc4a9b1c9d6644b169e409e5284004acb4a83425cde8df33b780e49a5",
+    "tools/assets/migration/__init__.py": "3f2f1a5b7883e94b67d4c86357c9b3469e768123c51d2a5f2249a46eab5c94b7",
+    "tools/assets/migration/test_scanner_history.py": "c5bd34e3df78f49e0a3ad6b3f19ee2e6b28af7aec9b9f9913bd318af8bc9a514",
+    "tools/check_sprite_cleanup.py": "a18eff290f50b9e8e5d71a54787db538b2d1bcc22516ae7328ce1a90aa567fc7",
+    "tools/check_world_sprite_manifest.py": "f85e71bea471e087408a96d0331352cd3ebfab3b006cd625d1852f6dea6d7445",
+    "tools/item_sizes.py": "be87558b89f0a3c625acdae7b4ee1907711e45766a2b499f1478947b955a7b27",
+    "tools/migration_fixture.py": "f0572ec053a015cc54eda71749fe7df45f5c2f45e39806e1436c2408da68d4cc",
+    "tools/migration_inventory.py": "4916d16c26de8eedd5388f4814743e431578c85382d6df3f81bd27d2733428ea",
+    "tools/padded_atlases.py": "83bad766bd292038af9fe2e243e19e0a1210f94d05a88a69e4cd3524c898fb2c",
+    "tools/preview_portability.py": "9d3e8d066a7c8ded223898c47bdd9cba2ed71dbaca8b4c721a33769f007c7a49",
+    "tools/quality/check_architecture.sh": "9e37419f767b2285b3cf5616254fd6a7a67b2959068bef2f706cf241ec11ec32",
+    "tools/test_asset_migration.py": "685900ce95bceed4a94b95867b2b030f7ea08295a5dd7ffb5c36c874b1d9d646",
+    "tools/test_migration_proof.py": "61f6bf9df3a83637f4288999aad9b23307b6b04e07840eb530520012f5485021",
+    "tools/texture_intents.py": "87aada6061a9a7658de6638faf5cab82db1cc16f4f4850756e42cb49551d13fa",
+    "tools/visual_icons.py": "e69ae9df9ea9c54bd77ad589769a206e501470904cd5dd068fcad692bc341762",
+    "tools/visual_pipeline.py": "6ee0ba6e69a83c1416bb44f3e036486dc2ffed01d17aead44f2ab5181f56e221",
+    "tools/visual_resources.py": "437a62906b84a2a38072dedb31f43f5bcd2ee36068954677a0b0e0e0a0339fe0",
+    "wiki/articles/project-refactoring.md": "d8f79c7f47f21418a878f2ba25454e1af4f4f397fd83647f618532e8acec121b",
+    "Бабушкина ферма.app/Contents/Info.plist": "457d03c9a7c90f7a5b1bd5c0b52f01c93f6a90c48135bd6633a2c3381031fdec"
+  },
+  "report_files": [
+    {
+      "path": "README.md",
+      "sha256": "c2dae7a27885a84cedc34ab4a5432e81099457347a08ea7034458796e1b613f9",
+      "bytes": 8013
+    },
+    {
+      "path": "audit-01.txt",
+      "sha256": "8fdd069eac2dd31243ad7241133d3c2612a2517b3e0003988048aad694583237",
+      "bytes": 73
+    },
+    {
+      "path": "audit-final.txt",
+      "sha256": "8fdd069eac2dd31243ad7241133d3c2612a2517b3e0003988048aad694583237",
+      "bytes": 73
+    },
+    {
+      "path": "audit-seal.txt",
+      "sha256": "8fdd069eac2dd31243ad7241133d3c2612a2517b3e0003988048aad694583237",
+      "bytes": 73
+    },
+    {
+      "path": "audit.py",
+      "sha256": "ef765d6b7172f34b890957dd219fe76cda1399f238b393c50adb947f46208f61",
+      "bytes": 6252
+    },
+    {
+      "path": "baseline/ci-363-final.json",
+      "sha256": "c6ba026214055f36cc912f83800f3e7f0630c26373aeaa0403c91ad011f9ea16",
+      "bytes": 3326
+    },
+    {
+      "path": "baseline/ci-363-initial.json",
+      "sha256": "ba2d9b578d5c566b6e6b7381de64b8fd1b08b9fa6c281f97206bec5833e2203d",
+      "bytes": 3316
+    },
+    {
+      "path": "baseline/ci-363-review.json",
+      "sha256": "106f70b2068b9681c483241e49d797d262063d95a340b35fcca6ec423cae1c76",
+      "bytes": 2120
+    },
+    {
+      "path": "baseline/review-363.json",
+      "sha256": "9471cf7f2b058da40f1e66526ae38ee50e0251aac9f2274297f2bf8fa8528d39",
+      "bytes": 31688
+    },
+    {
+      "path": "baseline/sources.json",
+      "sha256": "9e4a66de1eb280780d4bcb7b7c936d96cff9dfd40151f9a7c619093a493c2a46",
+      "bytes": 2645
+    },
+    {
+      "path": "baseline/team-decision-363.json",
+      "sha256": "35558d681db92e2cce065fd6523a486bdab2b3d817b886d6ed897563f0a1be5f",
+      "bytes": 705
+    },
+    {
+      "path": "browser-article.json",
+      "sha256": "53986c0fa5321a8a88921038ceb97953b38eed39b556300e09f14ea0a33a3d18",
+      "bytes": 45129
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "2abadbb67b2ee6637556ffba48aab30709f072af71f711f27d8337ce7cf6e89d",
+      "bytes": 179
+    },
+    {
+      "path": "browser-desktop.png",
+      "sha256": "6b37dc292ee4d8a7c7a05abc5c98f6e7a5af21346ef82b6adad5ffcce49c2cfb",
+      "bytes": 191267
+    },
+    {
+      "path": "browser-mobile.json",
+      "sha256": "4e25c4dd3ba0536079d743c483e4af26e638552c3ac1e9ff5178beeeb1c4645c",
+      "bytes": 41
+    },
+    {
+      "path": "browser-mobile.png",
+      "sha256": "7977b652a0b109c3f9a35c4865a6366f01c595f76a42ee75eef86144ca054ae9",
+      "bytes": 60275
+    },
+    {
+      "path": "browser-route.json",
+      "sha256": "003d99a2cd7f67bc63985f858591889c8042ab659bd6dcd7f49db9976e7c154a",
+      "bytes": 61250
+    },
+    {
+      "path": "browser-task03.json",
+      "sha256": "f3e8586de28e856de630f6e057ccd48e560853a657f988a36e7c502306f15dca",
+      "bytes": 10532
+    },
+    {
+      "path": "catalog-check.mjs",
+      "sha256": "91c1598eddd4a814d1616917bbe84389d330b3da883a10fd5f9023e14479ae93",
+      "bytes": 2048
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "b37a66711a9e0a5c036e6c4b37baf97e752e824875485d5faac7ab041e4f0f30",
+      "bytes": 335
+    },
+    {
+      "path": "docs-01.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "bytes": 105
+    },
+    {
+      "path": "docs-final.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "bytes": 105
+    },
+    {
+      "path": "docs-seal.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "bytes": 105
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "4e8aef2f2ac312ca5929150a0d039369d5248c39546adefadb9aa2f04e64cb94",
+      "bytes": 13215
+    },
+    {
+      "path": "gates-01/game.txt",
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+      "bytes": 1804
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "198bf6a669299d679b6e336070dcbdd40e7234f9ef9bb3d2c0bc8e577ad6d577",
+      "bytes": 733
+    },
+    {
+      "path": "gates-01/headless/f10/engine.txt",
+      "sha256": "518901ca66dbb39e95866747cd31a64c2668e79eda641d20e26b9da2c2b50ab2",
+      "bytes": 11028
+    },
+    {
+      "path": "gates-01/headless/f10/frames.jsonl",
+      "sha256": "798a06050f61345802ed52ffd2cf8bab795de80ff599ec73af2035179a1241cb",
+      "bytes": 9137
+    },
+    {
+      "path": "gates-01/headless/f10/summary.json",
+      "sha256": "0a27501c55bc9edc7f94aa4fca6f866f34c25e4c44c7ab2dba28088ca939e509",
+      "bytes": 1743
+    },
+    {
+      "path": "gates-01/headless/normal/engine.txt",
+      "sha256": "ba4b7b3a280ff6e229f9f8f73497278fbbf7c44d79393c5d6c3776aee0b2f742",
+      "bytes": 11052
+    },
+    {
+      "path": "gates-01/headless/normal/frames.jsonl",
+      "sha256": "9913d57ff53b18969d64635ea0886dc2679ec9c0f0f3cc7aeca2341edd7c5e6c",
+      "bytes": 9158
+    },
+    {
+      "path": "gates-01/headless/normal/summary.json",
+      "sha256": "09ddaf1e8caf7b6b7ab69638abfa758da8248071066b47d0c3cfb79a1b002af3",
+      "bytes": 1746
+    },
+    {
+      "path": "gates-01/wiki.txt",
+      "sha256": "7e69821cbbe059eae34ff75fb674c19821da5a3eeb186763a39775146750c414",
+      "bytes": 13804
+    },
+    {
+      "path": "inputs/QA_CHECKLIST.md.gz",
+      "sha256": "9368dd6e5b954a17893c07c3692f151ee629cbc67856a492648455d9e2dbed38",
+      "bytes": 112927
+    },
+    {
+      "path": "inputs/TESTING.md.gz",
+      "sha256": "769d3765898f869f4ffc8ec16517f016df8322cb178b9cb1c6123529dd4c1d4e",
+      "bytes": 42879
+    },
+    {
+      "path": "inputs/artist_packet.py.gz",
+      "sha256": "b9508e47ad63ec0621ce4fb8579e5eac8080da6fa7a6909ba28b93128afc46c8",
+      "bytes": 3931
+    },
+    {
+      "path": "inputs/asset_migration.py.gz",
+      "sha256": "b1438088d37c96b36ac37f09b53a516491f89c1a9c2ecd997993918474692604",
+      "bytes": 3962
+    },
+    {
+      "path": "inputs/asset_report.py.gz",
+      "sha256": "bacf67f5ea76f1003ff755f194d634e4d546249d507b7464f684fb9846be8415",
+      "bytes": 4942
+    },
+    {
+      "path": "inputs/check_sprite_cleanup.py.gz",
+      "sha256": "02846ed75414c3b63fca29cad64d22db77eef3b56060f13b0892ed5af2d292eb",
+      "bytes": 2354
+    },
+    {
+      "path": "inputs/check_world_sprite_manifest.py.gz",
+      "sha256": "48b7c95ede4b36f19608e70da2a43773acf60c69ee10d3e238aae37c4041e9cb",
+      "bytes": 3923
+    },
+    {
+      "path": "inputs/docs--epics--refactoring-2026-10--TASKS.md.gz",
+      "sha256": "c8d7124011f411e3434f609e16a1cd94864ec8cb8e03868e4c7cca62718881e9",
+      "bytes": 6929
+    },
+    {
+      "path": "inputs/item_sizes.py.gz",
+      "sha256": "56a5d6c7149b4f691ecd2fcb9b162b032625361714f3a59a9aa8d4c718afa49a",
+      "bytes": 3713
+    },
+    {
+      "path": "inputs/migration_fixture.py.gz",
+      "sha256": "ae4d50f68482ac3ac394dcd81941a9ec081ee0c79c85c28ad0453ed3046c2b1c",
+      "bytes": 2686
+    },
+    {
+      "path": "inputs/migration_inventory.py.gz",
+      "sha256": "9c3e186cd7f3126c8a969521c4bd99f0238f066a5e79130b3d9f458273dcc8a4",
+      "bytes": 3281
+    },
+    {
+      "path": "inputs/padded_atlases.py.gz",
+      "sha256": "e44e4617bd2e124534b08af1970b6e44d72e7c9c84f637d7b4576d4aadb5d3fe",
+      "bytes": 4817
+    },
+    {
+      "path": "inputs/preview_portability.py.gz",
+      "sha256": "a080ed19c4fece6ee14a373b0d66d2bcf846d394a6023e557749ca4371de350b",
+      "bytes": 5864
+    },
+    {
+      "path": "inputs/test_asset_migration.py.gz",
+      "sha256": "3e5a39363d6f4f7ffd56432cbc47aedd7a8e4ccec7d7e708f4bfe96c4d58aed2",
+      "bytes": 4389
+    },
+    {
+      "path": "inputs/test_migration_proof.py.gz",
+      "sha256": "b4e170f55fd0509fdd96e428c4cb11c528427cd6eaf2a4b946589eb9214604ad",
+      "bytes": 2859
+    },
+    {
+      "path": "inputs/texture_intents.py.gz",
+      "sha256": "3a850aae7d270c3e11ab21b3f321bc595d8fe1eb03a638e83f899135568b4fe9",
+      "bytes": 6100
+    },
+    {
+      "path": "inputs/tools--README.md.gz",
+      "sha256": "8a85c54291057f7b82c7a36c2b7198651aed822e7f94ee99a4c84440ef5bca26",
+      "bytes": 3683
+    },
+    {
+      "path": "inputs/visual_icons.py.gz",
+      "sha256": "503355ec16db97408e33fca710aa577d361e86abfb0c49ea1517a6be64edc7da",
+      "bytes": 3353
+    },
+    {
+      "path": "inputs/visual_pipeline.py.gz",
+      "sha256": "5486ba6c25c0fe6a3eb186d6d9f750dc1f6c494b159cfc6ab70f9859d4a48661",
+      "bytes": 3828
+    },
+    {
+      "path": "inputs/visual_resources.py.gz",
+      "sha256": "4b14af43cc625282c205e307d2ac8ed8c5cddba44923951fbd3597c4b9f5c954",
+      "bytes": 4115
+    },
+    {
+      "path": "inputs/wiki--articles--project-refactoring.md.gz",
+      "sha256": "17840f4f9118d602205b94c324d4d3ada26de60cd0be6387031378e7edd3aad8",
+      "bytes": 6275
+    },
+    {
+      "path": "output-guards.json",
+      "sha256": "8f19a0210fe32dc0daecaa5cd87f8e2afe40b13246475dfe12b4c830be3d0dde",
+      "bytes": 1321
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "52b71ea5d3468e7603e669163ef79befc4e02dd5d2614d73a631462eaf69e2e0",
+      "bytes": 1882
+    },
+    {
+      "path": "profile-01.txt",
+      "sha256": "7b3e7cc7dccd2cfb4c0fef5423e8790eb2481b3b8e450fc83d7a3eb016b09ad3",
+      "bytes": 138
+    },
+    {
+      "path": "profile.json",
+      "sha256": "1cbdc950721d1bf132b61aca02e9a4948fa1eda2197f354f1d0a7b1bec4d394c",
+      "bytes": 64628
+    },
+    {
+      "path": "profile.py",
+      "sha256": "9ac2e68f5fd56fb48dbe652143c170a9168c4842446b6483428d19ad937abf1a",
+      "bytes": 11569
+    },
+    {
+      "path": "roots.json",
+      "sha256": "6a2e7bf23b3325bf3ac8eadb2368325ac42a488bb285a27e8beb4e79edf03dcf",
+      "bytes": 4118
+    },
+    {
+      "path": "scanner-tests-01.txt",
+      "sha256": "90ab512dc4b9747171d103d5881dc343e1ec43dcf5833c683b0f5f31246fc44e",
+      "bytes": 1797
+    },
+    {
+      "path": "scope.json",
+      "sha256": "8d9e21ebe4ad24735578366a6214462c338912462200df9dac8c87cd501db67a",
+      "bytes": 1484
+    },
+    {
+      "path": "seal.py",
+      "sha256": "fdf6ddd1ab2a01bec52a6e45b7e7516d7c60a6eeea1e57d47d8b89a30de153af",
+      "bytes": 2651
+    },
+    {
+      "path": "server-cleanup.json",
+      "sha256": "fa756b811692df0cb46f1a291fe15ddb19878d076465758bc55bdeda7771a08a",
+      "bytes": 183
+    },
+    {
+      "path": "update_docs.py",
+      "sha256": "8c7d26c3976b36bcafd0eec9b4d11c6ce8ebe03d738fe0d93a240a173b6258d6",
+      "bytes": 6525
+    }
+  ]
+}

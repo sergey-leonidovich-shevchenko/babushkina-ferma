@@ -1,0 +1,21 @@
+{
+  "previous_source_reconstructed_and_verified_against_first_profile": "5ab8934fb7b15750fe3dd74359c2a7d25f450ebeaafb1f1eac941d5a1d481da2",
+  "current_source_sha256": "6118fd46b26856cdf951076b586b1dc7e7fc31d15260008f1b0cc4222f05017f",
+  "test_source_sha256": "7149f13b2e4757a131d54bcc7f87c1734449a2012bca86202658fc48735e2b61",
+  "manifest_unchanged": true,
+  "source_commit": "ed38d94c01490c4e39b8be949887220f2c810d75",
+  "reference": {
+    "file": "docs/VISUAL_RESOURCE_FORMAT.md",
+    "sha256": "7e2d74958404d19f35c6c3f38269f7ad1e97aa4ec56fc3e7e5eb12342f5c2d82"
+  },
+  "red": {
+    "exit": 1,
+    "tests": 16,
+    "failures": 4
+  },
+  "green": {
+    "exit": 0,
+    "tests": 16,
+    "failures": 0
+  }
+}

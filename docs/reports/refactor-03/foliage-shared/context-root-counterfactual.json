@@ -1,0 +1,36 @@
+{
+  "purpose": "Replay only the four old ROOT expressions with corrected child imports on disposable copies.",
+  "child_is_installed_test_child": true,
+  "rows": [
+    {
+      "module": "foliage_wind_verify",
+      "actual_child_exit": 0,
+      "old_expression_reports_tools_qa_not_project": true,
+      "only_copy_changed": true,
+      "source_SHA256": "3278992aac249c65d08305e4773e3fe6d8f110ea368b1509e0765d855f9e14b9"
+    },
+    {
+      "module": "foliage_pause_verify",
+      "actual_child_exit": 0,
+      "old_expression_reports_tools_qa_not_project": true,
+      "only_copy_changed": true,
+      "source_SHA256": "0bdd25554d8fc4bdfb95b7ed30c7127ced40da18989376004f2dbf6692e13ec5"
+    },
+    {
+      "module": "foliage_visibility_evidence",
+      "actual_child_exit": 0,
+      "old_expression_reports_tools_qa_not_project": true,
+      "only_copy_changed": true,
+      "source_SHA256": "7569c07e1839e3aaa3cce16f6d88eecb11435d5a58284eee98b8bb408409439f"
+    },
+    {
+      "module": "plant_depth_verify",
+      "actual_child_exit": 0,
+      "old_expression_reports_tools_qa_not_project": true,
+      "only_copy_changed": true,
+      "source_SHA256": "a5116537b1ccb965fed4bd6e623868a041c5b123fe7407ba27196ed4f88dcd4a"
+    }
+  ],
+  "not_a_parent_whole_suite_replay": true,
+  "test_assertions_removed": 0
+}

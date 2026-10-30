@@ -1,0 +1,27 @@
+[
+  {
+    "path": "QA_CHECKLIST.md",
+    "before_sha256": "737cf4c3b6b1c24132e77462066e6dcd0406ee1a8bb2c6cfdb3b28fe20c48093",
+    "after_sha256": "50b35a5d9a46ff63ecb21de3674ae96f4b4ebce1e4154dedffc2c5b7ae5cf36e"
+  },
+  {
+    "path": "TESTING.md",
+    "before_sha256": "59da2d92b6893b4562f20547618a2af40d49124f256fb655a40e9270f482c412",
+    "after_sha256": "135ad3b5a085a1211bbee46536b3a77e3008f92a24a9f36fe778145553ea7fb5"
+  },
+  {
+    "path": "docs/DEVELOPMENT.md",
+    "before_sha256": "e1fb69dc840a72826dbc823de5d7ae48fe5c486c2b39b5c6d8488ee8846cb5d6",
+    "after_sha256": "a08b6f30e4b682a0bc4317a3cd07cb25caf02c35acf447dbd511da2e982fcd31"
+  },
+  {
+    "path": "docs/epics/visual-overhaul-2026-10/backlog.json",
+    "before_sha256": "b1934d14272b4a7c2c280b6e7a0d33c790e60bbf2f3e132c3dd84f52d4f87426",
+    "after_sha256": "8d897788490d339ef7fb391843e75d5def11f0ac46723ba1c1853ffeb7267576"
+  },
+  {
+    "path": "docs/epics/visual-overhaul-2026-10/epics/vart.md",
+    "before_sha256": "6266a630034bb19a0427e5338fa7f7b3b6e4280d7391d1d057f20e3e8041bf20",
+    "after_sha256": "e29a438300fefe519e9a315e6a6103f5742f51d7c540f2f6db6d4bd22cf2e22b"
+  }
+]

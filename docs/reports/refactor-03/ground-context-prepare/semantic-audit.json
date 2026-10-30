@@ -1,0 +1,92 @@
+[
+  {
+    "path": "tools/axial_road_collect.py",
+    "only_clean_env_and_import": true,
+    "calls": 1
+  },
+  {
+    "path": "tools/axial_road_verify.py",
+    "only_clean_env_and_import": true,
+    "calls": 2
+  },
+  {
+    "path": "tools/decoration_collect.py",
+    "only_clean_env_and_import": true,
+    "calls": 1
+  },
+  {
+    "path": "tools/decoration_verify.py",
+    "only_clean_env_and_import": true,
+    "calls": 2
+  },
+  {
+    "path": "tools/garden_collect.py",
+    "only_clean_env_and_import": true,
+    "calls": 1
+  },
+  {
+    "path": "tools/garden_verify.py",
+    "only_clean_env_and_import": true,
+    "calls": 2
+  },
+  {
+    "path": "tools/ground_edge_collect.py",
+    "only_clean_env_and_import": true,
+    "calls": 1
+  },
+  {
+    "path": "tools/ground_edge_verify.py",
+    "only_clean_env_and_import": true,
+    "calls": 2
+  },
+  {
+    "path": "tools/ground_seasons_collect.py",
+    "only_clean_env_and_import": true,
+    "calls": 1
+  },
+  {
+    "path": "tools/ground_seasons_verify.py",
+    "only_clean_env_and_import": true,
+    "calls": 2
+  },
+  {
+    "path": "tools/meadow_collect.py",
+    "only_clean_env_and_import": true,
+    "calls": 1
+  },
+  {
+    "path": "tools/meadow_verify.py",
+    "only_clean_env_and_import": true,
+    "calls": 2
+  },
+  {
+    "path": "tools/plaza_collect.py",
+    "only_clean_env_and_import": true,
+    "calls": 1
+  },
+  {
+    "path": "tools/plaza_verify.py",
+    "only_clean_env_and_import": true,
+    "calls": 2
+  },
+  {
+    "path": "tools/road_network_collect.py",
+    "only_clean_env_and_import": true,
+    "calls": 1
+  },
+  {
+    "path": "tools/road_network_verify.py",
+    "only_clean_env_and_import": true,
+    "calls": 2
+  },
+  {
+    "path": "tools/terrain_revision_collect.py",
+    "only_clean_env_and_import": true,
+    "calls": 1
+  },
+  {
+    "path": "tools/terrain_revision_verify.py",
+    "only_clean_env_and_import": true,
+    "calls": 3
+  }
+]

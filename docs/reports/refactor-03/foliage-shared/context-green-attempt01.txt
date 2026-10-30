@@ -1,0 +1,69 @@
+.FFFF.........
+======================================================================
+FAIL: test_four_actual_nested_source_roots (__main__.FoliageContextTests.test_four_actual_nested_source_roots) (module='foliage_wind_verify')
+Run real copied modules in a separate process; dependencies/Git are never mocked.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/foliage/test_foliage_context.py", line 101, in test_four_actual_nested_source_roots
+    self.assertEqual(result.returncode,0,result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/foliage nested project rrugkwtk/tools/qa/foliage/foliage_wind_verify.py", line 3, in <module>
+    from tools.common.git import git_environment
+ModuleNotFoundError: No module named 'tools.common'
+
+
+======================================================================
+FAIL: test_four_actual_nested_source_roots (__main__.FoliageContextTests.test_four_actual_nested_source_roots) (module='foliage_pause_verify')
+Run real copied modules in a separate process; dependencies/Git are never mocked.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/foliage/test_foliage_context.py", line 101, in test_four_actual_nested_source_roots
+    self.assertEqual(result.returncode,0,result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/foliage nested project rrugkwtk/tools/qa/foliage/foliage_pause_verify.py", line 5, in <module>
+    from tools.common.git import git_environment
+ModuleNotFoundError: No module named 'tools.common'
+
+
+======================================================================
+FAIL: test_four_actual_nested_source_roots (__main__.FoliageContextTests.test_four_actual_nested_source_roots) (module='foliage_visibility_evidence')
+Run real copied modules in a separate process; dependencies/Git are never mocked.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/foliage/test_foliage_context.py", line 101, in test_four_actual_nested_source_roots
+    self.assertEqual(result.returncode,0,result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/foliage nested project rrugkwtk/tools/qa/foliage/foliage_visibility_evidence.py", line 4, in <module>
+    from tools.common.paths import project_root
+ModuleNotFoundError: No module named 'tools.common'
+
+
+======================================================================
+FAIL: test_four_actual_nested_source_roots (__main__.FoliageContextTests.test_four_actual_nested_source_roots) (module='plant_depth_verify')
+Run real copied modules in a separate process; dependencies/Git are never mocked.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/foliage/test_foliage_context.py", line 101, in test_four_actual_nested_source_roots
+    self.assertEqual(result.returncode,0,result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/foliage nested project rrugkwtk/tools/qa/foliage/plant_depth_verify.py", line 3, in <module>
+    from tools.common.paths import project_root
+ModuleNotFoundError: No module named 'tools.common'
+
+
+----------------------------------------------------------------------
+Ran 11 tests in 231.140s
+
+FAILED (failures=4)

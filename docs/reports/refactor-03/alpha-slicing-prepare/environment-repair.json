@@ -1,0 +1,15 @@
+{
+  "first_gate": "gates-01",
+  "first_exit": 1,
+  "first_completed_suites": 80,
+  "first_completed_cases": 1109,
+  "cause": "initial Godot import absent in new QA worktree",
+  "initial_editor_import_log": "qa-fresh-import-01.txt",
+  "editor_exit_not_separately_recorded": true,
+  "editor_log_has_no_engine_errors": true,
+  "subsequent_real_slice_export_exit": 0,
+  "subsequent_export_log": "qa-export-after-import-01.txt",
+  "frames": 5603,
+  "reader_sources_unchanged": true,
+  "authoritative_retry": "gates-02"
+}

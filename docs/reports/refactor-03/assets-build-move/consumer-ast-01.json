@@ -1,0 +1,30 @@
+[
+  {
+    "path": "tools/alpha_audit.py",
+    "equal_except_declared_adapters": true
+  },
+  {
+    "path": "tools/slice_audit.py",
+    "equal_except_declared_adapters": true
+  },
+  {
+    "path": "tools/test_alpha_audit.py",
+    "equal_except_declared_adapters": true
+  },
+  {
+    "path": "tools/shore_kit.py",
+    "equal_except_declared_adapters": true
+  },
+  {
+    "path": "tools/planning/pilot_rollout.py",
+    "equal_except_declared_adapters": true
+  },
+  {
+    "path": "tools/build/test_asset_report_history.py",
+    "equal_except_declared_adapters": true
+  },
+  {
+    "path": "tools/assets/migration/test_scanner_history.py",
+    "equal_except_declared_adapters": true
+  }
+]

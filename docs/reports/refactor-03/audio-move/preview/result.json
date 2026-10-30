@@ -1,0 +1,131 @@
+{
+  "prototype_only_not_implemented": true,
+  "head": "5ba619a3f2ce39845b4b71eee34d267ead05201e",
+  "AST_algorithms_preserved": true,
+  "sources": {
+    "audio_composer": {
+      "old": "d067fb5c1cb9d847602dc06be7884fa5ddeb39c1365d3f48ee1f07341325176b",
+      "prepared": "564e731555846dfcf79c1196cebe85c22223a83697819a6f63bb0be28131bc15"
+    },
+    "audio_sound_effects": {
+      "old": "634bc713e33610e4ce21d2a35c182427537bfc5c533d06676b8de78670501941",
+      "prepared": "e55e28c030ea184b8a04b38731b220c29eca7111d897a5d152a9a3142a014c8c"
+    },
+    "audit_audio_assets": {
+      "old": "1836a33c695b0e85aaa335caa426d982da5256e38def40793ec9334fdeef52b6",
+      "prepared": "b1a31e64fb5b9aa9ed5a3065899652a405d9852e608d3c39e8a988d53dc1742b"
+    },
+    "generate_audio_assets": {
+      "old": "7ee569d6c1bed1c0501afaf441fb09f29fba6c7e14c8c509afe6e07458472332",
+      "prepared": "e5e405e9136db38a662a3fb5a898a0c6b4261fed2bd185d82611e4ee80911673"
+    }
+  },
+  "old_new_equal": {
+    "old": {
+      "audit_sha256": "cf3b7d6bcb3dfc843b23e9c55139e95c0b17c74dc4c331f147721f848e8b3bf5",
+      "files": 33,
+      "checks": 201,
+      "samples": {
+        "PCM16": "17b6d9250acf245ca65f2e67415176624d0112bea5e49057c820c5f537cd0f08",
+        "clipped_export_rejected": true,
+        "door_close": "fdce3c0eda1630e32bd4a2f6d014c6583dce188ff3a8e90f407bfecd10ca8555",
+        "door_open": "f57d52d28cb5725f64a800f8d46f1d1c8fcffb37901cf0701eb5798e7fed3bfc",
+        "flute": "cd082f2f4a8e497133cf5ecc563cd92f5981bab935be7e513b17d405e1862161",
+        "guitar": "5b19ff5fe16af779e4e4c65b2a8b20186b452b55662eb70e6138d246a619c450",
+        "noise": "810a75e325bf669ce42265b3091c0bf8305e48ce6f18a5f3bc9318ef8a434038",
+        "pad": "78af9410627fe7e280d7b90b55c863b20c84ca56399d736649bc2ffed6affd36",
+        "piano": "e5472e098d59cba7796fbe67d4ca44735c883ec1811a90fec08ffda525aae021"
+      }
+    },
+    "new": {
+      "audit_sha256": "cf3b7d6bcb3dfc843b23e9c55139e95c0b17c74dc4c331f147721f848e8b3bf5",
+      "files": 33,
+      "checks": 201,
+      "samples": {
+        "PCM16": "17b6d9250acf245ca65f2e67415176624d0112bea5e49057c820c5f537cd0f08",
+        "clipped_export_rejected": true,
+        "door_close": "fdce3c0eda1630e32bd4a2f6d014c6583dce188ff3a8e90f407bfecd10ca8555",
+        "door_open": "f57d52d28cb5725f64a800f8d46f1d1c8fcffb37901cf0701eb5798e7fed3bfc",
+        "flute": "cd082f2f4a8e497133cf5ecc563cd92f5981bab935be7e513b17d405e1862161",
+        "guitar": "5b19ff5fe16af779e4e4c65b2a8b20186b452b55662eb70e6138d246a619c450",
+        "noise": "810a75e325bf669ce42265b3091c0bf8305e48ce6f18a5f3bc9318ef8a434038",
+        "pad": "78af9410627fe7e280d7b90b55c863b20c84ca56399d736649bc2ffed6affd36",
+        "piano": "e5472e098d59cba7796fbe67d4ca44735c883ec1811a90fec08ffda525aae021"
+      }
+    }
+  },
+  "CLI_calls": [
+    {
+      "mode": "old",
+      "case": "actual audit CLI, hostile cwd/PYTHONPATH/GIT",
+      "exit": 0,
+      "stdout": "AUDIO AUDIT: 33 files, 201 checks, 0 failures\n",
+      "stderr": ""
+    },
+    {
+      "mode": "old",
+      "case": "invalid header",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/old project/tools/audit_audio_assets.py\", line 73, in <module>\n    audit_library()\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/old project/tools/audit_audio_assets.py\", line 43, in audit_library\n    records = [measure(path) for path in paths]\n               ^^^^^^^^^^^^^\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/old project/tools/audit_audio_assets.py\", line 20, in measure\n    with wave.open(str(path), \"rb\") as source:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/sergeyshevchenko/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/wave.py\", line 649, in open\n    return Wave_read(f)\n           ^^^^^^^^^^^^\n  File \"/Users/sergeyshevchenko/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/wave.py\", line 286, in __init__\n    self.initfp(f)\n  File \"/Users/sergeyshevchenko/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/wave.py\", line 253, in initfp\n    raise Error('file does not start with RIFF id')\nwave.Error: file does not start with RIFF id\n"
+    },
+    {
+      "mode": "old",
+      "case": "PCM8",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/old project/tools/audit_audio_assets.py\", line 73, in <module>\n    audit_library()\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/old project/tools/audit_audio_assets.py\", line 43, in audit_library\n    records = [measure(path) for path in paths]\n               ^^^^^^^^^^^^^\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/old project/tools/audit_audio_assets.py\", line 21, in measure\n    assert source.getsampwidth() == 2, f\"Expected PCM16: {path}\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Expected PCM16: /private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/old project/assets/game/audio/sfx/ui_focus.wav\n"
+    },
+    {
+      "mode": "old",
+      "case": "clipping",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/old project/tools/audit_audio_assets.py\", line 73, in <module>\n    audit_library()\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/old project/tools/audit_audio_assets.py\", line 62, in audit_library\n    assert report[\"conservative_full_mix_peak\"] < 0.99, \"Six effects and crossfading music exceed safe headroom\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Six effects and crossfading music exceed safe headroom\n"
+    },
+    {
+      "mode": "old",
+      "case": "wrong rate",
+      "exit": 1,
+      "stdout": "AUDIO AUDIT: 33 files, 201 checks, 1 failures\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/old project/tools/audit_audio_assets.py\", line 73, in <module>\n    audit_library()\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/old project/tools/audit_audio_assets.py\", line 68, in audit_library\n    assert not failures, \"\\n\".join(failures)\n           ^^^^^^^^^^^^\nAssertionError: assets/game/audio/sfx/ui_focus.wav: sample_rate\n"
+    },
+    {
+      "mode": "new",
+      "case": "actual audit CLI, hostile cwd/PYTHONPATH/GIT",
+      "exit": 0,
+      "stdout": "AUDIO AUDIT: 33 files, 201 checks, 0 failures\n",
+      "stderr": ""
+    },
+    {
+      "mode": "new",
+      "case": "invalid header",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/run.py\", line 10, in <module>\n    main()\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/common/launch.py\", line 60, in main\n    runpy.run_module(target, run_name=\"__main__\", alter_sys=True)\n  File \"<frozen runpy>\", line 226, in run_module\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/assets/audio/audit_audio_assets.py\", line 73, in <module>\n    audit_library()\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/assets/audio/audit_audio_assets.py\", line 43, in audit_library\n    records = [measure(path) for path in paths]\n               ^^^^^^^^^^^^^\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/assets/audio/audit_audio_assets.py\", line 20, in measure\n    with wave.open(str(path), \"rb\") as source:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/sergeyshevchenko/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/wave.py\", line 649, in open\n    return Wave_read(f)\n           ^^^^^^^^^^^^\n  File \"/Users/sergeyshevchenko/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/wave.py\", line 286, in __init__\n    self.initfp(f)\n  File \"/Users/sergeyshevchenko/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/wave.py\", line 253, in initfp\n    raise Error('file does not start with RIFF id')\nwave.Error: file does not start with RIFF id\n"
+    },
+    {
+      "mode": "new",
+      "case": "PCM8",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/run.py\", line 10, in <module>\n    main()\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/common/launch.py\", line 60, in main\n    runpy.run_module(target, run_name=\"__main__\", alter_sys=True)\n  File \"<frozen runpy>\", line 226, in run_module\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/assets/audio/audit_audio_assets.py\", line 73, in <module>\n    audit_library()\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/assets/audio/audit_audio_assets.py\", line 43, in audit_library\n    records = [measure(path) for path in paths]\n               ^^^^^^^^^^^^^\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/assets/audio/audit_audio_assets.py\", line 21, in measure\n    assert source.getsampwidth() == 2, f\"Expected PCM16: {path}\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Expected PCM16: /private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/assets/game/audio/sfx/ui_focus.wav\n"
+    },
+    {
+      "mode": "new",
+      "case": "clipping",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/run.py\", line 10, in <module>\n    main()\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/common/launch.py\", line 60, in main\n    runpy.run_module(target, run_name=\"__main__\", alter_sys=True)\n  File \"<frozen runpy>\", line 226, in run_module\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/assets/audio/audit_audio_assets.py\", line 73, in <module>\n    audit_library()\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/assets/audio/audit_audio_assets.py\", line 62, in audit_library\n    assert report[\"conservative_full_mix_peak\"] < 0.99, \"Six effects and crossfading music exceed safe headroom\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Six effects and crossfading music exceed safe headroom\n"
+    },
+    {
+      "mode": "new",
+      "case": "wrong rate",
+      "exit": 1,
+      "stdout": "AUDIO AUDIT: 33 files, 201 checks, 1 failures\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/run.py\", line 10, in <module>\n    main()\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/common/launch.py\", line 60, in main\n    runpy.run_module(target, run_name=\"__main__\", alter_sys=True)\n  File \"<frozen runpy>\", line 226, in run_module\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/assets/audio/audit_audio_assets.py\", line 73, in <module>\n    audit_library()\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/audio move preview with spaces m7w7mobd/new project/tools/assets/audio/audit_audio_assets.py\", line 68, in audit_library\n    assert not failures, \"\\n\".join(failures)\n           ^^^^^^^^^^^^\nAssertionError: assets/game/audio/sfx/ui_focus.wav: sample_rate\n"
+    }
+  ],
+  "original_WAV_unchanged": 36,
+  "temporary_removed": true
+}

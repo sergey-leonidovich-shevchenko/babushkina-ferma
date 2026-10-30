@@ -1,0 +1,18 @@
+...............F.
+======================================================================
+FAIL: test_stored_symlink_is_not_a_source_blob (__main__.HistoryTests.test_stored_symlink_is_not_a_source_blob)
+Даже верный SHA текста symlink не превращает его в обычный исходник.
+----------------------------------------------------------------------
+ValueError: historical source cannot follow a working-tree symlink
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/common/test_history.py", line 102, in test_stored_symlink_is_not_a_source_blob
+    with self.assertRaisesRegex(ValueError, 'regular file'):
+AssertionError: "regular file" does not match "historical source cannot follow a working-tree symlink"
+
+----------------------------------------------------------------------
+Ran 17 tests in 4.920s
+
+FAILED (failures=1)

@@ -1,0 +1,17 @@
+{
+  "version": "0.0.357",
+  "source_public_dist_equal": true,
+  "history": 83,
+  "unknown": 20,
+  "accepted_VMAP": false,
+  "active": [
+    "refactoring--REFACTOR-03",
+    "wiki--IDEA-REVIEW-20261024"
+  ],
+  "states": {
+    "02": "done",
+    "03": "in_progress",
+    "06": "blocked"
+  },
+  "article_summary": "REFACTOR-02 и его учёт PR19 приняты. REFACTOR-03 в работе: тематические пакеты tools с сохранением команд, UID и исторических доказательств. Итоговый root-бюджет и REFACTOR-06 ещё не приняты."
+}

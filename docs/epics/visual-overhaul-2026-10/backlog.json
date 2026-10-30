@@ -880,8 +880,8 @@
         "docs/reports/visual-overhaul/vart-005/source.json",
         "docs/reports/visual-overhaul/vart-005/browser-check.json",
         "docs/reports/visual-overhaul/vart-005/browser-artifacts.json",
-        "tools/visual_edges.py",
-        "tools/test_visual_edges.py",
+        "tools/qa/art/visual_edges.py",
+        "tools/qa/art/test_visual_edges.py",
         "17 октября 2026: прямой ответ пользователя «A — естественный край (рекомендую)»; принят стандарт без общей дополнительной обводки. Шесть модулей одного RGBA-мастера, A/B × четыре фона, неизменные область 1152×648, поле 960×540 и проекция 1.2. Это браузерная художественная приёмка; runtime и assets/game не менялись."
       ]
     },
@@ -934,9 +934,9 @@
         "docs/reports/visual-overhaul/vart-006/browser-check.json",
         "docs/reports/visual-overhaul/vart-006/native/capture.json",
         "docs/reports/visual-overhaul/vart-006/native/pairs.png",
-        "tools/visual_density.py",
-        "tools/test_visual_density.py",
-        "tools/visual_density_capture.gd",
+        "tools/qa/art/visual_density.py",
+        "tools/qa/art/test_visual_density.py",
+        "tools/qa/art/visual_density_capture.gd",
         "17 октября 2026: пользователь выбрал «B — ремесленная фактура». Сохранены мягкий стиль VART-001 A, палитра A и край A. Пять образцов с общим героем, одинаковыми source rect/опорами и проекцией 1.2; 12 DOM-состояний, шесть настоящих GPU Image 1152×648 и парный лист 1152×960 с равными повторами. Этюды не импортированы в игру; FPS и игровые локации не принимаются."
       ]
     },
@@ -984,9 +984,9 @@
         "docs/reports/visual-overhaul/vart-007/README.md",
         "docs/reports/visual-overhaul/vart-007/light-profile.json",
         "docs/reports/visual-overhaul/vart-007/native/capture.json",
-        "tools/visual_light.py",
-        "tools/test_visual_light.py",
-        "tools/visual_light_capture.gd"
+        "tools/qa/art/visual_light.py",
+        "tools/qa/art/test_visual_light.py",
+        "tools/qa/art/visual_light_capture.gd"
       ],
       "result": "2026-10-17: пользователь напрямую выбрал A — свет сверху-слева. Отдельные форма/контакт/падающая тень показаны в 24 нативных PNG Godot 1152×648 с одинаковой проекцией 1.2 и совпадающими повторными readback. Контакты стола под ножками. Хеши, прямой выбор, направления и отрицательные сценарии входят в gate; B остаётся макетом. Это художественная alpha-проекция, не production-шейдер, не FPS и не runtime-импорт. Изменения и протокол в отдельном commit VART-007."
     },
@@ -1043,9 +1043,9 @@
         "docs/reports/visual-overhaul/vart-008/source.json",
         "docs/reports/visual-overhaul/vart-008/native/capture.json",
         "docs/reports/visual-overhaul/vart-008/browser.json",
-        "tools/visual_modules.py",
-        "tools/test_visual_modules.py",
-        "tools/visual_modules_capture.gd"
+        "tools/qa/art/visual_modules.py",
+        "tools/qa/art/test_visual_modules.py",
+        "tools/qa/art/visual_modules_capture.gd"
       ],
       "result": "2026-10-17: пользователь прямо принял оба фасада для будущих деревень. Подготовлены 28 отдельных PNG: 8 пучков, 2 куста, принятый этюд дерева B, 3 покрытия, 4 дорожные и 4 береговые кромки, настил/перила/2 опоры и 2 фасада. По замечанию перерисованы резкие зелёные полосы у берега и тропы. 19 нативных PNG 1152×648 с одинаковой проекцией 1.2 и повторным readback показывают три фона, масштаб, перекрытие, мост, сетку и HUD-базу; проверены все 19 браузерных состояний. Пиксельно точная нарезка, хеши, опоры и 7 отрицательных/положительных сценариев включены в gate. Это отдельный художественный пилот, не runtime-импорт, не FPS, не полный autotile. Отдельный commit VART-008."
     },
@@ -1095,10 +1095,10 @@
         "docs/reports/visual-overhaul/vart-009/inventory.json",
         "docs/reports/visual-overhaul/vart-009/native/capture.json",
         "docs/reports/visual-overhaul/vart-009/browser.json",
-        "tools/visual_reuse.py",
-        "tools/test_visual_reuse.py",
-        "tools/visual_reuse_capture.gd",
-        "tools/visual_reuse_sources.gd"
+        "tools/qa/art/visual_reuse.py",
+        "tools/qa/art/test_visual_reuse.py",
+        "tools/qa/art/visual_reuse_capture.gd",
+        "tools/qa/art/visual_reuse_sources.gd"
       ],
       "result": "2026-10-17: аудит всех 29 семейств на базе commit 1b1c39af20b48559904b4a775135305690d0bd10: 1 архивное reuse / 16 adapt / 12 redraw, с причиной, сохраняемыми частями, исключениями и владельцами эпиков. Инвентарь 238 деклараций / 236 уникальных PNG, 12 полных обзоров и 58 нативных кадров при общей проекции 1.2 на двух фонах; архив и обзор имеют отдельную классификацию. Все 58 кадров, поиск и фильтры проверены в браузере. Найдены расхождения фактических источников свиньи/сундука/лесопилки и дефекты края/запечённой тени. Восемь профильных сценариев и полная сверка включены в gate; исторический Git baseline допускает будущую миграцию. Это техническая оценка в рамках ранее выбранных стандартов, не новое принятие production-артов, не удаление и не runtime-импорт. Отдельный commit VART-009."
     },
@@ -6173,10 +6173,10 @@
         "docs/reports/visual-overhaul/vpipeline-007/legacy-baseline.json",
         "docs/reports/visual-overhaul/vpipeline-007/proof.json",
         "docs/reports/visual-overhaul/vpipeline-007/native/capture.json",
-        "tools/alpha_audit.py",
-        "tools/alpha_metrics.py",
-        "tools/test_alpha_audit.py",
-        "tools/test_alpha_proof.py",
+        "tools/assets/alpha/alpha_audit.py",
+        "tools/assets/alpha/alpha_metrics.py",
+        "tools/assets/alpha/test_alpha_audit.py",
+        "tools/assets/alpha/test_alpha_proof.py",
         "wiki/articles/alpha-edges.md",
         "wiki/articles/alpha-candidates.md"
       ],
@@ -6233,14 +6233,14 @@
         "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
         "docs/reports/visual-overhaul/vpipeline-008/browser.json",
         "docs/reports/visual-overhaul/vpipeline-008/verification.json",
-        "tools/slice_audit.py",
-        "tools/slice_metrics.py",
-        "tools/slice_export.gd",
-        "tools/slice_catalogs.gd",
-        "tools/slice_policy.json",
-        "tools/slice_proof.py",
-        "tools/test_slice_audit.py",
-        "tools/test_slice_proof.py",
+        "tools/assets/slicing/slice_audit.py",
+        "tools/assets/slicing/slice_metrics.py",
+        "tools/assets/slicing/slice_export.gd",
+        "tools/assets/slicing/slice_catalogs.gd",
+        "tools/assets/slicing/slice_policy.json",
+        "tools/assets/slicing/slice_proof.py",
+        "tools/assets/slicing/test_slice_audit.py",
+        "tools/assets/slicing/test_slice_proof.py",
         "tests/suites/atlas_source_geometry_suite.gd",
         "wiki/articles/sprite-slices.md",
         "wiki/articles/slice-risks.md"

@@ -1,0 +1,24 @@
+{
+  "head": "d27f688fa3ec2670a757acd14019f8ae35e0f693",
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5673231328",
+  "review": {
+    "id": "PRR_kwDOTqkhCs8AAAABUiaj4A",
+    "state": "COMMENTED",
+    "body": "INTERMEDIATE REVIEW PASS — аудиопакет на head d27f688fa3ec2670a757acd14019f8ae35e0f693, base d609ab4fa6d82d6d013265183f018b8836abf7cc, версия 0.0.360. Обязательных замечаний к этому пакету не найдено; actionable inline-комментариев нет. Это не окончательное APPROVED всей REFACTOR-03 и не разрешение merge.\n\nНезависимо прочитаны четыре перемещённых модуля и профиль. У всех четырёх сверены old/new SHA, mode, точные архивы и AST: изменены только source-root и квалификация импортов. Три новых historical pins подтверждены по полному d609ab4f и SHA; остальные поля политики, прежние два pin, рабочий reader и его проверки не меняются. Production asset_report самостоятельно выполнен: exit 0. Текущие media остаются live.\n\nСамостоятельно выполнен опубликованный profile.py с новым /tmp output на установленных Python 3.12.14 / NumPy 2.3.5. Настоящие старые Git-исходники и новые перемещённые байты дали одинаковые 33 WAV / 201 измерение, SHA семи массивов сигналов и PCM16-экспорта. По четыре повреждения WAV отклонены в обеих версиях; clipping export также отклонён. Actual audit CLI выполнен только в disposable проектах, из чужой cwd с hostile PYTHONPATH/GIT_DIR. Общий generate main не вызывался. Все 36 исходных WAV и оригинальный audio_quality_audit.json прежние; временные fixtures удалены.\n\nПроверены 18 source SHA и 47 raw SHA, все 18199 прежних report blobs. Artwork/data, игровой код, tests/scenes/planning и остальные шесть refactor-карточек прежние. Живые команды в документации и audio README используют launcher; старые адреса остаются в исторической политике/отчётах. .gitignore открывает только Python исходники нового пакета и оставляет cache ignored. Фактический root 513 → 509; import_pixabay_assets сохранён без изменений и явно остаётся pending для image-authoring. Историческая карта не переписана. Полный git diff --check от принятой базы проходит, Task-Complete не добавлен.\n\nАвторские журналы собственного gates-01 проверены как raw: architecture 84/1163, Game 53502/0, normal/F10 по 90/0 и Wiki 145/0. Игру на ПК я не запускал; новых измерений игровой производительности или приёмки VMAP нет. Собственных Wiki серверов/вкладок и зависимостей не создавал; review-worktree чистый, core.bare=false.\n\nCI именно d27f688f ещё выполняется (последний срез: 1 success / 7 in_progress, отказов нет); прежний CI 359 не заменяет его. Остальные семейства и root ≤30 ещё впереди, 03 in_progress / 06 blocked, PR draft. Сводка идёт Team Lead для решения по продолжению. Финальное ревью должно относиться к полному переносу и его итоговому SHA.",
+    "submitted_at": "2026-10-27T19:41:39Z",
+    "author": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+      "id": null
+    }
+  },
+  "team_decision": {
+    "source_thread": "01a14c6e-9afd-7d33-a968-2c72339fce8d",
+    "accepted": "intermediate audio package only",
+    "merge_authorized": false,
+    "continue": "Remaining families including PIL image importer; final root<=30 and exact-head independent review required"
+  }
+}

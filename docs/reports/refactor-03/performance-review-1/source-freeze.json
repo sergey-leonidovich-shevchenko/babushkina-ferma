@@ -1,0 +1,23 @@
+{
+  "version": "0.0.372",
+  "source_SHA256": {
+    ".gitattributes": "59673470578af305751d82cc213910aa6232e6c984ed59ade759965e07b99749",
+    "QA_CHECKLIST.md": "c2efb9ad4a67bc3a46a21d162e53873721a0dd2f035975bc66addf344b6ebc83",
+    "TESTING.md": "25ec103745ab7ac5e0e70a988d123ff70a00a414bf75391d325c5e0184f7ffd4",
+    "VERSION": "0dc0495a0481ab8cd1c7370e02c3315a88b038750c4eaaf611a8ec8cccfe271b",
+    "docs/DEVELOPMENT.md": "804e934aacb7e9a07d4167cc08a9b639756a7993999df04497e95e1619b41abb",
+    "docs/epics/refactoring-2026-10/TASKS.md": "055493b7c4ee2d55b89d882babbee734d1665ff1bd6da2814cd1c0950359a300",
+    "project.godot": "6968c17150e06f928e94682aa6c1a5b7f18bdc181ff92e64a0bcf63a08fcc7fc",
+    "tools/README.md": "98ea1a8d5e44a7911eac9df9a0379994f8e3152181206adfac7dec94040a00fb",
+    "tools/assets/contracts/source_paths.py": "222e7bbea21c3851786786ec693a26b2dd459a855399473e40c0147e66cd2702",
+    "tools/assets/contracts/test_source_paths.py": "1f61100d580c5b6a7c337c1e7f1050032c35252361cc614a94dfe4cd7830cb08",
+    "tools/grass_compare_collect.py": "020f2a98cf3ca6b15118a7349d514c2874e4a7af99f5668e0b2f7d7bff7814b3",
+    "tools/grass_methods.py": "3b491de9ea4a5ecb806b602fc8e577e86a8966d0dcfdcf1983472a2cf4e6b7d6",
+    "tools/ground_layers.py": "6d1096591ea805eb265c74f912b3e9f05d50f84a3c73a4831e6e0368ead73bd9",
+    "tools/qa/performance/source_history.py": "45ae917a792c13563b0b53d0a4693015af511c5645a18fd875749d071ae84ce5",
+    "tools/qa/performance/test_surface_producers.py": "9b84921ed227955072da14309281486f22a695654a4eede7d9553f8a41f8574c",
+    "tools/quality/check_architecture.sh": "af91e9b3b33a160e104118831cc282cca423d96de201a94116366ddd2a500233",
+    "wiki/articles/project-refactoring.md": "da76bcec31217da1ce9acdd2c1f71cc3ec44430bde10ffa2f9eb1a0362c074c5",
+    "Бабушкина ферма.app/Contents/Info.plist": "d266c6eb72ab4d4029e9153f0a3e3ce4e14ba20c11443e6cdf23d55fab239899"
+  }
+}

@@ -1,0 +1,177 @@
+[
+  {
+    "old": "tools/artist_packet.py",
+    "target": "tools/build/artist_packet.py",
+    "equal": true
+  },
+  {
+    "old": "tools/asset_costs.py",
+    "target": "tools/assets/contracts/asset_costs.py",
+    "equal": true
+  },
+  {
+    "old": "tools/asset_migration.py",
+    "target": "tools/assets/migration/asset_migration.py",
+    "equal": true
+  },
+  {
+    "old": "tools/asset_pack.py",
+    "target": "tools/build/asset_pack.py",
+    "equal": true
+  },
+  {
+    "old": "tools/asset_report.py",
+    "target": "tools/assets/contracts/asset_report.py",
+    "equal": true
+  },
+  {
+    "old": "tools/check_sprite_cleanup.py",
+    "target": "tools/assets/contracts/check_sprite_cleanup.py",
+    "equal": true
+  },
+  {
+    "old": "tools/check_world_sprite_manifest.py",
+    "target": "tools/assets/contracts/check_world_sprite_manifest.py",
+    "equal": true
+  },
+  {
+    "old": "tools/item_export_contract.py",
+    "target": "tools/assets/contracts/item_export_contract.py",
+    "equal": true
+  },
+  {
+    "old": "tools/item_sizes.py",
+    "target": "tools/assets/contracts/item_sizes.py",
+    "equal": true
+  },
+  {
+    "old": "tools/migration_fixture.py",
+    "target": "tools/assets/migration/migration_fixture.py",
+    "equal": true
+  },
+  {
+    "old": "tools/migration_inventory.py",
+    "target": "tools/assets/migration/migration_inventory.py",
+    "equal": true
+  },
+  {
+    "old": "tools/migration_proof.py",
+    "target": "tools/assets/migration/migration_proof.py",
+    "equal": true
+  },
+  {
+    "old": "tools/padded_atlases.py",
+    "target": "tools/assets/contracts/padded_atlases.py",
+    "equal": true
+  },
+  {
+    "old": "tools/preview_portability.py",
+    "target": "tools/assets/contracts/preview_portability.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_artist_packet.py",
+    "target": "tools/build/test_artist_packet.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_asset_migration.py",
+    "target": "tools/assets/migration/test_asset_migration.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_asset_pack_proof.py",
+    "target": "tools/build/test_asset_pack_proof.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_asset_report.py",
+    "target": "tools/assets/contracts/test_asset_report.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_item_export_contract.py",
+    "target": "tools/assets/contracts/test_item_export_contract.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_item_sizes.py",
+    "target": "tools/assets/contracts/test_item_sizes.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_migration_proof.py",
+    "target": "tools/assets/migration/test_migration_proof.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_padded_atlases.py",
+    "target": "tools/assets/contracts/test_padded_atlases.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_preview_portability.py",
+    "target": "tools/assets/contracts/test_preview_portability.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_sprite_cleanup.py",
+    "target": "tools/assets/contracts/test_sprite_cleanup.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_texture_intents.py",
+    "target": "tools/assets/contracts/test_texture_intents.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_visual_icons.py",
+    "target": "tools/assets/contracts/test_visual_icons.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_visual_pipeline.py",
+    "target": "tools/assets/contracts/test_visual_pipeline.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_visual_resources.py",
+    "target": "tools/assets/contracts/test_visual_resources.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_visual_sampling.py",
+    "target": "tools/assets/contracts/test_visual_sampling.py",
+    "equal": true
+  },
+  {
+    "old": "tools/test_world_sprite_manifest.py",
+    "target": "tools/assets/contracts/test_world_sprite_manifest.py",
+    "equal": true
+  },
+  {
+    "old": "tools/texture_intents.py",
+    "target": "tools/assets/contracts/texture_intents.py",
+    "equal": true
+  },
+  {
+    "old": "tools/visual_icons.py",
+    "target": "tools/assets/contracts/visual_icons.py",
+    "equal": true
+  },
+  {
+    "old": "tools/visual_pipeline.py",
+    "target": "tools/assets/contracts/visual_pipeline.py",
+    "equal": true
+  },
+  {
+    "old": "tools/visual_resources.py",
+    "target": "tools/assets/contracts/visual_resources.py",
+    "equal": true
+  },
+  {
+    "old": "tools/visual_sampling.py",
+    "target": "tools/assets/contracts/visual_sampling.py",
+    "equal": true
+  }
+]

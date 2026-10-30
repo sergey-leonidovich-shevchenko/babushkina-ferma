@@ -1,0 +1,166 @@
+...................FFFFFFFEFFFF
+======================================================================
+ERROR: test_render_order_passes_source_checks_before_refusing_missing_frames (__main__.WorldSourceHistoryTests.test_render_order_passes_source_checks_before_refusing_missing_frames)
+Actual contract/instrumentation/Git checks finish before the deliberate no-capture refusal.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 153, in test_render_order_passes_source_checks_before_refusing_missing_frames
+    self.check_reader(render_order)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 104, in check_reader
+    self.assertFalse(result['performance_eligible'])
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'performance_eligible'
+
+======================================================================
+FAIL: test_bench_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_bench_reads_new_git_alias_with_old_archive_keys)
+Actual bench provenance uses canonical Git blobs while inputs retain exact old keys.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 113, in test_bench_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(bench)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 90, in check_reader
+    folder,source=self.source_fixture(module,own,report)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 82, in source_fixture
+    self.assertFalse(any(folder.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_board_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_board_reads_new_git_alias_with_old_archive_keys)
+Actual board provenance keeps its exact coverage and artifact/index checks.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 117, in test_board_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(board)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 90, in check_reader
+    folder,source=self.source_fixture(module,own,report)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 82, in source_fixture
+    self.assertFalse(any(folder.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_fence_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_fence_reads_new_git_alias_with_old_archive_keys)
+Actual fence provenance reaches the same complete input envelope in the new Git tree.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 121, in test_fence_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(fence)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 90, in check_reader
+    folder,source=self.source_fixture(module,own,report)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 82, in source_fixture
+    self.assertFalse(any(folder.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_lamp_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_lamp_reads_new_git_alias_with_old_archive_keys)
+Actual lamp provenance cannot require a deleted physical legacy tool.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 125, in test_lamp_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(lamp)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 90, in check_reader
+    folder,source=self.source_fixture(module,own,report)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 82, in source_fixture
+    self.assertFalse(any(folder.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_object_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_object_reads_new_git_alias_with_old_archive_keys)
+Actual object provenance preserves base_sources and optional overlay policy.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 137, in test_object_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(objects)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 90, in check_reader
+    folder,source=self.source_fixture(module,own,report)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 82, in source_fixture
+    self.assertFalse(any(folder.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_pilot_pass_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_pilot_pass_reads_new_git_alias_with_old_archive_keys)
+Actual pilot pass source checker retains phase/source/index policy.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 141, in test_pilot_pass_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(pilot_pass)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 90, in check_reader
+    folder,source=self.source_fixture(module,own,report)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 82, in source_fixture
+    self.assertFalse(any(folder.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_post_motion_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_post_motion_reads_new_git_alias_with_old_archive_keys)
+Actual post-motion source checker retains all source and artifact hashes without fake native frames.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 149, in test_post_motion_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(motion)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 90, in check_reader
+    folder,source=self.source_fixture(module,own,report)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 82, in source_fixture
+    self.assertFalse(any(folder.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_static_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_static_reads_new_git_alias_with_old_archive_keys)
+Actual static source checker composes its old art contract with the World aliases.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 145, in test_static_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(static)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 90, in check_reader
+    folder,source=self.source_fixture(module,own,report)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 82, in source_fixture
+    self.assertFalse(any(folder.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_street_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_street_reads_new_git_alias_with_old_archive_keys)
+Already Git-isolated street provenance still needs the exact moved-source alias.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 129, in test_street_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(street)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 90, in check_reader
+    folder,source=self.source_fixture(module,own,report)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 82, in source_fixture
+    self.assertFalse(any(folder.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_trade_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_trade_reads_new_git_alias_with_old_archive_keys)
+Actual trade provenance uses the pinned new tree without live fallback.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 133, in test_trade_reads_new_git_alias_with_old_archive_keys
+    self.check_reader(trade)
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 90, in check_reader
+    folder,source=self.source_fixture(module,own,report)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 82, in source_fixture
+    self.assertFalse(any(folder.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_water_folder_follows_nested_source_project (__main__.WorldSourceHistoryTests.test_water_folder_follows_nested_source_project)
+Actual water analyzer locates report output under its own project rather than a fixed parent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-source-history376.py", line 167, in test_water_folder_follows_nested_source_project
+    self.assertEqual(Path(json.loads(result.stdout)),root/'docs/reports/water-2026-10')
+AssertionError: Posix[66 chars]er nested source ryzjw3xa/tools/qa/docs/reports/water-2026-10') != Posix[66 chars]er nested source ryzjw3xa/docs/reports/water-2026-10')
+
+----------------------------------------------------------------------
+Ran 31 tests in 122.188s
+
+FAILED (failures=11, errors=1)

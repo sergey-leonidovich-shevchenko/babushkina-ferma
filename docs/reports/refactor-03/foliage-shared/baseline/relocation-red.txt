@@ -1,0 +1,115 @@
+E.EEEF.EEEEE
+======================================================================
+ERROR: test_grass_complete_canonical_capture_record (__main__.RelocationProvenanceTests.test_grass_complete_canonical_capture_record)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-relocation-provenance380.py", line 39, in test_grass_complete_canonical_capture_record
+    self.assertEqual(module('grass_methods').launch(folder,profile,source),env)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: launch() takes 2 positional arguments but 3 were given
+
+======================================================================
+ERROR: test_grass_unknown_partial_or_invalid_capture_record (__main__.RelocationProvenanceTests.test_grass_unknown_partial_or_invalid_capture_record) (reported=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-relocation-provenance380.py", line 52, in test_grass_unknown_partial_or_invalid_capture_record
+    module('grass_methods').launch(folder,profile,{'source_paths':reported})
+TypeError: launch() takes 2 positional arguments but 3 were given
+
+======================================================================
+ERROR: test_grass_unknown_partial_or_invalid_capture_record (__main__.RelocationProvenanceTests.test_grass_unknown_partial_or_invalid_capture_record) (reported={'tools/grass_compare/capture.gd': 'elsewhere.gd'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-relocation-provenance380.py", line 52, in test_grass_unknown_partial_or_invalid_capture_record
+    module('grass_methods').launch(folder,profile,{'source_paths':reported})
+TypeError: launch() takes 2 positional arguments but 3 were given
+
+======================================================================
+ERROR: test_grass_unknown_partial_or_invalid_capture_record (__main__.RelocationProvenanceTests.test_grass_unknown_partial_or_invalid_capture_record) (reported={'tools/grass_compare/capture.gd': 'tools/qa/foliage/grass_compare/capture.gd', 'unknown': 'bad'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-relocation-provenance380.py", line 52, in test_grass_unknown_partial_or_invalid_capture_record
+    module('grass_methods').launch(folder,profile,{'source_paths':reported})
+TypeError: launch() takes 2 positional arguments but 3 were given
+
+======================================================================
+ERROR: test_shore_canonical_metadata_keys_and_actual_current_hashes (__main__.RelocationProvenanceTests.test_shore_canonical_metadata_keys_and_actual_current_hashes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-relocation-provenance380.py", line 95, in test_shore_canonical_metadata_keys_and_actual_current_hashes
+    self.assertEqual(proof.verify_native(ROOT,folder,data,fixture),[])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/shore_kit.py", line 158, in verify_native
+    valid = name.startswith('res://') and digest(local(root,root,name[6:])) == sha
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/shore_kit.py", line 29, in digest
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+                          ^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/shore_kit_canvas.gd'
+
+======================================================================
+ERROR: test_shore_content_tampering_is_not_an_address_move (__main__.RelocationProvenanceTests.test_shore_content_tampering_is_not_an_address_move)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-relocation-provenance380.py", line 74, in test_shore_content_tampering_is_not_an_address_move
+    self.assertFalse(module('shore_kit').relocated_source_matches(root,logical,legacy,legacy=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'tools.shore_kit' has no attribute 'relocated_source_matches'
+
+======================================================================
+ERROR: test_shore_exact_current_and_uri_only_legacy_bytes (__main__.RelocationProvenanceTests.test_shore_exact_current_and_uri_only_legacy_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-relocation-provenance380.py", line 65, in test_shore_exact_current_and_uri_only_legacy_bytes
+    self.assertTrue(proof.relocated_source_matches(root,logical,current,legacy=False))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'tools.shore_kit' has no attribute 'relocated_source_matches'
+
+======================================================================
+ERROR: test_shore_missing_canonical_rejects_stale_old_file (__main__.RelocationProvenanceTests.test_shore_missing_canonical_rejects_stale_old_file)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-relocation-provenance380.py", line 80, in test_shore_missing_canonical_rejects_stale_old_file
+    self.assertFalse(module('shore_kit').relocated_source_matches(root,logical,legacy,legacy=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'tools.shore_kit' has no attribute 'relocated_source_matches'
+
+======================================================================
+ERROR: test_shore_mixed_aliases_are_rejected (__main__.RelocationProvenanceTests.test_shore_mixed_aliases_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-relocation-provenance380.py", line 101, in test_shore_mixed_aliases_are_rejected
+    self.assertIn('missing capture sources',proof.verify_native(ROOT,folder,data,fixture))
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/shore_kit.py", line 158, in verify_native
+    valid = name.startswith('res://') and digest(local(root,root,name[6:])) == sha
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/shore_kit.py", line 29, in digest
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+                          ^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/shore_kit_canvas.gd'
+
+======================================================================
+FAIL: test_grass_wrong_script_cannot_hide_expected_uri_in_payload (__main__.RelocationProvenanceTests.test_grass_wrong_script_cannot_hide_expected_uri_in_payload)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-relocation-provenance380.py", line 45, in test_grass_wrong_script_cannot_hide_expected_uri_in_payload
+    with self.assertRaises(ValueError):module('grass_methods').launch(folder,profile)
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.634s
+
+FAILED (failures=1, errors=9)

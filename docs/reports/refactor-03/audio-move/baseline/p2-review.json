@@ -1,0 +1,28 @@
+{
+  "head": "5ba619a3f2ce39845b4b71eee34d267ead05201e",
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/21#pullrequestreview-5672404997",
+  "review": {
+    "id": "PRR_kwDOTqkhCs8AAAABUhoIBQ",
+    "state": "COMMENTED",
+    "body": "P2 FIX VERIFIED — промежуточное повторное ревью head 5ba619a3f2ce39845b4b71eee34d267ead05201e / base d609ab4fa6d82d6d013265183f018b8836abf7cc, версия 0.0.359. Замечание review5671433003 устранено, исходный thread закрыт. Новых обязательных замечаний к этой доработке нет. Это не окончательное APPROVED всей REFACTOR-03 и не разрешение merge.\n\nНезависимо выполнен опубликованный check-consumers.py с новым /tmp результатом: 24 живых документа, все 31 входа, 17 Python resolve/compile без main и 14 headless Godot --check-only. Старый CLI воспроизвёл exit 2; исправленный UI updater выполнен только в удаляемой копии из 28 настоящих PNG. Три повреждённых входа отклонены с exit 1, fixture manifest не перезаписан, исходные PNG и manifest не изменились. Все 48 оставшихся исторических ссылок проверены по точным прежним байтам.\n\nПрочитан весь функциональный diff artist_packet/test. Самостоятельно выполнены 12 настоящих тестов (прежние восемь сохранены, четыре добавлены) и рабочий artist_packet: exit 0. Единственный исторический документ — SPRITE_STANDARD.md — остаётся связан с прежним Git commit/SHA; остальные 65 ссылок сохраняют live и исторические проверки. Переподпись документа, порча рисунка, отсутствующая история, внешний symlink и foreign Git/index/config отклоняются. 66 записей references, source_commit и все файлы прежнего handoff-комплекта сохранены; остальные функции reader не менялись. Старые reader/tests точно архивированы, red и неудачный gates-01 сохранены.\n\nНезависимо сверены 24 old/new документальных SHA, 29 source SHA и 42 raw SHA; все 18156 прежних report blobs совпадают. За пределами нового отчёта изменены только 24 документа, два reader/test и три version metadata. Полный git diff --check от принятой main проходит, Task-Complete не добавлен. Авторские журналы нового gates-02 действительно содержат architecture 84/1163, Game 53502/0, normal/F10 по 90/0 и Wiki 145/0; локальную игру я не запускал. Новый UI/mobile/FPS/VMAP допуск из этих проверок не следует.\n\nCI именно 5ba619a3 ещё выполняется: при последнем срезе 3 success / 5 in_progress, отказов нет; его успех пока не утверждаю. Корень tools остаётся 513, остальные семейства и итоговый бюджет ≤30 впереди. PR остаётся draft, REFACTOR-03 in_progress / REFACTOR-06 blocked. Результат передан Team Lead для решения по принятию доработки и продолжению текущей задачи. Финальное ревью будет относиться к полному переносу и новому итоговому SHA.",
+    "submitted_at": "2026-10-27T18:34:31Z",
+    "author": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+      "id": null
+    }
+  },
+  "thread": {
+    "id": "PRRT_kwDOTqkhCs6wzS8N",
+    "is_resolved": true
+  },
+  "team_decision": {
+    "source_thread": "01a14c6e-9afd-7d33-a968-2c72339fce8d",
+    "accepted": "P2 fix only",
+    "merge_authorized": false,
+    "continue": "Remaining REFACTOR-03 families including audio; same draft PR, full checks and final independent review required"
+  }
+}

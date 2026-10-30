@@ -184,9 +184,9 @@ class InfrastructureTests(unittest.TestCase):
         before = [path.read_bytes() for path in paths]
         environment = {**git_environment(), "GIT_DIR": str(self.root / ".git"),
                        "GIT_WORK_TREE": str(self.root), "GIT_INDEX_FILE": str(paths[1]),
-                       "PYTHONPATH": str(ROOT / "tools")}
+                       "PYTHONPATH": str(ROOT)}
         result = subprocess.run([sys.executable, "-c",
-            "from test_shore_kit import ShoreKitTests; "
+            "from tools.qa.world.test_shore_kit import ShoreKitTests; "
             "ShoreKitTests('test_required_log_must_be_indexed').test_required_log_must_be_indexed()"],
             cwd=self.base, env=environment, text=True, capture_output=True)
         self.assertEqual(result.returncode, 0, result.stderr)

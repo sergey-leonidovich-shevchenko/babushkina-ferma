@@ -1,0 +1,12 @@
+[
+  {
+    "gate": "architecture",
+    "command": [
+      "tools/check_architecture.sh"
+    ],
+    "version": "0.0.378",
+    "started_at": "2026-10-29T10:47:33.173667+00:00",
+    "exit": 1,
+    "finished_at": "2026-10-29T10:58:28.429558+00:00"
+  }
+]

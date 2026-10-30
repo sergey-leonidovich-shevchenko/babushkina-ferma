@@ -1,0 +1,2166 @@
+{
+  "task": "REFACTOR-03",
+  "phase": "compatibility physical move",
+  "version": "0.0.369",
+  "base": "81bec22e0b447054a631707e9e12179e222a57c2",
+  "full_gates_before_article_refresh": [
+    {
+      "gate": "architecture",
+      "command": [
+        "tools/check_architecture.sh"
+      ],
+      "version": "0.0.369",
+      "started_at": "2026-10-28T18:54:41.755064+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T19:16:44.754908+00:00"
+    },
+    {
+      "gate": "game",
+      "command": [
+        "./run_tests.sh"
+      ],
+      "version": "0.0.369",
+      "started_at": "2026-10-28T19:16:44.755439+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T19:23:21.084757+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.369",
+      "started_at": "2026-10-28T19:23:21.085755+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T19:24:15.906716+00:00"
+    }
+  ],
+  "full_gates_source_freeze": "source-freeze-after-gates02.json",
+  "documentation_and_current_wiki_gates": [
+    {
+      "gate": "documentation",
+      "command": [
+        "python3",
+        "tools/run.py",
+        "quality.check_documentation"
+      ],
+      "version": "0.0.369",
+      "started_at": "2026-10-28T19:31:00.363126+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T19:31:02.280896+00:00"
+    },
+    {
+      "gate": "wiki",
+      "command": [
+        "pnpm",
+        "--dir",
+        "wiki",
+        "check"
+      ],
+      "version": "0.0.369",
+      "started_at": "2026-10-28T19:31:02.281657+00:00",
+      "exit": 0,
+      "finished_at": "2026-10-28T19:31:59.526138+00:00"
+    }
+  ],
+  "only_article_changed_after_full_gates": [
+    "wiki/articles/project-refactoring.md"
+  ],
+  "architecture_suites": 92,
+  "architecture_cases": 1240,
+  "game_passed": 53502,
+  "game_failed": 0,
+  "redraw_each_passed": 90,
+  "wiki_passed": 145,
+  "root_sources": 314,
+  "physical_source_moves": 89,
+  "tracked_UID_moves": 64,
+  "ignored_UID_moves": 23,
+  "all_author_UID_preserved": 85,
+  "historical_fields_preserved": 37,
+  "actual_before_after_outcomes": {
+    "tools/content_reference_audit.gd": {
+      "errors": [],
+      "items": 386,
+      "languages": 6,
+      "missions": 18,
+      "recipes": 321,
+      "stations": 18
+    },
+    "tools/qa_teleport_review.gd": [
+      252,
+      0
+    ],
+    "tools/held_weapon_review.gd": [
+      1396,
+      0
+    ],
+    "tools/farm_review.gd": [
+      2748,
+      0
+    ]
+  },
+  "actual_after_commands": 99,
+  "new_real_CLI_cases": 3,
+  "source_review368": 5689214200,
+  "prior368_CI_success": 8,
+  "legacy_alchemy148_rejection_retained": true,
+  "full_task03_accepted": false,
+  "Task_Complete_added": false,
+  "GPU_FPS_admission": false,
+  "source_SHA256": {
+    ".gitattributes": "dc6fc8dcdb21ad16e5b2f416bc0ce628c169822388b2b848c8b26764603c8764",
+    ".gitignore": "66743b82d5125f547a58422c1f7b711c537d19e4f129b4962d5c7b8223dc643a",
+    "PERFORMANCE.md": "d0d4279e1a6460f4b1109b3f6baccfaef50c80f423494c12cffc95ecfe1812ad",
+    "QA_CHECKLIST.md": "4f768c7e9ea494f0ef778690dc993392862397918b283e4ac3692be6a5775ce5",
+    "TESTING.md": "7f3e299798aa1b18a7b5d7c7fb92c6793ad181ea58044c9d804447db6b1eab3a",
+    "VERSION": "8eed871230e278be3d55060642d38731cd327d920f674f120da7a930e6f4b47c",
+    "assets/game/characters/grandmother_v2/README.md": "c2b9fc8703ad6e5697c64611185528091d6b59afdb757a9fdfda7f743a1eb2cd",
+    "docs/COMPACT_HUD.md": "70e2eb62eecd894611a38213fa4b48556191392ad31c907238015c4314607dcc",
+    "docs/DEVELOPMENT.md": "6b73c6aacd159884bcb514fb8cf21ac73e551c26d45bb2ceb80f2e80df584572",
+    "docs/PLAYABILITY_POLISH.md": "cb21809f1a9452b901447beb5cf02616ad32b57a9a329a3cff6672dddff606e5",
+    "docs/TREE_COMFORT.md": "b509367e438908fbd55174c831e11e4e1f0ee61b5bee1a49471543b31cbd8c67",
+    "docs/UI_AUDIT.md": "63c88a897bc17982463362f7392713a486479c65803f088a359e00a9ea219e87",
+    "docs/UI_GUIDE.md": "34f9e792836054835c0d138f002aa1f4ec5456be60e96987d6cbb95d7167c47f",
+    "docs/epics/refactoring-2026-10/TASKS.md": "7cff4ca8e1a99c2c63b68d71fae9420d7e354049ca557a4846198014136ddf54",
+    "project.godot": "c85963ec149de62114d5f4395ce9eacbb288a20b8c82694100e057edd8d883c5",
+    "tools/README.md": "becb1331e438c203ac1ab27f8516512aad685342207a4151e44b8749d7a9c07d",
+    "tools/assets/slicing/slice_review.gd": "e54607362ed5e7a8b6d810ac1a061306bc1d980abf275fbde2919373707414a7",
+    "tools/qa/compatibility/__init__.py": "50ded9bb70d49ca468b7fbfe2ce2bcfc4964ce3a7e4f81842abc6c6ff48302d2",
+    "tools/qa/compatibility/action_lifecycle_native.gd": "bb041ffa6547978eeb411c234948f65bc3638813e0f4a5509a5f91e37023b172",
+    "tools/qa/compatibility/action_lifecycle_native.gd.uid": "3d43a7582a77a0ad18e69457b66da8c36a66c34f2dc3c748f29055796ee6fe5d",
+    "tools/qa/compatibility/alchemy_capture.gd": "f2433198384107e5f653080e482e61f83053a80ed04ed294625fc7f1ba3bd624",
+    "tools/qa/compatibility/alchemy_capture.gd.uid": "94fc8acd2ff885cc7ec94a22f5a63427884ce34963453ff53de1e7f088c8d0d9",
+    "tools/qa/compatibility/alchemy_catalog_export.gd": "f6021ae262b3a8ce9e47822afe5f51b04da9ceaff47d4061d18319783e151220",
+    "tools/qa/compatibility/alchemy_catalog_export.gd.uid": "6479f7ec1673df2d2b93c1f04a44e3581903e9086b4802fdaef29a8f819f5a4e",
+    "tools/qa/compatibility/alchemy_review.gd": "f260ca1b846ca6134e4ed7acc28e306fe31a37331dc6d61de9192d5d6aee8101",
+    "tools/qa/compatibility/alchemy_review.gd.uid": "3c83621924feecd5a0c5113e997dfeb456320fe07633cb2317c5bf744e8d0eb9",
+    "tools/qa/compatibility/apiary_capture.gd": "b8a65331197c1a3e46ef6771991e30f9d7c8ab4d15f866f67becdfba41c40fe4",
+    "tools/qa/compatibility/apiary_capture.gd.uid": "5c2801aa595ef1bfa0fb7573bb08c1a47176a8d1babf9bd35ad0ea3f34ba029d",
+    "tools/qa/compatibility/apiary_review.gd": "7d1caaba5ddf1036fccc183007c19ab5932454553203f1280ba8886e3d8f7bbd",
+    "tools/qa/compatibility/apiary_review.gd.uid": "9bf60b54eecad87b2e3ce6be818d6d83fa4e2ef3f1d69ceddb3a843819d476f2",
+    "tools/qa/compatibility/artisan_capture.gd": "246bdd9e5f0ffe26e37c058c742d23b2c5a575801b4ccd743a22afba3c54eca7",
+    "tools/qa/compatibility/artisan_capture.gd.uid": "3c4939fb74a77dc33597ddd68efab0a1bf935e80a220674da90473f02c0a4955",
+    "tools/qa/compatibility/artisan_review.gd": "4d3d638bbc994a76c9cb9f686b252de53aa7e30284bfa3490d52ef8b394103f3",
+    "tools/qa/compatibility/artisan_review.gd.uid": "b26ee13b136a20ac3b0d30668b388a493445a7de5a7f01034e47235c5491b1ae",
+    "tools/qa/compatibility/basement_capture.gd": "69230501b72ae054ce235bb07ab606de11d68b8f479e727be2bdd230dc1a6283",
+    "tools/qa/compatibility/basement_capture.gd.uid": "9dc3c5f94da91032dda31637abdb10d3d822454da1fd912ae4158bf47b53a3e9",
+    "tools/qa/compatibility/basement_review.gd": "20ead44b8d723138c2e9c2ff3d278f2de633b58c79edfed89d315003b86a8a6e",
+    "tools/qa/compatibility/basement_review.gd.uid": "7ed3bdc8b4d2437e51ed9eb15ae9806783076a8c39cfab8371d28a7f3750ccbb",
+    "tools/qa/compatibility/basement_ui_review.gd": "7d02c4afef26accdbfc9df461c8bdcc3777fe03e2b15ac6a8a498ed24f212c64",
+    "tools/qa/compatibility/basement_ui_review.gd.uid": "0b16d26a2347dc9ac04c98c53bb3a4bf791259a15e9410cfa13502fc2ba77ba3",
+    "tools/qa/compatibility/boss_balance_review.gd": "185ef0a39ea141cfe3dfb923d4d742390d6d9641f4ad74a3050d3e06c19fce62",
+    "tools/qa/compatibility/character_polish_capture.gd": "7596521e60d228cfcbb09da2ea8bb787d17bc0aa0ba9a319377c8bd8b0b0eecd",
+    "tools/qa/compatibility/check_alchemy_reports.py": "25c50b441ca17781187c1103f37c33ed703d759669060730fde3f9360b2da423",
+    "tools/qa/compatibility/compact_dialogue_capture.gd": "d21f8fbc569420307718c35feb0d8e552bdfaf3e3d3cae58ae2e4835c949d805",
+    "tools/qa/compatibility/compact_dialogue_capture.gd.uid": "9d74d0295bcd58103e713da31da4accf1a46772949bd81ae93a97d2d1981b43b",
+    "tools/qa/compatibility/compact_dialogue_preview.gd": "019970d7dd44906c38a4ea7ef96017d9fc1c684c4c5bf2156374cdab7ef7aac3",
+    "tools/qa/compatibility/compact_dialogue_preview.gd.uid": "7c4cd6776a9369149293603af85d0456d6230396505bc94167bac1ab4bad5d13",
+    "tools/qa/compatibility/compact_dialogue_review.gd": "aace2488af909881cfae0fb7f6cef3caf20b7e96b3495122540a9b8c32306f0e",
+    "tools/qa/compatibility/compact_dialogue_review.gd.uid": "111d5ec84fad2d1338c55ecdd1e24413d0d1af769ddd1488ea33628738de67e4",
+    "tools/qa/compatibility/compact_hud_review.gd": "30f641ab4061a14e2994065917296cd05db61e09071ae0b23c71635fe866ae0a",
+    "tools/qa/compatibility/content_reference_audit.gd": "129bbe63e6552d316f642361a5388371411c511c2f813d8ce930540550914db4",
+    "tools/qa/compatibility/content_reference_audit.gd.uid": "fca244b76cfa82a304d3b93ad36fd71a5029202a2bd669ead16e8d6f800a69e6",
+    "tools/qa/compatibility/cooking_capture.gd": "1ee27fb9328189ca4db0e4f0def2027f42f06c3ee69ab49bc8e2beb55a359cef",
+    "tools/qa/compatibility/cooking_review.gd": "6dfa92451b8fe6f5875237df92b7636548a64921ad35d338e0fa8aeef712a694",
+    "tools/qa/compatibility/depth_guardian_capture.gd": "977df53aa1ae9f6aace875ac34f34f717d14c6171e9adea3aa49f107b74cd92b",
+    "tools/qa/compatibility/depth_guardian_capture.gd.uid": "d18cc85b91eb1b43411249bfbf4ae1e5fc2ff2cf6dd56f6fdb83f8312f9c5e6f",
+    "tools/qa/compatibility/depth_guardian_review.gd": "9006332cd48bc8192a567347c5baac4343f56a49aae7f917a02cbf3a09e20f77",
+    "tools/qa/compatibility/depth_guardian_review.gd.uid": "95b94d34767eb2c69cd5cb7210747cae49e51803e2e7fb4a922bc3c8ebd76ca6",
+    "tools/qa/compatibility/design_audit_capture.gd": "166a06bfe693b271b13a2937af5b8a10b5474ef778355e4dbea72559bd237426",
+    "tools/qa/compatibility/design_audit_capture.gd.uid": "47c4b841ab13eff139cd0379701e58d0e0b1bbf5f1bb24a7d3d7cb3aca9d1641",
+    "tools/qa/compatibility/design_audit_gallery.gd": "f4695cbf89b625be97dff1edb2017217c25e80c893b7d9b46d8a0d047dbd4e38",
+    "tools/qa/compatibility/design_audit_gallery.gd.uid": "cb07559657dee4461d71eac518da9a4d69910cac9a5b5410effa7a1d92f5335c",
+    "tools/qa/compatibility/design_audit_review.gd": "63a3f2e315c867ce28e94b149d3f3b07bed74aa6e3a0c3ffce79cf047a91353b",
+    "tools/qa/compatibility/design_audit_review.gd.uid": "18eba93ffa0c3cb6df70134028396330ea185898d8d98ebdec280cd29cb0def5",
+    "tools/qa/compatibility/dev_cabinet_capture.gd": "ee0e7c60db62a673b5c2892e442ea56e54053bf5ed2259a8bf3d7acdb34936c8",
+    "tools/qa/compatibility/dev_cabinet_capture.gd.uid": "303b424e5b19af7e4c1a34cd14ef642df9ef7e741d5e8d41bdcce1a5caf3023c",
+    "tools/qa/compatibility/dev_cabinet_review.gd": "5875949f64c4fbec6fdbecb1532b9f07f43dd4982115ec886c30e662147cc6ed",
+    "tools/qa/compatibility/dev_cabinet_review.gd.uid": "3032646866c30e78e64d38220008fe27776a9482bc3231ac6370855fe36bc38d",
+    "tools/qa/compatibility/dropped_loot_capture.gd": "cfcf3a776060a47d9acab8b4dd9ff04ee0ea5711436c63e7fa68831f310fc015",
+    "tools/qa/compatibility/dropped_loot_capture.gd.uid": "9614e23368ea080be13e15895809cd2cef035f439454c7db507dcf1aade696b1",
+    "tools/qa/compatibility/dropped_loot_review.gd": "42484ef3dfb0851c455123f4214077cf117348c08835f56d530068c36f1cb22f",
+    "tools/qa/compatibility/dropped_loot_review.gd.uid": "dfa8f1c385b947e5babc6b6af4cd059b855af1a98616dc832a209a7e357e1fae",
+    "tools/qa/compatibility/end_to_end_capture.gd": "194747af3647f8119e705fc983c0883359da582b072a53f32448a98158e88817",
+    "tools/qa/compatibility/end_to_end_capture.gd.uid": "23ed9c0558126c98d9bc7f736bb78d99a63a4c56c59f53ab77b8ec3fde1137d3",
+    "tools/qa/compatibility/end_to_end_review.gd": "0f423fac2e197414ddb611094b90d7aa392e6f982290d0628a068e48ef5a9fd1",
+    "tools/qa/compatibility/end_to_end_review.gd.uid": "88a8d348999d883ef312b71897ed71a2638253934761e24e6db98819db44f9ec",
+    "tools/qa/compatibility/farm_bounds_capture.gd": "977169331e0061e804023e6495c7970c77374f6c491310402f7e47c93ce596dc",
+    "tools/qa/compatibility/farm_bounds_review.gd": "1c1ba9523556f2e9a3a44f8a56eaada53aa908d24272318715893825134c9001",
+    "tools/qa/compatibility/farm_bounds_review.gd.uid": "54f3f26ebeb08178d4d2c5434644788aeed0eb7d0221edf161863428e9b4389e",
+    "tools/qa/compatibility/farm_cursor_review.gd": "c92d2e7a297f6bae1ce40a0af598f8ee715219cd24593e7d75deef008b531dbd",
+    "tools/qa/compatibility/farm_cycles.py": "3c079f3be8129542819dbc636d9dac3b6f43723aa611dfd61173d696663b1404",
+    "tools/qa/compatibility/farm_native.gd": "0f7cf58edab16876bd235fc8ba310b79d87e64d1e289e8fbf11e8e1ba2b0a3bd",
+    "tools/qa/compatibility/farm_native.gd.uid": "a49e4d5fe46ab0e05b8c652f9d1da9aa1b56ee6a63f96bf4b6f791218676629a",
+    "tools/qa/compatibility/farm_review.gd": "958f474733326eb526fc2cde7a4a6be8608142ac5aa152ace505b25561a0941c",
+    "tools/qa/compatibility/farm_review.gd.uid": "9511d7db855be915775f6a257e7d51cac023b4d5e9ed36832670e9b2782e5d59",
+    "tools/qa/compatibility/focus_pause_native.gd": "85a0d0876dc5982e7f118cded23a0037eac9650f60b61269c22753f7403cd29c",
+    "tools/qa/compatibility/focus_pause_native.gd.uid": "bcb26ff5ff0d80e1d2654bf75be5a4de8b0f140732a6b86f0351b8dac919fb57",
+    "tools/qa/compatibility/front_facing_capture.gd": "09d180e471d81cb04b81e8f9d99bfb4d7e44259acc718913a5632581815ba0ea",
+    "tools/qa/compatibility/front_facing_capture.gd.uid": "59d097d4a97d3117da9ac03b94a309a786cd1305c314571961c19bb2e0369938",
+    "tools/qa/compatibility/front_facing_review.gd": "297a5aaf5017223765d92e8c24e203d3da91b6097b6795701f8fec352dfa1f1f",
+    "tools/qa/compatibility/front_facing_review.gd.uid": "426186bc726ab10d936e783c25f596ec068c2fbf4bc9701aa00447df0ca52761",
+    "tools/qa/compatibility/furnace_capture.gd": "d9116878e247485b012f8f7f1b9df1437a7b8abae74367167bb210fe994573cd",
+    "tools/qa/compatibility/furnace_capture.gd.uid": "00ece6d548932b9ca26b7a0ea1c083c43e77579f97edabe0012eb338de39f6c7",
+    "tools/qa/compatibility/furnace_review.gd": "2adc1204409e0f77e1a4fcd1d0da240dd4ff4902dad9f319c2fff4ed401c709c",
+    "tools/qa/compatibility/furnace_review.gd.uid": "997a78c160ba372b3cc5778997fc1b2fa2a1fa71d4c7e2ccf4e580f5f2d41415",
+    "tools/qa/compatibility/generate_adaptive_hud_previews.gd": "f83ef73a1e9de4ac9f0000211ed4d6863fd46d6a97ab795adfbd7c2fae502b44",
+    "tools/qa/compatibility/generate_hero_pose_preview.gd": "4c466e072484d2c867388d92b864f4d879070b67222bf5dc64fc4ac54ca7709b",
+    "tools/qa/compatibility/generate_ui_layout_audit.gd": "c6c6fca7f7b8427bf0df7ad498fd906194bdbe6bea626847f44d95f62dbf0ad3",
+    "tools/qa/compatibility/grandmother_animation_review.gd": "3e9764d5ccde0ab7f3401e1957c7972bda230abdd6032972288ee999137bd4c9",
+    "tools/qa/compatibility/held_weapon_capture.gd": "c00d09c4a0bca6d161358e8ab70a042d6a07071c4ad48f81b8aea41f50c6159e",
+    "tools/qa/compatibility/held_weapon_capture.gd.uid": "53c9c72188db47ee27ca4687ca81e8b5e8d9e49f6be1909709a45f84dfe75e59",
+    "tools/qa/compatibility/held_weapon_review.gd": "656772b7d1933f5102044d5a25ccb25e6b7b86d8c6d990e84a4e21b69cdc4511",
+    "tools/qa/compatibility/held_weapon_review.gd.uid": "db0a82aea53fe2e4b2985f51652b51b7b958e26e5c65c490b9e7d668b933d4d7",
+    "tools/qa/compatibility/hero_actions_capture.gd": "c7d5ed8aa2c1b5a572311fbdebb1f4afeb127464b0d55136e233d4580996b7bd",
+    "tools/qa/compatibility/hero_actions_review.gd": "b3aa8aa34f0e4a121b471b95451954136ca8a0e527f839e24717cf7fe3f7608c",
+    "tools/qa/compatibility/house_furniture_capture.gd": "09c7341f67e33ff66ca0ccf5276c0445404bd37c8db400ba7d38ec8ed9ffd399",
+    "tools/qa/compatibility/house_furniture_capture.gd.uid": "46da084057b332f51577f2ebddf68254f4f1edd85df3d12195b31e6877038ac8",
+    "tools/qa/compatibility/house_furniture_review.gd": "ca2c240fc75f00a22afc932cef64f71d7821cba8390515ad0616f9aaa54da99c",
+    "tools/qa/compatibility/house_furniture_review.gd.uid": "f33cf8fd9d64daa6a02316665e88577d7936ac2720e6e52b759584f38a816692",
+    "tools/qa/compatibility/kitchen_capture.gd": "4ddbb0166d11c6adaab070114d829a806fe8fa5bec97fcf5048ff07e1db928c5",
+    "tools/qa/compatibility/kitchen_capture.gd.uid": "34d1442411d23c3da7e7da79ae5f854fb2984923222330773cc7a0c797b83d24",
+    "tools/qa/compatibility/kitchen_review.gd": "96e848f97b9c982c9074c6bac9a5ec2431dddd3730f04c3ca08deb954405710d",
+    "tools/qa/compatibility/kitchen_review.gd.uid": "80fb516a7bf06335cbb93ab0a966515632ddd9ffdac5871468f937bfa06286aa",
+    "tools/qa/compatibility/lazy_item_icons_review.gd": "a1e844ae9f46fb7b4f48f9eca4ebdc6d6e2231f0d7e198d1556f6cb9d68668af",
+    "tools/qa/compatibility/lazy_item_icons_review.gd.uid": "ed04fd1c7174aec4526fc2e0bac465e353e3b9ced86bc5271b2860b8bee3200b",
+    "tools/qa/compatibility/livestock_review.gd": "b639af6ea44dbec9144b47297c8d3f89291f122301abd2a55aa9a0a25dfa20ec",
+    "tools/qa/compatibility/paper_theme_capture.gd": "48eaa79c222cd5fd5d02f8a838b18d62d454be2d4a2228bcf23bff0e74f9ae6b",
+    "tools/qa/compatibility/paper_theme_capture.gd.uid": "a703907e4e5a061fff968bd5dadaf1e943321720c4d3ba482123cf6e8cc5fd55",
+    "tools/qa/compatibility/paper_theme_reference_capture.gd": "30eac0ba1c39fd391e0ecc77cb9db97d1614ef27acf81f97b55152932b54a750",
+    "tools/qa/compatibility/paper_theme_reference_capture.gd.uid": "243f61620da487dc5c55f3d43add97ea2139b39e38442cd6d242726b0912c3a1",
+    "tools/qa/compatibility/paper_theme_review.gd": "e1e59d42222a9f35efc2a64b40108ca8daefb2bf5199e01e404e5540814c0429",
+    "tools/qa/compatibility/paper_theme_review.gd.uid": "950b843c945f6cc1643a00bcc9028136c652e13f8304a2a6d2c595eeadc6050d",
+    "tools/qa/compatibility/player_contact_capture.gd": "a9fea8b60623440561d633b8042ce0c4f307a87db5c9c9c130be20c455e8649e",
+    "tools/qa/compatibility/player_contact_review.gd": "a4ea1c6a6d7de88a15085519fc31037bc398701791eac564711a1ef8ef678611",
+    "tools/qa/compatibility/prepared_pixels_review.gd": "db6b64c121fcc4ab01ab542e3dfae7662812f7ba6cf974a9d02c6331e3c3ea67",
+    "tools/qa/compatibility/prepared_pixels_review.gd.uid": "3246cce52131aa28b8ab4021b6fb299cbc6aed199b5674d39b0b4b91d6b61729",
+    "tools/qa/compatibility/prop_edges_capture.gd": "6619f9588a3f99ef49d3f77e16a1be144aebb7629b9ef2989ee900b834f9ad3a",
+    "tools/qa/compatibility/qa_teleport_capture.gd": "6c05cb6c0ab2fae9f801dd8cab2f997b745fe1e6ff6bd9c85d296e775076a25c",
+    "tools/qa/compatibility/qa_teleport_capture.gd.uid": "4bbdfbd59b57a2f5de3da24c152a013551e6c93bd63d05fc1e5a55ea96dc1d7f",
+    "tools/qa/compatibility/qa_teleport_review.gd": "d7f0ffd99eb7a0db0e2b8e22f1bff7acc3e0ac7335ccf8bdd3f52f4fa80f3aa8",
+    "tools/qa/compatibility/qa_teleport_review.gd.uid": "bcb68f3ef93b4c335bab023c6e76022ed3f3c56ddee90d656b9339e4a04a95fd",
+    "tools/qa/compatibility/ranged_combat_capture.gd": "f063de6d1f6118f77548553b98fb5282c1b23af6c4a7793fce6b8f341330839f",
+    "tools/qa/compatibility/ranged_combat_review.gd": "5e100fc3c9f3f6316f61a530b04c197d7c60c3a6d60aae9d8ce8d6f8838bc253",
+    "tools/qa/compatibility/recovery_capture.gd": "3fb76899b1e7b5afe444608c0c7f622e46147336a0a0e77a88a55eb6921bc39d",
+    "tools/qa/compatibility/recovery_capture.gd.uid": "3755968dd9ea7b786d951d0068ce62de4ae59927c2d6d099bd7800f721d71c1e",
+    "tools/qa/compatibility/recovery_review.gd": "af68dc1b7d18c83594118e2bceac0626e49382d36eb4e3474af126eafe992a01",
+    "tools/qa/compatibility/recovery_review.gd.uid": "373aa0e5f9def8463a4dc21f5ad3bad842585de1092585caecef47d790039ccd",
+    "tools/qa/compatibility/research_capture.gd": "18dbd8ee4c6d28a77fb9f1fc8231f974ed5e0ac3dd3d0f734f602036ac2142a1",
+    "tools/qa/compatibility/research_capture.gd.uid": "ef2cac896b61ae8660331610eb537f0b204786a6572513a85be1f76c2606a73f",
+    "tools/qa/compatibility/research_catalog_export.gd": "b6e087633e95d57e6447128ce97eb3044d2f32916cf94e62a9aed9c210aa8894",
+    "tools/qa/compatibility/research_catalog_export.gd.uid": "1ccb056a2f9f3367645b60fefc3a8e0f1d4603b49c0f1ae19d154fa48292c555",
+    "tools/qa/compatibility/research_review.gd": "e8897b35afc329a39c57937387fcbf2834e3032fc6d706d4a8b7f524913f6392",
+    "tools/qa/compatibility/research_review.gd.uid": "71ace6254078c53be137bf1a762b4fcd2bfe1acb9abc323e650c4f94e566e950",
+    "tools/qa/compatibility/resident_review.gd": "96da6861699a108c5c0304e0d598456d284a681fb3318bbdbea55bb4d570cc24",
+    "tools/qa/compatibility/runtime_comfort_review.gd": "67e47edfad2687e2d369698230a125d8df412d604aa52abb336495986d6ea312",
+    "tools/qa/compatibility/runtime_maintenance_tests.gd": "15b93de2a97a23001f6d40856fe453b6ee206e333a64b98d5fef73bd628d6ef4",
+    "tools/qa/compatibility/runtime_maintenance_tests.gd.uid": "57b3a9d0483a5129b11ee42a6d2ee5cfbaf21b8d2f07a0eed106770cfcb4f69f",
+    "tools/qa/compatibility/safe_review.gd": "e1e2c3c9f465d7680414c18d08729806b73dabd96980b5162806ac3851718ed1",
+    "tools/qa/compatibility/safe_review.gd.uid": "5c7f94455cc284f9a48b95eb15fd3ed6f0b4d89e4a2c2253f8111697ce40b4f3",
+    "tools/qa/compatibility/skeleton_aim_capture.gd": "f10edd444a1610a9f40920e14a817f7bde2be1590047ff5dfe8c5b3309b67603",
+    "tools/qa/compatibility/skeleton_aim_capture.gd.uid": "3c1fdea42c2e0339bd7d9175e3b96702dfbc8602e5d8e0122c0b59994573589b",
+    "tools/qa/compatibility/startup_review.gd": "6caafe91489ef2e0f9fb836e4469ea5b2eeaa0e625e0500e2b19f8b0e7a1a57f",
+    "tools/qa/compatibility/startup_review.gd.uid": "9196ac5328ded622d3a15037f27d7f96e0447ea65273b8b46d254af045281f2e",
+    "tools/qa/compatibility/storage_actions_capture.gd": "647847ae09283cdfbbab014ab1a80c5dd764166630f7d2099ce9b50cf5fc2fef",
+    "tools/qa/compatibility/storage_actions_capture.gd.uid": "37f31f815b5bfa546a922957b00dccc12365c5fc73763da65828ce67017da97a",
+    "tools/qa/compatibility/storage_window_capture.gd": "9340289cab75855a330cc381ef7976c303b9fb2689914eb7f52efa5b25b53321",
+    "tools/qa/compatibility/storage_window_capture.gd.uid": "1356a8d61f6149d60035ab2b6df6318905bde8dee470c904af7771f005a08c7c",
+    "tools/qa/compatibility/terrain_cache_review.gd": "18bdf60b897d33fef6e76c0ace9bbbf1c210e3e5b63358d9da7574774bad37e8",
+    "tools/qa/compatibility/test_compatibility_cli.py": "2cb8c30415b5de3e878257925e6b8eb977b79053da13248e0a90f82279411ada",
+    "tools/qa/compatibility/tree_occlusion_review.gd": "b8aa3a6cbde82e847706b8bb52eb68540719c115f7c51b5bffce06309d7bf168",
+    "tools/qa/compatibility/workshops_capture.gd": "ae8268c996bb6c1684ac8052cd5957e9f7394e8ec3de806e5610dd26b3c4fedf",
+    "tools/qa/compatibility/workshops_capture.gd.uid": "ee5d869b5fd3ddfde47b658b9a737598904a76d816fc249cc2e8670ca5cfd170",
+    "tools/qa/compatibility/workshops_catalog_export.gd": "cfe704a94f8351a0b8a0c643edd6a6aa2d0fbcf0f6b6a97edbe34a560f832aac",
+    "tools/qa/compatibility/workshops_catalog_export.gd.uid": "2b72dfa85bf8e8194c437d91f6f38082f0a242815e3793f1f4c5b3429d009dc5",
+    "tools/qa/compatibility/workshops_review.gd": "6d111d38e037fd83608d87b7319f7ecda0cf2aeabf6b2ef7c2a1d88bcb069469",
+    "tools/qa/compatibility/workshops_review.gd.uid": "b9583864c9e79d606eebd6f8b7a805dffd487af0e8cd4b16fd961bb68d35e022",
+    "tools/qa/compatibility/world_native.gd": "0a07b48df25d89e2d29d482fc53cdd512adad57762cc10a3b849425dcc261d6a",
+    "tools/qa/compatibility/world_native.gd.uid": "25bcbf5112c7ddd24eb12f98e509b5dd0215fd11a1a30e5cd5bafd9b8bd28389",
+    "tools/qa/compatibility/world_review.gd": "1091d61146d2201fd9cdc023bf1b53811b94117e54d9d27f6aa8f62d4532636c",
+    "tools/qa/compatibility/world_review.gd.uid": "7c1bc34db297d0d1b7191275708d6073873d1773650fecae890a4277917df8a7",
+    "tools/qa/compatibility/world_workbench_review.gd": "69e4475b089ca65bddb805c1474aafbbc3a84f0d4e9350079dbe7d26e17fa3bd",
+    "tools/qa/compatibility/world_workbench_review.gd.uid": "d4d09a9c9fbd1f32dbe7599408aac72cfcd100b9aa050f5628ee978cfa7d1e28",
+    "tools/quality/check_architecture.sh": "7c832279f76c4728d42229b58c79e630ad99b3d189ea444ef149f0f627d45a0c",
+    "tools/water_fishing_review.gd": "ce91e887b9f49bc9f3d17b863107a2492db1d15ba5360a29a7bb999a24a9e1ec",
+    "tools/water_navigation_review.gd": "45cb6d336eef6e3064210a003a7be87779e49e3e9024e4fc6e34d9119c23cd2f",
+    "tools/water_topology_review.gd": "92025f483f056fd8e3e75a2f28577875672c1584ebfe32cb060670d662bdcdea",
+    "wiki/articles/project-refactoring.md": "8b3544be1acb050c64f56cd86087671c65d262ecd2a0aec136e70778e7c1f51f",
+    "Бабушкина ферма.app/Contents/Info.plist": "9a70c1b6037910370edb45794521408b4f2d4578855a9dd1d14d58712026537b"
+  },
+  "removed_source_paths": [
+    "tools/action_lifecycle_native.gd",
+    "tools/action_lifecycle_native.gd.uid",
+    "tools/alchemy_capture.gd",
+    "tools/alchemy_capture.gd.uid",
+    "tools/alchemy_catalog_export.gd",
+    "tools/alchemy_catalog_export.gd.uid",
+    "tools/alchemy_review.gd",
+    "tools/alchemy_review.gd.uid",
+    "tools/apiary_capture.gd",
+    "tools/apiary_capture.gd.uid",
+    "tools/apiary_review.gd",
+    "tools/apiary_review.gd.uid",
+    "tools/artisan_capture.gd",
+    "tools/artisan_capture.gd.uid",
+    "tools/artisan_review.gd",
+    "tools/artisan_review.gd.uid",
+    "tools/basement_capture.gd",
+    "tools/basement_capture.gd.uid",
+    "tools/basement_review.gd",
+    "tools/basement_review.gd.uid",
+    "tools/basement_ui_review.gd",
+    "tools/basement_ui_review.gd.uid",
+    "tools/boss_balance_review.gd",
+    "tools/character_polish_capture.gd",
+    "tools/check_alchemy_reports.py",
+    "tools/compact_dialogue_capture.gd",
+    "tools/compact_dialogue_capture.gd.uid",
+    "tools/compact_dialogue_preview.gd",
+    "tools/compact_dialogue_preview.gd.uid",
+    "tools/compact_dialogue_review.gd",
+    "tools/compact_dialogue_review.gd.uid",
+    "tools/compact_hud_review.gd",
+    "tools/content_reference_audit.gd",
+    "tools/content_reference_audit.gd.uid",
+    "tools/cooking_capture.gd",
+    "tools/cooking_review.gd",
+    "tools/depth_guardian_capture.gd",
+    "tools/depth_guardian_capture.gd.uid",
+    "tools/depth_guardian_review.gd",
+    "tools/depth_guardian_review.gd.uid",
+    "tools/design_audit_capture.gd",
+    "tools/design_audit_capture.gd.uid",
+    "tools/design_audit_gallery.gd",
+    "tools/design_audit_gallery.gd.uid",
+    "tools/design_audit_review.gd",
+    "tools/design_audit_review.gd.uid",
+    "tools/dev_cabinet_capture.gd",
+    "tools/dev_cabinet_capture.gd.uid",
+    "tools/dev_cabinet_review.gd",
+    "tools/dev_cabinet_review.gd.uid",
+    "tools/dropped_loot_capture.gd",
+    "tools/dropped_loot_capture.gd.uid",
+    "tools/dropped_loot_review.gd",
+    "tools/dropped_loot_review.gd.uid",
+    "tools/end_to_end_capture.gd",
+    "tools/end_to_end_capture.gd.uid",
+    "tools/end_to_end_review.gd",
+    "tools/end_to_end_review.gd.uid",
+    "tools/farm_bounds_capture.gd",
+    "tools/farm_bounds_review.gd",
+    "tools/farm_bounds_review.gd.uid",
+    "tools/farm_cursor_review.gd",
+    "tools/farm_cycles.py",
+    "tools/farm_native.gd",
+    "tools/farm_native.gd.uid",
+    "tools/farm_review.gd",
+    "tools/farm_review.gd.uid",
+    "tools/focus_pause_native.gd",
+    "tools/focus_pause_native.gd.uid",
+    "tools/front_facing_capture.gd",
+    "tools/front_facing_capture.gd.uid",
+    "tools/front_facing_review.gd",
+    "tools/front_facing_review.gd.uid",
+    "tools/furnace_capture.gd",
+    "tools/furnace_capture.gd.uid",
+    "tools/furnace_review.gd",
+    "tools/furnace_review.gd.uid",
+    "tools/generate_adaptive_hud_previews.gd",
+    "tools/generate_hero_pose_preview.gd",
+    "tools/generate_ui_layout_audit.gd",
+    "tools/grandmother_animation_review.gd",
+    "tools/held_weapon_capture.gd",
+    "tools/held_weapon_capture.gd.uid",
+    "tools/held_weapon_review.gd",
+    "tools/held_weapon_review.gd.uid",
+    "tools/hero_actions_capture.gd",
+    "tools/hero_actions_review.gd",
+    "tools/house_furniture_capture.gd",
+    "tools/house_furniture_capture.gd.uid",
+    "tools/house_furniture_review.gd",
+    "tools/house_furniture_review.gd.uid",
+    "tools/kitchen_capture.gd",
+    "tools/kitchen_capture.gd.uid",
+    "tools/kitchen_review.gd",
+    "tools/kitchen_review.gd.uid",
+    "tools/lazy_item_icons_review.gd",
+    "tools/lazy_item_icons_review.gd.uid",
+    "tools/livestock_review.gd",
+    "tools/paper_theme_capture.gd",
+    "tools/paper_theme_capture.gd.uid",
+    "tools/paper_theme_reference_capture.gd",
+    "tools/paper_theme_reference_capture.gd.uid",
+    "tools/paper_theme_review.gd",
+    "tools/paper_theme_review.gd.uid",
+    "tools/player_contact_capture.gd",
+    "tools/player_contact_review.gd",
+    "tools/prepared_pixels_review.gd",
+    "tools/prepared_pixels_review.gd.uid",
+    "tools/prop_edges_capture.gd",
+    "tools/qa_teleport_capture.gd",
+    "tools/qa_teleport_capture.gd.uid",
+    "tools/qa_teleport_review.gd",
+    "tools/qa_teleport_review.gd.uid",
+    "tools/ranged_combat_capture.gd",
+    "tools/ranged_combat_review.gd",
+    "tools/recovery_capture.gd",
+    "tools/recovery_capture.gd.uid",
+    "tools/recovery_review.gd",
+    "tools/recovery_review.gd.uid",
+    "tools/research_capture.gd",
+    "tools/research_capture.gd.uid",
+    "tools/research_catalog_export.gd",
+    "tools/research_catalog_export.gd.uid",
+    "tools/research_review.gd",
+    "tools/research_review.gd.uid",
+    "tools/resident_review.gd",
+    "tools/runtime_comfort_review.gd",
+    "tools/runtime_maintenance_tests.gd",
+    "tools/runtime_maintenance_tests.gd.uid",
+    "tools/safe_review.gd",
+    "tools/safe_review.gd.uid",
+    "tools/skeleton_aim_capture.gd",
+    "tools/skeleton_aim_capture.gd.uid",
+    "tools/startup_review.gd",
+    "tools/startup_review.gd.uid",
+    "tools/storage_actions_capture.gd",
+    "tools/storage_actions_capture.gd.uid",
+    "tools/storage_window_capture.gd",
+    "tools/storage_window_capture.gd.uid",
+    "tools/terrain_cache_review.gd",
+    "tools/tree_occlusion_review.gd",
+    "tools/workshops_capture.gd",
+    "tools/workshops_capture.gd.uid",
+    "tools/workshops_catalog_export.gd",
+    "tools/workshops_catalog_export.gd.uid",
+    "tools/workshops_review.gd",
+    "tools/workshops_review.gd.uid",
+    "tools/world_native.gd",
+    "tools/world_native.gd.uid",
+    "tools/world_review.gd",
+    "tools/world_review.gd.uid",
+    "tools/world_workbench_review.gd",
+    "tools/world_workbench_review.gd.uid"
+  ],
+  "report_files": [
+    {
+      "path": "README.md",
+      "sha256": "962ebc02a3ebcd3e6ac09a0abbbf6fd2271aa677137d7fbc1295ecc72d4b1e42",
+      "bytes": 7290
+    },
+    {
+      "path": "after-001.txt",
+      "sha256": "69b4bb2c78333811eac0717eb1b86ffe521ca05049a286a3248cf07a513c00a1",
+      "bytes": 6742
+    },
+    {
+      "path": "after-002.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-003.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-004.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-005.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-006.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-007.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-008.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-009.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-010.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-011.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-012.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-013.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-014.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-015.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-016.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-017.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-018.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-019.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-020.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-021.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-022.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-023.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-024.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-025.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-026.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-027.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-028.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-029.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-030.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-031.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-032.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-033.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-034.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-035.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-036.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-037.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-038.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-039.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-040.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-041.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-042.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-043.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-044.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-045.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-046.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-047.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-048.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-049.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-050.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-051.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-052.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-053.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-054.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-055.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-056.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-057.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-058.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-059.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-060.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-061.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-062.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-063.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-064.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-065.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-066.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-067.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-068.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-069.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-070.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-071.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-072.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-073.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-074.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-075.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-076.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-077.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-078.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-079.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-080.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-081.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-082.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-083.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-084.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-085.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-086.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-087.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-088.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-089.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-090.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-091.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-092.txt",
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    {
+      "path": "after-093.txt",
+      "sha256": "a7efb7282e9888a32f71903ca1e8876281b3283c85b4593b71bcd0703d7237be",
+      "bytes": 199
+    },
+    {
+      "path": "after-094.txt",
+      "sha256": "99e4993a0f05f6c371f2cfede51de8d2f92e14e4c900a2f3238d48e4e4e5d9f1",
+      "bytes": 114
+    },
+    {
+      "path": "after-095.txt",
+      "sha256": "2c2e57902c889fa7f339d1fa57afdae7053ea5da8553be3ec6fa704accae74f0",
+      "bytes": 115
+    },
+    {
+      "path": "after-096.txt",
+      "sha256": "4601d1dcd4c26add345bca4d755d6eb10d55058bd517c8a486bc439fd50c8b31",
+      "bytes": 208
+    },
+    {
+      "path": "after-097.txt",
+      "sha256": "8e909e7112b6a309aa9a7961ffc3e98ad634a7df83b423acb5a1ff40c86c34d2",
+      "bytes": 26
+    },
+    {
+      "path": "after-098.txt",
+      "sha256": "c7f361113f47b896c19f057322574db19219ab26478102e70efea21d225a2249",
+      "bytes": 950
+    },
+    {
+      "path": "after-099.txt",
+      "sha256": "50e56e120ca4d7e5aca85f107b431f070720c0ca69d81568923e7a33f9fa0b00",
+      "bytes": 101
+    },
+    {
+      "path": "after-catalog.json.gz",
+      "sha256": "4614592e71b57d48b6c7ca3ce695eaf7b87720d033ed5f446ef2f9408cf840a2",
+      "bytes": 8856
+    },
+    {
+      "path": "after-commands.json",
+      "sha256": "1edb376b86e16263781ef1c14bd2f5cd0467b882bc6cb20eceab3699ee2ed326",
+      "bytes": 57711
+    },
+    {
+      "path": "after-cycles.json.gz",
+      "sha256": "afa3a5cde7d2115082c7deb8346aa5c8f918dcf3cae5c1c66b2e252594104025",
+      "bytes": 2844
+    },
+    {
+      "path": "after-profile.json",
+      "sha256": "9f9e4d8bcf9636c399833f839ec9b9f8bef259d1e9a090e99673ea004b85fd1f",
+      "bytes": 87373
+    },
+    {
+      "path": "audit.py",
+      "sha256": "b92a1ee1fbf0e028cf37518b6add8403cad1f6f803ad4acbc60f765bc223e919",
+      "bytes": 6562
+    },
+    {
+      "path": "baseline/.gitattributes.gz",
+      "sha256": "232a05650fe731906a29088fbd5213dd470b501af897874db04041528dfa98dd",
+      "bytes": 806
+    },
+    {
+      "path": "baseline/.gitignore.gz",
+      "sha256": "e4d999cde5b9f103e7d54a9cc04020ac72b68edb610488cd9f7f3da4f00f6b8b",
+      "bytes": 4614
+    },
+    {
+      "path": "baseline/PERFORMANCE.md.gz",
+      "sha256": "1333be04c305bece0813ab24968fb27d0c39ebc702dd54f3ca4db8e33ec375b3",
+      "bytes": 12567
+    },
+    {
+      "path": "baseline/QA_CHECKLIST.md.gz",
+      "sha256": "3f670287aa4deb3f44f63bf1b81be721c86dc0e4934e4fee5e125047b0796759",
+      "bytes": 112994
+    },
+    {
+      "path": "baseline/TESTING.md.gz",
+      "sha256": "d14b2f34a04c81792963ccb9d5827c74feed41f55b0972fc1b08b259eb51c209",
+      "bytes": 44332
+    },
+    {
+      "path": "baseline/VERSION.gz",
+      "sha256": "b178ffb971414c54ef7997c42dbd49d9b7e0f443fcd13bbd1aa819029a25a11b",
+      "bytes": 28
+    },
+    {
+      "path": "baseline/assets--game--characters--grandmother_v2--README.md.gz",
+      "sha256": "8ab6e5a7d1625acb81363b93fd2d5f19e4818ba401b3431131b2678242d4d678",
+      "bytes": 3407
+    },
+    {
+      "path": "baseline/ci368-final.json",
+      "sha256": "d907d34d41adb087a0c732e81278608268fd061959f0a168e44235ab542994fa",
+      "bytes": 3326
+    },
+    {
+      "path": "baseline/docs--COMPACT_HUD.md.gz",
+      "sha256": "a2f6ff641725836cb0c5de97b3339c8c90142e71aed79560b86acb6f5cac3daa",
+      "bytes": 2765
+    },
+    {
+      "path": "baseline/docs--DEVELOPMENT.md.gz",
+      "sha256": "ea2d3671aee2dde47ce702439e2203436a1c723f8ff0d7c93fbd5c6de2176c6a",
+      "bytes": 43167
+    },
+    {
+      "path": "baseline/docs--PLAYABILITY_POLISH.md.gz",
+      "sha256": "3935c7ea2802e0e8a7bf6b7d44fc7b3849dc826d1373a4ee6a43d3200674631b",
+      "bytes": 5011
+    },
+    {
+      "path": "baseline/docs--TREE_COMFORT.md.gz",
+      "sha256": "04c06ac2725f22937296669cfc42b1aa4069f85b5bc2edf1b89905543772f527",
+      "bytes": 2639
+    },
+    {
+      "path": "baseline/docs--UI_AUDIT.md.gz",
+      "sha256": "177f04b2fa7960569c40296743f3622fec871535de2b1858326253e02b4f7a02",
+      "bytes": 3542
+    },
+    {
+      "path": "baseline/docs--UI_GUIDE.md.gz",
+      "sha256": "ea3147fede9e0db412909e414a84ba953718d3ea68b30cca221547d597079135",
+      "bytes": 4430
+    },
+    {
+      "path": "baseline/docs--epics--refactoring-2026-10--TASKS.md.gz",
+      "sha256": "4b103b71bc3fd763a33dc964fca6c6293c007e780a0d671c5b810d9cc93842e7",
+      "bytes": 7906
+    },
+    {
+      "path": "baseline/inventory.json",
+      "sha256": "81804185dd2ca73029436377b0b3200191b87ad8e1b2819272fa1ffb5d16b2e7",
+      "bytes": 63145
+    },
+    {
+      "path": "baseline/project.godot.gz",
+      "sha256": "3f5d227b65cae40f582301a37e0defde2412dfc06e68b6060e131a55003a80ed",
+      "bytes": 606
+    },
+    {
+      "path": "baseline/reviews368.json",
+      "sha256": "776031f7665336495b23399ab05f358907b0fcd29b11cc1a3dd6dcb7f78468c3",
+      "bytes": 6443
+    },
+    {
+      "path": "baseline/tools--README.md.gz",
+      "sha256": "587a795a970628a19f8b6ce43fee99a317d6eb6122bc100fd60e42d6f3890008",
+      "bytes": 4518
+    },
+    {
+      "path": "baseline/tools--action_lifecycle_native.gd.gz",
+      "sha256": "e49f131aeaea1967dc216bd3dca1c89632fce6af1999533fc8e7b3a235ecc307",
+      "bytes": 1514
+    },
+    {
+      "path": "baseline/tools--action_lifecycle_native.gd.uid.gz",
+      "sha256": "b8950d6970302bcdd6777df52d7c8157e34c1f9f75f52f8f476b8ae847eebce2",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--alchemy_capture.gd.gz",
+      "sha256": "559e03769bb8d45d27dbc84a6318494171509947f81358e22201910e22582746",
+      "bytes": 1737
+    },
+    {
+      "path": "baseline/tools--alchemy_capture.gd.uid.gz",
+      "sha256": "c91b9ae114238af76a96e91f7b387ddc831e20fb47d3e61b1fe36280a9283bde",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--alchemy_catalog_export.gd.gz",
+      "sha256": "da29b3205c1e82093d5fe6c44cea04b357cee90f250bdc90b931ba86808de18d",
+      "bytes": 595
+    },
+    {
+      "path": "baseline/tools--alchemy_catalog_export.gd.uid.gz",
+      "sha256": "96e4af02894f3c3be048b05975b02cbc6cd086ab53307bd96f495868e00081fa",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--alchemy_review.gd.gz",
+      "sha256": "78a96d564823c4ef9ac869c999529966235c953eab6e3fd62af82d2ca38c1fdb",
+      "bytes": 1048
+    },
+    {
+      "path": "baseline/tools--alchemy_review.gd.uid.gz",
+      "sha256": "3f6b3b59296da41fb69a23614695192fda2336db792a5d71868e5a6a6edb7211",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--apiary_capture.gd.gz",
+      "sha256": "a2ede1aa041231b6086fe3b96ab4f531a9694b5215915f480c0971d3f0be6754",
+      "bytes": 1941
+    },
+    {
+      "path": "baseline/tools--apiary_capture.gd.uid.gz",
+      "sha256": "70d4178106b10b27e3bcbcc163a10a1a4ea950de7b58344c6b432be243d60a47",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--apiary_review.gd.gz",
+      "sha256": "4500f69efb81b70bec8d4ce353b05d2912f813fc7aadcf5d8f6737d383b53fd2",
+      "bytes": 1020
+    },
+    {
+      "path": "baseline/tools--apiary_review.gd.uid.gz",
+      "sha256": "36dd191d1762c1b00ae0c4ccbfba11381bb0fcf8834e44a77b412c2b515c9684",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--artisan_capture.gd.gz",
+      "sha256": "245f5eacd3d91ac0d940fc3a28aa49ff43841e3eebe1088b9fb720229e51bb50",
+      "bytes": 2454
+    },
+    {
+      "path": "baseline/tools--artisan_capture.gd.uid.gz",
+      "sha256": "99acf1454b18b44bf27313ff08fc8e355e0eef1afa3b3e31d4386f6af5dbd382",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--artisan_review.gd.gz",
+      "sha256": "d0fc3463702f51a6c89c109166d05ab2595f28789c3b45f3678ca52f88aee908",
+      "bytes": 1072
+    },
+    {
+      "path": "baseline/tools--artisan_review.gd.uid.gz",
+      "sha256": "89faee148e206d8017e087f2c1083356dcaddfe9172b7ac1d451b47c8dec9279",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--assets--slicing--slice_review.gd.gz",
+      "sha256": "eff93a359efa38b3313027e5ebc8e9c5ab8ca501bcb494ae69b15a174221aa55",
+      "bytes": 330
+    },
+    {
+      "path": "baseline/tools--basement_capture.gd.gz",
+      "sha256": "3b0b8e197b14906a827a533e619ac7a257086b18fe66226b853af04dd4af419f",
+      "bytes": 2334
+    },
+    {
+      "path": "baseline/tools--basement_capture.gd.uid.gz",
+      "sha256": "660d96ca5e7d14665a154a5762bc0326f998f0248f8705f4bf0d9ece37cc8948",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--basement_review.gd.gz",
+      "sha256": "43c995092dea9ae74b779985a8ab356553850b7d06351ab0bae31c422b796951",
+      "bytes": 936
+    },
+    {
+      "path": "baseline/tools--basement_review.gd.uid.gz",
+      "sha256": "06aa782e3e569cca1172eb910ad7436987dde1dee049150d9455e6d175319ab1",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--basement_ui_review.gd.gz",
+      "sha256": "cc72c7e3ab467b3dd523e659894d9acd755631c71eaa9b1dfcc7aac5f7f46c40",
+      "bytes": 417
+    },
+    {
+      "path": "baseline/tools--basement_ui_review.gd.uid.gz",
+      "sha256": "f395037e46db604335806689321288ca7f486a667289f879f999899decc1c041",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--boss_balance_review.gd.gz",
+      "sha256": "f073d203c6ad460b542798f9a72b5414ffe1406d632a69aee3d34c8b6cd077b4",
+      "bytes": 2429
+    },
+    {
+      "path": "baseline/tools--character_polish_capture.gd.gz",
+      "sha256": "aab2c2f4ddaa802c64daeb7cadb1d9e20efead20c7338f1ba7bf6c4c713e283d",
+      "bytes": 1519
+    },
+    {
+      "path": "baseline/tools--check_alchemy_reports.py.gz",
+      "sha256": "f7140cd8a5ac5cbc353467305c72e193ed2988092ea111e59dc318a864d34cf5",
+      "bytes": 1021
+    },
+    {
+      "path": "baseline/tools--compact_dialogue_capture.gd.gz",
+      "sha256": "ce53162a441bd2e1703f2777eeb4516a0892d40f241ff93f4fee28e00e06212a",
+      "bytes": 1490
+    },
+    {
+      "path": "baseline/tools--compact_dialogue_capture.gd.uid.gz",
+      "sha256": "f61b10ba37b2fb038ae09ef8114c4b53e505fdd7ac4a0bf08291f2810bc7ffea",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--compact_dialogue_preview.gd.gz",
+      "sha256": "18a9b7b4c0328b70409f4ec671732b2e47cf342cc7408db0f9219386f294379b",
+      "bytes": 1321
+    },
+    {
+      "path": "baseline/tools--compact_dialogue_preview.gd.uid.gz",
+      "sha256": "09ee7a4a2e57b3f903905d24208f520ec7ef783f2c40453f788ee52f76fa2ba9",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--compact_dialogue_review.gd.gz",
+      "sha256": "4d48354059f7ba6d001380d2783d04d00072e8a3c66c40efdb256478898e45e8",
+      "bytes": 933
+    },
+    {
+      "path": "baseline/tools--compact_dialogue_review.gd.uid.gz",
+      "sha256": "f982b9b6e942192796fe0aa1b0b2997c20a07358d9f1bc5f91255763d6051baa",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--compact_hud_review.gd.gz",
+      "sha256": "a9e8c684ceff472b65dd089a83fe3e469bd8a9a476565322505a4e2af837a6a6",
+      "bytes": 4823
+    },
+    {
+      "path": "baseline/tools--content_reference_audit.gd.gz",
+      "sha256": "19f96b6ddaca6c63fd4adf1939725ec517d00b11748544946b44a0d7fd9a6d45",
+      "bytes": 476
+    },
+    {
+      "path": "baseline/tools--content_reference_audit.gd.uid.gz",
+      "sha256": "266206d9b9a2397bd81b0c6120d5c112125432e0f27b380361b8fb20c08bbda3",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--cooking_capture.gd.gz",
+      "sha256": "88bf1b3b722f2f4c151cceffd9539df23902c6bc2d8a18b4143c723a9e4ec75c",
+      "bytes": 1229
+    },
+    {
+      "path": "baseline/tools--cooking_review.gd.gz",
+      "sha256": "2759db8043637ccfd4df6aef9a8120b8773f81992c3b5879ebae52c328b355b5",
+      "bytes": 329
+    },
+    {
+      "path": "baseline/tools--depth_guardian_capture.gd.gz",
+      "sha256": "8e85616df786fc5b440973ba678bce0c7b3054df11f1354315acff81b2389e85",
+      "bytes": 1877
+    },
+    {
+      "path": "baseline/tools--depth_guardian_capture.gd.uid.gz",
+      "sha256": "5355aefbe30adb48935452fa108fa37c0f9bd4fc000432a3cd0c808e051bf24b",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--depth_guardian_review.gd.gz",
+      "sha256": "2ef3dd8db27436f3dfe0843fa5a4dd390c1f7653515c6c00d48e6158283036cc",
+      "bytes": 419
+    },
+    {
+      "path": "baseline/tools--depth_guardian_review.gd.uid.gz",
+      "sha256": "fa08c70384f706431ba224078c36745e15432d276d33133ad68d2ae492aa4138",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--design_audit_capture.gd.gz",
+      "sha256": "c1a55e0de2a1f7bd46acc393f126eedc4c9e1389bc10ca6e3baa74d395c6beb7",
+      "bytes": 2108
+    },
+    {
+      "path": "baseline/tools--design_audit_capture.gd.uid.gz",
+      "sha256": "4f9c5e1c796c14f593a9171dbf1996cf17079b0658869e2803f086181c93d387",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--design_audit_gallery.gd.gz",
+      "sha256": "af1480ae971289b748942b6a474524768293f1c891358fa30142049233fca334",
+      "bytes": 1261
+    },
+    {
+      "path": "baseline/tools--design_audit_gallery.gd.uid.gz",
+      "sha256": "b95e099a4ceb6ddf708cf6364cd3dc2bd8c7f6154fb62af08921beb1a09f0347",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--design_audit_review.gd.gz",
+      "sha256": "8bb2a1aa01f7378f9a34fc34d1e3fed8a3e05eae6fc2e4df7dfa486f8a712e40",
+      "bytes": 385
+    },
+    {
+      "path": "baseline/tools--design_audit_review.gd.uid.gz",
+      "sha256": "d18a43a57cd04bcd995e169542f3a9511f3533d3aab800bd23d9ad7271fd9562",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--dev_cabinet_capture.gd.gz",
+      "sha256": "6fa260f1e8933888f33669414919c1e2fa3e1f03eaca7cbbb1f15b01cb373e28",
+      "bytes": 1996
+    },
+    {
+      "path": "baseline/tools--dev_cabinet_capture.gd.uid.gz",
+      "sha256": "d7dc30a03a694f898559a2f0ce6b72273f47c16706956600b1ab98bd014a11cb",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--dev_cabinet_review.gd.gz",
+      "sha256": "ac96e77ab274553a7735186dc2ba2813abcd9818f53a98ad6cf3f2e33433272c",
+      "bytes": 986
+    },
+    {
+      "path": "baseline/tools--dev_cabinet_review.gd.uid.gz",
+      "sha256": "07b144f615cfd2f3cde3fbd46027a05b6779895ef416b676059923941a4ad8b4",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--dropped_loot_capture.gd.gz",
+      "sha256": "e4242f734510dca92a20e5271868c9c4d91c784e1d7ba978ee97f18a63e95c67",
+      "bytes": 1456
+    },
+    {
+      "path": "baseline/tools--dropped_loot_capture.gd.uid.gz",
+      "sha256": "f64a6ee937b2ecec8e5185d2f9e1e181cf8d3d347f606150153816a9b9f4c43e",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--dropped_loot_review.gd.gz",
+      "sha256": "782b8148421a45a0e8b8cb58b57d2de9a7f7fb10053ee0ea6dd576bc14da6674",
+      "bytes": 934
+    },
+    {
+      "path": "baseline/tools--dropped_loot_review.gd.uid.gz",
+      "sha256": "da822f0fc43db4c60c90a1f22190a7ff8084f1c554f9e0d3b7460f0661159b76",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--end_to_end_capture.gd.gz",
+      "sha256": "ad2667bd0db0a832256add8ada1213a95e4e43076a17fffee48badcd662cf6a5",
+      "bytes": 929
+    },
+    {
+      "path": "baseline/tools--end_to_end_capture.gd.uid.gz",
+      "sha256": "ca0a791dab9af4b6c25bc6cd6316fad032e432005b373ce7b7377178faefc486",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--end_to_end_review.gd.gz",
+      "sha256": "ece4122ba33a29ca8d97dbc7385d49c08fc682ca563eedafb735960b8cac61eb",
+      "bytes": 6929
+    },
+    {
+      "path": "baseline/tools--end_to_end_review.gd.uid.gz",
+      "sha256": "1655890641ecb68fce3b837e6a6401b7da29b496b356f61fd96c68da8573df57",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--farm_bounds_capture.gd.gz",
+      "sha256": "7b0d262f4f3d37af982b09d3d302c8ed47e6f90c23ea29dbf1db1a4a51c08772",
+      "bytes": 1287
+    },
+    {
+      "path": "baseline/tools--farm_bounds_review.gd.gz",
+      "sha256": "bb42db702baf2a1f9c85fff83d6061e9f4375dccc035da525be978d8349673b5",
+      "bytes": 352
+    },
+    {
+      "path": "baseline/tools--farm_bounds_review.gd.uid.gz",
+      "sha256": "b9f0a207b47b3be7e0017561e501cdb08f194232d4e0f324067f8537b5aced8e",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--farm_cursor_review.gd.gz",
+      "sha256": "13b2d19218b8ed738ece766b4e74c0041028c801efc277b8b03f2d380cbf9758",
+      "bytes": 1447
+    },
+    {
+      "path": "baseline/tools--farm_cycles.py.gz",
+      "sha256": "b5ff6c8fc6176f97afc8e636f199aadbb05cfdb7c0188a651cc3a166ae855903",
+      "bytes": 1436
+    },
+    {
+      "path": "baseline/tools--farm_native.gd.gz",
+      "sha256": "4d0d6fc786c0871a9353faac51a76b0112933185cc13face59a7d56c696c60dc",
+      "bytes": 1341
+    },
+    {
+      "path": "baseline/tools--farm_native.gd.uid.gz",
+      "sha256": "5c932facc8e846bc163b95ffec22b6a1562defa231d3b070d2efb079d6ebb8d1",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--farm_review.gd.gz",
+      "sha256": "9eb809d1ade96563c77aa7e2d3a752db7605ada01e229efb9cc4d189814e9dd1",
+      "bytes": 1061
+    },
+    {
+      "path": "baseline/tools--farm_review.gd.uid.gz",
+      "sha256": "23d9a40d6ac92bde74255d485cc01c4238d67f4327375455f1d0ae4b2543cb35",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--focus_pause_native.gd.gz",
+      "sha256": "bf2b8a1b724a7f784f2841e9415c648197a1c14f82e4907f9e7b927e6e848966",
+      "bytes": 1741
+    },
+    {
+      "path": "baseline/tools--focus_pause_native.gd.uid.gz",
+      "sha256": "510a6dca4bb6bb68868265ee9151752a177f7493208b37dd013fe622f61c6984",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--front_facing_capture.gd.gz",
+      "sha256": "8867c58a36ba7d6c295b8964bf438a95144b30b9aefc7651f78aaf502772ecba",
+      "bytes": 1705
+    },
+    {
+      "path": "baseline/tools--front_facing_capture.gd.uid.gz",
+      "sha256": "9de1fd4de8a1dded3456f744748659b8d2008cf59814ad25ce64d38d691cd59f",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--front_facing_review.gd.gz",
+      "sha256": "101b3f927d7aab2399a9a30bc1c8562e3f3a80873949fc2c5d95990201dca386",
+      "bytes": 383
+    },
+    {
+      "path": "baseline/tools--front_facing_review.gd.uid.gz",
+      "sha256": "cca07eef82f3f9d0639d11e041822d14b88ccc726fa200cfefa716c691be2295",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--furnace_capture.gd.gz",
+      "sha256": "7d167a6ebc5d13f0d9a23a42bc7d834471dbc3d8fd937147905904d68b58a4f1",
+      "bytes": 1710
+    },
+    {
+      "path": "baseline/tools--furnace_capture.gd.uid.gz",
+      "sha256": "6d30a189c94a95b5d9424d7ad8e3b30d0a719e36da670a1492ba733a14d40ee3",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--furnace_review.gd.gz",
+      "sha256": "e49512eb8112f0107f5f24a0d0ab2dcc56f4f3c8ac3f236a05d21988c31d49f2",
+      "bytes": 957
+    },
+    {
+      "path": "baseline/tools--furnace_review.gd.uid.gz",
+      "sha256": "f08dd0db189de1352289362c2413431628decbd020df2d6517f5c457531e32e8",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--generate_adaptive_hud_previews.gd.gz",
+      "sha256": "b23588d5a39717931534e035ea7cdfee309e2575ebb936c68102b10ac4a7c22a",
+      "bytes": 998
+    },
+    {
+      "path": "baseline/tools--generate_hero_pose_preview.gd.gz",
+      "sha256": "a914772debbd8404d04103db051ae2e8f36ae05099d8fe4ab64ceff4760ce1c2",
+      "bytes": 1241
+    },
+    {
+      "path": "baseline/tools--generate_ui_layout_audit.gd.gz",
+      "sha256": "4121d5b0ec82ec8fed4e428130e464e02ab0dcff11a8d2db3d04a5fd2c8c62af",
+      "bytes": 617
+    },
+    {
+      "path": "baseline/tools--grandmother_animation_review.gd.gz",
+      "sha256": "7c0d6dbb92473f904dc4046a77a77e40243a12bf070a76c1b7317ffd368e2b00",
+      "bytes": 3042
+    },
+    {
+      "path": "baseline/tools--held_weapon_capture.gd.gz",
+      "sha256": "0a4835b7913da2660c7eaf90b8de1042d897cba6dbbdd38e1983bb4f96206833",
+      "bytes": 1515
+    },
+    {
+      "path": "baseline/tools--held_weapon_capture.gd.uid.gz",
+      "sha256": "bcd64dc5e112166240fc638c14e956f14b1edce043a0e4d86d041f21a23827c3",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--held_weapon_review.gd.gz",
+      "sha256": "588fb15a8c3030eaf83bd52b2cfc7e4113aac040ca155f73722cce6bcd332b9c",
+      "bytes": 420
+    },
+    {
+      "path": "baseline/tools--held_weapon_review.gd.uid.gz",
+      "sha256": "71e9fcca65b9a682af66880a3fd5b385bd09d6c17b400fc10379ccf2ee3fd97c",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--hero_actions_capture.gd.gz",
+      "sha256": "a6331609207b7b7597aede18c9c471a3ddbdc812392e745c2870824f82fc4b4b",
+      "bytes": 1157
+    },
+    {
+      "path": "baseline/tools--hero_actions_review.gd.gz",
+      "sha256": "e68c277e6cda3cdf69c4373293b75c129c049c30003dc9abb3639ce8c327d554",
+      "bytes": 341
+    },
+    {
+      "path": "baseline/tools--house_furniture_capture.gd.gz",
+      "sha256": "7171715b43537a9ddab3ef787207b9d3be449de767184d4160fe9eaac1cd7689",
+      "bytes": 1336
+    },
+    {
+      "path": "baseline/tools--house_furniture_capture.gd.uid.gz",
+      "sha256": "7abbb83252d11535078d2dd5ea3d60e14c37caffaf327c327cc3f6f35739ad1a",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--house_furniture_review.gd.gz",
+      "sha256": "85e6148e712eec44fecb3b4b51d9cbb1647cc41e0485c384b16052190f4095e2",
+      "bytes": 937
+    },
+    {
+      "path": "baseline/tools--house_furniture_review.gd.uid.gz",
+      "sha256": "ce8c1db251aaf9de2cfeccc4712591ad4a11d4c60e962860a8176b6e1435cec4",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--kitchen_capture.gd.gz",
+      "sha256": "482136f1e00043bf266999dce386ec40e3e4d301f5e94dda49f6a7bfaa0a919a",
+      "bytes": 2471
+    },
+    {
+      "path": "baseline/tools--kitchen_capture.gd.uid.gz",
+      "sha256": "b7f05ee5698cad64c59a48a90047e127ddc0a587028050f676d2eddcfda5b4b9",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--kitchen_review.gd.gz",
+      "sha256": "a4113a9e8d723f215078b1b41385d93339b0e439648eb0f81ab2ea220d3c6ef2",
+      "bytes": 1023
+    },
+    {
+      "path": "baseline/tools--kitchen_review.gd.uid.gz",
+      "sha256": "d6c66d4f6574d2e8c27eedcac9ee339ef512801b4168d9264d2891ba784c6369",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--lazy_item_icons_review.gd.gz",
+      "sha256": "90c5bf3f2fc0b10fe09459b6db467961198e52a684b0ea914e1c9e7d47b5dc8b",
+      "bytes": 369
+    },
+    {
+      "path": "baseline/tools--lazy_item_icons_review.gd.uid.gz",
+      "sha256": "678a434353591c8356cbd5afd8145279982f52a0b4a71b06d82bcaaac4379879",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--livestock_review.gd.gz",
+      "sha256": "173e5d79d94e692d9cbb4ba10ed15a2886c6f450b3dc055058dff51ffad7937d",
+      "bytes": 692
+    },
+    {
+      "path": "baseline/tools--paper_theme_capture.gd.gz",
+      "sha256": "3200f0edafa07259c1366bd03ba738cd5e770d4db3a4f070a2a1b34a900e3843",
+      "bytes": 2788
+    },
+    {
+      "path": "baseline/tools--paper_theme_capture.gd.uid.gz",
+      "sha256": "5a0de5221d6cfbdca2c01697b1c727427f27fe6d8ab1d93aab3f4e74ba86d17e",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--paper_theme_reference_capture.gd.gz",
+      "sha256": "6f07d97f6b70937edf6b34e0446024ee4785e96c310c5b71c2c8fcde929a61c5",
+      "bytes": 943
+    },
+    {
+      "path": "baseline/tools--paper_theme_reference_capture.gd.uid.gz",
+      "sha256": "4f05586e7c78a584db009a799f784d0d9e6d8483c1bb439f3e05be92376db60c",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--paper_theme_review.gd.gz",
+      "sha256": "d6edbcdeb4a4b03c0b8d482163900c8c46080c452e75309bf85bc6bbca34f2a8",
+      "bytes": 952
+    },
+    {
+      "path": "baseline/tools--paper_theme_review.gd.uid.gz",
+      "sha256": "d7b4242dec9911dfab0751ddae741f9aeded825bd92194935defa3977682cd46",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--player_contact_capture.gd.gz",
+      "sha256": "0d0aea6e203665d56f3f1edb5eed31d7145395fa0e2e11bdc5e603b84300a226",
+      "bytes": 2143
+    },
+    {
+      "path": "baseline/tools--player_contact_review.gd.gz",
+      "sha256": "33dedac95c5b261b037f1b70dde734a423348bec83b6f370be77e8464f5a2f60",
+      "bytes": 347
+    },
+    {
+      "path": "baseline/tools--prepared_pixels_review.gd.gz",
+      "sha256": "cab6eaa2c4420d95c10fa55486f6fa5f044d2a32b7aebca0251f952ce4257a9c",
+      "bytes": 398
+    },
+    {
+      "path": "baseline/tools--prepared_pixels_review.gd.uid.gz",
+      "sha256": "c1afd6e77bfa94b49789cd4834862bb201991b4d121d683609faad9da30c3210",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--prop_edges_capture.gd.gz",
+      "sha256": "4d2a59fa0587b072424bc13342176243f378c13f7506f02a795dda11d2c4c523",
+      "bytes": 1260
+    },
+    {
+      "path": "baseline/tools--qa_teleport_capture.gd.gz",
+      "sha256": "2ea7cfc1e188b8b92428ef3785735c34de392938c68c9a4d9a3037169649f350",
+      "bytes": 1490
+    },
+    {
+      "path": "baseline/tools--qa_teleport_capture.gd.uid.gz",
+      "sha256": "7c93dff5b0ad8bd0ab151baef06b4f3281d19ba5eb78624c6f512e17d9ff4199",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--qa_teleport_review.gd.gz",
+      "sha256": "019aefc4819a29b5715063c7c6f0bd92314f23fd74417321a0e84c99121aea1a",
+      "bytes": 418
+    },
+    {
+      "path": "baseline/tools--qa_teleport_review.gd.uid.gz",
+      "sha256": "28fdf99c809ef7e93af9c1d610019b453b58bfb1a9340f1800ed3b6a3408519e",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--quality--check_architecture.sh.gz",
+      "sha256": "cf5c3c44b6fc23cd4cf1c0e47aefc1774d88170a979125f0fce86e938ccb5e3b",
+      "bytes": 2025
+    },
+    {
+      "path": "baseline/tools--ranged_combat_capture.gd.gz",
+      "sha256": "f925b0886e79c40a5491919940bcc2d2dc4be0389a577889cf6d808d03c4e4a7",
+      "bytes": 2049
+    },
+    {
+      "path": "baseline/tools--ranged_combat_review.gd.gz",
+      "sha256": "686738f014990a67b6b30da75edb82e795078918e9b0836d0042961c583269e0",
+      "bytes": 337
+    },
+    {
+      "path": "baseline/tools--recovery_capture.gd.gz",
+      "sha256": "f5eb665d3e6288cfcde855d641577d8859d40aab93f6d974e15c15c3cb02ffd2",
+      "bytes": 2259
+    },
+    {
+      "path": "baseline/tools--recovery_capture.gd.uid.gz",
+      "sha256": "123cc90d77ceaed11f6d8f6cc542e3c6552041e6cf3ad4ccf132447324536a97",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--recovery_review.gd.gz",
+      "sha256": "b32048c735dba7cd2de25af5b8545adeb744bf361d2f12c93e7ddb9223610fac",
+      "bytes": 387
+    },
+    {
+      "path": "baseline/tools--recovery_review.gd.uid.gz",
+      "sha256": "ffd82a99dff11c1bb378235b9d326d522c703c437c5f7138db2ec6c287d27f72",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--research_capture.gd.gz",
+      "sha256": "a0537d61775ddd006c076acd701811538d3f442ccb1433e550372c75ee27d53a",
+      "bytes": 1750
+    },
+    {
+      "path": "baseline/tools--research_capture.gd.uid.gz",
+      "sha256": "5a85662a07fcf16f74b698320bc52108717c9015944ab891a320309946e0b136",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--research_catalog_export.gd.gz",
+      "sha256": "46a326d0843fc86325d265e32f02d2c31abebc4d120d092163ed20cf6e0b3496",
+      "bytes": 1300
+    },
+    {
+      "path": "baseline/tools--research_catalog_export.gd.uid.gz",
+      "sha256": "f12a154c553bb2900682c1ff712286c97b0f19c616f3adf08f63adc04c76a63e",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--research_review.gd.gz",
+      "sha256": "81e7f8014dcd11a0cb362aee2bc1f29bb9b500411bb224c65ecee0cca58a3fa9",
+      "bytes": 1079
+    },
+    {
+      "path": "baseline/tools--research_review.gd.uid.gz",
+      "sha256": "0c6c78b51ef03c1f813a5b34cdc6a7dafdbdc504b0994cd9eb64ef3da68f364c",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--resident_review.gd.gz",
+      "sha256": "9f2c2c4cdc4adae98916c7a4f245333be911ff70f20b24e62bbf6766daa44f75",
+      "bytes": 380
+    },
+    {
+      "path": "baseline/tools--runtime_comfort_review.gd.gz",
+      "sha256": "61a6a7110f732a6db3abf0b36d00eec1d17a4c8b5e05756d06dc2ad2a325d8fe",
+      "bytes": 4843
+    },
+    {
+      "path": "baseline/tools--runtime_maintenance_tests.gd.gz",
+      "sha256": "488830da28d592c81f38fdc1f2f274e32c4279d4fb781b0c844bb02936449ce6",
+      "bytes": 472
+    },
+    {
+      "path": "baseline/tools--runtime_maintenance_tests.gd.uid.gz",
+      "sha256": "20bccd600135f586d290ae197edb8717af9deb67d8f7356985ccbd54a212bdbf",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--safe_review.gd.gz",
+      "sha256": "89a67abdf997c0ef1566373aa02ac0c652452e6f4eceaca249537d055b0d1f71",
+      "bytes": 586
+    },
+    {
+      "path": "baseline/tools--safe_review.gd.uid.gz",
+      "sha256": "d26c6ef44f711e1bac894aaafe3dd731a022d88bc8ce33be3bbe2017e237a576",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--skeleton_aim_capture.gd.gz",
+      "sha256": "87a2a24d25dd2431ce0509e033baca638081ed759b680623454fff0863090621",
+      "bytes": 2481
+    },
+    {
+      "path": "baseline/tools--skeleton_aim_capture.gd.uid.gz",
+      "sha256": "1da72bb86a1e1e3673d164245b429391eb3da7a61de6907bc61a4860a91cc5ac",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--startup_review.gd.gz",
+      "sha256": "8daf53f6eceede500de0bc46b3d5f467c606a96d90939cc0da0f661887ecf3e1",
+      "bytes": 2190
+    },
+    {
+      "path": "baseline/tools--startup_review.gd.uid.gz",
+      "sha256": "bfeec6f1c6271a4a59b6183e77b4b5c1225fa93aaec69fd3c1f91ff6e33683d2",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--storage_actions_capture.gd.gz",
+      "sha256": "bbc7538450dde7fd3b4cccce26c8005354897c538dd8f2736db6145be29df188",
+      "bytes": 2332
+    },
+    {
+      "path": "baseline/tools--storage_actions_capture.gd.uid.gz",
+      "sha256": "7ea65eda4cd27739d4499ed2ee0e98e59c38ef85b0beef22b62a253056cc6328",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--storage_window_capture.gd.gz",
+      "sha256": "72225dd8b6a81662cec36c5b5df9a0588a1b729ab9a9f27217ab320023d1ccca",
+      "bytes": 2095
+    },
+    {
+      "path": "baseline/tools--storage_window_capture.gd.uid.gz",
+      "sha256": "5f3af5af20f5fea8ce03b1d64c6365fe74232a1edffc201298bc418da79d9061",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--terrain_cache_review.gd.gz",
+      "sha256": "b3e2a0d20f0694881656085fab9b238fdd80cdc357297beb7bd169b39dd4618f",
+      "bytes": 1361
+    },
+    {
+      "path": "baseline/tools--tree_occlusion_review.gd.gz",
+      "sha256": "06e5deb925035ebcbd129cd60c3cf0f617829446af0feb44e53e8d31d7577534",
+      "bytes": 1485
+    },
+    {
+      "path": "baseline/tools--water_fishing_review.gd.gz",
+      "sha256": "0d45f309fcb1d46bded4681c4c0dd912da58ada76b0311a9cc1bd8fb1e9a735d",
+      "bytes": 502
+    },
+    {
+      "path": "baseline/tools--water_navigation_review.gd.gz",
+      "sha256": "0d4613aec5a7b04f82f6cff17643d6f13a9d28cd0562b57d191bffd863682a54",
+      "bytes": 600
+    },
+    {
+      "path": "baseline/tools--water_topology_review.gd.gz",
+      "sha256": "a0bef385bbd41b62673a6f0be6d6d3d9261a1187858dd13ebaa8651019c15f1c",
+      "bytes": 410
+    },
+    {
+      "path": "baseline/tools--workshops_capture.gd.gz",
+      "sha256": "630f36ee2392379463d61b7a5c96e57c8269a12578f07d1b9b88f910c306e123",
+      "bytes": 2028
+    },
+    {
+      "path": "baseline/tools--workshops_capture.gd.uid.gz",
+      "sha256": "09dbf6a16440fa82a5ed23247327cdbd3a83a679c836d05a3a63a92726a6e1e6",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--workshops_catalog_export.gd.gz",
+      "sha256": "7fff12d0e362d11f3c11bf19edc77fdf62e5ccba0282d99a5aecd51fd6dea068",
+      "bytes": 1267
+    },
+    {
+      "path": "baseline/tools--workshops_catalog_export.gd.uid.gz",
+      "sha256": "f00adada65515a5589b57568489308daa33b483db856f34d624653ad5981a1ab",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--workshops_review.gd.gz",
+      "sha256": "fb7aab9e860ceb42b1492765aa37574b94c658ba341692f3300185b330651766",
+      "bytes": 1071
+    },
+    {
+      "path": "baseline/tools--workshops_review.gd.uid.gz",
+      "sha256": "41238d9f1bb1bb87da291ff509907ec9b02b3e36463751d640c0bcbafa9a742c",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--world_native.gd.gz",
+      "sha256": "0c7d072788dde627cc6a3721fa79691a05a6db32fd1c42df11be0ae14930516e",
+      "bytes": 1159
+    },
+    {
+      "path": "baseline/tools--world_native.gd.uid.gz",
+      "sha256": "604e28b3e858fbe3eed118e1805c07c8725276c7a7cc02eea7f4d3a7564ef2c9",
+      "bytes": 40
+    },
+    {
+      "path": "baseline/tools--world_review.gd.gz",
+      "sha256": "e995196216e68f8dfab4440e3ca9fea854dd6f12b4a5258fc550ae6401b3fc83",
+      "bytes": 728
+    },
+    {
+      "path": "baseline/tools--world_review.gd.uid.gz",
+      "sha256": "fe921ab7fef2180ba2c67272332f879885d86694e3ed5177268f9e9d61d8996a",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/tools--world_workbench_review.gd.gz",
+      "sha256": "345341626a9d19ba8f004bf1adcd979db1d9130e81156a80f38647681992c218",
+      "bytes": 2121
+    },
+    {
+      "path": "baseline/tools--world_workbench_review.gd.uid.gz",
+      "sha256": "85806d3b3397846318d37fcfd599c0b458f073579ae14517379d6364f1cc221f",
+      "bytes": 39
+    },
+    {
+      "path": "baseline/wiki--articles--project-refactoring.md.gz",
+      "sha256": "4800ce16c96b72ae4ff06fa67f65a3f080207d32e056729a936b1c3d45f0ca85",
+      "bytes": 7772
+    },
+    {
+      "path": "baseline/Бабушкина ферма.app--Contents--Info.plist.gz",
+      "sha256": "d244932a6e8271c380ee90a0edd7075b466eaff6a30d40ce1bbf289f448f621e",
+      "bytes": 393
+    },
+    {
+      "path": "before-001.txt",
+      "sha256": "c6df4361e92adcd6e6a92e52fe6f565a59b2f87c1266cf58aa6321e3f6936ceb",
+      "bytes": 1270
+    },
+    {
+      "path": "before-002.txt",
+      "sha256": "6a6435e220879d394b2d7f73e1f2d61a3cfd762495f4429f4bdff3b7d6e37c58",
+      "bytes": 199
+    },
+    {
+      "path": "before-003.txt",
+      "sha256": "99e4993a0f05f6c371f2cfede51de8d2f92e14e4c900a2f3238d48e4e4e5d9f1",
+      "bytes": 114
+    },
+    {
+      "path": "before-004.txt",
+      "sha256": "2c2e57902c889fa7f339d1fa57afdae7053ea5da8553be3ec6fa704accae74f0",
+      "bytes": 115
+    },
+    {
+      "path": "before-005.txt",
+      "sha256": "38749f93c6f78029cfc97cdbce72acc4f740b6611a88cf3fa50d195475de5e5a",
+      "bytes": 209
+    },
+    {
+      "path": "before-006.txt",
+      "sha256": "8e909e7112b6a309aa9a7961ffc3e98ad634a7df83b423acb5a1ff40c86c34d2",
+      "bytes": 26
+    },
+    {
+      "path": "before-007.txt",
+      "sha256": "2a9c02aa2aee1a94d936029dce05329f7dd141c408888fbce08ed0f903f7f2e7",
+      "bytes": 449
+    },
+    {
+      "path": "before-catalog.json.gz",
+      "sha256": "4614592e71b57d48b6c7ca3ce695eaf7b87720d033ed5f446ef2f9408cf840a2",
+      "bytes": 8856
+    },
+    {
+      "path": "before-commands.json",
+      "sha256": "c50a7a4b1c95f62280423352478b25616f9cf6f30c4d7ceefc2e9436b176c0dd",
+      "bytes": 4007
+    },
+    {
+      "path": "before-cycles.json.gz",
+      "sha256": "afa3a5cde7d2115082c7deb8346aa5c8f918dcf3cae5c1c66b2e252594104025",
+      "bytes": 2844
+    },
+    {
+      "path": "before-profile-attempt01.py.gz",
+      "sha256": "3fa46a6fe17811e9acb0409a7868efbd0d150579cdba6178c6c1a54c75b4b1bc",
+      "bytes": 2364
+    },
+    {
+      "path": "before-profile.json",
+      "sha256": "f5f074945193c8c948b7ef4153979d915122e411d3402951d98fb50f9270ddd6",
+      "bytes": 5078
+    },
+    {
+      "path": "browser-article.json",
+      "sha256": "624b76efc8e810374ed7436400049b3c67ffcfc5fbc3dc60c8bef0562e0115cc",
+      "bytes": 305
+    },
+    {
+      "path": "browser-cleanup.json",
+      "sha256": "c10e3287c539edfb7bb02a1ef997b906469b6261bb22352fba6945f5b90578d7",
+      "bytes": 430
+    },
+    {
+      "path": "browser-desktop.png",
+      "sha256": "1e65a7404cc5f9c5ad4ff911bcf80fb7d28fc19ed80b3713f9b0775f0690c681",
+      "bytes": 198291
+    },
+    {
+      "path": "browser-mobile.json",
+      "sha256": "e3e5f60384e982e33133574194fe9d39a7a75f9bd60ee89ec76474e870633c63",
+      "bytes": 164
+    },
+    {
+      "path": "browser-mobile.png",
+      "sha256": "6705463e4ce7c7bd9d0eb0e34df8dfdda20b2f05fc8bfd14eaac09cd60ebfec1",
+      "bytes": 61118
+    },
+    {
+      "path": "browser-rejected-01.json",
+      "sha256": "24c55915cb93afa6651e5cdc1c59b65aed908157e4f2fdab67a0d86828241192",
+      "bytes": 118
+    },
+    {
+      "path": "browser-rejected-01.txt.gz",
+      "sha256": "3e42a27677686a5dc8d548296af68d821afb779073fb4f40602d9917fee7d817",
+      "bytes": 10194
+    },
+    {
+      "path": "browser-task.json",
+      "sha256": "248a2769d2b55cd2a3fdf7e7d3e261f3e010766d6b53ebdbc901c0e7a58be9ff",
+      "bytes": 222
+    },
+    {
+      "path": "catalog-before-doc-refresh.json",
+      "sha256": "75889758060337e2e2090a3c7fbbed2baa1d11ae40c42181bbdb647153c734c5",
+      "bytes": 435
+    },
+    {
+      "path": "catalog-check.mjs",
+      "sha256": "2af75c890c438d89aae311170cf87d3f69bb1db89c227e21872e4b3b37b7a31d",
+      "bytes": 2352
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "75889758060337e2e2090a3c7fbbed2baa1d11ae40c42181bbdb647153c734c5",
+      "bytes": 435
+    },
+    {
+      "path": "complete-before.py",
+      "sha256": "89cfe8263f563b072fbb04661c5b7bfe90310ca9b1919be5d0555dfb3f9e5510",
+      "bytes": 2803
+    },
+    {
+      "path": "doc-gates.py",
+      "sha256": "7c5f31209604ad8b677b3d6cfc1ff2259e8f53dc39aeb06f73189a0c97c4f748",
+      "bytes": 1154
+    },
+    {
+      "path": "docs-refresh.json",
+      "sha256": "e9122ffd1efb83eccdaf5fe5d10924406ae60d1c0feb589297363bb3a0eba62b",
+      "bytes": 564
+    },
+    {
+      "path": "gates-01/architecture.txt",
+      "sha256": "2a58ba3e851f144f13bc94b01060e882bee1320c2168c4fd57257d4589a626e2",
+      "bytes": 1312
+    },
+    {
+      "path": "gates-01/gate-exits.json",
+      "sha256": "65b7bc4f45ba6b4170a74735f35e580d2dc77e30a38909c44617c3057af3344c",
+      "bytes": 249
+    },
+    {
+      "path": "gates-01-source-card.md.gz",
+      "sha256": "dc72f9fb217ba71ad7055c26674cb58c50edff68e815cba02d280032148e5b95",
+      "bytes": 8058
+    },
+    {
+      "path": "gates-02/architecture.txt",
+      "sha256": "98f6190f0c97c8c3dcdad118506fdab923fb1058cdc0bdcff780e10f085a9fb3",
+      "bytes": 13743
+    },
+    {
+      "path": "gates-02/game.txt",
+      "sha256": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+      "bytes": 1356
+    },
+    {
+      "path": "gates-02/gate-exits.json",
+      "sha256": "447b4cfa6aab2708760ff1cc39f9cd106b0080c1b85ba003849da06cbe4a5753",
+      "bytes": 733
+    },
+    {
+      "path": "gates-02/headless/f10/engine.txt",
+      "sha256": "a620c56023619bf7b4865c4a566fb100db02ad6c8c9ee16326e0aba21725c5e2",
+      "bytes": 11051
+    },
+    {
+      "path": "gates-02/headless/f10/frames.jsonl",
+      "sha256": "be2544ba2eb7a46661c9869192405605670a6b47ae7a562ce8c47c1e71581180",
+      "bytes": 9161
+    },
+    {
+      "path": "gates-02/headless/f10/summary.json",
+      "sha256": "9fa8ae1acd1ec4fada0304ce3b21ccd6af1cdda5387dd735fc460c82c7c7ab69",
+      "bytes": 1742
+    },
+    {
+      "path": "gates-02/headless/normal/engine.txt",
+      "sha256": "92599e7de347660034579a6596b19410ee6d06fde9b3bf4a789ffc591c554219",
+      "bytes": 11040
+    },
+    {
+      "path": "gates-02/headless/normal/frames.jsonl",
+      "sha256": "0c4682064adeeeeacd2406798880cde95cc5dcb7d2c63866142cbfab680aa3c2",
+      "bytes": 9147
+    },
+    {
+      "path": "gates-02/headless/normal/summary.json",
+      "sha256": "a032e9345d2baf616056c7f5482dc9744d0826ec555b0c0d54402b61f2ef8b46",
+      "bytes": 1745
+    },
+    {
+      "path": "gates-02/wiki.txt",
+      "sha256": "bd147939468a368431b583119a91f2cf2f7f835156fb000d5815e003663a195c",
+      "bytes": 13817
+    },
+    {
+      "path": "gates-03/documentation.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "bytes": 105
+    },
+    {
+      "path": "gates-03/gate-exits.json",
+      "sha256": "169e4f185abf1a11d13ba1830015e1d86a7d6ce98cc74500d5a2c7fd44f39711",
+      "bytes": 548
+    },
+    {
+      "path": "gates-03/wiki.txt",
+      "sha256": "ba3c103d82a2ad0bc580ba581655d4bc85ce1328b98e254152cc5105d63c0224",
+      "bytes": 13820
+    },
+    {
+      "path": "gates-04/documentation.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "bytes": 105
+    },
+    {
+      "path": "gates-04/gate-exits.json",
+      "sha256": "ae8d4d03b5ff446b8ef3ba76ae3fd2bef3358f53d38624f6dad47d708a21843c",
+      "bytes": 548
+    },
+    {
+      "path": "gates-04/wiki.txt",
+      "sha256": "019876f1a313fbeb4366e7934775cc55f0fea9f531d8bdf7f344879b9d48a12b",
+      "bytes": 13817
+    },
+    {
+      "path": "legacy-alchemy-drift.json",
+      "sha256": "a43180ff21bdbc6824b8efc41d5d96fb69a6d4543d072b5519aecccd59d6d844",
+      "bytes": 705
+    },
+    {
+      "path": "migration.json",
+      "sha256": "05e355ae5843329263e7120d85df43fd0f8c915b55ec2957153eac770d850464",
+      "bytes": 50619
+    },
+    {
+      "path": "move.py",
+      "sha256": "4caaf186f370c87e57ae3f4d4c07fa436b8a0a678b903d2083984eed7094c3ac",
+      "bytes": 6529
+    },
+    {
+      "path": "post-gates02-article.md.gz",
+      "sha256": "cb0e1207a72c33816cc66e69d3236be492c618108063ba43a7099ab4a62b8242",
+      "bytes": 7925
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "c2ad616972afb3c18d2ce35612c91fe93da7b8e6a08044f7c6cec222c1b53237",
+      "bytes": 3195
+    },
+    {
+      "path": "profile.py",
+      "sha256": "966f4a5525d77fb54c427b4261778d40b251b5d331b4f851051f88f4fc3b7468",
+      "bytes": 6229
+    },
+    {
+      "path": "raw-attributes.py",
+      "sha256": "9e6e8bbe7982fdaa3dcf515ab6f0abb9a75eedaf06d118127bd35387ad2526ee",
+      "bytes": 959
+    },
+    {
+      "path": "raw-whitespace-paths.json",
+      "sha256": "de04cf9d1e31431ec841595e0752f1c2e38995d8d5cdc0e4926ebc0148cdd3f2",
+      "bytes": 5736
+    },
+    {
+      "path": "refresh-docs.py",
+      "sha256": "4007d5cc895ceaea5d301d7e693d04da1e516f787ef62e7da134b834739cefb7",
+      "bytes": 2949
+    },
+    {
+      "path": "scope.json",
+      "sha256": "92ba1f2ae93c07275a34c1485f1f054b30800ee0089ff34850cd8b7b27ca3295",
+      "bytes": 15358
+    },
+    {
+      "path": "seal.py",
+      "sha256": "de67c4bdf17047c9663039ed4d016b4b6a7ce60376114bd3386d8911ae97427d",
+      "bytes": 4740
+    },
+    {
+      "path": "source-freeze-after-gates02.json",
+      "sha256": "3cda0ea75b8a5170c031b4f0a2f87a4d0d43cfb785bff8e169d968cbd93d042a",
+      "bytes": 27079
+    },
+    {
+      "path": "source-freeze-attempt01.json",
+      "sha256": "1676aeee6fcd8aa42df29c71119a656fa37c6b157932a40349b3fdf1767e0a99",
+      "bytes": 27079
+    },
+    {
+      "path": "source-freeze.json",
+      "sha256": "63ae1b2ea97a4db037fd188cc1e7c94371340ef5bda4d72216a1ec3467fe8bb8",
+      "bytes": 27079
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 Аудит охватывает изображения, которые реально размещаются в игровом мире: землю, ферму, воду, мосты, здания, декор, ресурсы, персонажей, врагов, животных, эффекты и интерьерные объекты. UI и отдельные иконки инвентаря ведутся собственными контрактами и не входят в эту таблицу.
 
-Машинный источник фактов — [`assets/game/world_sprite_manifest.json`](assets/game/world_sprite_manifest.json). Проверка `python3 tools/check_world_sprite_manifest.py` рекурсивно сканирует runtime-код, входит в `tools/check_architecture.sh` и каждый pre-commit. Ключ `--json-report` выдаёт actual/runtime/target для всех семейств. Подробная очередь исправлений находится в [реестре технического долга](TECH_DEBT.md).
+Машинный источник фактов — [`assets/game/world_sprite_manifest.json`](assets/game/world_sprite_manifest.json). Проверка `python3 tools/run.py assets.contracts.check_world_sprite_manifest` рекурсивно сканирует runtime-код, входит в `tools/check_architecture.sh` и каждый pre-commit. Ключ `--json-report` выдаёт actual/runtime/target для всех семейств. Подробная очередь исправлений находится в [реестре технического долга](TECH_DEBT.md).
 
 ## Результат аудита
 

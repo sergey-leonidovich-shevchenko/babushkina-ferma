@@ -1,0 +1,15 @@
+{
+  "phase": "context-after",
+  "base": "e205c00729214358308f14c46b63c3bd2fdde2d9",
+  "command": [
+    "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+    "tools/run.py",
+    "qa.world.test_world_context"
+  ],
+  "test_SHA256": "11d2747eb701ffbbaf466ba11d56f7c6ae6cd5b44f4a6d84bfbd7a96065340f7",
+  "exit": 0,
+  "seconds": 201.9980109600001,
+  "methods": 19,
+  "raw_sha256": "f3f860a95ca0c361b1897bb7b03455517961f57a0f560c4c6317c88a91e39eee",
+  "summary": "...................\n----------------------------------------------------------------------\nRan 19 tests in 201.616s\n\nOK\n"
+}

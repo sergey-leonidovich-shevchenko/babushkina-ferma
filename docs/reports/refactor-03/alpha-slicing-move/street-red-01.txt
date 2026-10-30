@@ -1,0 +1,19 @@
+.E
+======================================================================
+ERROR: test_real_phase_provenance_ignores_foreign_git_and_cwd (__main__.StreetGitConsumerTests.test_real_phase_provenance_ignores_foreign_git_and_cwd)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/assets/alpha/test_street_consumer.py", line 34, in test_real_phase_provenance_ignores_foreign_git_and_cwd
+    self.assertEqual(street.provenance(folder, phase), street.load(folder / 'source.json'))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/village_street_verify.py", line 35, in provenance
+    require(subprocess.run(['git','cat-file','-e',data['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'missing base commit')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/render_order.py", line 32, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing base commit
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.123s
+
+FAILED (errors=1)

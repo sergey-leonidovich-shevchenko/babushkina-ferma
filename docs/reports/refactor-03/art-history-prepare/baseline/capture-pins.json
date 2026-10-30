@@ -1,0 +1,41 @@
+{
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "rows": [
+    {
+      "task": "vart-006",
+      "source": "tools/visual_density_capture.gd",
+      "field": "capture_script_sha256",
+      "sha256": "0699ede725cd4d4c4087cdc868eef1835bf1c885bdeed62b9862659b6620e558",
+      "capture": "docs/reports/visual-overhaul/vart-006/native/capture.json"
+    },
+    {
+      "task": "vart-007",
+      "source": "tools/visual_light_capture.gd",
+      "field": "script_sha256",
+      "sha256": "53eb8f29a2b66d7896c9e87de8f1a872dfd48f02c12c2d6e3ab0800f8064c53e",
+      "capture": "docs/reports/visual-overhaul/vart-007/native/capture.json"
+    },
+    {
+      "task": "vart-008",
+      "source": "tools/visual_modules_capture.gd",
+      "field": "script_sha256",
+      "sha256": "f2bc0bf2af0f96c78e15101ca23685600d1752c5bda15e0fbd383ca22e6d5b5b",
+      "capture": "docs/reports/visual-overhaul/vart-008/native/capture.json"
+    },
+    {
+      "task": "vart-009",
+      "source": "tools/visual_reuse_capture.gd",
+      "field": "script_sha256",
+      "sha256": "7f40d05788c223c92f30b299c5cb10e5dac16290035b2df3ddfc8a01ded511ba",
+      "capture": "docs/reports/visual-overhaul/vart-009/native/capture.json"
+    },
+    {
+      "task": "vart-009",
+      "source": "tools/visual_reuse_sources.gd",
+      "field": "adapter_sha256",
+      "sha256": "868c354fef37aa46f0678c32f7e99607c8e8cee0e03cf50596bf157f08d3f4ab",
+      "capture": "docs/reports/visual-overhaul/vart-009/native/capture.json"
+    }
+  ],
+  "all_five_recorded_digests_match_published_bytes": true
+}

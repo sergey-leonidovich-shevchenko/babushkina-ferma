@@ -1,0 +1,134 @@
+{
+  "reviews": [
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUgszKw",
+      "state": "COMMENTED",
+      "body": "INTERMEDIATE REVIEW — CHANGES REQUESTED. Проверен только первый authoring-пакет PR №21 на head f02481b275a76192564b2ab57b80316579b95634, base d609ab4fa6d82d6d013265183f018b8836abf7cc, версия 0.0.358. Это не финальное одобрение REFACTOR-03 и не разрешение merge.\n\nОбязательный P2 у строки нового update_ui_visual_manifest: после переноса не обновлены живые команды в восьми действующих документах. Независимо воспроизведён exit 2 / missing file у прежнего UI manifest CLI; подробные адреса и критерий готовности находятся в inline. Исторические материалы должны оставаться прежними; требуется адресно обновить активные инструкции через launcher / новые Godot-пути. Сводка идёт Team Lead для штатного возврата автору.\n\nУже проверено независимо:\n- Все 36 назначений: 17 Python, 14 GDScript, 5 tracked UID; mode и SHA сверены. AST от принятой базы отличается только согласованной адресацией корня/импорта измерителя; GDScript — только двумя адресными комментариями. Корень tracked sources действительно 544 → 513; бюджет ≤30 пока не достигнут.\n- 11 новых настоящих Git-сценариев working_reader, прежние 17 Cost/provenance тестов и сам полный asset_report выполнены успешно. Проверены точные commit/SHA, live PNG, отсутствие fallback, foreign Git/index/config, symlink, отдельная cwd и mutable pin snapshot. Прежние семь функций asset_report, asset_costs, asset_pack и прежние suites сохранены; architecture добавляет новый suite без удаления старых.\n- Два новых CLI с чужой cwd/PYTHONPATH/GIT и положительная пиксельная проба с двумя реальными отказами прошли. Все 18086 опубликованных report blobs прежние; runtime/assets/scripts/tests/scenes/planning blob maps относительно принятой базы прежние. Девять ignored UID совпали с исходной ведомостью и с фактическими файлами автора, прочитанными без изменений.\n- Seal подготовки проверен на её собственном commit 0352c5f2: 27 source SHA и 54 raw SHA. Seal переноса: 55 source SHA и 67 raw SHA. Отдельные red и успешный gates-02 сохранены; авторский raw действительно содержит architecture 84/1159, Game 53502/0, normal/F10 по 90/0 и Wiki 145/0. Это проверка их журналов, не мой запуск игры.\n- Полный git diff --check от принятой базы проходит. Все 15 .gitattributes исключений относятся ровно к существующим immutable raw, без wildcard и без исключений для source. Task-Complete REFACTOR-03 не добавлен.\n\nCI этого head ещё выполняется; старые зелёные результаты не засчитываю за него. Полный перенос, итоговая карта/бюджет, полный новый head CI и финальное независимое ревью ещё впереди; 03 остаётся in_progress, 06 blocked, PR draft. Игру на ПК не запускал.",
+      "submitted_at": "2026-10-27T17:19:57Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    },
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUhoBAg",
+      "state": "COMMENTED",
+      "body": "",
+      "submitted_at": "2026-10-27T18:34:22Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    },
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUhoIBQ",
+      "state": "COMMENTED",
+      "body": "P2 FIX VERIFIED — промежуточное повторное ревью head 5ba619a3f2ce39845b4b71eee34d267ead05201e / base d609ab4fa6d82d6d013265183f018b8836abf7cc, версия 0.0.359. Замечание review5671433003 устранено, исходный thread закрыт. Новых обязательных замечаний к этой доработке нет. Это не окончательное APPROVED всей REFACTOR-03 и не разрешение merge.\n\nНезависимо выполнен опубликованный check-consumers.py с новым /tmp результатом: 24 живых документа, все 31 входа, 17 Python resolve/compile без main и 14 headless Godot --check-only. Старый CLI воспроизвёл exit 2; исправленный UI updater выполнен только в удаляемой копии из 28 настоящих PNG. Три повреждённых входа отклонены с exit 1, fixture manifest не перезаписан, исходные PNG и manifest не изменились. Все 48 оставшихся исторических ссылок проверены по точным прежним байтам.\n\nПрочитан весь функциональный diff artist_packet/test. Самостоятельно выполнены 12 настоящих тестов (прежние восемь сохранены, четыре добавлены) и рабочий artist_packet: exit 0. Единственный исторический документ — SPRITE_STANDARD.md — остаётся связан с прежним Git commit/SHA; остальные 65 ссылок сохраняют live и исторические проверки. Переподпись документа, порча рисунка, отсутствующая история, внешний symlink и foreign Git/index/config отклоняются. 66 записей references, source_commit и все файлы прежнего handoff-комплекта сохранены; остальные функции reader не менялись. Старые reader/tests точно архивированы, red и неудачный gates-01 сохранены.\n\nНезависимо сверены 24 old/new документальных SHA, 29 source SHA и 42 raw SHA; все 18156 прежних report blobs совпадают. За пределами нового отчёта изменены только 24 документа, два reader/test и три version metadata. Полный git diff --check от принятой main проходит, Task-Complete не добавлен. Авторские журналы нового gates-02 действительно содержат architecture 84/1163, Game 53502/0, normal/F10 по 90/0 и Wiki 145/0; локальную игру я не запускал. Новый UI/mobile/FPS/VMAP допуск из этих проверок не следует.\n\nCI именно 5ba619a3 ещё выполняется: при последнем срезе 3 success / 5 in_progress, отказов нет; его успех пока не утверждаю. Корень tools остаётся 513, остальные семейства и итоговый бюджет ≤30 впереди. PR остаётся draft, REFACTOR-03 in_progress / REFACTOR-06 blocked. Результат передан Team Lead для решения по принятию доработки и продолжению текущей задачи. Финальное ревью будет относиться к полному переносу и новому итоговому SHA.",
+      "submitted_at": "2026-10-27T18:34:31Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    },
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUiaj4A",
+      "state": "COMMENTED",
+      "body": "INTERMEDIATE REVIEW PASS — аудиопакет на head d27f688fa3ec2670a757acd14019f8ae35e0f693, base d609ab4fa6d82d6d013265183f018b8836abf7cc, версия 0.0.360. Обязательных замечаний к этому пакету не найдено; actionable inline-комментариев нет. Это не окончательное APPROVED всей REFACTOR-03 и не разрешение merge.\n\nНезависимо прочитаны четыре перемещённых модуля и профиль. У всех четырёх сверены old/new SHA, mode, точные архивы и AST: изменены только source-root и квалификация импортов. Три новых historical pins подтверждены по полному d609ab4f и SHA; остальные поля политики, прежние два pin, рабочий reader и его проверки не меняются. Production asset_report самостоятельно выполнен: exit 0. Текущие media остаются live.\n\nСамостоятельно выполнен опубликованный profile.py с новым /tmp output на установленных Python 3.12.14 / NumPy 2.3.5. Настоящие старые Git-исходники и новые перемещённые байты дали одинаковые 33 WAV / 201 измерение, SHA семи массивов сигналов и PCM16-экспорта. По четыре повреждения WAV отклонены в обеих версиях; clipping export также отклонён. Actual audit CLI выполнен только в disposable проектах, из чужой cwd с hostile PYTHONPATH/GIT_DIR. Общий generate main не вызывался. Все 36 исходных WAV и оригинальный audio_quality_audit.json прежние; временные fixtures удалены.\n\nПроверены 18 source SHA и 47 raw SHA, все 18199 прежних report blobs. Artwork/data, игровой код, tests/scenes/planning и остальные шесть refactor-карточек прежние. Живые команды в документации и audio README используют launcher; старые адреса остаются в исторической политике/отчётах. .gitignore открывает только Python исходники нового пакета и оставляет cache ignored. Фактический root 513 → 509; import_pixabay_assets сохранён без изменений и явно остаётся pending для image-authoring. Историческая карта не переписана. Полный git diff --check от принятой базы проходит, Task-Complete не добавлен.\n\nАвторские журналы собственного gates-01 проверены как raw: architecture 84/1163, Game 53502/0, normal/F10 по 90/0 и Wiki 145/0. Игру на ПК я не запускал; новых измерений игровой производительности или приёмки VMAP нет. Собственных Wiki серверов/вкладок и зависимостей не создавал; review-worktree чистый, core.bare=false.\n\nCI именно d27f688f ещё выполняется (последний срез: 1 success / 7 in_progress, отказов нет); прежний CI 359 не заменяет его. Остальные семейства и root ≤30 ещё впереди, 03 in_progress / 06 blocked, PR draft. Сводка идёт Team Lead для решения по продолжению. Финальное ревью должно относиться к полному переносу и его итоговому SHA.",
+      "submitted_at": "2026-10-27T19:41:39Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    },
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUiwwHw",
+      "state": "COMMENTED",
+      "body": "CI CONFIRMED — дополнение к промежуточному ревью аудиопакета 5673231328. Для точного head d27f688fa3ec2670a757acd14019f8ae35e0f693 (0.0.360), base d609ab4fa6d82d6d013265183f018b8836abf7cc, все восемь checks завершены success. Текущий PR head совпадает, PR draft / merged=false.\n\nПолные журналы обоих test jobs прочитаны независимо: PR job122423167152 (run40570524955) и push job122423129301 (run40570514129). В каждом: architecture 84 набора / 1163 случая, Game 53520/0, normal/F10 по 90/0, smoke 180 кадров, шесть различных валидных 10-секундных серий с успешным бюджетом. Сохранённые результаты 359 не использовались вместо CI360.\n\nИсходный промежуточный вердикт по четырём модулям остаётся без замечаний. Это не окончательное APPROVED всей REFACTOR-03, не приёмка root≤30, нового игрового FPS или VMAP и не разрешение merge. Остальные семейства впереди, 03 in_progress / 06 blocked. Сводка передана Team Lead; игру на ПК не запускал.",
+      "submitted_at": "2026-10-27T20:08:31Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    },
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUjIhJg",
+      "state": "COMMENTED",
+      "body": "INTERMEDIATE REVIEW PASS — пакет PIL + dev/art_review на head 832964d4de4a0a0207500dd185039642738874e7, base PR d609ab4fa6d82d6d013265183f018b8836abf7cc; граница пакета d27f688f → 832964d4, версия 0.0.361. Обязательных замечаний к этому пакету нет, actionable inline не требуется. Это не окончательное APPROVED всей REFACTOR-03 и не разрешение merge.\n\nПрочитаны все пять перемещённых исходников и профиль. Независимо сверены AST, mode, old/new SHA и точные gzip-архивы всех шести назначений. Python меняет только общий source-root и квалификацию импорта; Node — только глубину двух imports; GDScript и tracked UID побайтно прежние. Ошибочное историческое audio-назначение import_pixabay_assets сохранено в карте, фактический authoring override записан явно.\n\nСамостоятельно выполнен опубликованный profile.py с новым /tmp output на Python 3.11/PIL. Четыре реальных PNG старой/новой версии совпали по SHA; отсутствующий и повреждённый input отклонены в обеих версиях. Настоящие checker и три прежних unittest прошли в обеих версиях из foreign cwd/PYTHONPATH/GIT. Node запущен из другой cwd, проверены собственный PID/project и байты index (SHA ef414507…), затем закрыт только этот процесс. Headless editor import и --check-only экспортёра завершились успешно. Importer/exporter main и Downloads не запускались; игра на ПК не запускалась, temporary fixtures удалены.\n\nПроверены 21 source SHA / 44 raw SHA, все 18247 прежних report blobs. Artwork/data, игровой код, tests/scenes/planning и provenance прежние. Живые инструкции используют новые входы; поиск старых адресов оставляет историческую карту и прежний VALIDATION, сохранённые побайтно. QA-счётчик 386 соответствует фактическим трём тестам; исторические значения не переписываются. Root tracked sources действительно 509 → 504. Полный git diff --check от принятой main проходит, Task-Complete не добавлен. Review-worktree после импорта чистый, core.bare=false.\n\nАвторские raw собственного gates-01 проверены: architecture 84/1163, Game 53502/0, normal/F10 по 90/0 и Wiki 145/0. Это проверка журналов автора, не мой запуск Game. Новых выводов о FPS, художественной готовности или VMAP нет.\n\nCI именно 832964d4 ещё выполняется (последний срез 1 success / 7 in_progress, отказов нет); прежний CI360 не переносится на новый SHA. Остальные семейства, итоговая карта/root≤30 и финальное независимое ревью впереди. PR draft, REFACTOR-03 in_progress / REFACTOR-06 blocked. Сводка направлена Team Lead для решения по продолжению текущей задачи.",
+      "submitted_at": "2026-10-27T20:38:20Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    },
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUjW3sA",
+      "state": "COMMENTED",
+      "body": "CI CONFIRMED — дополнение к промежуточному ревью пакета361 (5673984294). Независимо подтверждены все восемь success checks точного head 832964d4de4a0a0207500dd185039642738874e7, base d609ab4fa6d82d6d013265183f018b8836abf7cc. Текущий head совпадает; PR draft / merged=false.\n\nПолные журналы PR test job122453428631/run40579115954 и push test job122453405593/run40579109059 прочитаны. В каждом: architecture 84 набора / 1163 случая, Game 53520/0, normal/F10 по 90/0, smoke 180 кадров, шесть различных валидных 10-секундных серий с успешным бюджетом. CI360 не использован вместо CI361.\n\nПромежуточный source verdict для PIL + dev/art_review остаётся без обязательных замечаний. Это не окончательное APPROVED всей REFACTOR-03, не приёмка root≤30/FPS/VMAP и не разрешение merge. Подготовка362 ещё не опубликована и этим ревью не проверена; её exact head будет рассмотрен отдельно. Сводка направлена Team Lead, игру на ПК не запускал.",
+      "submitted_at": "2026-10-27T20:58:00Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    },
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUj7zYQ",
+      "state": "COMMENTED",
+      "body": "INTERMEDIATE REVIEW PASS — подготовка art-standard, head `47d0edc5e9a24dc028b6c91638e8dc54b87aaf9f` (0.0.362), граница `832964d4de4a0a0207500dd185039642738874e7..47d0edc5`. Независимых замечаний к этому пакету не найдено.\n\nПроверены читаемость и границы common.history, 8 source-root изменений, 5 Git/SHA pins четырёх исторических читателей и изоляция окружения трёх настоящих Git-вызовов scale/reuse. Проверка commit/tree/blob не допускает live fallback, replace refs, symlink и заимствование чужого checkout.\n\nНезависимо воспроизведено:\n- 21 настоящий Git/worktree тест на Python 3.11 и 3.9; дополнительно корректный linked worktree и подложенный .git-файл, указывающий на Git-dir настоящего чужого linked worktree.\n- Опубликованный профиль old/new: после перемещения 5 GD только в disposable clone четыре прежних reader отказывают, четыре подготовленных проходят; 4 неверных source SHA и 4 missing-history случая отклоняются; 8 CLI проходят из чужого cwd с посторонними PYTHONPATH/GIT_*.\n- Три фактических Git call site и mutation-контроль registration guard: ровно один отказ без guard, полный pass текущего helper. /usr/bin/false использован только как явный отказ capture; нового native/GPU допуска это не даёт.\n- Все 37 SOURCES/OVERLAY в 21 модуле совпали. Проверены 19 source SHA, 71 raw SHA, 8 архивов исходников против Git 832964d4 и 5 pins против принятого d609ab4f и прежних capture JSON. Сохранены все 18292 предыдущих report blobs, GD/UID и runtime/artwork/planning/provenance. Старые 84 architecture suites сохранены, добавлен только common.test_history. git diff --check проходит, рабочая папка ревьюера чистая.\n\nПоследний снимок CI этого head: 6/8 success, два test ещё in_progress. Локальные полные gates автора (85 suites/1184, Game53502/0, normal/F10 по90/0, Wiki145/0) прочитаны в raw; игру на ПК ревьюер не запускал. Завершение CI требуется подтвердить отдельно.\n\nЭто промежуточная приёмка подготовки, НЕ итоговое APPROVED задачи и НЕ разрешение merge. PR остаётся draft, REFACTOR-03 in_progress, root504 при итоговом бюджете ≤30, REFACTOR-06 blocked; Task-Complete не добавляется. Сводка направляется только Team Lead Agent для решения о следующем пакете.",
+      "submitted_at": "2026-10-27T21:43:34Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    },
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUkRwBA",
+      "state": "COMMENTED",
+      "body": "CI CONFIRMED — только exact head `47d0edc5e9a24dc028b6c91638e8dc54b87aaf9f` (0.0.362). Дополнение к INTERMEDIATE REVIEW PASS 5674824545.\n\nНезависимо подтверждены 8/8 completed/success: PR run40587515057 и push run40587507344, по test/Wiki/Linux/macOS в каждом. Прочитаны полные raw обоих test jobs: [PR test122482802114](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40587515057/job/122482802114) и [push test122482779519](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40587507344/job/122482779519). В каждом: architecture85 suites/1184 cases, Game53520 passed/0 failed, normal/F10 REDRAW по90/0, SMOKE180 кадров. Матрица performance содержит шесть отдельных папок и профилей: все valid=true, budget_passed=true, status=passed, окно10000000us и10 samples.\n\nСвежая проверка метаданных: тот же head47d, base d609ab4fa6d82d6d013265183f018b8836abf7cc, PR open/draft. Игру на ПК ревьюер не запускал; здесь проверены удалённые CI-журналы.\n\nПромежуточная подготовка подтверждена, но итогового APPROVED всей REFACTOR-03 и разрешения merge нет: root504 при бюджете≤30, оставшийся объём03 не завершён. По актуальному ограничению пользователя продолжается только03; после её полного закрытия новые задачи не начинаются без нового прямого указания.",
+      "submitted_at": "2026-10-27T22:18:01Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    },
+    {
+      "id": "PRR_kwDOTqkhCs8AAAABUk9pEg",
+      "state": "COMMENTED",
+      "body": "INTERMEDIATE REVIEW PASS — пакет art-standard 0.0.363, exact head `8579b883b36dfb94f7f088515863185df0a212f0`, граница `47d0edc5e9a24dc028b6c91638e8dc54b87aaf9f..8579b883`. Блокирующих замечаний к переносу не найдено. Одна необязательная P3-рекомендация к копируемой команде ручного QA оставлена у строки.\n\nНезависимо проверено:\n- Карта совпадает с принятым art-standard: 23 source / 3 tracked UID, Git modes и архивные исходники совпадают с точным Git 47d. AST 16 Python и тела 7 GD сохраняются за исключением явной адресации. Root504→481; новые helper и тесты читаемы, смысловые блоки описаны.\n- Воспроизведён полный опубликованный профиль: 16 настоящих CLI из чужого cwd с посторонними PYTHONPATH/GIT_* (включая прежние 8 suites / 59 cases), canonical icons/reuse function identity, неизменные ORIGINAL/EXTRA, source metadata текущего scale с явным /usr/bin/false-отказом. Новый 8-case suite отдельно проходит на Python 3.11 и 3.9.\n- Свежий headless editor import, 9 parse-only, настоящий perspective metadata export 3 семейств / 9 ракурсов с отказом перезаписи, 5 явных headless capture refusals. Игровую сцену и оконную игру на ПК не запускал; GPU/FPS этим не принимаются.\n- Дополнительно настоящий pilot archive_inputs сохранил все 193 текущих входа под прежними логическими ключами, с точными physical bytes и известным source_paths. Прежний pilot verifier прошёл оба исторических размера (по 22 PNG / 152 callbacks / 8 study pairs); flat icons verifier также прошёл.\n- Сверены 50 source SHA / 89 raw digests, все 18364 прежних report blobs и защищённые runtime/artwork/planning/provenance деревья. Все 37 исторических полей в 21 модуле совпали; прежние 85 architecture suites сохранены, добавлен ровно один набор из 8 случаев. 85 ignored UID и anchor сверены read-only с авторскими локальными файлами и frozen values; четыре переносимых UID также совпали с прежними UID review-worktree. Локальные UID от старых импортов ревьюера не считаются авторским дефектом. ID/статусы/счётчик визуального backlog и остальные 5 карточек REFACTOR сохранены; 06 остаётся blocked и требует новой прямой команды.\n- Полный diff --check от main проходит; review-worktree чистый, core.bare=false. Авторские raw gates действительно содержат 86/1192, Game53502/0, REDRAW90/0×2 и Wiki145/0; собственный Game gate на ПК не запускался.\n\nСвежий CI этого head: 4/8 success, обе test и обе macOS ещё in_progress. Старые зелёные проверки 47d не засчитываются за 8579. Авторский browser/download timeout не выдаётся за успешное UI-скачивание; нового собственного браузерного прогона в этом ревью не было.\n\nЭто промежуточная приёмка пакета, НЕ итоговое APPROVED REFACTOR-03 и НЕ разрешение merge: PR draft,03 in_progress, root481 при конечном бюджете≤30, Task-Complete нет. Сводка и P3 направляются только Team Lead. После полного закрытия03 действует остановка пользователя, другие задачи не запускаются.",
+      "submitted_at": "2026-10-27T23:40:37Z",
+      "author": {
+        "login": "sergey-leonidovich-shevchenko",
+        "name": "sergey-leonidovich-shevchenko",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+        "id": null
+      }
+    }
+  ]
+}

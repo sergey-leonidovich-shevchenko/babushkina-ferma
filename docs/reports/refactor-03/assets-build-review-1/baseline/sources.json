@@ -1,0 +1,39 @@
+{
+  "base": "48ac944b5bda5a5183b3678a7a8329ed49b8f28c",
+  "version": "0.0.365",
+  "root_sources": 420,
+  "sources": {
+    "tools/assets/migration/migration_fixture.py": {
+      "sha256": "6c7ff37faae158f862bd96de505c7c9caae3f8d7eb477775f44062faaf79044d",
+      "mode": 420
+    },
+    "tools/quality/check_architecture.sh": {
+      "sha256": "86e43698eb3ecab36e8aed29e30345192efedd49b5144d4c289e47adb7cc262c",
+      "mode": 493
+    },
+    "TESTING.md": {
+      "sha256": "c52460898e968d0963a13bc87c8778a14b81ff0c0918e22c8e3959a0c50dce89",
+      "mode": 420
+    },
+    "wiki/articles/project-refactoring.md": {
+      "sha256": "52d5974b482848992443a6b15a9a4cdf3d9306442fc2cfdc6ffe63ff7e58d560",
+      "mode": 420
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "sha256": "b1a7fce347686d7665623c3371f6d36c66906cc6e7dcfa7d97becb17d868821c",
+      "mode": 420
+    },
+    "VERSION": {
+      "sha256": "c788d30c7ea0481d0da6a5e62285d500c29c89993a35dc115157d150b518e9c2",
+      "mode": 420
+    },
+    "project.godot": {
+      "sha256": "b880d897c5b0d923904d5dd476e5879022498c60f5b51599d85050448ecaccce",
+      "mode": 420
+    },
+    "Бабушкина ферма.app/Contents/Info.plist": {
+      "sha256": "174a817af25f2e8752add357952b27d6ffcb58175d62e1cb81d0ce1e7abe72a9",
+      "mode": 420
+    }
+  }
+}

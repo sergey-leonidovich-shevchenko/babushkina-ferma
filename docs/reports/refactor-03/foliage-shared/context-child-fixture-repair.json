@@ -1,0 +1,8 @@
+{
+  "before_SHA256": "6e44017dd9de92e8a999373dece7dcbec230f56654d88cb73c5f00cf09c37adf",
+  "after_SHA256": "ec59b9d210c0127c43381aac68ef283901097c1f5529bb3f90a1d047b895cabb",
+  "change": "nested child explicitly receives the source repository import paths; initial prototype inherited PYTHONPATH, installed runner does not export it",
+  "test_methods_removed": 0,
+  "not_a_product_ROOT_workaround": true,
+  "docstring_correction": "load_reader no longer claims the whole test source has identical SHA"
+}

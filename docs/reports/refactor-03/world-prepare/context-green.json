@@ -1,0 +1,10 @@
+{
+  "phase": "green",
+  "base": "6b13af8ebf9ec603705c6d4e04577ce8774095da",
+  "test_SHA256": "11d2747eb701ffbbaf466ba11d56f7c6ae6cd5b44f4a6d84bfbd7a96065340f7",
+  "exit": 0,
+  "seconds": 112.36229257800733,
+  "raw_sha256": "eb7fbb72e61a0db3d148ff9500a772c1598b273ed0a961ff388379f5e3f2a5fc",
+  "summary": "...................\n----------------------------------------------------------------------\nRan 19 tests in 112.044s\n\nOK\n",
+  "methods": 19
+}

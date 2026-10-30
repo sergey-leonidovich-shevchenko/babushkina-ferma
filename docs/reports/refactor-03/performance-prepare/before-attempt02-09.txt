@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/perf_contract_collect.py", line 129, in <module>
+    collect(args.output.resolve(),schedule)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/perf_contract_collect.py", line 66, in collect
+    if folder.exists(): raise ValueError('fresh collection output required')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: fresh collection output required

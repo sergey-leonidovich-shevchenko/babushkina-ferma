@@ -1,0 +1,50 @@
+{
+  "version": "0.0.357",
+  "desktop": {
+    "active": "Сейчас в работе\nREFACTOR-03\nРазнести QA, обработку ассетов, сборку и ручные стенды tools по подсистемам\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\nIDEA-REVIEW-20261024\nПроработать десять самостоятельных NPC-историй\nДругое направление. Его статус не означает смену курса первой локации.",
+    "documentWidth": 1280,
+    "firstHistory": [
+      "27.10.2026\nДата принятия completion-коммита в main\nWIKI-003\nПоказывать текущую работу и историю завершения в обзоре первой локации\n\nОбслуживание разработки: Wiki и прозрачный учёт работы.\n\nМатериалы и подтверждения · 5",
+      "27.10.2026\nДата принятия completion-коммита в main\nREFACTOR-01\nСоставить полную карту переносов tools и подтвердить остальные узкие места\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 5",
+      "27.10.2026\nДата принятия completion-коммита в main\nREFACTOR-02\nРазделить общую инфраструктуру и репозиторные команды tools\n\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\n\nМатериалы и подтверждения · 7"
+    ],
+    "history": true,
+    "progress": "52",
+    "ref03": "#/development/tasks/refactoring--REFACTOR-03",
+    "unknown": 20,
+    "width": 1280
+  },
+  "task": {
+    "inProgress": true,
+    "dependencyDone": true
+  },
+  "mobileFinal": {
+    "active": "Сейчас в работе\nREFACTOR-03\nРазнести QA, обработку ассетов, сборку и ручные стенды tools по подсистемам\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\nIDEA-REVIEW-20261024\nПроработать десять самостоятельных NPC-историй\nДругое направление. Его статус не означает смену курса первой локации.",
+    "documentWidth": 390,
+    "history": true,
+    "historyHeadingPresent": true,
+    "progress": "52",
+    "unknown": 20,
+    "width": 390
+  },
+  "guideFinal": {
+    "accepted19": true,
+    "documentWidth": 1280,
+    "inProgress": true,
+    "summaryUpdated": true,
+    "width": 1280
+  },
+  "refresh": {
+    "active": "Сейчас в работе\nREFACTOR-03\nРазнести QA, обработку ассетов, сборку и ручные стенды tools по подсистемам\nТехнический приоритет: упорядочивание tools перед продолжением графики. Приёмка карты остаётся за VMAP-003.\nIDEA-REVIEW-20261024\nПроработать десять самостоятельных NPC-историй\nДругое направление. Его статус не означает смену курса первой локации.",
+    "documentWidth": 1280,
+    "history": true,
+    "progress": "52",
+    "unknown": 20,
+    "width": 1280
+  },
+  "readOnly": true,
+  "viewportReset": true,
+  "initialMobileObservation": "closed navigation did not change route; retained browser-mobile.* show guide, use browser-mobile-final.*",
+  "tabId": "3",
+  "ownTabClosed": true
+}

@@ -1,0 +1,74 @@
+{
+  "base-rounded": {
+    "center_peak_to_peak_logical": [
+      0.971435546875,
+      0.971435546875
+    ],
+    "center_peak_to_peak_framebuffer": [
+      0.971435546875,
+      0.971435546875
+    ],
+    "stalled_camera_y_steps": 141,
+    "max_camera_y_step_logical": 1.0
+  },
+  "base-fractional": {
+    "center_peak_to_peak_logical": [
+      0.0,
+      0.0
+    ],
+    "center_peak_to_peak_framebuffer": [
+      0.0,
+      0.0
+    ],
+    "stalled_camera_y_steps": 0,
+    "max_camera_y_step_logical": 0.212158203125
+  },
+  "full-hd-rounded": {
+    "center_peak_to_peak_logical": [
+      0.971435546875,
+      0.971435546875
+    ],
+    "center_peak_to_peak_framebuffer": [
+      1.6190592447916667,
+      1.6190592447916667
+    ],
+    "stalled_camera_y_steps": 141,
+    "max_camera_y_step_logical": 1.0
+  },
+  "full-hd-fractional": {
+    "center_peak_to_peak_logical": [
+      0.0,
+      0.0
+    ],
+    "center_peak_to_peak_framebuffer": [
+      0.0,
+      0.0
+    ],
+    "stalled_camera_y_steps": 0,
+    "max_camera_y_step_logical": 0.212158203125
+  },
+  "retina-2x-rounded": {
+    "center_peak_to_peak_logical": [
+      0.971435546875,
+      0.971435546875
+    ],
+    "center_peak_to_peak_framebuffer": [
+      1.94287109375,
+      1.94287109375
+    ],
+    "stalled_camera_y_steps": 141,
+    "max_camera_y_step_logical": 1.0
+  },
+  "retina-2x-fractional": {
+    "center_peak_to_peak_logical": [
+      0.0,
+      0.0
+    ],
+    "center_peak_to_peak_framebuffer": [
+      0.0,
+      0.0
+    ],
+    "stalled_camera_y_steps": 0,
+    "max_camera_y_step_logical": 0.212158203125
+  }
+}

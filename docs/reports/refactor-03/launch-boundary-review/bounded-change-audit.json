@@ -1,0 +1,11 @@
+{
+  "all_non_launch_AST_equal": true,
+  "old_test_methods_unchanged": 10,
+  "added_test_methods": 10,
+  "same_red_green_test_SHA256": "707e481badaf4eae1280c4bd1e671bcfc87295fbe7544bacbbd39a1a73f196e5",
+  "historical_Grass_stdout_byte_equal": true,
+  "historical_stdout_SHA256": "30fa13c74c07112dd04448bb975d5352608308b8675ed0bdd89eb486bf8bebdf",
+  "old_grass_controls_passed": 18,
+  "new_controls_passed": 20,
+  "production_scripts_artwork_changed": false
+}

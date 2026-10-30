@@ -1,0 +1,30 @@
+......fatal: path 'assets/game/basement/workbench_1_east.tres' exists on disk, but not in '36b6564290c527b4ddc84b185397005a550d5233'
+E......
+======================================================================
+ERROR: test_plant_depth_reads_new_git_alias_with_old_archive_keys (__main__.WorldSourceHistoryTests.test_plant_depth_reads_new_git_alias_with_old_archive_keys)
+The real external reader binds inherited canonical World blobs to unchanged archive keys.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/refactor03-test-world-history13-before377.py", line 179, in test_plant_depth_reads_new_git_alias_with_old_archive_keys
+    try:self.check_reader(plant_depth)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/refactor03-test-world-history13-before377.py", line 102, in check_reader
+    result=module.validate_source(folder,'before',changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/plant_depth_verify.py", line 79, in validate_source
+    old=git_blob(source['base_commit'],name)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/plant_depth_verify.py", line 25, in git_blob
+    return subprocess.check_output(['git','show',base+':'+name],cwd=ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '36b6564290c527b4ddc84b185397005a550d5233:assets/game/basement/workbench_1_east.tres']' returned non-zero exit status 128.
+
+----------------------------------------------------------------------
+Ran 13 tests in 167.593s
+
+FAILED (errors=1)

@@ -1,0 +1,64 @@
+STREET ASSETS: six cardinal PNG, exact derivatives/alpha/pivots and documented visible/occluded contacts
+{
+  "task": "VPROP-003",
+  "base_commit": "a59ed998fa926fc2ce667d03b8a200bfe20d83ef",
+  "performance_eligible": false,
+  "props": [
+    "well",
+    "cart"
+  ],
+  "directions": [
+    "south",
+    "west",
+    "east"
+  ],
+  "normal_render_scale": 0.25,
+  "windows": {
+    "1152": {
+      "before_png": 12,
+      "after_png": 20,
+      "draw_callbacks": 160,
+      "changed_pixels": {
+        "well-0-62": 24938,
+        "well-0--10": 25374,
+        "well--60-12": 25307,
+        "well-60-12": 25391,
+        "cart-0-62": 25061,
+        "cart-0--10": 25348,
+        "cart--60-12": 25314,
+        "cart-60-12": 25314,
+        "bench-control": 14920,
+        "manual-pause": 14862,
+        "interior": 0,
+        "returned": 24938
+      },
+      "outside_street_equal": true,
+      "gallery_backgrounds": 4,
+      "gallery_props": 2,
+      "visible_and_occluded_contacts_documented": true
+    },
+    "1280": {
+      "before_png": 12,
+      "after_png": 20,
+      "draw_callbacks": 160,
+      "changed_pixels": {
+        "well-0-62": 30780,
+        "well-0--10": 31373,
+        "well--60-12": 31251,
+        "well-60-12": 31353,
+        "cart-0-62": 31064,
+        "cart-0--10": 31369,
+        "cart--60-12": 31353,
+        "cart-60-12": 31353,
+        "bench-control": 18427,
+        "manual-pause": 18352,
+        "interior": 0,
+        "returned": 30780
+      },
+      "outside_street_equal": true,
+      "gallery_backgrounds": 4,
+      "gallery_props": 2,
+      "visible_and_occluded_contacts_documented": true
+    }
+  }
+}

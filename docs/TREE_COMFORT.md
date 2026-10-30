@@ -25,7 +25,7 @@
 - Геометрия: `player_corner_assist_suite.gd` — восемь подходов к углам, центральный упор, закрытый боковой проход, тонкая стена, 30/60/120Hz, длинный кадр, скорость, пустые коллизии.
 - Обзор: `tree_occlusion_suite.gd` — плавность, возврат alpha, reduced motion, мировые координаты, отсутствие дубликатов, штатные семейства и очистка временного состояния.
 - Реальная карта: `player_corner_world_suite.gd` — основание дерева и яблони при 30/60Hz, направление взгляда, отбрасывание без автопомощи, враг, вредящий объект, берег и прямой проход по мосту.
-- Нативная съёмка: `tools/Godot.app/Contents/MacOS/Godot --path . --script res://tools/tree_occlusion_review.gd`. Шесть прямых GPU-кадров лежат в `docs/reports/tree_occlusion_*.png`; SHA основного пользовательского сохранения не изменился.
+- Нативная съёмка: `tools/Godot.app/Contents/MacOS/Godot --path . --script res://tools/qa/compatibility/tree_occlusion_review.gd`. Шесть прямых GPU-кадров лежат в `docs/reports/tree_occlusion_*.png`; SHA основного пользовательского сохранения не изменился.
 - Пример: [герой за яблоней](reports/tree_occlusion_orchard_behind.png) и [снова перед яблоней](reports/tree_occlusion_orchard_front.png).
 - Ручной маршрут: [QA_CHECKLIST.md, раздел 2.3](../QA_CHECKLIST.md).
 

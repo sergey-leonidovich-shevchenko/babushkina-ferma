@@ -1,0 +1,13 @@
+{
+  "version": "0.0.362",
+  "source_public_dist_equal": true,
+  "states": {
+    "02": "done",
+    "03": "in_progress",
+    "06": "blocked"
+  },
+  "history": 83,
+  "accepted_VMAP": false,
+  "historical_profile_attachment_equal": true,
+  "root_sources": 504
+}

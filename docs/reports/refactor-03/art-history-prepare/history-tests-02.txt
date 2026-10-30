@@ -1,0 +1,14 @@
+.................F
+======================================================================
+FAIL: test_unregistered_git_file_cannot_borrow_another_checkout (__main__.HistoryTests.test_unregistered_git_file_cannot_borrow_another_checkout)
+Поддельный .git-файл не заменяет зарегистрированный linked worktree.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/common/test_history.py", line 161, in test_unregistered_git_file_cannot_borrow_another_checkout
+    with self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 18 tests in 5.153s
+
+FAILED (failures=1)

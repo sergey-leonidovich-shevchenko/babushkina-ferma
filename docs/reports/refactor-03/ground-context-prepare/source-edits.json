@@ -1,0 +1,134 @@
+{
+  "Git": [
+    {
+      "path": "tools/axial_road_collect.py",
+      "Git_calls_cleaned": 1,
+      "before_sha256": "fa8d1c721230d9b6c452ffe27a929c9baad07087b59946fddc9710231feda8a6",
+      "after_sha256": "0a03448ffb5ce313ffddf29b77a5b9320314797bcdfad3f564be3dccdda724ad"
+    },
+    {
+      "path": "tools/axial_road_verify.py",
+      "Git_calls_cleaned": 2,
+      "before_sha256": "6707169a4b41d75a80894225ee78ec20074db0df59478c3712e1e7d7fea9e1c6",
+      "after_sha256": "1a663bfcdf5d4035870773dc732bdb88320d4eca69646ea26cedaf86a11be4db"
+    },
+    {
+      "path": "tools/decoration_collect.py",
+      "Git_calls_cleaned": 1,
+      "before_sha256": "ac124add85c88cf57313211a676fc9ebaee3186cf031f52309230c994b52587f",
+      "after_sha256": "f27d3e4149c55d9a6fd47aeebdc2a990bde6e9cd532f4414f7afc957761dcf54"
+    },
+    {
+      "path": "tools/decoration_verify.py",
+      "Git_calls_cleaned": 2,
+      "before_sha256": "1f19ae7fe0377372c800988d60bea589270ef667e7aaa4cfc97003162ac5c885",
+      "after_sha256": "fec58347bd6956f3acbdafd196e0c0c21733c6e4fb24822a41e8bca5601709a0"
+    },
+    {
+      "path": "tools/garden_collect.py",
+      "Git_calls_cleaned": 1,
+      "before_sha256": "de30fae1f9c6de7fcbb14e2e11252faf36e7481249ca82f599f225dda6c67cff",
+      "after_sha256": "382eb9a394fd3e19226cb31cba00c52b44043f6d407128deab885d1c30c42ce4"
+    },
+    {
+      "path": "tools/garden_verify.py",
+      "Git_calls_cleaned": 2,
+      "before_sha256": "0903a697c212e7edbb9ded470d5143710381880533265b586ea9d4f2e09f786b",
+      "after_sha256": "b6c7526799b6d8b221683cb3e80a5e8321f9dddc81b70c0abbb3e293950a3c2e"
+    },
+    {
+      "path": "tools/ground_edge_collect.py",
+      "Git_calls_cleaned": 1,
+      "before_sha256": "3b3e4d598e3f2695c82a938d75b5b5a968365db84802acf0098c4572adfdc264",
+      "after_sha256": "5e8baeb01a952e50371285bd3409dbe4927a48effbeb8e13ea917f7055ad588d"
+    },
+    {
+      "path": "tools/ground_edge_verify.py",
+      "Git_calls_cleaned": 2,
+      "before_sha256": "0e2356a2d82297e3ecb5ff470dd381f1b2b6f34f1d913afe22f0de9df63fb66a",
+      "after_sha256": "25e66db823abf324dd9432c40854f6ad141176c6d63a980634edbd13757f9207"
+    },
+    {
+      "path": "tools/ground_seasons_collect.py",
+      "Git_calls_cleaned": 1,
+      "before_sha256": "3b9733ec4e929bc50ae6ee57eb44e52cec67eecfaa195d5b72926154709c9c10",
+      "after_sha256": "f72df5691accbfc0da4ce7480f2a7b9971fecb0300b4cce105095904d565f380"
+    },
+    {
+      "path": "tools/ground_seasons_verify.py",
+      "Git_calls_cleaned": 2,
+      "before_sha256": "ad2b20846e1387b624e06d21b811b379f8d9726f6608d2f39fba353458f7f2bb",
+      "after_sha256": "c0298e55157188c30d71232adaf64f223563644d842d01e1c4550f4b4206b817"
+    },
+    {
+      "path": "tools/meadow_collect.py",
+      "Git_calls_cleaned": 1,
+      "before_sha256": "ed267a924dbe9f88eadaba46dcd1318bba7129277accba5613e99cb6fa824374",
+      "after_sha256": "f14570b700005d35db4a2564f8b879caba5dc9514047911357211588a0dbedb0"
+    },
+    {
+      "path": "tools/meadow_verify.py",
+      "Git_calls_cleaned": 2,
+      "before_sha256": "eaff4dd059545b990fe6186516dca17e35b3aceb0fc0e1f65343e731a464e84e",
+      "after_sha256": "af438875fb6c74a8310162715b6f1c63243b63eacd698d953d69ce0981bac529"
+    },
+    {
+      "path": "tools/plaza_collect.py",
+      "Git_calls_cleaned": 1,
+      "before_sha256": "62db9860366419ee02d5fe7daab5ad31f517e15ffc78b0a3021add8df4316230",
+      "after_sha256": "e39b08643a8b115aa941337ba8234ef86f17accd98ce7d2d225db04b86a303c1"
+    },
+    {
+      "path": "tools/plaza_verify.py",
+      "Git_calls_cleaned": 2,
+      "before_sha256": "2a930b5cae9cf04bfd808f186c9fb7e042c7391362643c382b411798401267ce",
+      "after_sha256": "ad5e04eaa65c0a21f6d64bb203ab4a8ba72f8f9d79da8acb8f11c69d63babae2"
+    },
+    {
+      "path": "tools/road_network_collect.py",
+      "Git_calls_cleaned": 1,
+      "before_sha256": "441b53491e39282686a51a2dc7953f30aca033d69d05fc7f46a25c5df12cca23",
+      "after_sha256": "a68fd33555c72dafb4fbe1bb55cff37653497d0bef1586240b70a0f400187f27"
+    },
+    {
+      "path": "tools/road_network_verify.py",
+      "Git_calls_cleaned": 2,
+      "before_sha256": "4b5c5031d4a8263e9811c3db64ef0c5636bf9939a675cc81d3ba4c270ff2fa02",
+      "after_sha256": "eeb0ad3b47a99733014b4f4d30cc0633ec75efb7e675ac7b27e76ff7b713295d"
+    },
+    {
+      "path": "tools/terrain_revision_collect.py",
+      "Git_calls_cleaned": 1,
+      "before_sha256": "1866f34273e4a671c535542f98945514bb425b2d2ecd60bfc42fc8bd01191685",
+      "after_sha256": "b5c64b77ac5da98a8ae1269204bc69607782987c24c9b9d01cd5e63be3d8533d"
+    },
+    {
+      "path": "tools/terrain_revision_verify.py",
+      "Git_calls_cleaned": 3,
+      "before_sha256": "27e9cb03377a889c1e5e35db97eef404e8e6e7fdb9d46c6216c11d18ad17d332",
+      "after_sha256": "bcd1155812cf95be4bd888a7d713586995e973a72ef9e2298187081f0c690eb0"
+    }
+  ],
+  "documentation": [
+    {
+      "path": "TESTING.md",
+      "before_sha256": "5518c2b161d704ec3bdef28f01b5367a3ad51efd990fc77a395d1d97083c751c",
+      "after_sha256": "ad04368ee8dbb7cb01d737fc906d944fa900f88e5736500ff14eaaef6e12c411",
+      "after_operational_path_update_sha256": "4a240dbb3d4fa7b3ef3b7342d12bf2af96b42b4518bb3a43e07b3c29ed23e0eb"
+    },
+    {
+      "path": "QA_CHECKLIST.md",
+      "before_sha256": "aae4321848571e9c97b02c19548e4b8eec1063c429f15a169d8db8d940d170ff",
+      "after_sha256": "c00fcb4d269343bf8aaabf297cd28381b4e5d0859b62a45c2bd9abcb74ef1eed",
+      "after_operational_path_update_sha256": "c00fcb4d269343bf8aaabf297cd28381b4e5d0859b62a45c2bd9abcb74ef1eed"
+    },
+    {
+      "path": "docs/DEVELOPMENT.md",
+      "before_sha256": "bcc90923c0ddf4698bb0334d5224cc5ab5281606c3273a03ee8a74effaf23f87",
+      "after_sha256": "f1c805a4868e4220c459a22ce3a6b05cb9a3bca0da70dd01972628aefdefc24c",
+      "after_operational_path_update_sha256": "f1c805a4868e4220c459a22ce3a6b05cb9a3bca0da70dd01972628aefdefc24c"
+    }
+  ],
+  "plant_depth_subprocess_removed": true,
+  "test_source_exact_to_baseline": true
+}

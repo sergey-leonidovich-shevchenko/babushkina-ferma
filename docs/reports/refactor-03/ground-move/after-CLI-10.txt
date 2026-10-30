@@ -1,0 +1,69 @@
+{
+  "task": "VGROUND-009",
+  "base_commit": "b3c847f2812e4d7c245fb69f751a670725e7236d",
+  "windows": {
+    "1152": {
+      "png_count": 40,
+      "draw_callbacks": 106,
+      "changed_cache_pixels": 69120,
+      "outside_changed_pixels": 0,
+      "region": [
+        288,
+        240
+      ],
+      "world": [
+        2400,
+        1368
+      ],
+      "region_fraction": 0.021052631578947368,
+      "local_equals_full": true,
+      "first_local_equals_full": true,
+      "historical_control": {
+        "eligible": false,
+        "different_fields": [
+          "containers",
+          "plots",
+          "rng",
+          "world_loot_seed"
+        ],
+        "reason": "different initial loot/RNG fixture; use same-state full/local controls in this series"
+      },
+      "retained_target_count": 1,
+      "plot_affected_meshes": 5,
+      "idle_callbacks": 120,
+      "direct_cache_preexisting_max_delta": 203
+    },
+    "1280": {
+      "png_count": 40,
+      "draw_callbacks": 106,
+      "changed_cache_pixels": 69120,
+      "outside_changed_pixels": 0,
+      "region": [
+        288,
+        240
+      ],
+      "world": [
+        2400,
+        1368
+      ],
+      "region_fraction": 0.021052631578947368,
+      "local_equals_full": true,
+      "first_local_equals_full": true,
+      "historical_control": {
+        "eligible": false,
+        "different_fields": [
+          "containers",
+          "plots",
+          "rng",
+          "world_loot_seed"
+        ],
+        "reason": "different initial loot/RNG fixture; use same-state full/local controls in this series"
+      },
+      "retained_target_count": 1,
+      "plot_affected_meshes": 5,
+      "idle_callbacks": 120,
+      "direct_cache_preexisting_max_delta": 195
+    }
+  },
+  "performance_eligible": false
+}

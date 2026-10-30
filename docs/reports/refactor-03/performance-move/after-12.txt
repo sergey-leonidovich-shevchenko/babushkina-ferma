@@ -1,0 +1,15 @@
+usage: performance_gate.py [-h] [--output OUTPUT] [--project PROJECT]
+                           [--godot GODOT] [--single {normal,f10}]
+                           [--original]
+
+Собирает настоящую игру в фиксированном окне; каждый normal/F10 повтор обязан
+пройти прежний бюджет50.
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT
+  --project PROJECT
+  --godot GODOT
+  --single {normal,f10}
+                        diagnostic capture, never a full gate
+  --original            original480 timing/config diagnostic only

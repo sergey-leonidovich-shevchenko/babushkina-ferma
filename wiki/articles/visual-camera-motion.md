@@ -48,11 +48,11 @@
 [Числа](../../docs/reports/visual-overhaul/vcamera-002/metrics.json) · [Происхождение съёмки](../../docs/reports/visual-overhaul/vcamera-002/native/source.json) · [Исторический отказ фокуса](../../docs/reports/visual-overhaul/vcamera-002/controls/unfocused-start/capture.json).
 
 ```sh
-python3 tools/camera_quantization.py verify
-python3 tools/test_camera_quantization.py
-tools/Godot.app/Contents/MacOS/Godot --headless --path . --script tools/camera_quantization_review.gd
+python3 tools/run.py qa.camera.camera_quantization verify
+python3 tools/run.py qa.camera.test_camera_quantization
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script tools/qa/camera/camera_quantization_review.gd
 # Только активная разблокированная сессия и новый каталог:
-python3 tools/camera_quantization.py capture --output /private/tmp/farm-camera-comparison-new
+python3 tools/run.py qa.camera.camera_quantization capture --output /private/tmp/farm-camera-comparison-new
 ```
 
 [Карточка VCAMERA-002](#/development/tasks/visual--VCAMERA-002?queue=village-pilot) · [Эталон и порядок эпиков](visual-pilot.md) · [Предыдущий маршрут VBASE-005](visual-motion.md).

@@ -1,0 +1,15 @@
+{
+  "phase": "history-green",
+  "base": "e205c00729214358308f14c46b63c3bd2fdde2d9",
+  "command": [
+    "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+    "tools/run.py",
+    "qa.world.test_world_source_history"
+  ],
+  "test_SHA256": "836d0baa70bd668322d9f3cdc9c13266a6ae5ee097fff86dbbb8180250106bae",
+  "exit": 0,
+  "seconds": 139.57718628499424,
+  "methods": 12,
+  "raw_sha256": "1ccf31b0b40ff22fcc9c9f39bedfed3b03ac1d9dcb74262f6e425337bbb44123",
+  "summary": "............\n----------------------------------------------------------------------\nRan 12 tests in 139.347s\n\nOK\n"
+}

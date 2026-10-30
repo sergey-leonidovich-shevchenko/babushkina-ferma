@@ -1,0 +1,116 @@
+{
+  "url": "http://127.0.0.1:4193/generated/attachments/66f35b41adb49b5a4d4ed1165e35902516a40fa24747f3a96cf11537addd528f.json",
+  "profile": {
+    "head_before": "d27f688fa3ec2670a757acd14019f8ae35e0f693",
+    "version": "0.0.361",
+    "source_moves": 5,
+    "tracked_UID_moves": 1,
+    "AST_bytes_and_modes_preserved": true,
+    "image_results": {
+      "old": {
+        "keyed": "33f4ad50c68bfd53173d8a1a96e43798fa16016647750e91016f1b04828fc20f",
+        "rejected": 2,
+        "small": "f7e86350f359404de159b567004dd7201fbb714fe8838f5391664ddca0358933",
+        "tall": "90755513b7f918df210fc9f18dbbf77b31f115caa1d8df66299c40d358f53603",
+        "wide": "6341e36fdb02ff19881dc57760adbd4f4d2960005d6006cf7682a1353ab6c8ca"
+      },
+      "new": {
+        "keyed": "33f4ad50c68bfd53173d8a1a96e43798fa16016647750e91016f1b04828fc20f",
+        "rejected": 2,
+        "small": "f7e86350f359404de159b567004dd7201fbb714fe8838f5391664ddca0358933",
+        "tall": "90755513b7f918df210fc9f18dbbf77b31f115caa1d8df66299c40d358f53603",
+        "wide": "6341e36fdb02ff19881dc57760adbd4f4d2960005d6006cf7682a1353ab6c8ca"
+      }
+    },
+    "old_new_image_hashes_equal": true,
+    "real_negative_each": 2,
+    "art_review_CLI": [
+      {
+        "mode": "old",
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+          "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/image review package with spaces fh4t90gu/old project/tools/check_art_review.py"
+        ],
+        "exit": 0,
+        "stdout": "ART REVIEW VALID: 386 300 16\n",
+        "stderr": ""
+      },
+      {
+        "mode": "old",
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+          "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/image review package with spaces fh4t90gu/old project/tools/test_art_review.py"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.109s\n\nOK\n"
+      },
+      {
+        "mode": "new",
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+          "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/image review package with spaces fh4t90gu/new project/tools/run.py",
+          "dev.art_review.check_art_review"
+        ],
+        "exit": 0,
+        "stdout": "ART REVIEW VALID: 386 300 16\n",
+        "stderr": ""
+      },
+      {
+        "mode": "new",
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+          "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/image review package with spaces fh4t90gu/new project/tools/run.py",
+          "dev.art_review.test_art_review"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.124s\n\nOK\n"
+      }
+    ],
+    "Node_actual_server": {
+      "command": [
+        "/Users/sergeyshevchenko/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/Users/sergeyshevchenko/my farm/tools/dev/art_review/art_review_serve.mjs"
+      ],
+      "cwd": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/art server foreign cwd b7yzb94a",
+      "pid": 73012,
+      "project": "moon-valley-art-review",
+      "served_index_sha256": "ef414507e6e4c3fe5286f874646e9c22a414ce9105db659575386e670c3729ae",
+      "actual_address": "http://127.0.0.1:4184"
+    },
+    "native_parse_only": [
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--editor",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--quit"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Повторное открытие сцен…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета центрального редактора…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета окна плагина…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Макет редактора готов.\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+          "--headless",
+          "--path",
+          "/Users/sergeyshevchenko/my farm",
+          "--check-only",
+          "--script",
+          "res://tools/dev/art_review/art_review_export.gd"
+        ],
+        "exit": 0,
+        "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+        "stderr": ""
+      }
+    ],
+    "temporary_removed": true,
+    "exporter_main_and_importer_main_not_called": true,
+    "full_task03_accepted": false
+  },
+  "visible_JSON_equals_source": true
+}

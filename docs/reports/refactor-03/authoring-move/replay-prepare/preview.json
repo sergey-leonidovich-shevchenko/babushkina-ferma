@@ -1,0 +1,47 @@
+{
+  "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+  "version": "0.0.357",
+  "prepared_sha256": "9610d95795513197b632588df9898a2e88962ca7929a77f8fd7e5622b3293838",
+  "linked_worktree": true,
+  "records": [
+    {
+      "label": "baseline",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/authoring real worktree bl4ouzwa/fixture repository/tools/build_forest_tree_atlas.py"
+      ],
+      "exit": 0,
+      "stdout": "TREE ATLASES: forest 1024×256 · orchard 1024×1024 RGBA\n",
+      "stderr": ""
+    },
+    {
+      "label": "naive-move",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/authoring real worktree bl4ouzwa/linked worktree with spaces/tools/run.py",
+        "assets.authoring.build_forest_tree_atlas"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/authoring real worktree bl4ouzwa/linked worktree with spaces/tools/run.py\", line 10, in <module>\n    main()\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/authoring real worktree bl4ouzwa/linked worktree with spaces/tools/common/launch.py\", line 60, in main\n    runpy.run_module(target, run_name=\"__main__\", alter_sys=True)\n  File \"<frozen runpy>\", line 226, in run_module\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/authoring real worktree bl4ouzwa/linked worktree with spaces/tools/assets/authoring/build_forest_tree_atlas.py\", line 105, in <module>\n    main()\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/authoring real worktree bl4ouzwa/linked worktree with spaces/tools/assets/authoring/build_forest_tree_atlas.py\", line 97, in main\n    build(source, destination)\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/authoring real worktree bl4ouzwa/linked worktree with spaces/tools/assets/authoring/build_forest_tree_atlas.py\", line 61, in build\n    source = Image.open(source_path).convert(\"RGB\")\n             ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/lib/python3.11/site-packages/PIL/Image.py\", line 3513, in open\n    fp = builtins.open(filename, \"rb\")\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/authoring real worktree bl4ouzwa/linked worktree with spaces/tools/assets/assets/generated/sprite_sources/forest_tree_growth_source_v1.png'\n"
+    },
+    {
+      "label": "prepared-move",
+      "command": [
+        "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/authoring real worktree bl4ouzwa/linked worktree with spaces/tools/run.py",
+        "assets.authoring.build_forest_tree_atlas"
+      ],
+      "exit": 0,
+      "stdout": "TREE ATLASES: forest 1024×256 · orchard 1024×1024 RGBA\n",
+      "stderr": ""
+    }
+  ],
+  "byte_identical_outputs": {
+    "assets/game/environment/forest_tree_growth_atlas_v1.png": "16b0c079738f9c20ff00823f57f7a8a42f2be3feee9aef720873b26f9865aa06",
+    "assets/game/environment/orchard/fruit_trees_4x4_v2.png": "a61bd886716abe50f5c42b18bf11cdfa2fad1cdb919894d9449de43e15fa7215"
+  },
+  "foreign_index_config_unchanged": true,
+  "source_unchanged": true,
+  "temporary_removed": true
+}

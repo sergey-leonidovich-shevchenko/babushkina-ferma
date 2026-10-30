@@ -1,0 +1,52 @@
+EEE
+======================================================================
+ERROR: test_existing_repository_and_unknown_phase_refuse_without_changes (__main__.MigrationFixtureTests.test_existing_repository_and_unknown_phase_refuse_without_changes)
+Ошибочные цели и фаза не записывают проект, sentinel или существующий стенд.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/migration/test_migration_fixture.py", line 117, in test_existing_repository_and_unknown_phase_refuse_without_changes
+    fixture.create(ROOT, valid)
+  File "/Users/sergeyshevchenko/my farm/tools/assets/migration/migration_fixture.py", line 54, in create
+    (target/'tools').mkdir(exist_ok=True);shutil.copyfile(Path(__file__).with_name('migration_capture.gd'),current_source(target, 'tools/migration_capture.gd'))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 258, in copyfile
+    with open(dst, 'wb') as fdst:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/real migration producer 168pnzar/valid external fixture/tools/assets/migration/migration_capture.gd'
+
+======================================================================
+ERROR: test_real_create_and_all_five_phases_preserve_namespace_and_draft (__main__.MigrationFixtureTests.test_real_create_and_all_five_phases_preserve_namespace_and_draft)
+Настоящий live producer проходит staging/контроли/откат с прежним collector URI.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/migration/test_migration_fixture.py", line 53, in test_real_create_and_all_five_phases_preserve_namespace_and_draft
+    case = fixture.create(ROOT, self.target)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tools/assets/migration/migration_fixture.py", line 54, in create
+    (target/'tools').mkdir(exist_ok=True);shutil.copyfile(Path(__file__).with_name('migration_capture.gd'),current_source(target, 'tools/migration_capture.gd'))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 258, in copyfile
+    with open(dst, 'wb') as fdst:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/real migration producer n00l_cxt/new external project/tools/assets/migration/migration_capture.gd'
+
+======================================================================
+ERROR: test_real_git_create_ignores_foreign_git_context (__main__.MigrationFixtureTests.test_real_git_create_ignores_foreign_git_context)
+Исторические входы читаются из ROOT, чужие index/config и окружение не меняются.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/assets/migration/test_migration_fixture.py", line 94, in test_real_git_create_ignores_foreign_git_context
+    case = fixture.create(ROOT, self.target, BASE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tools/assets/migration/migration_fixture.py", line 54, in create
+    (target/'tools').mkdir(exist_ok=True);shutil.copyfile(Path(__file__).with_name('migration_capture.gd'),current_source(target, 'tools/migration_capture.gd'))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 258, in copyfile
+    with open(dst, 'wb') as fdst:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/real migration producer 33smxkua/new external project/tools/assets/migration/migration_capture.gd'
+
+----------------------------------------------------------------------
+Ran 3 tests in 8.577s
+
+FAILED (errors=3)

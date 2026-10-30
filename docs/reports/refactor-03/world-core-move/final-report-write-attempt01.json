@@ -1,0 +1,10 @@
+{
+  "phase": "report-only preparation",
+  "first_stdin_writer_exit": 1,
+  "reason": "stdin source encoding rejection before any statement executed",
+  "seal_before_cleanup_exit": 1,
+  "reason_seal": "cleanup JSON was not yet created",
+  "product_modified": false,
+  "gates_invalidated": false,
+  "repair": "UTF-8 saved script through the same known Python3.11 runtime"
+}

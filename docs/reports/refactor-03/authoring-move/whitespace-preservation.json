@@ -1,0 +1,23 @@
+{
+  "reason": "Post-stage diff check identified intentional native EOF blank lines and unittest subtest spacing. Preserve raw; scope15 exact files only. Production code and gates unchanged.",
+  "previous_gitattributes_sha256": "0267b7a2e94657dc18b5d7b520c84bf63612ffd56dfb9b2f5dd13c9ddd106a62",
+  "added_attributes": [
+    "docs/reports/refactor-03/authoring-move/consumer-history/red.txt",
+    "docs/reports/refactor-03/authoring-move/godot-build_clean_interior_atlas.txt",
+    "docs/reports/refactor-03/authoring-move/godot-build_house_furniture.txt",
+    "docs/reports/refactor-03/authoring-move/godot-build_item_ui_textures.txt",
+    "docs/reports/refactor-03/authoring-move/godot-build_painted_item_icons.txt",
+    "docs/reports/refactor-03/authoring-move/godot-build_prepared_pixels.txt",
+    "docs/reports/refactor-03/authoring-move/godot-build_village_materials.txt",
+    "docs/reports/refactor-03/authoring-move/godot-build_village_props.txt",
+    "docs/reports/refactor-03/authoring-move/godot-extract_farm_icons.txt",
+    "docs/reports/refactor-03/authoring-move/godot-extract_farmyard_sprites.txt",
+    "docs/reports/refactor-03/authoring-move/godot-extract_hero_combat_sprites.txt",
+    "docs/reports/refactor-03/authoring-move/godot-prepare_celestial_dial.txt",
+    "docs/reports/refactor-03/authoring-move/godot-prepare_character_walk.txt",
+    "docs/reports/refactor-03/authoring-move/godot-prepare_hero_actions.txt",
+    "docs/reports/refactor-03/authoring-move/godot-prepare_skeleton_v2.txt"
+  ],
+  "raw_modified": false,
+  "next_check": "git diff --check and git diff --cached --check"
+}

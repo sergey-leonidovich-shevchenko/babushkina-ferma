@@ -1,0 +1,13 @@
+{
+  "same_test_source": true,
+  "test_SHA256": "11d2747eb701ffbbaf466ba11d56f7c6ae6cd5b44f4a6d84bfbd7a96065340f7",
+  "red_failures_including_subtests": 12,
+  "red_errors": 19,
+  "methods": 19,
+  "green_exit": 0,
+  "nested_imports": 9,
+  "actual_fresh_writers_producers": 4,
+  "source_envelope_stop_before_native_context": 2,
+  "inventory_stop_after_real_JSON_CSV": 1,
+  "native_GPU_FPS_admission": false
+}

@@ -1,0 +1,16 @@
+{
+  "changed_source_paths": [
+    "wiki/articles/project-refactoring.md"
+  ],
+  "before_article_sha256": "65f92f28f38997b3e671a15f0dfd492965122868df6afd47a612e57f1c20554e",
+  "after_article_sha256": "8b3544be1acb050c64f56cd86087671c65d262ecd2a0aec136e70778e7c1f51f",
+  "before_article_gzip_SHA256": "cb0e1207a72c33816cc66e69d3236be492c618108063ba43a7099ab4a62b8242",
+  "all_runtime_tool_test_UID_version_paths_unchanged": true,
+  "unchanged_paths": 177,
+  "new_Game_run_claimed": false,
+  "required_refresh": [
+    "documentation",
+    "wiki",
+    "browser"
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "base": "47d0edc5e9a24dc028b6c91638e8dc54b87aaf9f",
+  "moves": [
+    {
+      "old_path": "tools/test_visual_density.py",
+      "target": "tools/qa/art/test_visual_density.py",
+      "action": "move",
+      "sha256": "f89bc9a2388a06731b8373576a1f31c50e55b9a4ed81bf8141a85678cfe43a13",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_visual_edges.py",
+      "target": "tools/qa/art/test_visual_edges.py",
+      "action": "move",
+      "sha256": "ae13d360bd26f7dde0a4f5de84a9af7d997ca1e18c935050b1252bcc892ea0b4",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_visual_light.py",
+      "target": "tools/qa/art/test_visual_light.py",
+      "action": "move",
+      "sha256": "87c788e6454642c62db1b649019ee86ea2dd55bf48679d8bf7dea4a110e84874",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_visual_modules.py",
+      "target": "tools/qa/art/test_visual_modules.py",
+      "action": "move",
+      "sha256": "1d36f9679b897055415626a530a099006f318c5200d033b484e1d6cd66a7f4e6",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_visual_palette.py",
+      "target": "tools/qa/art/test_visual_palette.py",
+      "action": "move",
+      "sha256": "4a0fd1d49b9fceccb98c3e85d91d7675fa518fd03d7d6405a3cbb96941627ccd",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_visual_perspective.py",
+      "target": "tools/qa/art/test_visual_perspective.py",
+      "action": "move",
+      "sha256": "204f99ea8a992f01fa647521a274afe1c56df6325541da141ef187e27b41c2fe",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_visual_reuse.py",
+      "target": "tools/qa/art/test_visual_reuse.py",
+      "action": "move",
+      "sha256": "94c4d44631cf8b466fa7127ec806827f2913d819ca2fa23717dcb2ed7cfd8c99",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/test_visual_scale.py",
+      "target": "tools/qa/art/test_visual_scale.py",
+      "action": "move",
+      "sha256": "98d3ed03118b58944985c6e547c2d07ac9e7f7f4cf76eb470f5c89d7ea7c06b9",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_density.py",
+      "target": "tools/qa/art/visual_density.py",
+      "action": "move",
+      "sha256": "82cfab0e41d53b18bfc380c6beb914a2fc89207d2e6c6bd2e41937430ccccef2",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_density_capture.gd",
+      "target": "tools/qa/art/visual_density_capture.gd",
+      "action": "move",
+      "sha256": "0699ede725cd4d4c4087cdc868eef1835bf1c885bdeed62b9862659b6620e558",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_density_capture.gd.uid",
+      "target": "tools/qa/art/visual_density_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "sha256": "0efefd30c8d75e29a404101492dd6b7d9f76f1b4ba4084e1be5fd00da047f0cc",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_edges.py",
+      "target": "tools/qa/art/visual_edges.py",
+      "action": "move",
+      "sha256": "41887c01b2ed4414c28c474ad40856e753e0d7c48047a1cf3b2042edcbaaef5a",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_light.py",
+      "target": "tools/qa/art/visual_light.py",
+      "action": "move",
+      "sha256": "15865e90968d07bd399b374ca02ea474d597803978b23b0a87cf2912b6a2018a",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_light_capture.gd",
+      "target": "tools/qa/art/visual_light_capture.gd",
+      "action": "move",
+      "sha256": "53eb8f29a2b66d7896c9e87de8f1a872dfd48f02c12c2d6e3ab0800f8064c53e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_modules.py",
+      "target": "tools/qa/art/visual_modules.py",
+      "action": "move",
+      "sha256": "ba9c3033c01f16d189ca320fc1b24d3c7b0a13e8bec038283986d60f268a7812",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_modules_capture.gd",
+      "target": "tools/qa/art/visual_modules_capture.gd",
+      "action": "move",
+      "sha256": "f2bc0bf2af0f96c78e15101ca23685600d1752c5bda15e0fbd383ca22e6d5b5b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_palette.py",
+      "target": "tools/qa/art/visual_palette.py",
+      "action": "move",
+      "sha256": "0d46c3e102102e7f2e5043aca50c0d6d30d7634bae168d1428f69ee792eb54ca",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_perspective.py",
+      "target": "tools/qa/art/visual_perspective.py",
+      "action": "move",
+      "sha256": "35f51f780cd056319f7b2a09038b5f33df607b5b2ec90a1192785c372c5bd1b4",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_perspective_export.gd",
+      "target": "tools/qa/art/visual_perspective_export.gd",
+      "action": "move",
+      "sha256": "ce822e22fba3eb9429774a8d8cffc6edd9246f016595d915a8c79364851c87f9",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_perspective_export.gd.uid",
+      "target": "tools/qa/art/visual_perspective_export.gd.uid",
+      "action": "move_uid_with_source",
+      "sha256": "1e7029e8ec7ce70e038ceddd3ca9a6d48a4e4fcbd1fda9d3f71f6528703eb71b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_reuse.py",
+      "target": "tools/qa/art/visual_reuse.py",
+      "action": "move",
+      "sha256": "5deb25a32f847a058552300bd604f6c5da7b3fe92a1f3fb8371e1c1ad018828c",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_reuse_capture.gd",
+      "target": "tools/qa/art/visual_reuse_capture.gd",
+      "action": "move",
+      "sha256": "7f40d05788c223c92f30b299c5cb10e5dac16290035b2df3ddfc8a01ded511ba",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_reuse_sources.gd",
+      "target": "tools/qa/art/visual_reuse_sources.gd",
+      "action": "move",
+      "sha256": "868c354fef37aa46f0678c32f7e99607c8e8cee0e03cf50596bf157f08d3f4ab",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_scale.py",
+      "target": "tools/qa/art/visual_scale.py",
+      "action": "move",
+      "sha256": "f1cafeda6295bf1a6ea677214feff84cc217d89fe2a0d2407c4509b258f9017b",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_scale_capture.gd",
+      "target": "tools/qa/art/visual_scale_capture.gd",
+      "action": "move",
+      "sha256": "cad09a8e41cb51d9e6719c99dced3a6566c7377312758c87d0ed138894f3c01e",
+      "mode": 420
+    },
+    {
+      "old_path": "tools/visual_scale_capture.gd.uid",
+      "target": "tools/qa/art/visual_scale_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "sha256": "7df4edc4e8860e9aaaebe9f4dcaa42ee4889fc621e9a896459532454d1841fac",
+      "mode": 420
+    }
+  ],
+  "live_consumers": [
+    "tools/visual_icons.py",
+    "tools/pilot_static_scene.gd",
+    "tools/pilot_static_collect.py",
+    "tools/pilot_static_verify.py",
+    "tools/quality/check_architecture.sh",
+    "AGENTS.md"
+  ],
+  "source_moves": 23,
+  "tracked_UID_moves": 3,
+  "root_before": 504,
+  "root_after": 481
+}

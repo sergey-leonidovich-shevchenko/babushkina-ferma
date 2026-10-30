@@ -1,0 +1,21 @@
+{
+  "version": "0.0.367",
+  "phase": "architecture passed; game and Wiki remaining",
+  "source_SHA256": {
+    ".gitignore": "9436a103463a7a4445da7555cc011b303326f2e72e2db20191ab438f64aa3db1",
+    "AGENTS.md": "7458f1bd8b9a6b94d5ac4469072ce23851b810e7f6c4cdaef6aac6a7cad35a18",
+    "TESTING.md": "1eb4565d3c238ee59874d0a7270d62fbdeb9ebf09e68d88ed70464091ea5cc9d",
+    "VERSION": "f4b94b4bfb3aa9cc2b16a1ef3baff0ed4554bf56c76f0e24bd3fa0a3c10a6f57",
+    "docs/epics/refactoring-2026-10/TASKS.md": "d0c9c6d70ba2b00f3f8968450c52dbbca374430180ec54db3d79d424cd527006",
+    "project.godot": "4551524c5efe38abe7a33ac5bd9ed2a1c3a73cf3462c4d182b62a25ef5f35c01",
+    "tools/alpha_audit.py": "851126b3970b67a1131a7a54b2aa8062bba6d5a6a465aa268e729ebd8d9a3a9f",
+    "tools/alpha_proof.py": "0661b395f69c2624a5a5c1d0e8665d06e0e9c3e1131ed99efb274bf1dfe10f14",
+    "tools/assets/alpha/__init__.py": "33458af49eddd21966b6670ee7360eaa1e9237ad2a8c0fa8ea04c69aca351218",
+    "tools/assets/alpha/test_processing_history.py": "ee9c5a52cdc7cb36aa899c8d212ca8fbca878b547dbadd2d96f35c78256f38c2",
+    "tools/quality/check_architecture.sh": "999a6bde6e0fc6543e16273317da0074de1b8b5a9115946e699236a40778252c",
+    "tools/slice_audit.py": "c1944c2e187ab922a5765e437aa9e4d235fd446bc69fc8d1d40457f9845f1d9d",
+    "tools/slice_proof.py": "0e67e1999ac302ad245a66027a4d391335063ad74fd4a96a64aa05a216673bab",
+    "wiki/articles/project-refactoring.md": "04927a6dcb0e1fa95f372587fd4d4ecd2b5e6baac6fcb59885fa917f3e858017",
+    "Бабушкина ферма.app/Contents/Info.plist": "69c99ff0759e39c4b02553d43b8acacaf16c40f8b068800988831a917b6214a2"
+  }
+}

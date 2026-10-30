@@ -1,0 +1,114 @@
+..AXIAL NATIVE 1152
+F.DECORATION NATIVE 1152
+F.EDGE NATIVE 1152
+F.GARDEN NATIVE 1152
+F.GROUND NATIVE 1152
+..MEADOW NATIVE 1152
+F..PLAZA NATIVE 1152
+F.TERRAIN REVISION NATIVE 1152
+F.NETWORK NATIVE 1152
+F.GROUND SEASONS NATIVE 1152
+F
+======================================================================
+FAIL: test_axial_producer (__main__.GroundLayoutTests.test_axial_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 187, in test_axial_producer
+    def test_axial_producer(self): self.producer('axial_road')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 171, in producer
+    self.assertFalse(any(output.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_decoration_producer (__main__.GroundLayoutTests.test_decoration_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 188, in test_decoration_producer
+    def test_decoration_producer(self): self.producer('decoration')
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 171, in producer
+    self.assertFalse(any(output.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_edge_producer (__main__.GroundLayoutTests.test_edge_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 190, in test_edge_producer
+    def test_edge_producer(self): self.producer('ground_edge')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 171, in producer
+    self.assertFalse(any(output.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_garden_producer (__main__.GroundLayoutTests.test_garden_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 189, in test_garden_producer
+    def test_garden_producer(self): self.producer('garden')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 171, in producer
+    self.assertFalse(any(output.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_meadow_producer (__main__.GroundLayoutTests.test_meadow_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 193, in test_meadow_producer
+    def test_meadow_producer(self): self.producer('meadow')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 171, in producer
+    self.assertFalse(any(output.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_plaza_producer (__main__.GroundLayoutTests.test_plaza_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 194, in test_plaza_producer
+    def test_plaza_producer(self): self.producer('plaza')
+                                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 171, in producer
+    self.assertFalse(any(output.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_revision_producer (__main__.GroundLayoutTests.test_revision_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 196, in test_revision_producer
+    def test_revision_producer(self): self.producer('terrain_revision')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 171, in producer
+    self.assertFalse(any(output.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_roads_producer (__main__.GroundLayoutTests.test_roads_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 195, in test_roads_producer
+    def test_roads_producer(self): self.producer('road_network')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 171, in producer
+    self.assertFalse(any(output.rglob('*.png')))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_seasons_producer (__main__.GroundLayoutTests.test_seasons_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 192, in test_seasons_producer
+    def test_seasons_producer(self): self.producer('ground_seasons')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/ground/test_ground_layout.py", line 171, in producer
+    self.assertFalse(any(output.rglob('*.png')))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 22 tests in 80.830s
+
+FAILED (failures=9)

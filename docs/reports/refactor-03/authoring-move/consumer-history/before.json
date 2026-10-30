@@ -1,0 +1,6 @@
+{
+  "asset_report_sha256": "7416897cd170de09fc258b199ca1c7af537d8a9823be94b8b4bd2fd49be60385",
+  "provenance_sha256": "168526350e2a28646b8398993b4c4f4c71d870323568a22adf8e3b5d6373bea6",
+  "base": "0352c5f286dc90c5fa324347b9ceadeb6a8e9350",
+  "failure": "gates-01 architecture exit1, missing moved generator in current provenance reader"
+}

@@ -35,10 +35,10 @@ Apple Silicon, Windows, Linux, отдельный Intel GPU, 1920×1080, нат�
 [Аппаратный профиль JSON](../../docs/reports/visual-overhaul/vbase-002/profile.json), [исходные замеры и подписи](../../docs/reports/visual-overhaul/vbase-002/measurement/capture.json), [три полные сводки](../../docs/reports/visual-overhaul/vbase-002/measurement/native/summary.json).
 
 ```sh
-python3 tools/visual_hardware.py verify
-python3 tools/test_visual_hardware.py
+python3 tools/run.py qa.camera.visual_hardware verify
+python3 tools/run.py qa.camera.test_visual_hardware
 # Новый нативный запуск, только в условиях профиля и без параллельной сборки:
-python3 tools/visual_hardware.py capture --output /private/tmp/farm-vbase-002-new
+python3 tools/run.py qa.camera.visual_hardware capture --output /private/tmp/farm-vbase-002-new
 ```
 
 17 тестов отклоняют подмену камеры/GPU/питания, неверный размер, потерю фокуса, замерший мир и повреждённые доказательства; реальный AC-отказ тоже проверяется. Точные исходники измерителя сохранены рядом с данными. Пакет проверен Python 3.9 и 3.12; допустимое округление среднего не меняет raw. Физические устройства ими не эмулируются. [Карточка VBASE-002](#/development/tasks/visual--VBASE-002?queue=village-pilot).

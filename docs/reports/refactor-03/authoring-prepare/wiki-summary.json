@@ -1,0 +1,13 @@
+{
+  "command": [
+    "pnpm",
+    "--dir",
+    "wiki",
+    "check"
+  ],
+  "version": "0.0.357",
+  "cause": "guide summary metadata aligned with acceptedPR19 and03in_progress; renderer unchanged",
+  "started_at": "2026-10-27T05:24:53.596944+00:00",
+  "finished_at": "2026-10-27T05:26:13.257636+00:00",
+  "exit": 0
+}

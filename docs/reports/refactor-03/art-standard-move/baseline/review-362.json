@@ -1,0 +1,20 @@
+{
+  "head": "47d0edc5e9a24dc028b6c91638e8dc54b87aaf9f",
+  "review": {
+    "id": "PRR_kwDOTqkhCs8AAAABUj7zYQ",
+    "state": "COMMENTED",
+    "body": "INTERMEDIATE REVIEW PASS — подготовка art-standard, head `47d0edc5e9a24dc028b6c91638e8dc54b87aaf9f` (0.0.362), граница `832964d4de4a0a0207500dd185039642738874e7..47d0edc5`. Независимых замечаний к этому пакету не найдено.\n\nПроверены читаемость и границы common.history, 8 source-root изменений, 5 Git/SHA pins четырёх исторических читателей и изоляция окружения трёх настоящих Git-вызовов scale/reuse. Проверка commit/tree/blob не допускает live fallback, replace refs, symlink и заимствование чужого checkout.\n\nНезависимо воспроизведено:\n- 21 настоящий Git/worktree тест на Python 3.11 и 3.9; дополнительно корректный linked worktree и подложенный .git-файл, указывающий на Git-dir настоящего чужого linked worktree.\n- Опубликованный профиль old/new: после перемещения 5 GD только в disposable clone четыре прежних reader отказывают, четыре подготовленных проходят; 4 неверных source SHA и 4 missing-history случая отклоняются; 8 CLI проходят из чужого cwd с посторонними PYTHONPATH/GIT_*.\n- Три фактических Git call site и mutation-контроль registration guard: ровно один отказ без guard, полный pass текущего helper. /usr/bin/false использован только как явный отказ capture; нового native/GPU допуска это не даёт.\n- Все 37 SOURCES/OVERLAY в 21 модуле совпали. Проверены 19 source SHA, 71 raw SHA, 8 архивов исходников против Git 832964d4 и 5 pins против принятого d609ab4f и прежних capture JSON. Сохранены все 18292 предыдущих report blobs, GD/UID и runtime/artwork/planning/provenance. Старые 84 architecture suites сохранены, добавлен только common.test_history. git diff --check проходит, рабочая папка ревьюера чистая.\n\nПоследний снимок CI этого head: 6/8 success, два test ещё in_progress. Локальные полные gates автора (85 suites/1184, Game53502/0, normal/F10 по90/0, Wiki145/0) прочитаны в raw; игру на ПК ревьюер не запускал. Завершение CI требуется подтвердить отдельно.\n\nЭто промежуточная приёмка подготовки, НЕ итоговое APPROVED задачи и НЕ разрешение merge. PR остаётся draft, REFACTOR-03 in_progress, root504 при итоговом бюджете ≤30, REFACTOR-06 blocked; Task-Complete не добавляется. Сводка направляется только Team Lead Agent для решения о следующем пакете.",
+    "submitted_at": "2026-10-27T21:43:34Z",
+    "author": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+      "id": null
+    }
+  },
+  "continuation": "Team Lead relayed direct user instruction: finish current REFACTOR-03 in its accepted full scope; then stop before REFACTOR-06 or any other new task.",
+  "team_thread": "01a14c6e-9afd-7d33-a968-2c72339fce8d",
+  "client_day": "2026-10-28",
+  "full_task03_accepted": false
+}

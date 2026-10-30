@@ -1,0 +1,3252 @@
+{
+  "functions": [
+    {
+      "path": "tools/qa/ground/axial_road_collect.py",
+      "function": "collect",
+      "equal_after_explicit_address_normalization": true,
+      "current": 2,
+      "history": 1,
+      "native": 1
+    },
+    {
+      "path": "tools/qa/ground/axial_road_verify.py",
+      "function": "load",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/axial_road_verify.py",
+      "function": "retained",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/axial_road_verify.py",
+      "function": "metadata",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/axial_road_verify.py",
+      "function": "provenance",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 1,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/axial_road_verify.py",
+      "function": "compare",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/axial_road_verify.py",
+      "function": "profile",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/axial_road_verify.py",
+      "function": "mask_pair",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/axial_road_verify.py",
+      "function": "flat_end_profile",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/axial_road_verify.py",
+      "function": "verify",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/decoration_collect.py",
+      "function": "collect",
+      "equal_after_explicit_address_normalization": true,
+      "current": 2,
+      "history": 1,
+      "native": 1
+    },
+    {
+      "path": "tools/qa/ground/decoration_verify.py",
+      "function": "load",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/decoration_verify.py",
+      "function": "intersects",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/decoration_verify.py",
+      "function": "cross",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/decoration_verify.py",
+      "function": "point_inside",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/decoration_verify.py",
+      "function": "water_overlap",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/decoration_verify.py",
+      "function": "policy",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/decoration_verify.py",
+      "function": "metadata",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/decoration_verify.py",
+      "function": "provenance",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 1,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/decoration_verify.py",
+      "function": "pixel_mask",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/decoration_verify.py",
+      "function": "images",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/decoration_verify.py",
+      "function": "verify",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/garden_collect.py",
+      "function": "collect",
+      "equal_after_explicit_address_normalization": true,
+      "current": 2,
+      "history": 1,
+      "native": 1
+    },
+    {
+      "path": "tools/qa/ground/garden_verify.py",
+      "function": "load",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/garden_verify.py",
+      "function": "retained",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/garden_verify.py",
+      "function": "metadata",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/garden_verify.py",
+      "function": "process_policy",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/garden_verify.py",
+      "function": "provenance",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 1,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/garden_verify.py",
+      "function": "compare",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/garden_verify.py",
+      "function": "wetness",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/garden_verify.py",
+      "function": "seams",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/garden_verify.py",
+      "function": "engine_log",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/garden_verify.py",
+      "function": "garden_mask",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/garden_verify.py",
+      "function": "verify",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/garden_verify.py",
+      "function": "mean",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_edge_collect.py",
+      "function": "collect",
+      "equal_after_explicit_address_normalization": true,
+      "current": 2,
+      "history": 1,
+      "native": 1
+    },
+    {
+      "path": "tools/qa/ground/ground_edge_verify.py",
+      "function": "load",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_edge_verify.py",
+      "function": "retained",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_edge_verify.py",
+      "function": "metadata",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_edge_verify.py",
+      "function": "provenance",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 1,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_edge_verify.py",
+      "function": "compare",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_edge_verify.py",
+      "function": "profile",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_edge_verify.py",
+      "function": "mask_pair",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_edge_verify.py",
+      "function": "verify",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_layers.py",
+      "function": "load",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_layers.py",
+      "function": "base_bytes",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_layers.py",
+      "function": "collect",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 1
+    },
+    {
+      "path": "tools/qa/ground/ground_layers.py",
+      "function": "provenance",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_layers.py",
+      "function": "state",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_layers.py",
+      "function": "hot_loop",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_layers.py",
+      "function": "opaque_hud",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_layers.py",
+      "function": "cold_draws",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_layers.py",
+      "function": "image_quality",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_layers.py",
+      "function": "cold_image_quality",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_layers.py",
+      "function": "verify",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_seasons_collect.py",
+      "function": "collect",
+      "equal_after_explicit_address_normalization": true,
+      "current": 2,
+      "history": 1,
+      "native": 1
+    },
+    {
+      "path": "tools/qa/ground/ground_seasons_verify.py",
+      "function": "load",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_seasons_verify.py",
+      "function": "provenance",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 1,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_seasons_verify.py",
+      "function": "metadata",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_seasons_verify.py",
+      "function": "geometry_and_retention",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_seasons_verify.py",
+      "function": "rgba",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_seasons_verify.py",
+      "function": "pixels",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/ground_seasons_verify.py",
+      "function": "verify",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/meadow_collect.py",
+      "function": "collect",
+      "equal_after_explicit_address_normalization": true,
+      "current": 2,
+      "history": 1,
+      "native": 1
+    },
+    {
+      "path": "tools/qa/ground/meadow_verify.py",
+      "function": "load",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/meadow_verify.py",
+      "function": "retained",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/meadow_verify.py",
+      "function": "metadata",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/meadow_verify.py",
+      "function": "provenance",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 1,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/meadow_verify.py",
+      "function": "compare",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/meadow_verify.py",
+      "function": "verify",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/plaza_collect.py",
+      "function": "collect",
+      "equal_after_explicit_address_normalization": true,
+      "current": 2,
+      "history": 1,
+      "native": 1
+    },
+    {
+      "path": "tools/qa/ground/plaza_verify.py",
+      "function": "load",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/plaza_verify.py",
+      "function": "retained",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/plaza_verify.py",
+      "function": "metadata",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/plaza_verify.py",
+      "function": "process_policy",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/plaza_verify.py",
+      "function": "provenance",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 1,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/plaza_verify.py",
+      "function": "compare",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/plaza_verify.py",
+      "function": "quiet_material",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/plaza_verify.py",
+      "function": "plaza_mask",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/plaza_verify.py",
+      "function": "verify",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/plaza_verify.py",
+      "function": "spread",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/plaza_verify.py",
+      "function": "percentile",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_context.py",
+      "function": "check_reader",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_context.py",
+      "function": "test_axial_road_archive_under_foreign_git",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_context.py",
+      "function": "test_decoration_archive_under_foreign_git",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_context.py",
+      "function": "test_garden_archive_under_foreign_git",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_context.py",
+      "function": "test_ground_edge_archive_under_foreign_git",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_context.py",
+      "function": "test_ground_layers_archive_under_foreign_git",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_context.py",
+      "function": "test_seasons_archive_under_foreign_git",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_context.py",
+      "function": "test_meadow_archive_under_foreign_git",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_context.py",
+      "function": "test_plaza_archive_under_foreign_git",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_context.py",
+      "function": "test_roads_archive_under_foreign_git",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_context.py",
+      "function": "test_revision_archive_under_foreign_git",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "git",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "commit",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "fixture",
+      "equal_after_explicit_address_normalization": true,
+      "current": 1,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "foreign",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "bound",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "collect",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "read_provenance",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "assert_archive",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "test_grass_real_collect_and_reader_keep_logical_archive_namespace",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "test_ground_real_collect_and_reader_use_canonical_git_base_helper",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "test_ground_archives_real_sources_before_first_native_launch",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "test_grass_empty_schedule_archives_sources_without_native_admission",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "test_missing_canonical_helper_never_falls_back_to_stale_old_file",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "test_ground_historical_lookup_uses_exact_old_and_new_git_bytes",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "test_ambiguous_helper_git_aliases_are_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "test_resigned_helper_archive_cannot_override_git_base",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/performance/test_surface_producers.py",
+      "function": "test_existing_output_and_original_signed_packets_remain_protected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/road_network_collect.py",
+      "function": "collect",
+      "equal_after_explicit_address_normalization": true,
+      "current": 2,
+      "history": 1,
+      "native": 1
+    },
+    {
+      "path": "tools/qa/ground/road_network_verify.py",
+      "function": "load",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/road_network_verify.py",
+      "function": "retained",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/road_network_verify.py",
+      "function": "metadata",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/road_network_verify.py",
+      "function": "provenance",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 1,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/road_network_verify.py",
+      "function": "compare",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/road_network_verify.py",
+      "function": "profile",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/road_network_verify.py",
+      "function": "mask_pair",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/road_network_verify.py",
+      "function": "network_agreement",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/road_network_verify.py",
+      "function": "verify",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/terrain_revision_collect.py",
+      "function": "collect",
+      "equal_after_explicit_address_normalization": true,
+      "current": 2,
+      "history": 1,
+      "native": 1
+    },
+    {
+      "path": "tools/qa/ground/terrain_revision_verify.py",
+      "function": "load",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/terrain_revision_verify.py",
+      "function": "metadata",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/terrain_revision_verify.py",
+      "function": "metrics",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/terrain_revision_verify.py",
+      "function": "provenance",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 1,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/terrain_revision_verify.py",
+      "function": "rgba",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/terrain_revision_verify.py",
+      "function": "equal",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/terrain_revision_verify.py",
+      "function": "local_pixels",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/terrain_revision_verify.py",
+      "function": "historical_control",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/terrain_revision_verify.py",
+      "function": "verify",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_axial_road.py",
+      "function": "fixture",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_axial_road.py",
+      "function": "test_flat_end_and_real_legacy_control",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_axial_road.py",
+      "function": "test_capsule_or_missing_control_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_axial_road.py",
+      "function": "test_smooth_realistic_profile",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_axial_road.py",
+      "function": "test_binary_or_truncated_profile",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_axial_road.py",
+      "function": "test_valid_document",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_axial_road.py",
+      "function": "test_incomplete_cases",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_axial_road.py",
+      "function": "test_real_window_required",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_axial_road.py",
+      "function": "test_saved_health_and_camera_cannot_be_omitted",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_axial_road.py",
+      "function": "test_performance_overclaim_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_axial_road.py",
+      "function": "test_mipmap_or_scale_substitution",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_axial_road.py",
+      "function": "test_retained_bytes_and_counters",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_decoration_rules.py",
+      "function": "setUpClass",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_decoration_rules.py",
+      "function": "test_complete_geometry_and_two_windows",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_decoration_rules.py",
+      "function": "test_missing_or_duplicate_case_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_decoration_rules.py",
+      "function": "test_wrong_window_focus_or_zoom_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_decoration_rules.py",
+      "function": "test_changed_full_save_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_decoration_rules.py",
+      "function": "test_false_performance_or_ordinary_scene_claim_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_decoration_rules.py",
+      "function": "test_unsafe_seed_and_missing_protected_category_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_decoration_rules.py",
+      "function": "test_water_crossing_is_not_corner_sampling",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_decoration_rules.py",
+      "function": "test_unbounded_policy_or_false_count_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_decoration_rules.py",
+      "function": "test_changed_ordinary_pixel_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_decoration_rules.py",
+      "function": "test_changed_archived_source_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "fixture",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "test_saved_frames_never_excuse_engine_error",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "test_bright_internal_grid_is_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "test_complete_metadata",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "test_missing_junction_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "test_pair_requires_garden_toggle",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "test_pair_preserves_state_and_camera",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "test_native_window_and_scale_required",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "test_no_performance_overclaim",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "test_cache_witness",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "test_explicit_static_process_policy",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "test_transparent_mask_and_negative_pixel_control",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_garden_soil.py",
+      "function": "test_wetness_and_flat_or_same_tone_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_edge.py",
+      "function": "fixture",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_edge.py",
+      "function": "test_smooth_realistic_profile",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_edge.py",
+      "function": "test_binary_or_truncated_profile",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_edge.py",
+      "function": "test_valid_document",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_edge.py",
+      "function": "test_incomplete_cases",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_edge.py",
+      "function": "test_real_window_required",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_edge.py",
+      "function": "test_saved_health_and_camera_cannot_be_omitted",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_edge.py",
+      "function": "test_performance_overclaim_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_edge.py",
+      "function": "test_mipmap_or_scale_substitution",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_edge.py",
+      "function": "test_retained_bytes_and_counters",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "setUpClass",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_complete_native_evidence",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_extra_viewport",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_repeated_target_render",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_wrong_static_coverage",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_surface_above_bridge",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_interior_layer_leak",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_legacy_double_draw",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_hot_rebuilds",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_static_texture_changed",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_static_clock_cannot_fake_hot_loop",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_cold_hp_mutation",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_cold_geometry_mutation",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_cold_missing_or_duplicated_draw",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_cold_foreground_queue",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_pixel_bound",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_opaque_hud_pixel",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_cold_image_must_be_exact",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_archived_input_damage",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_resigned_production_input",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "test_historical_project_is_not_current",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_layers.py",
+      "function": "guarded",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_seasons.py",
+      "function": "setUpClass",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_seasons.py",
+      "function": "test_complete_views_calendar_and_retention",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_seasons.py",
+      "function": "test_wrong_window_performance_and_fixture_claim_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_seasons.py",
+      "function": "test_missing_or_duplicated_view_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_seasons.py",
+      "function": "test_changed_inventory_camera_or_weather_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_seasons.py",
+      "function": "test_mesh_alpha_identity_or_route_change_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_seasons.py",
+      "function": "test_rebuild_on_repeated_climate_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_seasons.py",
+      "function": "test_extra_gpu_target_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_seasons.py",
+      "function": "test_idle_repaint_or_pause_save_change_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_seasons.py",
+      "function": "test_incomplete_native_source_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_seasons.py",
+      "function": "test_changed_alpha_even_at_transparent_pixel_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_ground_seasons.py",
+      "function": "test_noop_season_or_false_spring_return_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_meadow_ground.py",
+      "function": "fixture",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_meadow_ground.py",
+      "function": "test_valid_document",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_meadow_ground.py",
+      "function": "test_incomplete_cases",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_meadow_ground.py",
+      "function": "test_real_window_required",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_meadow_ground.py",
+      "function": "test_saved_health_and_camera_cannot_be_omitted",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_meadow_ground.py",
+      "function": "test_performance_overclaim_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_meadow_ground.py",
+      "function": "test_mipmap_or_scale_substitution",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_meadow_ground.py",
+      "function": "test_retained_bytes_and_counters",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_plaza_ground.py",
+      "function": "fixture",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_plaza_ground.py",
+      "function": "test_complete_metadata",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_plaza_ground.py",
+      "function": "test_missing_junction_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_plaza_ground.py",
+      "function": "test_pair_requires_plaza_toggle",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_plaza_ground.py",
+      "function": "test_pair_preserves_state_and_camera",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_plaza_ground.py",
+      "function": "test_native_window_and_scale_required",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_plaza_ground.py",
+      "function": "test_no_performance_overclaim",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_plaza_ground.py",
+      "function": "test_cache_witness",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_plaza_ground.py",
+      "function": "test_explicit_static_process_policy",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_plaza_ground.py",
+      "function": "test_transparent_mask_and_negative_pixel_control",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_plaza_ground.py",
+      "function": "test_quiet_material_and_blank_or_dominant_control",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_road_network.py",
+      "function": "fixture",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_road_network.py",
+      "function": "test_complete_metadata",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_road_network.py",
+      "function": "test_missing_junction_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_road_network.py",
+      "function": "test_pair_requires_joined_toggle",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_road_network.py",
+      "function": "test_pair_preserves_state_and_camera",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_road_network.py",
+      "function": "test_native_window_and_scale_required",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_road_network.py",
+      "function": "test_no_performance_overclaim",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_road_network.py",
+      "function": "test_cache_witness",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_road_network.py",
+      "function": "test_single_pass_agreement_and_negative_pixel_controls",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_road_network.py",
+      "function": "test_inconsistent_arm_width",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_terrain_revision.py",
+      "function": "setUpClass",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_terrain_revision.py",
+      "function": "test_complete_cases_and_real_operation_deltas",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_terrain_revision.py",
+      "function": "test_missing_case_wrong_window_and_false_fps_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_terrain_revision.py",
+      "function": "test_changed_save_or_camera_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_terrain_revision.py",
+      "function": "test_extra_saved_change_in_watering_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_terrain_revision.py",
+      "function": "test_full_clear_or_wrong_clip_disguised_as_local_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_terrain_revision.py",
+      "function": "test_recreated_target_or_unfinished_queue_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_terrain_revision.py",
+      "function": "test_lost_request_rebuilt_neighbor_and_idle_work_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_terrain_revision.py",
+      "function": "test_rgb_and_hidden_alpha_outside_region_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/qa/ground/test_terrain_revision.py",
+      "function": "test_empty_update_and_changed_control_pixel_rejected",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/assets/contracts/source_paths.py",
+      "function": "_relative",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/assets/contracts/source_paths.py",
+      "function": "current_source",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/assets/contracts/source_paths.py",
+      "function": "historical_source",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/assets/contracts/source_paths.py",
+      "function": "captured_paths",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    },
+    {
+      "path": "tools/assets/contracts/source_paths.py",
+      "function": "recorded_paths",
+      "equal_after_explicit_address_normalization": true,
+      "current": 0,
+      "history": 0,
+      "native": 0
+    }
+  ],
+  "imports": [
+    {
+      "old": "tools/axial_road_collect.py",
+      "current": "tools/qa/ground/axial_road_collect.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root",
+        "import os"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import input_path, historical_result",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root",
+        "import os"
+      ]
+    },
+    {
+      "old": "tools/axial_road_verify.py",
+      "current": "tools/qa/ground/axial_road_verify.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from axial_road_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from ground_layers import cold_draws",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import historical_result",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from tools.qa.ground.axial_road_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from tools.qa.ground.ground_layers import cold_draws",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root"
+      ]
+    },
+    {
+      "old": "tools/decoration_collect.py",
+      "current": "tools/qa/ground/decoration_collect.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root",
+        "import os"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import input_path, historical_result",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root",
+        "import os"
+      ]
+    },
+    {
+      "old": "tools/decoration_verify.py",
+      "current": "tools/qa/ground/decoration_verify.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import math",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from PIL import Image, ImageChops, ImageDraw",
+        "from decoration_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import math",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import historical_result",
+        "from PIL import Image, ImageChops, ImageDraw",
+        "from tools.qa.ground.decoration_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root"
+      ]
+    },
+    {
+      "old": "tools/garden_collect.py",
+      "current": "tools/qa/ground/garden_collect.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from plaza_collect import SOURCES as PLAZA_SOURCES",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root",
+        "import os"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import input_path, historical_result",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from tools.qa.ground.plaza_collect import SOURCES as PLAZA_SOURCES",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root",
+        "import os"
+      ]
+    },
+    {
+      "old": "tools/garden_verify.py",
+      "current": "tools/qa/ground/garden_verify.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from garden_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from ground_layers import cold_draws",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import historical_result",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from tools.qa.ground.garden_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from tools.qa.ground.ground_layers import cold_draws",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root"
+      ]
+    },
+    {
+      "old": "tools/ground_edge_collect.py",
+      "current": "tools/qa/ground/ground_edge_collect.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root",
+        "import os"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import input_path, historical_result",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root",
+        "import os"
+      ]
+    },
+    {
+      "old": "tools/ground_edge_verify.py",
+      "current": "tools/qa/ground/ground_edge_verify.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from ground_edge_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from ground_layers import cold_draws",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import historical_result",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from tools.qa.ground.ground_edge_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from tools.qa.ground.ground_layers import cold_draws",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root"
+      ]
+    },
+    {
+      "old": "tools/ground_layers.py",
+      "current": "tools/qa/ground/ground_layers.py",
+      "before": [
+        "from __future__ import annotations",
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import io",
+        "import json",
+        "import os",
+        "from pathlib import Path",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "import uuid",
+        "from PIL import Image, ImageChops",
+        "from tools.common.git import git_environment",
+        "from tools.qa.performance.source_history import LEGACY_HELPER, historical_helper",
+        "from tools.assets.contracts.source_paths import current_source",
+        "from tools.qa.performance.perf_contract_collect import ROOT, context, jobs, command, sha, write, native_pid",
+        "from grass_methods import require, image_difference",
+        "from tools.qa.world.render_order import validate_draws",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root"
+      ],
+      "after": [
+        "from __future__ import annotations",
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import io",
+        "import json",
+        "import os",
+        "from pathlib import Path",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "import uuid",
+        "from PIL import Image, ImageChops",
+        "from tools.common.git import git_environment",
+        "from tools.qa.performance.source_history import LEGACY_HELPER, historical_helper",
+        "from tools.assets.contracts.source_paths import current_source",
+        "from tools.qa.performance.perf_contract_collect import ROOT, context, jobs, command, sha, write, native_pid",
+        "from grass_methods import require, image_difference",
+        "from tools.qa.world.render_order import validate_draws",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root"
+      ]
+    },
+    {
+      "old": "tools/ground_seasons_collect.py",
+      "current": "tools/qa/ground/ground_seasons_collect.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root",
+        "import os"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import input_path, historical_result",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root",
+        "import os"
+      ]
+    },
+    {
+      "old": "tools/ground_seasons_verify.py",
+      "current": "tools/qa/ground/ground_seasons_verify.py",
+      "before": [
+        "import argparse",
+        "import copy",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from ground_seasons_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root"
+      ],
+      "after": [
+        "import argparse",
+        "import copy",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import historical_result",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from tools.qa.ground.ground_seasons_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root"
+      ]
+    },
+    {
+      "old": "tools/meadow_collect.py",
+      "current": "tools/qa/ground/meadow_collect.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root",
+        "import os"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import input_path, historical_result",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root",
+        "import os"
+      ]
+    },
+    {
+      "old": "tools/meadow_verify.py",
+      "current": "tools/qa/ground/meadow_verify.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from meadow_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from ground_layers import cold_draws",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import historical_result",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from tools.qa.ground.meadow_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from tools.qa.ground.ground_layers import cold_draws",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root"
+      ]
+    },
+    {
+      "old": "tools/plaza_collect.py",
+      "current": "tools/qa/ground/plaza_collect.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root",
+        "import os"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import input_path, historical_result",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root",
+        "import os"
+      ]
+    },
+    {
+      "old": "tools/plaza_verify.py",
+      "current": "tools/qa/ground/plaza_verify.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from plaza_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from ground_layers import cold_draws",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import historical_result",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from tools.qa.ground.plaza_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from tools.qa.ground.ground_layers import cold_draws",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root"
+      ]
+    },
+    {
+      "old": "tools/qa/ground/test_ground_context.py",
+      "current": "tools/qa/ground/test_ground_context.py",
+      "before": [
+        "import json",
+        "from pathlib import Path",
+        "import unittest",
+        "import axial_road_verify as axial",
+        "import decoration_verify as decoration",
+        "import garden_verify as garden",
+        "import ground_edge_verify as edge",
+        "import ground_layers as layers",
+        "import ground_seasons_verify as seasons",
+        "import meadow_verify as meadow",
+        "import plaza_verify as plaza",
+        "import road_network_verify as roads",
+        "import terrain_revision_verify as revision",
+        "from tools.qa.world import test_world_context as fixtures"
+      ],
+      "after": [
+        "import json",
+        "import unittest",
+        "from tools.qa.ground import axial_road_verify as axial",
+        "from tools.qa.ground import decoration_verify as decoration",
+        "from tools.qa.ground import garden_verify as garden",
+        "from tools.qa.ground import ground_edge_verify as edge",
+        "from tools.qa.ground import ground_layers as layers",
+        "from tools.qa.ground import ground_seasons_verify as seasons",
+        "from tools.qa.ground import meadow_verify as meadow",
+        "from tools.qa.ground import plaza_verify as plaza",
+        "from tools.qa.ground import road_network_verify as roads",
+        "from tools.qa.ground import terrain_revision_verify as revision",
+        "from tools.qa.world import test_world_context as fixtures"
+      ]
+    },
+    {
+      "old": "tools/qa/performance/test_surface_producers.py",
+      "current": "tools/qa/performance/test_surface_producers.py",
+      "before": [
+        "from contextlib import contextmanager, ExitStack",
+        "import hashlib",
+        "import json",
+        "import os",
+        "from pathlib import Path",
+        "import shutil",
+        "import subprocess",
+        "import sys",
+        "import tempfile",
+        "import unittest",
+        "from unittest.mock import patch",
+        "import grass_compare_collect as grass",
+        "import grass_methods as grass_reader",
+        "import ground_layers as ground",
+        "from tools.common.git import git_environment",
+        "from tools.common.paths import project_root",
+        "from tools.qa.performance import perf_contract_collect as common_collector"
+      ],
+      "after": [
+        "from contextlib import contextmanager, ExitStack",
+        "import hashlib",
+        "import json",
+        "import os",
+        "from pathlib import Path",
+        "import shutil",
+        "import subprocess",
+        "import tempfile",
+        "import unittest",
+        "from unittest.mock import patch",
+        "import grass_compare_collect as grass",
+        "import grass_methods as grass_reader",
+        "from tools.qa.ground import ground_layers as ground",
+        "from tools.common.git import git_environment",
+        "from tools.assets.contracts.source_paths import current_source",
+        "from tools.common.paths import project_root",
+        "from tools.qa.performance import perf_contract_collect as common_collector"
+      ]
+    },
+    {
+      "old": "tools/road_network_collect.py",
+      "current": "tools/qa/ground/road_network_collect.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root",
+        "import os"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import input_path, historical_result",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root",
+        "import os"
+      ]
+    },
+    {
+      "old": "tools/road_network_verify.py",
+      "current": "tools/qa/ground/road_network_verify.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from road_network_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from ground_layers import cold_draws",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import historical_result",
+        "from PIL import Image, ImageChops, ImageStat",
+        "from tools.qa.ground.road_network_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from tools.qa.ground.ground_layers import cold_draws",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root"
+      ]
+    },
+    {
+      "old": "tools/terrain_revision_collect.py",
+      "current": "tools/qa/ground/terrain_revision_collect.py",
+      "before": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root",
+        "import os"
+      ],
+      "after": [
+        "import argparse",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import shutil",
+        "import signal",
+        "import subprocess",
+        "import uuid",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import input_path, historical_result",
+        "from tools.qa.performance.perf_contract_collect import ROOT, command, context, jobs, native_pid, sha, write",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root",
+        "import os"
+      ]
+    },
+    {
+      "old": "tools/terrain_revision_verify.py",
+      "current": "tools/qa/ground/terrain_revision_verify.py",
+      "before": [
+        "import argparse",
+        "import copy",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from PIL import Image, ImageChops, ImageDraw",
+        "from terrain_revision_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from ground_layers import cold_draws",
+        "from common.launch import prepare_imports",
+        "from common.paths import project_root"
+      ],
+      "after": [
+        "import argparse",
+        "import copy",
+        "import gzip",
+        "import hashlib",
+        "import json",
+        "import subprocess",
+        "from tools.common.git import git_environment",
+        "from pathlib import Path",
+        "from tools.qa.world.source_inputs import historical_result",
+        "from PIL import Image, ImageChops, ImageDraw",
+        "from tools.qa.ground.terrain_revision_collect import ROOT, SOURCES, OVERLAY",
+        "from tools.qa.performance.perf_contract_collect import sha, write",
+        "from tools.qa.world.render_order import require, validate_draws",
+        "from tools.qa.ground.ground_layers import cold_draws",
+        "from tools.common.launch import prepare_imports",
+        "from tools.common.paths import project_root"
+      ]
+    },
+    {
+      "old": "tools/test_axial_road.py",
+      "current": "tools/qa/ground/test_axial_road.py",
+      "before": [
+        "import copy",
+        "import unittest",
+        "from axial_road_verify import PAIRS, metadata, retained, profile, flat_end_profile"
+      ],
+      "after": [
+        "import copy",
+        "import unittest",
+        "from tools.qa.ground.axial_road_verify import PAIRS, metadata, retained, profile, flat_end_profile"
+      ]
+    },
+    {
+      "old": "tools/test_decoration_rules.py",
+      "current": "tools/qa/ground/test_decoration_rules.py",
+      "before": [
+        "import copy",
+        "import shutil",
+        "import tempfile",
+        "import unittest",
+        "from pathlib import Path",
+        "from PIL import Image",
+        "from decoration_verify import REPORT, load, metadata, policy, images, water_overlap, provenance"
+      ],
+      "after": [
+        "import copy",
+        "import shutil",
+        "import tempfile",
+        "import unittest",
+        "from pathlib import Path",
+        "from PIL import Image",
+        "from tools.qa.ground.decoration_verify import REPORT, load, metadata, policy, images, water_overlap, provenance"
+      ]
+    },
+    {
+      "old": "tools/test_garden_soil.py",
+      "current": "tools/qa/ground/test_garden_soil.py",
+      "before": [
+        "import copy",
+        "import tempfile",
+        "import unittest",
+        "from pathlib import Path",
+        "from PIL import Image, ImageDraw",
+        "from garden_verify import PAIRS, metadata, retained, garden_mask, wetness, process_policy, seams, engine_log"
+      ],
+      "after": [
+        "import copy",
+        "import tempfile",
+        "import unittest",
+        "from pathlib import Path",
+        "from PIL import Image, ImageDraw",
+        "from tools.qa.ground.garden_verify import PAIRS, metadata, retained, garden_mask, wetness, process_policy, seams, engine_log"
+      ]
+    },
+    {
+      "old": "tools/test_ground_edge.py",
+      "current": "tools/qa/ground/test_ground_edge.py",
+      "before": [
+        "import copy",
+        "import unittest",
+        "from ground_edge_verify import PAIRS, metadata, retained, profile"
+      ],
+      "after": [
+        "import copy",
+        "import unittest",
+        "from tools.qa.ground.ground_edge_verify import PAIRS, metadata, retained, profile"
+      ]
+    },
+    {
+      "old": "tools/test_ground_layers.py",
+      "current": "tools/qa/ground/test_ground_layers.py",
+      "before": [
+        "import copy",
+        "import gzip",
+        "import json",
+        "from pathlib import Path",
+        "import shutil",
+        "import tempfile",
+        "import unittest",
+        "from unittest import mock",
+        "from PIL import Image",
+        "import ground_layers as g"
+      ],
+      "after": [
+        "import copy",
+        "import gzip",
+        "import json",
+        "from pathlib import Path",
+        "import shutil",
+        "import tempfile",
+        "import unittest",
+        "from unittest import mock",
+        "from PIL import Image",
+        "from tools.qa.ground import ground_layers as g"
+      ]
+    },
+    {
+      "old": "tools/test_ground_seasons.py",
+      "current": "tools/qa/ground/test_ground_seasons.py",
+      "before": [
+        "import copy",
+        "import shutil",
+        "import tempfile",
+        "import unittest",
+        "from pathlib import Path",
+        "from PIL import Image",
+        "from ground_seasons_verify import REPORT, load, metadata, geometry_and_retention, pixels, provenance",
+        "import json"
+      ],
+      "after": [
+        "import copy",
+        "import shutil",
+        "import tempfile",
+        "import unittest",
+        "from pathlib import Path",
+        "from PIL import Image",
+        "from tools.qa.ground.ground_seasons_verify import REPORT, load, metadata, geometry_and_retention, pixels, provenance",
+        "import json"
+      ]
+    },
+    {
+      "old": "tools/test_meadow_ground.py",
+      "current": "tools/qa/ground/test_meadow_ground.py",
+      "before": [
+        "import copy",
+        "import unittest",
+        "from meadow_verify import PAIRS, metadata, retained"
+      ],
+      "after": [
+        "import copy",
+        "import unittest",
+        "from tools.qa.ground.meadow_verify import PAIRS, metadata, retained"
+      ]
+    },
+    {
+      "old": "tools/test_plaza_ground.py",
+      "current": "tools/qa/ground/test_plaza_ground.py",
+      "before": [
+        "import copy",
+        "import tempfile",
+        "import unittest",
+        "from pathlib import Path",
+        "from PIL import Image, ImageDraw",
+        "from plaza_verify import PAIRS, metadata, retained, plaza_mask, quiet_material, process_policy"
+      ],
+      "after": [
+        "import copy",
+        "import tempfile",
+        "import unittest",
+        "from pathlib import Path",
+        "from PIL import Image, ImageDraw",
+        "from tools.qa.ground.plaza_verify import PAIRS, metadata, retained, plaza_mask, quiet_material, process_policy"
+      ]
+    },
+    {
+      "old": "tools/test_road_network.py",
+      "current": "tools/qa/ground/test_road_network.py",
+      "before": [
+        "import copy",
+        "import tempfile",
+        "import unittest",
+        "from pathlib import Path",
+        "from PIL import Image, ImageDraw",
+        "from road_network_verify import PAIRS, metadata, retained, network_agreement"
+      ],
+      "after": [
+        "import copy",
+        "import tempfile",
+        "import unittest",
+        "from pathlib import Path",
+        "from PIL import Image, ImageDraw",
+        "from tools.qa.ground.road_network_verify import PAIRS, metadata, retained, network_agreement"
+      ]
+    },
+    {
+      "old": "tools/test_terrain_revision.py",
+      "current": "tools/qa/ground/test_terrain_revision.py",
+      "before": [
+        "import copy",
+        "import tempfile",
+        "import unittest",
+        "from pathlib import Path",
+        "from PIL import Image",
+        "from terrain_revision_verify import REPORT, load, metadata, metrics, local_pixels, equal"
+      ],
+      "after": [
+        "import copy",
+        "import tempfile",
+        "import unittest",
+        "from pathlib import Path",
+        "from PIL import Image",
+        "from tools.qa.ground.terrain_revision_verify import REPORT, load, metadata, metrics, local_pixels, equal"
+      ]
+    },
+    {
+      "old": "tools/assets/contracts/source_paths.py",
+      "current": "tools/assets/contracts/source_paths.py",
+      "before": [
+        "from __future__ import annotations",
+        "from pathlib import Path, PurePosixPath",
+        "from types import MappingProxyType"
+      ],
+      "after": [
+        "from __future__ import annotations",
+        "from pathlib import Path, PurePosixPath",
+        "from types import MappingProxyType"
+      ]
+    },
+    {
+      "old": "tools/assets/contracts/test_source_paths.py",
+      "current": "tools/assets/contracts/test_source_paths.py",
+      "before": [
+        "from __future__ import annotations",
+        "import json",
+        "from pathlib import Path",
+        "import subprocess",
+        "import tempfile",
+        "import unittest",
+        "from tools.common.git import git_environment",
+        "from tools.common.paths import project_root",
+        "from tools.assets.contracts.asset_report import reader, working_reader",
+        "from tools.assets.contracts.source_paths import MOVED_PATHS, captured_paths, current_source, historical_source, recorded_paths",
+        "from tools.assets.migration.migration_inventory import build, historical_errors"
+      ],
+      "after": [
+        "from __future__ import annotations",
+        "import json",
+        "from pathlib import Path",
+        "import subprocess",
+        "import tempfile",
+        "import unittest",
+        "from tools.common.git import git_environment",
+        "from tools.common.paths import project_root",
+        "from tools.assets.contracts.asset_report import reader, working_reader",
+        "from tools.assets.contracts.source_paths import MOVED_PATHS, captured_paths, current_source, historical_source, recorded_paths",
+        "from tools.assets.migration.migration_inventory import build, historical_errors"
+      ]
+    }
+  ],
+  "GD": [
+    {
+      "old": "tools/axial_road_board.gd",
+      "current": "tools/qa/ground/axial_road_board.gd",
+      "only_URI_replacements": 2
+    },
+    {
+      "old": "tools/axial_road_builder.gd",
+      "current": "tools/qa/ground/axial_road_builder.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/axial_road_capture.gd",
+      "current": "tools/qa/ground/axial_road_capture.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/axial_road_compile.gd",
+      "current": "tools/qa/ground/axial_road_compile.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/axial_road_field.gd",
+      "current": "tools/qa/ground/axial_road_field.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/decoration_capture.gd",
+      "current": "tools/qa/ground/decoration_capture.gd",
+      "only_URI_replacements": 2
+    },
+    {
+      "old": "tools/garden_capture.gd",
+      "current": "tools/qa/ground/garden_capture.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/ground_edge_board.gd",
+      "current": "tools/qa/ground/ground_edge_board.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/ground_edge_builder.gd",
+      "current": "tools/qa/ground/ground_edge_builder.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/ground_edge_capture.gd",
+      "current": "tools/qa/ground/ground_edge_capture.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/ground_edge_compile.gd",
+      "current": "tools/qa/ground/ground_edge_compile.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/ground_seasons_capture.gd",
+      "current": "tools/qa/ground/ground_seasons_capture.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/meadow_capture.gd",
+      "current": "tools/qa/ground/meadow_capture.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/plaza_builder.gd",
+      "current": "tools/qa/ground/plaza_builder.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/plaza_capture.gd",
+      "current": "tools/qa/ground/plaza_capture.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/plaza_compile.gd",
+      "current": "tools/qa/ground/plaza_compile.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/plaza_field.gd",
+      "current": "tools/qa/ground/plaza_field.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/road_network_board.gd",
+      "current": "tools/qa/ground/road_network_board.gd",
+      "only_URI_replacements": 2
+    },
+    {
+      "old": "tools/road_network_builder.gd",
+      "current": "tools/qa/ground/road_network_builder.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/road_network_capture.gd",
+      "current": "tools/qa/ground/road_network_capture.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tools/road_network_compile.gd",
+      "current": "tools/qa/ground/road_network_compile.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tests/suites/axial_road_suite.gd",
+      "current": "tests/suites/axial_road_suite.gd",
+      "only_URI_replacements": 2
+    },
+    {
+      "old": "tests/suites/ground_edge_suite.gd",
+      "current": "tests/suites/ground_edge_suite.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tests/suites/ground_seasons_suite.gd",
+      "current": "tests/suites/ground_seasons_suite.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tests/suites/object_draw_command_suite.gd",
+      "current": "tests/suites/object_draw_command_suite.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tests/suites/pilot_object_pass_suite.gd",
+      "current": "tests/suites/pilot_object_pass_suite.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tests/suites/plaza_ground_suite.gd",
+      "current": "tests/suites/plaza_ground_suite.gd",
+      "only_URI_replacements": 2
+    },
+    {
+      "old": "tests/suites/road_network_suite.gd",
+      "current": "tests/suites/road_network_suite.gd",
+      "only_URI_replacements": 3
+    },
+    {
+      "old": "tests/suites/village_bench_suite.gd",
+      "current": "tests/suites/village_bench_suite.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tests/suites/village_board_suite.gd",
+      "current": "tests/suites/village_board_suite.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tests/suites/village_fence_suite.gd",
+      "current": "tests/suites/village_fence_suite.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tests/suites/village_lamp_suite.gd",
+      "current": "tests/suites/village_lamp_suite.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tests/suites/village_street_suite.gd",
+      "current": "tests/suites/village_street_suite.gd",
+      "only_URI_replacements": 1
+    },
+    {
+      "old": "tests/suites/village_trade_suite.gd",
+      "current": "tests/suites/village_trade_suite.gd",
+      "only_URI_replacements": 1
+    }
+  ],
+  "mapping_exactly_original113_rows": true,
+  "UID_bytes_mode_equal": 302,
+  "new_UID": {
+    "tools/qa/ground/compiled_sources.gd.uid": {
+      "sha256": "facc09a21643f95e8e15518ae26ad47d891cbdb2b72d738e5392ccebf9816654",
+      "mode": 420
+    },
+    "tools/qa/ground/compiled_sources_review.gd.uid": {
+      "sha256": "cbad66c36b0be70b454df68066016f8e129ba493fbdb6e26c1e2f2e39a9e04c5",
+      "mode": 420
+    }
+  },
+  "source_bridge_changes_audited_separately": [
+    "tests/suites/axial_road_suite.gd",
+    "tests/suites/ground_edge_suite.gd",
+    "tests/suites/plaza_ground_suite.gd",
+    "tests/suites/road_network_suite.gd",
+    "tools/qa/ground/axial_road_compile.gd",
+    "tools/qa/ground/ground_edge_compile.gd",
+    "tools/qa/ground/plaza_compile.gd",
+    "tools/qa/ground/road_network_compile.gd"
+  ]
+}

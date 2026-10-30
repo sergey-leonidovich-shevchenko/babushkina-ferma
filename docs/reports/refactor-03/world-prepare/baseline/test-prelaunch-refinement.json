@@ -1,0 +1,8 @@
+{
+  "before_product_edit": true,
+  "native_Popen_reached_in_red": false,
+  "final_red_SHA256": "11d2747eb701ffbbaf466ba11d56f7c6ae6cd5b44f4a6d84bfbd7a96065340f7",
+  "object_stop": "context before Popen",
+  "shadow_stop": "jobs after source.json before loop/Popen",
+  "old_red_sources_retained": true
+}

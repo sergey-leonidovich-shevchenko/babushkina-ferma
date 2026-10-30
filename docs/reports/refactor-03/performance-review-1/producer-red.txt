@@ -1,0 +1,227 @@
+FEEEEfatal: path 'tools/perf_contract_collect.py' does not exist in '9a2ad81fb77282c4f52261e694653b28b21f01b8'
+Efatal: path 'scripts/world_background.gd' exists on disk, but not in '394265fa8d7efa5da199cd4987e80fd425576c77'
+EGRASS NATIVE 1152
+RECORDED 1152
+GRASS NATIVE 1280
+RECORDED 1280
+Ffatal: path 'tools/perf_contract_collect.py' exists on disk, but not in '7b73a018633357411630d1cd2c647bebf17a1684'
+EEE
+======================================================================
+ERROR: test_existing_output_and_original_signed_packets_remain_protected (__main__.SurfaceProducerTests.test_existing_output_and_original_signed_packets_remain_protected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 242, in test_existing_output_and_original_signed_packets_remain_protected
+    self.assertTrue(grass_reader.provenance(packets[0], 'bench')['complete'])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/grass_methods.py", line 61, in provenance
+    require(subprocess.run(['git','cat-file','-e',source['base_commit']+'^{commit}'],cwd=ROOT,capture_output=True).returncode==0,'Git base absent')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/grass_methods.py", line 34, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Git base absent
+
+======================================================================
+ERROR: test_grass_empty_schedule_archives_sources_without_native_admission (__main__.SurfaceProducerTests.test_grass_empty_schedule_archives_sources_without_native_admission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 168, in test_grass_empty_schedule_archives_sources_without_native_admission
+    grass.collect(output, 'quality')
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/grass_compare_collect.py", line 45, in collect
+    'complete':False,'schedule':schedule(mode),'sources':{name:sha(ROOT/name) for name in FROZEN},'artifacts':{}}
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/grass_compare_collect.py", line 45, in <dictcomp>
+    'complete':False,'schedule':schedule(mode),'sources':{name:sha(ROOT/name) for name in FROZEN},'artifacts':{}}
+                                                               ^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/perf_contract_collect.py", line 46, in sha
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/grass prelaunch 6648of96/own project with spaces/tools/perf_contract_collect.py'
+
+======================================================================
+ERROR: test_grass_real_collect_and_reader_keep_logical_archive_namespace (__main__.SurfaceProducerTests.test_grass_real_collect_and_reader_keep_logical_archive_namespace)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 124, in test_grass_real_collect_and_reader_keep_logical_archive_namespace
+    self.collect(grass, output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 101, in collect
+    return producer.collect(output, 'quality') if producer is grass else producer.collect(output)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/grass_compare_collect.py", line 45, in collect
+    'complete':False,'schedule':schedule(mode),'sources':{name:sha(ROOT/name) for name in FROZEN},'artifacts':{}}
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/grass_compare_collect.py", line 45, in <dictcomp>
+    'complete':False,'schedule':schedule(mode),'sources':{name:sha(ROOT/name) for name in FROZEN},'artifacts':{}}
+                                                               ^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/perf_contract_collect.py", line 46, in sha
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/grass producer real vp1o8z0b/own project with spaces/tools/perf_contract_collect.py'
+
+======================================================================
+ERROR: test_ground_archives_real_sources_before_first_native_launch (__main__.SurfaceProducerTests.test_ground_archives_real_sources_before_first_native_launch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 156, in test_ground_archives_real_sources_before_first_native_launch
+    ground.collect(output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py", line 55, in collect
+    'sources':{p:sha(ROOT/p) for p in SOURCES},'base_sources':{},'artifacts':{}}
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py", line 55, in <dictcomp>
+    'sources':{p:sha(ROOT/p) for p in SOURCES},'base_sources':{},'artifacts':{}}
+                 ^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/perf_contract_collect.py", line 46, in sha
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/ground prelaunch uqe0rq9g/own project with spaces/tools/perf_contract_collect.py'
+
+======================================================================
+ERROR: test_ground_historical_lookup_uses_exact_old_and_new_git_bytes (__main__.SurfaceProducerTests.test_ground_historical_lookup_uses_exact_old_and_new_git_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 195, in test_ground_historical_lookup_uses_exact_old_and_new_git_bytes
+    self.assertEqual(ground.base_bytes(OLD, LEGACY), old)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py", line 45, in base_bytes
+    return subprocess.check_output(['git','show',commit+':'+name],cwd=ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '9a2ad81fb77282c4f52261e694653b28b21f01b8:tools/perf_contract_collect.py']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_ground_real_collect_and_reader_use_canonical_git_base_helper (__main__.SurfaceProducerTests.test_ground_real_collect_and_reader_use_canonical_git_base_helper)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 142, in test_ground_real_collect_and_reader_use_canonical_git_base_helper
+    self.collect(ground, output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 101, in collect
+    return producer.collect(output, 'quality') if producer is grass else producer.collect(output)
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py", line 58, in collect
+    if name not in NEW: source['base_sources'][name]=hashlib.sha256(base_bytes(source['base_commit'],name)).hexdigest()
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py", line 45, in base_bytes
+    return subprocess.check_output(['git','show',commit+':'+name],cwd=ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '394265fa8d7efa5da199cd4987e80fd425576c77:scripts/world_background.gd']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_missing_canonical_helper_never_falls_back_to_stale_old_file (__main__.SurfaceProducerTests.test_missing_canonical_helper_never_falls_back_to_stale_old_file) (producer='ground_layers')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 186, in test_missing_canonical_helper_never_falls_back_to_stale_old_file
+    self.collect(producer, output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 101, in collect
+    return producer.collect(output, 'quality') if producer is grass else producer.collect(output)
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py", line 58, in collect
+    if name not in NEW: source['base_sources'][name]=hashlib.sha256(base_bytes(source['base_commit'],name)).hexdigest()
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py", line 45, in base_bytes
+    return subprocess.check_output(['git','show',commit+':'+name],cwd=ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'show', '7b73a018633357411630d1cd2c647bebf17a1684:tools/perf_contract_collect.py']' returned non-zero exit status 128.
+
+======================================================================
+ERROR: test_resigned_helper_archive_cannot_override_git_base (__main__.SurfaceProducerTests.test_resigned_helper_archive_cannot_override_git_base) (producer='grass_compare_collect')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 214, in test_resigned_helper_archive_cannot_override_git_base
+    self.collect(producer, output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 101, in collect
+    return producer.collect(output, 'quality') if producer is grass else producer.collect(output)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/grass_compare_collect.py", line 45, in collect
+    'complete':False,'schedule':schedule(mode),'sources':{name:sha(ROOT/name) for name in FROZEN},'artifacts':{}}
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/grass_compare_collect.py", line 45, in <dictcomp>
+    'complete':False,'schedule':schedule(mode),'sources':{name:sha(ROOT/name) for name in FROZEN},'artifacts':{}}
+                                                               ^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/perf_contract_collect.py", line 46, in sha
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/surface corrupt r3vq58xp/own project with spaces/tools/perf_contract_collect.py'
+
+======================================================================
+ERROR: test_resigned_helper_archive_cannot_override_git_base (__main__.SurfaceProducerTests.test_resigned_helper_archive_cannot_override_git_base) (producer='ground_layers')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 214, in test_resigned_helper_archive_cannot_override_git_base
+    self.collect(producer, output)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 101, in collect
+    return producer.collect(output, 'quality') if producer is grass else producer.collect(output)
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py", line 55, in collect
+    'sources':{p:sha(ROOT/p) for p in SOURCES},'base_sources':{},'artifacts':{}}
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/ground_layers.py", line 55, in <dictcomp>
+    'sources':{p:sha(ROOT/p) for p in SOURCES},'base_sources':{},'artifacts':{}}
+                 ^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/perf_contract_collect.py", line 46, in sha
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/surface corrupt goy2w9nh/own project with spaces/tools/perf_contract_collect.py'
+
+======================================================================
+FAIL: test_ambiguous_helper_git_aliases_are_rejected (__main__.SurfaceProducerTests.test_ambiguous_helper_git_aliases_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 204, in test_ambiguous_helper_git_aliases_are_rejected
+    with self.bound(ground, project, parent), self.assertRaisesRegex(ValueError, 'ambiguous'):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_missing_canonical_helper_never_falls_back_to_stale_old_file (__main__.SurfaceProducerTests.test_missing_canonical_helper_never_falls_back_to_stale_old_file) (producer='grass_compare_collect')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/test_surface_producers.py", line 185, in test_missing_canonical_helper_never_falls_back_to_stale_old_file
+    with self.bound(producer, project, parent), self.assertRaises(FileNotFoundError):
+AssertionError: FileNotFoundError not raised
+
+----------------------------------------------------------------------
+Ran 9 tests in 4.944s
+
+FAILED (failures=2, errors=9)

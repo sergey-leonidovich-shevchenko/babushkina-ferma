@@ -46,6 +46,6 @@ VPIPELINE-002 добавила [паспорт ресурса и пилот тр
 
 ## Проверка разработчиком
 
-`python3 tools/visual_pipeline.py` и `python3 tools/test_visual_pipeline.py` проверяют границы и отрицательные сценарии. Профиль Godot — `tools/visual_pipeline_review.gd`. Все проверки входят в общий gate. Перед публикацией выполняются `TESTING.md` и `pnpm check` для Wiki.
+`python3 tools/run.py assets.contracts.visual_pipeline` и `python3 tools/run.py assets.contracts.test_visual_pipeline` проверяют границы и отрицательные сценарии. Профиль Godot — `tools/assets/contracts/visual_pipeline_review.gd`. Все проверки входят в общий gate. Перед публикацией выполняются `TESTING.md` и `pnpm check` для Wiki.
 
 Правило исключения папок описано в [официальной документации Godot](https://docs.godotengine.org/en/stable/tutorials/best_practices/project_organization.html). `.gitignore` управляет Git, а `.gdignore` управляет импортом Godot; содержимое `.gdignore` не задаёт шаблоны имён.

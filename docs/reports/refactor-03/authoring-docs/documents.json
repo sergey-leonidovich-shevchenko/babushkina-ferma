@@ -1,0 +1,82 @@
+{
+  "review": "5671433003",
+  "head_before": "f02481b275a76192564b2ab57b80316579b95634",
+  "documents": [
+    {
+      "path": "TESTING.md",
+      "old_sha256": "5ab6995aca8055adb884a553d83af78091e5e73b35c31d0788e7d29d0718a2bf",
+      "new_sha256": "234c10e31cc06b8432d21284be48d1c74c9af38e26288ce424204fa0d16c9605"
+    },
+    {
+      "path": "QA_CHECKLIST.md",
+      "old_sha256": "d778649dcbd689774d8039ac95f4056a7ea78ffcdfe09ca56c902c337b73e10e",
+      "new_sha256": "76e1284ecc87fd0353fb03cf510707d5d4cf9d76670ab83632feea5888793e1c"
+    },
+    {
+      "path": "UI_VISUAL_PLAN.md",
+      "old_sha256": "d07b15f32bbf5931d83d70451b1db6a5ef9d8b05becca236030ac8e9d02a1ceb",
+      "new_sha256": "81fe837ac809da5239381d8e98fbf54ae7d89eba00bbc2042770b305afa90081"
+    },
+    {
+      "path": "docs/DEVELOPMENT.md",
+      "old_sha256": "a0ee065a132e1c3ae836ba450aef31d5e73606ec9370091b999a1f98e52d9903",
+      "new_sha256": "1f360448df75bb3bc3baf53f1fe04e5b1455cd2db9023e113e721eb35891bbd7"
+    },
+    {
+      "path": "docs/LEVEL_EDITOR.md",
+      "old_sha256": "79c4cb8fdcf6ec3e63ce0febb535dbbc504a8c76fcb920462f20bcee40cdd215",
+      "new_sha256": "e3560e3a11433ebedd92bb3c9608c0f387a5df7b01e0889fb3cd45c00b3f1c70"
+    },
+    {
+      "path": "docs/UI_AUDIT.md",
+      "old_sha256": "8f3220a1adcea1ffc43a8ab2ffd67811f4224d8d64f3ad3a3c7ae38b9324dcb4",
+      "new_sha256": "1c5f5303e67bd8b50e8984d4f84cc375aad4aec2046dc6112b12cb1e006be2a2"
+    },
+    {
+      "path": "docs/UI_GUIDE.md",
+      "old_sha256": "b9b4c338c22d3f722f04dc58be5e1385da2385ebf43c8d1475dec941d00706c8",
+      "new_sha256": "1d0deb7f848942684fb79a07780e2b1ecc59e56c1bf5ccae104cff05cefdd9a2"
+    },
+    {
+      "path": "docs/SPRITE_STANDARD.md",
+      "old_sha256": "d25d35a8e4afa0adbd623206f9d3b2df5cc4a57ebe54bd54221bff11b3d34797",
+      "new_sha256": "a4b15044fb3ec45b7a12c960ede453df2b8cc232df0620f355fd60288c24154a"
+    },
+    {
+      "path": "docs/MODULAR_VILLAGE.md",
+      "old_sha256": "0103f012c90f3741248842603844aa571dd011c89a49b1126014125c5f081d59",
+      "new_sha256": "8262f5af8a05297dfac492541206acbaa846925658e68c5ae9251287615202a3"
+    },
+    {
+      "path": "assets/game/environment/BUILDABLE_FENCE_ATLAS.md",
+      "old_sha256": "a72a3b6dd44024e06e2b4e3ff3215439459675fac0881695c203a68ab9b658b9",
+      "new_sha256": "c101d3f518f760d8b49ba3e658cd1121061297a10fb7f29cfd5a953e90fb06fa"
+    },
+    {
+      "path": "assets/game/interiors/README.md",
+      "old_sha256": "65f9b601fdd39b8c062d08181db42e767821af57c8eed72dd3e6079ee2e66aba",
+      "new_sha256": "39ed245f87d35afc0312da4e19ba5387c9d3f0f28256d5535830de09f4cb8eb3"
+    },
+    {
+      "path": "assets/game/tiles/editor/README.md",
+      "old_sha256": "e7bd73aa8e517652699e1d8ed3d777c896491181abee5b6abf80940f589485b5",
+      "new_sha256": "43538a4b2a5d7441d54df677ec582ee984a45c9b2a71b37a41695ea28919725b"
+    },
+    {
+      "path": "assets/game/ui/celestial_dial_v1/README.md",
+      "old_sha256": "8e3df2d62d7932af5e30c3fcabb23a0e036b878924e64028001a035b4b1dfd94",
+      "new_sha256": "709fd4cc6003a877a03262abdd9009ca49437340d3a68f2ce1fc54c5532f26b6"
+    },
+    {
+      "path": "docs/design/artisan-expansion-2026-10-13/README.md",
+      "old_sha256": "29529a43e578c3dc1f1704d6dc4cce1d4714caaa185ce49db3e0e7ff39b4e038",
+      "new_sha256": "319a22bd065b1797a52cd9ced66efed95e1c20ea29623e5c9f7c65c38df0dbfd"
+    },
+    {
+      "path": "docs/design/cellar-workshop/README.md",
+      "old_sha256": "1bd4325addc5f9533b93202a14b355a625bd992e0bd8e4cc191a2d8b52f2e7f0",
+      "new_sha256": "3b964efa9ffe03abff37c329a5d6d626d6ea2ed9884d3132b9a4aaba2b95ace6"
+    }
+  ],
+  "scope": "All live documentation paths to31 moved sources; immutable generated provenance headers remain historical"
+}

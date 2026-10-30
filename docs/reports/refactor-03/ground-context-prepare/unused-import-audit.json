@@ -1,0 +1,6 @@
+{
+  "modules": 19,
+  "remaining_candidates": [],
+  "method": "AST loaded-name audit of changed modules; no unit test for import removal",
+  "plant_depth_only_unused_import_removed": true
+}

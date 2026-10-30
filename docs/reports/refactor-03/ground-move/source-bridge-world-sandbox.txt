@@ -1,0 +1,23 @@
+E
+======================================================================
+ERROR: test_fresh_object_source_envelope (__main__.WorldContextTests.test_fresh_object_source_envelope)
+Actual object collector must preserve own base-source digests under foreign Git overrides.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/test_world_context.py", line 251, in test_fresh_object_source_envelope
+    self.producer_envelope(object_collect)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/test_world_context.py", line 227, in producer_envelope
+    if module is object_collect:module.collect(output,static_coexistence=True)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/object_command_collect.py", line 26, in collect
+    initial_jobs=jobs()
+                 ^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/performance/perf_contract_collect.py", line 75, in jobs
+    if raw.startswith('UNAVAILABLE'): raise ValueError('process inventory unavailable')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: process inventory unavailable
+
+----------------------------------------------------------------------
+Ran 1 test in 0.503s
+
+FAILED (errors=1)

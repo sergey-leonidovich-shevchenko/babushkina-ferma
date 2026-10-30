@@ -1,7 +1,7 @@
 extends RefCounted
 
-const Route := preload("res://tools/visual_motion_route.gd")
-const Points := preload("res://tools/visual_camera_points.gd")
+const Route := preload("res://tools/qa/camera/visual_motion_route.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 
 ## Проверяет настоящий ввод и физику без выдачи headless за графическое устройство или FPS.
 static func run(context: SceneTree) -> void:

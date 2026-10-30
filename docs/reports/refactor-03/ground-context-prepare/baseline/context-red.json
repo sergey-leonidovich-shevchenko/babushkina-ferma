@@ -1,0 +1,9 @@
+{
+  "base": "c47b78add8813392769be8b9d5dfba9b8d5fa1d5",
+  "exit": 1,
+  "methods": 10,
+  "test_SHA256": "92e8e02409880272e2ab397b866621351d28b57fd473424ada5003a93d5f7725",
+  "raw_sha256": "d6d9c439bbc15ea14fda4b7fa289d0bccaaf81a4af992931169bc671c0d09d5c",
+  "native_frames": 0,
+  "Game_new": false
+}

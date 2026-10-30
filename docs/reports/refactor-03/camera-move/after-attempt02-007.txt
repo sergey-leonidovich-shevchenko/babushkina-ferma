@@ -1,0 +1,56 @@
+{
+  "base-100": {
+    "zoom": 1.0,
+    "field": [
+      1152.0,
+      648.0
+    ],
+    "camera_stalls": 0,
+    "max_world_camera_step": 0.21215820312602318
+  },
+  "base-120": {
+    "zoom": 1.2,
+    "field": [
+      960.0,
+      540.0
+    ],
+    "camera_stalls": 0,
+    "max_world_camera_step": 0.21215820312602318
+  },
+  "full-hd-100": {
+    "zoom": 1.0,
+    "field": [
+      1152.0,
+      648.0
+    ],
+    "camera_stalls": 0,
+    "max_world_camera_step": 0.21215820312602318
+  },
+  "full-hd-120": {
+    "zoom": 1.2,
+    "field": [
+      960.0,
+      540.0
+    ],
+    "camera_stalls": 0,
+    "max_world_camera_step": 0.21215820312602318
+  },
+  "retina-2x-100": {
+    "zoom": 1.0,
+    "field": [
+      1152.0,
+      648.0
+    ],
+    "camera_stalls": 0,
+    "max_world_camera_step": 0.21215820312602318
+  },
+  "retina-2x-120": {
+    "zoom": 1.2,
+    "field": [
+      960.0,
+      540.0
+    ],
+    "camera_stalls": 0,
+    "max_world_camera_step": 0.21215820312602318
+  }
+}

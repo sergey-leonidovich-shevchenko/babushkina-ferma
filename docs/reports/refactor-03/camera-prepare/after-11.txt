@@ -1,0 +1,9 @@
+window boss normal draw p95 18.387
+window boss f10 draw p95 18.528
+window profile_town normal draw p95 18.189
+window profile_town f10 draw p95 19.483
+fullscreen boss normal draw p95 18.554
+fullscreen boss f10 draw p95 18.706
+fullscreen profile_town normal draw p95 19.073
+fullscreen profile_town f10 draw p95 19.825
+NATIVE FRAME REPORTS: 8 full scenarios passed

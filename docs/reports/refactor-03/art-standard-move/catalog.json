@@ -1,0 +1,15 @@
+{
+  "version": "0.0.363",
+  "source_public_dist_equal": true,
+  "states": {
+    "02": "done",
+    "03": "in_progress",
+    "06": "blocked"
+  },
+  "history": 83,
+  "accepted_VMAP": false,
+  "art_profile_attachment_equal": true,
+  "root_sources": 481,
+  "user_stop_after_full03": true,
+  "task06_requires_new_direct_command": true
+}

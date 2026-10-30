@@ -1,0 +1,69 @@
+.F..F..FF.......
+======================================================================
+FAIL: test_complete_packet (__main__.ArtistPacketTests.test_complete_packet)
+Сценарий: полный комплект. Исходное состояние: точная копия. Результат: источники и производные совпадают.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_artist_packet.py", line 43, in test_complete_packet
+    self.assertEqual(self.errors(), [])
+AssertionError: Lists differ: ['reference SHA256 mismatch: docs/VISUAL_RESOURCE_FORMAT.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'reference SHA256 mismatch: docs/VISUAL_RESOURCE_FORMAT.md'
+
+- ['reference SHA256 mismatch: docs/VISUAL_RESOURCE_FORMAT.md']
++ []
+
+======================================================================
+FAIL: test_foreign_git_context_cannot_choose_history (__main__.ArtistPacketTests.test_foreign_git_context_cannot_choose_history)
+Чужой настоящий репозиторий/index/config не выбирает источник и не меняется читателем.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_artist_packet.py", line 152, in test_foreign_git_context_cannot_choose_history
+    self.assertEqual(self.errors(), [])
+AssertionError: Lists differ: ['reference SHA256 mismatch: docs/VISUAL_RESOURCE_FORMAT.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'reference SHA256 mismatch: docs/VISUAL_RESOURCE_FORMAT.md'
+
+- ['reference SHA256 mismatch: docs/VISUAL_RESOURCE_FORMAT.md']
++ []
+
+======================================================================
+FAIL: test_live_document_can_evolve (__main__.ArtistPacketTests.test_live_document_can_evolve)
+Живая команда меняется; принятый комплект всё ещё проверяет точную историческую редакцию.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_artist_packet.py", line 84, in test_live_document_can_evolve
+    self.assertEqual(self.errors(), [])
+AssertionError: Lists differ: ['reference SHA256 mismatch: docs/VISUAL_RESOURCE_FORMAT.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'reference SHA256 mismatch: docs/VISUAL_RESOURCE_FORMAT.md'
+
+- ['reference SHA256 mismatch: docs/VISUAL_RESOURCE_FORMAT.md']
++ []
+
+======================================================================
+FAIL: test_live_format_document_can_evolve (__main__.ArtistPacketTests.test_live_format_document_can_evolve)
+Актуальная команда формата меняется, прежний комплект читает его Git-редакцию.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/build/test_artist_packet.py", line 89, in test_live_format_document_can_evolve
+    self.assertEqual(self.errors(), [])
+AssertionError: Lists differ: ['reference SHA256 mismatch: docs/VISUAL_RESOURCE_FORMAT.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'reference SHA256 mismatch: docs/VISUAL_RESOURCE_FORMAT.md'
+
+- ['reference SHA256 mismatch: docs/VISUAL_RESOURCE_FORMAT.md']
++ []
+
+----------------------------------------------------------------------
+Ran 16 tests in 47.341s
+
+FAILED (failures=4)

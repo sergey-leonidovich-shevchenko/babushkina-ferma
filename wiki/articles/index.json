@@ -15,7 +15,7 @@
     "id": "project-refactoring",
     "file": "project-refactoring.md",
     "title": "Рефакторинг: инструменты по назначению",
-    "summary": "REFACTOR-02 принят через PR18: 14 переносов quality/planning, общие root/Git/launcher и три совместимых входа. Учёт проходит отдельное ревью; полный root-бюджет остаётся за REFACTOR-03/06.",
+    "summary": "REFACTOR-02 и его учёт PR19 приняты. REFACTOR-03 в работе: тематические пакеты tools с сохранением команд, UID и исторических доказательств. Итоговый root-бюджет и REFACTOR-06 ещё не приняты.",
     "tags": [
       "Разработка",
       "Рефакторинг",

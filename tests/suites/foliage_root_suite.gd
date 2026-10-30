@@ -2,7 +2,7 @@ extends RefCounted
 
 const Roots:=preload("res://scripts/presentation/foliage_root_profile.gd")
 const Ambient:=preload("res://scripts/systems/village_ambient_renderer.gd")
-const Points:=preload("res://tools/visual_camera_points.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
 const ATLAS_PATH:="res://assets/game/environment/village_ambient_atlas_v1.png"
 const PILOT_PATH:="res://docs/reports/visual-overhaul/vart-008/native/sprites/grass-low.png"
 

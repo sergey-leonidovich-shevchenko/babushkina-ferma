@@ -1,10 +1,12 @@
 extends RefCounted
 
+const Sources := preload("res://tools/qa/ground/compiled_sources.gd")
+
 const Masks := preload("res://scripts/presentation/ground_edge_masks.gd")
-const Field := preload("res://tools/axial_road_field.gd")
-const Points := preload("res://tools/visual_camera_points.gd")
+const Field := preload("res://tools/qa/ground/axial_road_field.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
 const Farm := preload("res://scripts/systems/world_farming_system.gd")
-const Legacy := preload("res://tools/ground_edge_field.gd")
+const Legacy := preload("res://tools/qa/ground/ground_edge_field.gd")
 
 ## Проверяет отдельные от цвета маски, неизменность физики и актуальность скомпилированного чертежа.
 static func run(context: SceneTree) -> void:
@@ -19,7 +21,7 @@ static func run(context: SceneTree) -> void:
 		var source_names: Array=mesh.get_meta("source_sha256").keys(); source_names.sort()
 		context.expect(source_names==["scripts/systems/cardinal_path_system.gd","scripts/systems/village_map_data.gd","scripts/systems/village_region_data.gd","tools/axial_road_builder.gd","tools/axial_road_field.gd","tools/ground_edge_field.gd"],"source coverage includes cardinal route conversion and both canonical maps")
 		for path: String in mesh.get_meta("source_sha256"):
-			context.expect(FileAccess.get_sha256("res://"+path)==mesh.get_meta("source_sha256")[path],"compiled mask follows current canonical source: "+path)
+			context.expect(Sources.matches(path,mesh.get_meta("source_sha256").get(path)),"compiled mask follows current canonical source: "+path)
 	var edges := Field.segments([[Vector2(96,144),Vector2(384,144)],[Vector2(240,144),Vector2(240,384)]])
 	var flat_end := true
 	for offset in [-20.0,0.0,20.0]:

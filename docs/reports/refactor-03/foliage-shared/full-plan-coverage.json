@@ -1,0 +1,5484 @@
+{
+  "original_plan_SHA256": "8553b96ad259190ce5271af9ec124d3ce67275d9098c5d34e0c2b46e9675472f",
+  "assignments": [
+    {
+      "old": "tools/action_lifecycle_native.gd",
+      "current": "tools/qa/compatibility/action_lifecycle_native.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/action_lifecycle_native.gd.uid",
+      "current": "tools/qa/compatibility/action_lifecycle_native.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/alchemy_capture.gd",
+      "current": "tools/qa/compatibility/alchemy_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/alchemy_capture.gd.uid",
+      "current": "tools/qa/compatibility/alchemy_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/alchemy_catalog_export.gd",
+      "current": "tools/qa/compatibility/alchemy_catalog_export.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/alchemy_catalog_export.gd.uid",
+      "current": "tools/qa/compatibility/alchemy_catalog_export.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/alchemy_review.gd",
+      "current": "tools/qa/compatibility/alchemy_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/alchemy_review.gd.uid",
+      "current": "tools/qa/compatibility/alchemy_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/alpha_audit.py",
+      "current": "tools/assets/alpha/alpha_audit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/alpha_capture.gd",
+      "current": "tools/assets/alpha/alpha_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/alpha_fixtures.py",
+      "current": "tools/assets/alpha/alpha_fixtures.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/alpha_metrics.py",
+      "current": "tools/assets/alpha/alpha_metrics.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/alpha_policy.json",
+      "current": "tools/assets/alpha/alpha_policy.json",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/alpha_proof.py",
+      "current": "tools/assets/alpha/alpha_proof.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/analyze_optimization_audit.py",
+      "current": "tools/qa/performance/analyze_optimization_audit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/analyze_storage_perf.py",
+      "current": "tools/qa/performance/analyze_storage_perf.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/analyze_visual_baseline.py",
+      "current": "tools/qa/camera/analyze_visual_baseline.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/analyze_water_audit.py",
+      "current": "tools/qa/world/analyze_water_audit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/apiary_capture.gd",
+      "current": "tools/qa/compatibility/apiary_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/apiary_capture.gd.uid",
+      "current": "tools/qa/compatibility/apiary_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/apiary_review.gd",
+      "current": "tools/qa/compatibility/apiary_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/apiary_review.gd.uid",
+      "current": "tools/qa/compatibility/apiary_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/art_review_export.gd",
+      "current": "tools/dev/art_review/art_review_export.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/art_review_export.gd.uid",
+      "current": "tools/dev/art_review/art_review_export.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/art_review_serve.mjs",
+      "current": "tools/dev/art_review/art_review_serve.mjs",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/artisan_capture.gd",
+      "current": "tools/qa/compatibility/artisan_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/artisan_capture.gd.uid",
+      "current": "tools/qa/compatibility/artisan_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/artisan_review.gd",
+      "current": "tools/qa/compatibility/artisan_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/artisan_review.gd.uid",
+      "current": "tools/qa/compatibility/artisan_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/artist_packet.py",
+      "current": "tools/build/artist_packet.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/asset_costs.py",
+      "current": "tools/assets/contracts/asset_costs.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/asset_game_probe.gd",
+      "current": "tools/assets/contracts/asset_game_probe.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/asset_migration.py",
+      "current": "tools/assets/migration/asset_migration.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/asset_pack.py",
+      "current": "tools/build/asset_pack.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/asset_pack_probe.gd",
+      "current": "tools/build/asset_pack_probe.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/asset_provenance.json",
+      "current": "tools/assets/contracts/asset_provenance.json",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/asset_report.py",
+      "current": "tools/assets/contracts/asset_report.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/audio_composer.py",
+      "current": "tools/assets/audio/audio_composer.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/audio_sound_effects.py",
+      "current": "tools/assets/audio/audio_sound_effects.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/audit_audio_assets.py",
+      "current": "tools/assets/audio/audit_audio_assets.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/audit_save_crashes.py",
+      "current": "tools/qa/performance/audit_save_crashes.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_board.gd",
+      "current": "tools/qa/ground/axial_road_board.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_board.gd.uid",
+      "current": "tools/qa/ground/axial_road_board.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_builder.gd",
+      "current": "tools/qa/ground/axial_road_builder.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_builder.gd.uid",
+      "current": "tools/qa/ground/axial_road_builder.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_capture.gd",
+      "current": "tools/qa/ground/axial_road_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_capture.gd.uid",
+      "current": "tools/qa/ground/axial_road_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_collect.py",
+      "current": "tools/qa/ground/axial_road_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_compile.gd",
+      "current": "tools/qa/ground/axial_road_compile.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_compile.gd.uid",
+      "current": "tools/qa/ground/axial_road_compile.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_field.gd",
+      "current": "tools/qa/ground/axial_road_field.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_field.gd.uid",
+      "current": "tools/qa/ground/axial_road_field.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_review.gd",
+      "current": "tools/qa/ground/axial_road_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_review.gd.uid",
+      "current": "tools/qa/ground/axial_road_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/axial_road_verify.py",
+      "current": "tools/qa/ground/axial_road_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/basement_capture.gd",
+      "current": "tools/qa/compatibility/basement_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/basement_capture.gd.uid",
+      "current": "tools/qa/compatibility/basement_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/basement_review.gd",
+      "current": "tools/qa/compatibility/basement_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/basement_review.gd.uid",
+      "current": "tools/qa/compatibility/basement_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/basement_ui_review.gd",
+      "current": "tools/qa/compatibility/basement_ui_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/basement_ui_review.gd.uid",
+      "current": "tools/qa/compatibility/basement_ui_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/boss_balance_review.gd",
+      "current": "tools/qa/compatibility/boss_balance_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/boss_cpu_review.gd",
+      "current": "tools/qa/performance/boss_cpu_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/boss_cpu_review.gd.uid",
+      "current": "tools/qa/performance/boss_cpu_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_art_backlog.py",
+      "current": "tools/planning/build_art_backlog.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_bridge_sprites.py",
+      "current": "tools/assets/authoring/build_bridge_sprites.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_building_sprites.py",
+      "current": "tools/assets/authoring/build_building_sprites.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_clean_interior_atlas.gd",
+      "current": "tools/assets/authoring/build_clean_interior_atlas.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_editor_transition_tiles.py",
+      "current": "tools/assets/authoring/build_editor_transition_tiles.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_environment_sprites.py",
+      "current": "tools/assets/authoring/build_environment_sprites.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_fence_atlas.py",
+      "current": "tools/assets/authoring/build_fence_atlas.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_forest_tree_atlas.py",
+      "current": "tools/assets/authoring/build_forest_tree_atlas.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_house_furniture.gd",
+      "current": "tools/assets/authoring/build_house_furniture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_house_furniture.gd.uid",
+      "current": "tools/assets/authoring/build_house_furniture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_item_ui_textures.gd",
+      "current": "tools/assets/authoring/build_item_ui_textures.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_item_ui_textures.gd.uid",
+      "current": "tools/assets/authoring/build_item_ui_textures.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_level_editor_tiles.py",
+      "current": "tools/assets/authoring/build_level_editor_tiles.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_optimization_matrix.py",
+      "current": "tools/planning/build_optimization_matrix.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_painted_item_icons.gd",
+      "current": "tools/assets/authoring/build_painted_item_icons.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_painted_item_icons.gd.uid",
+      "current": "tools/assets/authoring/build_painted_item_icons.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_prepared_pixels.gd",
+      "current": "tools/assets/authoring/build_prepared_pixels.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_prepared_pixels.gd.uid",
+      "current": "tools/assets/authoring/build_prepared_pixels.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_ui_kit.py",
+      "current": "tools/assets/authoring/build_ui_kit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_village_materials.gd",
+      "current": "tools/assets/authoring/build_village_materials.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_village_prop_atlas.py",
+      "current": "tools/assets/authoring/build_village_prop_atlas.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/build_village_props.gd",
+      "current": "tools/assets/authoring/build_village_props.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/bump_version.py",
+      "current": "tools/planning/bump_version.py",
+      "action": "move_implementation_keep_public_facade",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/camera_quantization.py",
+      "current": "tools/qa/camera/camera_quantization.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/camera_quantization_capture.gd",
+      "current": "tools/qa/camera/camera_quantization_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/camera_quantization_review.gd",
+      "current": "tools/qa/camera/camera_quantization_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/cave_boss_frame_review.gd",
+      "current": "tools/qa/performance/cave_boss_frame_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/cave_boss_frame_review.gd.uid",
+      "current": "tools/qa/performance/cave_boss_frame_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/character_polish_capture.gd",
+      "current": "tools/qa/compatibility/character_polish_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/check_alchemy_reports.py",
+      "current": "tools/qa/compatibility/check_alchemy_reports.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/check_architecture.sh",
+      "current": "tools/quality/check_architecture.sh",
+      "action": "move_implementation_keep_public_facade",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/check_art_review.py",
+      "current": "tools/dev/art_review/check_art_review.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/check_documentation.py",
+      "current": "tools/quality/check_documentation.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/check_native_frame_reports.py",
+      "current": "tools/qa/camera/check_native_frame_reports.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/check_sprite_cleanup.py",
+      "current": "tools/assets/contracts/check_sprite_cleanup.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/check_world_sprite_manifest.py",
+      "current": "tools/assets/contracts/check_world_sprite_manifest.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/compact_dialogue_capture.gd",
+      "current": "tools/qa/compatibility/compact_dialogue_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/compact_dialogue_capture.gd.uid",
+      "current": "tools/qa/compatibility/compact_dialogue_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/compact_dialogue_preview.gd",
+      "current": "tools/qa/compatibility/compact_dialogue_preview.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/compact_dialogue_preview.gd.uid",
+      "current": "tools/qa/compatibility/compact_dialogue_preview.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/compact_dialogue_review.gd",
+      "current": "tools/qa/compatibility/compact_dialogue_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/compact_dialogue_review.gd.uid",
+      "current": "tools/qa/compatibility/compact_dialogue_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/compact_hud_review.gd",
+      "current": "tools/qa/compatibility/compact_hud_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/content_reference_audit.gd",
+      "current": "tools/qa/compatibility/content_reference_audit.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/content_reference_audit.gd.uid",
+      "current": "tools/qa/compatibility/content_reference_audit.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/cooking_capture.gd",
+      "current": "tools/qa/compatibility/cooking_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/cooking_review.gd",
+      "current": "tools/qa/compatibility/cooking_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/cpu_profile_game.gd",
+      "current": "tools/qa/performance/cpu_profile_game.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/decoration_capture.gd",
+      "current": "tools/qa/ground/decoration_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/decoration_capture.gd.uid",
+      "current": "tools/qa/ground/decoration_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/decoration_collect.py",
+      "current": "tools/qa/ground/decoration_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/decoration_overlay.gd",
+      "current": "tools/qa/ground/decoration_overlay.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/decoration_overlay.gd.uid",
+      "current": "tools/qa/ground/decoration_overlay.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/decoration_review.gd",
+      "current": "tools/qa/ground/decoration_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/decoration_review.gd.uid",
+      "current": "tools/qa/ground/decoration_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/decoration_verify.py",
+      "current": "tools/qa/ground/decoration_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/depth_guardian_capture.gd",
+      "current": "tools/qa/compatibility/depth_guardian_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/depth_guardian_capture.gd.uid",
+      "current": "tools/qa/compatibility/depth_guardian_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/depth_guardian_review.gd",
+      "current": "tools/qa/compatibility/depth_guardian_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/depth_guardian_review.gd.uid",
+      "current": "tools/qa/compatibility/depth_guardian_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/design_audit_capture.gd",
+      "current": "tools/qa/compatibility/design_audit_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/design_audit_capture.gd.uid",
+      "current": "tools/qa/compatibility/design_audit_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/design_audit_gallery.gd",
+      "current": "tools/qa/compatibility/design_audit_gallery.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/design_audit_gallery.gd.uid",
+      "current": "tools/qa/compatibility/design_audit_gallery.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/design_audit_review.gd",
+      "current": "tools/qa/compatibility/design_audit_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/design_audit_review.gd.uid",
+      "current": "tools/qa/compatibility/design_audit_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/dev_cabinet_capture.gd",
+      "current": "tools/qa/compatibility/dev_cabinet_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/dev_cabinet_capture.gd.uid",
+      "current": "tools/qa/compatibility/dev_cabinet_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/dev_cabinet_review.gd",
+      "current": "tools/qa/compatibility/dev_cabinet_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/dev_cabinet_review.gd.uid",
+      "current": "tools/qa/compatibility/dev_cabinet_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/dropped_loot_capture.gd",
+      "current": "tools/qa/compatibility/dropped_loot_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/dropped_loot_capture.gd.uid",
+      "current": "tools/qa/compatibility/dropped_loot_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/dropped_loot_review.gd",
+      "current": "tools/qa/compatibility/dropped_loot_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/dropped_loot_review.gd.uid",
+      "current": "tools/qa/compatibility/dropped_loot_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/encode_coordinate_video.swift",
+      "current": "tools/qa/camera/encode_coordinate_video.swift",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/end_to_end_capture.gd",
+      "current": "tools/qa/compatibility/end_to_end_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/end_to_end_capture.gd.uid",
+      "current": "tools/qa/compatibility/end_to_end_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/end_to_end_review.gd",
+      "current": "tools/qa/compatibility/end_to_end_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/end_to_end_review.gd.uid",
+      "current": "tools/qa/compatibility/end_to_end_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/extract_artisan_assets.py",
+      "current": "tools/assets/authoring/extract_artisan_assets.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/extract_basement_atlases.py",
+      "current": "tools/assets/authoring/extract_basement_atlases.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/extract_farm_icons.gd",
+      "current": "tools/assets/authoring/extract_farm_icons.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/extract_farmyard_sprites.gd",
+      "current": "tools/assets/authoring/extract_farmyard_sprites.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/extract_hero_combat_sprites.gd",
+      "current": "tools/assets/authoring/extract_hero_combat_sprites.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/extract_hero_combat_sprites.gd.uid",
+      "current": "tools/assets/authoring/extract_hero_combat_sprites.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/extract_kitchen_atlases.py",
+      "current": "tools/assets/authoring/extract_kitchen_atlases.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/farm_bounds_capture.gd",
+      "current": "tools/qa/compatibility/farm_bounds_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/farm_bounds_review.gd",
+      "current": "tools/qa/compatibility/farm_bounds_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/farm_bounds_review.gd.uid",
+      "current": "tools/qa/compatibility/farm_bounds_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/farm_cursor_review.gd",
+      "current": "tools/qa/compatibility/farm_cursor_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/farm_cycles.py",
+      "current": "tools/qa/compatibility/farm_cycles.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/farm_native.gd",
+      "current": "tools/qa/compatibility/farm_native.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/farm_native.gd.uid",
+      "current": "tools/qa/compatibility/farm_native.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/farm_review.gd",
+      "current": "tools/qa/compatibility/farm_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/farm_review.gd.uid",
+      "current": "tools/qa/compatibility/farm_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/focus_pause_native.gd",
+      "current": "tools/qa/compatibility/focus_pause_native.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/focus_pause_native.gd.uid",
+      "current": "tools/qa/compatibility/focus_pause_native.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_contact_capture.gd",
+      "current": "tools/qa/foliage/foliage_contact_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_contact_capture.gd.uid",
+      "current": "tools/qa/foliage/foliage_contact_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_contact_collect.py",
+      "current": "tools/qa/foliage/foliage_contact_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_contact_review.gd",
+      "current": "tools/qa/foliage/foliage_contact_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_contact_review.gd.uid",
+      "current": "tools/qa/foliage/foliage_contact_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_contact_verify.py",
+      "current": "tools/qa/foliage/foliage_contact_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_pause_capture.gd",
+      "current": "tools/qa/foliage/foliage_pause_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_pause_capture.gd.uid",
+      "current": "tools/qa/foliage/foliage_pause_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_pause_collect.py",
+      "current": "tools/qa/foliage/foliage_pause_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_pause_game.gd",
+      "current": "tools/qa/foliage/foliage_pause_game.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_pause_game.gd.uid",
+      "current": "tools/qa/foliage/foliage_pause_game.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_pause_review.gd",
+      "current": "tools/qa/foliage/foliage_pause_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_pause_review.gd.uid",
+      "current": "tools/qa/foliage/foliage_pause_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_pause_verify.py",
+      "current": "tools/qa/foliage/foliage_pause_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_recovery_capture.gd",
+      "current": "tools/qa/foliage/foliage_recovery_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_recovery_capture.gd.uid",
+      "current": "tools/qa/foliage/foliage_recovery_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_recovery_collect.py",
+      "current": "tools/qa/foliage/foliage_recovery_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_recovery_review.gd",
+      "current": "tools/qa/foliage/foliage_recovery_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_recovery_review.gd.uid",
+      "current": "tools/qa/foliage/foliage_recovery_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_recovery_verify.py",
+      "current": "tools/qa/foliage/foliage_recovery_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_root_board.gd",
+      "current": "tools/qa/foliage/foliage_root_board.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_root_board.gd.uid",
+      "current": "tools/qa/foliage/foliage_root_board.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_root_capture.gd",
+      "current": "tools/qa/foliage/foliage_root_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_root_capture.gd.uid",
+      "current": "tools/qa/foliage/foliage_root_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_root_collect.py",
+      "current": "tools/qa/foliage/foliage_root_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_root_observer.gd",
+      "current": "tools/qa/foliage/foliage_root_observer.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_root_observer.gd.uid",
+      "current": "tools/qa/foliage/foliage_root_observer.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_root_review.gd",
+      "current": "tools/qa/foliage/foliage_root_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_root_review.gd.uid",
+      "current": "tools/qa/foliage/foliage_root_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_root_verify.py",
+      "current": "tools/qa/foliage/foliage_root_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_speed_capture.gd",
+      "current": "tools/qa/foliage/foliage_speed_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_speed_capture.gd.uid",
+      "current": "tools/qa/foliage/foliage_speed_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_speed_collect.py",
+      "current": "tools/qa/foliage/foliage_speed_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_speed_review.gd",
+      "current": "tools/qa/foliage/foliage_speed_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_speed_review.gd.uid",
+      "current": "tools/qa/foliage/foliage_speed_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_speed_verify.py",
+      "current": "tools/qa/foliage/foliage_speed_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_uv_board.gd",
+      "current": "tools/qa/foliage/foliage_uv_board.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_uv_board.gd.uid",
+      "current": "tools/qa/foliage/foliage_uv_board.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_uv_capture.gd",
+      "current": "tools/qa/foliage/foliage_uv_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_uv_capture.gd.uid",
+      "current": "tools/qa/foliage/foliage_uv_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_uv_collect.py",
+      "current": "tools/qa/foliage/foliage_uv_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_uv_quad.gd",
+      "current": "tools/qa/foliage/foliage_uv_quad.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_uv_quad.gd.uid",
+      "current": "tools/qa/foliage/foliage_uv_quad.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_uv_review.gd",
+      "current": "tools/qa/foliage/foliage_uv_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_uv_review.gd.uid",
+      "current": "tools/qa/foliage/foliage_uv_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_uv_verify.py",
+      "current": "tools/qa/foliage/foliage_uv_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_budget.gd",
+      "current": "tools/qa/foliage/foliage_visibility_budget.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_budget.gd.uid",
+      "current": "tools/qa/foliage/foliage_visibility_budget.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_capture.gd",
+      "current": "tools/qa/foliage/foliage_visibility_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_capture.gd.uid",
+      "current": "tools/qa/foliage/foliage_visibility_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_collect.py",
+      "current": "tools/qa/foliage/foliage_visibility_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_coverage.py",
+      "current": "tools/qa/foliage/foliage_visibility_coverage.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_evidence.py",
+      "current": "tools/qa/foliage/foliage_visibility_evidence.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_game.gd",
+      "current": "tools/qa/foliage/foliage_visibility_game.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_game.gd.uid",
+      "current": "tools/qa/foliage/foliage_visibility_game.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_pack.py",
+      "current": "tools/qa/foliage/foliage_visibility_pack.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_provenance.py",
+      "current": "tools/qa/foliage/foliage_visibility_provenance.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_review.gd",
+      "current": "tools/qa/foliage/foliage_visibility_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_review.gd.uid",
+      "current": "tools/qa/foliage/foliage_visibility_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_test_fixture.py",
+      "current": "tools/qa/foliage/foliage_visibility_test_fixture.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_verify.py",
+      "current": "tools/qa/foliage/foliage_visibility_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_visibility_window.py",
+      "current": "tools/qa/foliage/foliage_visibility_window.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_wind_baseline.gd",
+      "current": "tools/qa/foliage/foliage_wind_baseline.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_wind_baseline.gd.uid",
+      "current": "tools/qa/foliage/foliage_wind_baseline.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_wind_capture.gd",
+      "current": "tools/qa/foliage/foliage_wind_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_wind_capture.gd.uid",
+      "current": "tools/qa/foliage/foliage_wind_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_wind_collect.py",
+      "current": "tools/qa/foliage/foliage_wind_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_wind_review.gd",
+      "current": "tools/qa/foliage/foliage_wind_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_wind_review.gd.uid",
+      "current": "tools/qa/foliage/foliage_wind_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/foliage_wind_verify.py",
+      "current": "tools/qa/foliage/foliage_wind_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/front_facing_capture.gd",
+      "current": "tools/qa/compatibility/front_facing_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/front_facing_capture.gd.uid",
+      "current": "tools/qa/compatibility/front_facing_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/front_facing_review.gd",
+      "current": "tools/qa/compatibility/front_facing_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/front_facing_review.gd.uid",
+      "current": "tools/qa/compatibility/front_facing_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/furnace_capture.gd",
+      "current": "tools/qa/compatibility/furnace_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/furnace_capture.gd.uid",
+      "current": "tools/qa/compatibility/furnace_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/furnace_review.gd",
+      "current": "tools/qa/compatibility/furnace_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/furnace_review.gd.uid",
+      "current": "tools/qa/compatibility/furnace_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/garden_board.gd",
+      "current": "tools/qa/ground/garden_board.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/garden_board.gd.uid",
+      "current": "tools/qa/ground/garden_board.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/garden_capture.gd",
+      "current": "tools/qa/ground/garden_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/garden_capture.gd.uid",
+      "current": "tools/qa/ground/garden_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/garden_collect.py",
+      "current": "tools/qa/ground/garden_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/garden_import.gd",
+      "current": "tools/qa/ground/garden_import.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/garden_import.gd.uid",
+      "current": "tools/qa/ground/garden_import.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/garden_review.gd",
+      "current": "tools/qa/ground/garden_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/garden_review.gd.uid",
+      "current": "tools/qa/ground/garden_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/garden_verify.py",
+      "current": "tools/qa/ground/garden_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/generate_adaptive_hud_previews.gd",
+      "current": "tools/qa/compatibility/generate_adaptive_hud_previews.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/generate_audio_assets.py",
+      "current": "tools/assets/audio/generate_audio_assets.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/generate_hero_pose_preview.gd",
+      "current": "tools/qa/compatibility/generate_hero_pose_preview.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/generate_ui_layout_audit.gd",
+      "current": "tools/qa/compatibility/generate_ui_layout_audit.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/geometry_benchmark.gd",
+      "current": "tools/qa/performance/geometry_benchmark.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grandmother_animation_review.gd",
+      "current": "tools/qa/compatibility/grandmother_animation_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare/capture.gd",
+      "current": "tools/qa/foliage/grass_compare/capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare/capture.gd.uid",
+      "current": "tools/qa/foliage/grass_compare/capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare/field.gd",
+      "current": "tools/qa/foliage/grass_compare/field.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare/field.gd.uid",
+      "current": "tools/qa/foliage/grass_compare/field.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare/mesh_data.gd",
+      "current": "tools/qa/foliage/grass_compare/mesh_data.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare/mesh_data.gd.uid",
+      "current": "tools/qa/foliage/grass_compare/mesh_data.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare/observer.gd",
+      "current": "tools/qa/foliage/grass_compare/observer.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare/observer.gd.uid",
+      "current": "tools/qa/foliage/grass_compare/observer.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare/review.gd",
+      "current": "tools/qa/foliage/grass_compare/review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare/review.gd.uid",
+      "current": "tools/qa/foliage/grass_compare/review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare/wind.gdshader",
+      "current": "tools/qa/foliage/grass_compare/wind.gdshader",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare/wind.gdshader.uid",
+      "current": "tools/qa/foliage/grass_compare/wind.gdshader.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_compare_collect.py",
+      "current": "tools/qa/foliage/grass_compare_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/grass_methods.py",
+      "current": "tools/qa/foliage/grass_methods.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_board.gd",
+      "current": "tools/qa/ground/ground_edge_board.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_board.gd.uid",
+      "current": "tools/qa/ground/ground_edge_board.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_builder.gd",
+      "current": "tools/qa/ground/ground_edge_builder.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_builder.gd.uid",
+      "current": "tools/qa/ground/ground_edge_builder.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_capture.gd",
+      "current": "tools/qa/ground/ground_edge_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_capture.gd.uid",
+      "current": "tools/qa/ground/ground_edge_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_collect.py",
+      "current": "tools/qa/ground/ground_edge_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_compile.gd",
+      "current": "tools/qa/ground/ground_edge_compile.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_compile.gd.uid",
+      "current": "tools/qa/ground/ground_edge_compile.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_field.gd",
+      "current": "tools/qa/ground/ground_edge_field.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_field.gd.uid",
+      "current": "tools/qa/ground/ground_edge_field.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_review.gd",
+      "current": "tools/qa/ground/ground_edge_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_review.gd.uid",
+      "current": "tools/qa/ground/ground_edge_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_edge_verify.py",
+      "current": "tools/qa/ground/ground_edge_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_layers.py",
+      "current": "tools/qa/ground/ground_layers.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_layers_capture.gd",
+      "current": "tools/qa/ground/ground_layers_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_layers_capture.gd.uid",
+      "current": "tools/qa/ground/ground_layers_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_layers_review.gd",
+      "current": "tools/qa/ground/ground_layers_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_layers_review.gd.uid",
+      "current": "tools/qa/ground/ground_layers_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_seasons_capture.gd",
+      "current": "tools/qa/ground/ground_seasons_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_seasons_capture.gd.uid",
+      "current": "tools/qa/ground/ground_seasons_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_seasons_collect.py",
+      "current": "tools/qa/ground/ground_seasons_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_seasons_fixture.gd",
+      "current": "tools/qa/ground/ground_seasons_fixture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_seasons_fixture.gd.uid",
+      "current": "tools/qa/ground/ground_seasons_fixture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_seasons_review.gd",
+      "current": "tools/qa/ground/ground_seasons_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_seasons_review.gd.uid",
+      "current": "tools/qa/ground/ground_seasons_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ground_seasons_verify.py",
+      "current": "tools/qa/ground/ground_seasons_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/held_weapon_capture.gd",
+      "current": "tools/qa/compatibility/held_weapon_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/held_weapon_capture.gd.uid",
+      "current": "tools/qa/compatibility/held_weapon_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/held_weapon_review.gd",
+      "current": "tools/qa/compatibility/held_weapon_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/held_weapon_review.gd.uid",
+      "current": "tools/qa/compatibility/held_weapon_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/hero_actions_capture.gd",
+      "current": "tools/qa/compatibility/hero_actions_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/hero_actions_review.gd",
+      "current": "tools/qa/compatibility/hero_actions_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/house_furniture_capture.gd",
+      "current": "tools/qa/compatibility/house_furniture_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/house_furniture_capture.gd.uid",
+      "current": "tools/qa/compatibility/house_furniture_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/house_furniture_review.gd",
+      "current": "tools/qa/compatibility/house_furniture_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/house_furniture_review.gd.uid",
+      "current": "tools/qa/compatibility/house_furniture_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/import_pixabay_assets.py",
+      "current": "tools/assets/authoring/import_pixabay_assets.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/inspector_benchmark.gd",
+      "current": "tools/qa/performance/inspector_benchmark.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_export_contract.gd",
+      "current": "tools/assets/contracts/item_export_contract.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_export_contract.gd.uid",
+      "current": "tools/assets/contracts/item_export_contract.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_export_contract.py",
+      "current": "tools/assets/contracts/item_export_contract.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_export_contract_review.gd",
+      "current": "tools/assets/contracts/item_export_contract_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_export_contract_review.gd.uid",
+      "current": "tools/assets/contracts/item_export_contract_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_fingerprint_capture.gd",
+      "current": "tools/assets/contracts/item_fingerprint_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_fingerprint_capture.gd.uid",
+      "current": "tools/assets/contracts/item_fingerprint_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_icon_contract_review.gd",
+      "current": "tools/assets/contracts/item_icon_contract_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_icon_contract_review.gd.uid",
+      "current": "tools/assets/contracts/item_icon_contract_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_sizes.py",
+      "current": "tools/assets/contracts/item_sizes.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_sizes_capture.gd",
+      "current": "tools/assets/contracts/item_sizes_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_sizes_review.gd",
+      "current": "tools/assets/contracts/item_sizes_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/item_ui_fitter.gd",
+      "current": "tools/assets/contracts/item_ui_fitter.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/kitchen_capture.gd",
+      "current": "tools/qa/compatibility/kitchen_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/kitchen_capture.gd.uid",
+      "current": "tools/qa/compatibility/kitchen_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/kitchen_review.gd",
+      "current": "tools/qa/compatibility/kitchen_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/kitchen_review.gd.uid",
+      "current": "tools/qa/compatibility/kitchen_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/lazy_item_icons_review.gd",
+      "current": "tools/qa/compatibility/lazy_item_icons_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/lazy_item_icons_review.gd.uid",
+      "current": "tools/qa/compatibility/lazy_item_icons_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/lazy_item_storage_perf.gd",
+      "current": "tools/qa/performance/lazy_item_storage_perf.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/lazy_item_storage_perf.gd.uid",
+      "current": "tools/qa/performance/lazy_item_storage_perf.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/livestock_review.gd",
+      "current": "tools/qa/compatibility/livestock_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/meadow_board.gd",
+      "current": "tools/qa/ground/meadow_board.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/meadow_board.gd.uid",
+      "current": "tools/qa/ground/meadow_board.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/meadow_capture.gd",
+      "current": "tools/qa/ground/meadow_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/meadow_capture.gd.uid",
+      "current": "tools/qa/ground/meadow_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/meadow_collect.py",
+      "current": "tools/qa/ground/meadow_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/meadow_import.gd",
+      "current": "tools/qa/ground/meadow_import.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/meadow_import.gd.uid",
+      "current": "tools/qa/ground/meadow_import.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/meadow_review.gd",
+      "current": "tools/qa/ground/meadow_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/meadow_review.gd.uid",
+      "current": "tools/qa/ground/meadow_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/meadow_verify.py",
+      "current": "tools/qa/ground/meadow_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/measure_character_walk.py",
+      "current": "tools/assets/authoring/measure_character_walk.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/measure_hero_actions.py",
+      "current": "tools/assets/authoring/measure_hero_actions.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/measure_skeleton_regions.py",
+      "current": "tools/assets/authoring/measure_skeleton_regions.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/migration_capture.gd",
+      "current": "tools/assets/migration/migration_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/migration_fixture.py",
+      "current": "tools/assets/migration/migration_fixture.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/migration_inventory.py",
+      "current": "tools/assets/migration/migration_inventory.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/migration_proof.py",
+      "current": "tools/assets/migration/migration_proof.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/object_command_canvas.gd",
+      "current": "tools/qa/world/object_command_canvas.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/object_command_canvas.gd.uid",
+      "current": "tools/qa/world/object_command_canvas.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/object_command_capture.gd",
+      "current": "tools/qa/world/object_command_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/object_command_capture.gd.uid",
+      "current": "tools/qa/world/object_command_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/object_command_collect.py",
+      "current": "tools/qa/world/object_command_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/object_command_review.gd",
+      "current": "tools/qa/world/object_command_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/object_command_review.gd.uid",
+      "current": "tools/qa/world/object_command_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/object_command_verify.py",
+      "current": "tools/qa/world/object_command_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/optimization_asset_audit.py",
+      "current": "tools/qa/performance/optimization_asset_audit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/optimization_audit_boss.gd",
+      "current": "tools/qa/performance/optimization_audit_boss.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/optimization_audit_boss.gd.uid",
+      "current": "tools/qa/performance/optimization_audit_boss.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/optimization_audit_route.gd",
+      "current": "tools/qa/performance/optimization_audit_route.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/optimization_audit_route.gd.uid",
+      "current": "tools/qa/performance/optimization_audit_route.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/optimization_audit_sweep.gd",
+      "current": "tools/qa/performance/optimization_audit_sweep.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/optimization_audit_sweep.gd.uid",
+      "current": "tools/qa/performance/optimization_audit_sweep.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/padded_atlas_capture.gd",
+      "current": "tools/assets/contracts/padded_atlas_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/padded_atlas_review.gd",
+      "current": "tools/assets/contracts/padded_atlas_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/padded_atlases.py",
+      "current": "tools/assets/contracts/padded_atlases.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/paper_theme_capture.gd",
+      "current": "tools/qa/compatibility/paper_theme_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/paper_theme_capture.gd.uid",
+      "current": "tools/qa/compatibility/paper_theme_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/paper_theme_reference_capture.gd",
+      "current": "tools/qa/compatibility/paper_theme_reference_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/paper_theme_reference_capture.gd.uid",
+      "current": "tools/qa/compatibility/paper_theme_reference_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/paper_theme_review.gd",
+      "current": "tools/qa/compatibility/paper_theme_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/paper_theme_review.gd.uid",
+      "current": "tools/qa/compatibility/paper_theme_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/perf_contract.py",
+      "current": "tools/qa/performance/perf_contract.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/perf_contract_capture.gd",
+      "current": "tools/qa/performance/perf_contract_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/perf_contract_capture.gd.uid",
+      "current": "tools/qa/performance/perf_contract_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/perf_contract_collect.py",
+      "current": "tools/qa/performance/perf_contract_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/performance_gate.py",
+      "current": "tools/qa/performance/performance_gate.py",
+      "action": "move_implementation_keep_public_facade",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/performance_gate.sh",
+      "current": "tools/qa/performance/performance_gate.sh",
+      "action": "move_implementation_keep_public_facade",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/performance_protocol.py",
+      "current": "tools/qa/performance/performance_protocol.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": true
+    },
+    {
+      "old": "tools/performance_sampler.gd",
+      "current": "tools/performance_sampler.gd",
+      "action": "retain_protected_anchor",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/performance_sampler.gd.uid",
+      "current": "tools/performance_sampler.gd.uid",
+      "action": "retain_uid_with_anchor",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_pass_capture.gd",
+      "current": "tools/qa/world/pilot_pass_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_pass_capture.gd.uid",
+      "current": "tools/qa/world/pilot_pass_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_pass_collect.py",
+      "current": "tools/qa/world/pilot_pass_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_pass_game.gd",
+      "current": "tools/qa/world/pilot_pass_game.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_pass_game.gd.uid",
+      "current": "tools/qa/world/pilot_pass_game.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_pass_review.gd",
+      "current": "tools/qa/world/pilot_pass_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_pass_review.gd.uid",
+      "current": "tools/qa/world/pilot_pass_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_pass_verify.py",
+      "current": "tools/qa/world/pilot_pass_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_rollout.py",
+      "current": "tools/planning/pilot_rollout.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_static_audit.py",
+      "current": "tools/qa/world/pilot_static_audit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_static_capture.gd",
+      "current": "tools/qa/world/pilot_static_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_static_capture.gd.uid",
+      "current": "tools/qa/world/pilot_static_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_static_collect.py",
+      "current": "tools/qa/world/pilot_static_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_static_scene.gd",
+      "current": "tools/qa/world/pilot_static_scene.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_static_scene.gd.uid",
+      "current": "tools/qa/world/pilot_static_scene.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pilot_static_verify.py",
+      "current": "tools/qa/world/pilot_static_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plant_depth_capture.gd",
+      "current": "tools/qa/foliage/plant_depth_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plant_depth_capture.gd.uid",
+      "current": "tools/qa/foliage/plant_depth_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plant_depth_collect.py",
+      "current": "tools/qa/foliage/plant_depth_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plant_depth_game.gd",
+      "current": "tools/qa/foliage/plant_depth_game.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plant_depth_game.gd.uid",
+      "current": "tools/qa/foliage/plant_depth_game.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plant_depth_review.gd",
+      "current": "tools/qa/foliage/plant_depth_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plant_depth_review.gd.uid",
+      "current": "tools/qa/foliage/plant_depth_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plant_depth_verify.py",
+      "current": "tools/qa/foliage/plant_depth_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/player_contact_capture.gd",
+      "current": "tools/qa/compatibility/player_contact_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/player_contact_review.gd",
+      "current": "tools/qa/compatibility/player_contact_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_board.gd",
+      "current": "tools/qa/ground/plaza_board.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_board.gd.uid",
+      "current": "tools/qa/ground/plaza_board.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_builder.gd",
+      "current": "tools/qa/ground/plaza_builder.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_builder.gd.uid",
+      "current": "tools/qa/ground/plaza_builder.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_capture.gd",
+      "current": "tools/qa/ground/plaza_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_capture.gd.uid",
+      "current": "tools/qa/ground/plaza_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_collect.py",
+      "current": "tools/qa/ground/plaza_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_compile.gd",
+      "current": "tools/qa/ground/plaza_compile.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_compile.gd.uid",
+      "current": "tools/qa/ground/plaza_compile.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_field.gd",
+      "current": "tools/qa/ground/plaza_field.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_field.gd.uid",
+      "current": "tools/qa/ground/plaza_field.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_import.gd",
+      "current": "tools/qa/ground/plaza_import.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_import.gd.uid",
+      "current": "tools/qa/ground/plaza_import.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_review.gd",
+      "current": "tools/qa/ground/plaza_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_review.gd.uid",
+      "current": "tools/qa/ground/plaza_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/plaza_verify.py",
+      "current": "tools/qa/ground/plaza_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pose_video_frames.swift",
+      "current": "tools/qa/camera/pose_video_frames.swift",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/pose_video_strip.py",
+      "current": "tools/qa/camera/pose_video_strip.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/post_motion_capture.gd",
+      "current": "tools/qa/world/post_motion_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/post_motion_capture.gd.uid",
+      "current": "tools/qa/world/post_motion_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/post_motion_collect.py",
+      "current": "tools/qa/world/post_motion_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/post_motion_game.gd",
+      "current": "tools/qa/world/post_motion_game.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/post_motion_game.gd.uid",
+      "current": "tools/qa/world/post_motion_game.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/post_motion_review.gd",
+      "current": "tools/qa/world/post_motion_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/post_motion_review.gd.uid",
+      "current": "tools/qa/world/post_motion_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/post_motion_verify.py",
+      "current": "tools/qa/world/post_motion_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/prepare_celestial_dial.gd",
+      "current": "tools/assets/authoring/prepare_celestial_dial.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/prepare_character_walk.gd",
+      "current": "tools/assets/authoring/prepare_character_walk.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/prepare_hero_actions.gd",
+      "current": "tools/assets/authoring/prepare_hero_actions.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/prepare_skeleton_v2.gd",
+      "current": "tools/assets/authoring/prepare_skeleton_v2.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/prepared_pixels_review.gd",
+      "current": "tools/qa/compatibility/prepared_pixels_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/prepared_pixels_review.gd.uid",
+      "current": "tools/qa/compatibility/prepared_pixels_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/presentation_pose.py",
+      "current": "tools/qa/camera/presentation_pose.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/presentation_pose_capture.gd",
+      "current": "tools/qa/camera/presentation_pose_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/presentation_pose_live.gd",
+      "current": "tools/qa/camera/presentation_pose_live.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/presentation_pose_review.gd",
+      "current": "tools/qa/camera/presentation_pose_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/preview_portability.py",
+      "current": "tools/assets/contracts/preview_portability.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/preview_portability_capture.gd",
+      "current": "tools/assets/contracts/preview_portability_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/preview_portability_capture.gd.uid",
+      "current": "tools/assets/contracts/preview_portability_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/project_backlog.py",
+      "current": "tools/planning/project_backlog.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/prop_edges_capture.gd",
+      "current": "tools/qa/compatibility/prop_edges_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/qa_teleport_capture.gd",
+      "current": "tools/qa/compatibility/qa_teleport_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/qa_teleport_capture.gd.uid",
+      "current": "tools/qa/compatibility/qa_teleport_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/qa_teleport_review.gd",
+      "current": "tools/qa/compatibility/qa_teleport_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/qa_teleport_review.gd.uid",
+      "current": "tools/qa/compatibility/qa_teleport_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ranged_combat_capture.gd",
+      "current": "tools/qa/compatibility/ranged_combat_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ranged_combat_review.gd",
+      "current": "tools/qa/compatibility/ranged_combat_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/recovery_capture.gd",
+      "current": "tools/qa/compatibility/recovery_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/recovery_capture.gd.uid",
+      "current": "tools/qa/compatibility/recovery_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/recovery_review.gd",
+      "current": "tools/qa/compatibility/recovery_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/recovery_review.gd.uid",
+      "current": "tools/qa/compatibility/recovery_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/redraw_frame_review.gd",
+      "current": "tools/qa/performance/redraw_frame_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/redraw_frame_review.gd.uid",
+      "current": "tools/qa/performance/redraw_frame_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/reference_zoom.py",
+      "current": "tools/qa/camera/reference_zoom.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/reference_zoom_capture.gd",
+      "current": "tools/qa/camera/reference_zoom_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/reference_zoom_live.gd",
+      "current": "tools/qa/camera/reference_zoom_live.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/reference_zoom_perf.py",
+      "current": "tools/qa/camera/reference_zoom_perf.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/reference_zoom_review.gd",
+      "current": "tools/qa/camera/reference_zoom_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/render_order.py",
+      "current": "tools/qa/world/render_order.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/render_order_capture.gd",
+      "current": "tools/qa/world/render_order_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/render_order_capture.gd.uid",
+      "current": "tools/qa/world/render_order_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/render_order_game.gd",
+      "current": "tools/qa/world/render_order_game.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/render_order_game.gd.uid",
+      "current": "tools/qa/world/render_order_game.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/research_capture.gd",
+      "current": "tools/qa/compatibility/research_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/research_capture.gd.uid",
+      "current": "tools/qa/compatibility/research_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/research_catalog_export.gd",
+      "current": "tools/qa/compatibility/research_catalog_export.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/research_catalog_export.gd.uid",
+      "current": "tools/qa/compatibility/research_catalog_export.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/research_review.gd",
+      "current": "tools/qa/compatibility/research_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/research_review.gd.uid",
+      "current": "tools/qa/compatibility/research_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/resident_review.gd",
+      "current": "tools/qa/compatibility/resident_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/road_network_board.gd",
+      "current": "tools/qa/ground/road_network_board.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/road_network_board.gd.uid",
+      "current": "tools/qa/ground/road_network_board.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/road_network_builder.gd",
+      "current": "tools/qa/ground/road_network_builder.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/road_network_builder.gd.uid",
+      "current": "tools/qa/ground/road_network_builder.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/road_network_capture.gd",
+      "current": "tools/qa/ground/road_network_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/road_network_capture.gd.uid",
+      "current": "tools/qa/ground/road_network_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/road_network_collect.py",
+      "current": "tools/qa/ground/road_network_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/road_network_compile.gd",
+      "current": "tools/qa/ground/road_network_compile.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/road_network_compile.gd.uid",
+      "current": "tools/qa/ground/road_network_compile.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/road_network_review.gd",
+      "current": "tools/qa/ground/road_network_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/road_network_review.gd.uid",
+      "current": "tools/qa/ground/road_network_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/road_network_verify.py",
+      "current": "tools/qa/ground/road_network_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/run_visual_baseline.py",
+      "current": "tools/qa/camera/run_visual_baseline.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/runtime_cleanup_review.gd",
+      "current": "tools/qa/performance/runtime_cleanup_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/runtime_cleanup_review.gd.uid",
+      "current": "tools/qa/performance/runtime_cleanup_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/runtime_cleanup_soak.gd",
+      "current": "tools/qa/performance/runtime_cleanup_soak.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/runtime_cleanup_soak.gd.uid",
+      "current": "tools/qa/performance/runtime_cleanup_soak.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/runtime_comfort_review.gd",
+      "current": "tools/qa/compatibility/runtime_comfort_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/runtime_frame_review.gd",
+      "current": "tools/qa/performance/runtime_frame_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/runtime_maintenance_tests.gd",
+      "current": "tools/qa/compatibility/runtime_maintenance_tests.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/runtime_maintenance_tests.gd.uid",
+      "current": "tools/qa/compatibility/runtime_maintenance_tests.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/safe_review.gd",
+      "current": "tools/qa/compatibility/safe_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/safe_review.gd.uid",
+      "current": "tools/qa/compatibility/safe_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/save_crash_worker.gd",
+      "current": "tools/qa/performance/save_crash_worker.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/save_crash_worker.gd.uid",
+      "current": "tools/qa/performance/save_crash_worker.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/shadow_inventory.py",
+      "current": "tools/qa/world/shadow_inventory.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/shadow_inventory_canvas.gd",
+      "current": "tools/qa/world/shadow_inventory_canvas.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/shadow_inventory_canvas.gd.uid",
+      "current": "tools/qa/world/shadow_inventory_canvas.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/shadow_inventory_capture.gd",
+      "current": "tools/qa/world/shadow_inventory_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/shadow_inventory_capture.gd.uid",
+      "current": "tools/qa/world/shadow_inventory_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/shadow_inventory_collect.py",
+      "current": "tools/qa/world/shadow_inventory_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/shadow_inventory_verify.py",
+      "current": "tools/qa/world/shadow_inventory_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/shore_kit.py",
+      "current": "tools/qa/world/shore_kit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/shore_kit_canvas.gd",
+      "current": "tools/qa/world/shore_kit_canvas.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/shore_kit_capture.gd",
+      "current": "tools/qa/world/shore_kit_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/shore_kit_review.gd",
+      "current": "tools/qa/world/shore_kit_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/skeleton_aim_capture.gd",
+      "current": "tools/qa/compatibility/skeleton_aim_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/skeleton_aim_capture.gd.uid",
+      "current": "tools/qa/compatibility/skeleton_aim_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/slice_audit.py",
+      "current": "tools/assets/slicing/slice_audit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/slice_capture.gd",
+      "current": "tools/assets/slicing/slice_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/slice_catalogs.gd",
+      "current": "tools/assets/slicing/slice_catalogs.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/slice_export.gd",
+      "current": "tools/assets/slicing/slice_export.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/slice_item_icons.py",
+      "current": "tools/assets/authoring/slice_item_icons.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/slice_legacy_capture.gd",
+      "current": "tools/assets/slicing/slice_legacy_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/slice_metrics.py",
+      "current": "tools/assets/slicing/slice_metrics.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/slice_policy.json",
+      "current": "tools/assets/slicing/slice_policy.json",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/slice_proof.py",
+      "current": "tools/assets/slicing/slice_proof.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/slice_review.gd",
+      "current": "tools/assets/slicing/slice_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/smoke_test.sh",
+      "current": "tools/qa/performance/smoke_test.sh",
+      "action": "move_implementation_keep_public_facade",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/sprite_usage_review.gd",
+      "current": "tools/assets/contracts/sprite_usage_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/sprite_usage_review.gd.uid",
+      "current": "tools/assets/contracts/sprite_usage_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/startup_review.gd",
+      "current": "tools/qa/compatibility/startup_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/startup_review.gd.uid",
+      "current": "tools/qa/compatibility/startup_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/storage_actions_capture.gd",
+      "current": "tools/qa/compatibility/storage_actions_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/storage_actions_capture.gd.uid",
+      "current": "tools/qa/compatibility/storage_actions_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/storage_perf_game.gd",
+      "current": "tools/qa/performance/storage_perf_game.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/storage_perf_game.gd.uid",
+      "current": "tools/qa/performance/storage_perf_game.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/storage_perf_review.gd",
+      "current": "tools/qa/performance/storage_perf_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/storage_perf_review.gd.uid",
+      "current": "tools/qa/performance/storage_perf_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/storage_window_capture.gd",
+      "current": "tools/qa/compatibility/storage_window_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/storage_window_capture.gd.uid",
+      "current": "tools/qa/compatibility/storage_window_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/task_batch.py",
+      "current": "tools/planning/task_batch.py",
+      "action": "move_implementation_keep_public_facade",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/terrain_cache_review.gd",
+      "current": "tools/qa/compatibility/terrain_cache_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/terrain_revision_capture.gd",
+      "current": "tools/qa/ground/terrain_revision_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/terrain_revision_capture.gd.uid",
+      "current": "tools/qa/ground/terrain_revision_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/terrain_revision_collect.py",
+      "current": "tools/qa/ground/terrain_revision_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/terrain_revision_review.gd",
+      "current": "tools/qa/ground/terrain_revision_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/terrain_revision_review.gd.uid",
+      "current": "tools/qa/ground/terrain_revision_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/terrain_revision_verify.py",
+      "current": "tools/qa/ground/terrain_revision_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_alpha_audit.py",
+      "current": "tools/assets/alpha/test_alpha_audit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_alpha_proof.py",
+      "current": "tools/assets/alpha/test_alpha_proof.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_art_review.py",
+      "current": "tools/dev/art_review/test_art_review.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_artist_packet.py",
+      "current": "tools/build/test_artist_packet.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_asset_migration.py",
+      "current": "tools/assets/migration/test_asset_migration.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_asset_pack_proof.py",
+      "current": "tools/build/test_asset_pack_proof.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_asset_report.py",
+      "current": "tools/assets/contracts/test_asset_report.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_axial_road.py",
+      "current": "tools/qa/ground/test_axial_road.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_camera_quantization.py",
+      "current": "tools/qa/camera/test_camera_quantization.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_decoration_rules.py",
+      "current": "tools/qa/ground/test_decoration_rules.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_documentation.py",
+      "current": "tools/quality/test_documentation.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_foliage_contact.py",
+      "current": "tools/qa/foliage/test_foliage_contact.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_foliage_pause.py",
+      "current": "tools/qa/foliage/test_foliage_pause.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_foliage_recovery.py",
+      "current": "tools/qa/foliage/test_foliage_recovery.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_foliage_root.py",
+      "current": "tools/qa/foliage/test_foliage_root.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_foliage_speed.py",
+      "current": "tools/qa/foliage/test_foliage_speed.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_foliage_uv.py",
+      "current": "tools/qa/foliage/test_foliage_uv.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_foliage_visibility.py",
+      "current": "tools/qa/foliage/test_foliage_visibility.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_foliage_wind.py",
+      "current": "tools/qa/foliage/test_foliage_wind.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_garden_soil.py",
+      "current": "tools/qa/ground/test_garden_soil.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_grass_methods.py",
+      "current": "tools/qa/foliage/test_grass_methods.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_ground_edge.py",
+      "current": "tools/qa/ground/test_ground_edge.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_ground_layers.py",
+      "current": "tools/qa/ground/test_ground_layers.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_ground_seasons.py",
+      "current": "tools/qa/ground/test_ground_seasons.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_item_export_contract.py",
+      "current": "tools/assets/contracts/test_item_export_contract.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_item_sizes.py",
+      "current": "tools/assets/contracts/test_item_sizes.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_meadow_ground.py",
+      "current": "tools/qa/ground/test_meadow_ground.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_migration_proof.py",
+      "current": "tools/assets/migration/test_migration_proof.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_object_command.py",
+      "current": "tools/qa/world/test_object_command.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_optimization_audit.py",
+      "current": "tools/qa/performance/test_optimization_audit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_padded_atlases.py",
+      "current": "tools/assets/contracts/test_padded_atlases.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_perf_contract.py",
+      "current": "tools/qa/performance/test_perf_contract.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_performance_gate.py",
+      "current": "tools/qa/performance/test_performance_gate.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_pilot_pass.py",
+      "current": "tools/qa/world/test_pilot_pass.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_pilot_rollout.py",
+      "current": "tools/planning/test_pilot_rollout.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_pilot_static.py",
+      "current": "tools/qa/world/test_pilot_static.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_plant_depth.py",
+      "current": "tools/qa/foliage/test_plant_depth.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_plaza_ground.py",
+      "current": "tools/qa/ground/test_plaza_ground.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_post_motion.py",
+      "current": "tools/qa/world/test_post_motion.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_presentation_pose.py",
+      "current": "tools/qa/camera/test_presentation_pose.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_preview_portability.py",
+      "current": "tools/assets/contracts/test_preview_portability.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_project_backlog.py",
+      "current": "tools/planning/test_project_backlog.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_redraw_output.py",
+      "current": "tools/qa/performance/test_redraw_output.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_reference_zoom.py",
+      "current": "tools/qa/camera/test_reference_zoom.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_render_order.py",
+      "current": "tools/qa/world/test_render_order.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_road_network.py",
+      "current": "tools/qa/ground/test_road_network.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_shadow_inventory.py",
+      "current": "tools/qa/world/test_shadow_inventory.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_shore_kit.py",
+      "current": "tools/qa/world/test_shore_kit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_slice_audit.py",
+      "current": "tools/assets/slicing/test_slice_audit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_slice_proof.py",
+      "current": "tools/assets/slicing/test_slice_proof.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_sprite_cleanup.py",
+      "current": "tools/assets/contracts/test_sprite_cleanup.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_storage_perf.py",
+      "current": "tools/qa/performance/test_storage_perf.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_task_batch.py",
+      "current": "tools/planning/test_task_batch.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_terrain_revision.py",
+      "current": "tools/qa/ground/test_terrain_revision.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_texture_intents.py",
+      "current": "tools/assets/contracts/test_texture_intents.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_transient_save.py",
+      "current": "tools/qa/world/test_transient_save.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_village_bench.py",
+      "current": "tools/qa/world/test_village_bench.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_village_board.py",
+      "current": "tools/qa/world/test_village_board.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_village_fence.py",
+      "current": "tools/qa/world/test_village_fence.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_village_lamp.py",
+      "current": "tools/qa/world/test_village_lamp.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_village_street.py",
+      "current": "tools/qa/world/test_village_street.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_village_trade.py",
+      "current": "tools/qa/world/test_village_trade.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_backlog.py",
+      "current": "tools/planning/test_visual_backlog.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_baseline.py",
+      "current": "tools/qa/camera/test_visual_baseline.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_camera.py",
+      "current": "tools/qa/camera/test_visual_camera.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_coordinates.py",
+      "current": "tools/qa/camera/test_visual_coordinates.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_density.py",
+      "current": "tools/qa/art/test_visual_density.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_edges.py",
+      "current": "tools/qa/art/test_visual_edges.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_hardware.py",
+      "current": "tools/qa/camera/test_visual_hardware.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_icons.py",
+      "current": "tools/assets/contracts/test_visual_icons.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_light.py",
+      "current": "tools/qa/art/test_visual_light.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_modules.py",
+      "current": "tools/qa/art/test_visual_modules.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_motion.py",
+      "current": "tools/qa/camera/test_visual_motion.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_palette.py",
+      "current": "tools/qa/art/test_visual_palette.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_perspective.py",
+      "current": "tools/qa/art/test_visual_perspective.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_pipeline.py",
+      "current": "tools/assets/contracts/test_visual_pipeline.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_resources.py",
+      "current": "tools/assets/contracts/test_visual_resources.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_reuse.py",
+      "current": "tools/qa/art/test_visual_reuse.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_sampling.py",
+      "current": "tools/assets/contracts/test_visual_sampling.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_scale.py",
+      "current": "tools/qa/art/test_visual_scale.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_visual_static.py",
+      "current": "tools/qa/camera/test_visual_static.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_water_audit.py",
+      "current": "tools/qa/world/test_water_audit.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/test_world_sprite_manifest.py",
+      "current": "tools/assets/contracts/test_world_sprite_manifest.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/texture_data_probe.gd",
+      "current": "tools/assets/contracts/texture_data_probe.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/texture_data_room_capture.gd",
+      "current": "tools/assets/contracts/texture_data_room_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/texture_intent_review.gd",
+      "current": "tools/assets/contracts/texture_intent_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/texture_intents.py",
+      "current": "tools/assets/contracts/texture_intents.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/transient_save_capture.gd",
+      "current": "tools/qa/world/transient_save_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/transient_save_capture.gd.uid",
+      "current": "tools/qa/world/transient_save_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/transient_save_collect.py",
+      "current": "tools/qa/world/transient_save_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/transient_save_probe.gd",
+      "current": "tools/qa/world/transient_save_probe.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/transient_save_probe.gd.uid",
+      "current": "tools/qa/world/transient_save_probe.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/transient_save_review.gd",
+      "current": "tools/qa/world/transient_save_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/transient_save_review.gd.uid",
+      "current": "tools/qa/world/transient_save_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/transient_save_verify.py",
+      "current": "tools/qa/world/transient_save_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/tree_occlusion_review.gd",
+      "current": "tools/qa/compatibility/tree_occlusion_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ui_portability_capture.gd",
+      "current": "tools/assets/contracts/ui_portability_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ui_portability_capture.gd.uid",
+      "current": "tools/assets/contracts/ui_portability_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ui_portability_observer.gd",
+      "current": "tools/assets/contracts/ui_portability_observer.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/ui_portability_observer.gd.uid",
+      "current": "tools/assets/contracts/ui_portability_observer.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/update_ui_visual_manifest.py",
+      "current": "tools/assets/authoring/update_ui_visual_manifest.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_bench_assets.py",
+      "current": "tools/qa/world/village_bench_assets.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_bench_capture.gd",
+      "current": "tools/qa/world/village_bench_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_bench_capture.gd.uid",
+      "current": "tools/qa/world/village_bench_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_bench_collect.py",
+      "current": "tools/qa/world/village_bench_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_bench_gallery.gd",
+      "current": "tools/qa/world/village_bench_gallery.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_bench_gallery.gd.uid",
+      "current": "tools/qa/world/village_bench_gallery.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_bench_leg_capture.gd",
+      "current": "tools/qa/world/village_bench_leg_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_bench_leg_capture.gd.uid",
+      "current": "tools/qa/world/village_bench_leg_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_bench_review.gd",
+      "current": "tools/qa/world/village_bench_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_bench_review.gd.uid",
+      "current": "tools/qa/world/village_bench_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_bench_verify.py",
+      "current": "tools/qa/world/village_bench_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_board_assets.py",
+      "current": "tools/qa/world/village_board_assets.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_board_capture.gd",
+      "current": "tools/qa/world/village_board_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_board_capture.gd.uid",
+      "current": "tools/qa/world/village_board_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_board_collect.py",
+      "current": "tools/qa/world/village_board_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_board_gallery.gd",
+      "current": "tools/qa/world/village_board_gallery.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_board_gallery.gd.uid",
+      "current": "tools/qa/world/village_board_gallery.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_board_review.gd",
+      "current": "tools/qa/world/village_board_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_board_review.gd.uid",
+      "current": "tools/qa/world/village_board_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_board_verify.py",
+      "current": "tools/qa/world/village_board_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_clearance_review.gd",
+      "current": "tools/qa/world/village_clearance_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_fence_assets.py",
+      "current": "tools/qa/world/village_fence_assets.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_fence_capture.gd",
+      "current": "tools/qa/world/village_fence_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_fence_capture.gd.uid",
+      "current": "tools/qa/world/village_fence_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_fence_collect.py",
+      "current": "tools/qa/world/village_fence_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_fence_gallery.gd",
+      "current": "tools/qa/world/village_fence_gallery.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_fence_gallery.gd.uid",
+      "current": "tools/qa/world/village_fence_gallery.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_fence_review.gd",
+      "current": "tools/qa/world/village_fence_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_fence_review.gd.uid",
+      "current": "tools/qa/world/village_fence_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_fence_verify.py",
+      "current": "tools/qa/world/village_fence_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_lamp_assets.py",
+      "current": "tools/qa/world/village_lamp_assets.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_lamp_capture.gd",
+      "current": "tools/qa/world/village_lamp_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_lamp_capture.gd.uid",
+      "current": "tools/qa/world/village_lamp_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_lamp_collect.py",
+      "current": "tools/qa/world/village_lamp_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_lamp_gallery.gd",
+      "current": "tools/qa/world/village_lamp_gallery.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_lamp_gallery.gd.uid",
+      "current": "tools/qa/world/village_lamp_gallery.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_lamp_review.gd",
+      "current": "tools/qa/world/village_lamp_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_lamp_review.gd.uid",
+      "current": "tools/qa/world/village_lamp_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_lamp_verify.py",
+      "current": "tools/qa/world/village_lamp_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_map_review.gd",
+      "current": "tools/qa/world/village_map_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_regions_capture.gd",
+      "current": "tools/qa/world/village_regions_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_regions_capture.gd.uid",
+      "current": "tools/qa/world/village_regions_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_regions_review.gd",
+      "current": "tools/qa/world/village_regions_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_regions_review.gd.uid",
+      "current": "tools/qa/world/village_regions_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_street_assets.py",
+      "current": "tools/qa/world/village_street_assets.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_street_capture.gd",
+      "current": "tools/qa/world/village_street_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_street_capture.gd.uid",
+      "current": "tools/qa/world/village_street_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_street_collect.py",
+      "current": "tools/qa/world/village_street_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_street_gallery.gd",
+      "current": "tools/qa/world/village_street_gallery.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_street_gallery.gd.uid",
+      "current": "tools/qa/world/village_street_gallery.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_street_review.gd",
+      "current": "tools/qa/world/village_street_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_street_review.gd.uid",
+      "current": "tools/qa/world/village_street_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_street_verify.py",
+      "current": "tools/qa/world/village_street_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_trade_assets.py",
+      "current": "tools/qa/world/village_trade_assets.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_trade_capture.gd",
+      "current": "tools/qa/world/village_trade_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_trade_capture.gd.uid",
+      "current": "tools/qa/world/village_trade_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_trade_collect.py",
+      "current": "tools/qa/world/village_trade_collect.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_trade_gallery.gd",
+      "current": "tools/qa/world/village_trade_gallery.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_trade_gallery.gd.uid",
+      "current": "tools/qa/world/village_trade_gallery.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_trade_review.gd",
+      "current": "tools/qa/world/village_trade_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_trade_review.gd.uid",
+      "current": "tools/qa/world/village_trade_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/village_trade_verify.py",
+      "current": "tools/qa/world/village_trade_verify.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_asset_policy.json",
+      "current": "tools/assets/contracts/visual_asset_policy.json",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_backlog.py",
+      "current": "tools/planning/visual_backlog.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_baseline.gd",
+      "current": "tools/qa/camera/visual_baseline.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_camera.py",
+      "current": "tools/qa/camera/visual_camera.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_camera_capture.gd",
+      "current": "tools/qa/camera/visual_camera_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_camera_points.gd",
+      "current": "tools/qa/camera/visual_camera_points.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_camera_review.gd",
+      "current": "tools/qa/camera/visual_camera_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_coordinates.py",
+      "current": "tools/qa/camera/visual_coordinates.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_coordinates_capture.gd",
+      "current": "tools/qa/camera/visual_coordinates_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_coordinates_capture.gd.uid",
+      "current": "tools/qa/camera/visual_coordinates_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_coordinates_review.gd",
+      "current": "tools/qa/camera/visual_coordinates_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_coordinates_review.gd.uid",
+      "current": "tools/qa/camera/visual_coordinates_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_density.py",
+      "current": "tools/qa/art/visual_density.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_density_capture.gd",
+      "current": "tools/qa/art/visual_density_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_density_capture.gd.uid",
+      "current": "tools/qa/art/visual_density_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_edges.py",
+      "current": "tools/qa/art/visual_edges.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_hardware.py",
+      "current": "tools/qa/camera/visual_hardware.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_icons.py",
+      "current": "tools/assets/contracts/visual_icons.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_icons_capture.gd",
+      "current": "tools/assets/contracts/visual_icons_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_light.py",
+      "current": "tools/qa/art/visual_light.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_light_capture.gd",
+      "current": "tools/qa/art/visual_light_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_modules.py",
+      "current": "tools/qa/art/visual_modules.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_modules_capture.gd",
+      "current": "tools/qa/art/visual_modules_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_motion.py",
+      "current": "tools/qa/camera/visual_motion.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_motion_capture.gd",
+      "current": "tools/qa/camera/visual_motion_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_motion_review.gd",
+      "current": "tools/qa/camera/visual_motion_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_motion_route.gd",
+      "current": "tools/qa/camera/visual_motion_route.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_palette.py",
+      "current": "tools/qa/art/visual_palette.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_perspective.py",
+      "current": "tools/qa/art/visual_perspective.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_perspective_export.gd",
+      "current": "tools/qa/art/visual_perspective_export.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_perspective_export.gd.uid",
+      "current": "tools/qa/art/visual_perspective_export.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_pipeline.py",
+      "current": "tools/assets/contracts/visual_pipeline.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_pipeline_capture.gd",
+      "current": "tools/assets/contracts/visual_pipeline_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_pipeline_review.gd",
+      "current": "tools/assets/contracts/visual_pipeline_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_resource_capture.gd",
+      "current": "tools/assets/contracts/visual_resource_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_resources.py",
+      "current": "tools/assets/contracts/visual_resources.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_resources_review.gd",
+      "current": "tools/assets/contracts/visual_resources_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_reuse.py",
+      "current": "tools/qa/art/visual_reuse.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_reuse_capture.gd",
+      "current": "tools/qa/art/visual_reuse_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_reuse_sources.gd",
+      "current": "tools/qa/art/visual_reuse_sources.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_sampling.py",
+      "current": "tools/assets/contracts/visual_sampling.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_sampling_capture.gd",
+      "current": "tools/assets/contracts/visual_sampling_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_sampling_review.gd",
+      "current": "tools/assets/contracts/visual_sampling_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_scale.py",
+      "current": "tools/qa/art/visual_scale.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_scale_capture.gd",
+      "current": "tools/qa/art/visual_scale_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_scale_capture.gd.uid",
+      "current": "tools/qa/art/visual_scale_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_static.py",
+      "current": "tools/qa/camera/visual_static.py",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/visual_static_capture.gd",
+      "current": "tools/qa/camera/visual_static_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/water_audit.gd",
+      "current": "tools/water_audit.gd",
+      "action": "retain_protected_anchor",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/water_fishing_capture.gd",
+      "current": "tools/qa/world/water_fishing_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/water_fishing_capture.gd.uid",
+      "current": "tools/qa/world/water_fishing_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/water_fishing_review.gd",
+      "current": "tools/qa/world/water_fishing_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/water_fishing_review.gd.uid",
+      "current": "tools/qa/world/water_fishing_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/water_navigation_review.gd",
+      "current": "tools/qa/world/water_navigation_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/water_navigation_review.gd.uid",
+      "current": "tools/qa/world/water_navigation_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/water_topology_review.gd",
+      "current": "tools/qa/world/water_topology_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/water_topology_review.gd.uid",
+      "current": "tools/qa/world/water_topology_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/wildlife_query_review.gd",
+      "current": "tools/qa/performance/wildlife_query_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/wildlife_query_review.gd.uid",
+      "current": "tools/qa/performance/wildlife_query_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/workshops_capture.gd",
+      "current": "tools/qa/compatibility/workshops_capture.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/workshops_capture.gd.uid",
+      "current": "tools/qa/compatibility/workshops_capture.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/workshops_catalog_export.gd",
+      "current": "tools/qa/compatibility/workshops_catalog_export.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/workshops_catalog_export.gd.uid",
+      "current": "tools/qa/compatibility/workshops_catalog_export.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/workshops_review.gd",
+      "current": "tools/qa/compatibility/workshops_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/workshops_review.gd.uid",
+      "current": "tools/qa/compatibility/workshops_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/world_native.gd",
+      "current": "tools/qa/compatibility/world_native.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/world_native.gd.uid",
+      "current": "tools/qa/compatibility/world_native.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/world_review.gd",
+      "current": "tools/qa/compatibility/world_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/world_review.gd.uid",
+      "current": "tools/qa/compatibility/world_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/world_workbench_review.gd",
+      "current": "tools/qa/compatibility/world_workbench_review.gd",
+      "action": "move",
+      "present": true,
+      "retained_extra_facade": false
+    },
+    {
+      "old": "tools/world_workbench_review.gd.uid",
+      "current": "tools/qa/compatibility/world_workbench_review.gd.uid",
+      "action": "move_uid_with_source",
+      "present": true,
+      "retained_extra_facade": false
+    }
+  ],
+  "original_rows_accounted_for": 779,
+  "root_source_budget": 30,
+  "root_sources": [
+    "tools/__init__.py",
+    "tools/bump_version.py",
+    "tools/check_architecture.sh",
+    "tools/performance_gate.py",
+    "tools/performance_gate.sh",
+    "tools/performance_protocol.py",
+    "tools/performance_sampler.gd",
+    "tools/run.py",
+    "tools/smoke_test.sh",
+    "tools/task_batch.py",
+    "tools/water_audit.gd"
+  ],
+  "effective_target_exception": {
+    "tools/import_pixabay_assets.py": {
+      "target": "tools/assets/authoring/import_pixabay_assets.py",
+      "evidence": "docs/reports/refactor-03/image-review-move/migration.json"
+    }
+  },
+  "retained_extra_facade": {
+    "tools/performance_protocol.py": "Accepted performance package371/372: frozen imports require one identity-preserving facade; tools/README.md"
+  },
+  "generic_map_subset": 491,
+  "generic_map_is_not_full_original_plan": true
+}

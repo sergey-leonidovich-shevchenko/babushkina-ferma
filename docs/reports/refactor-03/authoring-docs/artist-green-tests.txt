@@ -1,0 +1,29 @@
+test_changed_picture (__main__.ArtistPacketTests.test_changed_picture)
+Сценарий: порча рисунка. Исходное состояние: сохранён старый SHA. Результат: подмена отклоняется. ... ok
+test_complete_packet (__main__.ArtistPacketTests.test_complete_packet)
+Сценарий: полный комплект. Исходное состояние: точная копия. Результат: источники и производные совпадают. ... ok
+test_derived_files_cannot_drift (__main__.ArtistPacketTests.test_derived_files_cannot_drift)
+Сценарий: ручная смена размеров или цветов. Исходное состояние: источники прежние. Результат: производные устарели. ... ok
+test_document_symlink_cannot_escape (__main__.ArtistPacketTests.test_document_symlink_cannot_escape)
+Исторический якорь не разрешает ссылку текущего checkout за границу проекта. ... ok
+test_foreign_git_context_cannot_choose_history (__main__.ArtistPacketTests.test_foreign_git_context_cannot_choose_history)
+Чужой настоящий репозиторий/index/config не выбирает источник и не меняется читателем. ... ok
+test_live_document_can_evolve (__main__.ArtistPacketTests.test_live_document_can_evolve)
+Живая команда меняется; принятый комплект всё ещё проверяет точную историческую редакцию. ... ok
+test_missing_and_duplicate_reference (__main__.ArtistPacketTests.test_missing_and_duplicate_reference)
+Сценарий: неполный список. Исходное состояние: потеряна или повторена ссылка. Результат: комплект не принимается. ... ok
+test_missing_git_history (__main__.ArtistPacketTests.test_missing_git_history)
+Сценарий: нет истории. Исходное состояние: commit отсутствует. Результат: текущие файлы не заменяют источник. ... ok
+test_no_runtime_acceptance (__main__.ArtistPacketTests.test_no_runtime_acceptance)
+Сценарий: завышенная приёмка. Исходное состояние: отчёт заявляет FPS и новый runtime. Результат: отказ. ... ok
+test_reference_boundary (__main__.ArtistPacketTests.test_reference_boundary)
+Сценарий: чужой путь. Исходное состояние: абсолютный путь или переход выше проекта. Результат: чтение запрещено. ... ok
+test_resigned_document_still_requires_history (__main__.ArtistPacketTests.test_resigned_document_still_requires_history)
+Подпись текущего текста не заменяет закреплённую версию документа в Git. ... ok
+test_resigned_picture_still_requires_git_bytes (__main__.ArtistPacketTests.test_resigned_picture_still_requires_git_bytes)
+Сценарий: переподпись. Исходное состояние: байты и SHA заменены вместе. Результат: Git-основание обнаруживает подмену. ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 35.538s
+
+OK

@@ -1,0 +1,48 @@
+{
+  "task": "VRENDER-005",
+  "base_commit": "979d8a9361174a8628b32b4f3d8abf8cb6a5689c",
+  "production_pass_enabled": true,
+  "default_enabled": true,
+  "scope": [
+    240,
+    312,
+    960,
+    576
+  ],
+  "selected_object": "board:648:576",
+  "layer": "behind_actors",
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "windows": {
+    "1152": {
+      "before_png": 23,
+      "after_png": 45,
+      "draw_callbacks": 272,
+      "rgba_pairs": 45,
+      "all_rgba_equal": true,
+      "actual_routes": {
+        "command": 32,
+        "legacy": 92,
+        "fallback": 24
+      },
+      "foreground_other_world_hud_retained": true,
+      "cache_max": 3,
+      "default_on_exercised": true
+    },
+    "1280": {
+      "before_png": 23,
+      "after_png": 45,
+      "draw_callbacks": 272,
+      "rgba_pairs": 45,
+      "all_rgba_equal": true,
+      "actual_routes": {
+        "command": 32,
+        "legacy": 92,
+        "fallback": 24
+      },
+      "foreground_other_world_hud_retained": true,
+      "cache_max": 3,
+      "default_on_exercised": true
+    }
+  }
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "name": "history",
+    "command": [
+      "python3",
+      "tools/run.py",
+      "build.test_asset_report_history",
+      "-v"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "asset-report",
+    "command": [
+      "python3",
+      "tools/asset_report.py"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "costs",
+    "command": [
+      "python3",
+      "tools/test_asset_report.py"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "pack-proof",
+    "command": [
+      "python3",
+      "tools/test_asset_pack_proof.py"
+    ],
+    "exit": 0
+  }
+]

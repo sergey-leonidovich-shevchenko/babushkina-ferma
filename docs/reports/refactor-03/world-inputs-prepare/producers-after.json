@@ -1,0 +1,15 @@
+{
+  "phase": "producers-after",
+  "base": "e205c00729214358308f14c46b63c3bd2fdde2d9",
+  "command": [
+    "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python311-venv/bin/python3",
+    "tools/run.py",
+    "qa.world.test_world_producers"
+  ],
+  "test_SHA256": "2c44dd8874905d5ea81967f255a05314b89704c840e0539f81d06265cc2e6d3b",
+  "exit": 0,
+  "seconds": 28.59149483399233,
+  "methods": 13,
+  "raw_sha256": "83994917636fb45591b41704df94e89867161768120a71825e90812b0cd0c672",
+  "summary": "BENCH NATIVE after 1152\n.BOARD NATIVE after 1152\n.FENCE NATIVE after 1152\n.LAMP NATIVE after 1152\n.OBJECT COMMAND NATIVE 1152\n.PILOT PASS NATIVE after 1152\n.POST MOTION NATIVE after 1152\n.RENDER NATIVE 1152\n.SHADOW INVENTORY 1152\n.STATIC PILOT NATIVE after 1152\n.STREET NATIVE after 1152\n.TRADE NATIVE after 1152\n.TRANSIENT NATIVE after 1152\n.\n----------------------------------------------------------------------\nRan 13 tests in 28.251s\n\nOK\n"
+}

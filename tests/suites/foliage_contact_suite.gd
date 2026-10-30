@@ -1,7 +1,7 @@
 extends RefCounted
 const Contact:=preload("res://scripts/presentation/foliage_contact.gd")
 const Wind:=preload("res://scripts/presentation/foliage_wind.gd")
-const Points:=preload("res://tools/visual_camera_points.gd")
+const Points:=preload("res://tools/qa/camera/visual_camera_points.gd")
 
 ## Проверяет гладкое компактное поле четырёх направлений, точный центр и ограниченный изгиб без нормализации.
 static func run(ctx:SceneTree)->void:

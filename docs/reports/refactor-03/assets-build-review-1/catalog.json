@@ -1,0 +1,16 @@
+{
+  "version": "0.0.366",
+  "source_public_dist_equal": true,
+  "states": {
+    "02": "done",
+    "03": "in_progress",
+    "06": "blocked"
+  },
+  "history": 83,
+  "VMAP_accepted": false,
+  "root_sources": 420,
+  "profile_attachment_equal": true,
+  "profile_href": "generated/attachments/0db5296b93ddc7d6b7051f8896c8ad392fb062fbc403f14380792faae95aac16.json",
+  "user_stop_after_full03": true,
+  "REFACTOR06_requires_new_direct_command": true
+}

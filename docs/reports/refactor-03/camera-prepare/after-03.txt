@@ -1,0 +1,1 @@
+STATIC: valid native static-only reference

@@ -1,0 +1,1 @@
+{"root": 420, "fields": 37, "UID": 85, "source_paths": 14, "before_frames": 5603}

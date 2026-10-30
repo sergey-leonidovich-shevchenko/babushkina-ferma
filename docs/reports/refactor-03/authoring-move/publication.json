@@ -1,0 +1,32 @@
+[
+  {
+    "name": "documentation",
+    "command": [
+      "python3",
+      "tools/run.py",
+      "quality.check_documentation"
+    ],
+    "exit": 0,
+    "stdout": "DOCUMENTATION: обязательные файлы и локальные ссылки корректны\n"
+  },
+  {
+    "name": "version",
+    "command": [
+      "python3",
+      "tools/bump_version.py",
+      "--check"
+    ],
+    "exit": 0,
+    "stdout": "VERSION: 0.0.358 synchronized\n"
+  },
+  {
+    "name": "backlog",
+    "command": [
+      "python3",
+      "tools/run.py",
+      "planning.project_backlog"
+    ],
+    "exit": 0,
+    "stdout": "BACKLOG OK: 6 epics / 50 tasks / 6 Ready; network: 0\n"
+  }
+]

@@ -1,0 +1,314 @@
+{
+  "prepared_head": "0352c5f286dc90c5fa324347b9ceadeb6a8e9350",
+  "moves": [
+    {
+      "old_path": "tools/build_bridge_sprites.py",
+      "target": "tools/assets/authoring/build_bridge_sprites.py",
+      "mode": 420,
+      "prepared_sha256": "38623d88c48b4acbef43100fa6bd406d013ba30fc46ad4fab91d426a77bf42c4",
+      "moved_sha256": "38623d88c48b4acbef43100fa6bd406d013ba30fc46ad4fab91d426a77bf42c4"
+    },
+    {
+      "old_path": "tools/build_building_sprites.py",
+      "target": "tools/assets/authoring/build_building_sprites.py",
+      "mode": 420,
+      "prepared_sha256": "a50638c1699ed7b36db82b69fdf1afd1745abd48fd58dee4ae50eac1f56849c9",
+      "moved_sha256": "a50638c1699ed7b36db82b69fdf1afd1745abd48fd58dee4ae50eac1f56849c9"
+    },
+    {
+      "old_path": "tools/build_clean_interior_atlas.gd",
+      "target": "tools/assets/authoring/build_clean_interior_atlas.gd",
+      "mode": 420,
+      "prepared_sha256": "ec2daac50f44ef0f3b0fd67a6056d3051acfd2ec0a788f9baf7889a4b64f051e",
+      "moved_sha256": "ec2daac50f44ef0f3b0fd67a6056d3051acfd2ec0a788f9baf7889a4b64f051e"
+    },
+    {
+      "old_path": "tools/build_editor_transition_tiles.py",
+      "target": "tools/assets/authoring/build_editor_transition_tiles.py",
+      "mode": 420,
+      "prepared_sha256": "b4674b74503d4f88ddbd263c533eb7ba5e98eccb595bb08f0e00ea12307c1f08",
+      "moved_sha256": "b4674b74503d4f88ddbd263c533eb7ba5e98eccb595bb08f0e00ea12307c1f08"
+    },
+    {
+      "old_path": "tools/build_environment_sprites.py",
+      "target": "tools/assets/authoring/build_environment_sprites.py",
+      "mode": 420,
+      "prepared_sha256": "c18b583b0fdc3077cb6bdd2dee41e90147ecb4bfca820e08d961fa5af3c393db",
+      "moved_sha256": "c18b583b0fdc3077cb6bdd2dee41e90147ecb4bfca820e08d961fa5af3c393db"
+    },
+    {
+      "old_path": "tools/build_fence_atlas.py",
+      "target": "tools/assets/authoring/build_fence_atlas.py",
+      "mode": 420,
+      "prepared_sha256": "2bd29190490d1201282e6fbb9f1a37325fdf44798fc875b4cfa70b81b4978df3",
+      "moved_sha256": "2bd29190490d1201282e6fbb9f1a37325fdf44798fc875b4cfa70b81b4978df3"
+    },
+    {
+      "old_path": "tools/build_forest_tree_atlas.py",
+      "target": "tools/assets/authoring/build_forest_tree_atlas.py",
+      "mode": 420,
+      "prepared_sha256": "9610d95795513197b632588df9898a2e88962ca7929a77f8fd7e5622b3293838",
+      "moved_sha256": "9610d95795513197b632588df9898a2e88962ca7929a77f8fd7e5622b3293838"
+    },
+    {
+      "old_path": "tools/build_house_furniture.gd",
+      "target": "tools/assets/authoring/build_house_furniture.gd",
+      "mode": 420,
+      "prepared_sha256": "b23f69b29b3b1dde5cb7bdf2a921f3e90d09cbd1b012fa42295bb8be6488f902",
+      "moved_sha256": "b23f69b29b3b1dde5cb7bdf2a921f3e90d09cbd1b012fa42295bb8be6488f902"
+    },
+    {
+      "old_path": "tools/build_house_furniture.gd.uid",
+      "target": "tools/assets/authoring/build_house_furniture.gd.uid",
+      "mode": 420,
+      "prepared_sha256": "5fd470424d61510ca47f103e7a0e54c4fb4c47411efe9579cd6a93e57dc8c9c8",
+      "moved_sha256": "5fd470424d61510ca47f103e7a0e54c4fb4c47411efe9579cd6a93e57dc8c9c8"
+    },
+    {
+      "old_path": "tools/build_item_ui_textures.gd",
+      "target": "tools/assets/authoring/build_item_ui_textures.gd",
+      "mode": 420,
+      "prepared_sha256": "6dc0ea50ad55c7129e53ff7ee5602a9ea0c066cac132ad5a6d5e3ab904e06b55",
+      "moved_sha256": "6208c9dd28199580f35f3b571cb205da1370a5826e156fa9e2ee59592b57927f"
+    },
+    {
+      "old_path": "tools/build_item_ui_textures.gd.uid",
+      "target": "tools/assets/authoring/build_item_ui_textures.gd.uid",
+      "mode": 420,
+      "prepared_sha256": "160b2e0340774a74aa33d5923b184ae3a8f19d41acc138aaded3e43a67fa057c",
+      "moved_sha256": "160b2e0340774a74aa33d5923b184ae3a8f19d41acc138aaded3e43a67fa057c"
+    },
+    {
+      "old_path": "tools/build_level_editor_tiles.py",
+      "target": "tools/assets/authoring/build_level_editor_tiles.py",
+      "mode": 420,
+      "prepared_sha256": "3d579e97121f80782d971c1aaab6f7729463066ba170a0760be1637b05e849b5",
+      "moved_sha256": "3d579e97121f80782d971c1aaab6f7729463066ba170a0760be1637b05e849b5"
+    },
+    {
+      "old_path": "tools/build_painted_item_icons.gd",
+      "target": "tools/assets/authoring/build_painted_item_icons.gd",
+      "mode": 420,
+      "prepared_sha256": "967a88932ff4c4b01b787be52aae2a6dc7bc081bdf5b32232c5f7cfd30c73b32",
+      "moved_sha256": "5be3f88ac3c95f861c32a6da31df7da0e966e514fe4ded6f0bc16b4814bbe939"
+    },
+    {
+      "old_path": "tools/build_painted_item_icons.gd.uid",
+      "target": "tools/assets/authoring/build_painted_item_icons.gd.uid",
+      "mode": 420,
+      "prepared_sha256": "c21efe2728d70f4210fac0f33eb55c8e85b9c951a8560658945196e57e322c54",
+      "moved_sha256": "c21efe2728d70f4210fac0f33eb55c8e85b9c951a8560658945196e57e322c54"
+    },
+    {
+      "old_path": "tools/build_prepared_pixels.gd",
+      "target": "tools/assets/authoring/build_prepared_pixels.gd",
+      "mode": 420,
+      "prepared_sha256": "02db8b66acd247c217059f0ea0f0d3efbe73e848c9d690b7a4d85fe71823c361",
+      "moved_sha256": "02db8b66acd247c217059f0ea0f0d3efbe73e848c9d690b7a4d85fe71823c361"
+    },
+    {
+      "old_path": "tools/build_prepared_pixels.gd.uid",
+      "target": "tools/assets/authoring/build_prepared_pixels.gd.uid",
+      "mode": 420,
+      "prepared_sha256": "fbb7b0452e9dc1c04497cb148e6f56400afc8b5a146b5311c7fc408de5124d46",
+      "moved_sha256": "fbb7b0452e9dc1c04497cb148e6f56400afc8b5a146b5311c7fc408de5124d46"
+    },
+    {
+      "old_path": "tools/build_ui_kit.py",
+      "target": "tools/assets/authoring/build_ui_kit.py",
+      "mode": 420,
+      "prepared_sha256": "6971f7092b680d85937340fb7811dc3e97bd6be8951ffb54423c300dd9fed8e8",
+      "moved_sha256": "6971f7092b680d85937340fb7811dc3e97bd6be8951ffb54423c300dd9fed8e8"
+    },
+    {
+      "old_path": "tools/build_village_materials.gd",
+      "target": "tools/assets/authoring/build_village_materials.gd",
+      "mode": 420,
+      "prepared_sha256": "62dfefb5a6e57cda3344f34111c99cfc90886709c7306339b8948a66497b8881",
+      "moved_sha256": "62dfefb5a6e57cda3344f34111c99cfc90886709c7306339b8948a66497b8881"
+    },
+    {
+      "old_path": "tools/build_village_prop_atlas.py",
+      "target": "tools/assets/authoring/build_village_prop_atlas.py",
+      "mode": 420,
+      "prepared_sha256": "a542cf4c6b724ab6c8c6e19561542513736b973839f30dfa3f292d4e6ba95df0",
+      "moved_sha256": "a542cf4c6b724ab6c8c6e19561542513736b973839f30dfa3f292d4e6ba95df0"
+    },
+    {
+      "old_path": "tools/build_village_props.gd",
+      "target": "tools/assets/authoring/build_village_props.gd",
+      "mode": 420,
+      "prepared_sha256": "4414ca14e2ffe2e1239a045a9a9139229a86515d38fd3bb88ed141fb7a27f06d",
+      "moved_sha256": "4414ca14e2ffe2e1239a045a9a9139229a86515d38fd3bb88ed141fb7a27f06d"
+    },
+    {
+      "old_path": "tools/extract_artisan_assets.py",
+      "target": "tools/assets/authoring/extract_artisan_assets.py",
+      "mode": 420,
+      "prepared_sha256": "db9dce9d1257d7be866fc150c11dd79e1c8ecf9ba1e318f3b059d134e45b7317",
+      "moved_sha256": "db9dce9d1257d7be866fc150c11dd79e1c8ecf9ba1e318f3b059d134e45b7317"
+    },
+    {
+      "old_path": "tools/extract_basement_atlases.py",
+      "target": "tools/assets/authoring/extract_basement_atlases.py",
+      "mode": 420,
+      "prepared_sha256": "6c1b287bc5aef52812a33e4a271e1b56bd3913ad45bd0d650c8f3b50a73f322a",
+      "moved_sha256": "6c1b287bc5aef52812a33e4a271e1b56bd3913ad45bd0d650c8f3b50a73f322a"
+    },
+    {
+      "old_path": "tools/extract_farm_icons.gd",
+      "target": "tools/assets/authoring/extract_farm_icons.gd",
+      "mode": 420,
+      "prepared_sha256": "7ef8bd3ed4e7a69f7381ad047b62a0a40e7abaadbeda0fee400dc99378486d55",
+      "moved_sha256": "7ef8bd3ed4e7a69f7381ad047b62a0a40e7abaadbeda0fee400dc99378486d55"
+    },
+    {
+      "old_path": "tools/extract_farmyard_sprites.gd",
+      "target": "tools/assets/authoring/extract_farmyard_sprites.gd",
+      "mode": 420,
+      "prepared_sha256": "b5824e1ee1ede097ef5953d267273f5faa345cbfa0b50088380fd581848e2111",
+      "moved_sha256": "b5824e1ee1ede097ef5953d267273f5faa345cbfa0b50088380fd581848e2111"
+    },
+    {
+      "old_path": "tools/extract_hero_combat_sprites.gd",
+      "target": "tools/assets/authoring/extract_hero_combat_sprites.gd",
+      "mode": 420,
+      "prepared_sha256": "0cc58c2cf89db036572e7c996e4a5f983b198ab0d3534c0ec5c917f5efa06e18",
+      "moved_sha256": "0cc58c2cf89db036572e7c996e4a5f983b198ab0d3534c0ec5c917f5efa06e18"
+    },
+    {
+      "old_path": "tools/extract_hero_combat_sprites.gd.uid",
+      "target": "tools/assets/authoring/extract_hero_combat_sprites.gd.uid",
+      "mode": 420,
+      "prepared_sha256": "63c6102b2dcb1fb87b1f5d706a37f12b834ac26ca21a89229dc89311e4f7064e",
+      "moved_sha256": "63c6102b2dcb1fb87b1f5d706a37f12b834ac26ca21a89229dc89311e4f7064e"
+    },
+    {
+      "old_path": "tools/extract_kitchen_atlases.py",
+      "target": "tools/assets/authoring/extract_kitchen_atlases.py",
+      "mode": 420,
+      "prepared_sha256": "6c092f97ff592b0a3deccf55658c7e0fd876e84c7540611789fb286b688d61db",
+      "moved_sha256": "6c092f97ff592b0a3deccf55658c7e0fd876e84c7540611789fb286b688d61db"
+    },
+    {
+      "old_path": "tools/measure_character_walk.py",
+      "target": "tools/assets/authoring/measure_character_walk.py",
+      "mode": 420,
+      "prepared_sha256": "b3afa696ee0148fbf86b89793f5309cd8994e0f2f207f07439b597d03444baa3",
+      "moved_sha256": "4e7d4085949410e31579ea3c8f65dc4c41377578a2a6ae52a1ed0e4fcc21995c"
+    },
+    {
+      "old_path": "tools/measure_hero_actions.py",
+      "target": "tools/assets/authoring/measure_hero_actions.py",
+      "mode": 420,
+      "prepared_sha256": "9106b58118de2d629a409125b37f558d5e7a23706b0d0d25f7eb843a828c2507",
+      "moved_sha256": "9106b58118de2d629a409125b37f558d5e7a23706b0d0d25f7eb843a828c2507"
+    },
+    {
+      "old_path": "tools/measure_skeleton_regions.py",
+      "target": "tools/assets/authoring/measure_skeleton_regions.py",
+      "mode": 420,
+      "prepared_sha256": "22b735ee65d01cc0ff61a4a151a8aa336f1c9d7b76d68ee3758780446956bbc5",
+      "moved_sha256": "e7aa5fdedd5523427762386e8c8327cab1d9228ea3e0b96b99734e157e6b9834"
+    },
+    {
+      "old_path": "tools/prepare_celestial_dial.gd",
+      "target": "tools/assets/authoring/prepare_celestial_dial.gd",
+      "mode": 420,
+      "prepared_sha256": "38a1f47b4820fca8da24c57ce6a9d8b6ce84af3d1204ba415d8ac8ddabcc903e",
+      "moved_sha256": "38a1f47b4820fca8da24c57ce6a9d8b6ce84af3d1204ba415d8ac8ddabcc903e"
+    },
+    {
+      "old_path": "tools/prepare_character_walk.gd",
+      "target": "tools/assets/authoring/prepare_character_walk.gd",
+      "mode": 420,
+      "prepared_sha256": "dc5bd0d59bd655770a5b58873640f64215e5d65a5d40cd637caa969ef8f356b4",
+      "moved_sha256": "dc5bd0d59bd655770a5b58873640f64215e5d65a5d40cd637caa969ef8f356b4"
+    },
+    {
+      "old_path": "tools/prepare_hero_actions.gd",
+      "target": "tools/assets/authoring/prepare_hero_actions.gd",
+      "mode": 420,
+      "prepared_sha256": "87b837632a55ee180e158db393080d2f814bd4de4244f432b6522084e76c9b1e",
+      "moved_sha256": "87b837632a55ee180e158db393080d2f814bd4de4244f432b6522084e76c9b1e"
+    },
+    {
+      "old_path": "tools/prepare_skeleton_v2.gd",
+      "target": "tools/assets/authoring/prepare_skeleton_v2.gd",
+      "mode": 420,
+      "prepared_sha256": "3a4630da303a9f0c572ce6f2be81a7123a0e4f2878efc3bdac51b3d1f074607c",
+      "moved_sha256": "3a4630da303a9f0c572ce6f2be81a7123a0e4f2878efc3bdac51b3d1f074607c"
+    },
+    {
+      "old_path": "tools/slice_item_icons.py",
+      "target": "tools/assets/authoring/slice_item_icons.py",
+      "mode": 420,
+      "prepared_sha256": "21431d962e4ff86dd7deb470c426e3bbfc69fc3f17352beb81e49df7a1972368",
+      "moved_sha256": "21431d962e4ff86dd7deb470c426e3bbfc69fc3f17352beb81e49df7a1972368"
+    },
+    {
+      "old_path": "tools/update_ui_visual_manifest.py",
+      "target": "tools/assets/authoring/update_ui_visual_manifest.py",
+      "mode": 420,
+      "prepared_sha256": "b2e3dd94ac292d209c62d9c11dff2e5742d9c6dad09016819f032a2e8aa8ba9b",
+      "moved_sha256": "b2e3dd94ac292d209c62d9c11dff2e5742d9c6dad09016819f032a2e8aa8ba9b"
+    }
+  ],
+  "local_ignored_UID": [
+    {
+      "old_path": "tools/build_clean_interior_atlas.gd.uid",
+      "target": "tools/assets/authoring/build_clean_interior_atlas.gd.uid",
+      "bytes": "uid://cjdnskud18fbc\n",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/build_village_materials.gd.uid",
+      "target": "tools/assets/authoring/build_village_materials.gd.uid",
+      "bytes": "uid://ckqo120mnir35\n",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/build_village_props.gd.uid",
+      "target": "tools/assets/authoring/build_village_props.gd.uid",
+      "bytes": "uid://op88cfb4bnb\n",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/extract_farm_icons.gd.uid",
+      "target": "tools/assets/authoring/extract_farm_icons.gd.uid",
+      "bytes": "uid://bc1hlfm0bs21a\n",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/extract_farmyard_sprites.gd.uid",
+      "target": "tools/assets/authoring/extract_farmyard_sprites.gd.uid",
+      "bytes": "uid://3kjyo1crigys\n",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/prepare_celestial_dial.gd.uid",
+      "target": "tools/assets/authoring/prepare_celestial_dial.gd.uid",
+      "bytes": "uid://cbsnjan2j0ejm\n",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/prepare_character_walk.gd.uid",
+      "target": "tools/assets/authoring/prepare_character_walk.gd.uid",
+      "bytes": "uid://by0a8nduq4qx4\n",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/prepare_hero_actions.gd.uid",
+      "target": "tools/assets/authoring/prepare_hero_actions.gd.uid",
+      "bytes": "uid://qibr172a5gag\n",
+      "tracked": false
+    },
+    {
+      "old_path": "tools/prepare_skeleton_v2.gd.uid",
+      "target": "tools/assets/authoring/prepare_skeleton_v2.gd.uid",
+      "bytes": "uid://bia17i2pavkds\n",
+      "tracked": false
+    }
+  ],
+  "runtime_changes": false
+}

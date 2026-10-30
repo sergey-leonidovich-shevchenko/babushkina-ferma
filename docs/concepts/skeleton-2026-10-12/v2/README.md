@@ -2,7 +2,7 @@
 
 Пользовательский [кадр с обрезанным скелетом](before.png) воспроизводится повреждёнными ячейками старого `core_enemy_walk_8dir.png`. Новые кадры сохраняют облик [исходного воина](../../../../assets/game/enemies/skeleton_warrior.png). Встроенный imagegen подготовил [ходьбу](sources/walk.png) и [стрельбу](sources/actions.png); запросы сохранены в [prompts.json](prompts.json). Первый [черновик стрельбы](sources/actions-draft.png) не переносился в игру из-за недостаточных промежутков между фигурами.
 
-[regions.json](regions.json) содержит измеренные области 48 целых фигур. `tools/measure_skeleton_regions.py` только читает пиксели и записывает координаты; Godot `tools/prepare_skeleton_v2.gd` выполняет нарезку и подготовку листов 384×1024 с безопасными полями. Игровые ресурсы: [skeleton_v2](../../../../assets/game/enemies/skeleton_v2).
+[regions.json](regions.json) содержит измеренные области 48 целых фигур. `python3 tools/run.py assets.authoring.measure_skeleton_regions` только читает пиксели и записывает координаты; Godot `res://tools/assets/authoring/prepare_skeleton_v2.gd` выполняет нарезку и подготовку листов 384×1024 с безопасными полями. Игровые ресурсы: [skeleton_v2](../../../../assets/game/enemies/skeleton_v2).
 
 Нативные кадры игрового рендера: [все позы](poses.png), [промах с сохранением 100 HP](miss.png), [контакт с уменьшением HP](hit.png). Их воспроизводит `tools/ranged_combat_capture.gd`, не записывая пользовательские сохранения. Снаряды движутся физически; изображение стрелы использует ту же позицию, что и проверка попадания.
 
