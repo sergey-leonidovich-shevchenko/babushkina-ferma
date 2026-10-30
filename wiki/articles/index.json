@@ -1,5 +1,18 @@
 [
   {
+    "id": "code-quality",
+    "file": "code-quality.md",
+    "title": "Качество кода: проверки перед ревью",
+    "summary": "Единый check целых изменённых файлов, закреплённые инструменты, честный legacy baseline и самопроверка настоящих producer. REFACTOR-07 в работе; линтер не заменяет независимое ревью.",
+    "tags": [
+      "Разработка",
+      "REFACTOR-07",
+      "Линтеры",
+      "Проверки",
+      "Producer"
+    ]
+  },
+  {
     "id": "creative-review25-acceptance",
     "file": "creative-review25-acceptance.md",
     "title": "Обзор 25 октября: редакционная работа принята",

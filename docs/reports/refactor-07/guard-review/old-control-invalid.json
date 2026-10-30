@@ -1,0 +1,11 @@
+{
+  "old_control_valid": false,
+  "old_test_executed": false,
+  "reason": "spec_from_file_location returned None for the .py.txt suffix. The code1 was loader failure, not a red test. Raw log retained unchanged.",
+  "retained_log": "pre-guard-same-regression.txt",
+  "superseded_by": "../guard-recheck/result.json",
+  "still_valid": [
+    "inverse old source SHA matches initial freeze",
+    "current test and full11/static/actual-mirror passed in this earlier series"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "task": "REFACTOR-07",
+  "version": "0.0.385",
+  "parent": "5276b87f518c2f4562d53ab5be009ecb977a57ec",
+  "same_test_sha256": "78dbaee706e13c1391719e52183163cb63fe86dcfe2d4241f0af72e60b08c1ba",
+  "all8_gates_passed": true,
+  "final_parent_PYTHONDONTWRITEBYTECODE": "unset",
+  "architecture": {
+    "suites": 109,
+    "cases": 1436
+  },
+  "Game_passed": 53502,
+  "wiki_tests": 145,
+  "redraw_log_lines": [
+    "REDRAW: 90 passed, 0 failed",
+    "REDRAW: 90 passed, 0 failed"
+  ],
+  "regression": [
+    {
+      "label": "old",
+      "tests_run": 2,
+      "failures": 2,
+      "errors": 0,
+      "hooks_observed": 2
+    },
+    {
+      "label": "new",
+      "tests_run": 2,
+      "failures": 0,
+      "errors": 0,
+      "hooks_observed": 2
+    }
+  ],
+  "preservation": {
+    "all8_passed": true,
+    "source_freeze_unchanged": true,
+    "old_reports_unchanged": 22411,
+    "uid_unchanged": 800,
+    "primary_working_unchanged": 5,
+    "primary_staged_unchanged": 3,
+    "own_index_unchanged": true,
+    "source_count": 1230,
+    "version": "0.0.385",
+    "no_new_native_GPU_FPS_admission": true
+  },
+  "partial_01": "SIGINT by author after96 suites/1259 cases; NOT a complete gate",
+  "review": "pending independent current-head Tech review, CI and Team decision; no Task-Complete"
+}

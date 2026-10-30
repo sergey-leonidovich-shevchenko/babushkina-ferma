@@ -1,0 +1,68 @@
+[
+  {
+    "name": "quality",
+    "argv": [
+      "python3",
+      "tools/run.py",
+      "quality.check"
+    ],
+    "code": 0,
+    "started_utc": "2026-10-30T13:30:52.776307+00:00",
+    "seconds": 8.896
+  },
+  {
+    "name": "version",
+    "argv": [
+      "python3",
+      "tools/run.py",
+      "planning.bump_version",
+      "--check"
+    ],
+    "code": 0,
+    "started_utc": "2026-10-30T13:31:01.673061+00:00",
+    "seconds": 0.062
+  },
+  {
+    "name": "documentation",
+    "argv": [
+      "python3",
+      "tools/run.py",
+      "quality.check_documentation"
+    ],
+    "code": 0,
+    "started_utc": "2026-10-30T13:31:01.735279+00:00",
+    "seconds": 2.224
+  },
+  {
+    "name": "game-normal-f10",
+    "argv": [
+      "zsh",
+      "run_tests.sh"
+    ],
+    "code": 0,
+    "started_utc": "2026-10-30T13:31:03.959609+00:00",
+    "seconds": 369.793
+  },
+  {
+    "name": "smoke",
+    "argv": [
+      "zsh",
+      "tools/smoke_test.sh"
+    ],
+    "code": 0,
+    "started_utc": "2026-10-30T13:37:13.764585+00:00",
+    "seconds": 9.959
+  },
+  {
+    "name": "wiki",
+    "argv": [
+      "pnpm",
+      "--dir",
+      "wiki",
+      "check"
+    ],
+    "code": 0,
+    "started_utc": "2026-10-30T13:37:23.724950+00:00",
+    "seconds": 51.957
+  }
+]

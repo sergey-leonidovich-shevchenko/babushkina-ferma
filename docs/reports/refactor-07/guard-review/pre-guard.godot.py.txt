@@ -1,0 +1,133 @@
+"""Godot semantic checks in an owned external project, including real dependencies."""
+
+from __future__ import annotations
+
+import os
+import re
+import shutil
+import subprocess
+import tempfile
+from pathlib import Path, PurePosixPath
+
+from tools.quality.process import run
+from tools.quality.selection import git_paths, sha
+
+WARNINGS = (
+    "untyped_declaration",
+    "unsafe_call_argument",
+    "unsafe_cast",
+    "unsafe_method_access",
+    "unsafe_property_access",
+    "unsafe_void_return",
+)
+IGNORE = "@warning_ignore_start(" + ", ".join('"' + name + '"' for name in WARNINGS) + ")\n"
+
+
+def configuration(project: Path) -> None:
+    """Settings are loaded at startup; changing them through reload() was ineffective."""
+    settings = (
+        '[application]\nconfig/name="REFACTOR-07 ' + project.name + '"\n'
+        "config/use_custom_user_dir=false\n[debug]\ngdscript/warnings/enable=true\n"
+        'gdscript/warnings/directory_rules={"res://":1}\n'
+    )
+    settings += "".join("gdscript/warnings/" + name + "=2\n" for name in WARNINGS)
+    (project / "override.cfg").write_text(settings)
+
+
+def mirror(root: Path, destination: Path, files: list[str], legacy: dict[str, str]) -> None:
+    """Copy resources; never link writable imports, UIDs or user slots to the source tree."""
+    if any(
+        PurePosixPath(name).is_absolute() or ".." in PurePosixPath(name).parts for name in files
+    ):
+        raise ValueError("non-canonical semantic input")
+    names = set(git_paths(root)) | set(files) | {"project.godot", "main.tscn"}
+    pending = [
+        name
+        for name in names
+        if name in {"project.godot", "main.tscn"}
+        or name.startswith(("assets/", "scripts/", "tests/", "tools/"))
+        and Path(name).suffix != ".py"
+        or name in files
+    ]
+    copied: set[str] = set()
+    while pending:
+        name = pending.pop()
+        if PurePosixPath(name).is_absolute() or ".." in PurePosixPath(name).parts:
+            raise ValueError("non-canonical semantic input: " + name)
+        if name in copied:
+            continue
+        copied.add(name)
+        source = root / name
+        if source.is_symlink() or not source.resolve().is_relative_to(root.resolve()):
+            raise ValueError("unsafe semantic input: " + name)
+        if not source.is_file():
+            continue
+        target = destination / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if source.suffix == ".gd":
+            content = source.read_text()
+            # Only newly enabled warnings in byte-identical legacy dependencies are exempt.
+            # Semantic errors and previously enabled warnings remain active in every file.
+            if name not in files and sha(source) == legacy.get(name):
+                content = IGNORE + content
+            target.write_text(content)
+            pending.extend(
+                match
+                for match in re.findall(r"""["']res://([^"'\n]+)["']""", content)
+                if (root / match).is_file()
+            )
+        else:
+            shutil.copyfile(source, target)
+    configuration(destination)
+
+
+def analyze_project(project: Path, files: list[str], engine: str) -> int:
+    """Fresh import then check-only; logged compile errors fail even when Godot exits zero."""
+    configuration(project)
+    if run(
+        [
+            engine,
+            "--headless",
+            "--path",
+            str(project),
+            "--log-file",
+            str(project / "quality-import.log"),
+            "--editor",
+            "--quit",
+        ],
+        project,
+        180,
+    ):
+        return 1
+    return sum(
+        run(
+            [
+                engine,
+                "--headless",
+                "--path",
+                str(project),
+                "--log-file",
+                str(project / "quality-check.log"),
+                "--check-only",
+                "--script",
+                "res://" + name,
+            ],
+            project,
+            90,
+        )
+        for name in files
+    )
+
+
+def analyze(root: Path, files: list[str], legacy: dict[str, str]) -> int:
+    """Check a disposable copy: check-only still runs class static initializers."""
+    engine = os.environ.get("FARM_GODOT_BIN")
+    if not engine:
+        raise ValueError("FARM_GODOT_BIN must name pinned Godot 4.7.1")
+    version = subprocess.check_output([engine, "--version"], text=True).strip()
+    if not version.startswith("4.7.1.stable.official."):
+        raise ValueError("semantic analyzer requires Godot 4.7.1 official: " + version)
+    with tempfile.TemporaryDirectory(prefix="farm quality Godot ") as temporary:
+        project = Path(temporary)
+        mirror(root, project, files, legacy)
+        return analyze_project(project, files, engine)

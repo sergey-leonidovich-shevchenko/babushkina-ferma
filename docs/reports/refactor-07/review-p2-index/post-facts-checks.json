@@ -1,0 +1,29 @@
+[
+  {
+    "name": "documentation",
+    "argv": [
+      "python3",
+      "tools/run.py",
+      "quality.check_documentation"
+    ],
+    "code": 0,
+    "seconds": 2.315
+  },
+  {
+    "name": "wiki-facts",
+    "argv": [
+      "pnpm",
+      "--dir",
+      "wiki",
+      "check"
+    ],
+    "code": 1,
+    "seconds": 4.064
+  },
+  {
+    "name": "wiki-facts-retry",
+    "code": 0,
+    "seconds": 53.362,
+    "reason": "same Godot permissions as full successful gates; prior sandbox get_system_ca_certificates error retained"
+  }
+]

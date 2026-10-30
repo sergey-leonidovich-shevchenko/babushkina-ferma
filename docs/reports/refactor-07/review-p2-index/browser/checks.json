@@ -1,0 +1,18 @@
+{
+  "url": "http://127.0.0.1:4197/#/guides/code-quality",
+  "version": "0.0.385",
+  "desktop": {
+    "width": 1280,
+    "scrollWidth": 1280
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "newSectionObserved": true,
+  "stagedCommandObserved": true,
+  "alternateIndexExplanationObserved": true,
+  "internalRefactoringLinkRoundTrip": true,
+  "serverOwnPort": 4197,
+  "user4175Untouched": true
+}

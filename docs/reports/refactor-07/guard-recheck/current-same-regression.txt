@@ -1,0 +1,6 @@
+test_semantic_helpers_cannot_write_to_checkout_or_existing_directory (__main__.SelectionTests.test_semantic_helpers_cannot_write_to_checkout_or_existing_directory) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.071s
+
+OK

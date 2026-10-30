@@ -1,0 +1,137 @@
+{
+  "http": [
+    {
+      "url": "http://127.0.0.1:4196/generated/catalog.json",
+      "code": 200,
+      "bytes": 4858939,
+      "sha256": "ff305fabe626cd0ae274d781e85afa81c563154d9031789445de8825baa55bae",
+      "exact_dist_bytes": true
+    },
+    {
+      "url": "http://127.0.0.1:4196/generated/planning.json",
+      "code": 200,
+      "bytes": 12974117,
+      "sha256": "8569fcdbc3870e36a7ad9cdc9216777e13306bc151ca09b9019ca984d529a9e1",
+      "exact_dist_bytes": true
+    },
+    {
+      "url": "http://127.0.0.1:4196/generated/attachments/a2752855a096fbe144b23a173bc15f1ab53f9da704a37b45ee2fcde510cf16df.json",
+      "code": 200,
+      "bytes": 140629,
+      "sha256": "a2752855a096fbe144b23a173bc15f1ab53f9da704a37b45ee2fcde510cf16df",
+      "exact_dist_bytes": true
+    },
+    {
+      "url": "http://127.0.0.1:4196/generated/attachments/a88ad8ca1399da22b8d9a547ac258f8455b54b62fb5f32c17e68779465495b47.json",
+      "code": 200,
+      "bytes": 4560,
+      "sha256": "a88ad8ca1399da22b8d9a547ac258f8455b54b62fb5f32c17e68779465495b47",
+      "exact_dist_bytes": true
+    }
+  ],
+  "guide_registered": true,
+  "tasks": {
+    "REFACTOR-00": {
+      "status": "done",
+      "dependencies": [],
+      "date": "2026-10-25"
+    },
+    "REFACTOR-01": {
+      "status": "done",
+      "dependencies": [
+        "REFACTOR-00",
+        "VFOLIAGE-010"
+      ],
+      "date": "2026-10-27"
+    },
+    "REFACTOR-02": {
+      "status": "done",
+      "dependencies": [
+        "REFACTOR-01"
+      ],
+      "date": "2026-10-27"
+    },
+    "REFACTOR-03": {
+      "status": "done",
+      "dependencies": [
+        "REFACTOR-02"
+      ],
+      "date": "2026-10-30"
+    },
+    "REFACTOR-04": {
+      "status": "blocked",
+      "dependencies": [
+        "REFACTOR-01",
+        "REFACTOR-06"
+      ],
+      "date": null
+    },
+    "REFACTOR-05": {
+      "status": "blocked",
+      "dependencies": [
+        "REFACTOR-01",
+        "REFACTOR-04"
+      ],
+      "date": null
+    },
+    "REFACTOR-06": {
+      "status": "blocked",
+      "dependencies": [
+        "REFACTOR-03",
+        "REFACTOR-07"
+      ],
+      "date": null
+    },
+    "REFACTOR-07": {
+      "status": "in_progress",
+      "dependencies": [
+        "REFACTOR-03"
+      ],
+      "date": null
+    }
+  },
+  "screenshots": [
+    {
+      "file": "epic-desktop.jpg",
+      "format": "JPEG",
+      "size": [
+        1280,
+        900
+      ]
+    },
+    {
+      "file": "guide-desktop.jpg",
+      "format": "JPEG",
+      "size": [
+        1280,
+        900
+      ]
+    },
+    {
+      "file": "guide-mobile.jpg",
+      "format": "JPEG",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "file": "task-desktop.jpg",
+      "format": "JPEG",
+      "size": [
+        1280,
+        900
+      ]
+    },
+    {
+      "file": "task-mobile.jpg",
+      "format": "JPEG",
+      "size": [
+        390,
+        844
+      ]
+    }
+  ],
+  "user_server4175_untouched": true,
+  "qa_server": 4196
+}

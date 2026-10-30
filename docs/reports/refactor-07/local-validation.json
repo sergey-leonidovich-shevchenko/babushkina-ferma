@@ -1,0 +1,61 @@
+{
+  "task": "REFACTOR-07",
+  "version": "0.0.383",
+  "phase": "local-prepublication",
+  "status": "in_progress-not-accepted",
+  "source_freeze": "staging-source-freeze.json",
+  "source_files": 28,
+  "full_local": {
+    "architecture_suites": 108,
+    "architecture_cases": 1424,
+    "Game_passed": 53502,
+    "Game_failed": 0,
+    "normal": 90,
+    "f10": 90,
+    "smoke_frames": 180,
+    "performance_series_passed": 6,
+    "Wiki_tests_passed": 145
+  },
+  "latest_scoped": {
+    "quality_tests": 11,
+    "python_whole_files": 8,
+    "actual_Godot_mirror": true,
+    "public_producer_commands": 14,
+    "old_new_same_test_actually_executed": true,
+    "documentation": true,
+    "version_sync": true
+  },
+  "preservation": {
+    "legacy_source_bytes": 1220,
+    "canonical_uid_bytes_modes": 304,
+    "foreign_primary_working_files_modes": 5,
+    "foreign_primary_index_files": 3,
+    "preexisting_tracked_reports_unchanged": true
+  },
+  "browser": {
+    "screenshots": 5,
+    "widths": [
+      1280,
+      390
+    ],
+    "overflow": false,
+    "guide_search": true,
+    "epic_tasks": 8,
+    "task03_done_date": "2026-10-30",
+    "task06_blocked_by07": true,
+    "own_tab_closed": true,
+    "own_server4196_stopped": true,
+    "user_server4175_untouched": true
+  },
+  "limits": [
+    "Full local series started at25-file snapshot; Wiki documents and mirror guard changed during architecture. Final11/static/actual mirror/producer repeated; later comments/docstrings leave executable AST unchanged and were rechecked.",
+    "Outer full-series script exit2 is the preserved initial-freeze mismatch, not a failed architecture/Game/performance/Wiki check. All eight stage exit codes are0.",
+    "Initial path snapshot omitted Cyrillic app Info.plist; final NUL28-file manifest and version check include it.",
+    "The first old-control code1 was a loader failure and is explicitly invalidated; guard-recheck proves tests_run=1 and actual SameFileError in disposable fixture.",
+    "No native visual/hardware FPS admission. Exact published head still requires full CI, independent Tech review and Team decision."
+  ],
+  "review": null,
+  "CI": null,
+  "Team_decision": null,
+  "late_config_whitespace_same_values": true
+}

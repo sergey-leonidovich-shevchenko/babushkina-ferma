@@ -1,0 +1,92 @@
+........All checks passed!
+QUALITY STEP ruff: 0.103s
+unformatted: File would be reformatted
+ --> probe.py:1:7
+  |
+  - value:int=1
+1 + value: int = 1
+  |
+
+1 file would be reformatted
+QUALITY STEP ruff: 0.026s
+Success: no issues found in 1 source file
+QUALITY STEP mypy: 3.116s
+F401 [*] `os` imported but unused
+ --> probe.py:1:8
+  |
+1 | import os
+  |        ^^
+2 |
+3 | value: int = 1
+  |
+help: Remove unused import: `os`
+  |
+  - import os
+1 |
+  |
+
+Found 1 error.
+[*] 1 fixable with `--fix`.
+QUALITY STEP ruff: 0.030s
+1 file already formatted
+QUALITY STEP ruff: 0.018s
+Success: no issues found in 1 source file
+QUALITY STEP mypy: 3.066s
+All checks passed!
+QUALITY STEP ruff: 0.021s
+1 file already formatted
+QUALITY STEP ruff: 0.023s
+probe.py:1: error: Incompatible types in assignment (expression has type "str", variable has type "int")  [assignment]
+Found 1 error in 1 file (checked 1 source file)
+QUALITY STEP mypy: 3.997s
+All checks passed!
+QUALITY STEP ruff: 0.019s
+1 file reformatted
+QUALITY STEP ruff: 0.019s
+All checks passed!
+QUALITY STEP ruff: 0.020s
+1 file already formatted
+QUALITY STEP ruff: 0.020s
+Success: no issues found in 1 source file
+QUALITY STEP mypy: 3.466s
+.SCRIPT ERROR: Parse Error: Cannot return a value of type "String" as "int".
+          at: GDScript::reload (res://probe.gd:4)
+SCRIPT ERROR: Parse Error: Cannot return value of type "String" because the function return type is "int".
+          at: GDScript::reload (res://probe.gd:4)
+ERROR: Failed to load script "res://probe.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Parameter "x" has no static type. (Warning treated as error.)
+          at: GDScript::reload (res://probe.gd:3)
+SCRIPT ERROR: Parse Error: The argument 1 of the constructor "int()" requires the subtype "int", "bool", or "float" but the supertype "Variant" was provided. (Warning treated as error.)
+          at: GDScript::reload (res://probe.gd:4)
+ERROR: Failed to load script "res://probe.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: The method "nonexistent()" is not present on the inferred type "Variant" (but may be present on a subtype). (Warning treated as error.)
+          at: GDScript::reload (res://probe.gd:4)
+ERROR: Failed to load script "res://probe.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Инициализация проекта (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Сканирование структуры файлов…[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Загрузка глобальных имен классов…[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Проверка GDExtensions…[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Создание скриптов автозагрузки…[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Инициализация плагинов…[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Начало сканирование файлов…[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Загрузка редактора (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Загрузка макета редактора…[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Загрузка док-панели…[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+QUALITY STEP Godot: 6.872s
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+QUALITY STEP Godot: 0.341s
+..
+----------------------------------------------------------------------
+Ran 11 tests in 55.082s
+
+OK

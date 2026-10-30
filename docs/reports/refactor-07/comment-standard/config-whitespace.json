@@ -1,0 +1,6 @@
+{
+  "old_sha256": "f265ae8ba45279dc820ddfcfd649dcc0cf7a9ecf56adb8ceda131488bf217a8a",
+  "new_sha256": "732ed7fb6aae932e630356e26baeacafcf049a2e9eb7167497707db6800688bf",
+  "toml_values_unchanged": true,
+  "reason": "git diff --check found a final empty line in new config; raw logs were not modified."
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "good",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": ""
+  },
+  {
+    "name": "semantic",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": "SCRIPT ERROR: Parse Error: Cannot return a value of type \"String\" as \"int\".\n          at: GDScript::reload (res://semantic.gd:4)\nSCRIPT ERROR: Parse Error: Cannot return value of type \"String\" because the function return type is \"int\".\n          at: GDScript::reload (res://semantic.gd:4)\nERROR: Failed to load script \"res://semantic.gd\" with error \"Parse error\".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n"
+  },
+  {
+    "name": "untyped",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": "SCRIPT ERROR: Parse Error: Parameter \"x\" has no static type. (Warning treated as error.)\n          at: GDScript::reload (res://untyped.gd:3)\nERROR: Failed to load script \"res://untyped.gd\" with error \"Parse error\".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n"
+  },
+  {
+    "name": "unsafe",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": "SCRIPT ERROR: Parse Error: The method \"nonexistent()\" is not present on the inferred type \"Variant\" (but may be present on a subtype). (Warning treated as error.)\n          at: GDScript::reload (res://unsafe.gd:4)\nERROR: Failed to load script \"res://unsafe.gd\" with error \"Parse error\".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n"
+  },
+  {
+    "name": "static",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": ""
+  },
+  {
+    "name": "runtime",
+    "code": 0,
+    "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+    "stderr": ""
+  },
+  {
+    "static_initializer_executed": true,
+    "runtime_executed": false
+  }
+]

@@ -1,0 +1,129 @@
+{
+  "legacy_source_count": 1220,
+  "legacy_bytes_unchanged": true,
+  "changed": [],
+  "ruff_lint_diagnostics": 6217,
+  "ruff_codes": {
+    "I001": 290,
+    "F401": 75,
+    "F841": 6,
+    "B007": 12,
+    "E702": 3096,
+    "E701": 2458,
+    "B905": 95,
+    "E731": 5,
+    "B023": 29,
+    "UP031": 22,
+    "UP009": 1,
+    "E401": 63,
+    "UP022": 1,
+    "UP033": 3,
+    "E721": 6,
+    "B017": 1,
+    "invalid-syntax": 3,
+    "B904": 31,
+    "E741": 3,
+    "UP017": 2,
+    "E402": 14,
+    "F821": 1
+  },
+  "ruff_format": {
+    "would_reformat": 286,
+    "already_formatted": 26,
+    "formatter_parse_limitations_python_ast_pass": 3
+  },
+  "gdlint_problems": 16364,
+  "gdformat": {
+    "would_reformat": 867,
+    "unchanged": 38
+  },
+  "timing_context": "Read-only baseline inventory while architecture was active; costs are observations, not a serial performance benchmark.",
+  "gdlint_parser_rejections": [
+    {
+      "file": "scripts/systems/debug_overlay_renderer.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 240, column 55."
+    },
+    {
+      "file": "scripts/systems/debug_playground_renderer.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 30, column 55."
+    },
+    {
+      "file": "scripts/systems/debug_playground_system.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 27, column 68."
+    },
+    {
+      "file": "scripts/systems/farm_life_system.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 84, column 65."
+    },
+    {
+      "file": "scripts/systems/fence_system.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 81, column 90."
+    },
+    {
+      "file": "scripts/systems/level_editor_atlas_picker_system.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 63, column 58."
+    },
+    {
+      "file": "scripts/systems/level_editor_renderer.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 182, column 45."
+    },
+    {
+      "file": "scripts/systems/level_editor_system.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 103, column 33."
+    },
+    {
+      "file": "tests/suites/living_world_suite.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 324, column 45."
+    },
+    {
+      "file": "tests/suites/storage_view_cache_suite.gd",
+      "diagnostic": "Unexpected token Token('TYPE_HINT', 'Actions.candidates') at line 85, column 23."
+    },
+    {
+      "file": "tools/assets/authoring/build_item_ui_textures.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 21, column 48."
+    },
+    {
+      "file": "tools/assets/contracts/padded_atlas_capture.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 57, column 24."
+    },
+    {
+      "file": "tools/assets/contracts/visual_resource_capture.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 54, column 24."
+    },
+    {
+      "file": "tools/assets/contracts/visual_sampling_capture.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 67, column 24."
+    },
+    {
+      "file": "tools/qa/compatibility/design_audit_capture.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 12, column 54."
+    },
+    {
+      "file": "tools/qa/compatibility/farm_cursor_review.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 27, column 54."
+    },
+    {
+      "file": "tools/qa/compatibility/focus_pause_native.gd",
+      "diagnostic": "Unexpected token Token('TYPE_HINT', 'focused') at line 45, column 145."
+    },
+    {
+      "file": "tools/qa/compatibility/front_facing_capture.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 20, column 62."
+    },
+    {
+      "file": "tools/qa/compatibility/held_weapon_capture.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 26, column 59."
+    },
+    {
+      "file": "tools/qa/compatibility/house_furniture_capture.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 23, column 60."
+    },
+    {
+      "file": "tools/qa/compatibility/world_workbench_review.gd",
+      "diagnostic": "Unexpected token Token('IF', 'if') at line 29, column 52."
+    }
+  ],
+  "gdformat_parser_rejections": 21,
+  "parser_limitation_policy": "Legacy hashes only. No parser exception applies to changed/new files; canonical formatting/manual splitting must resolve unsupported compact constructs before gdlint. Ruff formatter rejection of three soft-keyword assignments is a formatter limitation: Python3.11 AST passes. No source was rewritten."
+}

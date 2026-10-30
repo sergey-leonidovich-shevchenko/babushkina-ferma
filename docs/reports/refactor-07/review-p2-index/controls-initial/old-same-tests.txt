@@ -1,0 +1,23 @@
+test_actual_hook_rejects_partial_staging_before_bump (tools.quality.test_index.IndexTests.test_actual_hook_rejects_partial_staging_before_bump) ... FAIL
+test_actual_hook_rejects_partial_legacy_before_baseline_filter (tools.quality.test_index.IndexTests.test_actual_hook_rejects_partial_legacy_before_baseline_filter) ... FAIL
+
+======================================================================
+FAIL: test_actual_hook_rejects_partial_staging_before_bump (tools.quality.test_index.IndexTests.test_actual_hook_rejects_partial_staging_before_bump)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/quality/test_index.py", line 191, in test_actual_hook_rejects_partial_staging_before_bump
+    self.assertIn("QUALITY INDEX: staged and working", result.stderr)
+AssertionError: 'QUALITY INDEX: staged and working' not found in ''
+
+======================================================================
+FAIL: test_actual_hook_rejects_partial_legacy_before_baseline_filter (tools.quality.test_index.IndexTests.test_actual_hook_rejects_partial_legacy_before_baseline_filter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/quality/test_index.py", line 210, in test_actual_hook_rejects_partial_legacy_before_baseline_filter
+    self.assertIn("QUALITY INDEX: staged and working", result.stderr)
+AssertionError: 'QUALITY INDEX: staged and working' not found in ''
+
+----------------------------------------------------------------------
+Ran 2 tests in 9.823s
+
+FAILED (failures=2)

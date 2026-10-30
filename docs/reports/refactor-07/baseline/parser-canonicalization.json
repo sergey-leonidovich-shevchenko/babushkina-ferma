@@ -1,0 +1,122 @@
+{
+  "sources": {
+    "compact.gd": "extends SceneTree\n\nfunc _initialize() -> void:\n\tvar value: int = 1; if value == 1: quit()\n",
+    "canonical.gd": "extends SceneTree\n\n\nfunc _initialize() -> void:\n\tvar value: int = 1\n\tif value == 1:\n\t\tquit()\n",
+    "compact.py": "value: int = 1;match: int = 2\n",
+    "canonical.py": "value: int = 1\nmatch: int = 2\n"
+  },
+  "checks": [
+    {
+      "name": "compact.gd-gdformat",
+      "argv": [
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/gdformat",
+        "--check",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm parser canonical forms k56j97h8/compact.gd"
+      ],
+      "code": 1,
+      "stdout": "1 file would be left unchanged\n",
+      "stderr": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm parser canonical forms k56j97h8/compact.gd:\n\n\tvar value: int = 1; if value == 1: quit()\n                            ^\n\nUnexpected token Token('IF', 'if') at line 4, column 22.\nExpected one of: \n\t* _DEDENT\n\t* _NL\n\n",
+      "seconds": 0.403
+    },
+    {
+      "name": "compact.gd-gdlint",
+      "argv": [
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/gdlint",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm parser canonical forms k56j97h8/compact.gd"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm parser canonical forms k56j97h8/compact.gd:\n\n\tvar value: int = 1; if value == 1: quit()\n                            ^\n\nUnexpected token Token('IF', 'if') at line 4, column 22.\nExpected one of: \n\t* _NL\n\t* _DEDENT\n\nFailure: 1 problem found\n",
+      "seconds": 0.343
+    },
+    {
+      "name": "compact.gd-godot",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm parser canonical forms k56j97h8",
+        "--check-only",
+        "--script",
+        "res://compact.gd"
+      ],
+      "code": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": "",
+      "seconds": 1.035
+    },
+    {
+      "name": "canonical.gd-gdformat",
+      "argv": [
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/gdformat",
+        "--check",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm parser canonical forms k56j97h8/canonical.gd"
+      ],
+      "code": 0,
+      "stdout": "1 file would be left unchanged\n",
+      "stderr": "",
+      "seconds": 0.438
+    },
+    {
+      "name": "canonical.gd-gdlint",
+      "argv": [
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/gdlint",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm parser canonical forms k56j97h8/canonical.gd"
+      ],
+      "code": 0,
+      "stdout": "Success: no problems found\n",
+      "stderr": "",
+      "seconds": 0.368
+    },
+    {
+      "name": "canonical.gd-godot",
+      "argv": [
+        "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm parser canonical forms k56j97h8",
+        "--check-only",
+        "--script",
+        "res://canonical.gd"
+      ],
+      "code": 0,
+      "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\n\n",
+      "stderr": "",
+      "seconds": 0.35
+    },
+    {
+      "name": "compact.py-ruff-format",
+      "argv": [
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/ruff",
+        "format",
+        "--check",
+        "--config",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/pyproject.toml",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm parser canonical forms k56j97h8/compact.py"
+      ],
+      "code": 2,
+      "stdout": "invalid-syntax: Compound statements are not allowed on the same line as simple statements\n --> /var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm parser canonical forms k56j97h8/compact.py:1:16\n  |\n1 | value: int = 1;match: int = 2\n  |                ^^^^^\n\n",
+      "stderr": "",
+      "seconds": 0.106
+    },
+    {
+      "name": "canonical.py-ruff-format",
+      "argv": [
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/ruff",
+        "format",
+        "--check",
+        "--config",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/pyproject.toml",
+        "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm parser canonical forms k56j97h8/canonical.py"
+      ],
+      "code": 0,
+      "stdout": "1 file already formatted\n",
+      "stderr": "",
+      "seconds": 0.03
+    }
+  ],
+  "python311_ast_both_pass": true,
+  "canonical_forms_all_pass": true,
+  "godot_accepts_both_gd_forms": true,
+  "temp_removed": true
+}

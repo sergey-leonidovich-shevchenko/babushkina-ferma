@@ -1,0 +1,201 @@
+{
+  "schema": 1,
+  "purpose": "full_gate",
+  "plan_sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7",
+  "complete": true,
+  "budget_passed": true,
+  "cases": [
+    {
+      "repeat": 1,
+      "mode": "normal",
+      "folder": "1-normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 56.9,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          60,
+          41,
+          53,
+          56,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10006090,
+        "window_frames": 569,
+        "profile": "Codex-Performance-aaecb891b9d447a0b4372fbd45466c11",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1364596
+      }
+    },
+    {
+      "repeat": 1,
+      "mode": "f10",
+      "folder": "1-f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 55.6,
+        "minimum_fps": 50,
+        "samples": [
+          60,
+          60,
+          59,
+          58,
+          60,
+          40,
+          60,
+          60,
+          40,
+          59
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10001315,
+        "window_frames": 556,
+        "profile": "Codex-Performance-39e0fb6e7b5d438ea34d3d7d14753b9a",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1279452
+      }
+    },
+    {
+      "repeat": 2,
+      "mode": "f10",
+      "folder": "2-f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 57.8,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          60,
+          57,
+          42,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10008267,
+        "window_frames": 578,
+        "profile": "Codex-Performance-870879ea672f4755a005decd73a509b2",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1179684
+      }
+    },
+    {
+      "repeat": 2,
+      "mode": "normal",
+      "folder": "2-normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 59.9,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          60,
+          60,
+          58,
+          62,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10011507,
+        "window_frames": 599,
+        "profile": "Codex-Performance-aad92604f1854c0d8c14a2af0feda43d",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1185668
+      }
+    },
+    {
+      "repeat": 3,
+      "mode": "normal",
+      "folder": "3-normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 59.6,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          57,
+          60,
+          59,
+          61,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10010553,
+        "window_frames": 596,
+        "profile": "Codex-Performance-19181cdb63c645d5be137f7422c5be6e",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1363909
+      }
+    },
+    {
+      "repeat": 3,
+      "mode": "f10",
+      "folder": "3-f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 59.7,
+        "minimum_fps": 50,
+        "samples": [
+          60,
+          58,
+          60,
+          59,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10010361,
+        "window_frames": 597,
+        "profile": "Codex-Performance-3c5788683c0947f9bb6abc24587471f0",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1362369
+      }
+    }
+  ]
+}

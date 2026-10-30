@@ -1,0 +1,22 @@
+{
+  "docs/backlog/README.md": {
+    "sha256": "769820cec6f73c4b892726e411c595f64f1b537cb4f828c454a2a8a68ba58c18",
+    "mode": 420
+  },
+  "docs/epics/refactoring-2026-10/TASKS.md": {
+    "sha256": "6905d7f9110baf81172eff6e88c030c8bcf443e1276d1e822a890786b5c0dce9",
+    "mode": 420
+  },
+  "wiki/planning/sources.json": {
+    "sha256": "4094c09cf13357191f6e80c837f3672aded43bbde09735b39d64f2567c578c7b",
+    "mode": 420
+  },
+  "tools/foliage_coverage_probe.gd": {
+    "sha256": "b4a1fc4fc09f8e02809e9d473168790334faeadab4f7a814e010894af2b4cef5",
+    "mode": 420
+  },
+  "tools/foliage_coverage_probe.gd.uid": {
+    "sha256": "24f9bbeb07430bb8a4d794926bdff90357904b2e9100113e5b3061fda121a8d4",
+    "mode": 420
+  }
+}

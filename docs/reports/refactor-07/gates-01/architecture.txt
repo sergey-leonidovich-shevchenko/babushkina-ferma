@@ -1,0 +1,748 @@
+VERSION: 0.0.383 synchronized
+.......All checks passed!
+QUALITY STEP ruff: 0.047s
+unformatted: File would be reformatted
+ --> probe.py:1:7
+  |
+  - value:int=1
+1 + value: int = 1
+  |
+
+1 file would be reformatted
+QUALITY STEP ruff: 0.048s
+Success: no issues found in 1 source file
+QUALITY STEP mypy: 10.154s
+F401 [*] `os` imported but unused
+ --> probe.py:1:8
+  |
+1 | import os
+  |        ^^
+2 |
+3 | value: int = 1
+  |
+help: Remove unused import: `os`
+  |
+  - import os
+1 |
+  |
+
+Found 1 error.
+[*] 1 fixable with `--fix`.
+QUALITY STEP ruff: 0.082s
+1 file already formatted
+QUALITY STEP ruff: 0.050s
+Success: no issues found in 1 source file
+QUALITY STEP mypy: 9.700s
+All checks passed!
+QUALITY STEP ruff: 0.035s
+1 file already formatted
+QUALITY STEP ruff: 0.041s
+probe.py:1: error: Incompatible types in assignment (expression has type "str", variable has type "int")  [assignment]
+Found 1 error in 1 file (checked 1 source file)
+QUALITY STEP mypy: 9.156s
+All checks passed!
+QUALITY STEP ruff: 0.046s
+1 file reformatted
+QUALITY STEP ruff: 0.040s
+All checks passed!
+QUALITY STEP ruff: 0.042s
+1 file already formatted
+QUALITY STEP ruff: 0.033s
+Success: no issues found in 1 source file
+QUALITY STEP mypy: 9.283s
+.SCRIPT ERROR: Parse Error: Cannot return a value of type "String" as "int".
+          at: GDScript::reload (res://probe.gd:4)
+SCRIPT ERROR: Parse Error: Cannot return value of type "String" because the function return type is "int".
+          at: GDScript::reload (res://probe.gd:4)
+ERROR: Failed to load script "res://probe.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Parameter "x" has no static type. (Warning treated as error.)
+          at: GDScript::reload (res://probe.gd:3)
+SCRIPT ERROR: Parse Error: The argument 1 of the constructor "int()" requires the subtype "int", "bool", or "float" but the supertype "Variant" was provided. (Warning treated as error.)
+          at: GDScript::reload (res://probe.gd:4)
+ERROR: Failed to load script "res://probe.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: The method "nonexistent()" is not present on the inferred type "Variant" (but may be present on a subtype). (Warning treated as error.)
+          at: GDScript::reload (res://probe.gd:4)
+ERROR: Failed to load script "res://probe.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Инициализация проекта (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Сканирование структуры файлов…[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Загрузка глобальных имен классов…[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Проверка GDExtensions…[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Создание скриптов автозагрузки…[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Инициализация плагинов…[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Начало сканирование файлов…[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Загрузка редактора (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Загрузка макета редактора…[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Загрузка док-панели…[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+QUALITY STEP Godot: 12.590s
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+QUALITY STEP Godot: 0.496s
+..
+----------------------------------------------------------------------
+Ran 10 tests in 110.857s
+
+OK
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 6.423s
+
+OK
+.....................
+----------------------------------------------------------------------
+Ran 21 tests in 14.959s
+
+OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.094s
+
+OK
+............
+----------------------------------------------------------------------
+Ran 12 tests in 11.769s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 21.574s
+
+OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 9.693s
+
+OK
+..
+----------------------------------------------------------------------
+Ran 2 tests in 19.466s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.435s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 3.476s
+
+OK
+......NATIVE fixture
+RECORDED fixture
+..
+----------------------------------------------------------------------
+Ran 8 tests in 4.526s
+
+OK
+...GRASS NATIVE 1152
+RECORDED 1152
+GRASS NATIVE 1280
+RECORDED 1280
+.GROUND NATIVE 1152
+..GROUND NATIVE 1152
+GROUND NATIVE 1280
+..GRASS NATIVE 1152
+RECORDED 1152
+GRASS NATIVE 1280
+RECORDED 1280
+GROUND NATIVE 1152
+GROUND NATIVE 1280
+.
+----------------------------------------------------------------------
+Ran 9 tests in 33.622s
+
+OK
+Capture 1/2
+.Rejected; see /private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera actual producer zbylf2o6/new output/run-1/stdout.txt
+CAPTURE base
+..MOTION run-1
+..CAPTURE base-physical
+.CAPTURE base-rounded
+...Static capture 1/2
+.Rejected: /private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/camera actual producer 02w2k9zd/new output/run-1/stdout.txt
+CAPTURE base-100
+.LIVE base-100-1
+.
+----------------------------------------------------------------------
+Ran 12 tests in 25.383s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 1.101s
+
+OK
+...................
+----------------------------------------------------------------------
+Ran 19 tests in 351.917s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 40.917s
+
+OK
+..AXIAL NATIVE 1152
+..DECORATION NATIVE 1152
+..EDGE NATIVE 1152
+..GARDEN NATIVE 1152
+..GROUND NATIVE 1152
+..MEADOW NATIVE 1152
+...PLAZA NATIVE 1152
+..TERRAIN REVISION NATIVE 1152
+..NETWORK NATIVE 1152
+..GROUND SEASONS NATIVE 1152
+.
+----------------------------------------------------------------------
+Ran 22 tests in 91.897s
+
+OK
+..
+----------------------------------------------------------------------
+Ran 2 tests in 13.062s
+
+OK
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+GROUND MASK main { "step": 2, "feather": 4.5, "period_world": 384.0, "size": [2400.0, 1368.0], "radius": 36.0, "color_independent": true, "vertices": 42957, "indices": 223386 } error=0
+GROUND MASK connectors { "step": 2, "feather": 4.5, "period_world": 384.0, "size": [2400.0, 1368.0], "radius": 36.0, "color_independent": true, "vertices": 12471, "indices": 65154 } error=0
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+GROUND MASK main { "step": 2, "feather": 4.5, "period_world": 384.0, "size": [2400.0, 1368.0], "radius": 36.0, "color_independent": true, "vertices": 44362, "indices": 231120, "shape": "axial-rounded-box", "corner": 4.0 } error=0
+GROUND MASK connectors { "step": 2, "feather": 4.5, "period_world": 384.0, "size": [2400.0, 1368.0], "radius": 36.0, "color_independent": true, "vertices": 13113, "indices": 68784, "shape": "axial-rounded-box", "corner": 4.0 } error=0
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+main {"color_independent":true,"corner":4.0,"feather":4.5,"indices":214092,"occupied_cells":129401,"owner":0,"period_world":384.0,"radius":36.0,"shape":"axial-union-partition","size":[2400.0,1368.0],"step":2,"vertices":41192}
+connectors {"color_independent":true,"corner":4.0,"feather":4.5,"indices":61644,"occupied_cells":36609,"owner":1,"period_world":384.0,"radius":36.0,"shape":"axial-union-partition","size":[2400.0,1368.0],"step":2,"vertices":11878}
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+apron {"bounds":[1080.0,528.0,528.0,312.0],"cell_world":192.0,"chips":22,"color_independent":true,"indices":34542,"kind":"apron","step":2,"vertices":6426}
+contact {"bounds":[1080.0,528.0,528.0,312.0],"cell_world":192.0,"chips":22,"color_independent":true,"indices":28380,"kind":"contact","step":2,"vertices":5632}
+stone {"bounds":[1080.0,528.0,528.0,312.0],"cell_world":192.0,"chips":22,"color_independent":true,"indices":20970,"kind":"stone","step":2,"vertices":4319}
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+COMPILED SOURCES fresh: 36 checks, 0 failed
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+COMPILED SOURCES provenance: 101 checks, 0 failed
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 322.513s
+
+OK
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 0.813s
+
+OK
+WIND NATIVE 1152
+.GRASS NATIVE 1152
+..PLANT DEPTH NATIVE after 1152
+.RECOVERY NATIVE 1152
+.ROOT NATIVE 1152
+.SPEED NATIVE 1152
+.UV NATIVE 1152
+..WIND NATIVE 1152
+.
+----------------------------------------------------------------------
+Ran 10 tests in 47.529s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 5.353s
+
+OK
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 188.919s
+
+OK
+BENCH NATIVE after 1152
+.BOARD NATIVE after 1152
+.FENCE NATIVE after 1152
+.LAMP NATIVE after 1152
+.OBJECT COMMAND NATIVE 1152
+.PILOT PASS NATIVE after 1152
+.PLANT DEPTH NATIVE after 1152
+.POST MOTION NATIVE after 1152
+.RENDER NATIVE 1152
+.SHADOW INVENTORY 1152
+.STATIC PILOT NATIVE after 1152
+.STREET NATIVE after 1152
+.TRADE NATIVE after 1152
+.TRANSIENT NATIVE after 1152
+.
+----------------------------------------------------------------------
+Ran 14 tests in 39.337s
+
+OK
+............
+----------------------------------------------------------------------
+Ran 12 tests in 1.348s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 15.002s
+
+OK
+DOCUMENTATION: обязательные файлы и локальные ссылки корректны
+DOCUMENTATION TEST: свои ссылки проверяются, зависимости и сборки исключены
+WORLD SPRITE AUDIT TEST: dynamic discovery and dead preload checks are valid
+WORLD SPRITE AUDIT: 29 семейств; готово 28; открыто P1=1, P2=0, P3=0
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.029s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.024s
+
+OK
+SPRITE CLEANUP: 90 retired resources; dynamic paths and consumers preserved
+BACKLOG OK: 6 epics / 50 tasks / 6 Ready; network: 0
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.127s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+VISUAL BACKLOG: 25 epics, 1037 tasks, graph/coverage/archive/documents valid
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 6.999s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.514s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 6.058s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 3.432s
+
+OK
+CAMERA: valid static reference contract
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.228s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 2.407s
+
+OK
+COORDINATES: native transforms, pointer, feet, videos and artifact hashes valid
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 2.630s
+
+OK
+......................
+----------------------------------------------------------------------
+Ran 22 tests in 14.808s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 5.681s
+
+OK
+..........................
+----------------------------------------------------------------------
+Ran 26 tests in 4.581s
+
+OK
+.............................................
+----------------------------------------------------------------------
+Ran 45 tests in 1.388s
+
+OK
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 16.279s
+
+OK
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 12.185s
+
+OK
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 10.559s
+
+OK
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.009s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.010s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.010s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 3.016s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.487s
+
+OK
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.400s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 1.929s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 7.393s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 9.478s
+
+OK
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 1.273s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 2.569s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 3.184s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 2.499s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 3.534s
+
+OK
+............
+----------------------------------------------------------------------
+Ran 12 tests in 43.595s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 2.111s
+
+OK
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 58.245s
+
+OK
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 64.520s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 10.886s
+
+OK
+......................
+----------------------------------------------------------------------
+Ran 22 tests in 44.307s
+
+OK
+.....................
+----------------------------------------------------------------------
+Ran 21 tests in 39.727s
+
+OK
+...................
+----------------------------------------------------------------------
+Ran 19 tests in 0.267s
+
+OK
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 2.244s
+
+OK
+.............................
+----------------------------------------------------------------------
+Ran 29 tests in 4.642s
+
+OK
+................................
+----------------------------------------------------------------------
+Ran 32 tests in 3.620s
+
+OK
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 18.580s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 1.003s
+
+OK
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 2.966s
+
+OK
+VISUAL SCALE: geometry, native pixels, fixed HUD and physics valid
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 2.752s
+
+OK
+VISUAL PALETTE: six motifs, 24 ramps, alpha bounds, source hashes and scale valid; choice approved
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 1.178s
+
+OK
+VISUAL PERSPECTIVE: three sides, nine sources, uniform reference scale, grid, anchors and browser proof valid
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.068s
+
+OK
+VISUAL EDGES: six regions, 8 browser cases, alpha, sources and explicit choice valid
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 2.128s
+
+OK
+VISUAL DENSITY: five subjects, common hero, 12 browser cases, scale and source provenance valid
+........
+----------------------------------------------------------------------
+Ran 8 tests in 3.890s
+
+OK
+VART-007: approved A, 24 native frames, independent form/contact/cast, hashes valid
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.171s
+
+OK
+VART-008: both facades approved, 28 exact crops, 19 native frames, camera and sources valid
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 3.133s
+
+OK
+VART-009: 29 decisions, 238 declarations / 236 files, 58 comparisons + 12 overviews valid; runtime unchanged
+........
+----------------------------------------------------------------------
+Ran 8 tests in 2.012s
+
+OK
+VART-010: 12 masters, 24 independent exports, 24 native frames and browser states valid; approved
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 1.093s
+
+OK
+VISUAL PIPELINE: boundaries, development I/O, runtime images and references valid
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 2.883s
+
+OK
+VISUAL RESOURCES: stable IDs, geometry, alpha, variants, imports and provenance valid
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 1.840s
+
+OK
+VISUAL SAMPLING: families, real PNG/imports, native matrix and protected UI valid
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 4.103s
+
+OK
+PADDED ATLAS: all frames, RGBA gutters, independent levels and imports valid
+............
+----------------------------------------------------------------------
+Ran 12 tests in 6.589s
+
+OK
+TEXTURE INTENTS: color/data imports, full RGBA and native GPU matrix are valid
+............
+----------------------------------------------------------------------
+Ran 12 tests in 3.861s
+
+OK
+ITEM SIZES: canonical 64/160 PNGs, imports, cold cabinet and LRU proof valid
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 10.985s
+
+OK
+PREVIEW INPUTS: exact files/RGBA/bounds valid; no export acceptance claimed
+.........................
+----------------------------------------------------------------------
+Ran 25 tests in 12.267s
+
+OK
+EXPORT CONTRACT: exact source/reference files and reviewed finite outputs valid
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 16.508s
+
+OK
+..................................
+----------------------------------------------------------------------
+Ran 34 tests in 2.404s
+
+OK
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 0.008s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.494s
+
+OK
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 6.334s
+
+OK
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 12.954s
+
+OK
+{"task": "VFOLIAGE-009", "native_states": 130, "png": 260, "paused_samples": 936, "hardware_input_accepted": false, "performance_eligible": false}
+FOLIAGE VISIBILITY VERIFIED: 512 native frames, 36 exact pairs, 24 coverage targets; historical evidence; current candidate not checked; no FPS admission
+..................................
+----------------------------------------------------------------------
+Ran 34 tests in 138.744s
+
+OK
+ALPHA AUDIT: read-only; known legacy candidates 311; new matte candidates require review
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.770s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 2.310s
+
+OK
+SLICE AUDIT: {"frames": 5603, "textures": 2824, "atlas_resources": 321, "warning_frames": 1786} ; geometry valid; existing tight frames remain explicit debt
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 0.275s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 10.583s
+
+OK
+ASSET MIGRATION: 29 family plans, historical consumer graph, isolated rename/rollback and two negative controls valid; production unchanged
+................
+----------------------------------------------------------------------
+Ran 16 tests in 2.077s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 39.318s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 1.586s
+
+OK
+ASSET REPORT: provenance dispositions, sizes, nominal memory and native export proof valid; release clearance not implied
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 0.099s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 5.002s
+
+OK
+{
+  "selected": 52,
+  "done": 52,
+  "next": null
+}
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.682s
+
+OK
+ARTIST PACKET: Git-pinned sources, palette, 28 modules and handoff example valid; runtime gates remain open
+................
+----------------------------------------------------------------------
+Ran 16 tests in 40.223s
+
+OK
+SHORE KIT: 16 bank parts + wider modular deck, 29 exact crops, 11 native frames, camera video and 845 WATER assertions valid; no runtime/FPS acceptance
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 29.080s
+
+OK
+ARCHITECTURE: boundaries and whitespace are valid

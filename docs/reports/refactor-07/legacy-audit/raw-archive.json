@@ -1,0 +1,40 @@
+{
+  "archive": "raw-outputs.zip",
+  "archive_sha256": "b990e1a99cfff981a1a67d19ac4de6aab258562d1dd86a7f5f32d72b0a581ed3",
+  "members": {
+    "gdformat.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ruff-format.txt": {
+      "sha256": "0a3571f83d5af9d5b451c10cf7f0f0a3fc5e3f235c41597f465490d12d80814c",
+      "bytes": 4094218
+    },
+    "gdlint-stderr.txt": {
+      "sha256": "1acfc34a59e299710733ddbfde5de2e2c69f0449da250f8f9a1ae2c529395850",
+      "bytes": 1753937
+    },
+    "gdlint.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "gdformat-stderr.txt": {
+      "sha256": "2997d22096154d6646ccf1f3f35e44cff0a9f2637eb35b9ceb52a07e6e356c79",
+      "bytes": 54044
+    },
+    "ruff-lint-stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ruff-lint.json": {
+      "sha256": "ebc2df60523f1b2677147a76f3afe3e25b98899b5a96440c8426df6ce3838eae",
+      "bytes": 3786853
+    },
+    "ruff-format-stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "verified_uncompressed_bytes": true,
+  "reason": "Exact newly-generated raw retained compressed; avoids a 100000-line report diff. No pre-existing frozen report is changed."
+}

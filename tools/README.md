@@ -102,6 +102,8 @@ Git-команды, адресованные отдельному репозит
 
 ## Все 11 исходников, оставшихся в корне
 
+REFACTOR-07: [установка и быстрый quality gate](quality/README.md). `python3 tools/run.py quality.check` проверяет целые новые/изменённые файлы, `quality.check fix` — явное исправление; `quality.test_quality` и `quality.self_review` проверяют настоящие отказы и producer. Общие gates не заменяются линтером.
+
 | Адрес | Потребитель и причина |
 | --- | --- |
 | `tools/run.py` | Общий Python CLI для документации, quality gate и произвольной cwd; передаёт argv в пакет |

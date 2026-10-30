@@ -1,0 +1,7 @@
+{
+  "initial_producer": "13 commands passed, but used the pinned source checkout. Retained as intermediate evidence only.",
+  "current_producer": "14 commands, current working tools copied into real linked worktree; live and historical create distinct.",
+  "tests": "10 tests passed after symlink fixture correction; final source-preservation helper added afterwards and requires final gates.",
+  "static": "Early check found os.sys typing error; corrected to explicit sys. Later seven-file pass preceded the final eighth module.",
+  "godot": "Actual furniture_facing_system.gd analyzed in full external copy; fresh import 48.982s plus check0.383s. No GPU/FPS acceptance."
+}

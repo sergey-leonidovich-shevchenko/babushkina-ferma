@@ -1,0 +1,50 @@
+[
+  {
+    "name": "version",
+    "argv": [
+      "python3",
+      "tools/run.py",
+      "planning.bump_version",
+      "--check"
+    ],
+    "code": 0,
+    "seconds": 0.135,
+    "finished_utc": "2026-10-30T14:01:23.640811+00:00"
+  },
+  {
+    "name": "quality",
+    "argv": [
+      "python3",
+      "tools/run.py",
+      "quality.check"
+    ],
+    "code": 0,
+    "seconds": 8.581,
+    "finished_utc": "2026-10-30T14:01:32.225007+00:00"
+  },
+  {
+    "name": "public-producers",
+    "argv": [
+      "python3",
+      "tools/run.py",
+      "quality.self_review",
+      "--output",
+      "/private/tmp/farm07-index-p2-producers-20261030"
+    ],
+    "code": 0,
+    "seconds": 25.865,
+    "finished_utc": "2026-10-30T14:01:58.092175+00:00"
+  },
+  {
+    "name": "wiki",
+    "argv": [
+      "pnpm",
+      "--dir",
+      "wiki",
+      "check"
+    ],
+    "code": 0,
+    "seconds": 50.412,
+    "finished_utc": "2026-10-30T14:02:48.506576+00:00"
+  }
+]

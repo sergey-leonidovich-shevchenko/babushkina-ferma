@@ -1,0 +1,17 @@
+[
+  {
+    "file": "tools/assets/contracts/visual_icons.py",
+    "python311_ast": "pass",
+    "ruff_format": "invalid-syntax after semicolon before soft keyword variable match"
+  },
+  {
+    "file": "tools/qa/art/visual_modules.py",
+    "python311_ast": "pass",
+    "ruff_format": "invalid-syntax after semicolon before soft keyword variable match"
+  },
+  {
+    "file": "tools/qa/art/visual_reuse.py",
+    "python311_ast": "pass",
+    "ruff_format": "invalid-syntax after semicolon before soft keyword variable match"
+  }
+]

@@ -1,0 +1,19 @@
+test_semantic_helpers_cannot_write_to_checkout_or_existing_directory (tools.quality.test_quality.SelectionTests.test_semantic_helpers_cannot_write_to_checkout_or_existing_directory) ... ERROR
+
+======================================================================
+ERROR: test_semantic_helpers_cannot_write_to_checkout_or_existing_directory (tools.quality.test_quality.SelectionTests.test_semantic_helpers_cannot_write_to_checkout_or_existing_directory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/quality/test_quality.py", line 115, in test_semantic_helpers_cannot_write_to_checkout_or_existing_directory
+    mirror(self.root, self.root, ["tools/quality/nested/new.py"], {})
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/refactor-07/guard-review/pre-guard.godot.py.txt", line 80, in mirror
+    shutil.copyfile(source, target)
+  File "/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/shutil.py", line 236, in copyfile
+    raise SameFileError("{!r} and {!r} are the same file".format(src, dst))
+shutil.SameFileError: PosixPath('/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm quality selection eyxqm5fu/tools/quality/nested/new.py') and PosixPath('/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm quality selection eyxqm5fu/tools/quality/nested/new.py') are the same file
+
+----------------------------------------------------------------------
+Ran 1 test in 0.080s
+
+FAILED (errors=1)
+ACTUAL OLD TEST: {"tests_run": 1, "failures": 0, "errors": 1, "actual_old_mirror_failure": true, "test_id": "tools.quality.test_quality.SelectionTests.test_semantic_helpers_cannot_write_to_checkout_or_existing_directory", "old_sha256": "d362c91ed4eba68dc1a67d2182d660be264ef79dbc4121b4318181d7a9766a65"}

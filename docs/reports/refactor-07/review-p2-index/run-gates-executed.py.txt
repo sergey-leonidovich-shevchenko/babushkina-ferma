@@ -1,0 +1,89 @@
+"""Записывает полный повтор gates P2 на неизменном source freeze и сохранность чужих данных."""
+from datetime import datetime, timezone
+from pathlib import Path
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import sys
+import time
+
+root = Path(sys.argv[1]).resolve()
+report = root / 'docs/reports/refactor-07/review-p2-index'
+sys.path[:0] = [str(root), str(root / 'tools')]
+from tools.common.git import git_environment
+from tools.quality.selection import discover
+
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+def tracked():
+    return [os.fsdecode(n) for n in subprocess.check_output(
+        ['git','-C',str(root),'ls-files','-z'], env=git_environment()).split(b'\0') if n]
+
+def snapshot():
+    files = tracked()
+    sources = {n: sha((root/n).read_bytes()) for n in discover(root)}
+    old_reports = {n: sha((root/n).read_bytes()) for n in files
+                   if n.startswith('docs/reports/') and not n.startswith(
+                       'docs/reports/refactor-07/review-p2-index/')}
+    uid = {n: [sha((root/n).read_bytes()), (root/n).stat().st_mode & 0o777]
+           for n in files if n.endswith('.uid')}
+    primary = Path('/Users/sergeyshevchenko/my farm')
+    foreign = json.loads((root/'docs/reports/refactor-07/baseline/foreign-preservation.json').read_text())
+    working = {n: {'sha256': sha((primary/n).read_bytes()),
+                   'mode': (primary/n).stat().st_mode & 0o777} for n in foreign}
+    assert working == foreign, 'primary foreign working files changed'
+    accepted = json.loads((root/'docs/reports/refactor-03/closeout/preservation-before.json').read_text())
+    index = {n: sha(subprocess.check_output(['git','-C',str(primary),'show',':'+n],
+                     env=git_environment())) for n in accepted['primary_foreign']}
+    assert all(index[n] == v['index_SHA256'] for n,v in accepted['primary_foreign'].items())
+    own_index = subprocess.check_output(['git','-C',str(root),'rev-parse','--git-path','index'],
+                                       env=git_environment(), text=True).strip()
+    p = Path(own_index)
+    if not p.is_absolute(): p = root/p
+    return {'sources': sources, 'old_reports': old_reports, 'uid': uid,
+            'primary_working': working, 'primary_staged': index, 'own_index': sha(p.read_bytes())}
+
+before = snapshot()
+(report/'before-gates.json').write_text(json.dumps(before,ensure_ascii=False,indent=2)+'\n')
+producer = Path('/private/tmp/farm07-index-p2-producers-20261030')
+assert not producer.exists()
+commands = [
+    ('version',['python3','tools/run.py','planning.bump_version','--check']),
+    ('quality',['python3','tools/run.py','quality.check']),
+    ('public-producers',['python3','tools/run.py','quality.self_review','--output',str(producer)]),
+    ('wiki',['pnpm','--dir','wiki','check']),
+    ('architecture',['zsh','tools/check_architecture.sh']),
+    ('game-normal-f10',['zsh','run_tests.sh']),
+    ('smoke',['zsh','tools/smoke_test.sh']),
+    ('performance',['zsh','tools/performance_gate.sh']),
+]
+checks = []
+for name, argv in commands:
+    started = time.monotonic()
+    print('START '+name, flush=True)
+    with (report/(name+'.txt')).open('w') as log:
+        process = subprocess.run(argv,cwd=root,env=os.environ,stdout=log,
+                                 stderr=subprocess.STDOUT,timeout=7200,check=False)
+    item = {'name':name,'argv':argv,'code':process.returncode,
+            'seconds':round(time.monotonic()-started,3),
+            'finished_utc':datetime.now(timezone.utc).isoformat()}
+    checks.append(item)
+    (report/'checks.json').write_text(json.dumps(checks,ensure_ascii=False,indent=2)+'\n')
+    print(json.dumps(item,ensure_ascii=False),flush=True)
+    if process.returncode:
+        print((report/(name+'.txt')).read_text()[-6000:],flush=True)
+        raise SystemExit(process.returncode)
+after = snapshot()
+(report/'after-gates.json').write_text(json.dumps(after,ensure_ascii=False,indent=2)+'\n')
+assert before == after, 'source/report/UID/index preservation mismatch'
+shutil.copytree(producer,report/'producer-report')
+(report/'gates-result.json').write_text(json.dumps({
+    'all8_passed':True,'source_freeze_unchanged':True,'old_reports_unchanged':len(before['old_reports']),
+    'uid_unchanged':len(before['uid']),'primary_working_unchanged':len(before['primary_working']),
+    'primary_staged_unchanged':len(before['primary_staged']),'own_index_unchanged':True,
+    'source_count':len(before['sources']),'version':(root/'VERSION').read_text().strip(),
+    'no_new_native_GPU_FPS_admission':True},ensure_ascii=False,indent=2)+'\n')
+print('ALL EIGHT GATES AND PRESERVATION PASSED',flush=True)

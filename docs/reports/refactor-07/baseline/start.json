@@ -1,0 +1,17 @@
+{
+  "task": "REFACTOR-07",
+  "base": "464328853c2fbbed1410ac0312de75c3fee7cfa2",
+  "legacy_sources": 1220,
+  "primary_foreign_preserved": [
+    "docs/backlog/README.md",
+    "docs/epics/refactoring-2026-10/TASKS.md",
+    "wiki/planning/sources.json",
+    "tools/foliage_coverage_probe.gd",
+    "tools/foliage_coverage_probe.gd.uid"
+  ],
+  "queue": [
+    "REFACTOR-07",
+    "REFACTOR-06",
+    "first-overworld-to-VMAP-003"
+  ]
+}
