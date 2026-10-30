@@ -1,0 +1,31 @@
+{
+  "task": "REFACTOR-07",
+  "head": "c5c2a2d68bc5c79cb61f2bf1c27fe8fa0ccf3703",
+  "completed": 8,
+  "success": 8,
+  "failed": 0,
+  "runs": [41101549005, 41101540165],
+  "checks": [
+    {"id": 124219492772, "name": "Fixed-input reproduction (linux-x64)", "conclusion": "success", "run": 41101549005},
+    {"id": 124219492671, "name": "Fixed-input reproduction (macos-x64)", "conclusion": "success", "run": 41101549005},
+    {"id": 124219492610, "name": "Wiki quality gate", "conclusion": "success", "run": 41101549005},
+    {"id": 124219492361, "name": "test", "conclusion": "success", "run": 41101549005},
+    {"id": 124219466115, "name": "Wiki quality gate", "conclusion": "success", "run": 41101540165},
+    {"id": 124219466043, "name": "Fixed-input reproduction (macos-x64)", "conclusion": "success", "run": 41101540165},
+    {"id": 124219466039, "name": "Fixed-input reproduction (linux-x64)", "conclusion": "success", "run": 41101540165},
+    {"id": 124219465827, "name": "test", "conclusion": "success", "run": 41101540165}
+  ],
+  "main_job_observation": {
+    "jobs": [124219492361, 124219465827],
+    "architecture_suites": 109,
+    "architecture_cases": 1436,
+    "game_cases": 53520,
+    "game_failures": 0,
+    "normal_frames": 90,
+    "f10_frames": 90,
+    "smoke_frames": 180,
+    "performance_series": 6
+  },
+  "wiki_cases": 145,
+  "source": "GitHub checks and reviewer inspection of both raw workflow logs"
+}

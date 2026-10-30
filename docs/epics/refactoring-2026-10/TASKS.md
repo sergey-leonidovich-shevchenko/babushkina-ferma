@@ -189,15 +189,17 @@
 
 **Проверка:** Чистый checkout, штатный локальный и CI-запуск, отрицательная копия с новым ошибочно размещённым инструментом; Wiki check и независимое exact-head ревью.
 
-**Подтверждения / результат:** Не начато. Прежнее условие остановки отменено последней прямой командой пользователя; перед06 выполняется REFACTOR-07. Статус06 остаётся blocked до соблюдения текущей очереди; эта запись не является реализацией06.
+**Подтверждения / результат:** Не начато. REFACTOR-07 принята и влита; её отдельный учёт готовит переход к06. Статус06 остаётся blocked до merge учётного PR и открытия собственной ветки06; эта запись не является реализацией06.
 
 ## REFACTOR-07 — Линтеры, форматирование и самопроверка реальных сценариев перед ревью
 
-**Статус:** in_progress · **Приоритет:** P1 · **Объём:** M · **Тип:** refactor.
+**Статус:** done · **Приоритет:** P1 · **Объём:** M · **Тип:** refactor.
 
 **Ветка:** codex/refactor-07-quality-gates
 
 **Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/28
+
+**Дата завершения:** 2026-10-31
 
 **Результат и объём:** Воспроизводимый барьер качества изменяемого GDScript/Python и самопроверка настоящих публичных сценариев до независимого ревью. Постановка пользователя28.10.2026; последующей прямой командой передана Developer в очередь после03.
 
@@ -230,4 +232,6 @@
 
 **Источники:** [gdtoolkit](https://github.com/Scony/godot-gdscript-toolkit), [предупреждения Godot](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/warning_system.html). Точные версии и Python type checker выбрать малой пробой при запуске.
 
-**Подтверждения / результат:** Реализация0.0.383/source060787d9 опубликована в PR28. Закреплены Ruff/mypy/gdtoolkit и реальный Godot, целые изменяемые файлы и явный fix; исходный legacy не форматировался. Полные локальные gates: architecture108/1424, Game53502/0, normal/F10по90, smoke180, performance6/6, Wiki145; последние guard/русские комментарии отдельно прошли11 quality cases, static8, реальный mirror и14 producer-команд. Browser1280/390 и8 карточек проверены. [Результаты и точные границы freeze](../../reports/refactor-07/local-validation.json). Отказ первого loader-контроля явно не считается red; корректный повтор подтвердил запуск теста на прежнем/новом helper. Версия0.0.384 добавляет URL PR и фактический статус без изменения quality-кода.03done/дата, канонические UID/старые reports прежние;06blocked. Независимое ревью вернуло P2: live working check мог скрыть ошибочные staged bytes, включая legacy baseline. Доработка0.0.385 вводит read-only --staged до bump и11 реальных Git/hook/alternate-index случаев, включая legacy до baseline. Финальный полный прогон без родительского bytecode-флага: architecture109/1436, Game53502/0, normal/F10, smoke, performance и Wiki145/0; source1230, прежние reports22411, tracked UID800 и index/чужие данные сохранены. Прерванные96/1259 не считаются полной приёмкой. [Финальные проверки P2](../../reports/refactor-07/review-p2-index/final-validation.json). Карточка остаётся in_progress до независимого exact-head review/CI и решения Team Lead; Task-Complete пока нет.
+**Подтверждения / результат:** Реализация0.0.383/source060787d9 опубликована в PR28. Закреплены Ruff/mypy/gdtoolkit и реальный Godot, целые изменяемые файлы и явный fix; исходный legacy не форматировался. Полные локальные gates: architecture108/1424, Game53502/0, normal/F10по90, smoke180, performance6/6, Wiki145; последние guard/русские комментарии отдельно прошли11 quality cases, static8, реальный mirror и14 producer-команд. Browser1280/390 и8 карточек проверены. [Результаты и точные границы freeze](../../reports/refactor-07/local-validation.json). Отказ первого loader-контроля явно не считается red; корректный повтор подтвердил запуск теста на прежнем/новом helper. Версия0.0.384 добавляет URL PR и фактический статус без изменения quality-кода.03done/дата, канонические UID/старые reports прежние;06blocked. Независимое ревью вернуло P2: live working check мог скрыть ошибочные staged bytes, включая legacy baseline. Доработка0.0.385 вводит read-only --staged до bump и11 реальных Git/hook/alternate-index случаев, включая legacy до baseline. Финальный полный прогон без родительского bytecode-флага: architecture109/1436, Game53502/0, normal/F10, smoke, performance и Wiki145/0; source1230, прежние reports22411, tracked UID800 и index/чужие данные сохранены. Прерванные96/1259 не считаются полной приёмкой. [Финальные проверки P2](../../reports/refactor-07/review-p2-index/final-validation.json).
+
+**Итоговая приёмка:** [PR №28](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/28) принят на exact head `c5c2a2d68bc5c79cb61f2bf1c27fe8fa0ccf3703`: независимое [ревью 5718136092](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/28#pullrequestreview-5718136092) закрыло P2 и не нашло новых замечаний, CI завершился 8/8 success, Team Lead подтвердил merge. Merge `7d8c62be8a98edcd34cf1ede3919625295c5076e` от `2026-10-30T20:16:31Z` (`2026-10-31 01:16:31`, Asia/Almaty) имеет дерево `ee3a17e5bc8463eba6eb3918137367a5409005d6`, совпадающее с reviewed head. В CI оба основных job дали architecture109/1436, Game53520/0, normal/F10, smoke и performance6/6; это отдельно от локального Game53502/0, оба факта сохранены без подмены. [Запись приёмки](../../reports/refactor-07/closeout/completion.json) отделяет реализацию от учётного PR. Следующая задача — REFACTOR-06; новые механики, VMAP и аппаратная графическая приёмка этой записью не закрываются.
