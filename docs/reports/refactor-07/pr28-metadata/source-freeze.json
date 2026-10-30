@@ -1,0 +1,18 @@
+{
+  "docs/epics/refactoring-2026-10/TASKS.md": {
+    "sha256": "dc01209ea058398a4fd9fac4b228d68dab7962eb7787279ce9d7e5b6607da28b",
+    "mode": 420
+  },
+  "project.godot": {
+    "sha256": "dcf76e29021a3091550b721e175230f2584d98fea9bbf70c5c6e1d54acc409c5",
+    "mode": 420
+  },
+  "Бабушкина ферма.app/Contents/Info.plist": {
+    "sha256": "2c9c473b91855325d6c0b43ff5c0779749b67f351ea3fe4a2027cef58008b913",
+    "mode": 420
+  },
+  "VERSION": {
+    "sha256": "ba04b22a069f2c06c24de9e9ba9439eefcaaf3ab0bb44f1a62ae23db59e48a1a",
+    "mode": 420
+  }
+}

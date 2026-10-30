@@ -1,0 +1,25 @@
+{
+  "base": "060787d9c070ccd99de840800ef2870be988af2b",
+  "PR": 28,
+  "version": "0.0.384",
+  "changed": [
+    "VERSION",
+    "docs/epics/refactoring-2026-10/TASKS.md",
+    "project.godot",
+    "Бабушкина ферма.app/Contents/Info.plist"
+  ],
+  "quality_python_all_identical_to_source_head": {
+    "tools/quality/godot.py": "aea7dc2d0e08e4765e704de64116a9db31e8a3724ff16a64ebb1349c9666da7a",
+    "tools/quality/test_documentation.py": "36119032a35f1834f9a4ce64980cfe24f7e9e124e4de8b94e4329da360d834a5",
+    "tools/quality/check.py": "8fe93fb6fc9512acb9675843c4d0874e6a96333ce6448f28bd4f4d721d6dc22f",
+    "tools/quality/self_review.py": "1ed17e1f7b7869bf5ead3d109665ef652e788e2222811ca99e8aaea97ee8dac6",
+    "tools/quality/preservation.py": "d2c1ba669630dce88a280fc7c81e897c059a84b900d65c949ec82b157b886fa5",
+    "tools/quality/__init__.py": "f24e743c9785ac1fab68675e81942ed5e800df17a488c3f88ae6180e6a4cd10b",
+    "tools/quality/check_documentation.py": "540f6c0dc1c318e1c2a9333c38e544353fdfb12672d31fb074a5c1b9d9de1e6d",
+    "tools/quality/fixture_validation.py": "2bd3278846fd1499d04059e2a13bba099afc510e2c1cee77a6a841f0c632da83",
+    "tools/quality/process.py": "11740d098f709b5a2dd8d924aca39e28efa49457b60a613fcc0d2dfe371715ef",
+    "tools/quality/selection.py": "8fe0c455e8c1b5460821ec1505a2fa4d21a9d58a072ce844e287318943ad0334",
+    "tools/quality/test_quality.py": "3888e24e4dbcacdf24586ba24ba7656519360cd95d522a7dd3421416c38fbc26"
+  },
+  "all_other_preexisting_tracked_files_unchanged": true
+}

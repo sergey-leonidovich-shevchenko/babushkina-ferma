@@ -197,6 +197,8 @@
 
 **Ветка:** codex/refactor-07-quality-gates
 
+**Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/28
+
 **Результат и объём:** Воспроизводимый барьер качества изменяемого GDScript/Python и самопроверка настоящих публичных сценариев до независимого ревью. Постановка пользователя28.10.2026; последующей прямой командой передана Developer в очередь после03.
 
 **Внутренние блокеры:** REFACTOR-03.
@@ -228,4 +230,4 @@
 
 **Источники:** [gdtoolkit](https://github.com/Scony/godot-gdscript-toolkit), [предупреждения Godot](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/warning_system.html). Точные версии и Python type checker выбрать малой пробой при запуске.
 
-**Подтверждения / результат:** Начата30.10.2026 на принятой main46432885. Реализованы закреплённые Ruff0.17.3/mypy2.4.1/gdtoolkit4.5.0, одинаковый локальный/CI check целых изменяемых файлов, явный fix и реальный Godot4.7.1 в отдельной копии. Baseline1220 исходников не распространяется на новые/изменённые файлы. Самопроверка вызывает текущие alpha CLI/migration create API, live/history ввод, настоящий linked worktree и headless collector; namespace/URI, overwrite и чужой Git проверяются реальным I/O. Профильные десять тестов прошли, первая ошибка фикстуры и отвергнутые способы анализа сохранены. [Отчёт](../../reports/refactor-07/README.md). Из параллельной постановки перенесена только07;03done/дата и цель эпика прежние. Выполняются итоговые полные gates; in_progress до независимого exact-head review/CI и решения Team Lead.
+**Подтверждения / результат:** Реализация0.0.383/source060787d9 опубликована в PR28. Закреплены Ruff/mypy/gdtoolkit и реальный Godot, целые изменяемые файлы и явный fix; исходный legacy не форматировался. Полные локальные gates: architecture108/1424, Game53502/0, normal/F10по90, smoke180, performance6/6, Wiki145; последние guard/русские комментарии отдельно прошли11 quality cases, static8, реальный mirror и14 producer-команд. Browser1280/390 и8 карточек проверены. [Результаты и точные границы freeze](../../reports/refactor-07/local-validation.json). Отказ первого loader-контроля явно не считается red; корректный повтор подтвердил запуск теста на прежнем/новом helper. Версия0.0.384 добавляет URL PR и фактический статус без изменения quality-кода.03done/дата, канонические UID/старые reports прежние;06blocked. Карточка остаётся in_progress до независимого exact-head review/CI и решения Team Lead; Task-Complete пока нет.
