@@ -28,7 +28,7 @@
     "id": "project-refactoring",
     "file": "project-refactoring.md",
     "title": "Рефакторинг: инструменты по назначению",
-    "summary": "REFACTOR-03 и REFACTOR-07 приняты. REFACTOR-06 закрепляет навигацию, владельцев и динамический guard tools; после его приёмки — первая overworld до VMAP-003.",
+    "summary": "REFACTOR-03, REFACTOR-07 и первый выпуск tools REFACTOR-06 приняты. REFACTOR-04/05 остаются blocked; текущая очередь — первая overworld до VMAP-003.",
     "tags": [
       "Разработка",
       "Рефакторинг",
