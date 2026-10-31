@@ -1,0 +1,35 @@
+{
+  "success": true,
+  "metadata": "0.0.389",
+  "browser": "156.0.8078.79",
+  "viewport": {
+    "inner": 390,
+    "client": 390,
+    "scroll": 390,
+    "scrollX": 0,
+    "sidebar": {
+      "x": -244,
+      "y": 0,
+      "width": 244,
+      "height": 900,
+      "top": 0,
+      "right": 0,
+      "bottom": 900,
+      "left": -244
+    },
+    "h1": {
+      "x": 18,
+      "y": 192.921875,
+      "width": 293,
+      "height": 194.6875,
+      "top": 192.921875,
+      "right": 311,
+      "bottom": 387.609375,
+      "left": 18
+    }
+  },
+  "rawSHA256": "678567a0d9b1cc913822c381e28f50d50e9b6f33fdc2a4d5a74e9ac90aef9607",
+  "isolated": true,
+  "hardwareInputAccepted": false,
+  "notes": "Earlier verified/resize screenshot captured CSS sidebar transition; use this stable viewport receipt for readability. No product CSS changed."
+}

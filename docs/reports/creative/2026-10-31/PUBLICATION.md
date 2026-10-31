@@ -1,0 +1,11 @@
+# Публикация IDEA-REVIEW-20261031
+
+[PR](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/30) base main. Первый проверенный head `70f06f34008c722d0005fe554d855cf2052b2105`, base `7d8c62be8a98edcd34cf1ede3919625295c5076e`. Карточка остаётся in_progress с URL до независимого exact-head ревью/CI и решения Team Lead; main автором не вливается.
+
+[Первый checkpoint](checkpoint-1/gates.json): metadata 389, architecture 109/1436, Game 53502/0, normal/F10 по 90/0, Wiki 145/0. Его frozen source SHA относятся к первому commit. Финальный publish-1/gates.json создаётся после успешного полного неизменённого hook на новой заранее frozen редакции; до появления это текстовый путь. Точный final head передаётся в PR/Tech Lead после commit/push, не записывается как циклический собственный SHA.
+
+[Окружение](publication.json),capture-helpers и четыре lossless receipts каждого epoch. Pre-commit содержит принятую quality.check --staged до bump; рабочие/staged исходники и правила совпадают. RG и Python3.11 с закреплёнными requirements доступны. Forwarder не меняет engine/argv; только cooperating test_game использует общий lock от save race. Пользовательский профиль Chrome не используется.
+
+[Quality producer self-review](quality-self-review.json) относится к неизменным кодовым источникам 385; [smoke/performance](performance-first.json) — к 389. Они не объявляются новой visual/flight/Game-input приёмкой. Финальный полный hook/145 Wiki/browser выполняются для новой 390. Runtime/tools/hooks/tests/art/прошлые reports не менялись, project.godot только metadata.
+
+60 будущих F/новые игровые режимы/аудитория/native FPS и аппаратный ввод не выполнены. 13 проектных взрослых NPC и 1 собака существуют в документах. Первые browser/first и second — неуспешные селекторы QA; browser/verified завершён, его первый resize-frame промежуточен. Стабильная читаемая 390px приёмка отдельно в browser/mobile-stable. Все raw сохранены, CSS продукта не менялся. [Свежий браузерный проход](browser/publication/browser.json): metadata 390, 18 проверок, ошибки страниц 0; отдельно проверены URL/in_progress редакционной карточки и правила UI-active времени 316/321. Все десять статей, рейтинги, переходы, поиск/Tab и стабильные 390px пройдены. Старые файлы не переписываются.

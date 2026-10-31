@@ -1,0 +1,25 @@
+from pathlib import Path
+import sys,json,hashlib,subprocess
+root=Path(sys.argv[1]);label=sys.argv[2];out=sys.argv[3];wiki=sys.argv[4];profile=sys.argv[5]
+E=__import__('os').environ.copy();E={k:v for k,v in E.items() if not k.startswith('GIT_')}
+def git(*args):return subprocess.check_output(['git','--no-optional-locks',*args],cwd=root,env=E)
+base=sys.argv[6] if len(sys.argv)>6 else '58eda69fd86f6784aa5fbdcfbec4a526b212b0f4';live=root/'.godot/creative-runtime'
+hooks=live/(label+'-hooks');hooks.mkdir(exist_ok=False)
+files=[f for f in git('diff','--name-only','-z',base,'--').decode().split('\0') if f and (root/f).is_file() and not f.startswith(out+'/')]
+snapshot={'base':base,'parent':git('rev-parse','HEAD').decode().strip(),'output':out,'profile':profile,'wikiLog':wiki,'label':label,'sourceSHA256':{f:hashlib.sha256((root/f).read_bytes()).hexdigest() for f in files}}
+(live/(label+'-candidate.json')).write_text(json.dumps(snapshot,ensure_ascii=False,indent=2)+'\n')
+pre=f'''#!/bin/zsh
+set -e
+cd '{root}'
+for task_git_var in $(git rev-parse --local-env-vars); do unset "$task_git_var"; done
+.githooks/pre-commit > .godot/creative-runtime/{label}-hook.log 2>&1
+python3 /private/tmp/creative31-capture/receipt.py '{label}'
+'''
+post=f'''#!/bin/zsh
+set -e
+cd '{root}'
+.githooks/post-commit
+'''
+for name,text in [('pre-commit',pre),('post-commit',post)]:
+ p=hooks/name;p.write_text(text);p.chmod(0o755)
+print(json.dumps({'label':label,'parent':snapshot['parent'],'sourceHashes':len(files),'output':out}))

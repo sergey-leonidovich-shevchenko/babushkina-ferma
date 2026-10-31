@@ -1,0 +1,48 @@
+{
+  "browser": "isolated installed Chrome via Playwright",
+  "version": "156.0.8078.79",
+  "viewport": [
+    1280,
+    900
+  ],
+  "headless": true,
+  "liveUserProfileUsed": false,
+  "metadata": "0.0.389",
+  "checks": [
+    "overview has ten exact article links and current metadata",
+    "IDEA-312 rendered as proposed with six future scenarios",
+    "IDEA-313 rendered as proposed with six future scenarios",
+    "IDEA-314 rendered as proposed with six future scenarios",
+    "IDEA-315 rendered as proposed with six future scenarios",
+    "IDEA-316 rendered as proposed with six future scenarios",
+    "IDEA-317 rendered as proposed with six future scenarios",
+    "IDEA-318 rendered as proposed with six future scenarios",
+    "IDEA-319 rendered as proposed with six future scenarios",
+    "IDEA-320 rendered as proposed with six future scenarios",
+    "IDEA-321 rendered as proposed with six future scenarios",
+    "six separate scores visible on IDEA-320",
+    "real epic-to-task transition exposes both dependencies"
+  ],
+  "errors": [],
+  "rawSHA256": {
+    "overview": "5cd60485b5621958cf90ccbe820805b720135e538f21e6590c115aae5f7efc87",
+    "IDEA-312": "a8a1a71103b03fe2e955b47fe36d468856b12067373f7da0f0700bda87095061",
+    "IDEA-313": "da182b663f9fef975ed3765c0f3d2970cd2fc08038be0c07943ed65bdb54c172",
+    "IDEA-314": "420553eee3e4eafe1eac1770a6625031599ba789e98da42170bb8f28d08e5aec",
+    "IDEA-315": "33f23d036fb85632c0c9ce3f8d23942e3a9aeab815d4e3bef7fafd43e3a2be39",
+    "IDEA-316": "df14d354714c8ac759b734f8cb7337ca3c2e41619bcb8c6c23487828c3805b07",
+    "IDEA-317": "9b6dcc5a8c433eba45cae665a3fe56cdc0386cc5c36e8b847d6bd9a486691c58",
+    "IDEA-318": "d186cf56fbbe5bad55349cca33a45f09c97cf6b0586cf80bfe75ca4ce426d786",
+    "IDEA-319": "2417fd98115b229cb5240a83e1fe2c75c496b58195df4882348be48ae2385d05",
+    "IDEA-320": "1dfd041d4a19c1955999d7cf52c8e36b458be5707687160a44a7332bd6b0c47b",
+    "IDEA-321": "79fcd53112b5ba897b89761acc83de8d622a01190d6a60504bdded7b9285a945",
+    "idea-320-card": "22d3072c9bf63b5a6fded076e79a2b87c291cd1ac18dfd5fd277177b6b001992",
+    "task-312-02": "1388eab39917e43b59c6a3ac2e7f1a18f8d7c64043b7091b3cd555e38ceac575",
+    "failure": "ad54b58406ce1eb0e9baa9bd4c4309f6e2ef4bf0fca2df81adc41838e3cab26f"
+  },
+  "gameplayAccepted": false,
+  "hardwareInputAccepted": false,
+  "success": false,
+  "exitCode": 1,
+  "failure": "TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Название или содержание идеи').first() to be visible\u001b[22m\n"
+}
