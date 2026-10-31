@@ -197,8 +197,6 @@
 
 **Подтверждения / результат:** [PR31](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31) принят на exact head `81142f385603668792377964a1d4f2bd50afb8a6`: после CHANGES_REQUESTED review5724024281 fail-closed дефект недоступного каталога закрыт адресным parent-red/current-green, независимое [review5724142227](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31#pullrequestreview-5724142227) дало APPROVED. Два exact-head workflow run `41224322959` и `41224327750` завершили 8/8 jobs success; Team Lead принял результат. Merge `bcf9b1031ba80a0d0840d10e615f5c7d00d31cf0` от `2026-10-31T17:50:59Z` имеет родителей `b560e1f4485d02dd7d3c8ede808847996e8111e8` и reviewed head, дерево `33fed2983acd12c30e2850969f7a5d07cf44a35e`. Закрыт только первый выпуск структуры tools: REFACTOR-04/05 остаются `blocked`, весь эпик не объявлен завершённым, следующая очередь — первая overworld до VMAP-003. [Запись приёмки](../../reports/refactor-06/closeout/completion.json).
 
-Task-Complete: REFACTOR-06
-
 ## REFACTOR-07 — Линтеры, форматирование и самопроверка реальных сценариев перед ревью
 
 **Статус:** done · **Приоритет:** P1 · **Объём:** M · **Тип:** refactor.
