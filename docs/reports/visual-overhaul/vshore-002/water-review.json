@@ -12,7 +12,7 @@
     "tests/suites/water_fishing_suite.gd": "9a8a2b40b455b5b178ab07be2a5422ce434c15582374460cc89b5914163d0a20",
     "tests/suites/water_visual_suite.gd": "83b199a90d82ff942de521b0eeb3e6d879eb353b25d9ca059983cb10599513df",
     "scripts/presentation/underwater_bottom.gd": "1c5d92f7dcf1bb2ca60798a7fb92b5867545408c19a3570411c43c698a3f6473",
-    "scripts/systems/village_terrain_renderer.gd": "c5f3d9947ee535469e13dd1f995b9f028d1d0e76a5da1532c4f861f98605da32",
+    "scripts/systems/village_terrain_renderer.gd": "757b975bc8f7fab3ea010e85069fbd0662baa81c292d1bee8ee814f6aaa9a94d",
     "scripts/systems/water_visual_system.gd": "040c2b154365c8bbdc5542a107f33ff04762c9b124d7fbaedf0a54ab5842c8a6"
   }
 }

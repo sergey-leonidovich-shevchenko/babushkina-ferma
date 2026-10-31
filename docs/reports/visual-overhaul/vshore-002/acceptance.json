@@ -6,7 +6,7 @@
   "automated": {
     "water_suites": "853 passed, 0 failed",
     "evidence_verifier": "11 static frames, 90 motion frames, 36 clipped vertices; passed",
-    "negative_cases": "10 passed, 0 failed",
+    "negative_cases": "17 passed, 0 failed; independent mandatory-coverage control 19 passed, 0 failed",
     "full_testing": "architecture exit 0; game 53510 passed, 0 failed; redraw normal 90/0, f10 90/0",
     "wiki": "build and 147 tests passed; browser desktop and 390x844 passed; 7 images and H.264 loaded; no overflow or console errors"
   },

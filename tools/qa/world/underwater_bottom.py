@@ -21,6 +21,31 @@ REPORT = Path("docs/reports/visual-overhaul/vshore-002")
 PAIR_NAMES = ("bridge-west", "riverwalk", "pond", "river-seam")
 EXTRA_NAMES = ("pond-bottom", "pond-winter", "pond-rain")
 WITNESS_FRAMES = (0, 45, 89)
+SOURCE_FILES = {
+    "prompts/riverbed-master-v1.txt",
+    "masters/riverbed-master-v1.png",
+    "../../../../assets/game/locations/overworld/modular/riverbed_material_v1.png",
+}
+CAPTURE_SOURCES = {
+    "res://assets/game/locations/overworld/modular/riverbed_material_v1.png",
+    "res://assets/game/locations/overworld/modular/water_material_v1.png",
+    "res://scripts/presentation/underwater_bottom.gd",
+    "res://scripts/systems/village_terrain_renderer.gd",
+    "res://scripts/systems/water_map_registry.gd",
+    "res://scripts/systems/water_topology.gd",
+    "res://tools/qa/world/underwater_bottom_board.gd",
+    "res://tools/qa/world/underwater_bottom_capture.gd",
+}
+VIDEO_FILES = {"camera-pan.mp4", "camera-pan.json", "camera-pan.decoded.png"}
+WATER_SOURCES = {
+    "tests/suites/water_topology_suite.gd",
+    "tests/suites/water_navigation_suite.gd",
+    "tests/suites/water_fishing_suite.gd",
+    "tests/suites/water_visual_suite.gd",
+    "scripts/presentation/underwater_bottom.gd",
+    "scripts/systems/village_terrain_renderer.gd",
+    "scripts/systems/water_visual_system.gd",
+}
 
 
 def digest(path: Path) -> str:
@@ -82,7 +107,7 @@ def verify_source(root: Path, folder: Path, profile: dict[str, Any]) -> None:
     require(source.get("selected") == "masters/riverbed-master-v1.png", "selected master")
     require(source.get("generator") == "built-in imagegen", "generator provenance")
     files = source.get("files")
-    if not isinstance(files, dict) or len(files) != 3:
+    if not isinstance(files, dict) or set(files) != SOURCE_FILES:
         raise ValueError("source file coverage")
     for name, expected in files.items():
         path = local(root, folder, name)
@@ -99,6 +124,11 @@ def verify_source(root: Path, folder: Path, profile: dict[str, Any]) -> None:
     require(
         renderer.find("draw_underwater_bottom") < renderer.find("draw_surface"),
         "bottom/surface order changed",
+    )
+    region = (root / "scripts/presentation/village_region_terrain.gd").read_text()
+    require(
+        "draw_underwater_rect(canvas, Data.WATER" not in region,
+        "underwater bottom escaped first overworld",
     )
 
 
@@ -129,7 +159,7 @@ def verify_native(root: Path, folder: Path, profile: dict[str, Any]) -> None:
     )
 
     sources = capture.get("sources")
-    if not isinstance(sources, dict):
+    if not isinstance(sources, dict) or set(sources) != CAPTURE_SOURCES:
         raise ValueError("capture source coverage")
     for name, expected in sources.items():
         require(name.startswith("res://"), "capture source URI")
@@ -189,7 +219,7 @@ def verify_native(root: Path, folder: Path, profile: dict[str, Any]) -> None:
     require(video.get("capture_sha256") == digest(native / "capture.json"), "video capture SHA")
     require(video.get("frame_chain_sha256") == chain, "video frame chain")
     video_files = video.get("files")
-    if not isinstance(video_files, dict):
+    if not isinstance(video_files, dict) or set(video_files) != VIDEO_FILES:
         raise ValueError("video file coverage")
     for name, expected in video_files.items():
         path = local(root, native, name)
@@ -221,7 +251,7 @@ def verify_water_review(root: Path, folder: Path) -> None:
     runner = root / "tools/qa/world/underwater_bottom_review.gd"
     require(review.get("runner_sha256") == digest(runner), "WATER runner SHA")
     sources = review.get("sources")
-    if not isinstance(sources, dict):
+    if not isinstance(sources, dict) or set(sources) != WATER_SOURCES:
         raise ValueError("WATER source coverage")
     for name, expected in sources.items():
         path = (root / name).resolve()

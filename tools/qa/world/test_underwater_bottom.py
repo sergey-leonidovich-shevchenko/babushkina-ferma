@@ -49,6 +49,9 @@ class UnderwaterBottomTests(unittest.TestCase):
             bottom.ROOT / "assets/game/locations/overworld/modular/riverbed_material_v1.png.import",
             runtime.with_suffix(runtime.suffix + ".import"),
         )
+        region = Path("scripts/presentation/village_region_terrain.gd")
+        (self.root / region).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(bottom.ROOT / region, self.root / region)
 
     def change(self, relative: str, edit: Callable[[dict[str, Any]], None]) -> None:
         """Apply one semantic mutation to JSON in the temporary copy."""
@@ -138,6 +141,54 @@ class UnderwaterBottomTests(unittest.TestCase):
         path = self.root / "scripts/presentation/underwater_bottom.gd"
         path.write_text(path.read_text() + "\n# changed after capture\n")
         self.rejected("capture source SHA")
+
+    def test_empty_capture_sources_are_rejected(self) -> None:
+        """A packet cannot drop every runtime source and remain reviewable."""
+        self.change("native/capture.json", lambda data: data.update(sources={}))
+        self.rejected("capture source coverage")
+
+    def test_missing_capture_source_is_rejected(self) -> None:
+        """Dropping only the retained renderer is also incomplete source coverage."""
+
+        def edit(data: dict[str, Any]) -> None:
+            data["sources"].pop("res://scripts/presentation/underwater_bottom.gd")
+
+        self.change("native/capture.json", edit)
+        self.rejected("capture source coverage")
+
+    def test_empty_video_files_are_rejected(self) -> None:
+        """The proof must name the MP4, decoded frame and encoded metadata explicitly."""
+        self.change("native/video-proof.json", lambda data: data.update(files={}))
+        self.rejected("video file coverage")
+
+    def test_missing_video_file_is_rejected(self) -> None:
+        """A decoded preview and metadata cannot stand in for the required MP4."""
+
+        def edit(data: dict[str, Any]) -> None:
+            data["files"].pop("camera-pan.mp4")
+
+        self.change("native/video-proof.json", edit)
+        self.rejected("video file coverage")
+
+    def test_empty_water_sources_are_rejected(self) -> None:
+        """A passing assertion count cannot replace the exact WATER source set."""
+        self.change("water-review.json", lambda data: data.update(sources={}))
+        self.rejected("WATER source coverage")
+
+    def test_missing_water_source_is_rejected(self) -> None:
+        """Every suite contributing to the WATER count remains named and hashed."""
+
+        def edit(data: dict[str, Any]) -> None:
+            data["sources"].pop("tests/suites/water_visual_suite.gd")
+
+        self.change("water-review.json", edit)
+        self.rejected("WATER source coverage")
+
+    def test_separate_river_map_integration_is_rejected(self) -> None:
+        """VSHORE-002 stays on the first overworld instead of changing village_river."""
+        path = self.root / "scripts/presentation/village_region_terrain.gd"
+        path.write_text(path.read_text() + "\ndraw_underwater_rect(canvas, Data.WATER\n")
+        self.rejected("underwater bottom escaped first overworld")
 
 
 if __name__ == "__main__":

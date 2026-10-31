@@ -188,22 +188,6 @@ static func draw_underwater_bottom(
 	)
 
 
-## Использует тот же материал в прямоугольном речном районе без влияния на его WaterTopology.
-static func draw_underwater_rect(
-	canvas: Node2D, rect: Rect2, season: String, weather: String = "clear"
-) -> void:
-	var points := PackedVector2Array(
-		[
-			rect.position,
-			Vector2(rect.end.x, rect.position.y),
-			rect.end,
-			Vector2(rect.position.x, rect.end.y)
-		]
-	)
-	var tint := ground_tint(season, weather) * Color("f4f0df")
-	UnderwaterBottom.draw(canvas, [points], &"village-river", tint)
-
-
 ## Сохраняет дно читаемым под отдельным спокойным слоем воды во всех сезонах и погоде.
 static func water_surface_tint(season: String, weather: String = "clear") -> Color:
 	var tint := (

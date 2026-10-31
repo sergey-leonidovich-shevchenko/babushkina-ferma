@@ -31,7 +31,7 @@ static func draw(canvas: Node2D, location: String, season: String, weather: Stri
 		for plot: Rect2 in PLOTS:
 			rectangle(canvas, plot, Terrain.DIRT, Color("b59d70"))
 	elif location == "village_river":
-		water(canvas, season, weather)
+		water(canvas, tint)
 	if location == "village_workyard":
 		paths(canvas, location)
 	for y in range(360, 1080, 168):
@@ -115,12 +115,9 @@ static func rectangle(canvas: Node2D, rect: Rect2, texture: Texture2D, tint: Col
 
 
 ## Рисует вертикальную реку и повёрнутые деревянные мосты с совпадающими физическими настилами.
-static func water(canvas: Node2D, season: String, weather: String) -> void:
+static func water(canvas: Node2D, tint: Color) -> void:
 	rectangle(canvas, Data.WATER.grow(10), Terrain.DIRT, Color("bbaa75"))
-	Terrain.draw_underwater_rect(canvas, Data.WATER, season, weather)
-	var surface_tint := Terrain.water_surface_tint(season, weather)
-	rectangle(canvas, Data.WATER, Terrain.WATER, surface_tint)
-	var tint := Terrain.ground_tint(season, weather)
+	rectangle(canvas, Data.WATER, Terrain.WATER, tint)
 	for span: Rect2 in Data.RAILS:
 		for y in range(int(span.position.y), int(span.end.y), 24):
 			canvas.draw_texture_rect_region(
