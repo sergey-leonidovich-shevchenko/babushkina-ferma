@@ -35,7 +35,7 @@
 
 `quality.tool_layout` обходит реальные файлы, включая незакоммиченный root helper, но исключает установленный `tools/Godot.app` и cache. Он отклоняет неизвестный root source/UID, неизвестный верхний домен, превышение честного source-порога, orphan UID и source/directory symlink. Новый nested source в существующем владельческом домене принимается без обновления frozen snapshot.
 
-Восемь disposable-сценариев проверяют текущий checkout, чистый checkout без generated root UID, разрешённый nested source, новый внутренний root helper, неизвестный домен и превышение лимита, missing/orphan UID, два вида symlink и три документированные команды в двух cwd. Настоящие production, ассеты, raw и прежние отчёты при этом не изменяются.
+Восемь disposable-сценариев проверяют текущий checkout, чистый checkout без generated root UID, разрешённый nested source, новый внутренний root helper, неизвестный домен и превышение лимита, missing/orphan UID, два вида symlink и три документированные команды в двух cwd. Первый настоящий Git-only архив выявил слишком строгое ожидание теста: тест требовал локальный `water_audit.gd.uid`, хотя production guard правильно считал его необязательным. После адресной правки тот же архив прошёл 8/8, принял nested source и отклонил новый root helper; этот red→green сохранён в validation. Настоящие production, ассеты, raw и прежние отчёты при этом не изменяются.
 
 ## Границы и будущие задачи
 
