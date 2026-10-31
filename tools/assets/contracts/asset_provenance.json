@@ -219,6 +219,22 @@
       }
     },
     {
+      "id": "vshore-002-riverbed",
+      "paths": [
+        "assets/game/locations/overworld/modular/riverbed_material_v1.png"
+      ],
+      "kind": "project-generation-documented",
+      "claim": "VSHORE-002 riverbed material generated for the project; prompt, selected master, exact runtime-byte receipt and use policy are preserved in the task report",
+      "license_status": "project-record-not-legal-opinion",
+      "evidence": [
+        "docs/reports/visual-overhaul/vshore-002/source.json",
+        "docs/reports/visual-overhaul/vshore-002/prompts/riverbed-master-v1.txt"
+      ],
+      "asset_sha256": {
+        "assets/game/locations/overworld/modular/riverbed_material_v1.png": "bcdb9e35970056c93517708b400591733e0cf8800119391489cc9cc21761d084"
+      }
+    },
+    {
       "id": "polish",
       "paths": [
         "assets/game/world_polish/village_polish_atlas.png"

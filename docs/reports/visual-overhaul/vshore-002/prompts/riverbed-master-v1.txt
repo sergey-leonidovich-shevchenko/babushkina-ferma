@@ -1,0 +1,13 @@
+Use case: stylized-concept
+Asset type: seamless tileable game texture for a top-down 2D farming RPG
+Primary request: a calm shallow riverbed material seen straight from above, with warm pale sand, muted rounded pebbles, a few soft submerged stones, and sparse olive-green algae strands embedded naturally into the bottom
+Style/medium: soft painterly non-pixel 2D illustration, hand-painted natural material, the gentle warm “Moon Valley” look, detailed craft texture but quiet large forms
+Composition/framing: square orthographic top-down texture; evenly distributed low-contrast detail; genuinely seamless on all four edges; no single central focal object
+Lighting/mood: diffuse daylight from upper-left, very soft ambient occlusion under stones, calm and cozy
+Color palette: warm beige sand, desaturated sage and olive algae, muted blue-gray stones; restrained contrast so a translucent blue water layer can remain readable above it
+Materials/textures: fine sand, smooth worn pebbles, soft algae; no sharp noisy speckles
+Constraints: this is only the underwater bottom layer; no visible water surface, no ripples, no reflections, no shoreline, no banks, no bridge, no fish, no lilies, no text, no logos, no watermark; avoid pixel art; avoid perspective; seamless edges are mandatory
+
+Generator: built-in imagegen, opaque background.
+Selected output: exec-5fd2b863-4ee4-463b-88b1-ba99f6f3528f.png.
+Runtime policy: the source is used byte-for-byte; neighboring UV cells are mirrored in geometry so opposite generated edges are never joined directly.

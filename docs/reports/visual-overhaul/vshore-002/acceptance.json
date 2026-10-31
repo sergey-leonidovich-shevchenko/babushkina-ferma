@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "task": "VSHORE-002",
+  "state": "awaiting_independent_review",
+  "base_commit": "6668bde662c6a3a5950449590028556fb4354588",
+  "automated": {
+    "water_suites": "853 passed, 0 failed",
+    "evidence_verifier": "11 static frames, 90 motion frames, 36 clipped vertices; passed",
+    "negative_cases": "10 passed, 0 failed",
+    "full_testing": "architecture exit 0; game 53510 passed, 0 failed; redraw normal 90/0, f10 90/0",
+    "wiki": "build and 147 tests passed; browser desktop and 390x844 passed; 7 images and H.264 loaded; no overflow or console errors"
+  },
+  "manual": {
+    "same_camera_before_after": true,
+    "bottom_readable": true,
+    "bridge_above_water": true,
+    "double_alpha_overlap_absent": true,
+    "camera_motion_reviewed": true
+  },
+  "open_owners": [
+    "VSHORE-003 water topology visual mask",
+    "VSHORE-004 chunk shoreline seams",
+    "VSHORE-005 animated calm surface",
+    "VSHORE-006 axial current"
+  ]
+}
