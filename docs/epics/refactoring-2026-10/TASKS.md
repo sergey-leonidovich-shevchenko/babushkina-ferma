@@ -176,6 +176,8 @@
 
 **Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31
 
+**Учётный Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/32
+
 **Дата завершения:** 2026-10-31
 
 **Результат и объём:** README tools, правила размещения/владельцев и адресный guard против повторного засорения корня. Итоговая ведомость остальных каталогов, отдельные статусы будущих 04/05.
