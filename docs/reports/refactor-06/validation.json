@@ -1,0 +1,60 @@
+{
+  "task": "REFACTOR-06",
+  "state": "local candidate; exact-head CI and independent review required",
+  "base_main": "b560e1f4485d02dd7d3c8ede808847996e8111e8",
+  "inventory": {
+    "path": "docs/reports/refactor-06/inventory.json",
+    "root_sources": 11,
+    "root_limit": 30,
+    "all_sources": 635,
+    "tracked_uids": 218,
+    "uids_after_local_godot_import": 304,
+    "errors": 0
+  },
+  "local_checks": {
+    "quality_check": {
+      "exit": 0,
+      "whole_files": 12,
+      "failed_steps": 0,
+      "seconds": 8.068
+    },
+    "tool_layout_tests": {
+      "exit": 0,
+      "tests": 8,
+      "failures": 0
+    },
+    "tool_layout_json": {
+      "exit": 0,
+      "errors": 0
+    },
+    "first_documentation_attempt": {
+      "exit": 1,
+      "reason": "README linked validation.json before that evidence file was added",
+      "resolution": "add this validation record and repeat the unchanged checker"
+    },
+    "documentation_final": "pending repeat",
+    "wiki_check": "pending",
+    "diff_check": "pending"
+  },
+  "negative_controls": [
+    "unknown internal root source rejected below numeric limit",
+    "unknown owner domain and source budget reported independently",
+    "missing tracked UID and orphan generated UID rejected",
+    "source and directory symlinks rejected",
+    "clean checkout without optional generated water UID accepted",
+    "new nested source in an owned domain accepted without snapshot update"
+  ],
+  "preservation": {
+    "existing_refactor_01_reports_changed": false,
+    "existing_refactor_03_reports_changed": false,
+    "gameplay_or_assets_changed": false,
+    "REFACTOR_04_status": "blocked",
+    "REFACTOR_05_status": "blocked"
+  },
+  "limits": {
+    "local_game_launched": false,
+    "native_GPU_FPS_accepted": false,
+    "full_architecture_and_game": "remote exact-head CI required",
+    "Task_Complete": false
+  }
+}
