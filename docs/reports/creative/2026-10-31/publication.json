@@ -1,0 +1,37 @@
+{
+  "base": "7d8c62be8a98edcd34cf1ede3919625295c5076e",
+  "firstVerifiedHead": "70f06f34008c722d0005fe554d855cf2052b2105",
+  "pullRequest": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/30",
+  "status": "in_progress",
+  "updatedAt": "2026-10-31T13:52:12.665342+00:00",
+  "firstCheckpoint": "checkpoint-1/gates.json",
+  "finalCheckpoint": "publish-1/gates.json",
+  "expectedMetadata": "0.0.390",
+  "changesSinceFirst": [
+    "PR literal URL and first verified SHA in editorial card",
+    "Publication protocol/fresh Wiki and isolated Chrome epoch390",
+    "316/321: explicit local UI-active clock while world is modal-paused, manual pause/focus gates; actual GameLoop early return studied",
+    "Human prose spacing in ten new designs and appended records; prior IDs/status/history unchanged"
+  ],
+  "localQA": {
+    "engine": "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+    "engineVersion": "4.7.1.stable.official.a13da4feb",
+    "FARM_GODOT_BIN": "/private/tmp/creative31-capture/godot",
+    "WIKI_GODOT_BIN": "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+    "PATH": "capture-helpers/env.sh.txt",
+    "capture": "Unchanged pre-commit, including quality.check --staged before bump. Capture wrapper validates frozen source hashes and stages four receipts only after success.",
+    "forwarding": "Every argv unchanged to installed official engine; flock only cooperating test_game save fixtures, no lock over unrelated engines. CI does not use forwarder.",
+    "browser": "Installed Chrome/Playwright in isolated context; user profile/live tabs not used; no native hardware input admission.",
+    "archivesSHA256": {
+      "freeze.py.txt": "7dfdcf1a2499e5261c468ed619ba5c8b93cc8ce8d30899cd0c4b9c2d74f92d63",
+      "receipt.py.txt": "52725e95969aa2fae66631cad074bfa5d1a3b600a97d1aac5c28e867f3aebb2b",
+      "env.sh.txt": "4711283222e85f661881ac83778deadd55464f00b747b3973429ce892937352d",
+      "godot.txt": "e7c88aad4eff83eb3c0416cd0c9caf9e06d2c961a5d2a87f3ce5109baadd51b9"
+    }
+  },
+  "futureGameplayScenariosRun": 0,
+  "audienceTested": false,
+  "independentReviewApproved": false,
+  "mainMerged": false,
+  "exactFinalHead": "Pinned after commit/push in GitHub PR and Tech Lead packet; no circular own-commit SHA in this file."
+}
