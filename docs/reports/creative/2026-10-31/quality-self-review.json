@@ -1,0 +1,13 @@
+{
+  "command": "python3 tools/run.py quality.self_review --output /private/tmp/creative31-self-review-1",
+  "sourceVersion": "0.0.385",
+  "exitCode": 0,
+  "archiveSHA256": "4d92276319eaf19500a95d3352db4b0350a649835b5a42770a76f6b862628069",
+  "fileSHA256": {
+    "source-state.json": "05172661661c0ea65d5617f074ce04c4b260cc288a71ff98123237e204a759b7",
+    "result.json": "a9a64ef2e57ed814cc4bf90651f912c95fcc55402489adfe189776e2ad26b2af",
+    "capture.json": "87ae4ee813e72743e30f7c3408acf9f46188f0b813fa7762e49e226ee527efc6",
+    "commands.json": "540e0ee3c7f7e159afdf2c1b8f3260b7e38a58d61e054cd82cbc846a71a61c50"
+  },
+  "newGameplayAccepted": false
+}

@@ -1,0 +1,83 @@
+[
+  {
+    "number": 29,
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/29",
+    "head": "b5fd27ab58cf84703f9384dc8f96138cfabb24df",
+    "branch": "codex/refactor-07-accounting",
+    "base": "7d8c62be8a98edcd34cf1ede3919625295c5076e",
+    "draft": true,
+    "title": "REFACTOR-07: учёт принятой задачи"
+  },
+  {
+    "number": 27,
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/27",
+    "head": "6403c3bfa9ed106662411287d04afb9da2ec6a5b",
+    "branch": "codex/idea-review-20261030-new-pursuits",
+    "base": "464328853c2fbbed1410ac0312de75c3fee7cfa2",
+    "draft": true,
+    "title": "docs(IDEA-REVIEW-20261030): десять самостоятельных предложений IDEA-302…311"
+  },
+  {
+    "number": 25,
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/25",
+    "head": "4f77b3092fdd4e197e337699f0ece507da33902f",
+    "branch": "codex/idea-review-20261029-new-horizons",
+    "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "draft": true,
+    "title": "docs: IDEA-292…301 — новые истории и занятия жителей"
+  },
+  {
+    "number": 24,
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/24",
+    "head": "979ccd5948b535726e72c0744d49c13971692394",
+    "branch": "codex/idea-review-20261028-evening-crafts",
+    "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "draft": true,
+    "title": "IDEA-REVIEW-20261028-EVENING: десять отдельных занятий жителей"
+  },
+  {
+    "number": 23,
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/23",
+    "head": "6f0f54c764dd3bf0aa8766c547a13684ef02acb2",
+    "branch": "codex/title-00-location-boss-reveals",
+    "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "draft": true,
+    "title": "TITLE-00: названия мест и представление боссов"
+  },
+  {
+    "number": 22,
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/22",
+    "head": "9d7bec42bfb527fa80f4c65f78e950c95bcf3b57",
+    "branch": "codex/idea-review-20261028-community-secrets",
+    "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "draft": true,
+    "title": "IDEA-REVIEW-20261028: десять отдельных занятий и историй жителей"
+  },
+  {
+    "number": 20,
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/20",
+    "head": "3144b7636fea29a7ad1b4ef1d467858219a537de",
+    "branch": "codex/idea-review-20261027-village-choices",
+    "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "draft": true,
+    "title": "IDEA-REVIEW-20261027: десять отдельных историй и игровых решений"
+  },
+  {
+    "number": 13,
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/13",
+    "head": "2c193432fbe31222f94d7b2167486f7f4b54b435",
+    "branch": "codex/idea-review-20261026-boundaries",
+    "base": "d609ab4fa6d82d6d013265183f018b8836abf7cc",
+    "draft": true,
+    "title": "IDEA-REVIEW-20261026: десять отдельных историй и занятий долины"
+  },
+  {
+    "number": 2,
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/2",
+    "head": "9592ad3f65ea5e219580fb13027d4981df4d0fbb",
+    "branch": "codex/idea-review-20261023-evening",
+    "base": "fe5919686aed1b6ea66cd1112a8075a57d448946",
+    "draft": true,
+    "title": "IDEA-REVIEW-20261023-EVENING: десять тематических эпиков с оценками"
+  }
+]

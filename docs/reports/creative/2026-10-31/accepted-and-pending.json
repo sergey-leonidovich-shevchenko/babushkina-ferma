@@ -1,0 +1,19 @@
+{
+  "accepted": {
+    "number": 28,
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/28",
+    "head": "c5c2a2d68bc5c79cb61f2bf1c27fe8fa0ccf3703",
+    "merge": "7d8c62be8a98edcd34cf1ede3919625295c5076e",
+    "merged": true,
+    "title": "REFACTOR-07: качество кода и самопроверка инструментов"
+  },
+  "pendingAccounting": {
+    "number": 29,
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/29",
+    "head": "b5fd27ab58cf84703f9384dc8f96138cfabb24df",
+    "base": "7d8c62be8a98edcd34cf1ede3919625295c5076e",
+    "merged": false,
+    "draft": true,
+    "title": "REFACTOR-07: учёт принятой задачи"
+  }
+}

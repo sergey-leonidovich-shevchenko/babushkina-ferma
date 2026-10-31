@@ -1,0 +1,33 @@
+const {chromium}=require('/Users/sergeyshevchenko/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs=require('node:fs/promises'),path=require('node:path'),zlib=require('node:zlib'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const root='/Users/sergeyshevchenko/.codex/worktrees/creative-review-31/my farm';
+const base='http://127.0.0.1:4213';
+(async()=>{
+ const out=path.join(root,process.argv[2]);await fs.mkdir(out,{recursive:false});
+ const data=JSON.parse(await fs.readFile(path.join(root,'docs/reports/creative/2026-10-31/proposals.json'),'utf8'));
+ const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
+ const page=await browser.newPage({viewport:{width:1280,height:900}});const errors=[],checks=[],hashes={};page.on('pageerror',e=>errors.push(String(e)));
+ async function snapshot(name){const text=await page.locator('body').innerText();await fs.writeFile(path.join(out,name+'.txt.gz'),zlib.gzipSync(text,{mtime:0}));hashes[name]=crypto.createHash('sha256').update(text).digest('hex');return text;}
+ async function screenshot(name){await page.evaluate(()=>document.fonts.ready);await page.screenshot({path:path.join(out,name+'.png')});}
+ async function goto(url,required){await page.goto(url);await page.getByRole('heading',{level:1}).waitFor();if(required)await page.getByText(required,{exact:false}).first().waitFor();}
+ let result={browser:'isolated installed Chrome via Playwright',version:await browser.version(),viewport:[1280,900],headless:true,liveUserProfileUsed:false,metadata:process.env.R31_METADATA||'0.0.389',checks,errors,rawSHA256:hashes,gameplayAccepted:false,hardwareInputAccepted:false};
+ try{
+  await goto(base+'/#/guides/creative-review-2026-10-31','Новые статьи и польза');
+  const report=await snapshot('overview');assert.ok(report.includes(result.metadata));
+  const links=await page.locator('a[href*="/guides/IDEA-"]').evaluateAll(nodes=>nodes.map(n=>n.href));
+  for(const p of data.ideas)assert.ok(links.includes(base+'/#/guides/'+p.id));checks.push('overview has ten exact article links and current metadata');
+  await screenshot('overview');await page.getByRole('heading',{name:'Новые статьи и польза',exact:true}).scrollIntoViewIfNeeded();await screenshot('ideas-table');
+  for(const p of data.ideas){await goto(base+'/#/guides/'+p.id,'Будущие F');const text=await snapshot(p.id);assert.ok(text.includes(p.title)&&text.includes('Предложение proposed')&&text.includes('F'+p.id.slice(-3)+'-06'));checks.push(p.id+' rendered as proposed with six future scenarios');}
+  await goto(base+'/#/development/ideas/IDEA-320','Оценка');
+  const card=await snapshot('idea-320-card');for(const label of ['Польза','Интерес','Соответствие','Связи','Стоимость','Риск'])assert.ok(card.includes(label));await screenshot('idea-320-card');checks.push('six separate scores visible on IDEA-320');
+  await goto(base+'/#/development/epics/idea-312--IDEA-312','Поставить коридор');
+  await page.locator('a[href="#/development/tasks/idea-312--IDEA-312-02"]').click();await page.getByRole('heading',{name:'Поставить коридор поиска и одну собаку Рады',exact:true}).waitFor();
+  const task=await snapshot('task-312-02');assert.ok(task.includes('VMAP-003')&&task.includes('IDEA-232-04'));await screenshot('task-312-02');checks.push('real epic-to-task transition exposes both dependencies');
+  await goto(base+'/#/development/ideas');
+  const search=page.getByLabel('Поиск идей',{exact:true});await search.fill('Приказы деревянному');await page.getByRole('link',{name:/IDEA-321/}).first().waitFor();await search.press('Tab');
+  const focus=await page.evaluate(()=>({tag:document.activeElement.tagName,label:document.activeElement.getAttribute('aria-label')}));assert.equal(focus.tag,'SELECT');await snapshot('search');checks.push('text search finds321 and Tab moves to filter');
+  await page.setViewportSize({width:390,height:900});await goto(base+'/#/guides/IDEA-321','Будущие F');await snapshot('article-321-mobile');await screenshot('article-321-mobile');checks.push('390px article layout rendered');
+  assert.equal(errors.length,0);result.success=true;result.exitCode=0;
+ }catch(e){result.success=false;result.exitCode=1;result.failure=String(e);await snapshot('failure').catch(()=>{});await screenshot('failure').catch(()=>{});process.exitCode=1;}
+ finally{await fs.writeFile(path.join(out,'browser.json'),JSON.stringify(result,null,2)+'\n');await browser.close();console.log(JSON.stringify(result));}
+})();
