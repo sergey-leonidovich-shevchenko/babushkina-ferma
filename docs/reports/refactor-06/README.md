@@ -1,8 +1,8 @@
 # REFACTOR-06 — навигация и правило размещения tools
 
-Работа начата 31 октября 2026 года на принятой `main` `b560e1f4485d02dd7d3c8ede808847996e8111e8` после полного закрытия REFACTOR-03 и REFACTOR-07. Ветка `codex/refactor-06-maintainable-layout`, [draft PR31](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31). До независимого exact-head review, CI и решения Team Lead это кандидат, а не принятый результат.
+Работа начата и принята 31 октября 2026 года на базе `main` `b560e1f4485d02dd7d3c8ede808847996e8111e8` после полного закрытия REFACTOR-03 и REFACTOR-07. [PR31](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31) принят на exact head `81142f385603668792377964a1d4f2bd50afb8a6`: независимое review5724142227 дало APPROVED, два workflow run завершили 8/8 jobs success, Team Lead подтвердил merge. Merge `bcf9b1031ba80a0d0840d10e615f5c7d00d31cf0` имеет то же дерево `33fed2983acd12c30e2850969f7a5d07cf44a35e`, что reviewed head.
 
-[Каноническая карточка](../../epics/refactoring-2026-10/TASKS.md#refactor-06--закрепить-навигацию-и-правило-добавления-новых-инструментов) · [правила и команды](../../../tools/README.md) · [полная текущая карта путей](inventory.json).
+[Каноническая карточка](../../epics/refactoring-2026-10/TASKS.md#refactor-06--закрепить-навигацию-и-правило-добавления-новых-инструментов) · [запись приёмки](closeout/completion.json) · [правила и команды](../../../tools/README.md) · [полная текущая карта путей](inventory.json).
 
 ## Числа до и после
 
@@ -43,4 +43,4 @@
 
 REFACTOR-04 остаётся `blocked`: suites/helpers не переносились и не объявляются сгруппированными. REFACTOR-05 остаётся `blocked`: `scripts/systems` и `scripts/presentation` не переносились. Их прежние аудит-карты сохранены. REFACTOR-06 закрывает только первый выпуск структуры `tools`; не принимает Game, FPS, VMAP-003 или новую игровую механику.
 
-Локальный Game не запускается по действующему указанию. Полные Game/normal/F10, platforms, Wiki и architecture выполняются удалённым CI точного опубликованного head. Фактические локальные результаты и границы будут закреплены в [validation.json](validation.json); окончательная приёмка требует независимого review и решения Team Lead.
+Локальный Game не запускался по действующему указанию. Полные Game/normal/F10, platforms, Wiki и architecture выполнены удалённым CI точного опубликованного head; оба workflow run дали суммарно 8/8 jobs success, architecture — 110 suites / 1445 cases. [Validation](validation.json) сохраняет локального кандидата и реальные red→green; [completion](closeout/completion.json) отдельно фиксирует принятую реализацию. Следующая очередь — первая overworld до VMAP-003. REFACTOR-04/05 остаются `blocked`, весь эпик этой приёмкой не закрывается.

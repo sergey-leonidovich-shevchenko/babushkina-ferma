@@ -1,0 +1,54 @@
+{
+  "task": "REFACTOR-06",
+  "status": "done",
+  "completion_date_asia_almaty": "2026-10-31",
+  "scope": "first tools layout release only",
+  "implementation_pull_request": 31,
+  "implementation_pull_request_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31",
+  "implementation_head": "81142f385603668792377964a1d4f2bd50afb8a6",
+  "review_history": {
+    "changes_requested": 5724024281,
+    "approved": 5724142227
+  },
+  "ci": {
+    "status": "8/8 jobs success",
+    "workflow_runs": [41224322959, 41224327750],
+    "architecture": "110 suites / 1445 cases"
+  },
+  "team_lead_decision": "accepted",
+  "merge": {
+    "sha": "bcf9b1031ba80a0d0840d10e615f5c7d00d31cf0",
+    "merged_at_utc": "2026-10-31T17:50:59Z",
+    "parents": [
+      "b560e1f4485d02dd7d3c8ede808847996e8111e8",
+      "81142f385603668792377964a1d4f2bd50afb8a6"
+    ],
+    "tree": "33fed2983acd12c30e2850969f7a5d07cf44a35e",
+    "tree_matches_reviewed_head": true
+  },
+  "accepted_result": {
+    "root_sources": 11,
+    "root_limit": 30,
+    "all_sources": 635,
+    "tracked_uids": 218,
+    "uids_after_godot_import": 304,
+    "layout_guard_tests": 9,
+    "fail_closed_unreadable_directory": true,
+    "owner_navigation_documented": true
+  },
+  "preserved": {
+    "historical_reports": true,
+    "gameplay_and_assets": true,
+    "local_game_launched": false,
+    "REFACTOR_04_status": "blocked",
+    "REFACTOR_05_status": "blocked"
+  },
+  "not_claimed": [
+    "completion of the whole REFACTOR epic",
+    "REFACTOR-04 or REFACTOR-05 implementation",
+    "new gameplay, map or mechanic",
+    "VMAP acceptance",
+    "native GPU or visual acceptance"
+  ],
+  "next": "first overworld route through VMAP-003"
+}

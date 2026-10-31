@@ -170,11 +170,13 @@
 
 ## REFACTOR-06 — Закрепить навигацию и правило добавления новых инструментов
 
-**Статус:** in_progress · **Приоритет:** P1 · **Объём:** M · **Тип:** validation.
+**Статус:** done · **Приоритет:** P1 · **Объём:** M · **Тип:** validation.
 
 **Ветка:** codex/refactor-06-maintainable-layout
 
 **Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31
+
+**Дата завершения:** 2026-10-31
 
 **Результат и объём:** README tools, правила размещения/владельцев и адресный guard против повторного засорения корня. Итоговая ведомость остальных каталогов, отдельные статусы будущих 04/05.
 
@@ -191,7 +193,9 @@
 
 **Проверка:** Чистый checkout, штатный локальный и CI-запуск, отрицательная копия с новым ошибочно размещённым инструментом; Wiki check и независимое exact-head ревью.
 
-**Подтверждения / результат:** В работе в [draft PR31](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31) после принятого учёта REFACTOR-07: PR29 merge `b560e1f4485d02dd7d3c8ede808847996e8111e8`, exact head `b5fd27ab58cf84703f9384dc8f96138cfabb24df`, review5723813835 и CI8/8. Ветка06 вводит динамический guard корня/UID/владельцев, проверяемую навигацию и итоговую ведомость; новые игровые механики,04/05 и VMAP этой задачей не реализуются. Review5724024281 запросил fail-closed ошибку недоступного каталога на head `f04da49d`; адресный parent-red/current-green добавлен в тот же PR. Статус остаётся in_progress до повторного CI, независимого exact-head review и решения Team Lead.
+**Подтверждения / результат:** [PR31](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31) принят на exact head `81142f385603668792377964a1d4f2bd50afb8a6`: после CHANGES_REQUESTED review5724024281 fail-closed дефект недоступного каталога закрыт адресным parent-red/current-green, независимое [review5724142227](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31#pullrequestreview-5724142227) дало APPROVED. Два exact-head workflow run `41224322959` и `41224327750` завершили 8/8 jobs success; Team Lead принял результат. Merge `bcf9b1031ba80a0d0840d10e615f5c7d00d31cf0` от `2026-10-31T17:50:59Z` имеет родителей `b560e1f4485d02dd7d3c8ede808847996e8111e8` и reviewed head, дерево `33fed2983acd12c30e2850969f7a5d07cf44a35e`. Закрыт только первый выпуск структуры tools: REFACTOR-04/05 остаются `blocked`, весь эпик не объявлен завершённым, следующая очередь — первая overworld до VMAP-003. [Запись приёмки](../../reports/refactor-06/closeout/completion.json).
+
+Task-Complete: REFACTOR-06
 
 ## REFACTOR-07 — Линтеры, форматирование и самопроверка реальных сценариев перед ревью
 
