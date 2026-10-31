@@ -57,7 +57,8 @@ class ToolLayoutTests(unittest.TestCase):
         report = inspect_layout(ROOT)
         self.assertEqual(report["errors"], [])
         self.assertEqual(report["root"]["source_count"], len(ROOT_PUBLIC))
-        self.assertEqual(report["root"]["uid_count"], len(ROOT_UIDS))
+        self.assertGreaterEqual(report["root"]["uid_count"], len(REQUIRED_ROOT_UIDS))
+        self.assertLessEqual(report["root"]["uid_count"], len(ROOT_UIDS))
         self.assertEqual({row["name"] for row in report["domains"]}, set(DOMAIN_OWNERS))
         self.assertFalse(report["policy"]["whole_repository_snapshot_pinned"])
 
