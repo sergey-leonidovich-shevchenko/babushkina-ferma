@@ -3,7 +3,7 @@
     "id": "code-quality",
     "file": "code-quality.md",
     "title": "Качество кода: проверки перед ревью",
-    "summary": "Единый check целых изменённых файлов, закреплённые инструменты, честный legacy baseline и самопроверка настоящих producer. REFACTOR-07 в работе; линтер не заменяет независимое ревью.",
+    "summary": "Единый check целых изменённых файлов, закреплённые инструменты, честный legacy baseline и самопроверка настоящих producer. REFACTOR-07 принята через PR28; линтер не заменяет независимое ревью.",
     "tags": [
       "Разработка",
       "REFACTOR-07",
@@ -28,7 +28,7 @@
     "id": "project-refactoring",
     "file": "project-refactoring.md",
     "title": "Рефакторинг: инструменты по назначению",
-    "summary": "REFACTOR-03 принята через PR21: 779 назначений сверены, в корне tools 11 исходников при лимите 30. Следом REFACTOR-07, затем REFACTOR-06 и первая overworld до VMAP-003.",
+    "summary": "REFACTOR-03 и REFACTOR-07 приняты: структура tools и quality gate подтверждены независимым ревью и CI. Следом REFACTOR-06, затем первая overworld до VMAP-003.",
     "tags": [
       "Разработка",
       "Рефакторинг",

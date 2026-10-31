@@ -1,0 +1,75 @@
+{
+  "task": "REFACTOR-07-accounting",
+  "version": "0.0.388",
+  "branch": "codex/refactor-07-accounting",
+  "base": "7d8c62be8a98edcd34cf1ede3919625295c5076e",
+  "preparation_head": "e0651944566118a9e2926f687b37ae4f98b937c6",
+  "pull_request": 29,
+  "local_game_launched": false,
+  "review_fixes": [
+    {
+      "review_id": 5718323431,
+      "priority": "P3",
+      "result": "accepted-ci.json text replaced by a real relative link to accepted-CI.json for case-sensitive checkouts"
+    }
+  ],
+  "review_control": {
+    "discarded_command": "test ! -e docs/reports/refactor-07/closeout/accepted-ci.json",
+    "discarded_exit": 1,
+    "reason": "case-insensitive macOS resolves the wrong-case spelling to the same file, so this cannot prove the Git pathname",
+    "replacement": "exact git ls-files comparison",
+    "replacement_exit": 0,
+    "tracked_exact_name": "docs/reports/refactor-07/closeout/accepted-CI.json",
+    "wrong_case_tracked": false
+  },
+  "checks": [
+    {
+      "command": "python3 tools/bump_version.py --check",
+      "exit": 0,
+      "result": "VERSION/project.godot/app plist synchronized"
+    },
+    {
+      "command": "python3 tools/run.py quality.check",
+      "exit": 0,
+      "result": "10 whole changed/new source files; Ruff, format and mypy passed"
+    },
+    {
+      "command": "python3 tools/run.py quality.check_documentation",
+      "exit": 0,
+      "result": "required documents and local links valid"
+    },
+    {
+      "command": "python3 tools/run.py quality.test_documentation",
+      "exit": 0,
+      "result": "documentation negative/positive profile passed"
+    },
+    {
+      "command": "pnpm --dir wiki check",
+      "exit": 0,
+      "result": "final build with PR29 links passed; 145 tests passed"
+    },
+    {
+      "command": "python3 -m json.tool <changed JSON>",
+      "exit": 0,
+      "result": "all closeout JSON plus Wiki registries parse"
+    },
+    {
+      "command": "git diff --check",
+      "exit": 0,
+      "result": "no whitespace errors"
+    }
+  ],
+  "retained_failure": {
+    "command": "pnpm --dir wiki check inside filesystem sandbox",
+    "exit": 1,
+    "reason": "macOS get_system_ca_certificates denied by sandbox",
+    "resolution": "same command repeated with normal approved Godot permissions and passed 145/0",
+    "counted_as_success": false
+  },
+  "deferred_to_pull_request_ci": [
+    "full architecture gate",
+    "Game/normal/F10",
+    "smoke and performance"
+  ],
+  "defer_reason": "accounting changes documentation only and current instruction forbids launching the game locally; remote PR CI remains mandatory"
+}

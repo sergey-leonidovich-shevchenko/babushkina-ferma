@@ -4,9 +4,9 @@
 
 [Запись приёмки REFACTOR-03](../../docs/reports/refactor-03/closeout/completion.json). Учёт принят и влит через [PR26](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/26), merge46432885; карточка03done от30.10.2026. Исторические отчёты и планы сохранены.
 
-Текущий порядок после принятия учёта03: **REFACTOR-07 → REFACTOR-06 → первая overworld до VMAP-003** по актуальным карточкам и полным зависимостям. Одновременно одна задача; решения, ревью и обычные approved merge выполняются агентами без дополнительных вопросов владельцу.
+REFACTOR-07 принята через [PR №28](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/28): head `c5c2a2d68bc5c79cb61f2bf1c27fe8fa0ccf3703`, [независимое ревью 5718136092](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/28#pullrequestreview-5718136092), CI 8/8 и решение Team Lead. Merge `7d8c62be8a98edcd34cf1ede3919625295c5076e` от `2026-10-30T20:16:31Z` имеет то же дерево, что reviewed head. [Запись приёмки](../../docs/reports/refactor-07/closeout/completion.json) сохраняет точные границы и различает локальные/CI счётчики; отдельный учёт ведётся в [PR №29](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/29).
 
-В работе **REFACTOR-07**: единый check новых/изменённых Python и GDScript, закреплённые Ruff/mypy/gdtoolkit и реальный анализатор Godot. [Установка, команды, baseline и ограничения](code-quality.md). Старый код не форматируется массово; frozen evidence сохраняются. Самопроверка вызывает настоящие producer во внешнем проекте и связанном Git worktree; это не игровая/FPS-приёмка. Статус in_progress сохраняется до независимого ревью точного head, CI и решения Team Lead.
+Текущий порядок после учёта07: **REFACTOR-06 → первая overworld до VMAP-003** по актуальным карточкам и полным зависимостям. Одновременно одна задача; решения, ревью и обычные approved merge выполняются агентами без дополнительных вопросов владельцу. [Установка, команды, baseline и ограничения принятого quality gate](code-quality.md) остаются рабочими требованиями следующих PR. Старый код не форматируется массово; frozen evidence сохраняются.
 
 ## История промежуточных пакетов
 

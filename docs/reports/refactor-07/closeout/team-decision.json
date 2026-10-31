@@ -1,0 +1,14 @@
+{
+  "task": "REFACTOR-07",
+  "decision": "accepted",
+  "exact_head": "c5c2a2d68bc5c79cb61f2bf1c27fe8fa0ccf3703",
+  "review_id": 5718136092,
+  "ci_success": "8/8",
+  "source_thread_id": "01a14c6e-9afd-7d33-a968-2c72339fce8d",
+  "route": "Tech Lead -> Team Lead -> Developer Agent",
+  "conditions": [
+    "merge reviewed exact head with fresh guards",
+    "record done and Task-Complete in a separately reviewed accounting PR",
+    "do not start REFACTOR-06 before accepted accounting"
+  ]
+}

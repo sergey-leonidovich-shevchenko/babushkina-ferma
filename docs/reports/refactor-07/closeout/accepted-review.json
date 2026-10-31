@@ -1,0 +1,22 @@
+{
+  "task": "REFACTOR-07",
+  "pull_request": 28,
+  "review_id": 5718136092,
+  "review_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/28#pullrequestreview-5718136092",
+  "state_recorded_by_reviewer": "APPROVED",
+  "github_submission_state": "COMMENTED",
+  "github_state_reason": "общая GitHub-учётная запись автора и агентов",
+  "reviewed_head": "c5c2a2d68bc5c79cb61f2bf1c27fe8fa0ccf3703",
+  "reviewed_base": "464328853c2fbbed1410ac0312de75c3fee7cfa2",
+  "submitted_at": "2026-10-30T20:15:04Z",
+  "source_pass_review_id": 5716453805,
+  "p2_resolved": true,
+  "new_actionable_findings": 0,
+  "independent_checks": {
+    "quality_tests": 22,
+    "index_cases_without_parent_bytecode_flag": 11,
+    "static_files": 10,
+    "actual_hook_old_failures": 2,
+    "actual_hook_new_passes": 2
+  }
+}

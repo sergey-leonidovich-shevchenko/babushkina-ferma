@@ -1,0 +1,15 @@
+{
+  "task": "REFACTOR-07",
+  "pull_request": 28,
+  "pull_request_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/28",
+  "merge": "7d8c62be8a98edcd34cf1ede3919625295c5076e",
+  "merged_at_utc": "2026-10-30T20:16:31Z",
+  "merged_at_asia_almaty": "2026-10-31T01:16:31+05:00",
+  "parents": [
+    "464328853c2fbbed1410ac0312de75c3fee7cfa2",
+    "c5c2a2d68bc5c79cb61f2bf1c27fe8fa0ccf3703"
+  ],
+  "tree": "ee3a17e5bc8463eba6eb3918137367a5409005d6",
+  "reviewed_head_tree": "ee3a17e5bc8463eba6eb3918137367a5409005d6",
+  "tree_matches_reviewed_head": true
+}
