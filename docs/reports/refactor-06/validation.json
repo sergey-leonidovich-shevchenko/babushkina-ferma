@@ -1,6 +1,7 @@
 {
   "task": "REFACTOR-06",
   "version": "0.0.389",
+  "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31",
   "state": "local candidate; exact-head CI and independent review required",
   "base_main": "b560e1f4485d02dd7d3c8ede808847996e8111e8",
   "inventory": {

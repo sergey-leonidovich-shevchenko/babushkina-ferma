@@ -1,6 +1,6 @@
 # REFACTOR-06 — навигация и правило размещения tools
 
-Работа начата 31 октября 2026 года на принятой `main` `b560e1f4485d02dd7d3c8ede808847996e8111e8` после полного закрытия REFACTOR-03 и REFACTOR-07. Ветка `codex/refactor-06-maintainable-layout`. До независимого exact-head review, CI и решения Team Lead это кандидат, а не принятый результат.
+Работа начата 31 октября 2026 года на принятой `main` `b560e1f4485d02dd7d3c8ede808847996e8111e8` после полного закрытия REFACTOR-03 и REFACTOR-07. Ветка `codex/refactor-06-maintainable-layout`, [draft PR31](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31). До независимого exact-head review, CI и решения Team Lead это кандидат, а не принятый результат.
 
 [Каноническая карточка](../../epics/refactoring-2026-10/TASKS.md#refactor-06--закрепить-навигацию-и-правило-добавления-новых-инструментов) · [правила и команды](../../../tools/README.md) · [полная текущая карта путей](inventory.json).
 
