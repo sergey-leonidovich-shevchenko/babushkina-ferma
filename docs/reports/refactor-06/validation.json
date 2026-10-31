@@ -18,7 +18,7 @@
       "exit": 0,
       "whole_files": 12,
       "failed_steps": 0,
-      "seconds": 9.135
+      "seconds": 8.686
     },
     "tool_layout_tests": {
       "exit": 0,
@@ -43,8 +43,9 @@
     },
     "clean_archive_final": {
       "exit": 0,
-      "tests": 8,
+      "tests": 9,
       "failures": 0,
+      "verified_code_head": "e398a4fa1d94fd7bdc7c8cd9114fbe945fadd57d",
       "root_sources": 11,
       "root_uids": 1,
       "all_sources": 635,
