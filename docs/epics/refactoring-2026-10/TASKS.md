@@ -191,7 +191,7 @@
 
 **Проверка:** Чистый checkout, штатный локальный и CI-запуск, отрицательная копия с новым ошибочно размещённым инструментом; Wiki check и независимое exact-head ревью.
 
-**Подтверждения / результат:** В работе в [draft PR31](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31) после принятого учёта REFACTOR-07: PR29 merge `b560e1f4485d02dd7d3c8ede808847996e8111e8`, exact head `b5fd27ab58cf84703f9384dc8f96138cfabb24df`, review5723813835 и CI8/8. Ветка06 вводит динамический guard корня/UID/владельцев, проверяемую навигацию и итоговую ведомость; новые игровые механики,04/05 и VMAP этой задачей не реализуются. Статус остаётся in_progress до CI, независимого exact-head review и решения Team Lead.
+**Подтверждения / результат:** В работе в [draft PR31](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31) после принятого учёта REFACTOR-07: PR29 merge `b560e1f4485d02dd7d3c8ede808847996e8111e8`, exact head `b5fd27ab58cf84703f9384dc8f96138cfabb24df`, review5723813835 и CI8/8. Ветка06 вводит динамический guard корня/UID/владельцев, проверяемую навигацию и итоговую ведомость; новые игровые механики,04/05 и VMAP этой задачей не реализуются. Review5724024281 запросил fail-closed ошибку недоступного каталога на head `f04da49d`; адресный parent-red/current-green добавлен в тот же PR. Статус остаётся in_progress до повторного CI, независимого exact-head review и решения Team Lead.
 
 ## REFACTOR-07 — Линтеры, форматирование и самопроверка реальных сценариев перед ревью
 

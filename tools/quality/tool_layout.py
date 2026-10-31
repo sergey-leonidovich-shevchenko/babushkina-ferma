@@ -75,7 +75,18 @@ def readme_errors(root: Path) -> list[str]:
 
 def walk_files(tools: Path, errors: list[str]) -> Iterable[Path]:
     """Обходит реальные файлы, не заходя в runtime/cache и не следуя directory symlink."""
-    for current, directories, files in os.walk(tools, followlinks=False):
+
+    def record_error(error: OSError) -> None:
+        path = Path(error.filename) if error.filename else tools
+        try:
+            display = path.relative_to(tools).as_posix()
+        except ValueError:
+            display = str(path)
+        errors.append(
+            f"каталог tools недоступен для полного обхода: {display}: {error.strerror or error}"
+        )
+
+    for current, directories, files in os.walk(tools, followlinks=False, onerror=record_error):
         folder = Path(current)
         kept: list[str] = []
         for name in directories:

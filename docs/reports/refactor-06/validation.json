@@ -1,6 +1,6 @@
 {
   "task": "REFACTOR-06",
-  "version": "0.0.389",
+  "version": "0.0.390",
   "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31",
   "state": "local candidate; exact-head CI and independent review required",
   "base_main": "b560e1f4485d02dd7d3c8ede808847996e8111e8",
@@ -18,11 +18,11 @@
       "exit": 0,
       "whole_files": 12,
       "failed_steps": 0,
-      "seconds": 9.302
+      "seconds": 9.135
     },
     "tool_layout_tests": {
       "exit": 0,
-      "tests": 8,
+      "tests": 9,
       "failures": 0
     },
     "tool_layout_json": {
@@ -52,6 +52,21 @@
       "owned_nested_source_accepted": true,
       "unknown_root_source_rejected": true
     },
+    "review_5724024281_fix": {
+      "parent_head": "f04da49d1954978a6f4abe7a394a578685229e62",
+      "problem": "os.walk silently skipped a chmod000 directory and returned an incomplete successful inventory",
+      "parent_with_current_regression": {
+        "tests": 1,
+        "failures": 1,
+        "errors_reported_by_guard": 0
+      },
+      "current": {
+        "tests": 1,
+        "failures": 0,
+        "fail_closed_error_contains_path": true,
+        "permissions_restored": true
+      }
+    },
     "documentation_final": {
       "exit": 0,
       "link_tests": "passed"
@@ -73,6 +88,7 @@
     "unknown owner domain and source budget reported independently",
     "missing tracked UID and orphan generated UID rejected",
     "source and directory symlinks rejected",
+    "unreadable source directory rejected instead of silently skipped",
     "clean checkout without optional generated water UID accepted",
     "new nested source in an owned domain accepted without snapshot update"
   ],

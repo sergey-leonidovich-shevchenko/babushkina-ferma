@@ -138,6 +138,26 @@ class ToolLayoutTests(unittest.TestCase):
             any("qa/linked" in error and "symlink" in error for error in errors), errors
         )
 
+    ## Сценарий: закрыть чтение каталога с внутренним исходником.
+    ## Исходное состояние: допустимый qa-домен содержит Python-файл, но его папка chmod000.
+    ## Ожидаемый результат: inventory отказывает fail-closed, а не теряет путь молча.
+    def test_unreadable_directory_is_rejected_instead_of_skipped(self) -> None:
+        unreadable = self.root / "tools/qa/closed"
+        unreadable.mkdir()
+        (unreadable / "hidden.py").write_text("VALUE = 6\n", encoding="utf-8")
+        unreadable.chmod(0)
+        try:
+            errors = inspect_layout(self.root)["errors"]
+        finally:
+            unreadable.chmod(0o700)
+        self.assertTrue(
+            any(
+                "недоступен для полного обхода" in error and "qa/closed" in error
+                for error in errors
+            ),
+            errors,
+        )
+
     ## Сценарий: запустить три маршрута навигации из корня и чужой cwd.
     ## Исходное состояние: общий guard выполняется, foliage/atlas дают безопасный --help.
     ## Ожидаемый результат: один launcher находит свой проект в обеих cwd и возвращает0.
