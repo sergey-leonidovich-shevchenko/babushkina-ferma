@@ -1,0 +1,114 @@
+{
+  "task": "REFACTOR-06",
+  "version": "0.0.390",
+  "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31",
+  "state": "local candidate; exact-head CI and independent review required",
+  "base_main": "b560e1f4485d02dd7d3c8ede808847996e8111e8",
+  "inventory": {
+    "path": "docs/reports/refactor-06/inventory.json",
+    "root_sources": 11,
+    "root_limit": 30,
+    "all_sources": 635,
+    "tracked_uids": 218,
+    "uids_after_local_godot_import": 304,
+    "errors": 0
+  },
+  "local_checks": {
+    "quality_check": {
+      "exit": 0,
+      "whole_files": 12,
+      "failed_steps": 0,
+      "seconds": 8.686
+    },
+    "tool_layout_tests": {
+      "exit": 0,
+      "tests": 9,
+      "failures": 0
+    },
+    "tool_layout_json": {
+      "exit": 0,
+      "errors": 0
+    },
+    "first_documentation_attempt": {
+      "exit": 1,
+      "reason": "README linked validation.json before that evidence file was added",
+      "resolution": "add this validation record and repeat the unchanged checker"
+    },
+    "clean_archive_first_attempt": {
+      "exit": 1,
+      "tests": 8,
+      "failures": 1,
+      "reason": "current-checkout assertion expected the optional generated water UID in a Git-only archive",
+      "resolution": "assert the documented required-to-allowed UID interval; production guard was already correct"
+    },
+    "clean_archive_final": {
+      "exit": 0,
+      "tests": 9,
+      "failures": 0,
+      "verified_code_head": "e398a4fa1d94fd7bdc7c8cd9114fbe945fadd57d",
+      "root_sources": 11,
+      "root_uids": 1,
+      "all_sources": 635,
+      "all_uids": 218,
+      "owned_nested_source_accepted": true,
+      "unknown_root_source_rejected": true
+    },
+    "review_5724024281_fix": {
+      "parent_head": "f04da49d1954978a6f4abe7a394a578685229e62",
+      "problem": "os.walk silently skipped a chmod000 directory and returned an incomplete successful inventory",
+      "parent_with_current_regression": {
+        "tests": 1,
+        "failures": 1,
+        "errors_reported_by_guard": 0
+      },
+      "current": {
+        "tests": 1,
+        "failures": 0,
+        "fail_closed_error_contains_path": true,
+        "permissions_restored": true
+      }
+    },
+    "documentation_final": {
+      "exit": 0,
+      "link_tests": "passed"
+    },
+    "wiki_check": {
+      "sandbox_attempt_exit": 1,
+      "sandbox_reason": "macOS Godot could not read system CA certificates",
+      "normal_environment_exit": 0,
+      "articles": 1188,
+      "node_tests_passed": 145,
+      "node_tests_failed": 0
+    },
+    "diff_check": {
+      "exit": 0
+    }
+  },
+  "negative_controls": [
+    "unknown internal root source rejected below numeric limit",
+    "unknown owner domain and source budget reported independently",
+    "missing tracked UID and orphan generated UID rejected",
+    "source and directory symlinks rejected",
+    "unreadable source directory rejected instead of silently skipped",
+    "clean checkout without optional generated water UID accepted",
+    "new nested source in an owned domain accepted without snapshot update"
+  ],
+  "preservation": {
+    "existing_refactor_01_reports_changed": false,
+    "existing_refactor_03_reports_changed": false,
+    "gameplay_or_assets_changed": false,
+    "REFACTOR_04_status": "blocked",
+    "REFACTOR_05_status": "blocked",
+    "frozen_sha256": {
+      "docs/reports/refactor-01/snapshot/tool-map.json": "b02316a994fd8f8ed7508ed39e9a8040f011412c7fad914a5ef21e9712130d8c",
+      "docs/reports/refactor-03/closeout/completion.json": "c2d212ca373f1c86e7add9cb388b514f788611ec32f948c44676e6996fb4c194",
+      "docs/reports/refactor-07/closeout/completion.json": "ecae483e2b6669f29d0569b64e8c6f5a8227efcd3b996ea3d9a4a84f19b4b26a"
+    }
+  },
+  "limits": {
+    "local_game_launched": false,
+    "native_GPU_FPS_accepted": false,
+    "full_architecture_and_game": "remote exact-head CI required",
+    "Task_Complete": false
+  }
+}

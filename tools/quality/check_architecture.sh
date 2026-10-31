@@ -33,6 +33,8 @@ for suite in tests/suites/**/*_suite.gd; do
 done
 
 python3 tools/run.py planning.bump_version --check
+python3 tools/run.py quality.tool_layout
+python3 tools/run.py quality.test_tool_layout
 python3 tools/run.py quality.test_quality
 python3 tools/run.py quality.test_index
 python3 tools/run.py common.test_infrastructure
