@@ -104,7 +104,7 @@
   "closeout_scope": "Canonical done/result, exact implementation merge and review provenance, derived backlog pages and version metadata only; all earlier implementation evidence remains preserved",
   "closeout_branch": "codex/vshore-002-accounting",
   "closeout_base": "fb4b3bdc4542c654a09623b7f0714cc7bb834983",
-  "closeout_version": "0.0.395",
+  "closeout_version": "0.0.396",
   "closeout_acceptance": "Own checks, exact-head independent review/CI and Team Lead decision required before this accounting PR is merged",
   "changed_task_statuses": {
     "VSHORE-002": [

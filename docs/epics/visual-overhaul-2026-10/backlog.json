@@ -2719,17 +2719,16 @@
         "open_findings": [],
         "review_history": [
           {
-            "head": "942e675bf3f551fb0423765fad11e5158a852956",
+            "head": "942e7a78b4e629355658646f5be88e8c66b0adf3",
             "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/33#pullrequestreview-5725337947",
             "decision": "changes_requested",
             "findings": [
               "P2 непредусмотренное изменение village_river",
-              "P2 неполное обязательное покрытие evidence manifest",
-              "P2 профильные тесты не были частью общего CI gate"
+              "P2 неполное обязательное покрытие evidence manifest"
             ]
           },
           {
-            "head": "807076c68d914586ec1bacf83d35e813360137d3",
+            "head": "8070f28b6799a98fd804d1bcb1d572ba3ffec1b0",
             "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/33#pullrequestreview-5725812831",
             "decision": "changes_requested",
             "previous_findings_addressed": true,
