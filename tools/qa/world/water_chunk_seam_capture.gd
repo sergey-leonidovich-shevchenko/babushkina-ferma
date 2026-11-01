@@ -94,6 +94,8 @@ func _start() -> void:
 				{
 					"frame": index,
 					"camera": [board.camera.x, board.camera.y],
+					"board_position": [board.position.x, board.position.y],
+					"seam_screen_x": (SEAM_X - board.camera.x) * 2.0,
 					"file": name,
 					"sha256": FileAccess.get_sha256(output.path_join(name)),
 					"global_equal": true,
@@ -219,6 +221,9 @@ func _frame(viewport: SubViewport, board: Board, id: String, frames: Array) -> b
 
 ## Даёт renderer три полных кадра на смену режима до чтения GPU-текстуры.
 func _readback(viewport: SubViewport, board: Board) -> Image:
+	# Камера принадлежит CanvasItem, поэтому внутренние draw_set_transform модулей воды
+	# не могут отменить её. Это также делает реальное движение видимым в framebuffer.
+	board.position = -board.camera
 	board.queue_redraw()
 	for tick in 3:
 		await RenderingServer.frame_post_draw

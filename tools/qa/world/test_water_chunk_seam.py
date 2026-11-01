@@ -167,6 +167,33 @@ class WaterChunkSeamTests(unittest.TestCase):
         self.resign_capture()
         self.rejected("motion camera trajectory")
 
+    def test_missing_saved_motion_frame_is_rejected(self) -> None:
+        """The manifest and video cannot replace any committed source PNG."""
+        (self.folder / "native/frames/0017.png").unlink()
+        self.rejected("motion frame SHA: 17")
+
+    def test_resigned_motion_frame_is_rejected(self) -> None:
+        """Changing a saved frame and its manifest still breaks the video-bound capture."""
+        native = self.folder / "native"
+        shutil.copyfile(native / "frames/0018.png", native / "frames/0017.png")
+
+        def edit(data: dict[str, Any]) -> None:
+            data["motion"][17]["sha256"] = seam.digest(native / "frames/0017.png")
+
+        self.change("native/capture.json", edit)
+        self.resign_capture()
+        self.rejected("repeated motion frames")
+
+    def test_motion_without_canvas_camera_is_rejected(self) -> None:
+        """Camera metadata must agree with the CanvasItem transform used by the capture."""
+
+        def edit(data: dict[str, Any]) -> None:
+            data["motion"][12]["board_position"][0] += 8
+
+        self.change("native/capture.json", edit)
+        self.resign_capture()
+        self.rejected("motion board transform")
+
     def test_empty_capture_sources_are_rejected(self) -> None:
         """Native PNGs without renderer inputs are incomplete evidence."""
         self.change("native/capture.json", lambda data: data.update(sources={}))

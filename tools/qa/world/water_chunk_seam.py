@@ -202,13 +202,14 @@ def verify_static_frames(root: Path, native: Path, capture: dict[str, Any]) -> N
 
 
 def verify_motion(root: Path, native: Path, capture: dict[str, Any]) -> None:
-    """Verify continuous camera motion whose every saved frame matched the global plan."""
+    """Verify every saved moving-camera frame, trajectory and global-plan comparison."""
     motion = capture.get("motion")
     if not isinstance(motion, list) or len(motion) != 60:
         raise ValueError("motion coverage")
     require(len({row.get("sha256") for row in motion}) == len(motion), "repeated motion frames")
     start = (96.0, 90.0)
     finish = (288.0, 90.0)
+    frame_hashes: set[str] = set()
     for index, row in enumerate(motion):
         require(row.get("frame") == index, "motion frame order")
         require(row.get("file") == f"frames/{index:04d}.png", "motion frame path")
@@ -222,6 +223,27 @@ def verify_motion(root: Path, native: Path, capture: dict[str, Any]) -> None:
             ),
             "motion camera trajectory",
         )
+        require(
+            row.get("board_position") == [-row["camera"][0], -row["camera"][1]],
+            "motion board transform",
+        )
+        require(
+            math.isclose(
+                row.get("seam_screen_x", math.inf),
+                (384.0 - row["camera"][0]) * 2.0,
+                abs_tol=0.002,
+            ),
+            "motion seam projection",
+        )
+        frame_path = local(root, native, row["file"])
+        require(
+            frame_path.is_file() and digest(frame_path) == row["sha256"],
+            f"motion frame SHA: {index}",
+        )
+        with Image.open(frame_path) as image:
+            require(image.size == (1152, 648), f"motion frame dimensions: {index}")
+        frame_hashes.add(row["sha256"])
+    require(len(frame_hashes) == len(motion), "repeated motion frames")
     for index in WITNESS_FRAMES:
         witness = native / f"motion-{index:03d}.png"
         require(

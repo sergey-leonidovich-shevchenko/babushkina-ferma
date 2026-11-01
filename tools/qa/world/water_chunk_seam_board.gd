@@ -12,7 +12,6 @@ var animation_frame := 1
 
 ## Рисует одинаковое окружение и меняет только способ классификации модульной воды.
 func _draw() -> void:
-	draw_set_transform(-camera)
 	Terrain.draw_base(self, "spring", "clear", true, true, true, true, true, true)
 	match mode:
 		"global":
