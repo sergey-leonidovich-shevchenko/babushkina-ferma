@@ -56,3 +56,6 @@
 Фактические quality/tool-layout/producer, Wiki, browser, architecture, Game/normal/F10, smoke/performance результаты сохраняются в новом отчёте после запуска. Исторические доказательства не перезаписываются. Публикация обычными commit/push и PR base main; точный head и проверки передаются Tech Lead Agent, карточка in_progress до независимого ревью/CI и решения Team Lead.
 
 [Реестр мест и ролей](river-and-memory-register.md).
+
+
+[Открытый PR](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/36) · [Первый проверенный checkpoint](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/90c4a2d6286137d007772cc92ee5ae87a9e479c3/docs/reports/creative/2026-11-01/checkpoint-1/gates.json) · [Публикация и ограничения](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/codex/idea-review-20261101-river-and-memory/docs/reports/creative/2026-11-01/PUBLICATION.md).

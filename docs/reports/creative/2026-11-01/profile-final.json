@@ -1,0 +1,20 @@
+{
+  "base": "db28a6d3ef178c193200a5d33ad2107bcf148722",
+  "newIdeas": 10,
+  "priorIdeasPreserved": 241,
+  "priorAssessmentsPreserved": 80,
+  "reservedPriorIds": 321,
+  "publishedBranches": 20,
+  "independentEpics": 10,
+  "implementationBacklog": 44,
+  "proposedAdultNPCs": 15,
+  "dialogueNodes": 31,
+  "writtenReplies": 93,
+  "futureScenarios": 60,
+  "futureScenariosRun": 0,
+  "editorStatus": "in_progress",
+  "dependencyGraph": "valid",
+  "oldQueuesPreserved": true,
+  "gameplayImplemented": false,
+  "proposalSHA256": "5dc9bed3940532ad7e1083e71393dd0facc3fc6dfcd77285355f2f67ba7d4946"
+}

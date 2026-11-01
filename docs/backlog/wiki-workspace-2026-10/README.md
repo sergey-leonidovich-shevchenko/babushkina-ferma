@@ -267,7 +267,7 @@
 
 **Статус:** in_progress · **Приоритет:** P2 · **Объём:** L · **Тип:** planning.
 
-**Ветка:** codex/idea-review-20261101-river-and-memory.
+**Ветка:** codex/idea-review-20261101-river-and-memory
 
 **Результат и объём:** Сверить принятые REFACTOR-07/06 и VSHORE-002, открытые PR/номера; подробно подготовить IDEA-322…331, десять тематических эпиков / 44 будущие карточки, 15 взрослых ролей / 31 узел / 93 ответа / 60 будущих F. Игровой код не менять.
 
@@ -284,4 +284,6 @@
 
 **Проверка:** Новый редакционный аудит, quality/check --staged/tool_layout/self_review, documentation, полный architecture/Game/normal/F10, smoke/performance, Wiki check и browser 1280/390.
 
-**Подтверждения / результат:** Десять предложений и 44 будущие задачи подготовлены. URL PR и первый проверенный SHA добавляются после публикации. Ожидаются независимое ревью текущего head, CI и решение Team Lead; статус in_progress. 60 новых игровых F и аудитория не проверены.
+**Подтверждения / результат:** Подготовлены десять предложений / 44 будущие задачи. Pull Request: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/36; первый проверенный head `90c4a2d6286137d007772cc92ee5ae87a9e479c3` (checkpoint-1). Финальный exact head после публикационного commit/push закрепляется в PR и пакете Tech Lead; предыдущий epoch не подменяет его проверки. Статус in_progress до независимого current-head ревью, CI и решения Team Lead. [Протокол](../../reports/creative/2026-11-01/PUBLICATION.md). 60 новых игровых F и аудитория не проверены.
+
+**Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/36

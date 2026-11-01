@@ -1,0 +1,37 @@
+{
+  "task": "IDEA-REVIEW-20261101",
+  "base": "db28a6d3ef178c193200a5d33ad2107bcf148722",
+  "firstVerifiedHead": "90c4a2d6286137d007772cc92ee5ae87a9e479c3",
+  "pullRequest": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/36",
+  "status": "in_progress",
+  "updatedAt": "2026-11-01T09:04:50.907225+00:00",
+  "firstCheckpoint": "checkpoint-1/gates.json",
+  "finalCheckpoint": "publish-1/gates.json",
+  "expectedMetadata": "0.0.400",
+  "changesSinceFirst": [
+    "literal PR URL and first verified SHA in editorial card",
+    "publication protocol and current metadata400",
+    "fresh targeted browser check of changed overview/editor and mobile metadata; proposal article sources unchanged",
+    "Remove trailing prose punctuation from44 future branch suggestions and own editorial branch; real Git consumer rejects45 old literal names and accepts45 corrected names; ten proposal articles unchanged"
+  ],
+  "localQA": {
+    "FARM_GODOT_BIN": "/private/tmp/creative1101-capture/godot",
+    "WIKI_GODOT_BIN": "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+    "engine": "4.7.1.stable.official.a13da4feb",
+    "PATH": "capture-helpers/env.sh.txt",
+    "capture": "unchanged pre-commit including quality.check --staged; frozen source verification, four receipts staged after success only",
+    "forwarder": "all argv unchanged; lock only cooperating test_game save fixtures, not unrelated engine processes",
+    "browser": "CUA IAB; DOM/UI observations and screenshots; viewport reset after responsive tests",
+    "archivesSHA256": {
+      "freeze.py.txt": "179563b7f76b54537e476627abc770cb847e8c0b04d072acab8881bdeb1b9dd1",
+      "receipt.py.txt": "52725e95969aa2fae66631cad074bfa5d1a3b600a97d1aac5c28e867f3aebb2b",
+      "env.sh.txt": "8ae636bf976f5b0f54eea0c5ba0f586cde6e1fdad061bb5b242eb7cf68f100a0",
+      "godot.txt": "e7c88aad4eff83eb3c0416cd0c9caf9e06d2c961a5d2a87f3ce5109baadd51b9"
+    }
+  },
+  "futureGameplayScenariosRun": 0,
+  "audienceTested": false,
+  "independentReviewApproved": false,
+  "mainMerged": false,
+  "finalHead": "Exact final SHA pinned in GitHub PR and Tech Lead packet after commit/push, avoiding circular own-commit SHA."
+}

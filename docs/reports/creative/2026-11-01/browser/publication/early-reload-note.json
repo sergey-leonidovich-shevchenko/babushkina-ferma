@@ -1,0 +1,6 @@
+{
+  "observedMetadata": "0.0.399",
+  "expectedMetadata": "0.0.400",
+  "reason": "Browser reloaded while the newly started Wiki build was still exporting game content; old generated article had no PR36 footer. Wait for prepare/build completion before checking publication.",
+  "sha256": "08ca202cf47625be7078ca078af3992dc45a0f97fc3a8ba0541d4ac8370d02dd"
+}

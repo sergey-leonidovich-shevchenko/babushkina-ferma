@@ -16,3 +16,10 @@
 [Чужой Git-контекст](foreign-audit.json) сохраняет реальные index/config/sentinel до и после. [Математические свидетели](design-witnesses.json) проверяют четыре формы для трёх силуэтных задач; это частичный расчёт дизайна, не игровые F.
 
 [Первый browser](browser/first/browser.json) и [вычитанная редакция](browser/verified/browser.json) — CUA/IAB, по16 проверок. Вторая редакция уточняет формулировку поиска дублей; ранний reload до получения данных и два неверных точных селектора сохранены как заметки QA, исправлений продукта не требовали. Финальный verified имеет metadata399, консоль0, стабильные390px, все10 статей/оценки/переходы/поиск/Tab. Аппаратный ввод игры не принимался.
+
+
+[PR](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/36) · [Протокол публикации](PUBLICATION.md). Первый проверенный head `90c4a2d6286137d007772cc92ee5ae87a9e479c3`: architecture 111/1462, Game 53510/0, normal/F10 по 90/0, Wiki 147/0. Frozen sources и raw относятся к своему checkpoint. Финальные receipts — отдельно в publish-1/gates.json после успеха; карточка остаётся in_progress.
+
+[Дополнительная проверка номеров](number-reservation.json): docs/Wiki всех 69 опубликованных голов веток до публикации этой ветки, конфликтов IDEA-322…331 нет. Это дополнение к реестрам 321 идеи и 20 веток со state.json.
+
+[Браузер публикации, 5/5](browser/publication/browser.json), metadata400; отдельно от прежнего полного16/16 при399. [Проверка документации](documentation-final.log.gz).
