@@ -44,6 +44,12 @@ static func visual(location: String) -> Dictionary:
 	return plan._visual_snapshot() if plan != null else {}
 
 
+## Возвращает seam-safe группу: рисуются только её клетки, а маски читают соседний halo.
+static func visual_chunk(location: String, key: Vector2i) -> Dictionary:
+	var plan := geometry(location)
+	return plan._chunk_visual_snapshot(key) if plan != null else {}
+
+
 ## Проверяет физику всех встроенных водоёмов; ошибка известного плана закрывает проход.
 static func blocks(location: String, point: Vector2, radius: float) -> bool:
 	var plan := geometry(location)

@@ -10,8 +10,19 @@ const DIRECTIONS: Array[Vector2i] = [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN,
 const DIAGONALS: Array[Vector2i] = [
 	Vector2i(1, -1), Vector2i(1, 1), Vector2i(-1, 1), Vector2i(-1, -1)
 ]
+const NEIGHBORS: Array[Vector2i] = [
+	Vector2i.UP,
+	Vector2i.RIGHT,
+	Vector2i.DOWN,
+	Vector2i.LEFT,
+	Vector2i(1, -1),
+	Vector2i(1, 1),
+	Vector2i(-1, 1),
+	Vector2i(-1, -1),
+]
 var cache_builds := 0
 var visual_builds := 0
+var chunk_visual_builds := 0
 var last_error := ""
 var _bounds := Rect2()
 var _bounds_valid := true
@@ -23,6 +34,8 @@ var _revision := 0
 var _chunks_revision := -1
 var _chunks: Dictionary[Vector2i, Array] = {}
 var _dirty_chunks: Dictionary[Vector2i, bool] = {}
+var _chunk_visual_cache: Dictionary[Vector2i, Dictionary] = {}
+var _chunk_visual_revisions: Dictionary[Vector2i, int] = {}
 var _visual_revision := -1
 var _visual_regions: Array[Dictionary] = []
 var _surface_polygons: Array[PackedVector2Array] = []
@@ -341,12 +354,93 @@ func _chunks_snapshot() -> Dictionary:
 ## Выдаёт только клетки одной группы, чтобы редактирование не сканировало всю карту.
 func chunk_cells(key: Vector2i) -> Array:
 	var chunk: Array = _chunks.get(key, [])
-	return chunk.duplicate()
+	var result := chunk.duplicate()
+	result.sort_custom(_cell_before)
+	return result
+
+
+## Возвращает только клетки выбранной группы, но классифицирует их по общей топологии с halo.
+## Клетка соседнего чанка не рисуется повторно, а лишь закрывает ложный берег на стыке.
+func _chunk_visual_snapshot(key: Vector2i) -> Dictionary:
+	if _chunk_visual_cache.has(key):
+		return _chunk_visual_cache[key]
+	chunk_visual_builds += 1
+	var result := _build_chunk_visual(key)
+	_chunk_visual_cache[key] = result
+	return result
+
+
+## Собирает детерминированный снимок одной группы и одноклеточного соседнего halo.
+func _build_chunk_visual(key: Vector2i) -> Dictionary:
+	var owned := chunk_cells(key)
+	var neighbor_masks: Dictionary[Vector2i, int] = {}
+	var diagonal_masks: Dictionary[Vector2i, int] = {}
+	var halo: Dictionary[Vector2i, int] = {}
+	var shore_edges: Array[Dictionary] = []
+	var filled_edges := {"north": 0, "east": 0, "south": 0, "west": 0}
+	var origin := key * CHUNK
+	var last := origin + Vector2i.ONE * (CHUNK - 1)
+	for cell: Vector2i in owned:
+		neighbor_masks[cell] = neighbor_mask(cell)
+		diagonal_masks[cell] = diagonal_mask(cell)
+		for offset: Vector2i in NEIGHBORS:
+			var neighbor := cell + offset
+			if _chunk_key(neighbor) != key and _cells.has(neighbor):
+				halo[neighbor] = _cells[neighbor]
+		var point := Vector2(cell) * CELL
+		var corners := [
+			point,
+			point + Vector2(CELL, 0),
+			point + Vector2(CELL, CELL),
+			point + Vector2(0, CELL),
+		]
+		for side in 4:
+			var neighbor := cell + DIRECTIONS[side]
+			if not _cells.has(neighbor):
+				(
+					shore_edges
+					. append(
+						{
+							"cell": cell,
+							"side": side,
+							"start": corners[side],
+							"finish": corners[(side + 1) % 4],
+							"normal": DIRECTIONS[side],
+							"body": _cells[cell],
+						}
+					)
+				)
+		if cell.y == origin.y and _cells.has(cell + Vector2i.UP):
+			filled_edges.north += 1
+		if cell.x == last.x and _cells.has(cell + Vector2i.RIGHT):
+			filled_edges.east += 1
+		if cell.y == last.y and _cells.has(cell + Vector2i.DOWN):
+			filled_edges.south += 1
+		if cell.x == origin.x and _cells.has(cell + Vector2i.LEFT):
+			filled_edges.west += 1
+	shore_edges.sort_custom(
+		func(a: Dictionary, b: Dictionary) -> bool:
+			var a_cell: Vector2i = a.cell
+			var b_cell: Vector2i = b.cell
+			return _cell_before(a_cell, b_cell) if a_cell != b_cell else a.side < b.side
+	)
+	return {
+		"key": key,
+		"revision": _chunk_visual_revisions.get(key, 0),
+		"bounds": Rect2(Vector2(origin * CELL), Vector2.ONE * CHUNK * CELL),
+		"cells": owned,
+		"neighbor_masks": neighbor_masks,
+		"diagonal_masks": diagonal_masks,
+		"halo": halo,
+		"filled_edges": filled_edges,
+		"shore_edges": shore_edges,
+	}
 
 
 ## Передаёт изменённые группы и соседние кромки renderer один раз на пакет правок.
 func take_dirty_chunks() -> Array:
 	var result := _dirty_chunks.keys()
+	result.sort_custom(_cell_before)
 	_dirty_chunks.clear()
 	return result
 
@@ -635,7 +729,10 @@ func _mark_dirty(cell: Vector2i) -> void:
 	var maximum := _chunk_key(cell + Vector2i.ONE)
 	for y in range(minimum.y, maximum.y + 1):
 		for x in range(minimum.x, maximum.x + 1):
-			_dirty_chunks[Vector2i(x, y)] = true
+			var key := Vector2i(x, y)
+			_dirty_chunks[key] = true
+			_chunk_visual_cache.erase(key)
+			_chunk_visual_revisions[key] = _chunk_visual_revisions.get(key, 0) + 1
 
 
 ## Инвалидирует область изменённого настила без пересоздания водной поверхности.
@@ -649,6 +746,11 @@ func _mark_bridge(rect: Rect2) -> void:
 ## Использует математический пол и для отрицательных координат редакторского черновика.
 func _chunk_key(cell: Vector2i) -> Vector2i:
 	return Vector2i(floori(float(cell.x) / CHUNK), floori(float(cell.y) / CHUNK))
+
+
+## Стабилизирует порядок снимков для одинаковых данных независимо от порядка операций.
+func _cell_before(a: Vector2i, b: Vector2i) -> bool:
+	return a.y < b.y or (a.y == b.y and a.x < b.x)
 
 
 ## Проверяет происхождение индекса водоёма до изменения набора клеток.

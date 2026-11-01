@@ -177,7 +177,28 @@ static func draw_module(
 ) -> void:
 	var mask := neighbor_mask(cell, cells)
 	var diagonal_mask := diagonal_neighbor_mask(cell, cells)
-	var variant := variant_for_mask(mask, cell, animation_frame, diagonal_mask)
+	_draw_variant(canvas, cell, variant_for_mask(mask, cell, animation_frame, diagonal_mask), tint)
+
+
+## Рисует клетку отдельного чанка по маскам общей топологии, не создавая берег на его границе.
+static func draw_chunk_module(
+	canvas: Node2D,
+	cell: Vector2i,
+	snapshot: Dictionary,
+	animation_frame: int,
+	tint: Color = Color.WHITE
+) -> void:
+	var neighbor_masks: Dictionary = snapshot.get("neighbor_masks", {})
+	var diagonal_masks: Dictionary = snapshot.get("diagonal_masks", {})
+	if not neighbor_masks.has(cell) or not diagonal_masks.has(cell):
+		return
+	var mask: int = neighbor_masks[cell]
+	var diagonal_mask: int = diagonal_masks[cell]
+	_draw_variant(canvas, cell, variant_for_mask(mask, cell, animation_frame, diagonal_mask), tint)
+
+
+## Применяет уже выбранный модуль с общей геометрией центра и без растяжения PNG.
+static func _draw_variant(canvas: Node2D, cell: Vector2i, variant: Dictionary, tint: Color) -> void:
 	var destination := Rect2(Vector2(cell) * CELL_SIZE, Vector2(CELL_SIZE, CELL_SIZE))
 	var rotation: float = variant.rotation
 	var kind: String = variant.kind
