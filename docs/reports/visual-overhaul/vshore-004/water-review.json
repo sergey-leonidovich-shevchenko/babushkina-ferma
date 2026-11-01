@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "task": "VSHORE-004",
+  "implementation_commit": "25c099303e2f9cca75311d7cb190938a33c459c5",
+  "profile": "Codex-VSHORE-004-Tests",
+  "passed": 892,
+  "failed": 0,
+  "log_sha256": "a48eae3e3e1bc5c41cda19cd041720816f604c5bb48791f33993cb3811498d4b",
+  "runner_sha256": "2d9105ff5782704d61a05d489ed9d09e6895f869db67605101a01a9b26dd02de",
+  "sources": {
+    "scripts/systems/water_map_registry.gd": "e5e0b88924850300f709b53e5e62f1e4b6d9f3bfcf252da319bb012167100da2",
+    "scripts/systems/water_topology.gd": "ce6b90c6b547808c0f4783a47a07f24fda587b6a96e1d4a8c498d96e06a9f6fa",
+    "scripts/systems/water_visual_system.gd": "4408d4a19da806f1e9ad7f1895363bc6fa8f1bf7d7ee85fd3bdd01e108e92de0",
+    "tests/suites/water_fishing_suite.gd": "9a8a2b40b455b5b178ab07be2a5422ce434c15582374460cc89b5914163d0a20",
+    "tests/suites/water_navigation_suite.gd": "4803c8fd327af4b92e61c8b829c7bb242c86148968f2887aca5e394fe059243b",
+    "tests/suites/water_chunk_seam_suite.gd": "ca2352d758ec8461e3c20b08e326df9f89721b2be0a5980542fd1844074128f7",
+    "tests/suites/water_topology_suite.gd": "1fb33798cb3e4388cf77ef1b269cfa339b4d3056d148a2597da2eac62c2f7ace",
+    "tests/suites/water_visual_suite.gd": "bfd334d78f36020cad0b5c899d12f6d9dc602046ff631dfc980e7b7d1df76297"
+  }
+}
