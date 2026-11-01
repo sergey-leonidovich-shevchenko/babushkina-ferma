@@ -3,7 +3,7 @@
   "task": "VSHORE-004",
   "status": "review_candidate",
   "base_commit": "ff538b88381588faab2b5c7574e2a26f8a9d78f2",
-  "implementation_commit": "25c099303e2f9cca75311d7cb190938a33c459c5",
+  "implementation_commit": "c19189f39ebef9b335129f145bd4cb641b21e0d7",
   "scope": "overworld-water-chunk-seams",
   "runtime_integration": true,
   "physical_authority": true,

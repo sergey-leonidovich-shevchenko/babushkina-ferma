@@ -1,11 +1,11 @@
 {
   "schema": 1,
   "task": "VSHORE-004",
-  "capture_sha256": "84484ff59011c98957ae2ba19f5daad7089adf0fbb65e9c03aea8149476b91e9",
-  "frame_chain_sha256": "edaaa76d1048a818daf1eb6b2d50fd92504c2bbda505b91f6d225344e893535a",
+  "capture_sha256": "2c12237e2cae8209a9dfe6291171ed30f4f23b1e9fdad8d40955dd05a8162fda",
+  "frame_chain_sha256": "10de0d71000111866824a1af27d9d61ca081775eb2f4eb59e52488497c0294bd",
   "files": {
-    "camera-pan.decoded.png": "b5735bff2be777a3d98aa818d2e0db903cbca93830b2f47194b0274ad06ceaaa",
+    "camera-pan.decoded.png": "a2c24b107742c3cfa1eab0d6dbeebcb5a78d5066c0c8013fc72b9fb6cafb671c",
     "camera-pan.json": "cf83521d1aaf2323a616609943edb9bc56f6452687c5f1d72086df9a8e61c247",
-    "camera-pan.mp4": "9aa291fc1c93dcd0104ebef2001b371d3b7f1919618a29ddf6235c58dc979551"
+    "camera-pan.mp4": "f8a98eaca984933a671eb7a896fdf1b4719b91ffbab3e87f85667efeba5fd9a0"
   }
 }

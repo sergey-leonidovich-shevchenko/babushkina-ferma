@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "task": "VSHORE-004",
-  "implementation_commit": "25c099303e2f9cca75311d7cb190938a33c459c5",
+  "implementation_commit": "c19189f39ebef9b335129f145bd4cb641b21e0d7",
   "files": {
     "scripts/systems/water_map_registry.gd": "e5e0b88924850300f709b53e5e62f1e4b6d9f3bfcf252da319bb012167100da2",
     "scripts/systems/water_topology.gd": "ce6b90c6b547808c0f4783a47a07f24fda587b6a96e1d4a8c498d96e06a9f6fa",
