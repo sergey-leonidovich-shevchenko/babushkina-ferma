@@ -2662,7 +2662,7 @@
       "id": "VSHORE-002",
       "epic": "VSHORE",
       "title": "Нарисовать подводное дно",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -2697,8 +2697,16 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vshore-002-visual-task",
-      "evidence": []
+      "branch": "codex/vshore-002-underwater-bed",
+      "evidence": [
+        "docs/reports/visual-overhaul/vshore-002/README.md",
+        "docs/reports/visual-overhaul/vshore-002/profile.json",
+        "docs/reports/visual-overhaul/vshore-002/source.json",
+        "docs/reports/visual-overhaul/vshore-002/native/capture.json",
+        "docs/reports/visual-overhaul/vshore-002/water-review.json",
+        "docs/reports/visual-overhaul/vshore-002/acceptance.json",
+        "wiki/articles/underwater-bottom.md"
+      ]
     },
     {
       "id": "VSHORE-003",

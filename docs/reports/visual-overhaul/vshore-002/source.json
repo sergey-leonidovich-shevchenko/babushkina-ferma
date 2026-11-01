@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "task": "VSHORE-002",
+  "generator": "built-in imagegen",
+  "selected": "masters/riverbed-master-v1.png",
+  "runtime": "../../../../assets/game/locations/overworld/modular/riverbed_material_v1.png",
+  "files": {
+    "prompts/riverbed-master-v1.txt": "ae2fa6420ff47c91e6f94a37f2b2a0af8909624d98fdbbe9bea26f8c1049d252",
+    "masters/riverbed-master-v1.png": "bcdb9e35970056c93517708b400591733e0cf8800119391489cc9cc21761d084",
+    "../../../../assets/game/locations/overworld/modular/riverbed_material_v1.png": "bcdb9e35970056c93517708b400591733e0cf8800119391489cc9cc21761d084"
+  },
+  "policy": {
+    "master_runtime_copy": "byte_exact",
+    "opaque_source": true,
+    "uv_repeat": "mirrored geometry cells",
+    "non_uniform_stretch": false,
+    "runtime_recolor": false
+  }
+}

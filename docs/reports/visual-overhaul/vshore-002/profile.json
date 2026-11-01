@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "task": "VSHORE-002",
+  "status": "review_candidate",
+  "base_commit": "6668bde662c6a3a5950449590028556fb4354588",
+  "scope": "overworld-underwater-bottom-runtime",
+  "runtime_integration": true,
+  "physical_authority": false,
+  "performance_eligible": false,
+  "art_direction": {
+    "style": "VART-001 A",
+    "palette": "VART-003 A",
+    "edge": "VART-005 A",
+    "density": "VART-006 B",
+    "light": "VART-007 A"
+  },
+  "source_size": [1254, 1254],
+  "world_cell": [768, 768],
+  "sampling": "mirrored_cells",
+  "surface_alpha": {
+    "default": 0.56,
+    "winter": 0.62
+  },
+  "target": [1152, 648],
+  "field": [960, 540],
+  "zoom": 1.2,
+  "native_static_frames": 11,
+  "native_motion_frames": 90,
+  "draw_calls_per_geometry": 1,
+  "clipped_vertices": 36,
+  "ownership": {
+    "visual_bottom": "UnderwaterBottom",
+    "surface": "VillageTerrainRenderer",
+    "physics_navigation_fishing": "unchanged WaterTopology / WaterMapRegistry",
+    "surface_animation": "VSHORE-005"
+  }
+}
