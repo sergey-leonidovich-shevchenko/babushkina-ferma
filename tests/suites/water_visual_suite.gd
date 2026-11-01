@@ -10,6 +10,7 @@ const Terrain := preload("res://scripts/systems/village_terrain_renderer.gd")
 
 ## Запускает все сценарии водного визуального контракта в фиксированном порядке.
 func run() -> void:
+	preload("res://tests/suites/water_chunk_seam_suite.gd").new(context).run()
 	test_water_catalog_animation_and_navigation_share_the_24px_grid()
 	test_registry_visual_snapshots_cover_all_water_semantics()
 	test_underwater_bottom_is_visual_only_and_retained()
