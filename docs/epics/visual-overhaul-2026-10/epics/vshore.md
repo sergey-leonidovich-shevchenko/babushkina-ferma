@@ -126,7 +126,7 @@
 
 ## VSHORE-004 — Устранить швы на границах чанков
 
-Статус: `in_progress` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Маска берега учитывает соседний чанк и заполненные края; стык не выделяется в движении камеры
 
@@ -142,7 +142,7 @@
 - [scripts/systems/water_map_registry.gd](../../../../scripts/systems/water_map_registry.gd)
 - [scripts/systems/water_visual_system.gd](../../../../scripts/systems/water_visual_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vshore-004/`.
+Результаты: `docs/reports/visual-overhaul/vshore-004/`.
 
 Критерии:
 
@@ -160,7 +160,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vshore-004/README.md, docs/reports/visual-overhaul/vshore-004/profile.json, docs/reports/visual-overhaul/vshore-004/source.json, docs/reports/visual-overhaul/vshore-004/native/capture.json, docs/reports/visual-overhaul/vshore-004/native/camera-pan.mp4, docs/reports/visual-overhaul/vshore-004/water-review.json, tools/qa/world/water_chunk_seam.py, tools/qa/world/test_water_chunk_seam.py, wiki/articles/water-chunk-seams.md, docs/reports/visual-overhaul/vshore-004/closeout/completion.json.
 
 <a id="vshore-005"></a>
 

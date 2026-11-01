@@ -2855,7 +2855,7 @@
       "id": "VSHORE-004",
       "epic": "VSHORE",
       "title": "Устранить швы на границах чанков",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -2891,7 +2891,60 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vshore-004-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vshore-004/README.md",
+        "docs/reports/visual-overhaul/vshore-004/profile.json",
+        "docs/reports/visual-overhaul/vshore-004/source.json",
+        "docs/reports/visual-overhaul/vshore-004/native/capture.json",
+        "docs/reports/visual-overhaul/vshore-004/native/camera-pan.mp4",
+        "docs/reports/visual-overhaul/vshore-004/water-review.json",
+        "tools/qa/world/water_chunk_seam.py",
+        "tools/qa/world/test_water_chunk_seam.py",
+        "wiki/articles/water-chunk-seams.md",
+        "docs/reports/visual-overhaul/vshore-004/closeout/completion.json"
+      ],
+      "implementation_commit": "c19189f39ebef9b335129f145bd4cb641b21e0d7",
+      "result": "Принято и влито через PR #38: точный head 52cc54c767a633a206e0bd37374974d1cab872af одобрен Tech Lead reviews 5730227223/5730312717 и Team Lead; фактический merge 3d6a35b65477b7f8c01439b18777120caa4332c0 от 2 ноября 2026. CI runs 41348780456/41348785462 — 8/8 success: quality 37/0, architecture 113 модулей/1505 сценариев, профильные наборы VSHORE 19+20+21, Game 53567/0, normal/F10 по 90/0, smoke 180 кадров, performance 6/6 и Wiki 151/151. Оба P2 закрыты: водный слой действительно перемещается вместе с камерой, а все 60 исходных motion PNG проверяются по безопасному пути, SHA и размерам. WaterTopology публикует одноклеточный halo и заполненные края соседних чанков; seam-safe framebuffer совпадает с глобальным эталоном, отрицательный контроль локализован у стыка. Исходные evidence и implementation_commit сохранены. VSHORE-005/006, WATER-06 и VMAP-003 остаются открытыми. Учётное закрытие публикуется отдельным PR.",
+      "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/38",
+      "review": {
+        "state": "merged",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/38",
+        "reviewer": "Tech Lead Agent",
+        "coordinator": "Team Lead Agent",
+        "latest_branch_checks": "docs/reports/visual-overhaul/vshore-004/closeout/completion.json",
+        "open_findings": [],
+        "review_history": [
+          {
+            "head": "95e41d3580d87be3b632baf98d096818acd1b1be",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/38#pullrequestreview-5729817018",
+            "decision": "changes_requested",
+            "findings": [
+              "P2 водный слой оставался неподвижным при движении камеры QA-стенда",
+              "P2 валидатор не читал и не сверял каждый исходный motion PNG"
+            ]
+          },
+          {
+            "head": "52cc54c767a633a206e0bd37374974d1cab872af",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/38#pullrequestreview-5730227223",
+            "decision": "source_pass_pending_ci",
+            "previous_findings_addressed": true,
+            "findings": []
+          },
+          {
+            "head": "52cc54c767a633a206e0bd37374974d1cab872af",
+            "base": "ff538b88381588faab2b5c7574e2a26f8a9d78f2",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/38#pullrequestreview-5730312717",
+            "decision": "approved_and_merged",
+            "merge": "3d6a35b65477b7f8c01439b18777120caa4332c0"
+          }
+        ],
+        "accepted_head": "52cc54c767a633a206e0bd37374974d1cab872af",
+        "accepted_base": "ff538b88381588faab2b5c7574e2a26f8a9d78f2",
+        "accepted_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/38#pullrequestreview-5730312717",
+        "merged_commit": "3d6a35b65477b7f8c01439b18777120caa4332c0",
+        "merged_at": "2026-11-02T02:17:36+05:00"
+      },
+      "completion": "docs/reports/visual-overhaul/vshore-004/closeout/completion.json"
     },
     {
       "id": "VSHORE-005",
