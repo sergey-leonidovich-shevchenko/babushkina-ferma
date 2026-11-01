@@ -1,0 +1,53 @@
+{
+  "driver": "cua_repl IAB",
+  "metadata": "0.0.399",
+  "checks": [
+    "IDEA-322 visible as proposed with future F06",
+    "IDEA-323 visible as proposed with future F06",
+    "IDEA-324 visible as proposed with future F06",
+    "IDEA-325 visible as proposed with future F06",
+    "IDEA-326 visible as proposed with future F06",
+    "IDEA-327 visible as proposed with future F06",
+    "IDEA-328 visible as proposed with future F06",
+    "IDEA-329 visible as proposed with future F06",
+    "IDEA-330 visible as proposed with future F06",
+    "IDEA-331 visible as proposed with future F06",
+    "six separate scores visible on328",
+    "actual article to epic to task shows CASE16 and shared blockers",
+    "text search finds330 and Tab moves to filter",
+    "stable390px layout has no horizontal overflow",
+    "overview has all ten exact links and current399",
+    "console errors0"
+  ],
+  "mobileMetrics": {
+    "client": 390,
+    "inner": 390,
+    "scroll": 390,
+    "sidebarRight": 0,
+    "titleRight": 311
+  },
+  "consoleErrors": [],
+  "rawSHA256": {
+    "IDEA-322": "b3f41dd1804ecb67f1869bd484ea461212fe367fe7f04f0a353c8d75515ee0c1",
+    "IDEA-323": "3879e10e8a097a78b77ac40d67a3f2798899e52dd9aca0dc3848b03b361e89e4",
+    "IDEA-324": "29f2e2ec9d038f82d7c7307ac163dce9460610c005ea3354732bf29b34fa1d43",
+    "IDEA-325": "07296bbf7a07f4f8b1f21d96755babda79c6b326b11d9896781e16feacb015a8",
+    "IDEA-326": "ec17c38e7f3f1b6acddff863487460d996242db079be7502b0e2d5401878c117",
+    "IDEA-327": "1e55dcecdfaaec084388eafc674a9ffde719e59f5f7d95035f278eaa5b721f4b",
+    "IDEA-328": "dffcbacf130479fa5bc3380c94a3d6427ba8d9b515e681d2d43888ddc6231f5b",
+    "IDEA-329": "bf75eda4b76515e7d29c20b878785a066bb7d54954b2ea813b9c298263030986",
+    "IDEA-330": "f23f5acd36c4e7bd410530424eea031fe8e9aaeb4c45105b7ee766eee73af8c7",
+    "IDEA-331": "fa19761008571a4bb19c5f40ca355617bab5ac44715cb5f7205a15d76d447519",
+    "score-328": "394fe726663392ba41c80fd3b35e367005c14609521acca4c823037a68a5927b",
+    "epic-324": "1113e6ae4569d5c263a54c0c4c0373a2b1aa73544debf1ce27e6d58bb8624bcb",
+    "task-324-03": "ee6ac6dce3bf91cc432537e6faf8c73ee00598f44319c2d572b84cbdbb7e3f0f",
+    "search": "d80ff246b010e0f2a65cd20724f313d4fa94fbd66be4dda518b189909ae48576",
+    "mobile-330": "8023d26345112adc623f41402acddd649f1ced517dd419a5fe3fadddaf8b1333",
+    "overview": "5d0b0cb1bc69a94a1db8478169c4a82e550153f8d975e450cf9b8712c9c54acd",
+    "overview-table": "5d0b0cb1bc69a94a1db8478169c4a82e550153f8d975e450cf9b8712c9c54acd"
+  },
+  "success": true,
+  "exitCode": 0,
+  "gameplayAccepted": false,
+  "hardwareInputAccepted": false
+}

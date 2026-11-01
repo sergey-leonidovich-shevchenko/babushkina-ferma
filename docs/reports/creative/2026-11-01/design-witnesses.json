@@ -1,0 +1,310 @@
+{
+  "purpose": "Partial mathematical design witnesses only. No gameplay implementation or F330 acceptance; no audience/native input test.",
+  "axisConvention": "x left-right, y front-back, z bottom-top; displayed rows z2,z1,z0",
+  "fourWitnessesPass": true,
+  "differentArchSolutions": true,
+  "cases": [
+    {
+      "witness": "arch13",
+      "voxels": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          2
+        ]
+      ],
+      "count": 13,
+      "front": [
+        "111",
+        "101",
+        "101"
+      ],
+      "side": [
+        "111",
+        "111",
+        "111"
+      ],
+      "faceConnected": true,
+      "touchesBase": true
+    },
+    {
+      "witness": "arch14",
+      "voxels": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          2
+        ]
+      ],
+      "count": 14,
+      "front": [
+        "111",
+        "101",
+        "101"
+      ],
+      "side": [
+        "111",
+        "111",
+        "111"
+      ],
+      "faceConnected": true,
+      "touchesBase": true
+    },
+    {
+      "witness": "T5",
+      "voxels": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "count": 5,
+      "front": [
+        "111",
+        "010",
+        "010"
+      ],
+      "side": [
+        "010",
+        "010",
+        "010"
+      ],
+      "faceConnected": true,
+      "touchesBase": true
+    },
+    {
+      "witness": "step14",
+      "voxels": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "count": 14,
+      "front": [
+        "001",
+        "011",
+        "111"
+      ],
+      "side": [
+        "100",
+        "110",
+        "111"
+      ],
+      "faceConnected": true,
+      "touchesBase": true
+    }
+  ]
+}

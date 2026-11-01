@@ -1,0 +1,42 @@
+{
+  "task": "IDEA-REVIEW-20261031",
+  "base": "7d8c62be8a98edcd34cf1ede3919625295c5076e",
+  "previousReviewHead": "6403c3bfa9ed106662411287d04afb9da2ec6a5b",
+  "previousPlanSHA256": "40efd5d61e77ee46fa7c572650bf8c4ef365c5642a4ae5ec65fe219dc880442c",
+  "newIDs": [
+    "IDEA-312",
+    "IDEA-313",
+    "IDEA-314",
+    "IDEA-315",
+    "IDEA-316",
+    "IDEA-317",
+    "IDEA-318",
+    "IDEA-319",
+    "IDEA-320",
+    "IDEA-321"
+  ],
+  "taskCount": 43,
+  "mainIdeas": 241,
+  "mainAssessments": 80,
+  "reservedIDs": 311,
+  "publishedPRs": 9,
+  "futureF": 60,
+  "writtenNodes": 30,
+  "writtenReplies": 90,
+  "proposedAdultNPCs": 13,
+  "proposedAnimals": 1,
+  "newGameplayImplemented": false,
+  "implementationPriority": "REFACTOR-03→07→06→overworld/VMAP-003; proposals only",
+  "geometryOwners": {
+    "IDEA-312": "IDEA-312-02",
+    "IDEA-313": "IDEA-313-02",
+    "IDEA-314": "IDEA-314-02",
+    "IDEA-315": "IDEA-315-02",
+    "IDEA-316": "IDEA-316-02",
+    "IDEA-317": "IDEA-317-02",
+    "IDEA-318": "IDEA-318-02",
+    "IDEA-319": "IDEA-319-02",
+    "IDEA-320": "IDEA-320-02",
+    "IDEA-321": "IDEA-321-02"
+  }
+}
