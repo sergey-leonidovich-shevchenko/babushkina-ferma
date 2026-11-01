@@ -8,8 +8,14 @@ const STONE := preload("res://assets/game/locations/overworld/modular/stone_mate
 const WATER := preload("res://assets/game/locations/overworld/modular/water_material_v1.png")
 const BRIDGE := preload("res://assets/game/locations/overworld/modular/bridge_modular_v1.png")
 const UnderwaterBottom := preload("res://scripts/presentation/underwater_bottom.gd")
+const WaterMapRegistry := preload("res://scripts/systems/water_map_registry.gd")
 const FenceRenderer := preload("res://scripts/systems/fence_renderer.gd")
 const Ambient := preload("res://scripts/systems/village_ambient_renderer.gd")
+const BANK_PALETTES := {
+	"earth": [Color("626934"), Color("bead71")],
+	"stone": [Color("555b58"), Color("a8a28b")],
+	"cave": [Color("34383e"), Color("74736d")],
+}
 static var _fence_sources: Dictionary = {}
 
 
@@ -163,19 +169,28 @@ static func _draw_garden(canvas: Node2D) -> void:
 		canvas.draw_line(start, start + Vector2(272, 0), Color(0.36, 0.26, 0.13, 0.30), 3)
 
 
-## Рисует берега и прозрачный рисунок воды по навигационным полигонам, а не по независимой картинке.
+## Рисует берега и прозрачный рисунок воды по каноническому плану, а не по независимой картинке.
 static func draw_water(canvas: Node2D, season: String) -> void:
 	draw_banks(canvas)
 	draw_underwater_bottom(canvas, season)
 	draw_surface(canvas, season)
 
 
-## Оформляет неподвижную кромку отдельно от поверхности и будущих водных материалов.
+## Оформляет только внешние стороны клеточного плана; граница двух типов воды не становится берегом.
 static func draw_banks(canvas: Node2D) -> void:
-	for points: PackedVector2Array in [MapData.river_polygon(10.0), MapData.pond_polygon(10.0)]:
-		canvas.draw_colored_polygon(points, Color("626934"))
-	for points: PackedVector2Array in [MapData.river_polygon(5.0), MapData.pond_polygon(5.0)]:
-		canvas.draw_colored_polygon(points, Color("bead71"))
+	var snapshot: Dictionary = WaterMapRegistry.visual("overworld")
+	var spans: Array = snapshot.shore_spans
+	for layer in 2:
+		for span: Dictionary in spans:
+			var bank: String = span.bank
+			var start: Vector2 = span.start
+			var finish: Vector2 = span.finish
+			var palette: Array = BANK_PALETTES.get(bank, BANK_PALETTES.earth)
+			var width := 20.0 if layer == 0 else 10.0
+			var color: Color = palette[layer]
+			canvas.draw_line(start, finish, color, width)
+			canvas.draw_circle(start, width * 0.5, color)
+			canvas.draw_circle(finish, width * 0.5, color)
 
 
 ## Заполняет прежнюю геометрию воды только рисунком дна, не создавая новую карту коллизий.
@@ -200,23 +215,44 @@ static func water_surface_tint(season: String, weather: String = "clear") -> Col
 	return tint
 
 
+## Связывает читаемую прозрачность поверхности с глубиной водоёма из WaterTopology.
+static func water_depth_tint(tint: Color, depth: float) -> Color:
+	var amount := clampf(depth, 0.0, 1.0)
+	var result := tint * Color("f6f4eb").lerp(Color("d9eef5"), amount)
+	result.a = tint.a * lerpf(0.88, 1.08, amount)
+	return result
+
+
 ## Рисует поверхность воды самостоятельным CanvasItem без запекания в UPDATE_ONCE.
 static func draw_surface(
 	canvas: Node2D, season: String, clipped: bool = false, weather: String = "clear"
 ) -> void:
-	var tint := water_surface_tint(season, weather)
-	for points: PackedVector2Array in surface_polygons(clipped):
-		material(canvas, points, WATER, tint)
+	var snapshot: Dictionary = WaterMapRegistry.visual("overworld")
+	var regions: Array = snapshot.regions
+	var base_tint := water_surface_tint(season, weather)
+	var frame := PackedVector2Array(
+		[
+			Vector2.ZERO,
+			Vector2(MapData.WORLD_SIZE.x, 0),
+			MapData.WORLD_SIZE,
+			Vector2(0, MapData.WORLD_SIZE.y),
+		]
+	)
+	for region: Dictionary in regions:
+		var depth: float = region.depth
+		var tint := water_depth_tint(base_tint, depth)
+		for points: PackedVector2Array in region.polygons:
+			if clipped:
+				for part: PackedVector2Array in Geometry2D.intersect_polygons(points, frame):
+					material(canvas, part, WATER, tint)
+			else:
+				material(canvas, points, WATER, tint)
 
 
 ## Ограничивает самостоятельную поверхность теми же границами, которыми раньше отсекал её viewport.
 static func surface_polygons(clipped: bool = false) -> Array[PackedVector2Array]:
-	# Река и пруд пересекаются у северного кармана. Для прозрачной поверхности это должна быть
-	# одна визуальная геометрия, иначе альфа смешивается дважды и оставляет тёмный прямоугольник.
-	# Физические контуры остаются раздельными у MapData и WaterTopology.
-	var polygons: Array[PackedVector2Array] = Geometry2D.merge_polygons(
-		MapData.river_polygon(), MapData.pond_polygon()
-	)
+	var snapshot := WaterMapRegistry.visual("overworld")
+	var polygons: Array[PackedVector2Array] = snapshot.polygons
 	if not clipped:
 		return polygons
 	var frame := PackedVector2Array(
@@ -233,9 +269,9 @@ static func surface_polygons(clipped: bool = false) -> Array[PackedVector2Array]
 	return result
 
 
-## Вырезает только геометрию водоёма в прозрачность специальным blend-disabled материалом.
+## Вырезает каноническую поверхность в прозрачность специальным blend-disabled материалом.
 static func draw_cutouts(canvas: Node2D) -> void:
-	for points: PackedVector2Array in [MapData.river_polygon(), MapData.pond_polygon()]:
+	for points: PackedVector2Array in surface_polygons():
 		canvas.draw_colored_polygon(points, Color.WHITE)
 
 

@@ -2756,7 +2756,7 @@
       "id": "VSHORE-003",
       "epic": "VSHORE",
       "title": "Согласовать маску с WaterTopology",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
