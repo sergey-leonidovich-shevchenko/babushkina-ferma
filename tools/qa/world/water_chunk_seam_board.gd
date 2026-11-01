@@ -3,6 +3,7 @@ extends Node2D
 const Terrain := preload("res://scripts/systems/village_terrain_renderer.gd")
 const WaterMapRegistry := preload("res://scripts/systems/water_map_registry.gd")
 const WaterTopology := preload("res://scripts/systems/water_topology.gd")
+const SEAM_CELL_X := 16
 const WaterVisualSystem := preload("res://scripts/systems/water_visual_system.gd")
 
 var mode := "chunk-safe"
@@ -45,18 +46,19 @@ func _draw_chunk_safe() -> void:
 			WaterVisualSystem.draw_chunk_module(self, cell, snapshot, animation_frame)
 
 
-## Отрицательный контроль намеренно не видит соседний чанк и потому создаёт ложный берег.
+## Отрицательный контроль скрывает соседей только через исследуемый стык x=15/16.
 func _draw_isolated_negative() -> void:
-	var plan: WaterTopology = WaterMapRegistry.geometry("overworld")
-	var chunks: Dictionary = plan._chunks_snapshot()
-	var keys: Array = chunks.keys()
-	keys.sort_custom(_cell_before)
-	for key: Vector2i in keys:
-		var local := {}
-		for cell: Vector2i in plan.chunk_cells(key):
-			local[cell] = true
-		for cell: Vector2i in plan.chunk_cells(key):
-			WaterVisualSystem.draw_module(self, cell, local, animation_frame)
+	var cells := WaterMapRegistry.geometry("overworld").cells()
+	var ordered: Array = cells.keys()
+	ordered.sort_custom(_cell_before)
+	for cell: Vector2i in ordered:
+		var visible: Dictionary = cells
+		if cell.x == SEAM_CELL_X - 1 or cell.x == SEAM_CELL_X:
+			visible = cells.duplicate()
+			var across := Vector2i.RIGHT if cell.x == SEAM_CELL_X - 1 else Vector2i.LEFT
+			for offset: Vector2i in [across, across + Vector2i.UP, across + Vector2i.DOWN]:
+				visible.erase(cell + offset)
+		WaterVisualSystem.draw_module(self, cell, visible, animation_frame)
 
 
 ## Стабилизирует painter order независимо от порядка Dictionary.
