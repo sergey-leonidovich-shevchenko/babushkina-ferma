@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "task": "VSHORE-003",
+  "status": "review_candidate",
+  "base_commit": "db28a6d3ef178c193200a5d33ad2107bcf148722",
+  "implementation_commit": "74eccb25c968311419775ffd2a1152af15ec801b",
+  "scope": "overworld-water-topology-visual-mask",
+  "runtime_integration": true,
+  "physical_authority": true,
+  "performance_eligible": false,
+  "target": [1152, 648],
+  "field": [960, 540],
+  "zoom": 1.2,
+  "native_static_frames": 8,
+  "native_motion_frames": 72,
+  "fixed_clock_fps": 30,
+  "topology": {
+    "revision": 5,
+    "cells": 550,
+    "regions": 2,
+    "surface_polygons": 1,
+    "shore_spans": 20,
+    "visual_builds": 1,
+    "repeated_reads": 120,
+    "rebuilds_during_repeated_reads": 0
+  },
+  "ownership": {
+    "coverage_depth_bank": "WaterTopology",
+    "location_registry": "WaterMapRegistry",
+    "visual_consumer": "VillageTerrainRenderer / WaterVisualSystem",
+    "bridge_deck": "independent cover pass",
+    "shore_seam_finish": "VSHORE-004",
+    "surface_animation": "VSHORE-005",
+    "flow_direction": "VSHORE-006"
+  }
+}

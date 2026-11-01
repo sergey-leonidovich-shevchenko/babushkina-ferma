@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "task": "VSHORE-003",
+  "capture_sha256": "6d10e6062fc6972e7a26ac4c8c37f2dce9013583367381d9c83156a2c9aade6d",
+  "frame_chain_sha256": "7dd342e9b7ec5408cd25c52b7e965d3c0c29cf08ccee32dc903357bb89872c33",
+  "files": {
+    "camera-pan.mp4": "7bfd8aee50bc25cfb2bef8387a34e195494fd17ee5ce87c4cb91cb857c48390e",
+    "camera-pan.json": "42077a250d2060a116e409e005877767987bb2d2891e663c4bdd7e41c2c231da",
+    "camera-pan.decoded.png": "05d1ba14d7dd3fa4b97700afe18b7e88b13d3e8ad413f0430baaab952c146440"
+  },
+  "classification": {
+    "fixed_clock_video": true,
+    "native_gameplay": false,
+    "performance_eligible": false
+  }
+}

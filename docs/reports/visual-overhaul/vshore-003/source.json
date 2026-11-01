@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "task": "VSHORE-003",
+  "implementation_commit": "74eccb25c968311419775ffd2a1152af15ec801b",
+  "canonical_plan": "scripts/systems/water_layout_data.gd",
+  "files": {
+    "scripts/systems/water_layout_data.gd": "83a678f0fc3dd8d12e9cf2ff3ecef82a0419a35267a4779af095664256164a1e",
+    "scripts/systems/water_topology.gd": "f5bbaf6379d286432ed60699af0bf390c0d3c46725a64d357f6ce17dd5e3c356",
+    "scripts/systems/water_map_registry.gd": "af41bfdca500b01757182e6fe0a0cbc169df8788cfdc43faccc1efe22d262570",
+    "scripts/systems/village_terrain_renderer.gd": "5af29d45aadcf4255ff8600151b15da3bd95671fac47e008c112027ad7aade9d",
+    "scripts/systems/water_visual_system.gd": "6825e24ffbefff4cbe9b37de995e7641d68d1dc09133812366baff4f1cdabdf3"
+  },
+  "contract": {
+    "surface": "union of canonical water cells, including cells beneath bridge decks",
+    "regions": "coverage compressed by body, kind, bank, blocking and depth",
+    "shore": "external cardinal spans only; internal body boundaries are omitted",
+    "cache": "one visual snapshot per topology revision",
+    "physics_navigation_fishing": "read the same topology authority"
+  }
+}

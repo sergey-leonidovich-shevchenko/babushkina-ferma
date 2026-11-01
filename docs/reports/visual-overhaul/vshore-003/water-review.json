@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "task": "VSHORE-003",
+  "implementation_commit": "74eccb25c968311419775ffd2a1152af15ec801b",
+  "profile": "Codex-VSHORE-003-74eccb25",
+  "passed": 871,
+  "failed": 0,
+  "log_sha256": "c9ec7b82c0506323a43e63d6c5d9c266918b6921f13a2d76e6bf404ed1e53698",
+  "runner_sha256": "36bf2ba5c7cd10a5a8ce36b879dd4aecd79220ef8d788bbdb4250c6611be94f7",
+  "sources": {
+    "tests/suites/water_topology_suite.gd": "1fb33798cb3e4388cf77ef1b269cfa339b4d3056d148a2597da2eac62c2f7ace",
+    "tests/suites/water_navigation_suite.gd": "4803c8fd327af4b92e61c8b829c7bb242c86148968f2887aca5e394fe059243b",
+    "tests/suites/water_fishing_suite.gd": "9a8a2b40b455b5b178ab07be2a5422ce434c15582374460cc89b5914163d0a20",
+    "tests/suites/water_visual_suite.gd": "8d23c92b48778f337fe7ae37f29bd5c0990113f333d1e434676653da41e67a8f",
+    "scripts/presentation/underwater_bottom.gd": "1c5d92f7dcf1bb2ca60798a7fb92b5867545408c19a3570411c43c698a3f6473",
+    "scripts/systems/village_terrain_renderer.gd": "5af29d45aadcf4255ff8600151b15da3bd95671fac47e008c112027ad7aade9d",
+    "scripts/systems/water_visual_system.gd": "6825e24ffbefff4cbe9b37de995e7641d68d1dc09133812366baff4f1cdabdf3",
+    "scripts/systems/water_map_registry.gd": "af41bfdca500b01757182e6fe0a0cbc169df8788cfdc43faccc1efe22d262570",
+    "scripts/systems/water_topology.gd": "f5bbaf6379d286432ed60699af0bf390c0d3c46725a64d357f6ce17dd5e3c356"
+  }
+}

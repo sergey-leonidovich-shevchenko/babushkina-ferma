@@ -2793,7 +2793,20 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vshore-003-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vshore-003/README.md",
+        "docs/reports/visual-overhaul/vshore-003/profile.json",
+        "docs/reports/visual-overhaul/vshore-003/source.json",
+        "docs/reports/visual-overhaul/vshore-003/native/capture.json",
+        "docs/reports/visual-overhaul/vshore-003/native/camera-pan.mp4",
+        "docs/reports/visual-overhaul/vshore-003/water-review.json",
+        "docs/reports/visual-overhaul/vshore-003/acceptance.json",
+        "tools/qa/world/water_topology_mask.py",
+        "tools/qa/world/test_water_topology_mask.py",
+        "wiki/articles/water-topology-mask.md"
+      ],
+      "implementation_commit": "74eccb25c968311419775ffd2a1152af15ec801b",
+      "review_state": "awaiting_independent_review"
     },
     {
       "id": "VSHORE-004",
