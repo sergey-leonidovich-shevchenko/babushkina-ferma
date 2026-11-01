@@ -10,6 +10,7 @@ import unittest
 from collections.abc import Callable
 from pathlib import Path
 from typing import Any
+from unittest.mock import patch
 
 from imageio_ffmpeg import write_frames  # type: ignore[import-untyped]
 from PIL import Image
@@ -175,6 +176,44 @@ class WaterTopologyMaskTests(unittest.TestCase):
             writer.close()
         self.resign_movie()
         self.rejected("frozen video sequence")
+
+    def test_wrong_dimensions_are_rejected_before_payload_decode(self) -> None:
+        """A wrongly sized stream is rejected before any decoded payload is retained."""
+        movie = self.folder / "native/camera-pan.mp4"
+        frame = Image.new("RGB", (64, 36), "#224466").tobytes()
+        writer = write_frames(
+            str(movie),
+            (64, 36),
+            fps=30,
+            codec="libx264",
+            macro_block_size=1,
+            ffmpeg_log_level="error",
+        )
+        writer.send(None)
+        try:
+            for _index in range(72):
+                writer.send(frame)
+        finally:
+            writer.close()
+        self.resign_movie()
+
+        payload_reads = 0
+        real_read_frames = mask.read_frames
+
+        def tracked_read_frames(*args: Any, **kwargs: Any) -> Any:
+            reader = real_read_frames(*args, **kwargs)
+            try:
+                yield next(reader)
+                nonlocal payload_reads
+                for payload in reader:
+                    payload_reads += 1
+                    yield payload
+            finally:
+                reader.close()
+
+        with patch.object(mask, "read_frames", tracked_read_frames):
+            self.rejected("encoded video stream dimensions")
+        self.assertEqual(payload_reads, 0)
 
     def test_commit_option_is_rejected_without_writing(self) -> None:
         """A 40-character Git option is rejected before it can overwrite an external file."""

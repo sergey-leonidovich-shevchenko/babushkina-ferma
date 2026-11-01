@@ -232,6 +232,44 @@ def verify_motion(root: Path, native: Path, capture: dict[str, Any]) -> None:
             require(image.size == (1152, 648), "motion witness dimensions")
 
 
+def _decoder_process(reader: Any, seen: set[int] | None = None) -> Any:
+    """Find imageio-ffmpeg's process through an optional observing generator."""
+    visited = seen if seen is not None else set()
+    if id(reader) in visited:
+        return None
+    visited.add(id(reader))
+    frame = getattr(reader, "gi_frame", None)
+    if frame is None:
+        return None
+    process = frame.f_locals.get("process")
+    if process is not None:
+        return process
+    for value in frame.f_locals.values():
+        if getattr(value, "gi_frame", None) is not None:
+            process = _decoder_process(value, visited)
+            if process is not None:
+                return process
+    return None
+
+
+def _close_decoder(reader: Any) -> None:
+    """Close the decoder and imageio's pipes even when ffmpeg already exited."""
+    process = _decoder_process(reader)
+    try:
+        reader.close()
+    finally:
+        if process is not None:
+            for pipe_name in ("stdin", "stdout"):
+                pipe = getattr(process, pipe_name, None)
+                if pipe is not None and not pipe.closed:
+                    pipe.close()
+            try:
+                process.wait(timeout=2.0)
+            except subprocess.TimeoutExpired:  # pragma: no cover - imageio enforces a timeout
+                process.kill()
+                process.wait(timeout=2.0)
+
+
 def verify_video(root: Path, native: Path, capture: dict[str, Any]) -> None:
     """Decode the current H.264 bytes and bind their real motion to three witnesses."""
     video = read(native / "video-proof.json")
@@ -254,6 +292,11 @@ def verify_video(root: Path, native: Path, capture: dict[str, Any]) -> None:
     require(math.isclose(encoded.get("duration", 0), 2.4, abs_tol=0.001), "encoded video duration")
 
     reader = None
+    signatures: set[bytes] = set()
+    minimum_change = math.inf
+    maximum_change = 0.0
+    previous_frame: Image.Image | None = None
+    witness_frames: dict[int, Image.Image] = {}
     try:
         actual_frames, actual_duration = count_frames_and_secs(str(native / "camera-pan.mp4"))
         require(actual_frames == 72, "encoded video frame count")
@@ -263,40 +306,42 @@ def verify_video(root: Path, native: Path, capture: dict[str, Any]) -> None:
         )
         reader = read_frames(str(native / "camera-pan.mp4"), pix_fmt="rgb24")
         stream = next(reader)
-        frames = [next(reader) for _index in range(72)]
+        require(stream.get("codec") == "h264", "encoded video codec")
+        require(tuple(stream.get("size", ())) == (1152, 648), "encoded video stream dimensions")
+        require(math.isclose(float(stream.get("fps", 0)), 30.0, abs_tol=0.01), "encoded video fps")
+        require(
+            math.isclose(float(stream.get("duration", 0)), 2.4, abs_tol=0.01),
+            "encoded video stream duration",
+        )
+        for index in range(72):
+            frame_bytes = next(reader)
+            require(len(frame_bytes) == 1152 * 648 * 3, "encoded video frame bytes")
+            frame = Image.frombytes("RGB", (1152, 648), frame_bytes)
+            signatures.add(hashlib.sha256(frame.resize((64, 36)).tobytes()).digest())
+            if previous_frame is not None:
+                change = (
+                    sum(ImageStat.Stat(ImageChops.difference(previous_frame, frame)).mean) / 3.0
+                )
+                minimum_change = min(minimum_change, change)
+                maximum_change = max(maximum_change, change)
+            if index in WITNESS_FRAMES:
+                witness_frames[index] = frame
+            previous_frame = frame
     except (OSError, RuntimeError, StopIteration) as error:
         raise ValueError("encoded video stream cannot be decoded") from error
     finally:
         if reader is not None:
-            reader.close()
-    require(stream.get("codec") == "h264", "encoded video codec")
-    require(tuple(stream.get("size", ())) == (1152, 648), "encoded video stream dimensions")
-    require(math.isclose(float(stream.get("fps", 0)), 30.0, abs_tol=0.01), "encoded video fps")
-    require(
-        math.isclose(float(stream.get("duration", 0)), 2.4, abs_tol=0.01),
-        "encoded video stream duration",
-    )
-    require(all(len(frame) == 1152 * 648 * 3 for frame in frames), "encoded video frame bytes")
-    decoded_frames = [Image.frombytes("RGB", (1152, 648), frame) for frame in frames]
-    signatures = {
-        hashlib.sha256(frame.resize((64, 36)).tobytes()).digest() for frame in decoded_frames
-    }
-    require(len(signatures) == len(decoded_frames), "frozen video sequence")
-    changes = [
-        sum(ImageStat.Stat(ImageChops.difference(first, second)).mean) / 3.0
-        for first, second in zip(decoded_frames, decoded_frames[1:], strict=False)
-    ]
-    require(min(changes) > 2.0, "frozen video sequence")
-    require(max(changes) / min(changes) < 2.5, "discontinuous video sequence")
+            _close_decoder(reader)
+    require(len(signatures) == 72, "frozen video sequence")
+    require(minimum_change > 2.0, "frozen video sequence")
+    require(maximum_change / minimum_change < 2.5, "discontinuous video sequence")
     for index in WITNESS_FRAMES:
         with Image.open(native / f"motion-{index:03d}.png") as witness:
-            difference = ImageChops.difference(decoded_frames[index], witness.convert("RGB"))
+            difference = ImageChops.difference(witness_frames[index], witness.convert("RGB"))
             require(max(ImageStat.Stat(difference).mean) < 5.0, "decoded motion witness mismatch")
-    with (
-        Image.open(native / "camera-pan.decoded.png") as decoded,
-    ):
+    with Image.open(native / "camera-pan.decoded.png") as decoded:
         require(decoded.size == (1152, 648), "decoded video frame dimensions")
-        difference = ImageChops.difference(decoded.convert("RGB"), decoded_frames[0])
+        difference = ImageChops.difference(decoded.convert("RGB"), witness_frames[0])
         require(max(ImageStat.Stat(difference).mean) < 5.0, "decoded first frame mismatch")
 
 
