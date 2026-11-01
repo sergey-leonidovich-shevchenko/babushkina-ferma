@@ -2756,7 +2756,7 @@
       "id": "VSHORE-003",
       "epic": "VSHORE",
       "title": "Согласовать маску с WaterTopology",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -2803,10 +2803,53 @@
         "docs/reports/visual-overhaul/vshore-003/acceptance.json",
         "tools/qa/world/water_topology_mask.py",
         "tools/qa/world/test_water_topology_mask.py",
-        "wiki/articles/water-topology-mask.md"
+        "wiki/articles/water-topology-mask.md",
+        "docs/reports/visual-overhaul/vshore-003/closeout/completion.json"
       ],
       "implementation_commit": "74eccb25c968311419775ffd2a1152af15ec801b",
-      "review_state": "awaiting_independent_review"
+      "result": "Принято и влито через PR #35: точный head d790e498559f41dd5687f5616e9d3bb02c7e1d75 одобрен Tech Lead review 5728200055 и Team Lead; фактический merge 0a2c17485fa8d7aab51a93a30a0fa3364980a16e от 1 ноября 2026. CI runs 41307560456/41307564341 — 8/8 success: quality 31/0, architecture 112 модулей/1484 сценария, профильные наборы 19+20, Game 53546/0, normal/F10 по 90/0, smoke 180 кадров, performance 6/6 и Wiki 149/149. Все три P2 закрыты: исторические Git readers отклоняют option injection до записи, MP4 проверяется фактическим декодированием, а неверные размеры потока отклоняются до чтения RGB payload. Канонический WaterTopology теперь единственный источник покрытия, глубины и берега; мост сохраняет водную поверхность под настилом, повторные визуальные чтения не перестраивают топологию. Исходные evidence и implementation_commit сохранены. VSHORE-004…006, WATER-06 и VMAP-003 остаются открытыми. Учётное закрытие публикуется отдельным PR.",
+      "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/35",
+      "review": {
+        "state": "merged",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/35",
+        "reviewer": "Tech Lead Agent",
+        "coordinator": "Team Lead Agent",
+        "latest_branch_checks": "docs/reports/visual-overhaul/vshore-003/closeout/completion.json",
+        "open_findings": [],
+        "review_history": [
+          {
+            "head": "81e61f21d211c21241d6889e54c024a51d10bf1d",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/35#pullrequestreview-5727298705",
+            "decision": "changes_requested",
+            "findings": [
+              "P2 Git option injection в implementation_commit/accepted_head",
+              "P2 отсутствие фактического декодирования MP4"
+            ]
+          },
+          {
+            "head": "cf5d2d89495f9cb2860d365a33decfd4166ba6ba",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/35#pullrequestreview-5727839912",
+            "decision": "changes_requested",
+            "previous_findings_addressed": true,
+            "findings": [
+              "P2 проверка размеров видеопотока после накопления RGB payload"
+            ]
+          },
+          {
+            "head": "d790e498559f41dd5687f5616e9d3bb02c7e1d75",
+            "base": "db28a6d3ef178c193200a5d33ad2107bcf148722",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/35#pullrequestreview-5728200055",
+            "decision": "approved_and_merged",
+            "merge": "0a2c17485fa8d7aab51a93a30a0fa3364980a16e"
+          }
+        ],
+        "accepted_head": "d790e498559f41dd5687f5616e9d3bb02c7e1d75",
+        "accepted_base": "db28a6d3ef178c193200a5d33ad2107bcf148722",
+        "accepted_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/35#pullrequestreview-5728200055",
+        "merged_commit": "0a2c17485fa8d7aab51a93a30a0fa3364980a16e",
+        "merged_at": "2026-11-01T18:07:10+05:00"
+      },
+      "completion": "docs/reports/visual-overhaul/vshore-003/closeout/completion.json"
     },
     {
       "id": "VSHORE-004",
