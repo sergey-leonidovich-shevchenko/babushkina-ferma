@@ -2,6 +2,7 @@ extends Node2D
 
 const Terrain := preload("res://scripts/systems/village_terrain_renderer.gd")
 const WaterMapRegistry := preload("res://scripts/systems/water_map_registry.gd")
+const WaterTopology := preload("res://scripts/systems/water_topology.gd")
 const WaterVisualSystem := preload("res://scripts/systems/water_visual_system.gd")
 
 var mode := "chunk-safe"
@@ -35,7 +36,7 @@ func _draw_global() -> void:
 
 ## Рисует клетку ровно один раз её владельцем, но читает соседние маски из общего halo.
 func _draw_chunk_safe() -> void:
-	var plan = WaterMapRegistry.geometry("overworld")
+	var plan: WaterTopology = WaterMapRegistry.geometry("overworld")
 	var chunks: Dictionary = plan._chunks_snapshot()
 	var keys: Array = chunks.keys()
 	keys.sort_custom(_cell_before)
@@ -47,7 +48,7 @@ func _draw_chunk_safe() -> void:
 
 ## Отрицательный контроль намеренно не видит соседний чанк и потому создаёт ложный берег.
 func _draw_isolated_negative() -> void:
-	var plan = WaterMapRegistry.geometry("overworld")
+	var plan: WaterTopology = WaterMapRegistry.geometry("overworld")
 	var chunks: Dictionary = plan._chunks_snapshot()
 	var keys: Array = chunks.keys()
 	keys.sort_custom(_cell_before)

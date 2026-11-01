@@ -22,25 +22,32 @@ func test_chunk_visual_uses_neighbor_halo_without_internal_shore() -> void:
 	var left_masks: Dictionary = left.neighbor_masks
 	var right_masks: Dictionary = right.neighbor_masks
 	var left_diagonals: Dictionary = left.diagonal_masks
+	var left_cells: Array = left.cells
+	var right_cells: Array = right.cells
+	var left_halo: Dictionary = left.halo
+	var right_halo: Dictionary = right.halo
+	var left_edges: Dictionary = left.filled_edges
+	var right_edges: Dictionary = right.filled_edges
+	var left_east_mask: int = left_masks[Vector2i(15, 0)]
+	var right_west_mask: int = right_masks[Vector2i(16, 0)]
+	var left_southeast_mask: int = left_diagonals[Vector2i(15, 1)]
+	var left_east_filled: int = left_edges.east
+	var right_west_filled: int = right_edges.west
 	expect(
 		(
-			left.cells.size() == 4
-			and right.cells.size() == 5
-			and left.halo.has(Vector2i(16, 0))
-			and right.halo.has(Vector2i(15, 0))
+			left_cells.size() == 4
+			and right_cells.size() == 5
+			and left_halo.has(Vector2i(16, 0))
+			and right_halo.has(Vector2i(15, 0))
 		),
 		"each group owns its cells once and reads a one-cell cross-chunk halo",
 	)
 	expect(
-		(
-			left_masks[Vector2i(15, 0)] & 2
-			and right_masks[Vector2i(16, 0)] & 8
-			and left_diagonals[Vector2i(15, 1)] & 1
-		),
+		(left_east_mask & 2) != 0 and (right_west_mask & 8) != 0 and (left_southeast_mask & 1) != 0,
 		"cardinal and diagonal masks include water from the neighboring chunk",
 	)
 	expect(
-		left.filled_edges.east == 2 and right.filled_edges.west == 2,
+		left_east_filled == 2 and right_west_filled == 2,
 		"filled boundary contacts are explicit on both owners",
 	)
 	for snapshot: Dictionary in [left, right]:

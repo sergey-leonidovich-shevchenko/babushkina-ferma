@@ -174,16 +174,22 @@ func test_registry_visual_snapshots_cover_all_water_semantics() -> void:
 		dry_polygons.is_empty(),
 		"unknown dry location does not manufacture a visual water mask",
 	)
-	var left_chunk := WaterMapRegistry.visual_chunk("overworld", Vector2i.ZERO)
-	var right_chunk := WaterMapRegistry.visual_chunk("overworld", Vector2i.RIGHT)
+	var left_chunk: Dictionary = WaterMapRegistry.visual_chunk("overworld", Vector2i.ZERO)
+	var right_chunk: Dictionary = WaterMapRegistry.visual_chunk("overworld", Vector2i.RIGHT)
 	var left_masks: Dictionary = left_chunk.neighbor_masks
 	var right_masks: Dictionary = right_chunk.neighbor_masks
+	var left_edges: Dictionary = left_chunk.filled_edges
+	var right_edges: Dictionary = right_chunk.filled_edges
+	var left_east_mask: int = left_masks[Vector2i(15, 10)]
+	var right_west_mask: int = right_masks[Vector2i(16, 10)]
+	var left_east_filled: int = left_edges.east
+	var right_west_filled: int = right_edges.west
 	expect(
 		(
-			left_masks[Vector2i(15, 10)] & 2
-			and right_masks[Vector2i(16, 10)] & 8
-			and left_chunk.filled_edges.east > 0
-			and right_chunk.filled_edges.west > 0
+			(left_east_mask & 2) != 0
+			and (right_west_mask & 8) != 0
+			and left_east_filled > 0
+			and right_west_filled > 0
 		),
 		"overworld registry preserves the real river across its 16-cell chunk boundary",
 	)

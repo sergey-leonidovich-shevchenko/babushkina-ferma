@@ -2,6 +2,7 @@ extends SceneTree
 
 const Board := preload("res://tools/qa/world/water_chunk_seam_board.gd")
 const WaterMapRegistry := preload("res://scripts/systems/water_map_registry.gd")
+const WaterTopology := preload("res://scripts/systems/water_topology.gd")
 
 const TARGET := Vector2i(1152, 648)
 const FIELD := Vector2i(576, 324)
@@ -99,9 +100,15 @@ func _start() -> void:
 				}
 			)
 		)
-	var plan = WaterMapRegistry.geometry("overworld")
-	var left := WaterMapRegistry.visual_chunk("overworld", Vector2i.ZERO)
-	var right := WaterMapRegistry.visual_chunk("overworld", Vector2i.RIGHT)
+	var plan: WaterTopology = WaterMapRegistry.geometry("overworld")
+	var left: Dictionary = WaterMapRegistry.visual_chunk("overworld", Vector2i.ZERO)
+	var right: Dictionary = WaterMapRegistry.visual_chunk("overworld", Vector2i.RIGHT)
+	var left_cells: Array = left.cells
+	var right_cells: Array = right.cells
+	var left_halo: Dictionary = left.halo
+	var right_halo: Dictionary = right.halo
+	var left_edges: Dictionary = left.filled_edges
+	var right_edges: Dictionary = right.filled_edges
 	var builds_before: int = plan.chunk_visual_builds
 	for repeat in 120:
 		WaterMapRegistry.visual_chunk("overworld", Vector2i.ZERO)
@@ -130,12 +137,12 @@ func _start() -> void:
 		"sources": _sources(),
 		"chunks":
 		{
-			"left_cells": left.cells.size(),
-			"right_cells": right.cells.size(),
-			"left_halo": left.halo.size(),
-			"right_halo": right.halo.size(),
-			"left_east_filled": left.filled_edges.east,
-			"right_west_filled": right.filled_edges.west,
+			"left_cells": left_cells.size(),
+			"right_cells": right_cells.size(),
+			"left_halo": left_halo.size(),
+			"right_halo": right_halo.size(),
+			"left_east_filled": left_edges.east,
+			"right_west_filled": right_edges.west,
 			"visual_builds": plan.chunk_visual_builds,
 			"repeated_reads": 240,
 			"rebuilds_during_repeated_reads": plan.chunk_visual_builds - builds_before,
