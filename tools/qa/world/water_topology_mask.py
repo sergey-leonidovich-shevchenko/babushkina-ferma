@@ -7,13 +7,16 @@ import argparse
 import hashlib
 import json
 import math
+import re
 import subprocess
 from pathlib import Path
 from typing import Any
 
+from imageio_ffmpeg import count_frames_and_secs, read_frames  # type: ignore[import-untyped]
 from PIL import Image, ImageChops, ImageStat
 
 from tools.common.git import git_environment
+from tools.common.history import read_git_blob
 from tools.common.paths import project_root
 
 ROOT = project_root(__file__)
@@ -106,23 +109,23 @@ def tracked(root: Path, paths: list[Path]) -> bool:
     return result.returncode == 0
 
 
-def historical_bytes(root: Path, commit: str, name: str) -> bytes:
-    """Read the exact implementation input from Git history."""
+def historical_bytes(root: Path, commit: str, name: str, expected: str) -> bytes:
+    """Read one full-hex-pinned regular blob without accepting Git options."""
     history_root = root if (root / ".git").exists() else ROOT
-    result = subprocess.run(
-        ["git", "show", f"{commit}:{name}"],
-        cwd=history_root,
-        capture_output=True,
-        check=False,
-        env=git_environment(),
-    )
-    require(result.returncode == 0, f"historical source missing: {name}")
-    return result.stdout
+    require(bool(re.fullmatch(r"[0-9a-f]{40}", commit)), "implementation commit")
+    try:
+        return read_git_blob(history_root, name, commit, expected)
+    except ValueError as error:
+        raise ValueError(f"historical source unavailable: {name}") from error
 
 
 def historical(root: Path, commit: str, name: str, expected: str) -> bool:
     """Bind one manifest row to exact Git bytes."""
-    return hashlib.sha256(historical_bytes(root, commit, name)).hexdigest() == expected
+    try:
+        historical_bytes(root, commit, name, expected)
+    except ValueError:
+        return False
+    return True
 
 
 def changed_pixels(first: Path, second: Path) -> int:
@@ -149,15 +152,17 @@ def verify_sources(root: Path, folder: Path, profile: dict[str, Any]) -> None:
     files = source.get("files")
     if not isinstance(files, dict) or set(files) != SOURCE_FILES:
         raise ValueError("source file coverage")
+    historical_files: dict[str, bytes] = {}
     for name, expected in files.items():
-        require(historical(root, commit, name, expected), f"source SHA: {name}")
+        try:
+            historical_files[name] = historical_bytes(root, commit, name, expected)
+        except ValueError as error:
+            raise ValueError(f"source SHA: {name}") from error
 
-    topology = historical_bytes(root, commit, "scripts/systems/water_topology.gd").decode()
-    registry = historical_bytes(root, commit, "scripts/systems/water_map_registry.gd").decode()
-    renderer = historical_bytes(
-        root, commit, "scripts/systems/village_terrain_renderer.gd"
-    ).decode()
-    visual = historical_bytes(root, commit, "scripts/systems/water_visual_system.gd").decode()
+    topology = historical_files["scripts/systems/water_topology.gd"].decode()
+    registry = historical_files["scripts/systems/water_map_registry.gd"].decode()
+    renderer = historical_files["scripts/systems/village_terrain_renderer.gd"].decode()
+    visual = historical_files["scripts/systems/water_visual_system.gd"].decode()
     require("Geometry2D.merge_polygons" in topology, "surface polygons are not merged")
     require(
         "_visual_revision" in topology and "visual_builds" in topology, "revision cache missing"
@@ -228,7 +233,7 @@ def verify_motion(root: Path, native: Path, capture: dict[str, Any]) -> None:
 
 
 def verify_video(root: Path, native: Path, capture: dict[str, Any]) -> None:
-    """Bind the H.264 file, metadata and decoded first frame to the sequence."""
+    """Decode the current H.264 bytes and bind their real motion to three witnesses."""
     video = read(native / "video-proof.json")
     motion = capture["motion"]
     chain = hashlib.sha256("\n".join(row["sha256"] for row in motion).encode()).hexdigest()
@@ -247,13 +252,52 @@ def verify_video(root: Path, native: Path, capture: dict[str, Any]) -> None:
         all(encoded.get(key) == value for key, value in expected.items()), "encoded video metadata"
     )
     require(math.isclose(encoded.get("duration", 0), 2.4, abs_tol=0.001), "encoded video duration")
+
+    reader = None
+    try:
+        actual_frames, actual_duration = count_frames_and_secs(str(native / "camera-pan.mp4"))
+        require(actual_frames == 72, "encoded video frame count")
+        require(
+            math.isclose(actual_duration, 2.4, abs_tol=0.01),
+            "encoded video stream duration",
+        )
+        reader = read_frames(str(native / "camera-pan.mp4"), pix_fmt="rgb24")
+        stream = next(reader)
+        frames = [next(reader) for _index in range(72)]
+    except (OSError, RuntimeError, StopIteration) as error:
+        raise ValueError("encoded video stream cannot be decoded") from error
+    finally:
+        if reader is not None:
+            reader.close()
+    require(stream.get("codec") == "h264", "encoded video codec")
+    require(tuple(stream.get("size", ())) == (1152, 648), "encoded video stream dimensions")
+    require(math.isclose(float(stream.get("fps", 0)), 30.0, abs_tol=0.01), "encoded video fps")
+    require(
+        math.isclose(float(stream.get("duration", 0)), 2.4, abs_tol=0.01),
+        "encoded video stream duration",
+    )
+    require(all(len(frame) == 1152 * 648 * 3 for frame in frames), "encoded video frame bytes")
+    decoded_frames = [Image.frombytes("RGB", (1152, 648), frame) for frame in frames]
+    signatures = {
+        hashlib.sha256(frame.resize((64, 36)).tobytes()).digest() for frame in decoded_frames
+    }
+    require(len(signatures) == len(decoded_frames), "frozen video sequence")
+    changes = [
+        sum(ImageStat.Stat(ImageChops.difference(first, second)).mean) / 3.0
+        for first, second in zip(decoded_frames, decoded_frames[1:], strict=False)
+    ]
+    require(min(changes) > 2.0, "frozen video sequence")
+    require(max(changes) / min(changes) < 2.5, "discontinuous video sequence")
+    for index in WITNESS_FRAMES:
+        with Image.open(native / f"motion-{index:03d}.png") as witness:
+            difference = ImageChops.difference(decoded_frames[index], witness.convert("RGB"))
+            require(max(ImageStat.Stat(difference).mean) < 5.0, "decoded motion witness mismatch")
     with (
         Image.open(native / "camera-pan.decoded.png") as decoded,
-        Image.open(native / "motion-000.png") as source,
     ):
-        require(decoded.size == source.size == (1152, 648), "decoded video frame dimensions")
-        difference = ImageChops.difference(decoded.convert("RGB"), source.convert("RGB"))
-        require(max(ImageStat.Stat(difference).mean) < 3.0, "decoded first frame mismatch")
+        require(decoded.size == (1152, 648), "decoded video frame dimensions")
+        difference = ImageChops.difference(decoded.convert("RGB"), decoded_frames[0])
+        require(max(ImageStat.Stat(difference).mean) < 5.0, "decoded first frame mismatch")
 
 
 def verify_native(root: Path, folder: Path, profile: dict[str, Any]) -> None:
@@ -329,7 +373,10 @@ def verify(root: Path = ROOT, *, require_tracked: bool = True) -> dict[str, Any]
     require(profile.get("task") == TASK, "profile task")
     require(profile.get("status") == "review_candidate", "profile status")
     commit = profile.get("implementation_commit")
-    require(isinstance(commit, str) and len(commit) == 40, "implementation commit")
+    require(
+        isinstance(commit, str) and bool(re.fullmatch(r"[0-9a-f]{40}", commit)),
+        "implementation commit",
+    )
     require(profile.get("runtime_integration") is True, "runtime profile")
     require(profile.get("physical_authority") is True, "topology authority")
     require(profile.get("performance_eligible") is False, "performance claim")

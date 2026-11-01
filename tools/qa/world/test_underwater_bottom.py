@@ -80,6 +80,26 @@ class UnderwaterBottomTests(unittest.TestCase):
         result = bottom.verify(self.root, require_tracked=False)
         self.assertEqual(result["task"], "VSHORE-002")
 
+    def test_accepted_head_option_is_rejected_without_writing(self) -> None:
+        """Frozen history rejects a Git option before it can overwrite an external file."""
+        outside = tempfile.TemporaryDirectory(prefix="p35", dir="/tmp")
+        self.addCleanup(outside.cleanup)
+        capture = bottom.read(self.folder / "native/capture.json")
+        name = next(iter(capture["sources"])).removeprefix("res://")
+        prefix = "--output=" + str(Path(outside.name) / "p")
+        self.assertLess(len(prefix), 40)
+        commit = prefix + "x" * (40 - len(prefix))
+        target = Path(commit.removeprefix("--output=") + ":" + name)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        sentinel = b"owned temporary sentinel\n"
+        target.write_bytes(sentinel)
+        path = self.folder / "closeout/completion.json"
+        data = bottom.read(path)
+        data["accepted_head"] = commit
+        path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+        self.rejected("accepted implementation head")
+        self.assertEqual(target.read_bytes(), sentinel)
+
     def test_runtime_image_replacement_is_rejected(self) -> None:
         """A visually similar but byte-different runtime file cannot replace the selected master."""
         runtime = self.root / "assets/game/locations/overworld/modular/riverbed_material_v1.png"

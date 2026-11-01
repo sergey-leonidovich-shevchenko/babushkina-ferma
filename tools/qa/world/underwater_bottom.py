@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import math
+import re
 import subprocess
 from pathlib import Path
 from typing import Any
@@ -14,6 +15,7 @@ from typing import Any
 from PIL import Image, ImageChops
 
 from tools.common.git import git_environment
+from tools.common.history import read_git_blob
 from tools.common.paths import project_root
 
 ROOT = project_root(__file__)
@@ -91,21 +93,24 @@ def tracked(root: Path, paths: list[Path]) -> bool:
 def historical(root: Path, commit: str, name: str, expected: str) -> bool:
     """Read frozen WATER inputs from Git instead of comparing them with evolving runtime files."""
     history_root = root if (root / ".git").exists() else ROOT
-    result = subprocess.run(
-        ["git", "show", f"{commit}:{name}"],
-        cwd=history_root,
-        capture_output=True,
-        check=False,
-        env=git_environment(),
-    )
-    return result.returncode == 0 and hashlib.sha256(result.stdout).hexdigest() == expected
+    if not isinstance(commit, str) or not re.fullmatch(r"[0-9a-f]{40}", commit):
+        raise ValueError("accepted implementation head")
+    try:
+        read_git_blob(history_root, name, commit, expected)
+    except ValueError:
+        return False
+    return True
 
 
 def accepted_head(folder: Path) -> str:
     """Return the immutable reviewed implementation head recorded by closeout."""
     completion = read(folder / "closeout/completion.json")
     head = completion.get("accepted_head")
-    if completion.get("task") != "VSHORE-002" or not isinstance(head, str) or len(head) != 40:
+    if (
+        completion.get("task") != "VSHORE-002"
+        or not isinstance(head, str)
+        or not re.fullmatch(r"[0-9a-f]{40}", head)
+    ):
         raise ValueError("accepted implementation head")
     return head
 

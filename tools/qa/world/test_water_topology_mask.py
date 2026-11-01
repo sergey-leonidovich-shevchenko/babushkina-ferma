@@ -11,6 +11,9 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
+from imageio_ffmpeg import write_frames  # type: ignore[import-untyped]
+from PIL import Image
+
 from tools.qa.world import water_topology_mask as mask
 
 
@@ -36,6 +39,13 @@ class WaterTopologyMaskTests(unittest.TestCase):
         """Require an addressable rejection instead of a generic exception."""
         with self.assertRaisesRegex(ValueError, message):
             mask.verify(self.root, require_tracked=False)
+
+    def resign_movie(self) -> None:
+        """Update only the movie digest, reproducing a semantically forged proof."""
+        proof_path = self.folder / "native/video-proof.json"
+        proof = mask.read(proof_path)
+        proof["files"]["camera-pan.mp4"] = mask.digest(self.folder / "native/camera-pan.mp4")
+        proof_path.write_text(json.dumps(proof, ensure_ascii=False, indent=2) + "\n")
 
     def test_complete_packet(self) -> None:
         """The unchanged packet proves one cached topology-owned visual mask."""
@@ -126,6 +136,65 @@ class WaterTopologyMaskTests(unittest.TestCase):
         proof["files"]["camera-pan.json"] = mask.digest(self.folder / "native/camera-pan.json")
         proof_path.write_text(json.dumps(proof, ensure_ascii=False, indent=2) + "\n")
         self.rejected("encoded video duration")
+
+    def test_resigned_plain_text_movie_is_rejected(self) -> None:
+        """A matching SHA cannot turn arbitrary bytes into a decodable MP4 stream."""
+        movie = self.folder / "native/camera-pan.mp4"
+        movie.write_bytes(b"This is plain text, not an MPEG-4 video.\n")
+        self.resign_movie()
+        self.rejected("encoded video stream")
+
+    def test_resigned_wrong_movie_is_rejected(self) -> None:
+        """A valid H.264 video from another task cannot impersonate this 72-frame capture."""
+        movie = self.folder / "native/camera-pan.mp4"
+        shutil.copyfile(
+            mask.ROOT / "docs/reports/visual-overhaul/vshore-002/native/camera-pan.mp4",
+            movie,
+        )
+        self.resign_movie()
+        self.rejected("encoded video (stream duration|frame count)")
+
+    def test_resigned_frozen_movie_is_rejected(self) -> None:
+        """A real 72-frame H.264 stream must still contain continuous camera movement."""
+        movie = self.folder / "native/camera-pan.mp4"
+        with Image.open(self.folder / "native/motion-000.png") as image:
+            frame = image.convert("RGB").tobytes()
+        writer = write_frames(
+            str(movie),
+            (1152, 648),
+            fps=30,
+            codec="libx264",
+            macro_block_size=1,
+            ffmpeg_log_level="error",
+        )
+        writer.send(None)
+        try:
+            for _index in range(72):
+                writer.send(frame)
+        finally:
+            writer.close()
+        self.resign_movie()
+        self.rejected("frozen video sequence")
+
+    def test_commit_option_is_rejected_without_writing(self) -> None:
+        """A 40-character Git option is rejected before it can overwrite an external file."""
+        outside = tempfile.TemporaryDirectory(prefix="p35", dir="/tmp")
+        self.addCleanup(outside.cleanup)
+        name = next(iter(mask.read(self.folder / "source.json")["files"]))
+        prefix = "--output=" + str(Path(outside.name) / "p")
+        self.assertLess(len(prefix), 40)
+        commit = prefix + "x" * (40 - len(prefix))
+        target = Path(commit.removeprefix("--output=") + ":" + name)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        sentinel = b"owned temporary sentinel\n"
+        target.write_bytes(sentinel)
+        for relative in ("profile.json", "source.json"):
+            path = self.folder / relative
+            data = mask.read(path)
+            data["implementation_commit"] = commit
+            path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+        self.rejected("implementation commit")
+        self.assertEqual(target.read_bytes(), sentinel)
 
     def test_empty_video_files_are_rejected(self) -> None:
         """The MP4, metadata and decoded witness are all mandatory."""
