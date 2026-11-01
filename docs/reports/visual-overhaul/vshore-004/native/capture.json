@@ -1,0 +1,1015 @@
+{
+	"adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+	"camera_sets": {
+		"seam-center": "(96.0, 90.0)",
+		"seam-east": "(192.0, 90.0)"
+	},
+	"chunks": {
+		"internal_shore_edges": 0,
+		"left_cells": 64,
+		"left_east_filled": 4,
+		"left_halo": 4,
+		"rebuilds_during_repeated_reads": 0,
+		"repeated_reads": 240,
+		"right_cells": 48,
+		"right_halo": 8,
+		"right_west_filled": 4,
+		"visual_builds": 9
+	},
+	"display_server": "macOS",
+	"engine": "4.7.1-stable (official)",
+	"field": [
+		576,
+		324
+	],
+	"fixed_clock_video": true,
+	"fps": 30,
+	"frames": [
+		{
+			"camera": [
+				96.0,
+				90.0
+			],
+			"file": "seam-center-global.png",
+			"id": "seam-center-global",
+			"repeat_equal": true,
+			"sha256": "92e1ac7d76675091d772468653b7e304caa638958e21845417874bd10cef7aca"
+		},
+		{
+			"camera": [
+				96.0,
+				90.0
+			],
+			"file": "seam-center-chunk-safe.png",
+			"id": "seam-center-chunk-safe",
+			"repeat_equal": true,
+			"sha256": "92e1ac7d76675091d772468653b7e304caa638958e21845417874bd10cef7aca"
+		},
+		{
+			"camera": [
+				96.0,
+				90.0
+			],
+			"file": "seam-center-isolated-negative.png",
+			"id": "seam-center-isolated-negative",
+			"repeat_equal": true,
+			"sha256": "0b339cc612ab95cd5bfbe90dbc7b7b3cc4bfbde2d8a695a0919cde19e9cd3f2b"
+		},
+		{
+			"camera": [
+				192.0,
+				90.0
+			],
+			"file": "seam-east-global.png",
+			"id": "seam-east-global",
+			"repeat_equal": true,
+			"sha256": "d3da827133e26626312d2ef6bf0fec55129951507b10f60f1acc50143b0b2b17"
+		},
+		{
+			"camera": [
+				192.0,
+				90.0
+			],
+			"file": "seam-east-chunk-safe.png",
+			"id": "seam-east-chunk-safe",
+			"repeat_equal": true,
+			"sha256": "d3da827133e26626312d2ef6bf0fec55129951507b10f60f1acc50143b0b2b17"
+		},
+		{
+			"camera": [
+				192.0,
+				90.0
+			],
+			"file": "seam-east-isolated-negative.png",
+			"id": "seam-east-isolated-negative",
+			"repeat_equal": true,
+			"sha256": "ee4c937085824ba0811acd7713900c2b8dda55489100c213d6a3c1b4585eee2a"
+		}
+	],
+	"kind": "native-water-chunk-seam-study",
+	"motion": [
+		{
+			"board_position": [
+				-96.0,
+				-90.0
+			],
+			"camera": [
+				96.0,
+				90.0
+			],
+			"file": "frames/0000.png",
+			"frame": 0,
+			"global_equal": true,
+			"seam_screen_x": 576.0,
+			"sha256": "92e1ac7d76675091d772468653b7e304caa638958e21845417874bd10cef7aca"
+		},
+		{
+			"board_position": [
+				-99.2542343139648,
+				-90.0
+			],
+			"camera": [
+				99.2542343139648,
+				90.0
+			],
+			"file": "frames/0001.png",
+			"frame": 1,
+			"global_equal": true,
+			"seam_screen_x": 569.49153137207,
+			"sha256": "6409a2344c5c9be0dc0ce5b6e4683ea59e0694cc8a27a43a121f75fb27ee55d8"
+		},
+		{
+			"board_position": [
+				-102.508476257324,
+				-90.0
+			],
+			"camera": [
+				102.508476257324,
+				90.0
+			],
+			"file": "frames/0002.png",
+			"frame": 2,
+			"global_equal": true,
+			"seam_screen_x": 562.983047485352,
+			"sha256": "ba3f060868595f8afd4374f14359d7bc1e8e1dfca2d7d689540a82d90e5578af"
+		},
+		{
+			"board_position": [
+				-105.762710571289,
+				-90.0
+			],
+			"camera": [
+				105.762710571289,
+				90.0
+			],
+			"file": "frames/0003.png",
+			"frame": 3,
+			"global_equal": true,
+			"seam_screen_x": 556.474578857422,
+			"sha256": "93530710504455eabacf12f44e6b91533ec674c975f522ef5fd4c84741939eef"
+		},
+		{
+			"board_position": [
+				-109.016952514648,
+				-90.0
+			],
+			"camera": [
+				109.016952514648,
+				90.0
+			],
+			"file": "frames/0004.png",
+			"frame": 4,
+			"global_equal": true,
+			"seam_screen_x": 549.966094970703,
+			"sha256": "d5246d9c50245a00bd8ec21838d4405d3bf296ba19ccf91f12953f00f31bb464"
+		},
+		{
+			"board_position": [
+				-112.271186828613,
+				-90.0
+			],
+			"camera": [
+				112.271186828613,
+				90.0
+			],
+			"file": "frames/0005.png",
+			"frame": 5,
+			"global_equal": true,
+			"seam_screen_x": 543.457626342773,
+			"sha256": "c6f0ef6dde17063e03edadcbce2c6f37a44fd5af78a9117730c73eb650d35895"
+		},
+		{
+			"board_position": [
+				-115.525421142578,
+				-90.0
+			],
+			"camera": [
+				115.525421142578,
+				90.0
+			],
+			"file": "frames/0006.png",
+			"frame": 6,
+			"global_equal": true,
+			"seam_screen_x": 536.949157714844,
+			"sha256": "bb3aefa3bd52fd3e9987d679a8e0a9d4bc9d6731061d667824c0365893febb9e"
+		},
+		{
+			"board_position": [
+				-118.779663085938,
+				-90.0
+			],
+			"camera": [
+				118.779663085938,
+				90.0
+			],
+			"file": "frames/0007.png",
+			"frame": 7,
+			"global_equal": true,
+			"seam_screen_x": 530.440673828125,
+			"sha256": "4de119e3c767aa8ccc547985b5a491b83fc9ce2869cb6a4dd4f0bc78b32d4a81"
+		},
+		{
+			"board_position": [
+				-122.033897399902,
+				-90.0
+			],
+			"camera": [
+				122.033897399902,
+				90.0
+			],
+			"file": "frames/0008.png",
+			"frame": 8,
+			"global_equal": true,
+			"seam_screen_x": 523.932205200195,
+			"sha256": "d5f58f298bf0e6f471561f041c895eab8b05106e9cd6e93ce405aa2a21ace3aa"
+		},
+		{
+			"board_position": [
+				-125.288131713867,
+				-90.0
+			],
+			"camera": [
+				125.288131713867,
+				90.0
+			],
+			"file": "frames/0009.png",
+			"frame": 9,
+			"global_equal": true,
+			"seam_screen_x": 517.423736572266,
+			"sha256": "d00bb95235a59e3f14b4d34fb5e26e8c5680eeba5e121c11880f617a919f416f"
+		},
+		{
+			"board_position": [
+				-128.542373657227,
+				-90.0
+			],
+			"camera": [
+				128.542373657227,
+				90.0
+			],
+			"file": "frames/0010.png",
+			"frame": 10,
+			"global_equal": true,
+			"seam_screen_x": 510.915252685547,
+			"sha256": "d7f99dc9716fdf9d20d5d9f28fb5987dfe90f2cdc1d1a9e618c93d97d6f1f20b"
+		},
+		{
+			"board_position": [
+				-131.796600341797,
+				-90.0
+			],
+			"camera": [
+				131.796600341797,
+				90.0
+			],
+			"file": "frames/0011.png",
+			"frame": 11,
+			"global_equal": true,
+			"seam_screen_x": 504.406799316406,
+			"sha256": "6737169e29940fa0e7cebc7423f55eb1b3e21bb52468b6da10ce5ddd08bb0819"
+		},
+		{
+			"board_position": [
+				-135.050842285156,
+				-90.0
+			],
+			"camera": [
+				135.050842285156,
+				90.0
+			],
+			"file": "frames/0012.png",
+			"frame": 12,
+			"global_equal": true,
+			"seam_screen_x": 497.898315429688,
+			"sha256": "78528eed0a91e14d31077ba960fe4b6d1c04d051f2a28941964af274318ecdea"
+		},
+		{
+			"board_position": [
+				-138.305084228516,
+				-90.0
+			],
+			"camera": [
+				138.305084228516,
+				90.0
+			],
+			"file": "frames/0013.png",
+			"frame": 13,
+			"global_equal": true,
+			"seam_screen_x": 491.389831542969,
+			"sha256": "17b8d8aaa94203309c9edfd6fdf05ce653fef3c78927e7bcff8e6d7fb06143b4"
+		},
+		{
+			"board_position": [
+				-141.559326171875,
+				-90.0
+			],
+			"camera": [
+				141.559326171875,
+				90.0
+			],
+			"file": "frames/0014.png",
+			"frame": 14,
+			"global_equal": true,
+			"seam_screen_x": 484.88134765625,
+			"sha256": "dea5f2fc78582ff26a37c545ec4a6beff47c0ee843026f5a939bad5e0340c776"
+		},
+		{
+			"board_position": [
+				-144.813568115234,
+				-90.0
+			],
+			"camera": [
+				144.813568115234,
+				90.0
+			],
+			"file": "frames/0015.png",
+			"frame": 15,
+			"global_equal": true,
+			"seam_screen_x": 478.372863769531,
+			"sha256": "1b60d90cdee561cc7c0ddbce9a225c7a9cb1b09954c034711fc3751edb834a48"
+		},
+		{
+			"board_position": [
+				-148.067794799805,
+				-90.0
+			],
+			"camera": [
+				148.067794799805,
+				90.0
+			],
+			"file": "frames/0016.png",
+			"frame": 16,
+			"global_equal": true,
+			"seam_screen_x": 471.864410400391,
+			"sha256": "979a4543421502b05874b9a21c8be595e3272ffd9eed7490a3833c333ceee053"
+		},
+		{
+			"board_position": [
+				-151.322036743164,
+				-90.0
+			],
+			"camera": [
+				151.322036743164,
+				90.0
+			],
+			"file": "frames/0017.png",
+			"frame": 17,
+			"global_equal": true,
+			"seam_screen_x": 465.355926513672,
+			"sha256": "2aede6cfb27354900abdbdf17bc38200778d04fcac4f3e448647eb9b313fdb16"
+		},
+		{
+			"board_position": [
+				-154.576263427734,
+				-90.0
+			],
+			"camera": [
+				154.576263427734,
+				90.0
+			],
+			"file": "frames/0018.png",
+			"frame": 18,
+			"global_equal": true,
+			"seam_screen_x": 458.847473144531,
+			"sha256": "d7fbfb19227039cda1089c30d0f839f8388dcda06cd2d0f4235b80fb26832e96"
+		},
+		{
+			"board_position": [
+				-157.830505371094,
+				-90.0
+			],
+			"camera": [
+				157.830505371094,
+				90.0
+			],
+			"file": "frames/0019.png",
+			"frame": 19,
+			"global_equal": true,
+			"seam_screen_x": 452.338989257812,
+			"sha256": "5ec66777662f64c3b65682c32a7bc726395b991c67da8b8750b2df3fb951c63b"
+		},
+		{
+			"board_position": [
+				-161.084747314453,
+				-90.0
+			],
+			"camera": [
+				161.084747314453,
+				90.0
+			],
+			"file": "frames/0020.png",
+			"frame": 20,
+			"global_equal": true,
+			"seam_screen_x": 445.830505371094,
+			"sha256": "d8a470f1a0b502fa6fc547515795c301817fb13cdf3b3dd97fd712110e9d422d"
+		},
+		{
+			"board_position": [
+				-164.338989257812,
+				-90.0
+			],
+			"camera": [
+				164.338989257812,
+				90.0
+			],
+			"file": "frames/0021.png",
+			"frame": 21,
+			"global_equal": true,
+			"seam_screen_x": 439.322021484375,
+			"sha256": "1893734e47ed8e41276543b2efeb33bdc2b12bc9159ffb31a2057af4e0a0d209"
+		},
+		{
+			"board_position": [
+				-167.593215942383,
+				-90.0
+			],
+			"camera": [
+				167.593215942383,
+				90.0
+			],
+			"file": "frames/0022.png",
+			"frame": 22,
+			"global_equal": true,
+			"seam_screen_x": 432.813568115234,
+			"sha256": "336868e67e2e399b4ad9200d3ff1f506b12c472f1092715546005b466d1a51e0"
+		},
+		{
+			"board_position": [
+				-170.847457885742,
+				-90.0
+			],
+			"camera": [
+				170.847457885742,
+				90.0
+			],
+			"file": "frames/0023.png",
+			"frame": 23,
+			"global_equal": true,
+			"seam_screen_x": 426.305084228516,
+			"sha256": "6594b687093cbf0a1a259ae593eb19be0351ee802a3dbc1eedcf611dc46812c2"
+		},
+		{
+			"board_position": [
+				-174.101684570312,
+				-90.0
+			],
+			"camera": [
+				174.101684570312,
+				90.0
+			],
+			"file": "frames/0024.png",
+			"frame": 24,
+			"global_equal": true,
+			"seam_screen_x": 419.796630859375,
+			"sha256": "000c50121a8f2803dc2255a4e4d5877534582ef66f9288aae54d56939b950a72"
+		},
+		{
+			"board_position": [
+				-177.355926513672,
+				-90.0
+			],
+			"camera": [
+				177.355926513672,
+				90.0
+			],
+			"file": "frames/0025.png",
+			"frame": 25,
+			"global_equal": true,
+			"seam_screen_x": 413.288146972656,
+			"sha256": "67dea92d5959773b5bf63a7146c8764862fd12aeef51e8d6531ba62fc4f76bee"
+		},
+		{
+			"board_position": [
+				-180.610168457031,
+				-90.0
+			],
+			"camera": [
+				180.610168457031,
+				90.0
+			],
+			"file": "frames/0026.png",
+			"frame": 26,
+			"global_equal": true,
+			"seam_screen_x": 406.779663085938,
+			"sha256": "8db588e8b085f2222cfbdb214898fa4a384cd94c870812169602e627ee72ab2d"
+		},
+		{
+			"board_position": [
+				-183.864410400391,
+				-90.0
+			],
+			"camera": [
+				183.864410400391,
+				90.0
+			],
+			"file": "frames/0027.png",
+			"frame": 27,
+			"global_equal": true,
+			"seam_screen_x": 400.271179199219,
+			"sha256": "bf746284e38106a43f9e4ddf0430c0c17f292b2265accdea12b684dd2c208ad0"
+		},
+		{
+			"board_position": [
+				-187.11865234375,
+				-90.0
+			],
+			"camera": [
+				187.11865234375,
+				90.0
+			],
+			"file": "frames/0028.png",
+			"frame": 28,
+			"global_equal": true,
+			"seam_screen_x": 393.7626953125,
+			"sha256": "1b9f8aed1e72b7bf22297fb8074e2fda2b6fe12c4c378f5226be8e5507fe3566"
+		},
+		{
+			"board_position": [
+				-190.37287902832,
+				-90.0
+			],
+			"camera": [
+				190.37287902832,
+				90.0
+			],
+			"file": "frames/0029.png",
+			"frame": 29,
+			"global_equal": true,
+			"seam_screen_x": 387.254241943359,
+			"sha256": "a2a42921df2de10ecdd10a26002b34c982fbedefc0480c3d98fd9bd04788761a"
+		},
+		{
+			"board_position": [
+				-193.62712097168,
+				-90.0
+			],
+			"camera": [
+				193.62712097168,
+				90.0
+			],
+			"file": "frames/0030.png",
+			"frame": 30,
+			"global_equal": true,
+			"seam_screen_x": 380.745758056641,
+			"sha256": "9c1acb19bd279b06b975221abff78570af12e82a5537b75f5c28191df7b73355"
+		},
+		{
+			"board_position": [
+				-196.88134765625,
+				-90.0
+			],
+			"camera": [
+				196.88134765625,
+				90.0
+			],
+			"file": "frames/0031.png",
+			"frame": 31,
+			"global_equal": true,
+			"seam_screen_x": 374.2373046875,
+			"sha256": "d04e8d71fbf56857a342506a48c63e66761e39f6a4bd68b0c8e627e0800c319b"
+		},
+		{
+			"board_position": [
+				-200.135589599609,
+				-90.0
+			],
+			"camera": [
+				200.135589599609,
+				90.0
+			],
+			"file": "frames/0032.png",
+			"frame": 32,
+			"global_equal": true,
+			"seam_screen_x": 367.728820800781,
+			"sha256": "a637daa5f49ec4900471dc2fe7f146eaeb1bd505b5411e39a482891052ec0382"
+		},
+		{
+			"board_position": [
+				-203.389831542969,
+				-90.0
+			],
+			"camera": [
+				203.389831542969,
+				90.0
+			],
+			"file": "frames/0033.png",
+			"frame": 33,
+			"global_equal": true,
+			"seam_screen_x": 361.220336914062,
+			"sha256": "016184260a42a2d32f1dd620040abc33c6dc93eca1bd2894ddacadbfe7f90fd1"
+		},
+		{
+			"board_position": [
+				-206.644073486328,
+				-90.0
+			],
+			"camera": [
+				206.644073486328,
+				90.0
+			],
+			"file": "frames/0034.png",
+			"frame": 34,
+			"global_equal": true,
+			"seam_screen_x": 354.711853027344,
+			"sha256": "38c1a2a450ae88e76b01077c09b38c647852d7e19d5a994a108e9234ae7af278"
+		},
+		{
+			"board_position": [
+				-209.898315429688,
+				-90.0
+			],
+			"camera": [
+				209.898315429688,
+				90.0
+			],
+			"file": "frames/0035.png",
+			"frame": 35,
+			"global_equal": true,
+			"seam_screen_x": 348.203369140625,
+			"sha256": "8bbe6dc83f293575fa66c1054022c4968b21511b14a9247759f0d0b7c30551ba"
+		},
+		{
+			"board_position": [
+				-213.152542114258,
+				-90.0
+			],
+			"camera": [
+				213.152542114258,
+				90.0
+			],
+			"file": "frames/0036.png",
+			"frame": 36,
+			"global_equal": true,
+			"seam_screen_x": 341.694915771484,
+			"sha256": "d9062356568ef59c32890e14202db1ba70b1819b27b4409002b21243e4c0e38b"
+		},
+		{
+			"board_position": [
+				-216.406784057617,
+				-90.0
+			],
+			"camera": [
+				216.406784057617,
+				90.0
+			],
+			"file": "frames/0037.png",
+			"frame": 37,
+			"global_equal": true,
+			"seam_screen_x": 335.186431884766,
+			"sha256": "7a0370617fefdebf8a8b1d5ff8701c887369e7a8698e71f270a0b8b6748179ef"
+		},
+		{
+			"board_position": [
+				-219.661026000977,
+				-90.0
+			],
+			"camera": [
+				219.661026000977,
+				90.0
+			],
+			"file": "frames/0038.png",
+			"frame": 38,
+			"global_equal": true,
+			"seam_screen_x": 328.677947998047,
+			"sha256": "bab6ee411d9d6202e898ef5f11ed62759d9bbeb4f0f263074f1fceb444ee1ef7"
+		},
+		{
+			"board_position": [
+				-222.915252685547,
+				-90.0
+			],
+			"camera": [
+				222.915252685547,
+				90.0
+			],
+			"file": "frames/0039.png",
+			"frame": 39,
+			"global_equal": true,
+			"seam_screen_x": 322.169494628906,
+			"sha256": "8003d2a6df1738ff848f144d399b24c5b8598a3b64733f342a0f1ec0706783af"
+		},
+		{
+			"board_position": [
+				-226.169494628906,
+				-90.0
+			],
+			"camera": [
+				226.169494628906,
+				90.0
+			],
+			"file": "frames/0040.png",
+			"frame": 40,
+			"global_equal": true,
+			"seam_screen_x": 315.661010742188,
+			"sha256": "63c5b11dd986208b140ab803ef60eb5e30ac8613a5bdca9d3e01be5b375426e2"
+		},
+		{
+			"board_position": [
+				-229.423721313477,
+				-90.0
+			],
+			"camera": [
+				229.423721313477,
+				90.0
+			],
+			"file": "frames/0041.png",
+			"frame": 41,
+			"global_equal": true,
+			"seam_screen_x": 309.152557373047,
+			"sha256": "8ee6eb594d95cdc12868412c8b7fcb1a517e9d2ed67771a15ff4cca7877a0851"
+		},
+		{
+			"board_position": [
+				-232.677963256836,
+				-90.0
+			],
+			"camera": [
+				232.677963256836,
+				90.0
+			],
+			"file": "frames/0042.png",
+			"frame": 42,
+			"global_equal": true,
+			"seam_screen_x": 302.644073486328,
+			"sha256": "144eb9db41ed4c7c8b1e34dc7c04543ddfd36f50e29ecfcd737726fd492dd74a"
+		},
+		{
+			"board_position": [
+				-235.932205200195,
+				-90.0
+			],
+			"camera": [
+				235.932205200195,
+				90.0
+			],
+			"file": "frames/0043.png",
+			"frame": 43,
+			"global_equal": true,
+			"seam_screen_x": 296.135589599609,
+			"sha256": "c380f8ab053bb1c7edc0783f787a670b6a42674bab977165104bb616bf8a4928"
+		},
+		{
+			"board_position": [
+				-239.186431884766,
+				-90.0
+			],
+			"camera": [
+				239.186431884766,
+				90.0
+			],
+			"file": "frames/0044.png",
+			"frame": 44,
+			"global_equal": true,
+			"seam_screen_x": 289.627136230469,
+			"sha256": "21e37ce8563616ce9545c0249829d0bef24da1b1f861ef46790d1d0a78221c3d"
+		},
+		{
+			"board_position": [
+				-242.440673828125,
+				-90.0
+			],
+			"camera": [
+				242.440673828125,
+				90.0
+			],
+			"file": "frames/0045.png",
+			"frame": 45,
+			"global_equal": true,
+			"seam_screen_x": 283.11865234375,
+			"sha256": "536afcf32a1b64d85a9798ca191d496e4954d20c1a58afab412425159225869e"
+		},
+		{
+			"board_position": [
+				-245.694915771484,
+				-90.0
+			],
+			"camera": [
+				245.694915771484,
+				90.0
+			],
+			"file": "frames/0046.png",
+			"frame": 46,
+			"global_equal": true,
+			"seam_screen_x": 276.610168457031,
+			"sha256": "9bb1bb142cca79415c47f519430ab2d5471214ef8836afa9e68b3d7f7865bf05"
+		},
+		{
+			"board_position": [
+				-248.949157714844,
+				-90.0
+			],
+			"camera": [
+				248.949157714844,
+				90.0
+			],
+			"file": "frames/0047.png",
+			"frame": 47,
+			"global_equal": true,
+			"seam_screen_x": 270.101684570312,
+			"sha256": "565debf47089bf4bbe6d744e1c9bc4b84400f9108ac65b544083f0f1b2903de6"
+		},
+		{
+			"board_position": [
+				-252.203384399414,
+				-90.0
+			],
+			"camera": [
+				252.203384399414,
+				90.0
+			],
+			"file": "frames/0048.png",
+			"frame": 48,
+			"global_equal": true,
+			"seam_screen_x": 263.593231201172,
+			"sha256": "9763c5ff48e13f1c846384aee2cea01ed5f016d2aab3181b10dc08d760371519"
+		},
+		{
+			"board_position": [
+				-255.457626342773,
+				-90.0
+			],
+			"camera": [
+				255.457626342773,
+				90.0
+			],
+			"file": "frames/0049.png",
+			"frame": 49,
+			"global_equal": true,
+			"seam_screen_x": 257.084747314453,
+			"sha256": "0fc42c34e9605972aeddd1f80be77b8ba0aed97e0cd06c06e6b8c705cdacf68b"
+		},
+		{
+			"board_position": [
+				-258.711853027344,
+				-90.0
+			],
+			"camera": [
+				258.711853027344,
+				90.0
+			],
+			"file": "frames/0050.png",
+			"frame": 50,
+			"global_equal": true,
+			"seam_screen_x": 250.576293945312,
+			"sha256": "8d5d79dc574dd35ef051391873b25015cb9b46af1e8ffd7f7e6631c8be9823e6"
+		},
+		{
+			"board_position": [
+				-261.966094970703,
+				-90.0
+			],
+			"camera": [
+				261.966094970703,
+				90.0
+			],
+			"file": "frames/0051.png",
+			"frame": 51,
+			"global_equal": true,
+			"seam_screen_x": 244.067810058594,
+			"sha256": "3cdee5bea2adc5015840b0fef2633d1d072ba6dd880ee368fb5088eddbd14963"
+		},
+		{
+			"board_position": [
+				-265.220336914062,
+				-90.0
+			],
+			"camera": [
+				265.220336914062,
+				90.0
+			],
+			"file": "frames/0052.png",
+			"frame": 52,
+			"global_equal": true,
+			"seam_screen_x": 237.559326171875,
+			"sha256": "24999e7813bb743d88fcfe5d8ba2f9c0161cdf2011399242fb9e28a3bf000c3d"
+		},
+		{
+			"board_position": [
+				-268.474578857422,
+				-90.0
+			],
+			"camera": [
+				268.474578857422,
+				90.0
+			],
+			"file": "frames/0053.png",
+			"frame": 53,
+			"global_equal": true,
+			"seam_screen_x": 231.050842285156,
+			"sha256": "58e758fad1be31e3bc948e0f66bc738bc9e868972042cbf2c475bfe76698ab25"
+		},
+		{
+			"board_position": [
+				-271.728820800781,
+				-90.0
+			],
+			"camera": [
+				271.728820800781,
+				90.0
+			],
+			"file": "frames/0054.png",
+			"frame": 54,
+			"global_equal": true,
+			"seam_screen_x": 224.542358398438,
+			"sha256": "238d20e6f626411bb20aeec8e43802dc67489aca50b371c27ad1ddec060ce81f"
+		},
+		{
+			"board_position": [
+				-274.983062744141,
+				-90.0
+			],
+			"camera": [
+				274.983062744141,
+				90.0
+			],
+			"file": "frames/0055.png",
+			"frame": 55,
+			"global_equal": true,
+			"seam_screen_x": 218.033874511719,
+			"sha256": "e3dc45778e4b44ddc8f72b7f1e1fe4a6dc8508c9d62dcb5a456d1b9f16d98323"
+		},
+		{
+			"board_position": [
+				-278.2373046875,
+				-90.0
+			],
+			"camera": [
+				278.2373046875,
+				90.0
+			],
+			"file": "frames/0056.png",
+			"frame": 56,
+			"global_equal": true,
+			"seam_screen_x": 211.525390625,
+			"sha256": "5e3db68ad2daa84daca71ad7f370cad76d5b6eaed88fc8f04ff75d05866b0a76"
+		},
+		{
+			"board_position": [
+				-281.491516113281,
+				-90.0
+			],
+			"camera": [
+				281.491516113281,
+				90.0
+			],
+			"file": "frames/0057.png",
+			"frame": 57,
+			"global_equal": true,
+			"seam_screen_x": 205.016967773438,
+			"sha256": "f88263563ce8f4e21b7fa21e81803c65bbcd39a3511e203f7dfec7dd91d4908f"
+		},
+		{
+			"board_position": [
+				-284.745758056641,
+				-90.0
+			],
+			"camera": [
+				284.745758056641,
+				90.0
+			],
+			"file": "frames/0058.png",
+			"frame": 58,
+			"global_equal": true,
+			"seam_screen_x": 198.508483886719,
+			"sha256": "d817de181fee5d6bdac846dbff382ecef2a0c98f2edc1ce09daec324155c9add"
+		},
+		{
+			"board_position": [
+				-288.0,
+				-90.0
+			],
+			"camera": [
+				288.0,
+				90.0
+			],
+			"file": "frames/0059.png",
+			"frame": 59,
+			"global_equal": true,
+			"seam_screen_x": 192.0,
+			"sha256": "2453ad8207418bfb3f1f2f412dbfeb6a6a485be6380ed1fef37dbff6cd3315ad"
+		}
+	],
+	"native_gameplay": false,
+	"performance_eligible": false,
+	"profile": "Codex-VSHORE-004-review-r5",
+	"renderer": "opengl3",
+	"runtime_integration": true,
+	"schema": 1,
+	"seam_world_x": 384.0,
+	"sources": {
+		"res://assets/game/tiles/editor/water/water_clear.png": "7035f1d2d14eb295a911e8ae2534685eeae3f694d401402b8688fa89d2f83df7",
+		"res://scripts/systems/village_terrain_renderer.gd": "5af29d45aadcf4255ff8600151b15da3bd95671fac47e008c112027ad7aade9d",
+		"res://scripts/systems/water_layout_data.gd": "83a678f0fc3dd8d12e9cf2ff3ecef82a0419a35267a4779af095664256164a1e",
+		"res://scripts/systems/water_map_registry.gd": "e5e0b88924850300f709b53e5e62f1e4b6d9f3bfcf252da319bb012167100da2",
+		"res://scripts/systems/water_topology.gd": "ce6b90c6b547808c0f4783a47a07f24fda587b6a96e1d4a8c498d96e06a9f6fa",
+		"res://scripts/systems/water_visual_system.gd": "4408d4a19da806f1e9ad7f1895363bc6fa8f1bf7d7ee85fd3bdd01e108e92de0",
+		"res://tools/qa/world/water_chunk_seam_board.gd": "75357d4bcd09462821f1feea9e143ea9f07ccf7b2b207da9c2783f1f54367c5f",
+		"res://tools/qa/world/water_chunk_seam_capture.gd": "4807f7f570b71d0114fc6ca09794c1ebbdcc88131e6cd5f12dd73f4d063296e3"
+	},
+	"target": [
+		1152,
+		648
+	],
+	"task": "VSHORE-004",
+	"zoom": 2.0
+}

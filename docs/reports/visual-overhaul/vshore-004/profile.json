@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "task": "VSHORE-004",
+  "status": "review_candidate",
+  "base_commit": "ff538b88381588faab2b5c7574e2a26f8a9d78f2",
+  "implementation_commit": "c19189f39ebef9b335129f145bd4cb641b21e0d7",
+  "scope": "overworld-water-chunk-seams",
+  "runtime_integration": true,
+  "physical_authority": true,
+  "performance_eligible": false,
+  "target": [1152, 648],
+  "field": [576, 324],
+  "zoom": 2.0,
+  "seam_world_x": 384.0,
+  "native_static_frames": 6,
+  "native_motion_frames": 60,
+  "fixed_clock_fps": 30,
+  "contract": {
+    "owner": "WaterTopology chunk snapshot",
+    "coverage": "owned cells are emitted once",
+    "classification": "cardinal and diagonal masks read the global one-cell halo",
+    "filled_edges": "cross-chunk contacts are explicit and symmetric",
+    "invalidation": "only the edited chunk and direct seam neighbors rebuild",
+    "visual_equivalence": "chunk-safe framebuffer equals the global topology framebuffer"
+  }
+}

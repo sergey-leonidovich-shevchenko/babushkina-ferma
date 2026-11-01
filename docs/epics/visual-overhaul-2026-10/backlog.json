@@ -2855,7 +2855,7 @@
       "id": "VSHORE-004",
       "epic": "VSHORE",
       "title": "Устранить швы на границах чанков",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
