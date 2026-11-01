@@ -1,0 +1,122 @@
+{
+  "task": "VSHORE-002",
+  "task_status": "done",
+  "implementation_PR": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/33",
+  "accepted_head": "b593e8bf68b5492e7bf35f1245d6ac1a1dca9215",
+  "accepted_base": "6668bde662c6a3a5950449590028556fb4354588",
+  "merged_commit": "fb4b3bdc4542c654a09623b7f0714cc7bb834983",
+  "merged_parents": [
+    "6668bde662c6a3a5950449590028556fb4354588",
+    "b593e8bf68b5492e7bf35f1245d6ac1a1dca9215"
+  ],
+  "merged_tree": "9a558c67468c3de72f669e17bfb9aa5a4fbaa668",
+  "git_committer_date": "2026-11-01T07:13:34+05:00",
+  "canonical_card_date": "2026-11-01",
+  "date_source": "Calendar part of the accepted implementation merge Git %cI",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/33#pullrequestreview-5725989397",
+  "review_id": 5725989397,
+  "reviewer_verdict": "Exact-head APPROVED after three P2 findings were closed; independent reviewer shared-account COMMENT",
+  "team_decision": "Team Lead accepted the exact implementation head and CI 8/8, then delegated the actual merge to Tech Lead and canonical closeout to Developer through a separate reviewed PR",
+  "team_decision_turn": "01a19472-28e0-7221-978f-cbc8c8ac613d",
+  "accepted_CI": {
+    "head": "b593e8bf68b5492e7bf35f1245d6ac1a1dca9215",
+    "success": 8,
+    "total": 8,
+    "runs": [
+      41262428970,
+      41262425130
+    ],
+    "test_jobs": [
+      124718229524,
+      124718218945
+    ],
+    "architecture_each": [
+      111,
+      1462
+    ],
+    "vshore_verifier_each": {
+      "native_static_frames": 11,
+      "native_motion_frames": 90,
+      "clipped_vertices": 36
+    },
+    "vshore_negative_tests_each": [
+      17,
+      0
+    ],
+    "Game_each": [
+      53528,
+      0
+    ],
+    "normal_F10_each": [
+      90,
+      0
+    ],
+    "smoke_frames_each": 180,
+    "headless_CPU_series_each": 6,
+    "Wiki_each": [
+      147,
+      0
+    ],
+    "fixed_input_jobs": "linux-x64 and macos-x64 passed in both runs",
+    "source": "Accepted implementation CI and independent final review 5725989397; not fresh closeout results"
+  },
+  "accepted_local": {
+    "version": "0.0.394",
+    "vshore_verifier": {
+      "native_static_frames": 11,
+      "native_motion_frames": 90,
+      "clipped_vertices": 36
+    },
+    "vshore_negative_tests": [
+      17,
+      0
+    ],
+    "Game": [
+      53510,
+      0
+    ],
+    "normal_F10_each": [
+      90,
+      0
+    ],
+    "Wiki": [
+      147,
+      0
+    ],
+    "source": "Accepted implementation evidence and pre-commit gates; not fresh closeout results"
+  },
+  "accepted_scope": {
+    "map": "overworld first location only",
+    "visual_bottom_runtime_integrated": true,
+    "physical_authority": false,
+    "performance_eligible": false,
+    "village_river_changed_against_accepted_base": false,
+    "native_static_frames": 11,
+    "native_motion_frames": 90,
+    "clipped_vertices": 36,
+    "VSHORE_003_accepted": false,
+    "VSHORE_004_accepted": false,
+    "VSHORE_005_accepted": false,
+    "VSHORE_006_accepted": false,
+    "WATER_epic_accepted": false,
+    "VMAP_003_accepted": false
+  },
+  "closeout_scope": "Canonical done/result, exact implementation merge and review provenance, derived backlog pages and version metadata only; all earlier implementation evidence remains preserved",
+  "closeout_branch": "codex/vshore-002-accounting",
+  "closeout_base": "fb4b3bdc4542c654a09623b7f0714cc7bb834983",
+  "closeout_version": "0.0.396",
+  "closeout_acceptance": "Own checks, exact-head independent review/CI and Team Lead decision required before this accounting PR is merged",
+  "changed_task_statuses": {
+    "VSHORE-002": [
+      "in_progress",
+      "done"
+    ]
+  },
+  "accepted_report_files_policy": "Existing VSHORE-002 evidence is preserved; this closeout record is appended as a new evidence item",
+  "task_complete_trailers_in_accepted_source_history": 0,
+  "local_game_started_for_closeout": false,
+  "next_queue": [
+    "the next canonical first-overworld card after accepted VSHORE-002 closeout",
+    "full dependencies on the route to VMAP-003"
+  ]
+}

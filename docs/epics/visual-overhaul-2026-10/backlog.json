@@ -2662,7 +2662,7 @@
       "id": "VSHORE-002",
       "epic": "VSHORE",
       "title": "Нарисовать подводное дно",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -2705,8 +2705,52 @@
         "docs/reports/visual-overhaul/vshore-002/native/capture.json",
         "docs/reports/visual-overhaul/vshore-002/water-review.json",
         "docs/reports/visual-overhaul/vshore-002/acceptance.json",
-        "wiki/articles/underwater-bottom.md"
-      ]
+        "wiki/articles/underwater-bottom.md",
+        "docs/reports/visual-overhaul/vshore-002/closeout/completion.json"
+      ],
+      "result": "Принято и влито через PR #33: точный head b593e8bf68b5492e7bf35f1245d6ac1a1dca9215 одобрен Tech Lead review 5725989397 и Team Lead; фактический merge fb4b3bdc4542c654a09623b7f0714cc7bb834983 от 1 ноября 2026. CI runs 41262428970/41262425130 — 8/8 success: architecture 111 модулей/1462 сценария, профильный verifier 11 статических и 90 кадров движения/36 отсечённых вершин, 17 отрицательных тестов, Game 53528/0, normal/F10 по 90/0, smoke 180 кадров, шесть валидных CPU-профилей и Wiki 147/147. Подводное дно первой overworld встроено только как визуальный слой: физика, навигация, рыбалка и WaterTopology не менялись; village_river возвращён к принятому base. VSHORE-003…006, WATER и VMAP-003 остаются открытыми. Учётное закрытие публикуется отдельным PR; прежние evidence сохранены.",
+      "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/33",
+      "review": {
+        "state": "merged",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/33",
+        "reviewer": "Tech Lead Agent",
+        "coordinator": "Team Lead Agent",
+        "latest_branch_checks": "docs/reports/visual-overhaul/vshore-002/closeout/completion.json",
+        "open_findings": [],
+        "review_history": [
+          {
+            "head": "942e7a78b4e629355658646f5be88e8c66b0adf3",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/33#pullrequestreview-5725337947",
+            "decision": "changes_requested",
+            "findings": [
+              "P2 непредусмотренное изменение village_river",
+              "P2 неполное обязательное покрытие evidence manifest"
+            ]
+          },
+          {
+            "head": "8070f28b6799a98fd804d1bcb1d572ba3ffec1b0",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/33#pullrequestreview-5725812831",
+            "decision": "changes_requested",
+            "previous_findings_addressed": true,
+            "findings": [
+              "P2 интеграция verifier и 17 тестов в общий architecture/CI gate"
+            ]
+          },
+          {
+            "head": "b593e8bf68b5492e7bf35f1245d6ac1a1dca9215",
+            "base": "6668bde662c6a3a5950449590028556fb4354588",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/33#pullrequestreview-5725989397",
+            "decision": "approved_and_merged",
+            "merge": "fb4b3bdc4542c654a09623b7f0714cc7bb834983"
+          }
+        ],
+        "accepted_head": "b593e8bf68b5492e7bf35f1245d6ac1a1dca9215",
+        "accepted_base": "6668bde662c6a3a5950449590028556fb4354588",
+        "accepted_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/33#pullrequestreview-5725989397",
+        "merged_commit": "fb4b3bdc4542c654a09623b7f0714cc7bb834983",
+        "merged_at": "2026-11-01T07:13:34+05:00"
+      },
+      "completion": "docs/reports/visual-overhaul/vshore-002/closeout/completion.json"
     },
     {
       "id": "VSHORE-003",

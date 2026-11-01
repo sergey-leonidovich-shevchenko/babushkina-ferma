@@ -46,7 +46,7 @@
 
 ## VSHORE-002 — Нарисовать подводное дно
 
-Статус: `in_progress` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Мелководье, камни и водоросли читаются под поверхностью; дно не используется как новая физическая карта
 
@@ -80,7 +80,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vshore-002/README.md, docs/reports/visual-overhaul/vshore-002/profile.json, docs/reports/visual-overhaul/vshore-002/source.json, docs/reports/visual-overhaul/vshore-002/native/capture.json, docs/reports/visual-overhaul/vshore-002/water-review.json, docs/reports/visual-overhaul/vshore-002/acceptance.json, wiki/articles/underwater-bottom.md.
+Доказательства: docs/reports/visual-overhaul/vshore-002/README.md, docs/reports/visual-overhaul/vshore-002/profile.json, docs/reports/visual-overhaul/vshore-002/source.json, docs/reports/visual-overhaul/vshore-002/native/capture.json, docs/reports/visual-overhaul/vshore-002/water-review.json, docs/reports/visual-overhaul/vshore-002/acceptance.json, wiki/articles/underwater-bottom.md, docs/reports/visual-overhaul/vshore-002/closeout/completion.json.
 
 <a id="vshore-003"></a>
 
