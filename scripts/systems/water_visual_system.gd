@@ -6,7 +6,7 @@ const UnderwaterBottom := preload("res://scripts/presentation/underwater_bottom.
 const VisualReferenceMode := preload("res://scripts/presentation/visual_reference_mode.gd")
 const GroundClock := preload("res://scripts/presentation/village_ground_clock.gd")
 const WorldEventSystem := preload("res://scripts/systems/world_event_system.gd")
-const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
+const WaterMapRegistry := preload("res://scripts/systems/water_map_registry.gd")
 const FishingSystem := preload("res://scripts/systems/fishing_system.gd")
 const DebugOverlaySystem := preload("res://scripts/systems/debug_overlay_system.gd")
 const SettingsSystem := preload("res://scripts/systems/settings_system.gd")
@@ -160,19 +160,11 @@ static func variant_for_mask(
 	return {"kind": "pond_rocky", "rotation": 0.0}
 
 
-## Собирает видимую воду тем же запросом, которым пользуется навигация.
-static func first_location_cells(layout: GDScript, season: String = "spring") -> Dictionary:
-	var cells: Dictionary = {}
-	var constants := layout.get_script_constant_map()
-	var tile_count: Vector2i = constants.OVERWORLD_TILE_COUNT
-	var water_tile: int = constants.OVERWORLD_TILE_WATER
-	for row in range(tile_count.y):
-		for col in range(tile_count.x):
-			var cell := Vector2i(col, row)
-			var tile: int = layout.call("overworld_tile", cell, season)
-			if tile == water_tile:
-				cells[cell] = true
-	return cells
+## Возвращает клетки прямо из общего плана; параметры сохранены для совместимости редакторского API.
+static func first_location_cells(
+	_layout: GDScript = null, _season: String = "spring"
+) -> Dictionary:
+	return WaterMapRegistry.geometry("overworld").cells()
 
 
 ## Рисует одну модульную водную клетку с поворотом вокруг центра без деформации PNG 24×24.
@@ -271,7 +263,7 @@ static func draw_first_location_animations(game: Node2D) -> void:
 	if season != "winter":
 		for index in AMBIENT_WATER_POINTS.size():
 			var point: Vector2 = AMBIENT_WATER_POINTS[index]
-			if not VillageLayoutSystem.is_water(point, 2.0):
+			if not WaterMapRegistry.has_surface("overworld", point):
 				continue
 			var bubble_frame: int = posmod(
 				int(ticks / int(EFFECT_PROFILES.bubbles.frame_ms)) + index * 2,

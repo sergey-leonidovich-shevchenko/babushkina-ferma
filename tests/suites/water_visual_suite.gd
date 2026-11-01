@@ -1,6 +1,8 @@
 extends "res://tests/suites/suite_base.gd"
 
 const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
+const WaterLayoutData := preload("res://scripts/systems/water_layout_data.gd")
+const WaterMapRegistry := preload("res://scripts/systems/water_map_registry.gd")
 const WaterVisualSystem := preload("res://scripts/systems/water_visual_system.gd")
 const UnderwaterBottom := preload("res://scripts/presentation/underwater_bottom.gd")
 const Terrain := preload("res://scripts/systems/village_terrain_renderer.gd")
@@ -9,6 +11,7 @@ const Terrain := preload("res://scripts/systems/village_terrain_renderer.gd")
 ## Запускает все сценарии водного визуального контракта в фиксированном порядке.
 func run() -> void:
 	test_water_catalog_animation_and_navigation_share_the_24px_grid()
+	test_registry_visual_snapshots_cover_all_water_semantics()
 	test_underwater_bottom_is_visual_only_and_retained()
 
 
@@ -71,16 +74,17 @@ func test_water_catalog_animation_and_navigation_share_the_24px_grid() -> void:
 		for col in range(VillageLayoutSystem.OVERWORLD_TILE_COUNT.x):
 			var cell := Vector2i(col, row)
 			var center := VillageLayoutSystem.tile_center(cell)
-			if cells.has(cell) != VillageLayoutSystem.is_water(center, 0.0):
+			if cells.has(cell) != WaterMapRegistry.has_surface("overworld", center):
 				mismatches.append(cell)
 	expect(
 		cells.size() > 250 and mismatches.is_empty(),
-		"visible modular water cells and zero-radius navigation contour share one 24 px authority"
+		"visible modular water cells and physical surface share one 24 px authority"
 	)
 	for bridge: Rect2 in VillageLayoutSystem.BRIDGES:
+		var center_cell := Vector2i(Vector2(bridge.get_center()) / 24.0)
 		expect(
-			not cells.has(Vector2i(Vector2(bridge.get_center()) / 24.0)),
-			"bridge center is removed from water topology and remains walkable"
+			cells.has(center_cell) and not VillageLayoutSystem.is_water(bridge.get_center(), 0.0),
+			"bridge center keeps the canonical water surface beneath the independent deck"
 		)
 	var effect_kinds: Array[String] = ["fish", "splash", "bubbles"]
 	for effect_kind: String in effect_kinds:
@@ -132,6 +136,42 @@ func test_water_catalog_animation_and_navigation_share_the_24px_grid() -> void:
 	expect(
 		preview != null and preview.get_size() == Vector2i(1152, 648),
 		"water migration keeps a current F10 gameplay preview for visible contour and bridge review"
+	)
+
+
+## Сценарий: все встроенные водные карты отдают визуальную маску через тот же ограниченный реестр.
+## Исходное состояние: блокирующие реки и озеро, декоративный пруд и морской фон.
+## Результат: каждый профиль содержит покрытие и метаданные, а сухая карта остаётся пустой.
+func test_registry_visual_snapshots_cover_all_water_semantics() -> void:
+	for location: String in WaterLayoutData.PROFILE_KINDS:
+		var snapshot: Dictionary = WaterMapRegistry.visual(location)
+		var regions: Array = snapshot.regions
+		var polygons: Array = snapshot.polygons
+		expect(
+			not regions.is_empty() and not polygons.is_empty(),
+			"registry publishes canonical visual coverage for " + location,
+		)
+		for region: Dictionary in regions:
+			var depth: float = region.depth
+			var bank: String = region.bank
+			expect(
+				depth >= 0.0 and depth <= 1.0 and bank in ["earth", "stone", "cave"],
+				"registry keeps valid depth and bank metadata for " + location,
+			)
+	var moon_snapshot: Dictionary = WaterMapRegistry.visual("moon_glade")
+	var moon_regions: Array = moon_snapshot.regions
+	var moon: Dictionary = moon_regions[0]
+	var moon_kind: String = moon.kind
+	var moon_blocking: bool = moon.blocking
+	expect(
+		moon_kind == "decorative" and not moon_blocking,
+		"decorative water keeps visual coverage without inheriting blocking physics",
+	)
+	var dry_snapshot: Dictionary = WaterMapRegistry.visual("forest")
+	var dry_polygons: Array = dry_snapshot.polygons
+	expect(
+		dry_polygons.is_empty(),
+		"unknown dry location does not manufacture a visual water mask",
 	)
 
 
@@ -214,10 +254,14 @@ func test_underwater_bottom_is_visual_only_and_retained() -> void:
 	)
 	var spring := Terrain.water_surface_tint("spring")
 	var rain := Terrain.water_surface_tint("spring", "rain")
+	var shallow := Terrain.water_depth_tint(spring, 0.2)
+	var deep := Terrain.water_depth_tint(spring, 0.8)
 	expect(
 		(
 			spring.a > 0.5
 			and spring.a < 0.65
+			and shallow != deep
+			and shallow.a < deep.a
 			and rain.a == spring.a
 			and rain.get_luminance() < spring.get_luminance()
 		),

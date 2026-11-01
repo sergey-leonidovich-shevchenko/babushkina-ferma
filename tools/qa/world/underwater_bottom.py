@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import math
+import re
 import subprocess
 from pathlib import Path
 from typing import Any
@@ -14,6 +15,7 @@ from typing import Any
 from PIL import Image, ImageChops
 
 from tools.common.git import git_environment
+from tools.common.history import read_git_blob
 from tools.common.paths import project_root
 
 ROOT = project_root(__file__)
@@ -88,6 +90,31 @@ def tracked(root: Path, paths: list[Path]) -> bool:
     return result.returncode == 0
 
 
+def historical(root: Path, commit: str, name: str, expected: str) -> bool:
+    """Read frozen WATER inputs from Git instead of comparing them with evolving runtime files."""
+    history_root = root if (root / ".git").exists() else ROOT
+    if not isinstance(commit, str) or not re.fullmatch(r"[0-9a-f]{40}", commit):
+        raise ValueError("accepted implementation head")
+    try:
+        read_git_blob(history_root, name, commit, expected)
+    except ValueError:
+        return False
+    return True
+
+
+def accepted_head(folder: Path) -> str:
+    """Return the immutable reviewed implementation head recorded by closeout."""
+    completion = read(folder / "closeout/completion.json")
+    head = completion.get("accepted_head")
+    if (
+        completion.get("task") != "VSHORE-002"
+        or not isinstance(head, str)
+        or not re.fullmatch(r"[0-9a-f]{40}", head)
+    ):
+        raise ValueError("accepted implementation head")
+    return head
+
+
 def changed_pixels(first: Path, second: Path) -> int:
     """Count actual RGBA differences between a same-camera before/after pair."""
     with Image.open(first) as before, Image.open(second) as after:
@@ -120,7 +147,13 @@ def verify_source(root: Path, folder: Path, profile: dict[str, Any]) -> None:
     import_text = (runtime.with_suffix(runtime.suffix + ".import")).read_text()
     require("mipmaps/generate=true" in import_text, "riverbed mipmaps disabled")
     renderer = (root / "scripts/systems/village_terrain_renderer.gd").read_text()
-    require("Geometry2D.merge_polygons" in renderer, "river and pond double-alpha overlap")
+    topology = (root / "scripts/systems/water_topology.gd").read_text()
+    require(
+        "WaterMapRegistry.visual" in renderer
+        and "Geometry2D.merge_polygons" in topology
+        and "MapData.river_polygon" not in renderer,
+        "river and pond double-alpha overlap",
+    )
     require(
         renderer.find("draw_underwater_bottom") < renderer.find("draw_surface"),
         "bottom/surface order changed",
@@ -161,11 +194,11 @@ def verify_native(root: Path, folder: Path, profile: dict[str, Any]) -> None:
     sources = capture.get("sources")
     if not isinstance(sources, dict) or set(sources) != CAPTURE_SOURCES:
         raise ValueError("capture source coverage")
+    evidence_head = accepted_head(folder)
     for name, expected in sources.items():
         require(name.startswith("res://"), "capture source URI")
-        path = (root / name.removeprefix("res://")).resolve()
-        require(path.is_relative_to(root.resolve()), "capture source escapes project")
-        require(path.is_file() and digest(path) == expected, f"capture source SHA: {name}")
+        relative = name.removeprefix("res://")
+        require(historical(root, evidence_head, relative, expected), f"capture source SHA: {name}")
 
     expected_ids = {
         *(f"{name}-{phase}" for name in PAIR_NAMES for phase in ("before", "after")),
@@ -201,8 +234,8 @@ def verify_native(root: Path, folder: Path, profile: dict[str, Any]) -> None:
         expected = [start[axis] + (finish[axis] - start[axis]) * phase for axis in range(2)]
         require(
             all(
-                math.isclose(actual, target, abs_tol=0.001)
-                for actual, target in zip(row["camera"], expected, strict=True)
+                math.isclose(row["camera"][axis], expected[axis], abs_tol=0.001)
+                for axis in range(2)
             ),
             "motion camera trajectory",
         )
@@ -248,15 +281,20 @@ def verify_water_review(root: Path, folder: Path) -> None:
     review = read(folder / "water-review.json")
     require(review.get("task") == "VSHORE-002", "WATER review task")
     require(review.get("passed") == 853 and review.get("failed") == 0, "WATER result")
-    runner = root / "tools/qa/world/underwater_bottom_review.gd"
-    require(review.get("runner_sha256") == digest(runner), "WATER runner SHA")
+    evidence_head = accepted_head(folder)
+    runner_sha = review.get("runner_sha256")
+    require(
+        isinstance(runner_sha, str)
+        and historical(
+            root, evidence_head, "tools/qa/world/underwater_bottom_review.gd", runner_sha
+        ),
+        "WATER runner SHA",
+    )
     sources = review.get("sources")
     if not isinstance(sources, dict) or set(sources) != WATER_SOURCES:
         raise ValueError("WATER source coverage")
     for name, expected in sources.items():
-        path = (root / name).resolve()
-        require(path.is_relative_to(root.resolve()), "WATER source escapes project")
-        require(path.is_file() and digest(path) == expected, f"WATER source SHA: {name}")
+        require(historical(root, evidence_head, name, expected), f"WATER source SHA: {name}")
     log = folder / "water-review.log"
     require(review.get("log_sha256") == digest(log), "WATER log SHA")
     text = log.read_text()

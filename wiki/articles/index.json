@@ -316,6 +316,20 @@
     ]
   },
   {
+    "id": "water-topology-mask",
+    "file": "water-topology-mask.md",
+    "title": "Единая маска воды · WaterTopology",
+    "summary": "VSHORE-003: покрытие, глубина и берег из одной топологии, вода под мостом и кешированный visual snapshot.",
+    "tags": [
+      "Разработка",
+      "VSHORE-003",
+      "Первая локация",
+      "Вода",
+      "WaterTopology",
+      "QA"
+    ]
+  },
+  {
     "id": "artist-packet",
     "file": "artist-packet.md",
     "title": "Пакет художника · первая локация",

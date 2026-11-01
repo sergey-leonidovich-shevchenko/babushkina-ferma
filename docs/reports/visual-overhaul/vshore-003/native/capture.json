@@ -1,0 +1,792 @@
+{
+	"adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+	"camera_pairs": {
+		"bridge-west": "(384.0, 186.0)",
+		"chunk-boundary": "(288.0, 18.0)",
+		"pond": "(1368.0, 618.0)",
+		"river-turn": "(816.0, 396.0)"
+	},
+	"display_server": "macOS",
+	"engine": "4.7.1-stable (official)",
+	"field": [
+		960,
+		540
+	],
+	"fixed_clock_video": true,
+	"fps": 30,
+	"frames": [
+		{
+			"camera": [
+				384.0,
+				186.0
+			],
+			"file": "bridge-west-topology.png",
+			"id": "bridge-west-topology",
+			"repeat_equal": true,
+			"sha256": "2abe6cd8d331fccd4c144fec88400b8b4ed2d31790adf21f9e044fa8837a29e2"
+		},
+		{
+			"camera": [
+				384.0,
+				186.0
+			],
+			"file": "bridge-west-runtime.png",
+			"id": "bridge-west-runtime",
+			"repeat_equal": true,
+			"sha256": "3df066a7b329d496d4a8894ddcc3ed2c5142b18caec3d59130f4b3ff4ebf092d"
+		},
+		{
+			"camera": [
+				816.0,
+				396.0
+			],
+			"file": "river-turn-topology.png",
+			"id": "river-turn-topology",
+			"repeat_equal": true,
+			"sha256": "a9a89dc5f2fd652785e1fcc23dda2adf1bf410acbd0f33267993cd3500c2bdac"
+		},
+		{
+			"camera": [
+				816.0,
+				396.0
+			],
+			"file": "river-turn-runtime.png",
+			"id": "river-turn-runtime",
+			"repeat_equal": true,
+			"sha256": "c2ac55c958c9891cc4d9eae3e795e196b340f56441233bafc2c2d9f2f226224e"
+		},
+		{
+			"camera": [
+				1368.0,
+				618.0
+			],
+			"file": "pond-topology.png",
+			"id": "pond-topology",
+			"repeat_equal": true,
+			"sha256": "a380905b1bb51404f65f59b444bc7de43f0f154459d0bcdac447874cbf843310"
+		},
+		{
+			"camera": [
+				1368.0,
+				618.0
+			],
+			"file": "pond-runtime.png",
+			"id": "pond-runtime",
+			"repeat_equal": true,
+			"sha256": "cc8b26755e64d386482139f3bb1b68ee7a3e66411a8470df00df1bae37163736"
+		},
+		{
+			"camera": [
+				288.0,
+				18.0
+			],
+			"file": "chunk-boundary-topology.png",
+			"id": "chunk-boundary-topology",
+			"repeat_equal": true,
+			"sha256": "aeee4d5cb9a9fee9f09c9b7154c80138912a7a5c01b56eb27523fd6889171f9e"
+		},
+		{
+			"camera": [
+				288.0,
+				18.0
+			],
+			"file": "chunk-boundary-runtime.png",
+			"id": "chunk-boundary-runtime",
+			"repeat_equal": true,
+			"sha256": "6e2a28467df3a7fafe91e042965f9cd24c3d17ec74d4b0f4681c768f6e30dbb5"
+		}
+	],
+	"kind": "native-water-topology-mask-study",
+	"motion": [
+		{
+			"camera": [
+				288.0,
+				18.0
+			],
+			"file": "frames/0000.png",
+			"frame": 0,
+			"sha256": "6e2a28467df3a7fafe91e042965f9cd24c3d17ec74d4b0f4681c768f6e30dbb5"
+		},
+		{
+			"camera": [
+				303.211273193359,
+				26.4507026672363
+			],
+			"file": "frames/0001.png",
+			"frame": 1,
+			"sha256": "a7052c5a254f4beafe20da3834dd4ab88b8ae21d48985f03ac00aa0eedc022fd"
+		},
+		{
+			"camera": [
+				318.422546386719,
+				34.9014053344727
+			],
+			"file": "frames/0002.png",
+			"frame": 2,
+			"sha256": "f0ee548927488183a30c07df73c1c4167073a92e38ebcb84a200685fbcfc02b1"
+		},
+		{
+			"camera": [
+				333.6337890625,
+				43.3521118164062
+			],
+			"file": "frames/0003.png",
+			"frame": 3,
+			"sha256": "ba991867bf34b0c6271615fb24a6aff68483c4483ff202b6c6360cbfac33f85c"
+		},
+		{
+			"camera": [
+				348.845062255859,
+				51.8028144836426
+			],
+			"file": "frames/0004.png",
+			"frame": 4,
+			"sha256": "43a84e6a192822986f035e8f3a9915b9fc6ebd3a4c18a4041a224cbaa6946d00"
+		},
+		{
+			"camera": [
+				364.056335449219,
+				60.2535209655762
+			],
+			"file": "frames/0005.png",
+			"frame": 5,
+			"sha256": "5ca758833288e2c8350e7bc68fc26ad8f750d46e94333cc5576eb57fcc79b6f6"
+		},
+		{
+			"camera": [
+				379.267608642578,
+				68.7042236328125
+			],
+			"file": "frames/0006.png",
+			"frame": 6,
+			"sha256": "3ad1cd7c67eed59e937f267d340d46bd594c2dd57fdfed156fa47cd70c34e0df"
+		},
+		{
+			"camera": [
+				394.478881835938,
+				77.1549301147461
+			],
+			"file": "frames/0007.png",
+			"frame": 7,
+			"sha256": "f8d3c5334efb3d67626f374149088fe4334dec6cf82d4849f6ac84987375bfe2"
+		},
+		{
+			"camera": [
+				409.690124511719,
+				85.6056289672852
+			],
+			"file": "frames/0008.png",
+			"frame": 8,
+			"sha256": "c4adfa24ee15ab66d2c7de23dcfa677f549dbeb01fd6df5fd40ef7671f0ae748"
+		},
+		{
+			"camera": [
+				424.901397705078,
+				94.0563354492188
+			],
+			"file": "frames/0009.png",
+			"frame": 9,
+			"sha256": "c0d14620acb232db47e5563417bbc5d943f027077ca3b6eea0737ef7c865c336"
+		},
+		{
+			"camera": [
+				440.112670898438,
+				102.507041931152
+			],
+			"file": "frames/0010.png",
+			"frame": 10,
+			"sha256": "fe663cd62fd4bbb45655fc196461c35af8c060bf343ec159652f61de86c7737b"
+		},
+		{
+			"camera": [
+				455.323944091797,
+				110.957748413086
+			],
+			"file": "frames/0011.png",
+			"frame": 11,
+			"sha256": "93dcfc3559ad509156b63a4a84b63d9dca251fd3c3c259e5448ddace5d018d6e"
+		},
+		{
+			"camera": [
+				470.535217285156,
+				119.408447265625
+			],
+			"file": "frames/0012.png",
+			"frame": 12,
+			"sha256": "13177d38a66acff0df366bd04d6dfa6527cb40b2286af0710ee08f3c78c72d58"
+		},
+		{
+			"camera": [
+				485.746459960938,
+				127.859153747559
+			],
+			"file": "frames/0013.png",
+			"frame": 13,
+			"sha256": "e471f36b2219c59816ca0ca2e06aa19aeebc28e8ae71d0860be7e1ea31416751"
+		},
+		{
+			"camera": [
+				500.957763671875,
+				136.309860229492
+			],
+			"file": "frames/0014.png",
+			"frame": 14,
+			"sha256": "064fcd612586428ca990f0891cc874a489cc0d57785380b589c0d69c3e87f20e"
+		},
+		{
+			"camera": [
+				516.169006347656,
+				144.760559082031
+			],
+			"file": "frames/0015.png",
+			"frame": 15,
+			"sha256": "829f28e6abbcc31865c9c0e676228c05e9018edf090ed77258c201694ccb0e76"
+		},
+		{
+			"camera": [
+				531.380249023438,
+				153.21125793457
+			],
+			"file": "frames/0016.png",
+			"frame": 16,
+			"sha256": "140558923dad45e40e96c236e43c9d5ad19ed6b21bc8b373b22a416507be3ad5"
+		},
+		{
+			"camera": [
+				546.591552734375,
+				161.661972045898
+			],
+			"file": "frames/0017.png",
+			"frame": 17,
+			"sha256": "2e67d3c908bc7c4c27cbd4a40a5bade4104a99b0ea992522ba134634de588379"
+		},
+		{
+			"camera": [
+				561.802795410156,
+				170.112670898438
+			],
+			"file": "frames/0018.png",
+			"frame": 18,
+			"sha256": "cd2d6e20c5622e8b5d682542c57129eaaabe7a546252c5fd77ad0fd5fe00fbf1"
+		},
+		{
+			"camera": [
+				577.014038085938,
+				178.563385009766
+			],
+			"file": "frames/0019.png",
+			"frame": 19,
+			"sha256": "9f575f73b10ca08c611346b27cae9d2b69cf1f128782e3d89c3bbb474a5220cc"
+		},
+		{
+			"camera": [
+				592.225341796875,
+				187.014083862305
+			],
+			"file": "frames/0020.png",
+			"frame": 20,
+			"sha256": "b664ec4f786da7c96a771d3eaa903e73f3df0ee727d4d50e3f6e797110232faa"
+		},
+		{
+			"camera": [
+				607.436645507812,
+				195.464782714844
+			],
+			"file": "frames/0021.png",
+			"frame": 21,
+			"sha256": "e448b94190d893a288451df32de06c134c554d44624ddddd902053dad9597064"
+		},
+		{
+			"camera": [
+				622.647888183594,
+				203.915496826172
+			],
+			"file": "frames/0022.png",
+			"frame": 22,
+			"sha256": "c3c1c397d7fec30011f696ce069db34fc3b3c6270d8e0376ed82dcaac0c2cb02"
+		},
+		{
+			"camera": [
+				637.859130859375,
+				212.3662109375
+			],
+			"file": "frames/0023.png",
+			"frame": 23,
+			"sha256": "10964d688e90c657df706d3a96b27c49a4bcb444ef8af3832ef955cf8b03edad"
+		},
+		{
+			"camera": [
+				653.070434570312,
+				220.81689453125
+			],
+			"file": "frames/0024.png",
+			"frame": 24,
+			"sha256": "ce4c03ff30ac0d02bfe35fea0526219f0ac2b894ca39ab8934f36dd2456e9f34"
+		},
+		{
+			"camera": [
+				668.28173828125,
+				229.267608642578
+			],
+			"file": "frames/0025.png",
+			"frame": 25,
+			"sha256": "6879fc71c8a0ac3b765e5617a7bc079019c603e441731da787c745a568644c8b"
+		},
+		{
+			"camera": [
+				683.492919921875,
+				237.718307495117
+			],
+			"file": "frames/0026.png",
+			"frame": 26,
+			"sha256": "f89b771c6f1de4cd0c6178a8360fb8e6817c86acf2aedb3bf57705667f2f5715"
+		},
+		{
+			"camera": [
+				698.704223632812,
+				246.169006347656
+			],
+			"file": "frames/0027.png",
+			"frame": 27,
+			"sha256": "91450d8bb031d6d9787f50f129e9b42b972e6d737ec0d20ecc6afd121377c2f1"
+		},
+		{
+			"camera": [
+				713.91552734375,
+				254.619720458984
+			],
+			"file": "frames/0028.png",
+			"frame": 28,
+			"sha256": "ec1847c0413ee18d8af4653d21623a4638b72d27a890dfab77a1db2d10f69518"
+		},
+		{
+			"camera": [
+				729.126708984375,
+				263.070434570312
+			],
+			"file": "frames/0029.png",
+			"frame": 29,
+			"sha256": "ab49a50f309d626c8fc7a84f1b8b10d35b682b0005b8c16cf9449ef3b9e84b3d"
+		},
+		{
+			"camera": [
+				744.338012695312,
+				271.521118164062
+			],
+			"file": "frames/0030.png",
+			"frame": 30,
+			"sha256": "76b72f975ac3ae4398b69c8991d7ae6de9a549e86d3b166457be3ce703089990"
+		},
+		{
+			"camera": [
+				759.54931640625,
+				279.971832275391
+			],
+			"file": "frames/0031.png",
+			"frame": 31,
+			"sha256": "a9d53eaee8f5a81b6454d4c58cc56f0b7f08b44e7be766a542961c75abc66a59"
+		},
+		{
+			"camera": [
+				774.760559082031,
+				288.422515869141
+			],
+			"file": "frames/0032.png",
+			"frame": 32,
+			"sha256": "c83b5f70695692bd66dd0d1eb666d51112340a2f10a36fd7539bbc3fac4f98ca"
+		},
+		{
+			"camera": [
+				789.971801757812,
+				296.873229980469
+			],
+			"file": "frames/0033.png",
+			"frame": 33,
+			"sha256": "874a0a746e80e48b3df625ab80740bd24f63bd7c9d085c01b3c67a75ab817c39"
+		},
+		{
+			"camera": [
+				805.18310546875,
+				305.323944091797
+			],
+			"file": "frames/0034.png",
+			"frame": 34,
+			"sha256": "f444badf330ca3b9858aa97d501e28b917fa549a8cf93c4a7fb39a49646637c6"
+		},
+		{
+			"camera": [
+				820.394348144531,
+				313.774658203125
+			],
+			"file": "frames/0035.png",
+			"frame": 35,
+			"sha256": "7524d6d00a68cfd209cbae8fa4bbf4432b519f4478d42e06a67e704b3926fbe0"
+		},
+		{
+			"camera": [
+				835.605590820312,
+				322.225341796875
+			],
+			"file": "frames/0036.png",
+			"frame": 36,
+			"sha256": "1bda3eacbe761bbe8c4a5ee8554d5128be22b704504b476c5919c8303b5c95a9"
+		},
+		{
+			"camera": [
+				850.81689453125,
+				330.676055908203
+			],
+			"file": "frames/0037.png",
+			"frame": 37,
+			"sha256": "509993f617287f194c393ecbe522c38ce29a1d068fcd4c1c4d5a285d99fea341"
+		},
+		{
+			"camera": [
+				866.028137207031,
+				339.126770019531
+			],
+			"file": "frames/0038.png",
+			"frame": 38,
+			"sha256": "ed58e2bbbec00a68a852e3608b45464d32ead54a2e8829e42d9dd4846e06bb0a"
+		},
+		{
+			"camera": [
+				881.239440917969,
+				347.577484130859
+			],
+			"file": "frames/0039.png",
+			"frame": 39,
+			"sha256": "03504bddd4b12de07f10edaba5bcc948f4e46585f65730922df9de2105d7458c"
+		},
+		{
+			"camera": [
+				896.450744628906,
+				356.028167724609
+			],
+			"file": "frames/0040.png",
+			"frame": 40,
+			"sha256": "a105311ddb40c4f4c0d1bc26dc1f402249b48ec8f8bedf35a39fea8230eb66a4"
+		},
+		{
+			"camera": [
+				911.661926269531,
+				364.478851318359
+			],
+			"file": "frames/0041.png",
+			"frame": 41,
+			"sha256": "9883be1a9b347a929faf1e2b4e1c7a7800156e73badf7cc49f6d1343fffa260b"
+		},
+		{
+			"camera": [
+				926.873229980469,
+				372.929565429688
+			],
+			"file": "frames/0042.png",
+			"frame": 42,
+			"sha256": "260cea257d9a9699c9b09fb234a2d9daa72a52b9510884fd486b96ea9d710c26"
+		},
+		{
+			"camera": [
+				942.08447265625,
+				381.380279541016
+			],
+			"file": "frames/0043.png",
+			"frame": 43,
+			"sha256": "65466f3f9197d5fad3cae2e1465e2f5200c2a9dc6ed1d57ccb1d9318f5c2e9a4"
+		},
+		{
+			"camera": [
+				957.295776367188,
+				389.830993652344
+			],
+			"file": "frames/0044.png",
+			"frame": 44,
+			"sha256": "c34ff71786a6bc51b6a0f394a0542ec4f5063cdcde472b74940b16a282feb666"
+		},
+		{
+			"camera": [
+				972.507080078125,
+				398.281707763672
+			],
+			"file": "frames/0045.png",
+			"frame": 45,
+			"sha256": "15fcd8cbd11b32c9bf8f368db383ba2921096363125d25f0c9975ec04bc610b4"
+		},
+		{
+			"camera": [
+				987.718322753906,
+				406.732421875
+			],
+			"file": "frames/0046.png",
+			"frame": 46,
+			"sha256": "1e862f30dd4fe9ae418ad869bf3f718cb44390ee9c3fbd2fd356db9215e7b519"
+		},
+		{
+			"camera": [
+				1002.92956542969,
+				415.183074951172
+			],
+			"file": "frames/0047.png",
+			"frame": 47,
+			"sha256": "821f553cedfe8d604591c61c9abe8a02f55b92e93e6c8de0c79f8024ed06c6cb"
+		},
+		{
+			"camera": [
+				1018.14080810547,
+				423.6337890625
+			],
+			"file": "frames/0048.png",
+			"frame": 48,
+			"sha256": "3224df3b0ba39b6ed28d7dc44997b9bc8f1e8ce5fba6e084ba3fd9a61c6e8949"
+		},
+		{
+			"camera": [
+				1033.35205078125,
+				432.084503173828
+			],
+			"file": "frames/0049.png",
+			"frame": 49,
+			"sha256": "bbee1918a9c22ffe62fc51516f49e61efac4bf66cacbb451c9ea7b14b921e1f2"
+		},
+		{
+			"camera": [
+				1048.5634765625,
+				440.535217285156
+			],
+			"file": "frames/0050.png",
+			"frame": 50,
+			"sha256": "6d1910a25aaecdb1b6fed3f342b2eb1e1a62094dd7956bdc93da0a076b5e6b37"
+		},
+		{
+			"camera": [
+				1063.77465820312,
+				448.985931396484
+			],
+			"file": "frames/0051.png",
+			"frame": 51,
+			"sha256": "e2598df7f1324754c55951c70816462ec2e557a637e4bec144b4acbe6a734874"
+		},
+		{
+			"camera": [
+				1078.98583984375,
+				457.436614990234
+			],
+			"file": "frames/0052.png",
+			"frame": 52,
+			"sha256": "8505d129abf81c5f0bc5a27a2916c9d619d7d6b047cadf44706ff48e56de8a89"
+		},
+		{
+			"camera": [
+				1094.19714355469,
+				465.887298583984
+			],
+			"file": "frames/0053.png",
+			"frame": 53,
+			"sha256": "c1f065eb37b2cc13f9908a87a828372cbf0e3d011f39d6cb276a55ab05b365d3"
+		},
+		{
+			"camera": [
+				1109.40844726562,
+				474.338012695312
+			],
+			"file": "frames/0054.png",
+			"frame": 54,
+			"sha256": "81ba9b1df845def5419efe3d94b2f57d8c460f9ea475bd096c4e658d06ff4227"
+		},
+		{
+			"camera": [
+				1124.61975097656,
+				482.788726806641
+			],
+			"file": "frames/0055.png",
+			"frame": 55,
+			"sha256": "c9f5dd3cf3a0037baa9a158340915288f5b579d38643ecff7141c5e599b48837"
+		},
+		{
+			"camera": [
+				1139.8310546875,
+				491.239440917969
+			],
+			"file": "frames/0056.png",
+			"frame": 56,
+			"sha256": "eeb4a86e37df7cb2e6bd8ab9f4872c1eb88171af04bcc43aafff230c0e23af1a"
+		},
+		{
+			"camera": [
+				1155.04223632812,
+				499.690155029297
+			],
+			"file": "frames/0057.png",
+			"frame": 57,
+			"sha256": "92af5446a66f98a41d4ce6383a507c4a926625b886885b409d142aa9e1c09ebe"
+		},
+		{
+			"camera": [
+				1170.25341796875,
+				508.140838623047
+			],
+			"file": "frames/0058.png",
+			"frame": 58,
+			"sha256": "cd8b2fd56f15136d9e4ae9b3ef60de08c7aa1961e5ccac3636ee43dfd180e631"
+		},
+		{
+			"camera": [
+				1185.46484375,
+				516.591552734375
+			],
+			"file": "frames/0059.png",
+			"frame": 59,
+			"sha256": "ef0435bd59686e0c60dc5c0d9bcc62fc18927af638b859b59e91591976848462"
+		},
+		{
+			"camera": [
+				1200.67602539062,
+				525.042236328125
+			],
+			"file": "frames/0060.png",
+			"frame": 60,
+			"sha256": "0587aca3fd8382fd6a251baa2159f15231024129383900ff8432034a90c83287"
+		},
+		{
+			"camera": [
+				1215.88732910156,
+				533.492980957031
+			],
+			"file": "frames/0061.png",
+			"frame": 61,
+			"sha256": "80dea30bf93665c67b7e304debb88bf274a3457863708c201a7b1f5c594aa75d"
+		},
+		{
+			"camera": [
+				1231.0986328125,
+				541.943664550781
+			],
+			"file": "frames/0062.png",
+			"frame": 62,
+			"sha256": "1c4c1d6b1a7de563b198a001137fe07d713bf8bec4f62b331c3044aaa753fe80"
+		},
+		{
+			"camera": [
+				1246.30981445312,
+				550.394348144531
+			],
+			"file": "frames/0063.png",
+			"frame": 63,
+			"sha256": "1017074340a972ad3fae903349beb7eeb0760fce5b262933fa22675d6a3eda63"
+		},
+		{
+			"camera": [
+				1261.52111816406,
+				558.845031738281
+			],
+			"file": "frames/0064.png",
+			"frame": 64,
+			"sha256": "2276f2a09addfe8c708cc6c8c796dd1ef7c2d217f1d824e23b20fd5deda25dcf"
+		},
+		{
+			"camera": [
+				1276.732421875,
+				567.295776367188
+			],
+			"file": "frames/0065.png",
+			"frame": 65,
+			"sha256": "492bea72306776473306ac9010835a73ee3ea8614a2c7691d7235154e00c8002"
+		},
+		{
+			"camera": [
+				1291.94360351562,
+				575.746459960938
+			],
+			"file": "frames/0066.png",
+			"frame": 66,
+			"sha256": "e4980c4275192e98d8300499c43a399eafa5ed4bfb67213ad2d715e7d283306d"
+		},
+		{
+			"camera": [
+				1307.15502929688,
+				584.197204589844
+			],
+			"file": "frames/0067.png",
+			"frame": 67,
+			"sha256": "456716123a79c9bebabfd80bb2b3109d1164958cf1afa2e90b70fa032bf6e72c"
+		},
+		{
+			"camera": [
+				1322.3662109375,
+				592.647888183594
+			],
+			"file": "frames/0068.png",
+			"frame": 68,
+			"sha256": "829aad6a9f72672b0b0109b960a6a388146f541e1b8b2df26db2884e32a8bc75"
+		},
+		{
+			"camera": [
+				1337.57739257812,
+				601.098571777344
+			],
+			"file": "frames/0069.png",
+			"frame": 69,
+			"sha256": "2ba23ceccb8ffd5bdb30429ca6e3501f42293d8795209d119214c22b302a8b1e"
+		},
+		{
+			"camera": [
+				1352.78869628906,
+				609.54931640625
+			],
+			"file": "frames/0070.png",
+			"frame": 70,
+			"sha256": "a1814f3a6bd37542eb613052113b668cc1b2988a096d87324d952b5a8ce3bd0b"
+		},
+		{
+			"camera": [
+				1368.0,
+				618.0
+			],
+			"file": "frames/0071.png",
+			"frame": 71,
+			"sha256": "cc8b26755e64d386482139f3bb1b68ee7a3e66411a8470df00df1bae37163736"
+		}
+	],
+	"native_gameplay": false,
+	"performance_eligible": false,
+	"profile": "Codex-VSHORE-003-74eccb25",
+	"renderer": "opengl3",
+	"runtime_integration": true,
+	"schema": 1,
+	"sources": {
+		"res://assets/game/locations/overworld/modular/riverbed_material_v1.png": "bcdb9e35970056c93517708b400591733e0cf8800119391489cc9cc21761d084",
+		"res://assets/game/locations/overworld/modular/water_material_v1.png": "e6f548fab26b73b21fef1d11a546e7cbb851685539d3341e430f62c6d0dfa2b7",
+		"res://scripts/presentation/underwater_bottom.gd": "1c5d92f7dcf1bb2ca60798a7fb92b5867545408c19a3570411c43c698a3f6473",
+		"res://scripts/systems/village_terrain_renderer.gd": "5af29d45aadcf4255ff8600151b15da3bd95671fac47e008c112027ad7aade9d",
+		"res://scripts/systems/water_layout_data.gd": "83a678f0fc3dd8d12e9cf2ff3ecef82a0419a35267a4779af095664256164a1e",
+		"res://scripts/systems/water_map_registry.gd": "af41bfdca500b01757182e6fe0a0cbc169df8788cfdc43faccc1efe22d262570",
+		"res://scripts/systems/water_topology.gd": "f5bbaf6379d286432ed60699af0bf390c0d3c46725a64d357f6ce17dd5e3c356",
+		"res://scripts/systems/water_visual_system.gd": "6825e24ffbefff4cbe9b37de995e7641d68d1dc09133812366baff4f1cdabdf3",
+		"res://tools/qa/world/water_topology_mask_board.gd": "f2a408dae24714c14c9ecd9a6cd494ac9ad5b52596aa51c81098e6fbbcfc2282",
+		"res://tools/qa/world/water_topology_mask_capture.gd": "07526e8e71c32c1bdb2fd151ac3fb78ab632ca495ba657a106dbe6c3849e97ba"
+	},
+	"target": [
+		1152,
+		648
+	],
+	"task": "VSHORE-003",
+	"topology": {
+		"bridge_surface": [
+			true,
+			true
+		],
+		"cells": 550,
+		"chunk_boundary_surface": [
+			true,
+			true
+		],
+		"polygons": 1,
+		"rebuilds_during_repeated_reads": 0,
+		"regions": 2,
+		"repeated_reads": 120,
+		"revision": 5,
+		"shore_spans": 20,
+		"visual_builds": 1
+	},
+	"zoom": 1.2
+}

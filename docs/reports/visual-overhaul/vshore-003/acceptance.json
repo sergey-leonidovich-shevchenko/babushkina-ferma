@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "task": "VSHORE-003",
+  "state": "awaiting_independent_review",
+  "implementation_commit": "74eccb25c968311419775ffd2a1152af15ec801b",
+  "automated": {
+    "water_suites": "871 passed, 0 failed",
+    "evidence_verifier": "8 static frames, 72 motion frames, 550 cells, 2 regions, 1 merged surface; passed",
+    "full_testing": "game 53528 passed, 0 failed; redraw 90 passed, 0 failed",
+    "topology_cache": "120 repeated reads, 0 rebuilds"
+  },
+  "manual": {
+    "same_camera_topology_runtime": true,
+    "bridge_surface_preserved": true,
+    "pond_depth_visible_in_diagnostic": true,
+    "chunk_boundary_coverage_continuous": true,
+    "camera_motion_reviewed": true
+  },
+  "open_owners": [
+    "VSHORE-004 shoreline seam finish",
+    "VSHORE-005 animated calm surface",
+    "VSHORE-006 axial current",
+    "WATER-06 full shoreline ownership",
+    "VMAP-003 whole-overworld acceptance"
+  ]
+}

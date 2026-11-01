@@ -1,0 +1,10 @@
+{
+  "bitrate" : 8000000,
+  "decoded_first_frame" : "camera-pan.decoded.png",
+  "duration" : 2.3999999999999999,
+  "encoder" : "AVFoundation H.264",
+  "fps" : 30,
+  "frames" : 72,
+  "height" : 648,
+  "width" : 1152
+}

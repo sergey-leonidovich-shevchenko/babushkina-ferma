@@ -228,6 +228,8 @@ python3 tools/run.py qa.world.shore_kit
 python3 tools/run.py qa.world.test_shore_kit
 python3 tools/run.py qa.world.underwater_bottom
 python3 tools/run.py qa.world.test_underwater_bottom
+python3 tools/run.py qa.world.water_topology_mask
+python3 tools/run.py qa.world.test_water_topology_mask
 python3 tools/run.py qa.camera.analyze_visual_baseline docs/reports/visual-overhaul/vbase-001/native >/dev/null
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"

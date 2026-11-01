@@ -73,6 +73,33 @@ class UnderwaterBottomTests(unittest.TestCase):
         self.assertFalse(result["physical_authority"])
         self.assertFalse(result["performance_eligible"])
 
+    def test_frozen_water_review_reads_its_git_commit(self) -> None:
+        """A later WATER source may evolve without silently rewriting the accepted review."""
+        path = self.root / "tests/suites/water_visual_suite.gd"
+        path.write_text(path.read_text() + "\n# later reviewed task\n")
+        result = bottom.verify(self.root, require_tracked=False)
+        self.assertEqual(result["task"], "VSHORE-002")
+
+    def test_accepted_head_option_is_rejected_without_writing(self) -> None:
+        """Frozen history rejects a Git option before it can overwrite an external file."""
+        outside = tempfile.TemporaryDirectory(prefix="p35", dir="/tmp")
+        self.addCleanup(outside.cleanup)
+        capture = bottom.read(self.folder / "native/capture.json")
+        name = next(iter(capture["sources"])).removeprefix("res://")
+        prefix = "--output=" + str(Path(outside.name) / "p")
+        self.assertLess(len(prefix), 40)
+        commit = prefix + "x" * (40 - len(prefix))
+        target = Path(commit.removeprefix("--output=") + ":" + name)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        sentinel = b"owned temporary sentinel\n"
+        target.write_bytes(sentinel)
+        path = self.folder / "closeout/completion.json"
+        data = bottom.read(path)
+        data["accepted_head"] = commit
+        path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+        self.rejected("accepted implementation head")
+        self.assertEqual(target.read_bytes(), sentinel)
+
     def test_runtime_image_replacement_is_rejected(self) -> None:
         """A visually similar but byte-different runtime file cannot replace the selected master."""
         runtime = self.root / "assets/game/locations/overworld/modular/riverbed_material_v1.png"
@@ -136,11 +163,12 @@ class UnderwaterBottomTests(unittest.TestCase):
         review_path.write_text(json.dumps(review, ensure_ascii=False, indent=2) + "\n")
         self.rejected("WATER engine error")
 
-    def test_capture_source_mutation_is_rejected(self) -> None:
-        """The retained mesh implementation stays bound to the code used for capture."""
+    def test_current_capture_source_may_evolve_after_frozen_commit(self) -> None:
+        """Later runtime code cannot rewrite the exact Git source used for old native frames."""
         path = self.root / "scripts/presentation/underwater_bottom.gd"
         path.write_text(path.read_text() + "\n# changed after capture\n")
-        self.rejected("capture source SHA")
+        result = bottom.verify(self.root, require_tracked=False)
+        self.assertEqual(result["native_static_frames"], 11)
 
     def test_empty_capture_sources_are_rejected(self) -> None:
         """A packet cannot drop every runtime source and remain reviewable."""

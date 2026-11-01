@@ -86,7 +86,7 @@
 
 ## VSHORE-003 — Согласовать маску с WaterTopology
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `in_progress` · P0 · этап `pilot` · `engineering`
 
 Покрытие, глубина и берег получаются из канонического плана; вода под мостом остаётся поверхностью
 
@@ -102,7 +102,7 @@
 - [scripts/systems/water_map_registry.gd](../../../../scripts/systems/water_map_registry.gd)
 - [scripts/systems/water_visual_system.gd](../../../../scripts/systems/water_visual_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vshore-003/`.
+Результаты: `docs/reports/visual-overhaul/vshore-003/`.
 
 Критерии:
 
@@ -120,7 +120,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vshore-003/README.md, docs/reports/visual-overhaul/vshore-003/profile.json, docs/reports/visual-overhaul/vshore-003/source.json, docs/reports/visual-overhaul/vshore-003/native/capture.json, docs/reports/visual-overhaul/vshore-003/native/camera-pan.mp4, docs/reports/visual-overhaul/vshore-003/water-review.json, docs/reports/visual-overhaul/vshore-003/acceptance.json, tools/qa/world/water_topology_mask.py, tools/qa/world/test_water_topology_mask.py, wiki/articles/water-topology-mask.md.
 
 <a id="vshore-004"></a>
 
