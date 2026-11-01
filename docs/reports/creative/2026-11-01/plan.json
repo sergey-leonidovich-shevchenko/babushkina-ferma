@@ -1,0 +1,32 @@
+{
+  "task": "IDEA-REVIEW-20261101",
+  "base": "db28a6d3ef178c193200a5d33ad2107bcf148722",
+  "previousReviewHead": "d6afa95589a43c54355cf2eeb87bc8aceacfcf1a",
+  "previousPlanSHA256": "e29975cc1d014663621835cac2f319980477e25af7f0cfce2b9e6c6c9f6cee7a",
+  "date": "2026-11-01",
+  "newIds": [
+    "IDEA-322",
+    "IDEA-323",
+    "IDEA-324",
+    "IDEA-325",
+    "IDEA-326",
+    "IDEA-327",
+    "IDEA-328",
+    "IDEA-329",
+    "IDEA-330",
+    "IDEA-331"
+  ],
+  "occupiedPriorIds": 321,
+  "mainIdeasBefore": 241,
+  "priorAssessments": 80,
+  "independentEpics": 10,
+  "futureTasks": 44,
+  "proposedAdultNPCs": 15,
+  "dialogueNodes": 31,
+  "writtenReplies": 93,
+  "futureGameplayScenarios": 60,
+  "gameplayImplemented": false,
+  "priority": "first overworld through VMAP-003",
+  "caseOwner": "CASE, new C04 only after CASE-16",
+  "replacedDuplicate": "Rejected generic shield squad; used independent sand-circle activity instead."
+}

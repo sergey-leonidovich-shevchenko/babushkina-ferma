@@ -1,0 +1,279 @@
+{
+  "firstHead": "90c4a2d6286137d007772cc92ee5ae87a9e479c3",
+  "scope": "44 new future task cards plus this editorial card only; no older cards changed",
+  "consumer": "git check-ref-format --branch",
+  "oldRejected": 45,
+  "currentAccepted": 45,
+  "results": [
+    {
+      "before": "codex/idea-322-01-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-322-01-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-322-02-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-322-02-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-322-03-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-322-03-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-322-04-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-322-04-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-322-05-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-322-05-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-323-01-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-323-01-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-323-02-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-323-02-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-323-03-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-323-03-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-323-04-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-323-04-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-323-05-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-323-05-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-324-01-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-324-01-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-324-02-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-324-02-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-324-03-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-324-03-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-324-04-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-324-04-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-324-05-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-324-05-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-325-01-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-325-01-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-325-02-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-325-02-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-325-03-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-325-03-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-325-04-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-325-04-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-326-01-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-326-01-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-326-02-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-326-02-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-326-03-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-326-03-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-326-04-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-326-04-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-327-01-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-327-01-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-327-02-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-327-02-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-327-03-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-327-03-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-327-04-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-327-04-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-327-05-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-327-05-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-328-01-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-328-01-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-328-02-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-328-02-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-328-03-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-328-03-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-328-04-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-328-04-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-329-01-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-329-01-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-329-02-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-329-02-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-329-03-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-329-03-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-329-04-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-329-04-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-330-01-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-330-01-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-330-02-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-330-02-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-330-03-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-330-03-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-330-04-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-330-04-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-331-01-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-331-01-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-331-02-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-331-02-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-331-03-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-331-03-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-331-04-stage.",
+      "oldExit": 128,
+      "after": "codex/idea-331-04-stage",
+      "currentExit": 0
+    },
+    {
+      "before": "codex/idea-review-20261101-river-and-memory.",
+      "oldExit": 128,
+      "after": "codex/idea-review-20261101-river-and-memory",
+      "currentExit": 0
+    }
+  ]
+}

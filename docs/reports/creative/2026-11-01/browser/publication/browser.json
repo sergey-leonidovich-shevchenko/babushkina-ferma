@@ -1,0 +1,48 @@
+{
+  "tool": "CUA IAB",
+  "metadata": "0.0.400",
+  "scope": "Targeted publication check; ten proposal article source files unchanged from first verified head90c4a2d6286137d007772cc92ee5ae87a9e479c3, whose16 full checks remain separately archived",
+  "firstHead": "90c4a2d6286137d007772cc92ee5ae87a9e479c3",
+  "checks": [
+    {
+      "name": "Final overview: metadata400, all ten article links and literal PR36 URL",
+      "passed": true
+    },
+    {
+      "name": "Editorial card: in_progress, literal PR36 and first verified head; no approval claimed",
+      "passed": true
+    },
+    {
+      "name": "Task32403 corrected literal branch, CASE16 real route, VMAP/232 blockers and backlog status",
+      "passed": true
+    },
+    {
+      "name": "Mobile390 stable: correct400 metadata, no horizontal overflow, sidebar outside content",
+      "passed": true,
+      "layout": {
+        "client": 390,
+        "h1Right": 311,
+        "inner": 390,
+        "scroll": 390,
+        "sidebarRight": 0
+      }
+    },
+    {
+      "name": "Browser console errors",
+      "passed": true,
+      "count": 0
+    }
+  ],
+  "passed": 5,
+  "failed": 0,
+  "snapshotSHA256": {
+    "overview": "dba86b1eec14eaa3d456129a226c97b21a566e5e48372f21f8b715ef1c8d0c63",
+    "overviewTable": "da88e7de4e4730451c6091c8fd34c57616cf583b3a4709c5eaae47ace765a23a",
+    "editor": "95dd4b4eea62fede8e1578013e72a53c3d7085e1c94d01e678a7feb05c18161e",
+    "task": "857da637f05442f46b96aa13e01efe44b88610fec93463ac5ecc0c0e91d5359a",
+    "mobile": "5b84b97f6cbc807b8027e5abe20a04ce1163b8a8a621e633a72d70bcb48dba54"
+  },
+  "viewportReset": true,
+  "newMechanicsRun": false,
+  "audienceTested": false
+}

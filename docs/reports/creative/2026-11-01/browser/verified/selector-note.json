@@ -1,0 +1,4 @@
+{
+  "attempt": "waitFor exact label Связи",
+  "result": "Selector did not match real visible label Связи систем; corrected after inspecting DOM. Product unchanged."
+}

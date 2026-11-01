@@ -1,0 +1,4 @@
+{
+  "result": "First read after reload happened before async article data became ready; no product change. Subsequent visible text wait confirms fresh wording.",
+  "metadata": "0.0.399"
+}
