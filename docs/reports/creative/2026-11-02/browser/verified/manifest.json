@@ -1,0 +1,174 @@
+{
+  "sourceVersion": "0.0.406",
+  "passed": 16,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "B01",
+      "check": "overview406 + all10links + visible unresolved performance gate",
+      "passed": true
+    },
+    {
+      "id": "B02",
+      "check": "#/guides/IDEA-332 article + future F06",
+      "passed": true
+    },
+    {
+      "id": "B03",
+      "check": "#/guides/IDEA-333 article + future F06",
+      "passed": true
+    },
+    {
+      "id": "B04",
+      "check": "#/guides/IDEA-334 article + future F06",
+      "passed": true
+    },
+    {
+      "id": "B05",
+      "check": "#/guides/IDEA-335 article + future F06",
+      "passed": true
+    },
+    {
+      "id": "B06",
+      "check": "#/guides/IDEA-336 article + future F06",
+      "passed": true
+    },
+    {
+      "id": "B07",
+      "check": "#/guides/IDEA-337 article + future F06",
+      "passed": true
+    },
+    {
+      "id": "B08",
+      "check": "#/guides/IDEA-338 article + future F06",
+      "passed": true
+    },
+    {
+      "id": "B09",
+      "check": "#/guides/IDEA-339 article + future F06",
+      "passed": true
+    },
+    {
+      "id": "B10",
+      "check": "#/guides/IDEA-340 article + future F06",
+      "passed": true
+    },
+    {
+      "id": "B11",
+      "check": "#/guides/IDEA-341 article + future F06",
+      "passed": true
+    },
+    {
+      "id": "B12",
+      "check": "six assessment fields341 + hypothesis + audience/probe",
+      "passed": true
+    },
+    {
+      "id": "B13",
+      "check": "article→task→own epic341,6cards,159/VMAP dependencies real",
+      "passed": true
+    },
+    {
+      "id": "B14",
+      "check": "one result341 + keyboard Tab moves to SELECT",
+      "passed": true,
+      "focus": {
+        "label": null,
+        "tag": "SELECT"
+      }
+    },
+    {
+      "id": "B15",
+      "check": "390px stable sidebar closed/no horizontal overflow",
+      "passed": true,
+      "metrics": {
+        "aside": 0,
+        "client": 390,
+        "h1": 311,
+        "innerWidth": 390,
+        "scroll": 390
+      }
+    },
+    {
+      "id": "B16",
+      "check": "browser console errors0",
+      "passed": true
+    }
+  ],
+  "captures": [
+    {
+      "file": "IDEA-332.dom.txt.gz",
+      "uncompressedSha256": "e9e40ac694336ff12a310057124c99672913ad794b6435deecf8009e3684e50f"
+    },
+    {
+      "file": "IDEA-333.dom.txt.gz",
+      "uncompressedSha256": "1a80230d4eb1c3cd2ac629853c4d13d5c9739eeba611febcdfddafffe77bd180"
+    },
+    {
+      "file": "IDEA-334.dom.txt.gz",
+      "uncompressedSha256": "28504a60e312c3e96086c578680b6572efc3a572d8a013c26680abbfa0cefbd5"
+    },
+    {
+      "file": "IDEA-335.dom.txt.gz",
+      "uncompressedSha256": "6e5e30dd6087f92fb90824c925f4e31332152e335712e0f7e24322de4fea959f"
+    },
+    {
+      "file": "IDEA-336.dom.txt.gz",
+      "uncompressedSha256": "0485de25ac52cb08bb38c26c8ce1cc944b7af123e07c75793688f488e5054542"
+    },
+    {
+      "file": "IDEA-337.dom.txt.gz",
+      "uncompressedSha256": "bb490e153c068eb0b175898bda5f4cc40a87f4228fea14cc3d8b2b24f5447164"
+    },
+    {
+      "file": "IDEA-338.dom.txt.gz",
+      "uncompressedSha256": "5baabc794e8831a57f6bc8083507619cad507753b7f44ae6e7c654c985516440"
+    },
+    {
+      "file": "IDEA-339.dom.txt.gz",
+      "uncompressedSha256": "9cfd70152b200e554ba1a61fe0d944ed144d2a6469ff46edfe348c5f4ed0ad3e"
+    },
+    {
+      "file": "IDEA-340.dom.txt.gz",
+      "uncompressedSha256": "5019637bb5924362133c2553c1ea8ad23a2db87047d82fa46b41938dbbdf9890"
+    },
+    {
+      "file": "IDEA-341.dom.txt.gz",
+      "uncompressedSha256": "ba45ab202594a1540fc6ed9d8c8e1176186827060c57f70804e3994a0b513cae"
+    },
+    {
+      "file": "search341.dom.txt.gz",
+      "uncompressedSha256": "a27f64f683cdc9983b8754205c24d7b101583555c82cc2e8e7ce64fd317b9b2b"
+    },
+    {
+      "file": "assessment341.dom.txt.gz",
+      "uncompressedSha256": "f956b7e02f90f47cd97207aceeaeefa59e409e8151f9e9338b5375cbb22ec30d"
+    },
+    {
+      "file": "assessment341.jpg",
+      "sha256": "902dbb2c5230fcf01d8d49b00071d4a2aac12ebda6395c622efb58cd976c20ba"
+    },
+    {
+      "file": "task341-03.dom.txt.gz",
+      "uncompressedSha256": "98c7059cb05ed19b4ee9385cb3ea2441091cff6f0a1f6e20b320525b3d87f922"
+    },
+    {
+      "file": "task341-03.jpg",
+      "sha256": "88ae69673b32f2cdeff92af2ae530dc07339874ee1f1ef2eb65a2cc93e904df2"
+    },
+    {
+      "file": "epic341.dom.txt.gz",
+      "uncompressedSha256": "fda4ab910b34e2312058267745dc000d855a6958b0aa7ef502d30f9dd8f42fcc"
+    },
+    {
+      "file": "mobile339.dom.txt.gz",
+      "uncompressedSha256": "04211e6dd1fe8a6a456bb01c3dc82ec1352c98257697e2eefb4c0be3613fc936"
+    },
+    {
+      "file": "mobile339.jpg",
+      "sha256": "424780e0e0ad86b9aa39fd8187f2f9fbdbc10f0e194a27eca06ee95522e21095"
+    }
+  ],
+  "limitations": "Wiki UI only. No new mechanics,60 future F, audience or native FPS accepted. Sidebar measured after transition, viewport reset. Overview refreshed after replacing stale summary count147 with actual151; no product code change.",
+  "capturedAt": "2026-11-02T03:50:33.522Z"
+}

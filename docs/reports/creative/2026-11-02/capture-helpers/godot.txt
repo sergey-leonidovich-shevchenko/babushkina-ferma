@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+"""Local QA only: serialize test_game.gd; forward every engine argument unchanged."""
+import fcntl,os,subprocess,sys,time
+from pathlib import Path
+engine='/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot'
+args=sys.argv[1:]
+if 'res://tests/test_game.gd' not in args:
+ os.execv(engine,[engine,*args])
+wait_for=os.environ.get('CREATIVE_WAIT_FOR_GATE')
+started=time.monotonic()
+while wait_for and not Path(wait_for).is_file():
+ if time.monotonic()-started>3600:raise SystemExit('Prior own test gate did not complete; refusing concurrent user:// saves')
+ time.sleep(1)
+with open('/private/tmp/creative28-save-gate/session.lock','a') as lock:
+ fcntl.flock(lock,fcntl.LOCK_EX)
+ print('QA: exclusive test_game.gd save-fixture gate; installed Godot and argv unchanged',flush=True)
+ result=subprocess.run([engine,*args])
+ raise SystemExit(result.returncode if result.returncode>=0 else 128-result.returncode)

@@ -1,0 +1,10 @@
+{
+  "oldAuditExit": 1,
+  "oldFailure": "outside editorial scope: docs/epics/ideas/idea-332/README.md",
+  "currentAuditExit": 0,
+  "untrackedSentinelRejected": true,
+  "sentinelRemoved": true,
+  "change": "Derive allowed idea paths from the verified IDs; correct register; inspect untracked files before staging too",
+  "setupAttempt": "An initial external regression helper had no node on PATH and stopped before running the product; sentinel was removed; actual retry sources pinned env",
+  "fullGateInterruptedNotPassed": true
+}

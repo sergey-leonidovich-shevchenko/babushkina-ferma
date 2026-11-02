@@ -1,0 +1,146 @@
+[
+  {
+    "ref": "refs/remotes/origin/codex/idea-review-20261023-evening",
+    "head": "9592ad3f65ea5e219580fb13027d4981df4d0fbb",
+    "count": 231,
+    "max": 231
+  },
+  {
+    "ref": "refs/remotes/origin/codex/idea-review-20261024-npc",
+    "head": "92a951569845278c6da0be8f694b4b7458e50a0b",
+    "count": 231,
+    "max": 241
+  },
+  {
+    "ref": "refs/remotes/origin/codex/idea-review-20261025-closeout",
+    "head": "5678add61cae773ae0841233fb20baf419d36b4f",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/codex/idea-review-20261026-boundaries",
+    "head": "2c193432fbe31222f94d7b2167486f7f4b54b435",
+    "count": 251,
+    "max": 261
+  },
+  {
+    "ref": "refs/remotes/origin/codex/idea-review-20261027-village-choices",
+    "head": "3144b7636fea29a7ad1b4ef1d467858219a537de",
+    "count": 251,
+    "max": 271
+  },
+  {
+    "ref": "refs/remotes/origin/codex/idea-review-20261028-community-secrets",
+    "head": "9d7bec42bfb527fa80f4c65f78e950c95bcf3b57",
+    "count": 251,
+    "max": 281
+  },
+  {
+    "ref": "refs/remotes/origin/codex/idea-review-20261028-evening-crafts",
+    "head": "979ccd5948b535726e72c0744d49c13971692394",
+    "count": 251,
+    "max": 291
+  },
+  {
+    "ref": "refs/remotes/origin/codex/idea-review-20261029-new-horizons",
+    "head": "4f77b3092fdd4e197e337699f0ece507da33902f",
+    "count": 251,
+    "max": 301
+  },
+  {
+    "ref": "refs/remotes/origin/codex/idea-review-20261030-new-pursuits",
+    "head": "6403c3bfa9ed106662411287d04afb9da2ec6a5b",
+    "count": 251,
+    "max": 311
+  },
+  {
+    "ref": "refs/remotes/origin/codex/idea-review-20261031-ways-of-life",
+    "head": "d6afa95589a43c54355cf2eeb87bc8aceacfcf1a",
+    "count": 251,
+    "max": 321
+  },
+  {
+    "ref": "refs/remotes/origin/codex/idea-review-20261101-river-and-memory",
+    "head": "8841929c587d7730ddf4a57a18c3858fbee815bb",
+    "count": 251,
+    "max": 331
+  },
+  {
+    "ref": "refs/remotes/origin/codex/refactor-03-maintainable-layout",
+    "head": "7976630ce372d3e7ac0c15b154ca7377d398450c",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/codex/refactor-06-accounting",
+    "head": "108ca6f06c430049abc7f29b504bb667702c7347",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/codex/refactor-06-maintainable-layout",
+    "head": "81142f385603668792377964a1d4f2bd50afb8a6",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/codex/refactor-07-accounting",
+    "head": "b5fd27ab58cf84703f9384dc8f96138cfabb24df",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/codex/refactor-07-quality-gates",
+    "head": "c5c2a2d68bc5c79cb61f2bf1c27fe8fa0ccf3703",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/codex/title-00-location-boss-reveals",
+    "head": "6f0f54c764dd3bf0aa8766c547a13684ef02acb2",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/codex/vshore-002-accounting",
+    "head": "d001f62975ca0aad1c924226c04e85249a7415bb",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/codex/vshore-002-underwater-bed",
+    "head": "b593e8bf68b5492e7bf35f1245d6ac1a1dca9215",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/codex/vshore-003-accounting",
+    "head": "019335d533f181c1d700850843c1317553e3defb",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/codex/vshore-003-visual-task",
+    "head": "d790e498559f41dd5687f5616e9d3bb02c7e1d75",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/codex/vshore-004-accounting",
+    "head": "b68635fb3ff4ab5f3ac6b4ac3b3a94e1c5cee068",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/codex/vshore-004-visual-task",
+    "head": "52cc54c767a633a206e0bd37374974d1cab872af",
+    "count": 241,
+    "max": 251
+  },
+  {
+    "ref": "refs/remotes/origin/main",
+    "head": "ebf2779fdd721676bb05614c7e2cfd172349d8b3",
+    "count": 241,
+    "max": 251
+  }
+]

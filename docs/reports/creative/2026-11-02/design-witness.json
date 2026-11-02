@@ -1,0 +1,474 @@
+{
+  "purpose": "Two mathematical design witnesses only; no F334 or real game/navigation/input accepted",
+  "ports": {
+    "F": 3,
+    "P": 12,
+    "A": 5,
+    "B": 3,
+    "C": 10,
+    "D": 9,
+    "E": 12,
+    ".": 0
+  },
+  "start": [
+    "A",
+    ".",
+    "P",
+    "B",
+    "C",
+    ".",
+    "F",
+    "D",
+    "E"
+  ],
+  "statesVisited": 3708,
+  "solutions": [
+    {
+      "start": [
+        "A",
+        ".",
+        "P",
+        "B",
+        "C",
+        ".",
+        "F",
+        "D",
+        "E"
+      ],
+      "moves": [
+        {
+          "move": {
+            "room": "A",
+            "from": 0,
+            "to": 1
+          },
+          "board": [
+            ".",
+            "A",
+            "P",
+            "B",
+            "C",
+            ".",
+            "F",
+            "D",
+            "E"
+          ],
+          "visited": 0
+        },
+        {
+          "move": {
+            "room": "B",
+            "from": 3,
+            "to": 0
+          },
+          "board": [
+            "B",
+            "A",
+            "P",
+            ".",
+            "C",
+            ".",
+            "F",
+            "D",
+            "E"
+          ],
+          "visited": 0
+        },
+        {
+          "move": {
+            "room": "E",
+            "from": 8,
+            "to": 5
+          },
+          "board": [
+            "B",
+            "A",
+            "P",
+            ".",
+            "C",
+            "E",
+            "F",
+            "D",
+            "."
+          ],
+          "visited": 0
+        },
+        {
+          "move": {
+            "room": "D",
+            "from": 7,
+            "to": 8
+          },
+          "board": [
+            "B",
+            "A",
+            "P",
+            ".",
+            "C",
+            "E",
+            "F",
+            ".",
+            "D"
+          ],
+          "visited": 0
+        },
+        {
+          "move": {
+            "room": "C",
+            "from": 4,
+            "to": 7
+          },
+          "board": [
+            "B",
+            "A",
+            "P",
+            ".",
+            ".",
+            "E",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 4
+        },
+        {
+          "move": {
+            "room": "E",
+            "from": 5,
+            "to": 4
+          },
+          "board": [
+            "B",
+            "A",
+            "P",
+            ".",
+            "E",
+            ".",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 4
+        },
+        {
+          "move": {
+            "room": "E",
+            "from": 4,
+            "to": 3
+          },
+          "board": [
+            "B",
+            "A",
+            "P",
+            "E",
+            ".",
+            ".",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 4
+        },
+        {
+          "move": {
+            "room": "A",
+            "from": 1,
+            "to": 4
+          },
+          "board": [
+            "B",
+            ".",
+            "P",
+            "E",
+            "A",
+            ".",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 4
+        },
+        {
+          "move": {
+            "room": "B",
+            "from": 0,
+            "to": 1
+          },
+          "board": [
+            ".",
+            "B",
+            "P",
+            "E",
+            "A",
+            ".",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 4
+        },
+        {
+          "move": {
+            "room": "A",
+            "from": 4,
+            "to": 5
+          },
+          "board": [
+            ".",
+            "B",
+            "P",
+            "E",
+            ".",
+            "A",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 7
+        }
+      ],
+      "finalAccessibleCells": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "start": [
+        "A",
+        ".",
+        "P",
+        "B",
+        "C",
+        ".",
+        "F",
+        "D",
+        "E"
+      ],
+      "moves": [
+        {
+          "move": {
+            "room": "A",
+            "from": 0,
+            "to": 1
+          },
+          "board": [
+            ".",
+            "A",
+            "P",
+            "B",
+            "C",
+            ".",
+            "F",
+            "D",
+            "E"
+          ],
+          "visited": 0
+        },
+        {
+          "move": {
+            "room": "B",
+            "from": 3,
+            "to": 0
+          },
+          "board": [
+            "B",
+            "A",
+            "P",
+            ".",
+            "C",
+            ".",
+            "F",
+            "D",
+            "E"
+          ],
+          "visited": 0
+        },
+        {
+          "move": {
+            "room": "E",
+            "from": 8,
+            "to": 5
+          },
+          "board": [
+            "B",
+            "A",
+            "P",
+            ".",
+            "C",
+            "E",
+            "F",
+            "D",
+            "."
+          ],
+          "visited": 0
+        },
+        {
+          "move": {
+            "room": "D",
+            "from": 7,
+            "to": 8
+          },
+          "board": [
+            "B",
+            "A",
+            "P",
+            ".",
+            "C",
+            "E",
+            "F",
+            ".",
+            "D"
+          ],
+          "visited": 0
+        },
+        {
+          "move": {
+            "room": "C",
+            "from": 4,
+            "to": 7
+          },
+          "board": [
+            "B",
+            "A",
+            "P",
+            ".",
+            ".",
+            "E",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 4
+        },
+        {
+          "move": {
+            "room": "E",
+            "from": 5,
+            "to": 4
+          },
+          "board": [
+            "B",
+            "A",
+            "P",
+            ".",
+            "E",
+            ".",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 4
+        },
+        {
+          "move": {
+            "room": "E",
+            "from": 4,
+            "to": 3
+          },
+          "board": [
+            "B",
+            "A",
+            "P",
+            "E",
+            ".",
+            ".",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 4
+        },
+        {
+          "move": {
+            "room": "A",
+            "from": 1,
+            "to": 4
+          },
+          "board": [
+            "B",
+            ".",
+            "P",
+            "E",
+            "A",
+            ".",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 4
+        },
+        {
+          "move": {
+            "room": "B",
+            "from": 0,
+            "to": 1
+          },
+          "board": [
+            ".",
+            "B",
+            "P",
+            "E",
+            "A",
+            ".",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 4
+        },
+        {
+          "move": {
+            "room": "E",
+            "from": 3,
+            "to": 0
+          },
+          "board": [
+            "E",
+            "B",
+            "P",
+            ".",
+            "A",
+            ".",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 4
+        },
+        {
+          "move": {
+            "room": "A",
+            "from": 4,
+            "to": 5
+          },
+          "board": [
+            "E",
+            "B",
+            "P",
+            ".",
+            ".",
+            "A",
+            "F",
+            "C",
+            "D"
+          ],
+          "visited": 7
+        }
+      ],
+      "finalAccessibleCells": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "twoDistinctFinalLayouts": true
+}

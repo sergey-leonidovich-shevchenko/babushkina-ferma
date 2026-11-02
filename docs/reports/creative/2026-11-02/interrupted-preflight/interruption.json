@@ -1,0 +1,14 @@
+{
+  "task": "IDEA-REVIEW-20261102",
+  "label": "review1102-content",
+  "commitExitCode": 143,
+  "complete": false,
+  "sourceChangedDuringRun": false,
+  "reason": "Author found stale allowed-path322..331 regex and register name in editorial audit; stopped own commit process group before successful receipt/commit",
+  "partialPythonSuites": 61,
+  "partialCases": 740,
+  "gameRunComplete": false,
+  "successfulGateReceipt": false,
+  "hookRawSHA256": "bfebc613445b0f41fbdc328dd5ba3c0c5d3a2a3b385e21023b190e0355612b32",
+  "next": "Correct own Wiki audit, compare actual old failure/current pass after staging, full new frozen hook; no bypass"
+}

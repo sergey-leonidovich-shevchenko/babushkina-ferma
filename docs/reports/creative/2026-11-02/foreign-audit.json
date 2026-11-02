@@ -1,0 +1,48 @@
+{
+  "command": [
+    "node",
+    "/Users/sergeyshevchenko/.codex/worktrees/creative-review-nov02/my farm/wiki/scripts/editorial-review1102-audit.mjs"
+  ],
+  "cwd": "/private/tmp/creative1102-foreign-git-retry1",
+  "hostileGitKeys": [
+    "GIT_DIR",
+    "GIT_WORK_TREE",
+    "GIT_INDEX_FILE",
+    "GIT_CONFIG_COUNT",
+    "GIT_CONFIG_KEY_0",
+    "GIT_CONFIG_VALUE_0"
+  ],
+  "exitCode": 0,
+  "before": {
+    "sentinel.txt": "d9ee308717fc28bc8566ee415c0d448ca3416814097cb36e046e586447f83c9d",
+    ".git/index": "4dd2be6d3c000a37c751230747b75273e4dbe3fe7832505cb726706c5743cd86",
+    ".git/config": "f7e1aaf437758930253bbc3d6ec93c31f0cee1c456a558cca4a1fd8495aaaca5"
+  },
+  "after": {
+    "sentinel.txt": "d9ee308717fc28bc8566ee415c0d448ca3416814097cb36e046e586447f83c9d",
+    ".git/index": "4dd2be6d3c000a37c751230747b75273e4dbe3fe7832505cb726706c5743cd86",
+    ".git/config": "f7e1aaf437758930253bbc3d6ec93c31f0cee1c456a558cca4a1fd8495aaaca5"
+  },
+  "foreignUnchanged": true,
+  "rawSHA256": "6e43006959f07ba45eb04126dbdf5565bae32c2dfcfd2b312b9eb4231e4ce349",
+  "profile": {
+    "base": "ebf2779fdd721676bb05614c7e2cfd172349d8b3",
+    "newIdeas": 10,
+    "priorIdeasPreserved": 241,
+    "priorAssessmentsPreserved": 80,
+    "reservedPriorIds": 331,
+    "publishedBranches": 24,
+    "independentEpics": 10,
+    "implementationBacklog": 52,
+    "proposedAdultNPCs": 19,
+    "dialogueNodes": 35,
+    "writtenReplies": 105,
+    "futureScenarios": 60,
+    "futureScenariosRun": 0,
+    "editorStatus": "in_progress",
+    "dependencyGraph": "valid",
+    "oldQueuesPreserved": true,
+    "gameplayImplemented": false,
+    "proposalSHA256": "28c3b856670a34b6d0a5ae5d3ebbd9662b959888ff00ac45d7df15561830e55d"
+  }
+}

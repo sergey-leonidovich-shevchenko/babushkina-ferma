@@ -1,0 +1,17 @@
+from pathlib import Path
+import json,hashlib,gzip,re,sys,subprocess,datetime,os
+root=Path.cwd();label=sys.argv[1];live=root/'.godot/creative-runtime';s=json.load(open(live/(label+'-candidate.json')));out=root/s['output'];out.mkdir(exist_ok=True)
+for p,h in s['sourceSHA256'].items():assert hashlib.sha256((root/p).read_bytes()).hexdigest()==h,p
+raw=(live/(label+'-hook.log')).read_bytes();t=raw.decode(errors='replace');wiki=(root/s['wikiLog']).read_bytes();w=wiki.decode(errors='replace')
+assert 'ARCHITECTURE: boundaries and whitespace are valid' in t
+a=re.findall(r'^Ran (\d+) tests? in ',t,re.M);g=re.findall(r'^TESTS: (\d+) passed, (\d+) failed',t,re.M);r=re.findall(r'^REDRAW: (\d+) passed, (\d+) failed',t,re.M);n=re.findall(r'ℹ pass (\d+)\s',w)
+assert len(g)==1 and g[0][1]=='0' and len(r)==2 and all(f=='0' for p,f in r);assert len(n)==1 and 'ℹ fail 0' in w
+E={k:v for k,v in os.environ.items() if not k.startswith('GIT_')}
+audit=subprocess.check_output(['node',s['profile']],env=E,text=True);(out/'profile.json').write_text(json.dumps(json.loads(audit),ensure_ascii=False,indent=2)+'\n')
+logs={}
+for name,data in [('full-hook',raw),('wiki',wiki)]:
+ (out/(name+'.log.gz')).write_bytes(gzip.compress(data,mtime=0));logs[name]=hashlib.sha256(data).hexdigest()
+result={'candidate':s,'metadata':(root/'VERSION').read_text().strip(),'completedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'command':'.githooks/pre-commit unchanged via capture-only external wrapper','exitCode':0,'architecture':{'pythonSuites':len(a),'cases':sum(map(int,a))},'game':g,'redraw':r,'wiki':{'passed':int(n[0]),'failed':0},'rawSHA256':logs,'gameplayImplemented':False,'futureGameplayScenariosRun':0,'audienceTested':False}
+(out/'gates.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');subprocess.run(['git','add','--',str(out)],env=E,check=True)
+for args in [['diff','--check',s['base'],'--'],['diff','--cached','--check',s['base'],'--']]:subprocess.run(['git','--no-optional-locks',*args],env=E,check=True)
+print(json.dumps({k:result[k] for k in ['metadata','architecture','game','redraw','wiki']}))

@@ -1,0 +1,6 @@
+{
+  "exitCode": 1,
+  "cause": "Capture helper mistakenly referenced non-existent editorial-review1101-audit.mjs in the new worktree. Node failed before running the audit; this was not a product or parser failure.",
+  "foreignComparisonVerified": false,
+  "correction": "Use current editorial-review1102 entry point in a new foreign Git repository; preserve separate successful before/after proof."
+}

@@ -1,0 +1,10 @@
+from pathlib import Path
+import json,subprocess,hashlib,os,gzip
+root=Path('/Users/sergeyshevchenko/.codex/worktrees/creative-review-nov02/my farm');foreign=Path('/private/tmp/creative1102-foreign-git-retry2');foreign.mkdir()
+subprocess.run(['git','init','-q',str(foreign)],check=True)
+(foreign/'sentinel.txt').write_text('foreign project must remain intact\n')
+subprocess.run(['git','-C',str(foreign),'config','user.name','Creative QA'],check=True);subprocess.run(['git','-C',str(foreign),'config','user.email','creative-qa@example.invalid'],check=True);subprocess.run(['git','-C',str(foreign),'add','sentinel.txt'],check=True)
+def snapshot():return {f:hashlib.sha256((foreign/f).read_bytes()).hexdigest() for f in ['sentinel.txt','.git/index','.git/config']}
+before=snapshot();env=os.environ.copy();env.update(GIT_DIR=str(foreign/'.git'),GIT_WORK_TREE=str(foreign),GIT_INDEX_FILE=str(foreign/'.git/index'),GIT_CONFIG_COUNT='1',GIT_CONFIG_KEY_0='core.hooksPath',GIT_CONFIG_VALUE_0='/private/tmp/unused-creative1102-hooks')
+command=['node',str(root/'wiki/scripts/editorial-review1102-audit.mjs')];r=subprocess.run(command,cwd=foreign,env=env,capture_output=True);assert r.returncode==0,r.stderr.decode();after=snapshot();assert before==after
+out=root/'docs/reports/creative/2026-11-02';raw=r.stdout+r.stderr;(out/'foreign-audit-staged.log.gz').write_bytes(gzip.compress(raw,mtime=0));record={'command':command,'cwd':str(foreign),'hostileGitKeys':['GIT_DIR','GIT_WORK_TREE','GIT_INDEX_FILE','GIT_CONFIG_COUNT','GIT_CONFIG_KEY_0','GIT_CONFIG_VALUE_0'],'exitCode':r.returncode,'before':before,'after':after,'foreignUnchanged':before==after,'rawSHA256':hashlib.sha256(raw).hexdigest(),'profile':json.loads(r.stdout)};(out/'foreign-audit-staged.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n');print(json.dumps({'exitCode':r.returncode,'foreignUnchanged':True}))
