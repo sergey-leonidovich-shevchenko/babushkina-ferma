@@ -1,0 +1,151 @@
+{
+  "task": "VSHORE-004",
+  "task_status": "done",
+  "implementation_PR": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/38",
+  "implementation_commit": "c19189f39ebef9b335129f145bd4cb641b21e0d7",
+  "accepted_head": "52cc54c767a633a206e0bd37374974d1cab872af",
+  "accepted_base": "ff538b88381588faab2b5c7574e2a26f8a9d78f2",
+  "merged_commit": "3d6a35b65477b7f8c01439b18777120caa4332c0",
+  "merged_parents": [
+    "ff538b88381588faab2b5c7574e2a26f8a9d78f2",
+    "52cc54c767a633a206e0bd37374974d1cab872af"
+  ],
+  "merged_tree": "899429c9ec4d3bd1d6ffd55b7374f75464740936",
+  "git_committer_date": "2026-11-02T02:17:36+05:00",
+  "canonical_card_date": "2026-11-02",
+  "date_source": "Calendar part of the accepted implementation merge Git %cI",
+  "source_pass_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/38#pullrequestreview-5730227223",
+  "source_pass_review_id": 5730227223,
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/38#pullrequestreview-5730312717",
+  "review_id": 5730312717,
+  "reviewer_verdict": "Exact-head APPROVED after both P2 findings were closed; independent reviewer shared-account COMMENT",
+  "team_decision": "Team Lead accepted the exact implementation head and CI 8/8, then delegated the actual merge to Tech Lead and canonical closeout to Developer through a separate reviewed PR",
+  "team_decision_turn": "01a19889-d757-70d0-aac2-1f843487bc68",
+  "accepted_CI": {
+    "head": "52cc54c767a633a206e0bd37374974d1cab872af",
+    "success": 8,
+    "total": 8,
+    "runs": [
+      41348780456,
+      41348785462
+    ],
+    "quality_each": [
+      37,
+      0
+    ],
+    "architecture_each": [
+      113,
+      1505,
+      113
+    ],
+    "vshore_negative_tests_each": {
+      "underwater_bottom": 19,
+      "water_topology_mask": 20,
+      "water_chunk_seam": 21,
+      "failed": 0
+    },
+    "Game_each": [
+      53567,
+      0
+    ],
+    "normal_F10_each": [
+      90,
+      0
+    ],
+    "smoke_frames_each": 180,
+    "performance_profiles_each": 6,
+    "Wiki_each": [
+      151,
+      0
+    ],
+    "fixed_input_jobs": "linux-x64 and macos-x64 passed in both runs; 25+14 and 411 export checks",
+    "source": "Accepted implementation CI and independent final review 5730312717; not fresh closeout results"
+  },
+  "accepted_local": {
+    "version": "0.0.404",
+    "reviewer_regressions": [
+      3,
+      0
+    ],
+    "vshore_python_tests": {
+      "water_chunk_seam": 21,
+      "failed": 0,
+      "resource_warning_as_error": true
+    },
+    "vshore_verifier": {
+      "native_static_frames": 6,
+      "native_motion_frames": 60,
+      "global_chunk_safe_pixel_equal": true,
+      "internal_shore_edges": 0,
+      "rebuilds_during_repeated_reads": 0
+    },
+    "water_review": [
+      892,
+      0
+    ],
+    "Game": [
+      53549,
+      0
+    ],
+    "normal_F10_each": [
+      90,
+      0
+    ],
+    "source": "Accepted implementation evidence, reviewer regressions and pre-commit gates; not fresh closeout results"
+  },
+  "accepted_scope": {
+    "map": "overworld first location only",
+    "chunk_halo_cells": 1,
+    "chunk_boundary_masks_are_global": true,
+    "global_chunk_safe_framebuffer_equal": true,
+    "physical_authority_changed": false,
+    "performance_eligible": false,
+    "native_static_frames": 6,
+    "native_motion_frames": 60,
+    "VSHORE_005_accepted": false,
+    "VSHORE_006_accepted": false,
+    "WATER_06_accepted": false,
+    "VMAP_003_accepted": false
+  },
+  "review_history": [
+    {
+      "head": "95e41d3580d87be3b632baf98d096818acd1b1be",
+      "review_id": 5729817018,
+      "decision": "changes_requested",
+      "findings": [
+        "P2 water layer did not move with the QA camera",
+        "P2 verifier did not open and hash every source motion PNG"
+      ]
+    },
+    {
+      "head": "52cc54c767a633a206e0bd37374974d1cab872af",
+      "review_id": 5730227223,
+      "decision": "source_pass_pending_ci",
+      "previous_findings_addressed": true
+    },
+    {
+      "head": "52cc54c767a633a206e0bd37374974d1cab872af",
+      "review_id": 5730312717,
+      "decision": "approved_and_merged",
+      "merge": "3d6a35b65477b7f8c01439b18777120caa4332c0"
+    }
+  ],
+  "closeout_scope": "Canonical done/result, exact implementation merge and review provenance, derived backlog pages and version metadata only; all earlier implementation evidence remains preserved",
+  "closeout_branch": "codex/vshore-004-accounting",
+  "closeout_base": "3d6a35b65477b7f8c01439b18777120caa4332c0",
+  "closeout_version": "0.0.405",
+  "closeout_acceptance": "Own checks, exact-head independent review/CI and Team Lead decision required before this accounting PR is merged",
+  "changed_task_statuses": {
+    "VSHORE-004": [
+      "in_progress",
+      "done"
+    ]
+  },
+  "accepted_report_files_policy": "Existing VSHORE-004 evidence is preserved; this closeout record is appended as a new evidence item",
+  "task_complete_trailers_in_accepted_source_history": 0,
+  "local_game_started_for_closeout": false,
+  "next_queue": [
+    "the next canonical first-overworld card after accepted VSHORE-004 closeout",
+    "full dependencies on the route to VMAP-003"
+  ]
+}
