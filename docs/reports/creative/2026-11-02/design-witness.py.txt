@@ -1,0 +1,38 @@
+from collections import deque
+from pathlib import Path
+import json
+# Design-only finite graph, not a game implementation or gameplay acceptance.
+ports={'F':3,'P':12,'A':5,'B':3,'C':10,'D':9,'E':12,'.':0};start=tuple('A.PBC.FDE');vectors=[(0,-1,1,4),(1,0,2,8),(0,1,4,1),(-1,0,8,2)]
+def reach(b):
+ seen={6};todo=[6]
+ for i in todo:
+  x,y=i%3,i//3
+  for dx,dy,a,z in vectors:
+   u,v=x+dx,y+dy
+   if 0<=u<3 and 0<=v<3:
+    j=v*3+u
+    if j not in seen and ports[b[i]]&a and ports[b[j]]&z:seen.add(j);todo.append(j)
+ mask=sum(bit for name,bit in [('A',1),('B',2),('C',4)] if b.index(name) in seen)
+ return seen,mask
+seen,mask=reach(start);first=(start,mask);q=deque([first]);parent={first:None};move={};solutions=[]
+while q and len(solutions)<2:
+ b,m=q.popleft();accessible,got=reach(b);assert m|got==m
+ if 2 in accessible and m==7:solutions.append((b,m));continue
+ for hole,item in enumerate(b):
+  if item!='.':continue
+  x,y=hole%3,hole//3
+  for dx,dy,_,_ in vectors:
+   u,v=x+dx,y+dy
+   if not(0<=u<3 and 0<=v<3):continue
+   j=v*3+u
+   if b[j] not in 'ABCDE':continue
+   nb=list(b);nb[hole],nb[j]=nb[j],'.';nb=tuple(nb);_,gm=reach(nb);n=(nb,m|gm)
+   if n not in parent:parent[n]=(b,m);move[n]={'room':b[j],'from':j,'to':hole};q.append(n)
+assert len(solutions)==2
+result=[]
+for end in solutions:
+ p=[];node=end
+ while parent[node] is not None:p.append({'move':move[node],'board':list(node[0]),'visited':node[1]});node=parent[node]
+ result.append({'start':list(start),'moves':list(reversed(p)),'finalAccessibleCells':sorted(reach(end[0])[0])})
+out={'purpose':'Two mathematical design witnesses only; no F334 or real game/navigation/input accepted','ports':ports,'start':list(start),'statesVisited':len(parent),'solutions':result,'twoDistinctFinalLayouts':solutions[0][0]!=solutions[1][0]}
+Path('/private/tmp/creative1102-capture/design-witness.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n');print(json.dumps({'twoSolutions':True,'statesVisited':len(parent),'moves':[len(x['moves']) for x in result]}))

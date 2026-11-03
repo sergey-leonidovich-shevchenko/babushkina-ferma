@@ -1,0 +1,65 @@
+{
+  "task": "IDEA-REVIEW-20261102",
+  "base": "ebf2779fdd721676bb05614c7e2cfd172349d8b3",
+  "firstVerifiedHead": "b754cde4c86f0ef06a8184225d6c3a89e3ecf563",
+  "pullRequest": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/40",
+  "status": "in_progress",
+  "updatedAt": "2026-11-03T04:51:01.340815+00:00",
+  "firstCheckpoint": "checkpoint-1/gates.json",
+  "finalCheckpoint": "publish-1/gates.json",
+  "expectedMetadata": "0.0.407",
+  "changesSinceFirst": [
+    "literal PR URL and first verified SHA in editorial card",
+    "publication protocol and metadata407",
+    "targeted browser check of changed overview/editor/mobile; ten proposal article sources unchanged"
+  ],
+  "localQA": {
+    "engine": "4.7.1.stable.official.a13da4feb",
+    "environment": "capture-helpers/env.sh.txt",
+    "capture": "unchanged pre-commit including quality.check --staged; frozen source verification, four receipts staged after success only",
+    "forwarder": "unchanged engine/argv; lock only cooperating test_game save fixtures",
+    "browser": "CUA IAB; actual DOM/screenshots; viewport reset",
+    "helperSHA256": {
+      "freeze.py.txt": "434dd5d26d32e1e84dec9c6c0a88c5337cdea502466c358ec268648fa8c90207",
+      "receipt.py.txt": "52725e95969aa2fae66631cad074bfa5d1a3b600a97d1aac5c28e867f3aebb2b",
+      "foreign-audit-staged.py.txt": "6231cf7c9e19879819c89a161ccd386a7e0c7283c142345a5feceb869550200d",
+      "env.sh.txt": "29e9b04d6097bd7625829b40648d52fa0fc7c071f6c610989cabe6c4914aa3f9",
+      "godot.txt": "e7c88aad4eff83eb3c0416cd0c9caf9e06d2c961a5d2a87f3ce5109baadd51b9",
+      "prepare-publication.py.txt": "279b86ad9ed7ec58df5f16a27c447c5c479c0f936755e00435fefa082f9f866c"
+    }
+  },
+  "firstChecks": {
+    "architecture": {
+      "pythonSuites": 113,
+      "cases": 1505
+    },
+    "game": [
+      [
+        "53549",
+        "0"
+      ]
+    ],
+    "redraw": [
+      [
+        "90",
+        "0"
+      ],
+      [
+        "90",
+        "0"
+      ]
+    ],
+    "wiki": {
+      "passed": 151,
+      "failed": 0
+    }
+  },
+  "performanceGatePassed": false,
+  "performanceCause": "not isolated; also fails clean acceptedmain405",
+  "nativeFPSAcceptance": false,
+  "futureGameplayScenariosRun": 0,
+  "audienceTested": false,
+  "independentReviewApproved": false,
+  "mainMerged": false,
+  "finalHead": "Exact final SHA pinned in GitHub PR and Tech Lead packet after commit/push, avoiding circular own-commit SHA."
+}

@@ -1,0 +1,124 @@
+[
+  {
+    "idea": "IDEA-332",
+    "id": "CR1102-WEFT",
+    "title": "Follow the Feathers: Weaving Tides",
+    "url": "https://store.steampowered.com/app/1075170/Weaving_Tides/",
+    "scope": "Проверен свободный режим создания цифровой вышивки. Двухзевный станок источником не подтверждён.",
+    "analogue": "Переосмысление — видимое переплетение на раме, а не управление ковровым существом и прохождение текстильных подземелий. Чужие рисунки и способности не переносятся; знакомость полного цикла не проверена.",
+    "additional": [],
+    "reviewedAt": "2026-11-02",
+    "fullCycleFamiliarity": null
+  },
+  {
+    "idea": "IDEA-333",
+    "id": "CR1102-GEM",
+    "title": "THINK & FEEL: LAPIDARY — Jewel Craft Simulator",
+    "url": "https://store.steampowered.com/app/2539820/LAPIDARY_Jewel_Craft_Simulator/",
+    "scope": "Проверены последовательная обработка заготовки и коллекция названных камней.",
+    "analogue": "У нас ограниченные плоские срезы с предпросмотром и учебной витриной, без копирования 3D-моделей, рецептов, наград и тайминга чужой игры. Полная знакомость не проверена.",
+    "additional": [],
+    "reviewedAt": "2026-11-02",
+    "fullCycleFamiliarity": null
+  },
+  {
+    "idea": "IDEA-334",
+    "id": "CR1102-HOUSE",
+    "title": "Dogubomb: Blue Prince",
+    "url": "https://www.blueprincegame.com/",
+    "scope": "Проверено формирование маршрута выбором комнат и меняющийся план дома.",
+    "analogue": "У нас конечная сетка сдвигаемых модулей и фиксированное фойе, без чужого drafting, ежедневного roguelike-сброса, персонажей и комнаты46. Полная знакомость не проверена.",
+    "additional": [],
+    "reviewedAt": "2026-11-02",
+    "fullCycleFamiliarity": null
+  },
+  {
+    "idea": "IDEA-335",
+    "id": "CR1102-REFLECTION",
+    "title": "Night School Studio: OXENFREE",
+    "url": "https://nightschoolstudio.com/oxenfree/",
+    "scope": "Проверены разговорные решения и общение с призрачными существами через отдельный инструмент.",
+    "analogue": "У нас два взрослых собеседника, отражение у одного берега и явное согласие. Радио, временные петли, персонажи и тревожный подростковый сюжет источника не переносятся; знакомость полного цикла не проверена.",
+    "additional": [],
+    "reviewedAt": "2026-11-02",
+    "fullCycleFamiliarity": null
+  },
+  {
+    "idea": "IDEA-336",
+    "id": "CR1102-BANNER",
+    "title": "Torn Banner Studios: Chivalry 2 — FAQ",
+    "url": "https://chivalry2.com/faq/",
+    "scope": "Проверены многоэтапные сражения с командными целями. Конкретная наша площадка не подтверждена.",
+    "analogue": "У нас одиночный PvE-лагерь из трёх защитников и локальный проход, без PvP, массовых осад, чужих карт и правил урона. Знакомость полного цикла не проверена.",
+    "additional": [],
+    "reviewedAt": "2026-11-02",
+    "fullCycleFamiliarity": null
+  },
+  {
+    "idea": "IDEA-337",
+    "id": "CR1102-PATROLS",
+    "title": "Videocult: Rain World",
+    "url": "https://www.rainworldgame.com/",
+    "scope": "Проверена экосистема, где хищники охотятся в том числе друг на друга.",
+    "analogue": "У нас один конечный encounter двух групп, не симуляция всей пищевой цепи и не процедурная анимация существ. Полная знакомость межотрядного цикла не проверена.",
+    "additional": [
+      {
+        "title": "Ludeon Studios: RimWorld",
+        "url": "https://rimworldgame.com/",
+        "scope": "Изучены разные фракции и истории от самостоятельных событий; это не подтверждение нашего target contract и не перенос тотальной войны."
+      }
+    ],
+    "reviewedAt": "2026-11-02",
+    "fullCycleFamiliarity": null
+  },
+  {
+    "idea": "IDEA-338",
+    "id": "CR1102-CARE",
+    "title": "ustwo games: Assemble with Care",
+    "url": "https://www.assemblegame.com/",
+    "scope": "Проверены ремонт личных вещей и раскрытие историй их владельцев.",
+    "analogue": "У нас согласуемая оснастка действующего станка и самостоятельный мастер, без копирования чужих предметов, семей и ремонта электроники. Полный аналог не проверен.",
+    "additional": [
+      {
+        "title": "Ludeon Studios: RimWorld",
+        "url": "https://rimworldgame.com/",
+        "scope": "Изучена связь возможностей персонажа с состоянием тела; у нас меняется рабочее место, не части тела, медицина или число полезности жителя."
+      }
+    ],
+    "reviewedAt": "2026-11-02",
+    "fullCycleFamiliarity": null
+  },
+  {
+    "idea": "IDEA-339",
+    "id": "CR1102-LETTERS",
+    "title": "Popcannibal: Kind Words",
+    "url": "https://store.steampowered.com/app/1070710/Kind_Words_lo_fi_chill_beats_to_write_to/",
+    "scope": "Проверены анонимные запросы и ответные поддерживающие письма.",
+    "analogue": "У нас фиксированные authored NPC-ветки в офлайн-мире, без реальных адресатов, пользовательского текста, наклеечной экономики и сетевого сервиса. Полная знакомость не проверена.",
+    "additional": [],
+    "reviewedAt": "2026-11-02",
+    "fullCycleFamiliarity": null
+  },
+  {
+    "idea": "IDEA-340",
+    "id": "CR1102-SURFACE",
+    "title": "Larian Studios: Divinity — Original Sin 2",
+    "url": "https://store.steampowered.com/app/435150/Divinity_Original_Sin_2/",
+    "scope": "Проверены использование окружения как оружия и сочетания стихий. Точная наша матрица не подтверждена.",
+    "analogue": "У нас16 подготовленных клеток в реальном времени и явный HURT, без пошагового отряда, глобальных поверхностей, чужих заклинаний и системной симуляции жидкостей. Полная знакомость не проверена.",
+    "additional": [],
+    "reviewedAt": "2026-11-02",
+    "fullCycleFamiliarity": null
+  },
+  {
+    "idea": "IDEA-341",
+    "id": "CR1102-BOUT",
+    "title": "Supergiant Games: Pyre",
+    "url": "https://www.supergiantgames.com/games/pyre/",
+    "scope": "Проверена RPG-история, связанная с древним состязанием. Договорной поединок источником не подтверждён.",
+    "analogue": "У нас один безопасный учебный эпизод с публичным форматом и скрытым уговором, без команды изгнанников, чужого спорта, правил освобождения и мира Pyre. Полная знакомость не проверена.",
+    "additional": [],
+    "reviewedAt": "2026-11-02",
+    "fullCycleFamiliarity": null
+  }
+]

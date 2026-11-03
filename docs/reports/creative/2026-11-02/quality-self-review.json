@@ -1,0 +1,28 @@
+{
+  "command": "python3 tools/run.py quality.self_review --output /private/tmp/creative1102-self-review",
+  "metadata": "0.0.405",
+  "exitCode": 0,
+  "archiveSHA256": "c4124dab27e02d2885b509cb654fdf24bf6ce4baa11956c07099882f0d796771",
+  "fileSHA256": {
+    "source-state.json": "7aa41b8b1a867dc2c7b9f261ef1e1c37d79f30819b1ffbd6dd80ab7f197fe558",
+    "result.json": "79baaf860cc3e6564faf9e4d3162453fdb19fa277c123238c320d124f5373b20",
+    "capture.json": "87ae4ee813e72743e30f7c3408acf9f46188f0b813fa7762e49e226ee527efc6",
+    "commands.json": "f6a4f3ac7607fa9d9c95916052b83816e1c86c39897b8d40d247b0d1cfcdd890"
+  },
+  "nativeNewMechanicsAccepted": false,
+  "result": {
+    "task": "REFACTOR-07",
+    "base": "464328853c2fbbed1410ac0312de75c3fee7cfa2",
+    "source_head": "ebf2779fdd721676bb05614c7e2cfd172349d8b3",
+    "commands": 14,
+    "alpha_fixtures": 8,
+    "fixture_files": 191,
+    "foreign_git_unchanged": true,
+    "environment_unchanged": true,
+    "source_checkout_and_git_unchanged": true,
+    "real_linked_worktree": true,
+    "temp_parent": "/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm self review real IO g44yvpuj",
+    "native_or_fps_acceptance": false,
+    "temp_removed": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "baselineHead": "ebf2779fdd721676bb05614c7e2cfd172349d8b3",
+  "baselineCheckoutTrackedUnchanged": true,
+  "candidateRuntimeScopesUnchanged": [
+    "scripts",
+    "scenes",
+    "assets",
+    "tools",
+    "tests",
+    ".githooks"
+  ],
+  "projectGodotMetadataOnly": true,
+  "thresholdChanged": false,
+  "allCommandsExitCode": 1,
+  "allBudgetsPassed": false,
+  "first": "concurrent with own Wiki build; one timeout and budget failures",
+  "serial": "after own build ended, all budgets failed",
+  "baseline": "clean detached clone405, all budgets failed",
+  "cause": "not isolated; cannot assign to documents or a particular runtime subsystem",
+  "nativeFPSAcceptance": false,
+  "approval": "unresolved performance gate; no author waiver; draft PR and Tech Lead decision required",
+  "baselineCheckoutRemovedAfterArchive": true
+}

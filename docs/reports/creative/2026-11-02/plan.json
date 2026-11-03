@@ -1,0 +1,31 @@
+{
+  "task": "IDEA-REVIEW-20261102",
+  "base": "ebf2779fdd721676bb05614c7e2cfd172349d8b3",
+  "previousReviewHead": "8841929c587d7730ddf4a57a18c3858fbee815bb",
+  "previousBase": "db28a6d3ef178c193200a5d33ad2107bcf148722",
+  "previousPlanSHA256": "d0e954d8c9c78c889c1e8c50eccc8b95d948e75408c51cc63b4c5867b30ffd20",
+  "date": "2026-11-02",
+  "newIds": [
+    "IDEA-332",
+    "IDEA-333",
+    "IDEA-334",
+    "IDEA-335",
+    "IDEA-336",
+    "IDEA-337",
+    "IDEA-338",
+    "IDEA-339",
+    "IDEA-340",
+    "IDEA-341"
+  ],
+  "occupiedPriorIds": 331,
+  "mainIdeasBefore": 241,
+  "priorAssessments": 80,
+  "independentEpics": 10,
+  "futureTasks": 52,
+  "proposedAdults": 19,
+  "writtenNodes": 35,
+  "writtenReplies": 105,
+  "futureScenarios": 60,
+  "gameplayImplemented": false,
+  "priority": "first whole overworld throughVMAP003; editorial proposals only"
+}
