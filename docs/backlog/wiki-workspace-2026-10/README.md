@@ -284,7 +284,9 @@
 
 **Проверка:** quality.check --staged, actual quality.self_review, документация, штатные architecture/Game/normal/F10, smoke/performance, Wiki check, редакционный профиль и CUA1280/390.
 
-**Подтверждения / результат:** Подготовлены десять предложений и52 будущие задачи. URL PR и первый проверенный SHA добавляются после публикации. Ожидаются независимое ревью текущего head, CI и решение Team Lead; статус in_progress.60 новых игровых F и аудитория не проверены.
+**Подтверждения / результат:** Подготовлены десять предложений / 52 будущие задачи. Pull Request: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/40; первый проверенный head `b754cde4c86f0ef06a8184225d6c3a89e3ecf563` (checkpoint-1). Финальный exact head после публикационного commit/push закрепляется в PR и пакете Tech Lead. Статус in_progress до независимого current-head ревью, CI и решения Team Lead. Performance gate не пройден, авторского исключения нет. [Протокол](../../reports/creative/2026-11-02/PUBLICATION.md). 60 будущих игровых F и аудитория не проверены.
+
+**Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/40
 
 
 **Ограничение проверок IDEA-REVIEW-20261102:** performance gate не пройден также в чистой main405; причина не изолирована, native FPS не принят. Без авторского исключения: только draft PR и независимое решение по текущему head.

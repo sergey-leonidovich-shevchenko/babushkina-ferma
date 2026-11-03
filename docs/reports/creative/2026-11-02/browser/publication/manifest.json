@@ -1,0 +1,64 @@
+{
+  "metadata": "0.0.407",
+  "checks": [
+    {
+      "id": "P01",
+      "passed": true,
+      "check": "overview407 + actualPR40 + unresolved performance gate"
+    },
+    {
+      "id": "P02",
+      "passed": true,
+      "check": "editor in_progress + literal PR40 + verified firstSHA"
+    },
+    {
+      "id": "P03",
+      "passed": true,
+      "check": "literal valid branch without prose punctuation"
+    },
+    {
+      "id": "P04",
+      "passed": true,
+      "check": "390px editor407 + PR + no horizontal overflow after transition",
+      "metrics": {
+        "aside": 0,
+        "client": 390,
+        "h1": 316,
+        "innerWidth": 390,
+        "scroll": 390
+      }
+    },
+    {
+      "id": "P05",
+      "passed": true,
+      "check": "console errors0"
+    }
+  ],
+  "passed": 5,
+  "failed": 0,
+  "captures": [
+    {
+      "file": "overview.dom.txt.gz",
+      "uncompressedSha256": "3fbe98a0ea2e2fa8bf5b2b42314bf110d8cd9e4d275daab6b289e78038126257"
+    },
+    {
+      "file": "editor.dom.txt.gz",
+      "uncompressedSha256": "9141e2ab72c61a22d326569bb2d3e46bddc3b994c01b50143bfbb8db57440e3f"
+    },
+    {
+      "file": "editor.jpg",
+      "sha256": "edbb4034ff197681d3a3d17350721b9c0e277e6db7cd3c3f4dfef8fc4d30077b"
+    },
+    {
+      "file": "mobile-editor.dom.txt.gz",
+      "uncompressedSha256": "060210e4e1b548d4f2a8e3563f08a75eff3315da1d661ea570feefd8082048e3"
+    },
+    {
+      "file": "mobile-editor.jpg",
+      "sha256": "6e705b277fd682a8ed7fd782b8c71e1de8f740ef0b3ffcfac973e3197f9f7126"
+    }
+  ],
+  "at": "2026-11-03T04:53:49.871Z",
+  "scope": "Targeted publication407 UI; proposal source bytes unchanged from verified406. No new game/FPS/audience acceptance.",
+  "notes": "CUA runtime handles expired across resumed heartbeat; current tab8/browser3 reacquired from actual inventory. Own local4232/4233 servers restarted after confirming no listeners. Responsive metrics measured after sidebar transition; viewport reset."
+}

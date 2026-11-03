@@ -56,3 +56,5 @@ RimWorld дал изученные связи возможностей перс�
 
 
 **Фактическое ограничение QA:** Wiki151/0 и smoke180 прошли. Performance gate ниже бюджета50 в исходном запуске, отдельном повторе и на чистой принятой main405. Runtime-код кандидата тот же, кроме metadata; причина не изолирована. Native FPS не измерялся. Этот gate не объявлен пройденным и не получает авторского исключения: PR останется draft с явным пунктом для Tech Lead. [Сравнение и исходные архивы](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/codex/idea-review-20261102-crossing-and-trust/docs/reports/creative/2026-11-02/performance-comparison.json).
+
+[Draft PR](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/40) · [Первый проверенный checkpoint](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/b754cde4c86f0ef06a8184225d6c3a89e3ecf563/docs/reports/creative/2026-11-02/checkpoint-1/gates.json) · [Публикация и ограничения](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/codex/idea-review-20261102-crossing-and-trust/docs/reports/creative/2026-11-02/PUBLICATION.md).
