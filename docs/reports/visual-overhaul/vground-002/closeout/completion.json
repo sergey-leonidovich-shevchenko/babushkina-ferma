@@ -1,0 +1,171 @@
+{
+  "task": "VGROUND-002",
+  "task_status": "done",
+  "completed_on": "2026-11-11",
+  "accepted_base": "ebf2779fdd721676bb05614c7e2cfd172349d8b3",
+  "accepted_head": "730aaa509cab422f4b9241e773b93cc99192e8a7",
+  "accepted_tree": "4ffb92de3142b8efc714f9dc45509f3e9683ea1f",
+  "merged_commit": "0ae36d298e31600792b246e1e3fbe850237d0cc7",
+  "merge_parents": [
+    "ebf2779fdd721676bb05614c7e2cfd172349d8b3",
+    "730aaa509cab422f4b9241e773b93cc99192e8a7"
+  ],
+  "merged_at": "2026-11-10T21:34:07Z",
+  "merged_at_project_timezone": "2026-11-11T02:34:07+05:00",
+  "implementation_pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/41",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/41#pullrequestreview-5849774018",
+  "review_id": 5849774018,
+  "reviewer_verdict": "APPROVED exact head; shared-account GitHub review is COMMENTED per project process",
+  "team_lead_decision": "Accepted exact head after 9/9 CI; merge assigned to and performed by Tech Lead. Developer performed no parallel merge.",
+  "review_findings": {
+    "total_required": 6,
+    "open": 0,
+    "resolved": [
+      "Production color patches limited to the first overworld; five village maps retain their previous material",
+      "Collector waits for and reaps the owned process and preserves its real exit code",
+      "All evidence inputs, including overlay and workflow, are verified against exact-head Git blobs",
+      "CI binaries, logs and evidence live outside the strict checkout",
+      "Runner temporary paths are initialized after runner allocation through GITHUB_ENV",
+      "Published artifact retains hidden inputs/.github and verifies without manual restoration"
+    ],
+    "additional_ci_correction": "Canonical Godot display spelling X11 is accepted while Wayland and headless remain rejected"
+  },
+  "implementation_ci": {
+    "total": "9/9 success",
+    "push_quality": {
+      "run_id": 42901713031,
+      "jobs": [
+        130129089541,
+        130129089778,
+        130129090004,
+        130129090054
+      ],
+      "passed": 4,
+      "total": 4
+    },
+    "pull_quality": {
+      "run_id": 42901723527,
+      "jobs": [
+        130129122982,
+        130129123217,
+        130129123300,
+        130129123435
+      ],
+      "passed": 4,
+      "total": 4
+    },
+    "exact_head_x11": {
+      "run_id": 42901723257,
+      "job_id": 130129122204,
+      "passed": 1,
+      "total": 1
+    },
+    "quality_whole_files": 51,
+    "quality_failed": 0,
+    "architecture_suites": 113,
+    "architecture_cases": 1505,
+    "game": [
+      53597,
+      0
+    ],
+    "normal_f10_each": [
+      90,
+      0
+    ],
+    "wiki_each": [
+      151,
+      0
+    ],
+    "performance_profiles": 6,
+    "performance_average_fps": 60,
+    "performance_minimum_fps": 50,
+    "performance_artifacts": [
+      13803888963,
+      13803923551
+    ]
+  },
+  "x11_artifact": {
+    "id": 13801799706,
+    "name": "vground-002-native",
+    "bytes": 75788836,
+    "sha256": "f2d45f898a002ba632cc60feeca99a13259adee2c619b6fb7ed17b1b43dc170f",
+    "git_blobs": 44,
+    "manifest_outputs": 134,
+    "native_png": 66,
+    "complete_draw_snapshots": 240,
+    "windows": [
+      "1152x648",
+      "1280x720"
+    ],
+    "manual_file_restoration": false
+  },
+  "profile_checks": {
+    "color_patch_review": [
+      30,
+      0
+    ],
+    "compiled_masks_fresh": [
+      36,
+      0
+    ],
+    "compiled_masks_provenance": [
+      101,
+      0
+    ],
+    "targeted_lifecycle_provenance_backend": [
+      9,
+      0
+    ]
+  },
+  "accepted_scope": {
+    "production_location": "overworld",
+    "production_profile": "warm_valley",
+    "retained_mesh": true,
+    "per_cell_nodes_processes_or_draw_calls": false,
+    "legacy_village_maps_pixel_equal": 5,
+    "save_schema_changed": false,
+    "game_grid_or_collision_changed": false
+  },
+  "limits": {
+    "other_maps_accepted": false,
+    "hardware_gpu_fps_accepted": false,
+    "vrelease_003_accepted": false,
+    "vmap_003_accepted": false
+  },
+  "preserved_evidence": {
+    "files_before_closeout": 2,
+    "docs/reports/visual-overhaul/vground-002/README.md": "71a4f92c431bd29c6b111e0e9409dcfde2dff3c3f4181a2c0c7fe62469b5b8e8",
+    "docs/reports/visual-overhaul/vground-002/performance-investigation.json": "ca8e4a25e0bfca06364c2ced9f91162d186e683c47f5f007807f295b4b0c6d95"
+  },
+  "closeout_scope": "Canonical done/result, generated visual-plan indexes, acceptance record and version metadata only; implementation and historical evidence unchanged",
+  "closeout_branch": "codex/vground-002-closeout",
+  "closeout_base": "0ae36d298e31600792b246e1e3fbe850237d0cc7",
+  "closeout_version": "0.0.412",
+  "closeout_pr": "Separate PR and exact-head review required; implementation approval does not approve closeout head",
+  "new_task_started": false,
+  "closeout_checks": {
+    "state": "profile gates passed before commit; full mandatory hook remains required for the closeout head",
+    "results": {
+      "visual_backlog": "25 epics / 1037 tasks valid",
+      "visual_backlog_tests": [
+        14,
+        0
+      ],
+      "documentation": "required files and local links valid",
+      "documentation_negative_tests": "passed",
+      "wiki": [
+        151,
+        0
+      ]
+    },
+    "commands": [
+      "python tools/run.py planning.visual_backlog --write",
+      "python tools/run.py planning.visual_backlog",
+      "python tools/run.py planning.test_visual_backlog",
+      "python tools/run.py quality.check_documentation",
+      "python tools/run.py quality.test_documentation",
+      "pnpm --dir wiki check",
+      "git commit hook: full quality, architecture, game and redraw"
+    ]
+  }
+}
