@@ -1,0 +1,73 @@
+{
+  "task": "VGROUND-002",
+  "purpose": "environment_intake_only",
+  "performance_acceptance_for_vground_002": false,
+  "accepted_reference": {
+    "head": "b68635fb3ff4ab5f3ac6b4ac3b3a94e1c5cee068",
+    "github_run": 41366649411,
+    "github_job": 125028097654,
+    "artifact_id": 13107789372,
+    "artifact_sha256": "4a627403ad7f810e90d440da454f4350c0d45a3a30d6453815c218852dd7b4a8",
+    "complete_cases": 6,
+    "average_fps_range": [
+      60.0,
+      60.0
+    ],
+    "startup_seconds_range": [
+      0.901104,
+      0.922484
+    ],
+    "wall_seconds_range": [
+      18.421728,
+      18.517197
+    ],
+    "budget_passed": true
+  },
+  "local_investigation": {
+    "candidate_head": "e48c8492453401bddd57464ebe9dda611450b8ae",
+    "clean_base_head": "ebf2779fdd721676bb05614c7e2cfd172349d8b3",
+    "candidate_runtime_scopes_unchanged": [
+      "scripts",
+      "scenes",
+      "assets",
+      "tools",
+      "tests",
+      ".githooks"
+    ],
+    "project_godot_metadata_only": true,
+    "threshold_changed": false,
+    "candidate_serial": {
+      "complete_cases": 6,
+      "average_fps_range": [
+        34.1,
+        47.4
+      ],
+      "startup_seconds_range": [
+        1.816249,
+        1.951899
+      ],
+      "wall_seconds_range": [
+        28.114597,
+        29.197586
+      ],
+      "budget_passed": false
+    },
+    "clean_base": {
+      "complete_cases": 6,
+      "average_fps_range": [
+        31.2,
+        45.6
+      ],
+      "startup_seconds_range": [
+        1.792688,
+        1.916589
+      ],
+      "wall_seconds_range": [
+        27.352783,
+        27.828563
+      ],
+      "budget_passed": false
+    }
+  },
+  "conclusion": "The later local budget failure reproduced on an unchanged clean base and cannot be assigned to the documentation candidate or to a particular runtime subsystem. No threshold, warmup, waiver or performance claim was changed. VGROUND-002 still requires its own exact-head CI performance gate."
+}

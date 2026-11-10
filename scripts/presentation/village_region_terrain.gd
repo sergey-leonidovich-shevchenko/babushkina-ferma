@@ -3,13 +3,17 @@ extends RefCounted
 const Data := preload("res://scripts/systems/village_region_data.gd")
 const Terrain := preload("res://scripts/systems/village_terrain_renderer.gd")
 const Ambient := preload("res://scripts/systems/village_ambient_renderer.gd")
+const Meadow := preload("res://scripts/presentation/meadow_ground.gd")
+const MapData := preload("res://scripts/systems/village_map_data.gd")
 const PLOTS: Array[Rect2] = [
 	Rect2(336, 552, 240, 120), Rect2(336, 744, 240, 120), Rect2(1392, 360, 240, 120)
 ]
 
 
 ## Собирает землю каждого района из тех же независимых материалов, что используются на ферме.
-static func draw(canvas: Node2D, location: String, season: String, weather: String) -> void:
+static func draw(
+	canvas: Node2D, location: String, season: String, weather: String, color_patches: bool = true
+) -> void:
 	var tint: Color = (
 		{
 			"spring": Color.WHITE,
@@ -21,7 +25,7 @@ static func draw(canvas: Node2D, location: String, season: String, weather: Stri
 	)
 	if weather in ["rain", "storm"]:
 		tint *= Color("c3d6dc")
-	canvas.draw_texture_rect(Terrain.GRASS, Rect2(Vector2.ZERO, Data.SIZE), true, tint)
+	Meadow.draw(canvas, Data.SIZE, tint, MapData.ground_biome(location), color_patches)
 	paths(canvas, location)
 	if location == "village_market":
 		rectangle(canvas, Rect2(648, 432, 768, 360), Terrain.STONE, Color("ded7be"))

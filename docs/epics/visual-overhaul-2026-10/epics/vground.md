@@ -44,11 +44,11 @@
 
 ## VGROUND-002 — Добавить крупные цветовые пятна
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `in_progress` · P0 · этап `pilot` · `engineering`
 
 Распределение детерминированно и меняется по биому; цветовые пятна не требуют отдельного процесса на клетку
 
-Ветка: `codex/vground-002-visual-task`.
+Ветка: `codex/vground-002-color-patches`.
 
 Зависимости: VGROUND-001.
 
@@ -58,7 +58,7 @@
 - [scripts/presentation/village_region_terrain.gd](../../../../scripts/presentation/village_region_terrain.gd)
 - [scripts/systems/village_map_data.gd](../../../../scripts/systems/village_map_data.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vground-002/`.
+Результаты: `docs/reports/visual-overhaul/vground-002/`.
 
 Критерии:
 
@@ -76,7 +76,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vground-002/README.md, docs/reports/visual-overhaul/vground-002/performance-investigation.json, .github/workflows/vground-002.yml.
 
 <a id="vground-003"></a>
 

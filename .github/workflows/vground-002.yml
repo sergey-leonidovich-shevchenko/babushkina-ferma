@@ -1,0 +1,79 @@
+name: VGROUND-002 visual evidence
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/vground-002.yml'
+      - 'assets/game/locations/overworld/ground_masks/**'
+      - 'assets/game/locations/overworld/axial_road_masks/**'
+      - 'assets/game/locations/overworld/road_network_masks/**'
+      - 'assets/game/locations/overworld/plaza_masks/**'
+      - 'scripts/presentation/ground_color_patches.gd'
+      - 'scripts/presentation/meadow_ground.gd'
+      - 'scripts/presentation/village_region_terrain.gd'
+      - 'scripts/presentation/village_terrain_canvas.gd'
+      - 'scripts/systems/village_map_data.gd'
+      - 'scripts/systems/village_terrain_renderer.gd'
+      - 'scripts/world_background.gd'
+      - 'tests/suites/ground_color_patches_suite.gd'
+      - 'tests/suites/meadow_ground_suite.gd'
+      - 'tools/qa/ground/color_patch_*'
+      - 'docs/reports/visual-overhaul/vground-002/**'
+      - 'docs/epics/visual-overhaul-2026-10/backlog.json'
+      - 'TESTING.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native_comparison:
+    name: Exact-head X11 comparison
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      FARM_GODOT_BIN: ${{ github.workspace }}/.ci/Godot_v4.7.1-stable_linux.x86_64
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - name: Install pinned rendering and verification dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y fonts-noto-cjk fonts-liberation xvfb xauth libgl1-mesa-dri libglx-mesa0
+          python -m pip install Pillow==11.3.0
+      - name: Download and verify Godot 4.7.1
+        run: |
+          mkdir -p .ci
+          curl -fsSL -o .ci/godot.zip https://github.com/godotengine/godot/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip
+          python -c 'import hashlib,pathlib; assert hashlib.sha256(pathlib.Path(".ci/godot.zip").read_bytes()).hexdigest() == "c7ff14fd28472c8d4f193043de30278dcf7e5241a1dcf7566b02e27addaa33ba"'
+          unzip -q .ci/godot.zip -d .ci
+          chmod +x "$FARM_GODOT_BIN"
+      - name: Import exact-head resources
+        run: '"$FARM_GODOT_BIN" --headless --editor --path . --quit'
+      - name: Verify model, rules and compiled-mask provenance
+        run: |
+          set -o pipefail
+          "$FARM_GODOT_BIN" --headless --path . --script res://tools/qa/ground/color_patch_review.gd | tee .ci/vground-002-review.txt
+          python tools/run.py qa.ground.test_compiled_sources | tee .ci/vground-002-compiled-sources.txt
+      - name: Collect and verify exact-head X11 comparisons
+        run: |
+          set -o pipefail
+          export LIBGL_ALWAYS_SOFTWARE=1
+          xvfb-run -a -s '-screen 0 1280x720x24' python tools/run.py qa.ground.color_patch_collect --output .ci/vground-002-native
+          python tools/run.py qa.ground.color_patch_verify --output .ci/vground-002-native | tee .ci/vground-002-verify.txt
+      - name: Preserve complete evidence including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vground-002-native
+          path: |
+            .ci/vground-002-native
+            .ci/vground-002-review.txt
+            .ci/vground-002-compiled-sources.txt
+            .ci/vground-002-verify.txt
+          if-no-files-found: error
+          retention-days: 14

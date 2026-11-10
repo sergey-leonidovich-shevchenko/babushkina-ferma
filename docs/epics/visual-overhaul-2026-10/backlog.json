@@ -2155,7 +2155,7 @@
       "id": "VGROUND-002",
       "epic": "VGROUND",
       "title": "Добавить крупные цветовые пятна",
-      "status": "ready",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -2190,8 +2190,13 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vground-002-visual-task",
-      "evidence": []
+      "branch": "codex/vground-002-color-patches",
+      "evidence": [
+        "docs/reports/visual-overhaul/vground-002/README.md",
+        "docs/reports/visual-overhaul/vground-002/performance-investigation.json",
+        ".github/workflows/vground-002.yml"
+      ],
+      "result": "Кандидат ожидает удалённый exact-head CI: шесть детерминированных низкочастотных профилей добавлены в вершины одной удерживаемой mesh-поверхности без узлов, таймеров и процессов на клетку. Нейтральный rollback-флаг не меняет saves. Профиль прошёл 30/30 утверждений о биомах, плавности, общем крае, сезонах, кеше, 1 200 точках навигации/вспашки и save snapshot. Девять готовых масок получили актуальные source SHA; provenance/tampering прошёл 101/101, fresh-компиляция — 36/36 с прежними byte-equal geometry/UV/colours. Локальный preflight подтвердил 46 PNG / 160 draw-trace в двух окнах, одинаковые камера/поза/состояние, четыре сезона, шесть биомов, прямой участок, T-стык, поворот, тупик и угол. Общий удалённый Game/normal/F10, exact-head visual package, performance gate и независимое ревью обязательны до done."
     },
     {
       "id": "VGROUND-003",
