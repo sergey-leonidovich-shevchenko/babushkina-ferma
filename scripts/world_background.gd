@@ -448,7 +448,7 @@ func draw_village_region() -> void:
 			false
 		)
 	else:
-		VillageRegionTerrain.draw(self, location, season, weather, ground_color_patches)
+		VillageRegionTerrain.draw(self, location, season, weather)
 
 
 ## Выбирает детерминированный вариант травы для старого процедурного режима и тестов палитры.

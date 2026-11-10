@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Verify VGROUND-002 native pairs, road coverage and frozen source provenance."""
 
+from __future__ import annotations
+
 if not __package__:
     from tools.common.launch import prepare_imports
     from tools.common.paths import project_root
@@ -17,7 +19,7 @@ from typing import Any, cast
 from PIL import Image, ImageChops, ImageStat
 
 from tools.qa.ground.color_patch_collect import OVERLAY, ROOT, SOURCES
-from tools.qa.performance.perf_contract_collect import sha, write
+from tools.qa.performance.perf_contract_collect import command, sha, write
 from tools.qa.world.render_order import require, validate_draws
 from tools.qa.world.source_inputs import historical_result
 
@@ -31,6 +33,7 @@ LOCATIONS = [
     "village_orchard",
 ]
 PAIRS = ["spring", "summer", "autumn", "winter"] + ["biome-" + name for name in LOCATIONS]
+LEGACY_LOCATIONS = [name for name in LOCATIONS if name != "overworld"]
 
 
 def load(path: Path) -> dict[str, Any]:
@@ -38,23 +41,37 @@ def load(path: Path) -> dict[str, Any]:
     return cast(dict[str, Any], json.loads(path.read_text()))
 
 
-def provenance(folder: Path) -> dict[str, Any]:
-    """Bind every input to the base commit and the explicit task overlay."""
+def provenance(folder: Path, expected_head: str | None = None) -> dict[str, Any]:
+    """Bind exact CI inputs to Git blobs while retaining an explicit local preflight mode."""
     source = load(folder / "source.json")
     require(source["complete"] and source["task"] == "VGROUND-002", "incomplete collection")
+    require(isinstance(source.get("head_commit"), str), "head commit is missing")
+    head_commit = cast(str, source["head_commit"])
+    require(head_commit == source["base_commit"], "head/base commit differs")
     require(
-        set(source["sources"]) == set(SOURCES) and set(source["base_sources"]) == set(SOURCES),
+        source.get("head_tree") == command(["git", "rev-parse", f"{head_commit}^{{tree}}"]),
+        "head tree differs",
+    )
+    if expected_head is not None:
+        require(head_commit == expected_head, "evidence belongs to another head")
+        require(source.get("exact_head"), "expected-head verification requires exact evidence")
+        require(source.get("expected_head") == expected_head, "collector expected another head")
+    require(
+        set(source["sources"]) == set(SOURCES)
+        and set(source["base_sources"]) == set(SOURCES)
+        and set(source.get("head_sources", {})) == set(SOURCES),
         "source coverage",
     )
     for name, digest in source["sources"].items():
         require(sha(folder / "inputs" / name) == digest, "archived input changed: " + name)
-        historical = historical_result(ROOT, source["base_commit"], name)
-        base_digest = (
+        historical = historical_result(ROOT, head_commit, name)
+        blob_digest = (
             hashlib.sha256(historical.stdout).hexdigest() if historical.returncode == 0 else None
         )
-        require(base_digest == source["base_sources"][name], "historical base differs: " + name)
-        if name not in OVERLAY:
-            require(base_digest == digest, "unreviewed dependency changed: " + name)
+        require(blob_digest == source["base_sources"][name], "historical base differs: " + name)
+        require(blob_digest == source["head_sources"][name], "head blob differs: " + name)
+        if source.get("exact_head") or name not in OVERLAY:
+            require(blob_digest == digest, "input differs from declared Git blob: " + name)
     actual = {
         str(path.relative_to(folder))
         for path in folder.rglob("*")
@@ -100,9 +117,9 @@ def biome_means(path: Path) -> list[list[float]]:
         return result
 
 
-def verify(folder: Path) -> dict[str, Any]:
+def verify(folder: Path, expected_head: str | None = None) -> dict[str, Any]:
     """Reject mismatched camera/state pairs, invisible fields and incomplete native proof."""
-    source = provenance(folder)
+    source = provenance(folder, expected_head)
     result = {
         "task": "VGROUND-002",
         "base_commit": source["base_commit"],
@@ -141,7 +158,14 @@ def verify(folder: Path) -> dict[str, Any]:
         )
         rows = {row["id"]: row for row in capture["rows"]}
         expected = {pair + suffix for pair in PAIRS for suffix in ["-before", "-after"]}
-        require(set(rows) == expected and len(rows) == 20, "pair coverage")
+        expected.update(
+            {
+                mode + "-" + name
+                for name in LEGACY_LOCATIONS
+                for mode in ["legacy-cached", "legacy-direct"]
+            }
+        )
+        require(set(rows) == expected and len(rows) == 30, "pair and legacy-path coverage")
         differences = {}
         for pair in PAIRS:
             before, after = rows[pair + "-before"], rows[pair + "-after"]
@@ -174,13 +198,50 @@ def verify(folder: Path) -> dict[str, Any]:
                 require(len(draws) == 4, "static state must retain four complete draw traces")
                 validate_draws(draws)
             difference = image_difference(path / f"{pair}-before.png", path / f"{pair}-after.png")
-            require(
-                difference["bbox"] is not None
-                and difference["max"] >= 8
-                and difference["mean"] >= 0.45,
-                "colour field is not visibly present: " + pair,
-            )
+            if pair.startswith("biome-village_"):
+                require(
+                    difference["bbox"] is None and difference["max"] == 0,
+                    "separate village map changed with overworld patch toggle: " + pair,
+                )
+            else:
+                require(
+                    difference["bbox"] is not None
+                    and difference["max"] >= 8
+                    and difference["mean"] >= 0.45,
+                    "colour field is not visibly present: " + pair,
+                )
             differences[pair] = difference
+        legacy_paths = {}
+        for location in LEGACY_LOCATIONS:
+            cached_id = "legacy-cached-" + location
+            direct_id = "legacy-direct-" + location
+            cached, direct = rows[cached_id], rows[direct_id]
+            require(
+                not cached["direct"] and direct["direct"], "legacy path labels differ: " + location
+            )
+            for key in [
+                "camera",
+                "player",
+                "location",
+                "season",
+                "weather",
+                "snapshot",
+                "physical",
+                "zoom",
+            ]:
+                require(cached[key] == direct[key], "legacy paths changed " + key + ": " + location)
+            for row_id in [cached_id, direct_id]:
+                with Image.open(path / f"{row_id}.png") as image:
+                    require(list(image.size) == capture["window"], "legacy PNG size differs")
+                draws = json.loads(gzip.decompress((path / f"{row_id}-draws.json.gz").read_bytes()))
+                require(len(draws) == 4, "legacy path must retain four complete draw traces")
+                validate_draws(draws)
+            difference = image_difference(path / f"{cached_id}.png", path / f"{direct_id}.png")
+            require(
+                difference["bbox"] is None and difference["max"] == 0,
+                "cached and direct legacy village rendering differ: " + location,
+            )
+            legacy_paths[location] = difference
         for board, target in [
             ("biomes-spring", [1152, 648]),
             ("road-shapes-spring", [1152, 1152]),
@@ -197,19 +258,22 @@ def verify(folder: Path) -> dict[str, Any]:
         require(len(rounded) == 6, "biome palette cells are not distinct")
         result["windows"][str(width)] = {
             "pairs": len(PAIRS),
-            "png_count": 23,
+            "legacy_paths": len(LEGACY_LOCATIONS),
+            "png_count": 33,
             "differences": differences,
+            "legacy_differences": legacy_paths,
             "biome_means": means,
         }
-    print("COLOR PATCH EVIDENCE: 46 native PNG, 160 complete draw snapshots; no FPS claim")
+    print("COLOR PATCH EVIDENCE: 66 native PNG, 240 complete draw snapshots; no FPS claim")
     return result
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=REPORT / "native")
+    parser.add_argument("--expected-head")
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
-    summary = verify(args.output.resolve())
+    summary = verify(args.output.resolve(), args.expected_head)
     if args.write:
         write(REPORT / "summary.json", summary)

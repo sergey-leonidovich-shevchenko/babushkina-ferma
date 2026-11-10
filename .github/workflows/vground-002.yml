@@ -18,6 +18,8 @@ on:
       - 'tests/suites/ground_color_patches_suite.gd'
       - 'tests/suites/meadow_ground_suite.gd'
       - 'tools/qa/ground/color_patch_*'
+      - 'tools/qa/ground/test_color_patch_collect.py'
+      - 'tools/qa/ground/test_color_patch_verify.py'
       - 'docs/reports/visual-overhaul/vground-002/**'
       - 'docs/epics/visual-overhaul-2026-10/backlog.json'
       - 'TESTING.md'
@@ -33,10 +35,12 @@ jobs:
     timeout-minutes: 25
     env:
       FARM_GODOT_BIN: ${{ github.workspace }}/.ci/Godot_v4.7.1-stable_linux.x86_64
+      VGROUND_EXPECTED_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v7
         with:
           python-version: '3.11'
@@ -64,7 +68,7 @@ jobs:
           set -o pipefail
           export LIBGL_ALWAYS_SOFTWARE=1
           xvfb-run -a -s '-screen 0 1280x720x24' python tools/run.py qa.ground.color_patch_collect --output .ci/vground-002-native
-          python tools/run.py qa.ground.color_patch_verify --output .ci/vground-002-native | tee .ci/vground-002-verify.txt
+          python tools/run.py qa.ground.color_patch_verify --output .ci/vground-002-native --expected-head "$VGROUND_EXPECTED_HEAD" | tee .ci/vground-002-verify.txt
       - name: Preserve complete evidence including failures
         if: always()
         uses: actions/upload-artifact@v4

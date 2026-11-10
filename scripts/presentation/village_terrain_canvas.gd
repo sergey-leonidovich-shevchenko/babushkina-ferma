@@ -21,7 +21,9 @@ var paint_count := 0
 func _draw() -> void:
 	paint_count += 1
 	if RegionData.added(location):
-		RegionTerrain.draw(self, location, season, weather, color_patches)
+		# VGROUND-002 is limited to the first overworld.  Separate village maps keep
+		# their existing material in both the cached and direct rendering paths.
+		RegionTerrain.draw(self, location, season, weather)
 	else:
 		if base_only:
 			Terrain.draw_base(

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Collect source-bound native VGROUND-002 comparisons without making FPS claims."""
 
+from __future__ import annotations
+
 if not __package__:
     from tools.common.launch import prepare_imports
     from tools.common.paths import project_root
@@ -25,6 +27,7 @@ from tools.qa.performance.perf_contract_collect import ROOT, command, context, s
 from tools.qa.world.source_inputs import historical_result, input_path
 
 SOURCES = [
+    ".github/workflows/vground-002.yml",
     "scripts/presentation/ground_color_patches.gd",
     "scripts/presentation/ground_color_patches.gd.uid",
     "scripts/presentation/meadow_ground.gd",
@@ -41,6 +44,8 @@ SOURCES = [
     "tools/qa/ground/color_patch_board.gd",
     "tools/qa/ground/color_patch_capture.gd",
     "tools/qa/ground/color_patch_collect.py",
+    "tools/qa/ground/test_color_patch_collect.py",
+    "tools/qa/ground/test_color_patch_verify.py",
     "tools/qa/ground/color_patch_verify.py",
     "tools/qa/ground/color_patch_review.gd",
     "tools/qa/ground/road_network_board.gd",
@@ -68,6 +73,7 @@ SOURCES = [
     "main.tscn",
 ]
 OVERLAY = {
+    ".github/workflows/vground-002.yml",
     "scripts/presentation/ground_color_patches.gd",
     "scripts/presentation/ground_color_patches.gd.uid",
     "scripts/presentation/meadow_ground.gd",
@@ -83,6 +89,8 @@ OVERLAY = {
     "tools/qa/ground/color_patch_board.gd",
     "tools/qa/ground/color_patch_capture.gd",
     "tools/qa/ground/color_patch_collect.py",
+    "tools/qa/ground/test_color_patch_collect.py",
+    "tools/qa/ground/test_color_patch_verify.py",
     "tools/qa/ground/color_patch_verify.py",
     "tools/qa/ground/color_patch_review.gd",
     "assets/game/locations/overworld/ground_masks/main.res",
@@ -197,14 +205,30 @@ def wait_for_capture(child: subprocess.Popen, target: Path, profile: str) -> int
     capture = target / "native/capture.json"
     while time.monotonic() < deadline:
         code = child.poll()
+        # Linux CI launches the engine directly.  The capture document is written
+        # shortly before Godot finishes, so only the reaped child's return code can
+        # finish this wait.  Starting the next window earlier creates a false
+        # "competing Godot" rejection and can hide a late non-zero exit.
+        if sys.platform != "darwin":
+            if code is not None:
+                return code
+            time.sleep(0.1)
+            continue
+        # macOS uses ``open -W``.  Its wrapper and the uniquely tagged Godot process
+        # are separate lifecycles, so success requires both the wrapper's real code
+        # and the disappearance of the owned engine.  Never synthesize code zero from
+        # a ready JSON document while ``child.returncode`` is still unknown.
         pid = capture_pid(profile)
         native_seen = native_seen or pid is not None
-        if capture.is_file() and pid is None:
-            return code if code is not None else 0
         if code is not None and code != 0 and pid is None:
             return code
-        if code == 0 and pid is None and (native_seen or time.monotonic() - started > 10):
-            return 2
+        if (
+            capture.is_file()
+            and code is not None
+            and pid is None
+            and (native_seen or time.monotonic() - started > 10)
+        ):
+            return code
         time.sleep(0.1)
     pid = capture_pid(profile)
     if pid:
@@ -250,16 +274,28 @@ def collect(folder: Path) -> None:
             ]
         ).splitlines()
     )
+    expected_head = os.environ.get("VGROUND_EXPECTED_HEAD", "").strip()
+    head_commit = command(["git", "rev-parse", "HEAD"])
+    exact_head = bool(expected_head)
+    if exact_head and head_commit != expected_head:
+        raise ValueError("checkout does not match expected PR head")
+    checkout_status = command(["git", "status", "--porcelain=v1", "--untracked-files=all"]).strip()
+    if exact_head and checkout_status:
+        raise ValueError("exact-head collection requires a clean checkout")
     if not (changed | untracked) <= OVERLAY:
         raise ValueError("unrelated runtime or QA changes")
     folder.mkdir(parents=True)
-    base = command(["git", "rev-parse", "HEAD"])
     source = {
         "task": "VGROUND-002",
-        "base_commit": base,
+        "base_commit": head_commit,
+        "head_commit": head_commit,
+        "head_tree": command(["git", "rev-parse", "HEAD^{tree}"]),
+        "expected_head": expected_head or None,
+        "exact_head": exact_head,
         "complete": False,
         "sources": {},
         "base_sources": {},
+        "head_sources": {},
         "artifacts": {},
     }
     for name in SOURCES:
@@ -267,10 +303,14 @@ def collect(folder: Path) -> None:
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(input_path(ROOT, name), target)
         source["sources"][name] = sha(target)
-        historical = historical_result(ROOT, base, name)
-        source["base_sources"][name] = (
+        historical = historical_result(ROOT, head_commit, name)
+        historical_digest = (
             hashlib.sha256(historical.stdout).hexdigest() if historical.returncode == 0 else None
         )
+        source["base_sources"][name] = historical_digest
+        source["head_sources"][name] = historical_digest
+        if exact_head and historical_digest != source["sources"][name]:
+            raise ValueError("exact-head input differs from Git blob: " + name)
     write(folder / "source.json", source)
     for width in [1152, 1280]:
         if godot_jobs():
@@ -296,7 +336,7 @@ def collect(folder: Path) -> None:
         )
         capture = target / "native/capture.json"
         payload = json.loads(capture.read_text()) if capture.is_file() else {}
-        if code or payload.get("errors") or len(payload.get("rows", [])) != 20:
+        if code or payload.get("errors") or len(payload.get("rows", [])) != 30:
             raise ValueError("native capture incomplete")
         if (target / "native").exists():
             for path in (target / "native").iterdir():

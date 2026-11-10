@@ -68,13 +68,32 @@ func _start() -> void:
 	ProjectionSystem.set_reference_zoom(game, 1.2)
 	background = game.get_node("WorldBackground") as BackgroundScript
 	root.title = "VGROUND-002 | biome colour patches"
+	root.mode = Window.MODE_WINDOWED
+	root.size = size
+	root.show()
+	root.grab_focus()
 	await _settle(1000)
 	root.mode = Window.MODE_WINDOWED
-	await _settle(600)
+	await _settle(800)
 	root.size = size
 	root.show()
 	root.grab_focus()
 	await _settle(800)
+	# The game boots fullscreen by default and macOS completes that transition
+	# asynchronously.  Wait for the real host window instead of accepting a
+	# correctly sized stretch texture inside a fullscreen window.
+	for attempt in 15:
+		if root.mode == Window.MODE_WINDOWED and DisplayServer.window_get_size() == size:
+			break
+		root.mode = Window.MODE_WINDOWED
+		root.size = size
+		root.show()
+		root.grab_focus()
+		await _settle(200)
+	if root.mode != Window.MODE_WINDOWED or DisplayServer.window_get_size() != size:
+		push_error("Native window size did not settle")
+		quit(2)
+		return
 	game.process_mode = Node.PROCESS_MODE_DISABLED
 	for season: String in ["spring", "summer", "autumn", "winter"]:
 		background.set_environment(season, "clear")
@@ -84,6 +103,8 @@ func _start() -> void:
 	locations.assign(Regions.IDS)
 	for location: String in locations:
 		await _location(location)
+		if location != "overworld":
+			await _legacy_paths(location)
 	await _board(
 		"biomes-spring",
 		preload("res://tools/qa/ground/color_patch_board.gd").new(),
@@ -129,7 +150,7 @@ func _pair(id: String, location: String, player: Vector2) -> void:
 	Pose.reset(game)
 	for enabled: bool in [false, true]:
 		background.set_ground_color_patches(enabled)
-		await _redraw(8)
+		await _wait_for_terrain(id + ("-after" if enabled else "-before"))
 		await _shot(id + ("-after" if enabled else "-before"))
 
 
@@ -139,6 +160,36 @@ func _location(location: String) -> void:
 	if location == "village_river":
 		player = Vector2(624.25, 624.25)
 	await _pair("biome-" + location, location, player)
+
+
+## Доказывает одинаковый прежний материал отдельной village-карты в кеше и прямом пути.
+func _legacy_paths(location: String) -> void:
+	game.current_location = location
+	background.set_location(location)
+	game.player = (
+		Vector2(624.25, 624.25) if location == "village_river" else Vector2(1008.25, 624.25)
+	)
+	game.facing = Vector2.DOWN
+	game.update_camera()
+	Pose.reset(game)
+	background.set_ground_color_patches(true)
+	background.remove_meta(&"terrain_direct")
+	await _wait_for_terrain("legacy-cached-" + location)
+	await _shot("legacy-cached-" + location)
+	background.set_meta(&"terrain_direct", true)
+	await _redraw(8)
+	await _shot("legacy-direct-" + location)
+	background.remove_meta(&"terrain_direct")
+
+
+## Ждёт завершения одноразового GPU-кеша, а не угадывает его готовность числом кадров.
+func _wait_for_terrain(id: String) -> void:
+	for attempt in 60:
+		await _redraw(1)
+		if background.terrain_ready:
+			await _redraw(2)
+			return
+	errors.append(id + ": terrain cache did not settle")
 
 
 ## Записывает настоящий кадр и полные команды штатного draw-наблюдателя.
@@ -172,6 +223,7 @@ func _shot(id: String) -> void:
 				"season": background.season,
 				"weather": background.weather,
 				"patches": background.ground_color_patches,
+				"direct": background.get_meta(&"terrain_direct", false) == true,
 				"snapshot": game.SaveSystem.snapshot(game),
 				"focused": DisplayServer.window_is_focused(),
 				"physical": Points.pair(DisplayServer.window_get_size()),
