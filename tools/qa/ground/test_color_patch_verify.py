@@ -72,6 +72,20 @@ class ColorPatchExactHead(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "another head"):
                 self.verify_one_source(folder, "0" * 40)
 
+    def test_virtual_display_requires_x11_but_accepts_godot_spelling(self) -> None:
+        self.assertTrue(
+            verifier.virtual_display_is_x11({"virtual_display": True, "display": "X11"})
+        )
+        self.assertTrue(
+            verifier.virtual_display_is_x11({"virtual_display": True, "display": "x11"})
+        )
+        self.assertFalse(
+            verifier.virtual_display_is_x11({"virtual_display": True, "display": "Wayland"})
+        )
+        self.assertFalse(
+            verifier.virtual_display_is_x11({"virtual_display": True, "display": "headless"})
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

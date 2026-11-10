@@ -117,6 +117,11 @@ def biome_means(path: Path) -> list[list[float]]:
         return result
 
 
+def virtual_display_is_x11(capture: dict[str, Any]) -> bool:
+    """Accept Godot's canonical ``X11`` spelling without accepting another backend."""
+    return not capture.get("virtual_display") or str(capture.get("display", "")).casefold() == "x11"
+
+
 def verify(folder: Path, expected_head: str | None = None) -> dict[str, Any]:
     """Reject mismatched camera/state pairs, invisible fields and incomplete native proof."""
     source = provenance(folder, expected_head)
@@ -137,10 +142,7 @@ def verify(folder: Path, expected_head: str | None = None) -> dict[str, Any]:
             and capture["display"] != "headless",
             "invalid native capture",
         )
-        require(
-            not capture.get("virtual_display") or capture["display"] == "x11",
-            "virtual-display proof must come from X11",
-        )
+        require(virtual_display_is_x11(capture), "virtual-display proof must come from X11")
         require(
             capture["simulation_frozen"]
             and not capture["performance_eligible"]
