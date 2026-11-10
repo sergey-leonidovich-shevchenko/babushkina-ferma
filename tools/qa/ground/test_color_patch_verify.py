@@ -18,6 +18,11 @@ SOURCE = "project.godot"
 class ColorPatchExactHead(unittest.TestCase):
     """Self-consistent manifests cannot replace the Git blobs of the reviewed head."""
 
+    def test_workflow_uploads_hidden_archived_sources(self) -> None:
+        """The evidence archive must retain ``inputs/.github`` from the source envelope."""
+        workflow = (verifier.ROOT / ".github/workflows/vground-002.yml").read_text()
+        self.assertIn("include-hidden-files: true", workflow)
+
     def evidence(self, parent: str) -> tuple[Path, str]:
         folder = Path(parent) / "evidence"
         target = folder / "inputs" / SOURCE
