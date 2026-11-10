@@ -2155,7 +2155,7 @@
       "id": "VGROUND-002",
       "epic": "VGROUND",
       "title": "Добавить крупные цветовые пятна",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -2194,9 +2194,70 @@
       "evidence": [
         "docs/reports/visual-overhaul/vground-002/README.md",
         "docs/reports/visual-overhaul/vground-002/performance-investigation.json",
+        "docs/reports/visual-overhaul/vground-002/closeout/README.md",
+        "docs/reports/visual-overhaul/vground-002/closeout/completion.json",
         ".github/workflows/vground-002.yml"
       ],
-      "result": "Кандидат ожидает удалённый exact-head CI: шесть детерминированных низкочастотных профилей добавлены в вершины одной удерживаемой mesh-поверхности без узлов, таймеров и процессов на клетку. Нейтральный rollback-флаг не меняет saves. Профиль прошёл 30/30 утверждений о биомах, плавности, общем крае, сезонах, кеше, 1 200 точках навигации/вспашки и save snapshot. Девять готовых масок получили актуальные source SHA; provenance/tampering прошёл 101/101, fresh-компиляция — 36/36 с прежними byte-equal geometry/UV/colours. Локальный preflight подтвердил 46 PNG / 160 draw-trace в двух окнах, одинаковые камера/поза/состояние, четыре сезона, шесть биомов, прямой участок, T-стык, поворот, тупик и угол. Общий удалённый Game/normal/F10, exact-head visual package, performance gate и независимое ревью обязательны до done."
+      "result": "Принята и влита через PR #41: exact head 730aaa509cab422f4b9241e773b93cc99192e8a7 одобрен Tech Lead review 5849774018 и Team Lead; merge 0ae36d298e31600792b246e1e3fbe850237d0cc7 от 11 ноября 2026. Крупные детерминированные пятна warm_valley рассчитываются при сборке одной удерживаемой mesh-поверхности только первой overworld, без процессов, узлов и draw-call на клетку; пять соседних village_* карт, сетка, коллизии и saves сохранены. Все шесть обязательных замечаний ревью закрыты. CI 9/9: push/pull quality и exact-head X11. Скачанный неизменённый ZIP 13801799706 с SHA-256 f2d45f898a002ba632cc60feeca99a13259adee2c619b6fb7ed17b1b43dc170f прошёл проверку 44 Git blobs и 134 выходов: 66 PNG и 240 полных draw snapshots в двух окнах. Профиль 30/30, свежие маски 36/36, provenance 101/101, Game 53597/0, normal/F10 90/0, Wiki 151/151 и шесть CPU-budget серий прошли. Другие карты, аппаратный GPU FPS, VRELEASE-003 и VMAP-003 не принимаются этой карточкой.",
+      "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/41",
+      "review": {
+        "state": "merged",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/41",
+        "reviewer": "Tech Lead Agent",
+        "coordinator": "Team Lead Agent",
+        "accepted_head": "730aaa509cab422f4b9241e773b93cc99192e8a7",
+        "accepted_base": "ebf2779fdd721676bb05614c7e2cfd172349d8b3",
+        "accepted_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/41#pullrequestreview-5849774018",
+        "open_findings": [],
+        "review_history": [
+          {
+            "head": "38f7b49d4a253a36eb6120e3b538444fb2e443da",
+            "review_id": "PRR_kwDOTqkhCs8AAAABXFVxdQ",
+            "submitted_at": "2026-11-10T15:04:15Z",
+            "decision": "changes_requested",
+            "findings": [
+              "P2 ограничить production первой overworld и сохранить материал соседних карт",
+              "P2 дождаться завершения процесса захвата и сохранить настоящий exit code",
+              "P2 привязать все входы пакета к exact head Git blobs"
+            ]
+          },
+          {
+            "head": "4a689744b59d87d170d048c3f073ef08a0ecfc54",
+            "review_id": "PRR_kwDOTqkhCs8AAAABXHKtfw",
+            "submitted_at": "2026-11-10T17:02:14Z",
+            "decision": "changes_requested",
+            "findings": [
+              "P2 вынести временные CI-файлы за пределы строгого checkout"
+            ]
+          },
+          {
+            "head": "09f8085d9cd86f8252ea3ed5e09685b3f7597ca7",
+            "review_id": "PRR_kwDOTqkhCs8AAAABXHzLBA",
+            "submitted_at": "2026-11-10T17:48:52Z",
+            "decision": "changes_requested",
+            "findings": [
+              "P2 не использовать недоступный runner.temp на уровне job env"
+            ]
+          },
+          {
+            "head": "3264ca070de454f37c7756f264ac9eef64a26139",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/41#pullrequestreview-5848807639",
+            "decision": "changes_requested",
+            "findings": [
+              "P2 сохранить скрытый inputs/.github в скачиваемом artifact ZIP"
+            ]
+          },
+          {
+            "head": "730aaa509cab422f4b9241e773b93cc99192e8a7",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/41#pullrequestreview-5849774018",
+            "decision": "approved_and_merged",
+            "merge": "0ae36d298e31600792b246e1e3fbe850237d0cc7"
+          }
+        ],
+        "merged_commit": "0ae36d298e31600792b246e1e3fbe850237d0cc7",
+        "merged_at": "2026-11-10T21:34:07Z"
+      },
+      "completion": "docs/reports/visual-overhaul/vground-002/closeout/completion.json"
     },
     {
       "id": "VGROUND-003",

@@ -44,7 +44,7 @@
 
 ## VGROUND-002 — Добавить крупные цветовые пятна
 
-Статус: `in_progress` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Распределение детерминированно и меняется по биому; цветовые пятна не требуют отдельного процесса на клетку
 
@@ -76,7 +76,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vground-002/README.md, docs/reports/visual-overhaul/vground-002/performance-investigation.json, .github/workflows/vground-002.yml.
+Доказательства: docs/reports/visual-overhaul/vground-002/README.md, docs/reports/visual-overhaul/vground-002/performance-investigation.json, docs/reports/visual-overhaul/vground-002/closeout/README.md, docs/reports/visual-overhaul/vground-002/closeout/completion.json, .github/workflows/vground-002.yml.
 
 <a id="vground-003"></a>
 
