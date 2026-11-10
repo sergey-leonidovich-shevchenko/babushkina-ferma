@@ -29,10 +29,20 @@ static func draw(
 	rectangular: bool = false,
 	joined: bool = false,
 	plaza: bool = false,
-	garden: bool = false
+	garden: bool = false,
+	color_patches: bool = true
 ) -> void:
 	draw_base(
-		canvas, season, weather, painted_grass, soft_edges, rectangular, joined, plaza, garden
+		canvas,
+		season,
+		weather,
+		painted_grass,
+		soft_edges,
+		rectangular,
+		joined,
+		plaza,
+		garden,
+		color_patches
 	)
 	draw_underwater_bottom(canvas, season, weather)
 	draw_surface(canvas, season, false, weather)
@@ -63,12 +73,13 @@ static func draw_base(
 	rectangular: bool = false,
 	joined: bool = false,
 	plaza: bool = false,
-	garden: bool = false
+	garden: bool = false,
+	color_patches: bool = true
 ) -> void:
 	var tint := ground_tint(season, weather)
 	if painted_grass:
 		preload("res://scripts/presentation/meadow_ground.gd").draw(
-			canvas, MapData.WORLD_SIZE, tint
+			canvas, MapData.WORLD_SIZE, tint, MapData.ground_biome("overworld"), color_patches
 		)
 	else:
 		canvas.draw_texture_rect(GRASS, Rect2(Vector2.ZERO, MapData.WORLD_SIZE), true, tint)
