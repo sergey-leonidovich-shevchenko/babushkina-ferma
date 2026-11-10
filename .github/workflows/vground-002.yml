@@ -34,9 +34,6 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     env:
-      FARM_GODOT_BIN: ${{ runner.temp }}/vground-002/Godot_v4.7.1-stable_linux.x86_64
-      VGROUND_EVIDENCE_DIR: ${{ runner.temp }}/vground-002/evidence
-      VGROUND_LOG_DIR: ${{ runner.temp }}/vground-002/logs
       VGROUND_EXPECTED_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@v4
@@ -46,6 +43,11 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.11'
+      - name: Set isolated temporary paths
+        run: |
+          echo "FARM_GODOT_BIN=$RUNNER_TEMP/vground-002/Godot_v4.7.1-stable_linux.x86_64" >> "$GITHUB_ENV"
+          echo "VGROUND_EVIDENCE_DIR=$RUNNER_TEMP/vground-002/evidence" >> "$GITHUB_ENV"
+          echo "VGROUND_LOG_DIR=$RUNNER_TEMP/vground-002/logs" >> "$GITHUB_ENV"
       - name: Install pinned rendering and verification dependencies
         run: |
           sudo apt-get update
