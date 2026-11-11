@@ -1572,6 +1572,19 @@
     ]
   },
   {
+    "id": "viewport-world-isolation",
+    "file": "viewport-world-isolation.md",
+    "title": "Изоляция визуальных миров",
+    "summary": "VRENDER-009: отдельный владелец игры, viewport и фона; независимые камера, время, пауза и переход карты в двух нативных мирах.",
+    "tags": [
+      "Разработка",
+      "VRENDER-009",
+      "Первая локация",
+      "Viewport",
+      "QA"
+    ]
+  },
+  {
     "id": "idea-feature-epics",
     "file": "idea-feature-epics.md",
     "title": "Самостоятельные идеи по направлениям",

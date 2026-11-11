@@ -1,0 +1,35 @@
+{
+  "task": "VRENDER-009",
+  "date": "2026-11-11",
+  "url": "http://127.0.0.1:4175/#/guides/viewport-world-isolation",
+  "title": "Изоляция визуальных миров",
+  "version": "0.0.413",
+  "views": [
+    {
+      "kind": "narrow-default",
+      "css_viewport": [319, 686],
+      "horizontal_overflow": false,
+      "image_client": [248, 139]
+    },
+    {
+      "kind": "wide-override",
+      "requested_viewport": [1280, 720],
+      "css_viewport": [914, 514],
+      "horizontal_overflow": false,
+      "sidebar_visible": true,
+      "image_client": [593, 333]
+    }
+  ],
+  "images": {
+    "count": 3,
+    "complete": true,
+    "natural_size": [1152, 648]
+  },
+  "links": [
+    "#/development/tasks/visual--VRENDER-009",
+    "#/guides/post-motion-frame",
+    "#/guides/visual-pilot"
+  ],
+  "console_errors": [],
+  "result": "passed"
+}

@@ -1,4 +1,13 @@
 # gdlint: disable=max-public-methods
+# Фоновый слой получает данные от динамического композиционного игрового владельца.
+@warning_ignore_start(
+	"untyped_declaration",
+	"unsafe_call_argument",
+	"unsafe_cast",
+	"unsafe_method_access",
+	"unsafe_property_access",
+	"unsafe_void_return"
+)
 extends Node2D
 
 const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")
@@ -39,6 +48,8 @@ const CaveRenderer := preload("res://scripts/systems/cave_renderer.gd")
 const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_system.gd")
 const DebugPlaygroundRenderer := preload("res://scripts/systems/debug_playground_renderer.gd")
 
+const OWNER_META := &"viewport_world_owner"
+
 const GRASS_VARIANTS := [
 	GRASS_TILE,
 	GRASS_TILE_VARIANT_1,
@@ -67,6 +78,59 @@ var local_terrain_updates := true
 var terrain_clip: Control
 var terrain_erase: TerrainRegionClear
 var terrain_revision: TerrainLocalRevision = TerrainLocalRevision.new()
+
+
+## Закрепляет фон и его offscreen-слои за одним миром, сохраняя только числовой неизменяемый токен.
+func bind_owner(token: Dictionary) -> void:
+	if token.is_empty() or not token.is_read_only():
+		return
+	set_meta(OWNER_META, token)
+	_stamp_owned_layers(token)
+
+
+## Проверяет точное владение без поиска глобального активного viewport.
+func owned_by(token: Dictionary) -> bool:
+	return not token.is_empty() and token.is_read_only() and get_meta(OWNER_META, {}) == token
+
+
+## Помечает созданные фоновые узлы тем же владельцем; ни один из них не становится источником игры.
+func _stamp_owned_layers(token: Dictionary) -> void:
+	for node in [
+		terrain_viewport,
+		terrain_canvas,
+		terrain_clip,
+		terrain_erase,
+		water_layer,
+		cover_layer,
+		cutout_layer
+	]:
+		if node != null:
+			node.set_meta(OWNER_META, token)
+
+
+## Синхронизирует проекцию только от родительского мира этого фона.
+func sync_projection(token: Dictionary, next_position: Vector2, next_scale: Vector2) -> bool:
+	if (
+		not owned_by(token)
+		or get_parent() == null
+		or get_parent().get_instance_id() != int(token.game)
+	):
+		return false
+	position = next_position
+	scale = next_scale
+	return true
+
+
+## Принимает локацию и климат только от владельца, не позволяя preview менять соседнюю игру.
+func sync_from(game: Node, token: Dictionary) -> bool:
+	if not owned_by(token) or game.get_instance_id() != int(token.game) or get_parent() != game:
+		return false
+	set_location(String(game.current_location))
+	set_environment(
+		game.WorldEventSystem.season(game.day),
+		game.WorldEventSystem.location_weather(game.day, game.current_location)
+	)
+	return true
 
 
 ## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
@@ -117,6 +181,9 @@ func _ready() -> void:
 	water_layer.show_behind_parent = true
 	water_layer.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	add_child(water_layer)
+	var token: Variant = get_meta(OWNER_META, {})
+	if token is Dictionary and not token.is_empty():
+		_stamp_owned_layers(token)
 	_sync_ground_layers()
 
 

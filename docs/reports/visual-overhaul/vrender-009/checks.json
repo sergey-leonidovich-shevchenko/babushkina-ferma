@@ -1,0 +1,41 @@
+{
+  "task": "VRENDER-009",
+  "candidate_version": "0.0.413",
+  "date": "2026-11-11",
+  "native_capture": {
+    "display": "macOS",
+    "window": [1152, 648],
+    "source_viewports": 2,
+    "cases": 5,
+    "production_draws": 20,
+    "full_save_pairs": 20,
+    "result": "passed"
+  },
+  "checks": [
+    {
+      "command": "python3 tools/run.py qa.world.test_viewport_isolation",
+      "result": "16 passed, 0 failed"
+    },
+    {
+      "command": "Godot --headless --script res://tools/qa/world/viewport_isolation_review.gd",
+      "result": "16 passed, 0 failed"
+    },
+    {
+      "command": "pnpm --dir wiki check",
+      "result": "build passed; 153 passed, 0 failed"
+    },
+    {
+      "command": "./run_tests.sh",
+      "result": "53597 passed, 0 failed; normal redraw 90/0; F10 redraw 90/0"
+    },
+    {
+      "command": "tools/check_architecture.sh",
+      "result": "boundaries and whitespace valid; Python 3.11 and rg available"
+    }
+  ],
+  "limits": {
+    "performance_eligible": false,
+    "full_map_accepted": false,
+    "task_status_before_independent_review": "in_progress"
+  }
+}

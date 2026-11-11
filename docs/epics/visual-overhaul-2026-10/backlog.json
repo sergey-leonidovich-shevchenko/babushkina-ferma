@@ -1578,7 +1578,7 @@
       "id": "VRENDER-009",
       "epic": "VRENDER",
       "title": "Изолировать параметры нескольких viewport",
-      "status": "ready",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1613,8 +1613,15 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vrender-009-visual-task",
-      "evidence": []
+      "branch": "codex/vrender-009-viewport-isolation",
+      "evidence": [
+        "docs/reports/visual-overhaul/vrender-009/README.md",
+        "docs/reports/visual-overhaul/vrender-009/native/capture.json",
+        "docs/reports/visual-overhaul/vrender-009/summary.json",
+        "docs/reports/visual-overhaul/vrender-009/checks.json",
+        "docs/reports/visual-overhaul/vrender-009/browser-review.json",
+        "wiki/articles/viewport-world-isolation.md"
+      ]
     },
     {
       "id": "VRENDER-010",

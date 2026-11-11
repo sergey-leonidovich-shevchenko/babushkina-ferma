@@ -23,6 +23,15 @@ WARNINGS = (
 IGNORE = "@warning_ignore_start(" + ", ".join('"' + name + '"' for name in WARNINGS) + ")\n"
 
 
+def preserved_dependency(name: str, source: Path, files: list[str], legacy: dict[str, str]) -> bool:
+    """Отличает неизменяемый архив и старую зависимость от проверяемого исходника."""
+    return name not in files and (
+        sha(source) == legacy.get(name)
+        or name.startswith("docs/reports/")
+        and source.suffix == ".gd"
+    )
+
+
 def configuration(project: Path) -> None:
     """Загружает строгие предупреждения при старте только своего изолированного проекта."""
     if (project / ".git").exists() or (
@@ -79,7 +88,7 @@ def mirror(root: Path, destination: Path, files: list[str], legacy: dict[str, st
             content = source.read_text()
             # Исключение относится только к новым предупреждениям неизменённых старых зависимостей.
             # Семантические ошибки и прежние предупреждения проверяются во всех файлах.
-            if name not in files and sha(source) == legacy.get(name):
+            if preserved_dependency(name, source, files, legacy):
                 content = IGNORE + content
             target.write_text(content)
             pending.extend(

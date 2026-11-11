@@ -79,6 +79,29 @@ class SelectionTests(unittest.TestCase):
         self.assertNotIn("docs/reports/old/proof.py", discover(self.root))
         self.assertIn("tools/quality/nested/new.py", selected(self.root, {}))
 
+    ## Сценарий: подключить замороженный GDScript-эталон к новому проверяемому файлу.
+    ## Исходное состояние: архив хранит прежние предупреждения и не входит в baseline исходников.
+    ## Ожидаемый результат: mirror подавляет только новые предупреждения архива, не меняя оригинал.
+    def test_frozen_gd_report_dependency_keeps_bytes_and_does_not_block_semantics(self) -> None:
+        (self.root / "project.godot").write_text("config_version=5\n")
+        report = self.root / "docs/reports/old"
+        report.mkdir(parents=True)
+        proof = report / "proof.gd"
+        proof.write_text("extends RefCounted\nstatic func read(node: Node):\n\treturn node.value\n")
+        original = proof.read_bytes()
+        script = self.root / "scripts/probe.gd"
+        script.parent.mkdir()
+        script.write_text(
+            'extends RefCounted\nconst Proof := preload("res://docs/reports/old/proof.gd")\n'
+        )
+        with tempfile.TemporaryDirectory(prefix="farm frozen report mirror ") as temporary:
+            destination = Path(temporary)
+            mirror(self.root, destination, ["scripts/probe.gd"], {})
+            mirrored = destination / "docs/reports/old/proof.gd"
+            self.assertTrue(mirrored.read_text().startswith(IGNORE))
+            self.assertEqual(mirrored.read_bytes()[len(IGNORE.encode()) :], original)
+        self.assertEqual(proof.read_bytes(), original)
+
     ## Сценарий: отклонить подмену baseline и ссылку вместо исходника.
     ## Исходное состояние: скопирован точный baseline, затем изменены его байты и создан symlink.
     ## Ожидаемый результат: оба нарушения дают явный отказ без принятия чужого файла.
