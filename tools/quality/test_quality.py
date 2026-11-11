@@ -94,13 +94,34 @@ class SelectionTests(unittest.TestCase):
         script.write_text(
             'extends RefCounted\nconst Proof := preload("res://docs/reports/old/proof.gd")\n'
         )
+        legacy = {"docs/reports/old/proof.gd": sha(proof)}
         with tempfile.TemporaryDirectory(prefix="farm frozen report mirror ") as temporary:
             destination = Path(temporary)
-            mirror(self.root, destination, ["scripts/probe.gd"], {})
+            mirror(self.root, destination, ["scripts/probe.gd"], legacy)
             mirrored = destination / "docs/reports/old/proof.gd"
             self.assertTrue(mirrored.read_text().startswith(IGNORE))
             self.assertEqual(mirrored.read_bytes()[len(IGNORE.encode()) :], original)
         self.assertEqual(proof.read_bytes(), original)
+
+    ## Сценарий: подключить новый или изменённый GDScript из каталога отчётов.
+    ## Ожидаемый результат: неизвестные байты не получают исключение строгих предупреждений.
+    def test_unverified_report_dependency_keeps_strict_warnings(self) -> None:
+        (self.root / "project.godot").write_text("config_version=5\n")
+        report = self.root / "docs/reports/new"
+        report.mkdir(parents=True)
+        proof = report / "proof.gd"
+        proof.write_text("extends RefCounted\nstatic func read(node: Node):\n\treturn node.value\n")
+        script = self.root / "scripts/probe.gd"
+        script.parent.mkdir()
+        script.write_text(
+            'extends RefCounted\nconst Proof := preload("res://docs/reports/new/proof.gd")\n'
+        )
+        with tempfile.TemporaryDirectory(prefix="farm strict report mirror ") as temporary:
+            destination = Path(temporary)
+            mirror(self.root, destination, ["scripts/probe.gd"], {})
+            self.assertFalse(
+                (destination / "docs/reports/new/proof.gd").read_text().startswith(IGNORE)
+            )
 
     ## Сценарий: отклонить подмену baseline и ссылку вместо исходника.
     ## Исходное состояние: скопирован точный baseline, затем изменены его байты и создан symlink.

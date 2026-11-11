@@ -212,4 +212,46 @@ static func run(context: SceneTree) -> void:
 		left_token.values().all(func(value: Variant) -> bool: return typeof(value) == TYPE_INT),
 		"world token retains no Node, viewport resource, material or callback",
 	)
-	host.queue_free()
+	var packet_before_move := Frame.read(left)
+	left.reparent(right_view)
+	(
+		context
+		. expect(
+			Context.read(left).is_empty() and Frame.read(left).is_empty(),
+			"moving a world invalidates its viewport context and published frame",
+		)
+	)
+	var rebound := Context.ensure(left)
+	(
+		context
+		. expect(
+			(
+				rebound.viewport == right_view.get_instance_id()
+				and rebound.viewport != left_token.viewport
+				and Frame.read(left).is_empty()
+			),
+			"rebind cannot revive a packet published for the previous viewport",
+		)
+	)
+	(
+		context
+		. expect(
+			(
+				Frame.publish(left, 0.25)
+				and Frame.read(left).viewport_owner == rebound.viewport
+				and Frame.read(left).background_owner == rebound.background
+				and Frame.read(left) != packet_before_move
+			),
+			"a fresh publish binds the frame to the complete rebound world identity",
+		)
+	)
+	var left_id := left.get_instance_id()
+	var right_id := right.get_instance_id()
+	host.free()
+	(
+		context
+		. expect(
+			not is_instance_id_valid(left_id) and not is_instance_id_valid(right_id),
+			"viewport fixture releases both world roots before the suite returns",
+		)
+	)

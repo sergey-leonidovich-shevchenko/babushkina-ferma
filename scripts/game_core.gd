@@ -16,6 +16,7 @@ const GameInputRouter := preload("res://scripts/core/game_input_router.gd")
 const GameUnhandledInputRouter := preload("res://scripts/core/game_unhandled_input_router.gd")
 const GameBootstrap := preload("res://scripts/core/game_bootstrap.gd")
 const GameInteractionRouter := preload("res://scripts/core/game_interaction_router.gd")
+const ViewportWorldContext := preload("res://scripts/presentation/viewport_world_context.gd")
 const CameraSystem := preload("res://scripts/systems/camera_system.gd")
 const HeroActionSystem := preload("res://scripts/systems/hero_action_system.gd")
 const PresentationPose := preload("res://scripts/systems/presentation_pose_system.gd")
@@ -264,19 +265,14 @@ func sync_background_location() -> void:
 		EstateSystem.discover_location(self, current_location)
 	var background := get_node_or_null("WorldBackground")
 	if background:
-		background.set_location(current_location)
-		background.set_environment(
-			WorldEventSystem.season(day), WorldEventSystem.location_weather(day, current_location)
-		)
+		background.sync_from(self, ViewportWorldContext.ensure(self))
 
 
 ## Обновляет только сезон и погоду фонового слоя при смене календарного состояния.
 func sync_background_environment() -> void:
 	var background := get_node_or_null("WorldBackground")
 	if background:
-		background.set_environment(
-			WorldEventSystem.season(day), WorldEventSystem.location_weather(day, current_location)
-		)
+		background.sync_from(self, ViewportWorldContext.ensure(self))
 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.

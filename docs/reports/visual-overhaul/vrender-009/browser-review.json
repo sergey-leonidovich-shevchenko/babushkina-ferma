@@ -1,9 +1,10 @@
 {
   "task": "VRENDER-009",
   "date": "2026-11-11",
-  "url": "http://127.0.0.1:4175/#/guides/viewport-world-isolation",
+  "url": "http://127.0.0.1:4176/#/guides/viewport-world-isolation",
   "title": "Изоляция визуальных миров",
   "version": "0.0.413",
+  "native_profile": "Codex-VRENDER-009-20261111-R11F",
   "views": [
     {
       "kind": "narrow-default",

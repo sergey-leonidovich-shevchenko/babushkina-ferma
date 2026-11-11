@@ -237,14 +237,18 @@ static func _test_rejection_and_reads(c: SceneTree) -> void:
 	for tick in 1000:
 		Frame.read(g)
 		Frame.contact(g, g.player + Vector2(4, 0), 32)
+	var viewport := g.get_viewport() if g.is_inside_tree() else null
+	var viewport_id := viewport.get_instance_id() if viewport != null else 0
 	c.expect(
 		Frame.read(g) == original and g.SaveSystem.snapshot(g) == saved,
 		"one bounded primitive-only packet survives pure repeated reads"
 	)
 	c.expect(
 		(
-			original.keys().size() == 5
+			original.keys().size() == 7
 			and int(original.owner) == g.get_instance_id()
+			and int(original.viewport_owner) == viewport_id
+			and int(original.background_owner) == g.get_node("WorldBackground").get_instance_id()
 			and original.values().all(
 				func(v: Variant) -> bool: return not v is Object and not v is Callable
 			)

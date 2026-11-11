@@ -1616,6 +1616,7 @@
       "branch": "codex/vrender-009-viewport-isolation",
       "evidence": [
         "docs/reports/visual-overhaul/vrender-009/README.md",
+        "docs/reports/visual-overhaul/vrender-009/evidence-manifest.json",
         "docs/reports/visual-overhaul/vrender-009/native/capture.json",
         "docs/reports/visual-overhaul/vrender-009/summary.json",
         "docs/reports/visual-overhaul/vrender-009/checks.json",

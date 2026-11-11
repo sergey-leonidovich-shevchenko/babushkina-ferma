@@ -15,7 +15,15 @@ const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
 const Reference := preload("res://scripts/presentation/visual_reference_mode.gd")
 const Editor := preload("res://scripts/systems/level_editor_system.gd")
 const ViewportWorldContext := preload("res://scripts/presentation/viewport_world_context.gd")
-const KEYS := ["owner", "world", "player_world", "seconds", "active"]
+const KEYS := [
+	"owner",
+	"viewport_owner",
+	"background_owner",
+	"world",
+	"player_world",
+	"seconds",
+	"active",
+]
 
 
 ## Публикует один неизменяемый кадр после движения, переходов и действий.
@@ -30,13 +38,14 @@ static func publish(game: Node, delta: float) -> bool:
 		or Editor.active(game)
 	):
 		return false
-	ViewportWorldContext.ensure(game)
-	var owner := ViewportWorldContext.owner_id(game)
-	if owner == 0:
+	var owner := ViewportWorldContext.ensure(game)
+	if owner.is_empty():
 		return false
 	Clock.advance(game, delta)
 	var value := {
-		"owner": owner,
+		"owner": int(owner.game),
+		"viewport_owner": int(owner.viewport),
+		"background_owner": int(owner.background),
 		"world": String(game.current_location),
 		"player_world": Vector2(game.player),
 		"seconds": Clock.seconds(game),
@@ -71,6 +80,8 @@ static func read(game: Node) -> Dictionary:
 			return {}
 	if (
 		typeof(raw.owner) != TYPE_INT
+		or typeof(raw.viewport_owner) != TYPE_INT
+		or typeof(raw.background_owner) != TYPE_INT
 		or typeof(raw.world) != TYPE_STRING
 		or typeof(raw.player_world) != TYPE_VECTOR2
 		or typeof(raw.seconds) != TYPE_FLOAT
@@ -79,8 +90,12 @@ static func read(game: Node) -> Dictionary:
 		return {}
 	if not raw.player_world.is_finite() or not is_finite(raw.seconds) or raw.seconds < 0.0:
 		return {}
+	var owner := ViewportWorldContext.read(game)
 	if (
-		raw.owner != ViewportWorldContext.owner_id(game)
+		owner.is_empty()
+		or raw.owner != owner.game
+		or raw.viewport_owner != owner.viewport
+		or raw.background_owner != owner.background
 		or raw.world != game.current_location
 		or raw.player_world != game.player
 		or raw.seconds != Clock.seconds(game)

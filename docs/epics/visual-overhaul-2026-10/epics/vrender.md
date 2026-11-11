@@ -360,7 +360,7 @@ Feature flag переключает только эталонный участо
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vrender-009/README.md, docs/reports/visual-overhaul/vrender-009/native/capture.json, docs/reports/visual-overhaul/vrender-009/summary.json, docs/reports/visual-overhaul/vrender-009/checks.json, docs/reports/visual-overhaul/vrender-009/browser-review.json, wiki/articles/viewport-world-isolation.md.
+Доказательства: docs/reports/visual-overhaul/vrender-009/README.md, docs/reports/visual-overhaul/vrender-009/evidence-manifest.json, docs/reports/visual-overhaul/vrender-009/native/capture.json, docs/reports/visual-overhaul/vrender-009/summary.json, docs/reports/visual-overhaul/vrender-009/checks.json, docs/reports/visual-overhaul/vrender-009/browser-review.json, wiki/articles/viewport-world-isolation.md.
 
 <a id="vrender-010"></a>
 
