@@ -21,8 +21,26 @@ var tree_nodes: Array = TreeSystem.default_nodes()
 var moon_glade: Dictionary = MoonGladeSystem.default_state()
 var castle_campaign: Dictionary = CastleCampaignSystem.default_state()
 var estate: Dictionary = EstateSystem.default_state()
-var cave_arena: Dictionary = {"relic_awarded":false}
+var cave_arena: Dictionary = {"relic_awarded": false}
 var cave_boss: Dictionary = preload("res://scripts/systems/cave_boss_data.gd").default_state()
+
+
+## Преобразует только настоящие числовые значения старого сохранения.
+static func normalized_int(value: Variant, fallback: int) -> int:
+	if value is bool:
+		return 1 if value else 0
+	if value is int or value is float:
+		return str(value).to_int()
+	return fallback
+
+
+## Преобразует только настоящие числовые значения таймера старого сохранения.
+static func normalized_float(value: Variant, fallback: float) -> float:
+	if value is bool:
+		return 1.0 if value else 0.0
+	if value is int or value is float:
+		return str(value).to_float()
+	return fallback
 
 
 ## Приводит загруженное состояние к безопасным допустимым значениям.
@@ -34,10 +52,24 @@ func normalize() -> void:
 	moon_glade = MoonGladeSystem.normalize_state(moon_glade)
 	castle_campaign = CastleCampaignSystem.normalize_state(castle_campaign)
 	estate = EstateSystem.normalize_state(estate)
+	var expansion: Dictionary = estate.get("expansion", {})
+	if not expansion.has("fences") or not expansion.get("fences") is Array:
+		expansion["fences"] = []
+	estate["expansion"] = expansion
 	for index in tree_nodes.size():
 		var tree: Dictionary = tree_nodes[index]
-		tree.health = clampi(int(tree.get("health", TreeSystem.MAX_HEALTH)), 0, TreeSystem.MAX_HEALTH)
-		tree.stage = clampi(int(tree.get("stage", 3)), 0, 3)
-		tree.regrow_timer = clampf(float(tree.get("regrow_timer", TreeSystem.REGROW_DURATION)), 0.0, TreeSystem.REGROW_DURATION)
+		tree.health = clampi(
+			normalized_int(tree.get("health", TreeSystem.MAX_HEALTH), TreeSystem.MAX_HEALTH),
+			0,
+			TreeSystem.MAX_HEALTH,
+		)
+		tree.stage = clampi(normalized_int(tree.get("stage", 3), 3), 0, 3)
+		tree.regrow_timer = clampf(
+			normalized_float(
+				tree.get("regrow_timer", TreeSystem.REGROW_DURATION), TreeSystem.REGROW_DURATION
+			),
+			0.0,
+			TreeSystem.REGROW_DURATION,
+		)
 		tree.hit_flash = 0.0
 		tree_nodes[index] = tree

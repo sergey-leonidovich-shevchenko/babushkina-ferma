@@ -21,6 +21,19 @@ WARNINGS = (
     "unsafe_void_return",
 )
 IGNORE = "@warning_ignore_start(" + ", ".join('"' + name + '"' for name in WARNINGS) + ")\n"
+FROZEN_GD_DEPENDENCIES = {
+    "docs/reports/visual-overhaul/vcamera-002/legacy_camera_system.gd": (
+        "13d9801b97595901238bd818c0e734a107491839e605f598b1f87ba6ae6fbcc4"
+    ),
+}
+
+
+def preserved_dependency(name: str, source: Path, files: list[str], legacy: dict[str, str]) -> bool:
+    """Отличает неизменяемый архив и старую зависимость от проверяемого исходника."""
+    return name not in files and sha(source) in {
+        legacy.get(name),
+        FROZEN_GD_DEPENDENCIES.get(name),
+    }
 
 
 def configuration(project: Path) -> None:
@@ -79,7 +92,7 @@ def mirror(root: Path, destination: Path, files: list[str], legacy: dict[str, st
             content = source.read_text()
             # Исключение относится только к новым предупреждениям неизменённых старых зависимостей.
             # Семантические ошибки и прежние предупреждения проверяются во всех файлах.
-            if name not in files and sha(source) == legacy.get(name):
+            if preserved_dependency(name, source, files, legacy):
                 content = IGNORE + content
             target.write_text(content)
             pending.extend(

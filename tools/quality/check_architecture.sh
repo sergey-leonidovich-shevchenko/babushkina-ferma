@@ -143,6 +143,8 @@ python3 tools/run.py qa.world.pilot_pass_verify >/dev/null
 python3 tools/run.py qa.world.test_pilot_pass
 python3 tools/run.py qa.world.post_motion_verify >/dev/null
 python3 tools/run.py qa.world.test_post_motion
+python3 tools/run.py qa.world.viewport_isolation_verify >/dev/null
+python3 tools/run.py qa.world.test_viewport_isolation
 python3 tools/run.py qa.foliage.plant_depth_verify >/dev/null
 python3 tools/run.py qa.foliage.test_plant_depth
 python3 tools/run.py qa.world.transient_save_verify >/dev/null

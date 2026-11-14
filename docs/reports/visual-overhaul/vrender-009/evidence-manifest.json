@@ -1,0 +1,88 @@
+{
+  "schema": 2,
+  "task": "VRENDER-009",
+  "base_commit": "976353fc647191d5d330ec1f612a43e61bf49a83",
+  "source_commit": "f4d1a04d1ebfb83063d3561534b832ea55c914e9",
+  "capture_sha256": "bdee03042dfa9484eb0b9d9c2c84d8f937ea3553a4072debb5f5c5732fcc2613",
+  "sources": {
+    "project.godot": "b0434fbb2faa92d283288802e55101f82d9e629c173fa4f4f66c6ffad7b4b36b",
+    "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9",
+    "scripts/core/game_bootstrap.gd": "c786748e92a53dba7fc3c84c6f0bdd79e54dd292caf70686f75f2ce1c296556e",
+    "scripts/core/game_preview_bootstrap.gd": "fa4435f10c3133e9761bc64c34246149330f234d50f67d61e1f135e8745d54b0",
+    "scripts/core/game_unhandled_input_router.gd": "461c0f26aa6bf4281fa3066b03286caa049fd6b51c6c24d18357cee828c39b5c",
+    "scripts/game_core.gd": "c276422ec361bca854a6f642ede43d6d5c28a50a8132dc0fae0065342188cbc3",
+    "scripts/state/world_state.gd": "1a0a48af50e4bdd6c104dd613c34200ea18ecb437de7b68e6497c479d3976157",
+    "scripts/presentation/post_motion_frame.gd": "e76ad109a69c228afd46b2e936c923baf073e0e56dba5b46f26354f38a6e00b1",
+    "scripts/presentation/village_ground_clock.gd": "66e8343b531d09557ad915c774d5ee88dff17ff882f2d620b95c1dd35d63d568",
+    "scripts/presentation/viewport_world_context.gd": "59a644585041f31db33e6d7b4721cbf0bf00d834a2f7b35c3edd3d77849d2c42",
+    "scripts/presentation/village_terrain_canvas.gd": "9f4e626e57dca25504dfd64104c1131576017fd453c64ceeb6f2efd1e81661de",
+    "scripts/systems/camera_system.gd": "ac8024aa5b05bfde4dd657f76625741e3c58cf1ab7dc593b013a0e4a37b54643",
+    "scripts/systems/estate_system.gd": "a34702ec8df257fb74574c0bcf7af59dcaf56ec0d52e18f4f3b1483e5db7322f",
+    "scripts/systems/fence_system.gd": "4873d90ea38f4d218e63153b8f6416ecf5d87b92507dc3e34e943a12af143010",
+    "scripts/systems/render_system.gd": "6c7f682c9c84d205ea4ac0c1f7449d88f225487836791b2207ad6114798381bb",
+    "scripts/systems/save_system.gd": "1fa54fd78cbfcba2188d22b78f05c0270808069b2223237145a116e061d86e10",
+    "scripts/systems/world_projection_system.gd": "1b08c3b32970cfa4d3b31db9e39692b8b8ccaf8f7f6bd4a8dadaccfec0350281",
+    "scripts/world_background.gd": "31db2c50a3f3130d5fa14c80e735fe77348fccc39e12f026847a796b117fc40e",
+    "tests/suites/post_motion_frame_suite.gd": "b4f9861f46a1c0ca4c48983a200624512d9b3ee4593508c6a2dd4009e6f363dd",
+    "tests/suites/viewport_world_context_suite.gd": "669ea14bb0775c7b1fb4283bdafa4b6616d2079100defeeb0124ad1a0f995ad4",
+    "tools/qa/world/render_order_game.gd": "662ad6e5af52bc95eb8d2804a7390ee5007caa88325aca2f7835873243a0000b",
+    "tools/qa/world/test_viewport_isolation.py": "73f74d1e111e74f1832acc6ecbe2d74d256f93f32446d33c5be88b736f292cc7",
+    "tools/qa/world/viewport_isolation_capture.gd": "5b144bd7a1e5a7db451d9e4e0256b3ce48957a035f2ce77ab179d1a346c35b85",
+    "tools/qa/world/viewport_isolation_review.gd": "8d3f80e99a9246d2dc5eb3b37af2932b4cdcc8bd5bd34ec8137f5b7665a581fe",
+    "tools/qa/world/viewport_isolation_verify.py": "d61a60628f74e3b4064c87677b3af3210fbf6b0b4cd7b6817413911625a26268",
+    "tools/quality/godot.py": "17765e04589b37c863dfcab5125c56471356a2468a397057cae92ac230459e35",
+    "tools/quality/test_quality.py": "4f794791d8cbf7965beae7d55d763356bed2671ab6354e410eff3cdec93981cf"
+  },
+  "overlay": {
+    "project.godot": "b0434fbb2faa92d283288802e55101f82d9e629c173fa4f4f66c6ffad7b4b36b",
+    "scripts/game_core.gd": "c276422ec361bca854a6f642ede43d6d5c28a50a8132dc0fae0065342188cbc3",
+    "scripts/state/world_state.gd": "1a0a48af50e4bdd6c104dd613c34200ea18ecb437de7b68e6497c479d3976157",
+    "scripts/presentation/post_motion_frame.gd": "e76ad109a69c228afd46b2e936c923baf073e0e56dba5b46f26354f38a6e00b1",
+    "tests/suites/post_motion_frame_suite.gd": "b4f9861f46a1c0ca4c48983a200624512d9b3ee4593508c6a2dd4009e6f363dd",
+    "tests/suites/viewport_world_context_suite.gd": "669ea14bb0775c7b1fb4283bdafa4b6616d2079100defeeb0124ad1a0f995ad4",
+    "tools/qa/world/test_viewport_isolation.py": "73f74d1e111e74f1832acc6ecbe2d74d256f93f32446d33c5be88b736f292cc7",
+    "tools/qa/world/viewport_isolation_capture.gd": "5b144bd7a1e5a7db451d9e4e0256b3ce48957a035f2ce77ab179d1a346c35b85",
+    "tools/qa/world/viewport_isolation_review.gd": "8d3f80e99a9246d2dc5eb3b37af2932b4cdcc8bd5bd34ec8137f5b7665a581fe",
+    "tools/qa/world/viewport_isolation_verify.py": "d61a60628f74e3b4064c87677b3af3210fbf6b0b4cd7b6817413911625a26268",
+    "tools/quality/godot.py": "17765e04589b37c863dfcab5125c56471356a2468a397057cae92ac230459e35",
+    "tools/quality/test_quality.py": "4f794791d8cbf7965beae7d55d763356bed2671ab6354e410eff3cdec93981cf"
+  },
+  "images": {
+    "editor-and-pause-game.png": "728bb5891b3f39d0ecacda1370dd5e80b87087add29728e89ca125fe603acf25",
+    "editor-and-pause-preview.png": "ba029482cf5e4f5c12c448d35101bcbc98603c59f2ccd27bce595d687cb64fce",
+    "editor-and-pause.png": "685dab76ae808e38cb550755155d38d6583c41b1070ffd133494551cbe79fdb0",
+    "game-moves-game.png": "793b15d4a4cc2f7be04941c2cc24dcc46415fc232480fc2d4c6ef876f27e3ddb",
+    "game-moves-preview.png": "ee94cfa71fda1084bd4abdc6480ce4f2c445bfc631626f53a42fa4c24dacffee",
+    "game-moves.png": "8879219f4d208515d816b76d81d02825d2154e8ecaec0a7e805b9a0ffe5adce0",
+    "map-entry-game.png": "d6444e6bfef06fa27388fe48e507aedfb0a4a1604585e4c426fea97d48922942",
+    "map-entry-preview.png": "ad091cf9a96c9cd3c73a56299975db7ec7272804ee877a101e817813b750e2be",
+    "map-entry.png": "c4603aa95fea6595a61c6d9fdc6f0ae2537b03cf425e891bc0e93d527768b54a",
+    "map-return-game.png": "938929ab662a7a9f6830507a264110b0fad6d092bbf03e71913f9d1ca5d3e7ea",
+    "map-return-preview.png": "304a557b9df19583c9f631113f274f8fe4670b0376787436c4baedd8759aed2c",
+    "map-return.png": "2c4c28234d6500b59c9b12f88f638cd9cb2e4bccbb6d2bbf1c898e02c71dc6a5",
+    "same-camera-game.png": "1c97cedaa74dac710307e27616ffa908bfaa59f0f47a6a38785dea48ac565aac",
+    "same-camera-preview.png": "a953b5bd4788b592ca8396f29e08b7357e8cf7de9a79583a5300b83cb3858cab",
+    "same-camera.png": "05e85d9c64adc7e44af641c12e7481bc5991de779dfb16cd61ec5a8023dce101"
+  },
+  "configuration": {
+    "cases": [
+      "same-camera",
+      "game-moves",
+      "editor-and-pause",
+      "map-entry",
+      "map-return"
+    ],
+    "display": "macOS",
+    "engine": "4.7.1-stable (official)",
+    "logical_viewport": [
+      1152,
+      648
+    ],
+    "profile": "Codex-VRENDER-009-20261111-R11F",
+    "script": "tools/qa/world/viewport_isolation_capture.gd",
+    "window": [
+      1152,
+      648
+    ]
+  }
+}

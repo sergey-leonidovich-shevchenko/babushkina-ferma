@@ -326,11 +326,11 @@ Feature flag переключает только эталонный участо
 
 ## VRENDER-009 — Изолировать параметры нескольких viewport
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `in_progress` · P0 · этап `foundation` · `engineering`
 
 Редактор, мини-превью и игра не перезаписывают позиции и время друг друга; выбран один владелец на мир
 
-Ветка: `codex/vrender-009-visual-task`.
+Ветка: `codex/vrender-009-viewport-isolation`.
 
 Зависимости: VRENDER-008.
 
@@ -342,7 +342,7 @@ Feature flag переключает только эталонный участо
 - [scripts/world_background.gd](../../../../scripts/world_background.gd)
 - [scripts/presentation/village_terrain_canvas.gd](../../../../scripts/presentation/village_terrain_canvas.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrender-009/`.
+Результаты: `docs/reports/visual-overhaul/vrender-009/`.
 
 Критерии:
 
@@ -360,7 +360,7 @@ Feature flag переключает только эталонный участо
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrender-009/README.md, docs/reports/visual-overhaul/vrender-009/evidence-manifest.json, docs/reports/visual-overhaul/vrender-009/native/capture.json, docs/reports/visual-overhaul/vrender-009/summary.json, docs/reports/visual-overhaul/vrender-009/checks.json, docs/reports/visual-overhaul/vrender-009/browser-review.json, wiki/articles/viewport-world-isolation.md.
 
 <a id="vrender-010"></a>
 

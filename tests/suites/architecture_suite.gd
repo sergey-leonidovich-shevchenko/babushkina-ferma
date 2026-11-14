@@ -1,3 +1,13 @@
+# gdlint: disable=max-line-length
+# Набор хранит длинные имена сценариев и точные сообщения приёмки.
+@warning_ignore_start(
+	"untyped_declaration",
+	"unsafe_call_argument",
+	"unsafe_cast",
+	"unsafe_method_access",
+	"unsafe_property_access",
+	"unsafe_void_return"
+)
 extends RefCounted
 
 const TEST_SAVE_PATH := "user://farm-refactor-test.json"
@@ -41,11 +51,11 @@ static func run(context: SceneTree) -> void:
 	preload("res://tests/suites/presentation_pose_suite.gd").run(context)
 	preload("res://tests/suites/reference_zoom_suite.gd").run(context)
 	preload("res://tests/suites/visual_motion_suite.gd").run(context)
+	preload("res://tests/suites/architecture_composition_suite.gd").run(context)
 	test_typed_state_is_the_source_of_truth(context)
 	test_inventory_state_is_data_driven(context)
 	test_input_actions_are_centralized(context)
 	test_content_references_are_valid(context)
-	test_composition_root_and_test_runner_stay_small(context)
 	test_save_v2_migration_and_backup(context)
 	test_presentation_calculations_are_pure(context)
 	test_generation_pipeline_is_portable_and_git_clean(context)
@@ -61,11 +71,16 @@ static func test_typed_state_is_the_source_of_truth(context: SceneTree) -> void:
 	game.player = Vector2(701, 419)
 	game.player_hp = 73
 	game.day = 8
-	context.expect(game.state.player.position == Vector2(701, 419), "typed PlayerState owns the facade position")
+	context.expect(
+		game.state.player.position == Vector2(701, 419),
+		"typed PlayerState owns the facade position"
+	)
 	context.expect(game.state.player.hp == 73, "typed PlayerState owns RPG resources")
 	context.expect(game.state.world.day == 8, "typed WorldState owns calendar data")
 	game.state.player.hp = 61
-	context.expect(game.player_hp == 61, "legacy scene facade reads the typed state without a copied value")
+	context.expect(
+		game.player_hp == 61, "legacy scene facade reads the typed state without a copied value"
+	)
 	game.free()
 
 
@@ -74,11 +89,23 @@ static func test_typed_state_is_the_source_of_truth(context: SceneTree) -> void:
 ## Ожидаемый результат: известный предмет меняется и экспортируется, а неизвестный идентификатор отклоняется.
 static func test_inventory_state_is_data_driven(context: SceneTree) -> void:
 	var game: Node = context.make_game()
-	context.expect(game.change_inventory_count("fiber", 4), "registered item count changes without a game facade match branch")
-	context.expect(game.inventory_item_count("fiber") == 4 and game.state.inventory.count("fiber") == 4, "inventory facade and InventoryState share one count")
-	context.expect(not game.change_inventory_count("unknown_item", 1), "unregistered item ids are rejected at the state boundary")
+	context.expect(
+		game.change_inventory_count("fiber", 4),
+		"registered item count changes without a game facade match branch"
+	)
+	context.expect(
+		game.inventory_item_count("fiber") == 4 and game.state.inventory.count("fiber") == 4,
+		"inventory facade and InventoryState share one count"
+	)
+	context.expect(
+		not game.change_inventory_count("unknown_item", 1),
+		"unregistered item ids are rejected at the state boundary"
+	)
 	var exported: Dictionary = game.export_inventory_counts()
-	context.expect(exported.size() == game.state.inventory.counts.size() and exported.fiber == 4, "inventory export is generated from one catalog")
+	context.expect(
+		exported.size() == game.state.inventory.counts.size() and exported.fiber == 4,
+		"inventory export is generated from one catalog"
+	)
 	game.free()
 
 
@@ -89,7 +116,13 @@ static func test_input_actions_are_centralized(context: SceneTree) -> void:
 	var game: Node = context.make_game()
 	for action in game.InputSystem.ACTION_BINDINGS:
 		context.expect(InputMap.has_action(action), "InputMap registers action: %s" % action)
-	context.expect(game.InputSystem.ACTION_BINDINGS.has("move_left") and game.InputSystem.ACTION_BINDINGS.has("use_item"), "movement and tool use share a rebindable action catalog")
+	context.expect(
+		(
+			game.InputSystem.ACTION_BINDINGS.has("move_left")
+			and game.InputSystem.ACTION_BINDINGS.has("use_item")
+		),
+		"movement and tool use share a rebindable action catalog"
+	)
 	game.free()
 
 
@@ -100,35 +133,22 @@ static func test_content_references_are_valid(context: SceneTree) -> void:
 	preload("res://tests/suites/content_reference_suite.gd").new(context).run()
 	var game: Node = context.make_game()
 	var errors: Array[String] = game.ContentRegistry.validate()
-	context.expect(errors.is_empty(), "recipes loot quests spawns shops and tutorials reference valid catalog ids: %s" % [errors])
-	context.expect(game.enemy_nodes.size() == game.CombatSystem.default_enemies().size() and game.hazard_nodes.size() == game.EnvironmentHazardSystem.SPAWNS.size() and game.food_nodes == game.ForageSystem.default_nodes(), "feature systems own their default content and apply the current map placements instead of hardcoding them in game.gd")
+	context.expect(
+		errors.is_empty(),
+		"recipes loot quests spawns shops and tutorials reference valid catalog ids: %s" % [errors]
+	)
+	(
+		context
+		. expect(
+			(
+				game.enemy_nodes.size() == game.CombatSystem.default_enemies().size()
+				and game.hazard_nodes.size() == game.EnvironmentHazardSystem.SPAWNS.size()
+				and game.food_nodes == game.ForageSystem.default_nodes()
+			),
+			"feature systems own their default content and apply the current map placements instead of hardcoding them in game.gd"
+		)
+	)
 	game.free()
-
-
-## Сценарий: композиционный корень, отрисовщики и запуск тестов сохраняют ограниченные ответственности и размеры.
-## Исходное состояние: исходные тексты фасадов, core-модулей и тематических адаптеров читаются без запуска сцены.
-## Ожидаемый результат: запуск, кадр, ввод, взаимодействия, ферма и документы редактора имеют отдельных владельцев и строгие лимиты.
-static func test_composition_root_and_test_runner_stay_small(context: SceneTree) -> void:
-	var game_source := FileAccess.get_file_as_string("res://scripts/game.gd")
-	var core_source := FileAccess.get_file_as_string("res://scripts/game_core.gd")
-	var renderer_source := FileAccess.get_file_as_string("res://scripts/game_renderer.gd")
-	var interface_source := FileAccess.get_file_as_string("res://scripts/systems/interface_renderer.gd")
-	var input_source := FileAccess.get_file_as_string("res://scripts/systems/input_system.gd")
-	var inventory_input_source := FileAccess.get_file_as_string("res://scripts/systems/inventory_input_system.gd")
-	var editor_source := FileAccess.get_file_as_string("res://scripts/systems/level_editor_system.gd")
-	var editor_store := FileAccess.get_file_as_string("res://scripts/editor/level_editor_document_store.gd")
-	var runner_source := FileAccess.get_file_as_string("res://tests/test_game.gd")
-	context.expect(not game_source.contains("func draw_") and renderer_source.contains("func draw_world"), "composition root delegates all drawing to the renderer layer")
-	context.expect(_code_line_count(core_source) <= 750 and _code_line_count(renderer_source) <= 450, "composition and renderer stay below tightened size limits")
-	for module_name in ["game_bootstrap", "game_loop", "game_input_router", "game_interaction_router", "game_preview_controller"]:
-		var module_source := FileAccess.get_file_as_string("res://scripts/core/%s.gd" % module_name)
-		context.expect(not module_source.is_empty() and _code_line_count(module_source) <= 260, "bounded core module exists: %s" % module_name)
-	context.expect(core_source.contains("GameBootstrap.initialize") and core_source.contains("GameLoop.physics_process") and core_source.contains("GameInputRouter.route") and core_source.contains("GameInteractionRouter.perform"), "game core is a compatibility facade over explicit orchestration modules")
-	context.expect(renderer_source.contains("InterfaceRenderer.draw(self)") and _code_line_count(interface_source) <= 300, "HUD and inventory rendering live in a bounded interface module")
-	context.expect(renderer_source.contains("FarmRenderer.draw(self)") and _code_line_count(FileAccess.get_file_as_string("res://scripts/presentation/farm_renderer.gd")) <= 180, "farm visuals belong to a bounded presentation module")
-	context.expect(editor_source.contains("DocumentStore.save_draft") and _code_line_count(editor_source) <= 420 and _code_line_count(editor_store) <= 180, "level editor delegates JSON persistence to a bounded document store")
-	context.expect(inventory_input_source.contains("func handle_mouse") and not input_source.contains("func handle_inventory_mouse") and not game_source.contains("func handle_inventory_mouse"), "inventory pointer behavior belongs to its dedicated input system")
-	context.expect(_code_line_count(runner_source) < 80 and runner_source.contains("CoreSuite.new(self).run()"), "test entry point only orchestrates bounded suites")
 
 
 ## Сценарий: старая схема сохранения мигрирует, а повреждённый основной файл заменяется последней корректной копией.
@@ -138,22 +158,39 @@ static func test_save_v2_migration_and_backup(context: SceneTree) -> void:
 	_cleanup_save_files()
 	var game: Node = context.make_game()
 	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
-	context.expect(snapshot.version == 2 and snapshot.state_schema == "aggregate-v2", "new snapshots use typed-state save schema v2")
+	context.expect(
+		snapshot.version == 2 and snapshot.state_schema == "aggregate-v2",
+		"new snapshots use typed-state save schema v2"
+	)
 	var legacy := snapshot.duplicate(true)
 	legacy.version = 1
 	legacy.erase("state_schema")
 	game.coins = 1
-	context.expect(game.SaveSystem.apply(game, legacy) and game.coins == snapshot.coins, "v1 snapshot migrates to v2 before applying")
+	context.expect(
+		game.SaveSystem.apply(game, legacy) and game.coins == snapshot.coins,
+		"v1 snapshot migrates to v2 before applying"
+	)
 	game.coins = 91
-	context.expect(game.SaveSystem.save_at(game, TEST_SAVE_PATH), "first save is written through a validated temporary file")
+	context.expect(
+		game.SaveSystem.save_at(game, TEST_SAVE_PATH),
+		"first save is written through a validated temporary file"
+	)
 	game.coins = 77
-	context.expect(game.SaveSystem.save_at(game, TEST_SAVE_PATH), "second atomic save succeeds and keeps the previous backup")
+	context.expect(
+		game.SaveSystem.save_at(game, TEST_SAVE_PATH),
+		"second atomic save succeeds and keeps the previous backup"
+	)
 	var corrupt := FileAccess.open(TEST_SAVE_PATH, FileAccess.WRITE)
 	corrupt.store_string("{broken json")
 	corrupt.close()
 	var restored: Node = context.make_game()
-	context.expect(game.SaveSystem.load_at(restored, TEST_SAVE_PATH), "loader falls back to the last valid backup")
-	context.expect(restored.coins == 91, "backup restores the previous complete save instead of partial data")
+	context.expect(
+		game.SaveSystem.load_at(restored, TEST_SAVE_PATH),
+		"loader falls back to the last valid backup"
+	)
+	context.expect(
+		restored.coins == 91, "backup restores the previous complete save instead of partial data"
+	)
 	game.free()
 	restored.free()
 	_cleanup_save_files()
@@ -164,9 +201,18 @@ static func test_save_v2_migration_and_backup(context: SceneTree) -> void:
 ## Ожидаемый результат: кадры корректно зацикливаются, неверные параметры безопасны, а раскладка имеет одного владельца.
 static func test_presentation_calculations_are_pure(context: SceneTree) -> void:
 	var game: Node = context.make_game()
-	context.expect(game.PresentationSystem.animation_frame(560, 4, 140) == 0, "animation frame calculation wraps deterministically")
-	context.expect(game.PresentationSystem.animation_frame(10, 0, 0) == 0, "animation frame calculation handles invalid content data")
-	context.expect(game.PresentationSystem.discovery_card_rect() == game.discovery_card_rect(), "discovery layout has one presentation owner")
+	context.expect(
+		game.PresentationSystem.animation_frame(560, 4, 140) == 0,
+		"animation frame calculation wraps deterministically"
+	)
+	context.expect(
+		game.PresentationSystem.animation_frame(10, 0, 0) == 0,
+		"animation frame calculation handles invalid content data"
+	)
+	context.expect(
+		game.PresentationSystem.discovery_card_rect() == game.discovery_card_rect(),
+		"discovery layout has one presentation owner"
+	)
 	game.free()
 
 
@@ -175,11 +221,25 @@ static func test_presentation_calculations_are_pure(context: SceneTree) -> void:
 ## Ожидаемый результат: абсолютных пользовательских путей нет, master разрешён, тысячи нарезанных тайлов игнорируются.
 static func test_generation_pipeline_is_portable_and_git_clean(context: SceneTree) -> void:
 	var concept_source := FileAccess.get_file_as_string("res://scripts/generate_level_concepts.py")
-	var split_source := FileAccess.get_file_as_string("res://scripts/split_fairytale_level_tiles.py")
+	var split_source := FileAccess.get_file_as_string(
+		"res://scripts/split_fairytale_level_tiles.py"
+	)
 	var ignore_source := FileAccess.get_file_as_string("res://.gitignore")
-	var portable := not concept_source.contains("/Users/") and not split_source.contains("/Users/") and concept_source.contains("Path(__file__).resolve()")
-	var clean := ignore_source.contains("/assets/generated/level_drafts/*") and ignore_source.contains("!/assets/generated/level_drafts/first_level_fairytale_master_v1.png")
-	context.expect(portable and clean, "level generation is clone-portable and excludes reproducible tile drafts from Git")
+	var portable := (
+		not concept_source.contains("/Users/")
+		and not split_source.contains("/Users/")
+		and concept_source.contains("Path(__file__).resolve()")
+	)
+	var clean := (
+		ignore_source.contains("/assets/generated/level_drafts/*")
+		and ignore_source.contains(
+			"!/assets/generated/level_drafts/first_level_fairytale_master_v1.png"
+		)
+	)
+	context.expect(
+		portable and clean,
+		"level generation is clone-portable and excludes reproducible tile drafts from Git"
+	)
 
 
 ## Сценарий: каждое семейство мировых изображений учтено в постоянном аудите миграции на базовую сетку.
@@ -192,7 +252,7 @@ static func test_world_sprite_manifest_tracks_grid_migration(context: SceneTree)
 	var ids: Dictionary = {}
 	var priorities := {"P1": 0, "P2": 0, "P3": 0}
 	var complete_count := 0
-	var pending:Dictionary={}
+	var pending: Dictionary = {}
 	for entry_value in entries:
 		var entry: Dictionary = entry_value
 		var entry_id := String(entry.get("id", ""))
@@ -202,15 +262,62 @@ static func test_world_sprite_manifest_tracks_grid_migration(context: SceneTree)
 			complete_count += 1
 		else:
 			priorities[priority] = int(priorities.get(priority, 0)) + 1
-			pending[entry_id]=entry
-		context.expect(not entry.get("assets", []).is_empty() and not entry.get("runtime_sizes", []).is_empty() and not entry.get("target_modules", []).is_empty(), "%s records sources actual sizes and target modules" % entry_id)
-		context.expect(not String(entry.get("anchor", "")).is_empty() and not String(entry.get("collision", "")).is_empty() and not String(entry.get("done_when", "")).is_empty(), "%s records geometry and completion criteria" % entry_id)
-	context.expect(int(manifest.get("base_cell", 0)) == 24, "world sprite audit uses the shared 24 px base cell")
-	context.expect(entries.size() >= 24 and ids.has("WS-024") and ids.size() == entries.size(), "world sprite audit keeps every id unique and registers the modular village")
-	context.expect(complete_count==entries.size()-1 and priorities.P1==1 and priorities.P2==0 and priorities.P3==0 and pending.keys()==["WS-019"], "only the explicitly documented guardian animation remains in the migration queue")
-	var guardian:Dictionary=pending.get("WS-019",{})
-	context.expect(guardian.get("status")=="migration" and String(guardian.get("debt","")).contains("цельный рисунок") and String(guardian.get("done_when","")).contains("четыре настоящие стороны"), "guardian migration records the whole-pose fallback and concrete requirements for the selected replacement")
-	context.expect(not FileAccess.file_exists("res://assets/game/characters/farmer_walk.png") and not FileAccess.file_exists("res://assets/game/enemies/orc_idle.png") and not FileAccess.file_exists("res://assets/game/enemies/predator_plant_idle.png") and FileAccess.file_exists("res://assets/game/enemies/slime_idle.png"), "superseded sheets stay removed while the intentional story slime fallback remains")
+			pending[entry_id] = entry
+		context.expect(
+			(
+				not entry.get("assets", []).is_empty()
+				and not entry.get("runtime_sizes", []).is_empty()
+				and not entry.get("target_modules", []).is_empty()
+			),
+			"%s records sources actual sizes and target modules" % entry_id
+		)
+		context.expect(
+			(
+				not String(entry.get("anchor", "")).is_empty()
+				and not String(entry.get("collision", "")).is_empty()
+				and not String(entry.get("done_when", "")).is_empty()
+			),
+			"%s records geometry and completion criteria" % entry_id
+		)
+	context.expect(
+		int(manifest.get("base_cell", 0)) == 24,
+		"world sprite audit uses the shared 24 px base cell"
+	)
+	context.expect(
+		entries.size() >= 24 and ids.has("WS-024") and ids.size() == entries.size(),
+		"world sprite audit keeps every id unique and registers the modular village"
+	)
+	context.expect(
+		(
+			complete_count == entries.size() - 1
+			and priorities.P1 == 1
+			and priorities.P2 == 0
+			and priorities.P3 == 0
+			and pending.keys() == ["WS-019"]
+		),
+		"only the explicitly documented guardian animation remains in the migration queue"
+	)
+	var guardian: Dictionary = pending.get("WS-019", {})
+	(
+		context
+		. expect(
+			(
+				guardian.get("status") == "migration"
+				and String(guardian.get("debt", "")).contains("цельный рисунок")
+				and String(guardian.get("done_when", "")).contains("четыре настоящие стороны")
+			),
+			"guardian migration records the whole-pose fallback and concrete requirements for the selected replacement"
+		)
+	)
+	context.expect(
+		(
+			not FileAccess.file_exists("res://assets/game/characters/farmer_walk.png")
+			and not FileAccess.file_exists("res://assets/game/enemies/orc_idle.png")
+			and not FileAccess.file_exists("res://assets/game/enemies/predator_plant_idle.png")
+			and FileAccess.file_exists("res://assets/game/enemies/slime_idle.png")
+		),
+		"superseded sheets stay removed while the intentional story slime fallback remains"
+	)
 
 
 ## Сценарий: каждый метод в игровых и тестовых сценариях имеет непосредственно над объявлением русскую документацию.
@@ -221,7 +328,9 @@ static func test_all_methods_have_russian_documentation(context: SceneTree) -> v
 	for root in ["res://scripts", "res://tests"]:
 		for path in _collect_gd_files(root):
 			errors.append_array(_documentation_errors(path))
-	context.expect(errors.is_empty(), "every GDScript method has adjacent Russian documentation: %s" % [errors])
+	context.expect(
+		errors.is_empty(), "every GDScript method has adjacent Russian documentation: %s" % [errors]
+	)
 
 
 ## Рекурсивно собирает пути всех файлов сценариев внутри указанного каталога проекта.
@@ -267,16 +376,6 @@ static func _contains_cyrillic(value: String) -> bool:
 		if (code >= 0x0410 and code <= 0x044F) or code in [0x0401, 0x0451]:
 			return true
 	return false
-
-
-## Считает только исполняемые строки, чтобы документация не влияла на архитектурные лимиты модулей.
-static func _code_line_count(source: String) -> int:
-	var result := 0
-	for line in source.split("\n"):
-		var stripped := String(line).strip_edges()
-		if not stripped.is_empty() and not stripped.begins_with("#"):
-			result += 1
-	return result
 
 
 ## Удаляет временные тестовые данные, не затрагивая пользовательское сохранение.
