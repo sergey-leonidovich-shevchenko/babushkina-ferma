@@ -1614,6 +1614,7 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vrender-009-viewport-isolation",
+      "result": "Нативная серия R11F: 5 сценариев, 15 PNG и 20 неизменных пар сохранения вокруг production draw. Историческая проверка закреплена за точными Git blobs. PR №43 (https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/43) ожидает независимого ревью обновлённого head и решения Team Lead.",
       "evidence": [
         "docs/reports/visual-overhaul/vrender-009/README.md",
         "docs/reports/visual-overhaul/vrender-009/evidence-manifest.json",

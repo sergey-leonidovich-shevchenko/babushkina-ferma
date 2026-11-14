@@ -4,6 +4,7 @@
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 from pathlib import Path
 from typing import Any, cast
@@ -68,7 +69,7 @@ def byte_digest(value: bytes) -> str:
 def git(root: Path, *arguments: str, check: bool = True) -> subprocess.CompletedProcess[bytes]:
     """Run Git without accepting inherited repository substitutions."""
     return subprocess.run(
-        ["git", "-C", str(root), *arguments],
+        ["git", "--no-replace-objects", "-C", str(root), *arguments],
         env=git_environment(),
         check=check,
         capture_output=True,
@@ -77,16 +78,40 @@ def git(root: Path, *arguments: str, check: bool = True) -> subprocess.Completed
 
 def git_blob(root: Path, commit: str, name: str) -> bytes:
     """Read one source exactly from the declared real commit."""
-    return git(root, "show", f"{commit}:{name}").stdout
+    return git(root, "cat-file", "blob", f"{commit}:{name}").stdout
+
+
+def require_commit(root: Path, commit: str, label: str) -> None:
+    """Reject abbreviated IDs, ref names, and non-commit objects."""
+    require(isinstance(commit, str) and re.fullmatch(r"[0-9a-f]{40}", commit), label)
+    result = git(root, "cat-file", "-t", commit, check=False)
+    require(result.returncode == 0 and result.stdout == b"commit\n", label)
 
 
 def validate_base(root: Path, commit: str) -> None:
     """Require an actual ancestor commit rather than a forty-character label."""
-    require(len(commit) == 40, "capture base commit")
-    git(root, "cat-file", "-e", commit + "^{commit}")
+    require_commit(root, commit, "capture base commit")
     require(
         git(root, "merge-base", "--is-ancestor", commit, "HEAD", check=False).returncode == 0,
         "capture base is not an ancestor",
+    )
+
+
+def git_sources(root: Path, commit: str) -> dict[str, str]:
+    """Hash the complete capture contract from one immutable Git commit."""
+    return {name: byte_digest(git_blob(root, commit, name)) for name in SOURCES}
+
+
+def validate_source_commit(root: Path, base: str, commit: str) -> None:
+    """Require a real accepted-source commit on the current ancestry."""
+    require_commit(root, commit, "source commit")
+    require(
+        git(root, "merge-base", "--is-ancestor", base, commit, check=False).returncode == 0,
+        "source commit does not descend from capture base",
+    )
+    require(
+        git(root, "merge-base", "--is-ancestor", commit, "HEAD", check=False).returncode == 0,
+        "source commit is not an ancestor",
     )
 
 
@@ -119,18 +144,20 @@ def expected_image_names(data: dict[str, Any]) -> set[str]:
     return names
 
 
-def load_manifest(report: Path) -> dict[str, Any]:
+def load_manifest(report: Path, root: Path) -> dict[str, Any]:
     """Use the Git-indexed canonical seal even when testing a damaged report copy."""
-    canonical = REPORT / MANIFEST_NAME
+    relative = REPORT.relative_to(ROOT) / MANIFEST_NAME
+    canonical = root / relative
     candidate = report / MANIFEST_NAME
     require(canonical.is_file() and candidate.is_file(), "sealed evidence manifest")
     require(digest(candidate) == digest(canonical), "foreign evidence manifest")
-    relative = canonical.relative_to(ROOT).as_posix()
-    indexed = git(ROOT, "show", ":" + relative).stdout
+    indexed = git(root, "show", ":" + relative.as_posix()).stdout
     require(byte_digest(indexed) == digest(canonical), "manifest differs from Git index")
     manifest = cast(dict[str, Any], json.loads(candidate.read_text()))
     require(
-        manifest.get("schema") == 1 and manifest.get("task") == "VRENDER-009",
+        manifest.get("schema") == 2
+        and manifest.get("task") == "VRENDER-009"
+        and "source_commit" in manifest,
         "manifest schema",
     )
     return manifest
@@ -161,9 +188,10 @@ def seal(report: Path = REPORT, root: Path = ROOT) -> dict[str, Any]:
         if byte_digest(git_blob(root, base, name)) != value
     }
     manifest: dict[str, Any] = {
-        "schema": 1,
+        "schema": 2,
         "task": "VRENDER-009",
         "base_commit": base,
+        "source_commit": None,
         "capture_sha256": digest(capture),
         "sources": sources,
         "overlay": overlay,
@@ -171,6 +199,19 @@ def seal(report: Path = REPORT, root: Path = ROOT) -> dict[str, Any]:
         "configuration": provenance.get("launch", {}),
     }
     (report / MANIFEST_NAME).write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
+    return manifest
+
+
+def bind_source_commit(commit: str, report: Path = REPORT, root: Path = ROOT) -> dict[str, Any]:
+    """Bind an accepted current-mode package to exact sources in a real commit."""
+    verify(report, root, check_current_candidate=True)
+    path = Path(report) / MANIFEST_NAME
+    manifest = cast(dict[str, Any], json.loads(path.read_text()))
+    require(manifest.get("source_commit") is None, "source commit already bound")
+    validate_source_commit(root, manifest["base_commit"], commit)
+    require(git_sources(root, commit) == manifest["sources"], "source commit bytes changed")
+    manifest["source_commit"] = commit
+    path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
     return manifest
 
 
@@ -200,12 +241,14 @@ def stable_fields(state: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def verify(report: Path = REPORT, root: Path = ROOT) -> dict[str, Any]:
+def verify(
+    report: Path = REPORT, root: Path = ROOT, *, check_current_candidate: bool = False
+) -> dict[str, Any]:
     """Validate provenance, owners, both mutation directions and exact render-only draws."""
     report = Path(report)
     native = report / "native"
     capture = native / "capture.json"
-    manifest = load_manifest(report)
+    manifest = load_manifest(report, root)
     require(digest(capture) == manifest["capture_sha256"], "capture bytes changed")
     data = json.loads(capture.read_text())
     require(data["task"] == "VRENDER-009", "capture task")
@@ -214,7 +257,17 @@ def verify(report: Path = REPORT, root: Path = ROOT) -> dict[str, Any]:
     provenance = data.get("provenance", {})
     require(set(manifest["sources"]) == set(SOURCES), "sealed source set")
     require(provenance.get("sources") == manifest["sources"], "captured source manifest")
-    require(current_sources(root) == manifest["sources"], "runtime source bytes changed")
+    source_commit = manifest["source_commit"]
+    if source_commit is None or check_current_candidate:
+        require(current_sources(root) == manifest["sources"], "runtime source bytes changed")
+    source_validation = "current"
+    if source_commit is not None:
+        validate_source_commit(root, data["base_commit"], source_commit)
+        require(
+            git_sources(root, source_commit) == manifest["sources"],
+            "source commit bytes changed",
+        )
+        source_validation = "current+git-commit" if check_current_candidate else "git-commit"
     expected_overlay = {
         name: value
         for name, value in manifest["sources"].items()
@@ -406,6 +459,8 @@ def verify(report: Path = REPORT, root: Path = ROOT) -> dict[str, Any]:
     return {
         "task": "VRENDER-009",
         "base_commit": data["base_commit"],
+        "source_commit": source_commit,
+        "source_validation": source_validation,
         "configuration": manifest["configuration"],
         "capture_sha256": manifest["capture_sha256"],
         "source_tree_sha256": tree_hash,
@@ -423,13 +478,22 @@ def verify(report: Path = REPORT, root: Path = ROOT) -> dict[str, Any]:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--seal", action="store_true")
+    action = parser.add_mutually_exclusive_group()
+    action.add_argument("--seal", action="store_true")
+    action.add_argument("--bind-source-commit")
+    action.add_argument("--check-current-candidate", action="store_true")
     parser.add_argument("--write", action="store_true")
     arguments = parser.parse_args()
     if arguments.seal:
         print(json.dumps(seal(), ensure_ascii=False, indent=2))
+    elif arguments.bind_source_commit:
+        print(
+            json.dumps(
+                bind_source_commit(arguments.bind_source_commit), ensure_ascii=False, indent=2
+            )
+        )
     else:
-        result = verify()
+        result = verify(check_current_candidate=arguments.check_current_candidate)
         if arguments.write:
             REPORT.mkdir(parents=True, exist_ok=True)
             (REPORT / "summary.json").write_text(

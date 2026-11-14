@@ -1,6 +1,8 @@
 {
   "task": "VRENDER-009",
   "base_commit": "976353fc647191d5d330ec1f612a43e61bf49a83",
+  "source_commit": "f4d1a04d1ebfb83063d3561534b832ea55c914e9",
+  "source_validation": "git-commit",
   "configuration": {
     "cases": [
       "same-camera",

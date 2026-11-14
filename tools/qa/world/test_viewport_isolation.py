@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any, ClassVar
 from unittest.mock import patch
 
+from tools.planning.bump_version import replace_or_insert_project_version
 from tools.qa.world import viewport_isolation_verify as audit
 
 
@@ -174,7 +175,7 @@ class ViewportIsolationTests(unittest.TestCase):
     def test_nonexistent_base_commit(self) -> None:
         self.changed(
             lambda data: data.update(base_commit="0" * 40),
-            "capture base identity|returned non-zero",
+            "capture base commit",
             True,
             lambda manifest: manifest.update(base_commit="0" * 40),
         )
@@ -215,7 +216,76 @@ class ViewportIsolationTests(unittest.TestCase):
             patch.object(audit, "current_sources", return_value=sources),
             self.assertRaisesRegex(ValueError, "runtime source bytes changed"),
         ):
-            audit.verify()
+            audit.verify(check_current_candidate=True)
+
+    def test_missing_source_commit(self) -> None:
+        self.changed(
+            lambda _: None,
+            "^source commit$",
+            True,
+            lambda manifest: manifest.update(source_commit="0" * 40),
+        )
+
+    def test_wrong_source_commit_bytes(self) -> None:
+        self.changed(
+            lambda _: None,
+            "source commit bytes changed",
+            True,
+            lambda manifest: manifest.update(source_commit=manifest["base_commit"]),
+        )
+
+    def test_historical_evidence_survives_metadata_commit(self) -> None:
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            audit.git(root, "init", "--template=")
+            audit.git(root, "config", "user.name", "VRENDER QA")
+            audit.git(root, "config", "user.email", "vrender-qa@example.invalid")
+            audit.git(root, "config", "core.autocrlf", "false")
+            audit.git(root, "config", "commit.gpgsign", "false")
+            data = copy.deepcopy(self.data)
+            for name in audit.SOURCES:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(audit.git_blob(audit.ROOT, data["base_commit"], name))
+            audit.git(root, "add", "--all")
+            audit.git(root, "commit", "-m", "capture base")
+            data["base_commit"] = audit.git(root, "rev-parse", "HEAD").stdout.decode().strip()
+
+            project = root / "project.godot"
+            project.write_text(replace_or_insert_project_version(project.read_text(), "1.0.0"))
+            audit.git(root, "add", "project.godot")
+            audit.git(root, "commit", "-m", "captured sources")
+            source_commit = audit.git(root, "rev-parse", "HEAD").stdout.decode().strip()
+            data["provenance"]["sources"] = audit.current_sources(root)
+
+            report = root / audit.REPORT.relative_to(audit.ROOT)
+            native = report / "native"
+            native.mkdir(parents=True)
+            for image in audit.NATIVE.glob("*.png"):
+                (native / image.name).symlink_to(image)
+            (native / "capture.json").write_text(json.dumps(data))
+            manifest = report / audit.MANIFEST_NAME
+            relative = manifest.relative_to(root).as_posix()
+            audit.seal(report, root)
+            audit.git(root, "add", relative)
+            self.assertEqual(audit.verify(report, root)["source_validation"], "current")
+            audit.bind_source_commit(source_commit, report, root)
+            audit.git(root, "add", relative)
+            audit.git(root, "commit", "-m", "pin capture inputs")
+
+            project.write_text(replace_or_insert_project_version(project.read_text(), "1.0.1"))
+            audit.git(root, "add", "project.godot")
+            audit.git(root, "commit", "-m", "bump project metadata")
+            self.assertEqual(
+                audit.git(root, "diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").stdout,
+                b"project.godot\n",
+            )
+            with self.assertRaisesRegex(ValueError, "runtime source bytes changed"):
+                audit.verify(report, root, check_current_candidate=True)
+            result = audit.verify(report, root)
+            self.assertEqual(result["source_commit"], source_commit)
+            self.assertEqual(result["source_validation"], "git-commit")
+            self.assertEqual(result["production_draws"], 20)
 
 
 if __name__ == "__main__":

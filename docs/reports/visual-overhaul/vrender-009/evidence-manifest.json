@@ -1,7 +1,8 @@
 {
-  "schema": 1,
+  "schema": 2,
   "task": "VRENDER-009",
   "base_commit": "976353fc647191d5d330ec1f612a43e61bf49a83",
+  "source_commit": "f4d1a04d1ebfb83063d3561534b832ea55c914e9",
   "capture_sha256": "bdee03042dfa9484eb0b9d9c2c84d8f937ea3553a4072debb5f5c5732fcc2613",
   "sources": {
     "project.godot": "b0434fbb2faa92d283288802e55101f82d9e629c173fa4f4f66c6ffad7b4b36b",
