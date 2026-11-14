@@ -1,0 +1,11 @@
+# VRENDER-009 — приёмка
+
+Team Lead принял реализацию после независимого ревью коммита `1c931d933b21a5d029bc12e50fea4b1ebfac10cf` и CI 9/9. Tech Lead влил задачу в `main` обычным merge-коммитом `a42b0a781845a9711147212edd6d7017eb05a86e` 14 ноября 2026 года в 21:03:51 по времени Алматы. Дерево merge совпадает с принятым head. Все семь обсуждений ревью закрыты. [PR №43](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/43) · [Одобрение](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/43#pullrequestreview-5905651734).
+
+Игра и встроенное превью используют независимые камеру, фон, декоративное время и состояние при переходах карты. В пяти сценариях R11F сохранены 15 PNG и 20 полных пар сохранений до и после отрисовки. Архив сверяется с 27 Git blobs коммита `f4d1a04d1ebfb83063d3561534b832ea55c914e9`, который остался предком `main`. Независимое ревью подтвердило, что после отдельного коммита смены версии архив проходит, а проверка свежего кандидата обнаруживает расхождение байтов. [Манифест R11F](../evidence-manifest.json) · [Сводка R11F](../summary.json).
+
+На принятом SHA оба общих прогона прошли архитектуру, по 53 619 игровых проверок, по 90 проверок отрисовки в каждом режиме, smoke и по шесть замеров производительности. Wiki прошла 153 проверки. [Прогон PR](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43611074286) · [Прогон push](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43611068462).
+
+Отдельная проверка VGROUND-002 на X11 в первом прогоне получила одинаковые весенние кадры до и после переключения цветовых пятен в первом окне. Причина сбоя не установлена. Повтор на том же коммите прошёл, а ревьюер независимо сверил 44 Git blobs, 134 результата, 66 PNG и 240 записей отрисовки в скачанном архиве. [Первый прогон](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43611074343/job/132496020725) · [Успешный повтор](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43611074343/job/132497358437).
+
+Машиночитаемые данные реализации и приёмки сохранены в [completion.json](completion.json). Документационный PR проходит собственные проверки и ревью.

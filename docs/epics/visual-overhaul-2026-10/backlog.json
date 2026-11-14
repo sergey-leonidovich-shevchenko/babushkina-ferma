@@ -1578,7 +1578,8 @@
       "id": "VRENDER-009",
       "epic": "VRENDER",
       "title": "Изолировать параметры нескольких viewport",
-      "status": "in_progress",
+      "status": "done",
+      "completed_at": "2026-11-14",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1614,7 +1615,8 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vrender-009-viewport-isolation",
-      "result": "Нативная серия R11F: 5 сценариев, 15 PNG и 20 неизменных пар сохранения вокруг production draw. Историческая проверка закреплена за точными Git blobs. PR №43 (https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/43) ожидает независимого ревью обновлённого head и решения Team Lead.",
+      "result": "Игра, превью и редактор используют независимые viewport, камеры и декоративное время. Серия R11F подтвердила 5 нативных сценариев, 15 PNG и 20 пар сохранения без изменений при отрисовке. Проверка архива использует точные Git blobs съёмки. PR №43 принят после независимого ревью и CI 9/9 и влит в main 14 ноября 2026 года.",
+      "approval": "Принято 14 ноября 2026 года через [PR №43](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/43). [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/43#pullrequestreview-5905651734) одобрило `1c931d93`. CI 9/9. Merge `a42b0a78`.",
       "evidence": [
         "docs/reports/visual-overhaul/vrender-009/README.md",
         "docs/reports/visual-overhaul/vrender-009/evidence-manifest.json",
@@ -1622,8 +1624,11 @@
         "docs/reports/visual-overhaul/vrender-009/summary.json",
         "docs/reports/visual-overhaul/vrender-009/checks.json",
         "docs/reports/visual-overhaul/vrender-009/browser-review.json",
+        "docs/reports/visual-overhaul/vrender-009/closeout/README.md",
+        "docs/reports/visual-overhaul/vrender-009/closeout/completion.json",
         "wiki/articles/viewport-world-isolation.md"
-      ]
+      ],
+      "completion": "docs/reports/visual-overhaul/vrender-009/closeout/completion.json"
     },
     {
       "id": "VRENDER-010",

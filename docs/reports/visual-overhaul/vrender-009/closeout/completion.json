@@ -1,0 +1,62 @@
+{
+  "task": "VRENDER-009",
+  "completed_at": "2026-11-14",
+  "implementation": {
+    "pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/43",
+    "base_sha": "d6d7c7c3671d5d0c76412db4da770d7d0d3711c0",
+    "head_sha": "1c931d933b21a5d029bc12e50fea4b1ebfac10cf",
+    "approved_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/43#pullrequestreview-5905651734",
+    "resolved_review_threads": 7,
+    "team_lead_decision": "accepted",
+    "merged_sha": "a42b0a781845a9711147212edd6d7017eb05a86e",
+    "merged_at": "2026-11-14T16:03:51Z",
+    "verified_head_and_merge_tree": "e59fa1212aa16d3db50b5ba481449bfcabe4afc1",
+    "version": "0.0.415"
+  },
+  "native_r11f": {
+    "profile": "Codex-VRENDER-009-20261111-R11F",
+    "source_commit": "f4d1a04d1ebfb83063d3561534b832ea55c914e9",
+    "base_commit": "976353fc647191d5d330ec1f612a43e61bf49a83",
+    "capture_sha256": "bdee03042dfa9484eb0b9d9c2c84d8f937ea3553a4072debb5f5c5732fcc2613",
+    "source_tree_sha256": "c5edda70d93365aac2151dcdfd0e00c7337a9fc4bed519dc2be9403894b5899c",
+    "source_blobs": 27,
+    "cases": 5,
+    "pngs": 15,
+    "production_draws": 20,
+    "full_save_pairs": 20
+  },
+  "implementation_ci": {
+    "successful_jobs": 9,
+    "runs": {
+      "push": 43611068462,
+      "pull_request": 43611074286,
+      "vground_002_x11": 43611074343
+    },
+    "game_assertions_per_run": 53619,
+    "game_failures": 0,
+    "redraw_assertions_per_mode": 90,
+    "wiki_tests_per_run": 153,
+    "performance_samples_per_run": 6,
+    "smoke_frames": 180
+  },
+  "vground_002_x11": {
+    "run_id": 43611074343,
+    "initial": {
+      "job_id": 132496020725,
+      "artifact_id": 14120680870,
+      "result": "failure",
+      "reason": "colour field is not visibly present: spring",
+      "root_cause": null
+    },
+    "retry": {
+      "job_id": 132497358437,
+      "artifact_id": 14120368405,
+      "artifact_sha256": "561c0e2e4276ed0ca5dfa4e91221b854be450d88c119c7497205dd04b14d9edc",
+      "result": "success",
+      "source_blobs": 44,
+      "outputs": 134,
+      "pngs": 66,
+      "draw_observations": 240
+    }
+  }
+}
