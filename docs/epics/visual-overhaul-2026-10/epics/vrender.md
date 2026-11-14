@@ -326,7 +326,7 @@ Feature flag переключает только эталонный участо
 
 ## VRENDER-009 — Изолировать параметры нескольких viewport
 
-Статус: `in_progress` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Редактор, мини-превью и игра не перезаписывают позиции и время друг друга; выбран один владелец на мир
 
@@ -335,6 +335,8 @@ Feature flag переключает только эталонный участо
 Зависимости: VRENDER-008.
 
 Единый владелец пересечения: **OPT-04**. Эта карточка уточняет работу владельца, не закрывает его автоматически.
+
+Принято 14 ноября 2026 года через [PR №43](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/43). [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/43#pullrequestreview-5905651734) одобрило `1c931d93`. CI 9/9. Merge `a42b0a78`.
 
 Исходники:
 
@@ -360,7 +362,7 @@ Feature flag переключает только эталонный участо
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vrender-009/README.md, docs/reports/visual-overhaul/vrender-009/evidence-manifest.json, docs/reports/visual-overhaul/vrender-009/native/capture.json, docs/reports/visual-overhaul/vrender-009/summary.json, docs/reports/visual-overhaul/vrender-009/checks.json, docs/reports/visual-overhaul/vrender-009/browser-review.json, wiki/articles/viewport-world-isolation.md.
+Доказательства: docs/reports/visual-overhaul/vrender-009/README.md, docs/reports/visual-overhaul/vrender-009/evidence-manifest.json, docs/reports/visual-overhaul/vrender-009/native/capture.json, docs/reports/visual-overhaul/vrender-009/summary.json, docs/reports/visual-overhaul/vrender-009/checks.json, docs/reports/visual-overhaul/vrender-009/browser-review.json, docs/reports/visual-overhaul/vrender-009/closeout/README.md, docs/reports/visual-overhaul/vrender-009/closeout/completion.json, wiki/articles/viewport-world-isolation.md.
 
 <a id="vrender-010"></a>
 
