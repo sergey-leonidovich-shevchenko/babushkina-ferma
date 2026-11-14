@@ -35,6 +35,8 @@ CURRENT_PATHS = {
 CAPTURE_SCRIPT = f"{WORLD_PATH}/viewport_isolation_capture.gd"
 CAPTURE_IMPLEMENTATION = CURRENT_PATHS[CAPTURE_SCRIPT]
 CAPTURE_ALIAS = f'extends "res://{CAPTURE_IMPLEMENTATION}"\n'.encode()
+# Git may check out the one-line entry as CRLF on Windows.
+CAPTURE_ALIAS_BYTES = (CAPTURE_ALIAS, CAPTURE_ALIAS.replace(b"\n", b"\r\n"))
 SOURCES = [
     "project.godot",
     "main.tscn",
@@ -146,7 +148,9 @@ def validate_launch_entry(root: Path, script: object, commit: str | None = None)
             "capture launch entry is missing or is not a regular file",
         )
         if is_alias:
-            require(path.read_bytes() == CAPTURE_ALIAS, "capture launch entry does not delegate")
+            require(
+                path.read_bytes() in CAPTURE_ALIAS_BYTES, "capture launch entry does not delegate"
+            )
     else:
         entry = git(root, "ls-tree", "-z", commit, "--", entry_path).stdout
         require(
@@ -155,7 +159,7 @@ def validate_launch_entry(root: Path, script: object, commit: str | None = None)
         )
         if is_alias:
             require(
-                git_blob(root, commit, entry_path) == CAPTURE_ALIAS,
+                git_blob(root, commit, entry_path) in CAPTURE_ALIAS_BYTES,
                 "capture launch entry does not delegate",
             )
 

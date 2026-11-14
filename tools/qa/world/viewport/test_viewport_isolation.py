@@ -301,6 +301,19 @@ class ViewportIsolationTests(unittest.TestCase):
             audit.git(root, "add", relative)
             self.assertEqual(audit.verify(report, root)["source_validation"], "current")
 
+            # Materialize a clean Git checkout with Windows line endings for the facade.
+            audit.git(root, "config", "core.autocrlf", "true")
+            capture_alias.unlink()
+            audit.git(root, "checkout-index", "--force", "--", audit.CAPTURE_SCRIPT)
+            self.assertEqual(capture_alias.read_bytes(), expected_alias.replace(b"\n", b"\r\n"))
+            self.assertEqual(audit.git(root, "diff", "--", audit.CAPTURE_SCRIPT).stdout, b"")
+            audit.seal(report, root)
+            self.assertEqual(
+                audit.verify(report, root, check_current_candidate=True)["source_validation"],
+                "current",
+            )
+            audit.git(root, "config", "core.autocrlf", "false")
+
             # Both checks exercise the filesystem and real committed Git entries.
             for name, replacement, message in (
                 (
@@ -309,10 +322,15 @@ class ViewportIsolationTests(unittest.TestCase):
                     "does not delegate",
                 ),
                 ("missing", None, "launch entry is missing"),
+                ("symlink", capture_alias.with_name("candidate.gd"), "launch entry is missing"),
             ):
                 with self.subTest(launch_entry=name):
                     if replacement is None:
                         capture_alias.unlink()
+                    elif isinstance(replacement, Path):
+                        replacement.write_bytes(expected_alias)
+                        capture_alias.unlink()
+                        capture_alias.symlink_to(replacement.name)
                     else:
                         capture_alias.write_bytes(replacement)
                     with self.assertRaisesRegex(ValueError, message):
@@ -322,6 +340,8 @@ class ViewportIsolationTests(unittest.TestCase):
                     audit.git(root, "add", "--all", "--", audit.CAPTURE_SCRIPT)
                     audit.git(root, "commit", "-m", f"{name} capture launch entry")
                     bad = audit.git(root, "rev-parse", "HEAD").stdout.decode().strip()
+                    if capture_alias.is_symlink():
+                        capture_alias.unlink()
                     capture_alias.write_bytes(expected_alias)
                     with self.assertRaisesRegex(ValueError, message):
                         audit.bind_source_commit(bad, report, root)
