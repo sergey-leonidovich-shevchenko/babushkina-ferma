@@ -12,7 +12,7 @@ from typing import Any, ClassVar
 from unittest.mock import patch
 
 from tools.planning.bump_version import replace_or_insert_project_version
-from tools.qa.world import viewport_isolation_verify as audit
+from tools.qa.world.viewport import viewport_isolation_verify as audit
 
 
 class ViewportIsolationTests(unittest.TestCase):
@@ -90,6 +90,28 @@ class ViewportIsolationTests(unittest.TestCase):
 
     def test_wrong_window(self) -> None:
         self.changed(lambda data: data.update(window=[2304, 1296]), "exact viewport sizes", True)
+
+    def test_foreign_launch_script(self) -> None:
+        def change_launch(data: dict[str, Any]) -> None:
+            data["provenance"]["launch"]["script"] = "tools/qa/world/unrelated.gd"
+
+        self.changed(
+            change_launch,
+            "capture script",
+            True,
+            lambda manifest: manifest["configuration"].update(script="tools/qa/world/unrelated.gd"),
+        )
+
+    def test_new_launch_script_in_historical_layout(self) -> None:
+        def change_launch(data: dict[str, Any]) -> None:
+            data["provenance"]["launch"]["script"] = audit.CAPTURE_IMPLEMENTATION
+
+        self.changed(
+            change_launch,
+            "capture script is unavailable in the source layout",
+            True,
+            lambda manifest: manifest["configuration"].update(script=audit.CAPTURE_IMPLEMENTATION),
+        )
 
     def test_missing_case(self) -> None:
         self.changed(lambda data: data["rows"].pop(), "ordered route", True)
@@ -251,9 +273,18 @@ class ViewportIsolationTests(unittest.TestCase):
             audit.git(root, "commit", "-m", "capture base")
             data["base_commit"] = audit.git(root, "rev-parse", "HEAD").stdout.decode().strip()
 
+            # Разворачиваем новое дерево поверх старого Git base. Прежний
+            # адрес capture теперь содержит только фасад.
+            for logical, physical in audit.CURRENT_PATHS.items():
+                target = root / physical
+                target.parent.mkdir(parents=True, exist_ok=True)
+                (root / logical).rename(target)
+            capture_alias = root / audit.CAPTURE_SCRIPT
+            expected_alias = (audit.ROOT / audit.CAPTURE_SCRIPT).read_bytes()
+            capture_alias.write_bytes(expected_alias)
             project = root / "project.godot"
             project.write_text(replace_or_insert_project_version(project.read_text(), "1.0.0"))
-            audit.git(root, "add", "project.godot")
+            audit.git(root, "add", "--all")
             audit.git(root, "commit", "-m", "captured sources")
             source_commit = audit.git(root, "rev-parse", "HEAD").stdout.decode().strip()
             data["provenance"]["sources"] = audit.current_sources(root)
@@ -269,8 +300,66 @@ class ViewportIsolationTests(unittest.TestCase):
             audit.seal(report, root)
             audit.git(root, "add", relative)
             self.assertEqual(audit.verify(report, root)["source_validation"], "current")
+
+            # Materialize a clean Git checkout with Windows line endings for the facade.
+            audit.git(root, "config", "core.autocrlf", "true")
+            capture_alias.unlink()
+            audit.git(root, "checkout-index", "--force", "--", audit.CAPTURE_SCRIPT)
+            self.assertEqual(capture_alias.read_bytes(), expected_alias.replace(b"\n", b"\r\n"))
+            self.assertEqual(audit.git(root, "diff", "--", audit.CAPTURE_SCRIPT).stdout, b"")
+            audit.seal(report, root)
+            self.assertEqual(
+                audit.verify(report, root, check_current_candidate=True)["source_validation"],
+                "current",
+            )
+            audit.git(root, "config", "core.autocrlf", "false")
+
+            # Both checks exercise the filesystem and real committed Git entries.
+            for name, replacement, message in (
+                (
+                    "replaced",
+                    b"extends SceneTree\nfunc _initialize(): quit(73)\n",
+                    "does not delegate",
+                ),
+                ("missing", None, "launch entry is missing"),
+                ("symlink", capture_alias.with_name("candidate.gd"), "launch entry is missing"),
+            ):
+                with self.subTest(launch_entry=name):
+                    if replacement is None:
+                        capture_alias.unlink()
+                    elif isinstance(replacement, Path):
+                        replacement.write_bytes(expected_alias)
+                        capture_alias.unlink()
+                        capture_alias.symlink_to(replacement.name)
+                    else:
+                        capture_alias.write_bytes(replacement)
+                    with self.assertRaisesRegex(ValueError, message):
+                        audit.verify(report, root, check_current_candidate=True)
+                    with self.assertRaisesRegex(ValueError, message):
+                        audit.seal(report, root)
+                    audit.git(root, "add", "--all", "--", audit.CAPTURE_SCRIPT)
+                    audit.git(root, "commit", "-m", f"{name} capture launch entry")
+                    bad = audit.git(root, "rev-parse", "HEAD").stdout.decode().strip()
+                    if capture_alias.is_symlink():
+                        capture_alias.unlink()
+                    capture_alias.write_bytes(expected_alias)
+                    with self.assertRaisesRegex(ValueError, message):
+                        audit.bind_source_commit(bad, report, root)
+
+                    bound = json.loads(manifest.read_text())
+                    bound["source_commit"] = bad
+                    original = manifest.read_bytes()
+                    try:
+                        manifest.write_text(json.dumps(bound))
+                        audit.git(root, "add", relative)
+                        with self.assertRaisesRegex(ValueError, message):
+                            audit.verify(report, root)
+                    finally:
+                        manifest.write_bytes(original)
+                        audit.git(root, "add", relative)
+
             audit.bind_source_commit(source_commit, report, root)
-            audit.git(root, "add", relative)
+            audit.git(root, "add", relative, audit.CAPTURE_SCRIPT)
             audit.git(root, "commit", "-m", "pin capture inputs")
 
             project.write_text(replace_or_insert_project_version(project.read_text(), "1.0.1"))
@@ -286,6 +375,14 @@ class ViewportIsolationTests(unittest.TestCase):
             self.assertEqual(result["source_commit"], source_commit)
             self.assertEqual(result["source_validation"], "git-commit")
             self.assertEqual(result["production_draws"], 20)
+
+            # В неполном переезде старый фасад не подменяет отсутствующий движок съёмки.
+            physical_capture = audit.CURRENT_PATHS[audit.CAPTURE_SCRIPT]
+            audit.git(root, "rm", physical_capture)
+            audit.git(root, "commit", "-m", "incomplete viewport move")
+            incomplete = audit.git(root, "rev-parse", "HEAD").stdout.decode().strip()
+            with self.assertRaises(subprocess.CalledProcessError):
+                audit.git_sources(root, incomplete)
 
 
 if __name__ == "__main__":

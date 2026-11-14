@@ -13,6 +13,7 @@
 | Проверить размещение tools | Tech Lead / Quality | `python3 tools/run.py quality.tool_layout --json` |
 | Запустить общий архитектурный gate | Tech Lead / Quality | `zsh tools/check_architecture.sh` |
 | Найти QA травы и корней | QA / Foliage | `python3 tools/run.py qa.foliage.foliage_root_verify --help` |
+| Проверить изоляцию двух viewport | [QA / World](qa/world/README.md) | `python3 tools/run.py qa.world.viewport.viewport_isolation_verify` |
 | Найти обработку атласа деревьев | Asset Pipeline / Authoring | `python3 tools/run.py assets.authoring.build_forest_tree_atlas --help` |
 
 Из корня проекта Python-команды выполняются ровно как в таблице. Из другой cwd укажите абсолютный путь к launcher: `python3 /путь/к/проекту/tools/run.py <модуль>`. `--help` у генератора атласа ничего не записывает; запуск без `--help` обновляет игровые PNG и требует отдельного diff/review. Полный архитектурный gate не заменяет Game/normal/F10, smoke, performance, Wiki и независимое ревью.
