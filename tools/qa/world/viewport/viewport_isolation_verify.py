@@ -33,6 +33,8 @@ CURRENT_PATHS = {
     )
 }
 CAPTURE_SCRIPT = f"{WORLD_PATH}/viewport_isolation_capture.gd"
+CAPTURE_IMPLEMENTATION = CURRENT_PATHS[CAPTURE_SCRIPT]
+CAPTURE_ALIAS = f'extends "res://{CAPTURE_IMPLEMENTATION}"\n'.encode()
 SOURCES = [
     "project.godot",
     "main.tscn",
@@ -108,15 +110,54 @@ def validate_base(root: Path, commit: str) -> None:
     )
 
 
-def git_sources(root: Path, commit: str) -> dict[str, str]:
-    """Hash the complete capture contract from one immutable Git commit."""
+def git_source_paths(root: Path, commit: str) -> dict[str, str]:
+    """Select the implementation layout from the same immutable Git tree."""
     # A single commit supplies the whole family. A compatibility script at the
     # old location is never read as an implementation in the new layout.
     tree = git(root, "ls-tree", "-r", "-z", "--name-only", commit, "--", VIEWPORT_PATH + "/")
     entries = set(tree.stdout.split(b"\0"))
     has_viewport_sources = any(path.encode() in entries for path in CURRENT_PATHS.values())
-    paths = CURRENT_PATHS if has_viewport_sources else {}
+    return CURRENT_PATHS if has_viewport_sources else {}
+
+
+def git_sources(root: Path, commit: str) -> dict[str, str]:
+    """Hash the complete capture contract from one immutable Git commit."""
+    paths = git_source_paths(root, commit)
     return {name: byte_digest(git_blob(root, commit, paths.get(name, name))) for name in SOURCES}
+
+
+def validate_launch_entry(root: Path, script: object, commit: str | None = None) -> None:
+    """Check the entry that ran, using the same tree as the implementation hashes."""
+    implementation = (
+        CAPTURE_IMPLEMENTATION
+        if commit is None
+        else git_source_paths(root, commit).get(CAPTURE_SCRIPT, CAPTURE_SCRIPT)
+    )
+    is_alias = script == CAPTURE_SCRIPT and implementation == CAPTURE_IMPLEMENTATION
+    if script != implementation and not is_alias:
+        raise ValueError("capture script is unavailable in the source layout")
+    entry_path = CAPTURE_SCRIPT if is_alias else implementation
+    if commit is None:
+        path = root / entry_path
+        require(
+            path.is_file()
+            and not path.is_symlink()
+            and path.resolve() == root.resolve() / entry_path,
+            "capture launch entry is missing or is not a regular file",
+        )
+        if is_alias:
+            require(path.read_bytes() == CAPTURE_ALIAS, "capture launch entry does not delegate")
+    else:
+        entry = git(root, "ls-tree", "-z", commit, "--", entry_path).stdout
+        require(
+            entry.startswith((b"100644 blob ", b"100755 blob ")),
+            "capture launch entry is missing or is not a regular file",
+        )
+        if is_alias:
+            require(
+                git_blob(root, commit, entry_path) == CAPTURE_ALIAS,
+                "capture launch entry does not delegate",
+            )
 
 
 def source_overlay(root: Path, base: str, sources: dict[str, str]) -> dict[str, str]:
@@ -202,6 +243,8 @@ def seal(report: Path = REPORT, root: Path = ROOT) -> dict[str, Any]:
     sources = current_sources(root)
     provenance = data.get("provenance", {})
     require(provenance.get("sources") == sources, "capture-time source bytes")
+    configuration = provenance.get("launch", {})
+    validate_launch_entry(root, configuration.get("script"))
     names = expected_image_names(data)
     images = {name: digest(native / name) for name in sorted(names)}
     require(provenance.get("images") == images, "capture-time image bytes")
@@ -215,7 +258,7 @@ def seal(report: Path = REPORT, root: Path = ROOT) -> dict[str, Any]:
         "sources": sources,
         "overlay": overlay,
         "images": images,
-        "configuration": provenance.get("launch", {}),
+        "configuration": configuration,
     }
     (report / MANIFEST_NAME).write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
     return manifest
@@ -229,6 +272,7 @@ def bind_source_commit(commit: str, report: Path = REPORT, root: Path = ROOT) ->
     require(manifest.get("source_commit") is None, "source commit already bound")
     validate_source_commit(root, manifest["base_commit"], commit)
     require(git_sources(root, commit) == manifest["sources"], "source commit bytes changed")
+    validate_launch_entry(root, manifest["configuration"].get("script"), commit)
     manifest["source_commit"] = commit
     path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
     return manifest
@@ -277,8 +321,10 @@ def verify(
     require(set(manifest["sources"]) == set(SOURCES), "sealed source set")
     require(provenance.get("sources") == manifest["sources"], "captured source manifest")
     source_commit = manifest["source_commit"]
+    script = manifest["configuration"].get("script")
     if source_commit is None or check_current_candidate:
         require(current_sources(root) == manifest["sources"], "runtime source bytes changed")
+        validate_launch_entry(root, script)
     source_validation = "current"
     if source_commit is not None:
         validate_source_commit(root, data["base_commit"], source_commit)
@@ -286,13 +332,12 @@ def verify(
             git_sources(root, source_commit) == manifest["sources"],
             "source commit bytes changed",
         )
+        validate_launch_entry(root, script, source_commit)
         source_validation = "current+git-commit" if check_current_candidate else "git-commit"
     expected_overlay = source_overlay(root, data["base_commit"], manifest["sources"])
     require(manifest["overlay"] == expected_overlay, "unsealed source overlay")
     require(provenance.get("images") == manifest["images"], "captured image manifest")
     require(provenance.get("launch") == manifest["configuration"], "capture configuration")
-    script = manifest["configuration"].get("script")
-    require(script in (CAPTURE_SCRIPT, CURRENT_PATHS[CAPTURE_SCRIPT]), "capture script")
     require(
         manifest["configuration"]
         == {

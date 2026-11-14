@@ -102,6 +102,17 @@ class ViewportIsolationTests(unittest.TestCase):
             lambda manifest: manifest["configuration"].update(script="tools/qa/world/unrelated.gd"),
         )
 
+    def test_new_launch_script_in_historical_layout(self) -> None:
+        def change_launch(data: dict[str, Any]) -> None:
+            data["provenance"]["launch"]["script"] = audit.CAPTURE_IMPLEMENTATION
+
+        self.changed(
+            change_launch,
+            "capture script is unavailable in the source layout",
+            True,
+            lambda manifest: manifest["configuration"].update(script=audit.CAPTURE_IMPLEMENTATION),
+        )
+
     def test_missing_case(self) -> None:
         self.changed(lambda data: data["rows"].pop(), "ordered route", True)
 
@@ -269,7 +280,8 @@ class ViewportIsolationTests(unittest.TestCase):
                 target.parent.mkdir(parents=True, exist_ok=True)
                 (root / logical).rename(target)
             capture_alias = root / audit.CAPTURE_SCRIPT
-            capture_alias.write_text("compatibility entry\n")
+            expected_alias = (audit.ROOT / audit.CAPTURE_SCRIPT).read_bytes()
+            capture_alias.write_bytes(expected_alias)
             project = root / "project.godot"
             project.write_text(replace_or_insert_project_version(project.read_text(), "1.0.0"))
             audit.git(root, "add", "--all")
@@ -288,8 +300,46 @@ class ViewportIsolationTests(unittest.TestCase):
             audit.seal(report, root)
             audit.git(root, "add", relative)
             self.assertEqual(audit.verify(report, root)["source_validation"], "current")
+
+            # Both checks exercise the filesystem and real committed Git entries.
+            for name, replacement, message in (
+                (
+                    "replaced",
+                    b"extends SceneTree\nfunc _initialize(): quit(73)\n",
+                    "does not delegate",
+                ),
+                ("missing", None, "launch entry is missing"),
+            ):
+                with self.subTest(launch_entry=name):
+                    if replacement is None:
+                        capture_alias.unlink()
+                    else:
+                        capture_alias.write_bytes(replacement)
+                    with self.assertRaisesRegex(ValueError, message):
+                        audit.verify(report, root, check_current_candidate=True)
+                    with self.assertRaisesRegex(ValueError, message):
+                        audit.seal(report, root)
+                    audit.git(root, "add", "--all", "--", audit.CAPTURE_SCRIPT)
+                    audit.git(root, "commit", "-m", f"{name} capture launch entry")
+                    bad = audit.git(root, "rev-parse", "HEAD").stdout.decode().strip()
+                    capture_alias.write_bytes(expected_alias)
+                    with self.assertRaisesRegex(ValueError, message):
+                        audit.bind_source_commit(bad, report, root)
+
+                    bound = json.loads(manifest.read_text())
+                    bound["source_commit"] = bad
+                    original = manifest.read_bytes()
+                    try:
+                        manifest.write_text(json.dumps(bound))
+                        audit.git(root, "add", relative)
+                        with self.assertRaisesRegex(ValueError, message):
+                            audit.verify(report, root)
+                    finally:
+                        manifest.write_bytes(original)
+                        audit.git(root, "add", relative)
+
             audit.bind_source_commit(source_commit, report, root)
-            audit.git(root, "add", relative)
+            audit.git(root, "add", relative, audit.CAPTURE_SCRIPT)
             audit.git(root, "commit", "-m", "pin capture inputs")
 
             project.write_text(replace_or_insert_project_version(project.read_text(), "1.0.1"))
