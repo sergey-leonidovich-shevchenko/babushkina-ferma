@@ -19,6 +19,20 @@ REPORT = ROOT / "docs/reports/visual-overhaul/vrender-009"
 NATIVE = REPORT / "native"
 MANIFEST_NAME = "evidence-manifest.json"
 CASES = ["same-camera", "game-moves", "editor-and-pause", "map-entry", "map-return"]
+
+# Логические ключи съёмки сохраняются и после переноса физических файлов.
+WORLD_PATH = "tools/qa/world"
+VIEWPORT_PATH = f"{WORLD_PATH}/viewport"
+CURRENT_PATHS = {
+    f"{WORLD_PATH}/{name}": f"{VIEWPORT_PATH}/{name}"
+    for name in (
+        "test_viewport_isolation.py",
+        "viewport_isolation_capture.gd",
+        "viewport_isolation_review.gd",
+        "viewport_isolation_verify.py",
+    )
+}
+CAPTURE_SCRIPT = f"{WORLD_PATH}/viewport_isolation_capture.gd"
 SOURCES = [
     "project.godot",
     "main.tscn",
@@ -41,10 +55,7 @@ SOURCES = [
     "tests/suites/post_motion_frame_suite.gd",
     "tests/suites/viewport_world_context_suite.gd",
     "tools/qa/world/render_order_game.gd",
-    "tools/qa/world/test_viewport_isolation.py",
-    "tools/qa/world/viewport_isolation_capture.gd",
-    "tools/qa/world/viewport_isolation_review.gd",
-    "tools/qa/world/viewport_isolation_verify.py",
+    *CURRENT_PATHS,
     "tools/quality/godot.py",
     "tools/quality/test_quality.py",
 ]
@@ -99,7 +110,19 @@ def validate_base(root: Path, commit: str) -> None:
 
 def git_sources(root: Path, commit: str) -> dict[str, str]:
     """Hash the complete capture contract from one immutable Git commit."""
-    return {name: byte_digest(git_blob(root, commit, name)) for name in SOURCES}
+    # A single commit supplies the whole family. A compatibility script at the
+    # old location is never read as an implementation in the new layout.
+    tree = git(root, "ls-tree", "-r", "-z", "--name-only", commit, "--", VIEWPORT_PATH + "/")
+    entries = set(tree.stdout.split(b"\0"))
+    has_viewport_sources = any(path.encode() in entries for path in CURRENT_PATHS.values())
+    paths = CURRENT_PATHS if has_viewport_sources else {}
+    return {name: byte_digest(git_blob(root, commit, paths.get(name, name))) for name in SOURCES}
+
+
+def source_overlay(root: Path, base: str, sources: dict[str, str]) -> dict[str, str]:
+    """Compare logical keys with their implementation in the actual base commit."""
+    baseline = git_sources(root, base)
+    return {name: digest for name, digest in sources.items() if baseline[name] != digest}
 
 
 def validate_source_commit(root: Path, base: str, commit: str) -> None:
@@ -165,7 +188,7 @@ def load_manifest(report: Path, root: Path) -> dict[str, Any]:
 
 def current_sources(root: Path) -> dict[str, str]:
     """Hash every runtime, test and QA input named by the capture contract."""
-    return {name: digest(root / name) for name in SOURCES}
+    return {name: digest(root / CURRENT_PATHS.get(name, name)) for name in SOURCES}
 
 
 def seal(report: Path = REPORT, root: Path = ROOT) -> dict[str, Any]:
@@ -182,11 +205,7 @@ def seal(report: Path = REPORT, root: Path = ROOT) -> dict[str, Any]:
     names = expected_image_names(data)
     images = {name: digest(native / name) for name in sorted(names)}
     require(provenance.get("images") == images, "capture-time image bytes")
-    overlay = {
-        name: value
-        for name, value in sources.items()
-        if byte_digest(git_blob(root, base, name)) != value
-    }
+    overlay = source_overlay(root, base, sources)
     manifest: dict[str, Any] = {
         "schema": 2,
         "task": "VRENDER-009",
@@ -268,18 +287,16 @@ def verify(
             "source commit bytes changed",
         )
         source_validation = "current+git-commit" if check_current_candidate else "git-commit"
-    expected_overlay = {
-        name: value
-        for name, value in manifest["sources"].items()
-        if byte_digest(git_blob(root, data["base_commit"], name)) != value
-    }
+    expected_overlay = source_overlay(root, data["base_commit"], manifest["sources"])
     require(manifest["overlay"] == expected_overlay, "unsealed source overlay")
     require(provenance.get("images") == manifest["images"], "captured image manifest")
     require(provenance.get("launch") == manifest["configuration"], "capture configuration")
+    script = manifest["configuration"].get("script")
+    require(script in (CAPTURE_SCRIPT, CURRENT_PATHS[CAPTURE_SCRIPT]), "capture script")
     require(
         manifest["configuration"]
         == {
-            "script": "tools/qa/world/viewport_isolation_capture.gd",
+            "script": script,
             "window": [1152, 648],
             "logical_viewport": [1152, 648],
             "cases": CASES,

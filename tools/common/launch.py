@@ -1,18 +1,26 @@
 """Один запуск Python-модулей tools с прежними argv, stdout и кодом завершения."""
+
 import argparse
 import importlib
-from pathlib import Path
 import re
 import runpy
 import sys
+from pathlib import Path
 
 from .paths import project_root
+
+# Публичные команды VRENDER-009 остаются доступны после переноса семейства.
+COMMAND_ALIASES = {
+    "qa.world.viewport_isolation_verify": "qa.world.viewport.viewport_isolation_verify",
+    "qa.world.test_viewport_isolation": "qa.world.viewport.test_viewport_isolation",
+}
 
 
 def module_name(command: str, root: Path) -> str:
     """Разрешает только собственный исходник внутри tools, без traversal и внешних пакетов."""
     if not re.fullmatch(r"[A-Za-z_]\w*(?:\.[A-Za-z_]\w*)*", command):
         raise ValueError(f"Некорректная команда tools: {command}")
+    command = COMMAND_ALIASES.get(command, command)
     source = root / "tools" / Path(*command.split("."))
     source = source.with_suffix(".py").resolve()
     if not source.is_relative_to(root / "tools") or not source.is_file():
@@ -55,6 +63,8 @@ def main() -> None:
     except ValueError as error:
         parser.error(str(error))
     prepare_imports(root)
-    sys.argv = [str(root / "tools" / Path(*args.command.split(".")).with_suffix(".py")),
-                *args.arguments]
+    sys.argv = [
+        str(root / "tools" / Path(*args.command.split(".")).with_suffix(".py")),
+        *args.arguments,
+    ]
     runpy.run_module(target, run_name="__main__", alter_sys=True)
