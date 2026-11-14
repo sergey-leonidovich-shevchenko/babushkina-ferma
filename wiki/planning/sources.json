@@ -112,13 +112,13 @@
       "title": "Рефакторинг структуры проекта",
       "format": "markdown",
       "group": "technology",
-      "expected": 8,
+      "expected": 9,
       "epics": [
         {
           "id": "REFACTOR",
           "title": "Понятная структура инструментов и модулей",
           "file": "docs/epics/refactoring-2026-10/TASKS.md",
-          "goal": "REFACTOR-03 принята через PR21/PR26, REFACTOR-07 — через PR28: структура tools и quality gate подтверждены независимым ревью и CI, исторические доказательства сохранены. Далее REFACTOR-06 и первая overworld до VMAP-003. Адресные04/05 остаются отдельными будущими задачами."
+          "goal": "Первый выпуск структуры tools принят. После VRENDER-009 Developer Agent приоритетно берёт REFACTOR-08: тематические подпапки QA и аудит похожих каталогов. Затем возобновляется маршрут первой overworld до VMAP-003. REFACTOR-04/05 остаются отдельными задачами."
         }
       ]
     },

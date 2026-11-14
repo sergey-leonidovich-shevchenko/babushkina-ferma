@@ -8,7 +8,7 @@ REFACTOR-07 принята через [PR №28](https://github.com/sergey-leoni
 
 REFACTOR-06 принята через [PR №31](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31): exact head `81142f385603668792377964a1d4f2bd50afb8a6`, [независимое review5724142227](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31#pullrequestreview-5724142227), CI 8/8 и решение Team Lead. Merge `bcf9b1031ba80a0d0840d10e615f5c7d00d31cf0` от `2026-10-31T17:50:59Z` имеет дерево `33fed2983acd12c30e2850969f7a5d07cf44a35e`, совпадающее с reviewed head. [Запись приёмки](../../reports/refactor-06/closeout/completion.json) закрывает только первый выпуск tools; REFACTOR-04/05 остаются `blocked`.
 
-Текущий порядок после учёта06: **первая overworld до VMAP-003** по актуальным карточкам и полным зависимостям. Одновременно одна задача; решения, ревью и обычные approved merge выполняются агентами без дополнительных вопросов владельцу. В реестре 8 карточек: 00…07; 03, 06 и 07 done, 04/05 blocked. Весь эпик REFACTOR этой записью не закрыт.
+Первый выпуск tools завершён. По поручению пользователя от 14 ноября 2026 после учёта VRENDER-009 Developer Agent получает [REFACTOR-08](TASKS.md#refactor-08--разделить-плотные-папки-tools-по-назначению): первый тематический перенос внутри `tools/qa/world` и проверку похожих каталогов. Затем возобновляется маршрут первой `overworld` до VMAP-003. В эпике девять карточек (REFACTOR-00…08), из них REFACTOR-04/05 остаются `blocked`. Одновременно выполняется одна задача.
 
 ## История промежуточных пакетов
 
