@@ -1,0 +1,49 @@
+{
+  "task": "REFACTOR-08",
+  "completed_at": "2026-11-15",
+  "implementation": {
+    "pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/46",
+    "base": "6daf02272093db025499321850bfc7b4aa050946",
+    "head": "a68ca8e02b5f3bc7ea980a5dcd7f3c10077b627e",
+    "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/46#pullrequestreview-5907364525",
+    "resolved_review_threads": 3,
+    "team_lead_decision": "accepted",
+    "merge": "2218d1fb63c02c4c9d225ff80eeabb37845d953d",
+    "merged_at": "2026-11-14T22:02:47Z",
+    "head_and_merge_tree": "2cf9218ed3a1d1a95626a7c9061324393da3f9a1",
+    "version": "0.0.420"
+  },
+  "historical_r11f": {
+    "source_commit": "f4d1a04d1ebfb83063d3561534b832ea55c914e9",
+    "unchanged_verifier_stdout_sha256": "baefc53c3d801fd73f7d006d486d5ca59a5b31b688f5753e9dc664cbd9057d32"
+  },
+  "independent_native_replay": {
+    "capture_version": "0.0.418",
+    "logical_sources_per_uri": 27,
+    "cases_per_uri": 5,
+    "pngs_per_uri": 15,
+    "full_save_pairs_per_uri": 20,
+    "new_uri_capture_sha256": "a13ab072111827fabf494fc980a0d1637c50e7fb3780bd651c69c1d2428f5703",
+    "previous_uri_capture_sha256": "50710dc1151a25551c6bc53b5c1d21bdad0258ef4045a5be1d0b1e58e6205afb"
+  },
+  "ci": {
+    "successful_jobs": 9,
+    "push_run": 43644153734,
+    "pull_request_run": 43644159289,
+    "vground_002_x11_run": 43644159356,
+    "architecture_suites_per_run": 114,
+    "architecture_tests_per_run": 1533,
+    "game_assertions_per_run": 53619,
+    "game_failures": 0,
+    "redraw_assertions_per_mode": 90,
+    "smoke_frames": 180,
+    "performance_samples_per_run": 6,
+    "wiki_tests_per_run": 153
+  },
+  "vground_002_x11": {
+    "artifact_id": 14133437691,
+    "artifact_sha256": "056b5237dc8564d2340b4e8472cf91b44cf9a7ff9c85c852231932041b348738",
+    "pngs": 66,
+    "draw_observations": 240
+  }
+}

@@ -1,0 +1,9 @@
+# REFACTOR-08 — приёмка переноса viewport QA
+
+Team Lead принял коммит `a68ca8e02b5f3bc7ea980a5dcd7f3c10077b627e` после независимого ревью и CI 9/9. Tech Lead влил реализацию в `main` коммитом `2218d1fb63c02c4c9d225ff80eeabb37845d953d` 15 ноября в 03:02:47 по времени Алматы. Деревья принятого head и merge совпадают. [PR №46](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/46) · [Итоговое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/46#pullrequestreview-5907364525).
+
+В `tools/qa/world/viewport` переехали четыре исходника. Два прежних Godot URI и две Python-команды остались доступными, UID захвата и профиля сохранены в Git. В непосредственном листинге `tools/qa/world` осталось 121 вместо 123 исходников. Оба запуска валидатора из внешней папки побайтно воспроизводят сводку R11F. [Карта переноса, UID и аудит каталогов](../README.md).
+
+Ревью подтвердило привязку объявленного URI к рабочему дереву и закреплённому Git-коммиту. Тот же фасад с LF или CRLF проходит проверку. Подменённый файл, отсутствие файла, симлинк и URI из другой структуры каталогов отклоняются. Оба нативных захвата версии 0.0.418 повторно проверены по 27 исходникам, 15 PNG и 20 парам сохранений на каждый URI. [Данные приёмки](completion.json).
+
+В каждом общем прогоне CI прошли 53 619 игровых проверок, по 90 проверок отрисовки обычного режима и F10, smoke на 180 кадров и шесть замеров производительности. В каждом прогоне Wiki прошла 153 проверки. Отдельный прогон X11 для VGROUND-002 проверил 66 PNG и 240 записей отрисовки. [CI PR](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43644159289) · [CI push](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43644153734) · [X11](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43644159356).

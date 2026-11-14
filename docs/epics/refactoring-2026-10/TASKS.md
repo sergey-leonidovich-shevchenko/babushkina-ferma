@@ -246,11 +246,15 @@
 
 ## REFACTOR-08 — Разделить плотные папки tools по назначению
 
-**Статус:** in_progress · **Приоритет:** P1 · **Объём:** M · **Тип:** refactor.
+**Статус:** done · **Приоритет:** P1 · **Объём:** M · **Тип:** refactor.
 
 **Исполнитель:** Developer Agent. Team Lead Agent выдаёт задачу первой после полного учёта VRENDER-009 и приёмки постановки.
 
 **Ветка:** codex/refactor-08-tools-layout
+
+**Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/46
+
+**Дата завершения:** 2026-11-15
 
 **Внутренние блокеры:** REFACTOR-06, VRENDER-009.
 
@@ -267,4 +271,4 @@
 
 **Проверка:** До и после запустить профильные команды и проверку структуры tools. Выполнить обязательные проверки из TESTING.md, получить CI, независимое ревью текущего head и решение Team Lead.
 
-**Подтверждения / результат:** Семейство проверки изоляции двух viewport собрано в `tools/qa/world/viewport`. Прежние команды и Git-контракт отчёта сохранены. [Карта переноса, аудит и проверки](../../reports/refactor-08/README.md). [PR №46](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/46) проходит обязательные проверки и повторное независимое ревью.
+**Подтверждения / результат:** Семейство проверки изоляции двух viewport собрано в `tools/qa/world/viewport`. Прежние команды, оба UID и архив R11F сохранены. [PR №46](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/46) влит в `main` 15 ноября 2026 года. Принятый head `a68ca8e0`, [независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/46#pullrequestreview-5907364525), CI 9/9, merge `2218d1fb`. [Ведомость и аудит каталогов](../../reports/refactor-08/README.md) · [Данные приёмки](../../reports/refactor-08/closeout/completion.json).
