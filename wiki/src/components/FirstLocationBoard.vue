@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 import { catalog } from '../lib/catalog.ts'
 import { planning, developmentPath, taskLabels } from '../lib/planning.ts'
-import { firstLocationOverview } from '../lib/first-location.ts'
+import { firstLocationOverview, locationPortions } from '../lib/first-location.ts'
 import { queueProgress, queueIssue } from '../lib/task-queue.ts'
 import WikiIcon from './WikiIcon.vue'
 import LocationHistory from './LocationHistory.vue'
@@ -16,6 +16,27 @@ const pilotError = computed(() =>
     ? queueIssue(pilot.value, planning.value!.catalog.tasks)
     : 'Очередь пилота недоступна. Пересоберите Wiki.'
 )
+const portions = computed(() =>
+  locationPortions(planning.value!.catalog.tasks, pilotError.value ? [] : pilot.value?.taskKeys)
+)
+const portionsDialog = ref<HTMLDialogElement>()
+const selectedId = ref('')
+const selectedPortion = computed(() =>
+  portions.value.find((portion) => portion.id === selectedId.value)
+)
+let portionTrigger: HTMLElement | undefined
+
+async function openPortion(id: string, event: MouseEvent) {
+  portionTrigger = event.currentTarget as HTMLElement
+  selectedId.value = id
+  await nextTick()
+  portionsDialog.value?.showModal()
+}
+
+function closePortion() {
+  portionTrigger?.focus({ preventScroll: true })
+}
+
 const progress = computed(() =>
   pilot.value && !pilotError.value
     ? queueProgress(pilot.value, planning.value!.catalog.tasks)
@@ -50,54 +71,88 @@ const progress = computed(() =>
       </p>
     </section>
 
-    <div class="location-current">
-      <section class="planning-panel">
-        <h2>Сейчас в работе</h2>
-        <div v-if="overview.active.length" class="location-active">
-          <RouterLink
-            v-for="task in overview.active"
-            :key="task.key"
-            :to="developmentPath('tasks', task.key)"
-          >
-            <span class="planning-code">{{ task.id }}</span>
-            <strong>{{ task.title }}</strong>
-            <span class="muted">{{ task.context }}</span>
-          </RouterLink>
-        </div>
-        <p v-else class="muted">В общем каталоге сейчас нет задач со статусом «В работе».</p>
-        <template v-if="progress?.next">
-          <p class="muted">
-            {{
-              overview.active.length
-                ? 'Следующая готовая карточка пилота'
-                : 'Готова к работе в пилоте'
-            }}
-          </p>
-          <RouterLink :to="developmentPath('tasks', progress.next.key)">
-            {{ progress.next.id }} · {{ progress.next.title }}
-          </RouterLink>
-        </template>
-      </section>
-      <section class="planning-panel">
-        <h2>Очередь до статичного пилота</h2>
-        <template v-if="progress">
-          <div class="epic-progress">
-            <strong>{{ progress.done }} из {{ progress.total }} завершено</strong>
-            <span>{{ Math.round((progress.done / progress.total) * 100) }}%</span>
+    <section aria-labelledby="location-portions">
+      <div class="section-heading"><h2 id="location-portions">Прогресс по локациям</h2></div>
+      <div class="location-portion-grid">
+        <button
+          v-for="(portion, index) in portions"
+          :key="portion.id"
+          class="planning-panel location-portion"
+          type="button"
+          aria-haspopup="dialog"
+          @click="openPortion(portion.id, $event)"
+        >
+          <span class="location-portion-title">
+            <strong>{{ portion.title }}</strong>
+            <WikiIcon name="arrow" :size="20" />
+          </span>
+          <span>{{ portion.done }} из {{ portion.tasks.length }} задач завершено</span>
+          <progress :value="portion.done" :max="portion.tasks.length || 1" aria-hidden="true" />
+          <small v-if="index" class="muted">План после первой локации</small>
+          <small v-else class="muted">Объём уточнит VMAP-001</small>
+        </button>
+      </div>
+      <p v-if="pilotError" class="planning-notice error" role="alert">{{ pilotError }}</p>
+      <dialog
+        ref="portionsDialog"
+        class="location-dialog location-tasks-dialog"
+        aria-labelledby="location-portion-dialog-title"
+        @close="closePortion"
+        @keydown.esc.stop.prevent="portionsDialog?.close()"
+      >
+        <header v-if="selectedPortion" class="location-dialog-header">
+          <div>
+            <h2 id="location-portion-dialog-title">{{ selectedPortion.title }}</h2>
+            <p class="muted">
+              {{ selectedPortion.done }} из {{ selectedPortion.tasks.length }} задач завершено
+            </p>
           </div>
-          <progress
-            :value="progress.done"
-            :max="progress.total"
-            aria-label="Выполнение очереди статичного пилота"
-          />
-          <p class="muted">
-            Это прогресс ограниченной очереди пилота. Вся локация проходит отдельную итоговую
-            приёмку ниже.
-          </p>
-        </template>
-        <p v-else class="planning-notice error" role="alert">{{ pilotError }}</p>
-      </section>
-    </div>
+          <form method="dialog">
+            <button class="button" type="submit" autofocus>Закрыть</button>
+          </form>
+        </header>
+        <p v-if="selectedPortion?.missing.length" class="planning-notice error" role="alert">
+          Недоступные карточки: {{ selectedPortion.missing.join(', ') }}. Обновите данные.
+        </p>
+        <ol v-if="selectedPortion" class="location-portion-tasks" aria-label="Задачи локации">
+          <li v-for="task in selectedPortion.tasks" :key="task.key">
+            <RouterLink :to="developmentPath('tasks', task.key)">
+              <span class="planning-code">{{ task.id }}</span>
+              <strong>{{ task.title }}</strong>
+            </RouterLink>
+            <span class="planning-status" :class="task.status">{{ taskLabels[task.status] }}</span>
+          </li>
+        </ol>
+      </dialog>
+    </section>
+
+    <section class="planning-panel location-current" aria-labelledby="location-current-title">
+      <h2 id="location-current-title">Сейчас в работе</h2>
+      <div v-if="overview.active.length" class="location-active">
+        <RouterLink
+          v-for="task in overview.active"
+          :key="task.key"
+          :to="developmentPath('tasks', task.key)"
+        >
+          <span class="planning-code">{{ task.id }}</span>
+          <strong>{{ task.title }}</strong>
+          <span class="muted">{{ task.context }}</span>
+        </RouterLink>
+      </div>
+      <p v-else class="muted">В общем каталоге сейчас нет задач со статусом «В работе».</p>
+      <template v-if="progress?.next">
+        <p class="muted">
+          {{
+            overview.active.length
+              ? 'Следующая готовая карточка пилота'
+              : 'Готова к работе в пилоте'
+          }}
+        </p>
+        <RouterLink :to="developmentPath('tasks', progress.next.key)">
+          {{ progress.next.id }} · {{ progress.next.title }}
+        </RouterLink>
+      </template>
+    </section>
 
     <section aria-labelledby="location-gates">
       <div class="section-heading"><h2 id="location-gates">Этапы приёмки</h2></div>

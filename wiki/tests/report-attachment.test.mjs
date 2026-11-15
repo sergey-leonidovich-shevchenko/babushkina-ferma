@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { mkdtemp, mkdir, writeFile, readFile, symlink, rm } from 'node:fs/promises'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
-import { reportAttachment, reportVideo } from '../scripts/report-attachment.mjs'
+import { reportAttachment, reportComparison, reportVideo } from '../scripts/report-attachment.mjs'
 
 /** Создаёт отдельный проект и output для проверки ссылок без рабочих файлов. */
 async function fixture(run) {
@@ -77,4 +77,66 @@ test('report video escapes labels and rejects arbitrary URLs without autoplay', 
   assert.doesNotMatch(player, /<script>|autoplay/)
   assert.throws(() => reportVideo('https://example.test/movie.mp4', 'external'), /опубликованное/)
   assert.throws(() => reportVideo('../../private.mp4', 'private'), /опубликованное/)
+})
+
+const native = new URL('../../docs/reports/visual-overhaul/vrender-007/native/', import.meta.url)
+const reference = {
+  manifest: 'docs/reports/capture.json',
+  case: '1-post',
+  label: 'Западный мост · ближние перила',
+}
+
+test('native comparison serves the original verified PNGs used by both catalogs', async () => {
+  await fixture(async (root, output) => {
+    const snapshots = ['1-post-before.png', '1-post-after.png']
+    for (const file of ['capture.json', ...snapshots])
+      await writeFile(join(root, 'docs/reports', file), await readFile(new URL(file, native)))
+    const published = join(root, 'dist')
+    assert.equal(await reportComparison(reference, root, { published }), undefined)
+    const result = await reportComparison(reference, root, { destination: output })
+    assert.equal(result.label, reference.label)
+    assert.deepEqual([result.width, result.height], [1152, 648])
+    assert.deepEqual(await reportComparison(reference, root), result)
+    assert.deepEqual(await reportComparison(reference, root, { published }), result)
+    for (const [index, url] of [result.before, result.after].entries()) {
+      assert.match(url, /^generated\/attachments\/[a-f0-9]{64}\.png$/)
+      assert.deepEqual(
+        await readFile(join(root, 'dist', url)),
+        await readFile(new URL(snapshots[index], native))
+      )
+    }
+    await rm(join(published, result.after))
+    assert.equal(await reportComparison(reference, root, { published }), undefined)
+  })
+})
+
+test('native comparison omits absent, shifted, substituted and external images', async () => {
+  await fixture(async (root, output) => {
+    const manifest = JSON.parse(await readFile(new URL('capture.json', native)))
+    const manifestPath = join(root, reference.manifest)
+    const before = await readFile(new URL('1-post-before.png', native))
+    const after = await readFile(new URL('1-post-after.png', native))
+    const beforePath = join(root, 'docs/reports/1-post-before.png')
+    const afterPath = join(root, 'docs/reports/1-post-after.png')
+    const media = { destination: output }
+    await writeFile(manifestPath, JSON.stringify(manifest))
+    await writeFile(beforePath, before)
+    assert.equal(await reportComparison(reference, root, media), undefined)
+    await writeFile(afterPath, before)
+    assert.equal(await reportComparison(reference, root, media), undefined)
+    await writeFile(afterPath, after)
+    const shifted = structuredClone(manifest)
+    shifted.captures['1-post-after'].camera[0] += 1
+    await writeFile(manifestPath, JSON.stringify(shifted))
+    assert.equal(await reportComparison(reference, root, media), undefined)
+    await writeFile(manifestPath, JSON.stringify(manifest))
+    await rm(afterPath)
+    await writeFile(join(root, 'outside.png'), after)
+    await symlink(join(root, 'outside.png'), afterPath)
+    assert.equal(await reportComparison(reference, root, media), undefined)
+    assert.equal(
+      await reportComparison({ ...reference, case: '../1-post' }, root, media),
+      undefined
+    )
+  })
 })

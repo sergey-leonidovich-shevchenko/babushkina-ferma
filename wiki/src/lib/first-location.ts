@@ -65,6 +65,66 @@ const releaseTasks = new Set([
 ])
 const catalogEpics = new Set(['visual--VBUILD', 'visual--VACTOR', 'visual--VPLANT'])
 
+const locationScopes = [
+  { id: 'first-location', title: 'Первая локация до VMAP-003', final: 'visual--VMAP-003' },
+  { id: 'forest', title: 'Обычный лес', final: 'visual--VMAP-006' },
+  { id: 'rocky', title: 'Каменистая область', final: 'visual--VMAP-009' },
+]
+
+// Подтверждённая работа первой карты за пределами перечня статичного пилота и блокеров VMAP.
+const firstLocationExtra = [
+  'visual--VRENDER-007',
+  'visual--VRENDER-009',
+  'visual--VRENDER-010',
+  'visual--VGROUND-002',
+  'water--WATER-01',
+  'water--WATER-03',
+  'water--WATER-07',
+  'water--WATER-11',
+  'visual--VSHORE-005',
+  'visual--VSHORE-006',
+  'visual--VCOMPAT-005',
+  'visual--VSHADOW-002',
+  'visual--VSHADOW-010',
+]
+
+/** Считает карточки в каждой порции. Общая подготовка учитывается там, где нужна впервые. */
+export function locationPortions(tasks: PlanTask[], pilotKeys: readonly string[] = []) {
+  const byKey = new Map(tasks.map((task) => [task.key, task]))
+  const byId = new Map<string, string | null>()
+  for (const task of tasks) byId.set(task.id, byId.has(task.id) ? null : task.key)
+  const assigned = new Set<string>()
+  return locationScopes.map(({ id, title, final }, index) => {
+    const portion: PlanTask[] = []
+    const missing = new Set<string>()
+    function include(key: string) {
+      if (assigned.has(key)) return
+      const task = byKey.get(key)
+      if (!task) {
+        missing.add(key)
+        return
+      }
+      assigned.add(key)
+      for (const dependency of task.dependencies) {
+        const localKey = `${task.plan}--${dependency}`
+        include(byKey.has(localKey) ? localKey : (byId.get(dependency) ?? localKey))
+      }
+      portion.push(task)
+    }
+    if (index === 0) {
+      for (const key of [...pilotKeys, ...firstLocationExtra]) include(key)
+    }
+    include(final)
+    return {
+      id,
+      title,
+      tasks: portion,
+      done: portion.filter((task) => task.status === 'done').length,
+      missing: [...missing],
+    }
+  })
+}
+
 /** Выбирает существующие карточки эпика, ограничивая карты и релиз первым участком программы. */
 export function firstLocationTasks(key: string, tasks: PlanTask[]) {
   return tasks.filter(
