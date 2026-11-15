@@ -1634,7 +1634,7 @@
       "id": "VRENDER-010",
       "epic": "VRENDER",
       "title": "Проверить освобождение визуального мира",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1670,7 +1670,13 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vrender-010-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vrender-010/README.md",
+        "docs/reports/visual-overhaul/vrender-010/native/capture.json",
+        "docs/reports/visual-overhaul/vrender-010/native/draw-snapshots.json",
+        "tools/qa/world/viewport/visual_world_release_capture.gd",
+        "wiki/articles/viewport-world-isolation.md"
+      ]
     },
     {
       "id": "VCAMERA-001",

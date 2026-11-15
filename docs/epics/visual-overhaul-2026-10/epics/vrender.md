@@ -368,7 +368,7 @@ Feature flag переключает только эталонный участо
 
 ## VRENDER-010 — Проверить освобождение визуального мира
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `in_progress` · P0 · этап `foundation` · `engineering`
 
 После 50 смен карт нет зависших материалов и активного влияния прежнего героя; ошибка ресурса включает fallback
 
@@ -384,7 +384,7 @@ Feature flag переключает только эталонный участо
 - [scripts/world_background.gd](../../../../scripts/world_background.gd)
 - [scripts/presentation/village_terrain_canvas.gd](../../../../scripts/presentation/village_terrain_canvas.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrender-010/`.
+Результаты: `docs/reports/visual-overhaul/vrender-010/`.
 
 Критерии:
 
@@ -402,4 +402,4 @@ Feature flag переключает только эталонный участо
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrender-010/README.md, docs/reports/visual-overhaul/vrender-010/native/capture.json, docs/reports/visual-overhaul/vrender-010/native/draw-snapshots.json, tools/qa/world/viewport/visual_world_release_capture.gd, wiki/articles/viewport-world-isolation.md.

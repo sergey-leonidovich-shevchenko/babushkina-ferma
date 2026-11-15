@@ -1,0 +1,1428 @@
+{
+  "adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+  "base_commit": "5349bafa344501645ed7ba1de14dec866cc8ce52",
+  "display": "macOS",
+  "disposed_worlds": 2,
+  "engine": "4.7.1-stable (official)",
+  "errors": [],
+  "images": {
+    "cave": {
+      "file": "cave.png",
+      "pixels": "b4b61a221d64142a2959a79af60b8f860d8de0941f393181a84f400e121f2fff",
+      "png": "aed4a9b74886f239af5f2daafbd9e3dcb73fd8af9a0b700cc1245fa98ef3a49b",
+      "world": {
+        "camera": [
+          0.0,
+          552.0
+        ],
+        "foliage": [
+          592537717657,
+          592571272090,
+          -9223371444199617633,
+          -9223371444132508765
+        ],
+        "location": "cave",
+        "owner": {
+          "background": 476640708385,
+          "game": 476456159064,
+          "viewport": 476372272937
+        },
+        "player": [
+          408.0,
+          960.0
+        ],
+        "seconds": 2.25,
+        "terrain": [
+          476959475210,
+          -9223371559928855034,
+          -9223371559794637292
+        ]
+      }
+    },
+    "cottage": {
+      "file": "cottage.png",
+      "pixels": "76c407bfc04824c1ec6f38792efea3878d061059c6bd1a349e32969588c7cbec",
+      "png": "cf60c92f39086d0b19cd2d8781862f2bf5e9ea236a60f81dc5bae3528bb4fa9e",
+      "world": {
+        "camera": [
+          0.0,
+          6.0
+        ],
+        "foliage": [
+          592537717657,
+          592571272090,
+          -9223371444199617633,
+          -9223371444132508765
+        ],
+        "location": "cottage_interior",
+        "owner": {
+          "background": 476640708385,
+          "game": 476456159064,
+          "viewport": 476372272937
+        },
+        "player": [
+          576.0,
+          500.0
+        ],
+        "seconds": 2.25,
+        "terrain": [
+          476959475210,
+          -9223371559928855034,
+          -9223371559794637292
+        ]
+      }
+    },
+    "explicit-direct": {
+      "file": "explicit-direct.png",
+      "pixels": "1d77bcb5fe24599924731c9934b9784f97ca96ea0b280a59be45cc0850d96d43",
+      "png": "d8fcdf35641cee02fe4c530008eedbd4ae483bf5a0329270e848fb7ba9176b05",
+      "world": {
+        "camera": [
+          216.000030517578,
+          426.0
+        ],
+        "foliage": [
+          592537717657,
+          592571272090,
+          -9223371444199617633,
+          -9223371444132508765
+        ],
+        "location": "overworld",
+        "owner": {
+          "background": 476640708385,
+          "game": 476456159064,
+          "viewport": 476372272937
+        },
+        "player": [
+          696.0,
+          696.0
+        ],
+        "seconds": 2.0,
+        "terrain": [
+          476959475210,
+          -9223371559928855034,
+          -9223371559794637292
+        ]
+      }
+    },
+    "market": {
+      "file": "market.png",
+      "pixels": "66b57b9bf718b15296d24fcc9ae25a60794c89df71d60c995dd5460851d5bf28",
+      "png": "fe5dcc467d8c338ee700f4fdaa744340fbd9da3835bba2e2d8c51ae988b21725",
+      "world": {
+        "camera": [
+          0.0,
+          300.0
+        ],
+        "foliage": [
+          592537717657,
+          592571272090,
+          -9223371444199617633,
+          -9223371444132508765
+        ],
+        "location": "village_market",
+        "owner": {
+          "background": 476640708385,
+          "game": 476456159064,
+          "viewport": 476372272937
+        },
+        "player": [
+          216.0,
+          624.0
+        ],
+        "seconds": 2.25,
+        "terrain": [
+          476959475210,
+          -9223371559928855034,
+          -9223371559794637292
+        ]
+      }
+    },
+    "missing-shader": {
+      "file": "missing-shader.png",
+      "pixels": "1d77bcb5fe24599924731c9934b9784f97ca96ea0b280a59be45cc0850d96d43",
+      "png": "d8fcdf35641cee02fe4c530008eedbd4ae483bf5a0329270e848fb7ba9176b05",
+      "world": {
+        "camera": [
+          216.000030517578,
+          426.0
+        ],
+        "foliage": [
+          592537717657,
+          592571272090,
+          -9223371444199617633,
+          -9223371444132508765
+        ],
+        "location": "overworld",
+        "owner": {
+          "background": 476640708385,
+          "game": 476456159064,
+          "viewport": 476372272937
+        },
+        "player": [
+          696.0,
+          696.0
+        ],
+        "seconds": 2.0,
+        "terrain": [
+          476959475210,
+          -9223371559928855034,
+          -9223371559794637292
+        ]
+      }
+    },
+    "overworld-after": {
+      "file": "overworld-after.png",
+      "pixels": "75cbaa52505f6c434b821c654c273aad7b3be25aab2ba578e551a675042a95f5",
+      "png": "0552f15e1672f7531641083e3d2b31ee6d6bf9fba446867beb7d181f1e714541",
+      "world": {
+        "camera": [
+          216.000030517578,
+          426.0
+        ],
+        "foliage": [
+          592537717657,
+          592571272090,
+          -9223371444199617633,
+          -9223371444132508765
+        ],
+        "location": "overworld",
+        "owner": {
+          "background": 476640708385,
+          "game": 476456159064,
+          "viewport": 476372272937
+        },
+        "player": [
+          696.0,
+          696.0
+        ],
+        "seconds": 2.0,
+        "terrain": [
+          476959475210,
+          -9223371559928855034,
+          -9223371559794637292
+        ]
+      }
+    },
+    "overworld-before": {
+      "file": "overworld-before.png",
+      "pixels": "75cbaa52505f6c434b821c654c273aad7b3be25aab2ba578e551a675042a95f5",
+      "png": "0552f15e1672f7531641083e3d2b31ee6d6bf9fba446867beb7d181f1e714541",
+      "world": {
+        "camera": [
+          216.000030517578,
+          426.0
+        ],
+        "foliage": [
+          592537717657,
+          592571272090,
+          -9223371444199617633,
+          -9223371444132508765
+        ],
+        "location": "overworld",
+        "owner": {
+          "background": 476640708385,
+          "game": 476456159064,
+          "viewport": 476372272937
+        },
+        "player": [
+          696.0,
+          696.0
+        ],
+        "seconds": 2.0,
+        "terrain": [
+          476959475210,
+          -9223371559928855034,
+          -9223371559794637292
+        ]
+      }
+    },
+    "paused": {
+      "file": "paused.png",
+      "pixels": "7b5b6d3624ce7b4546dd63fe59cc90c19f3793e8308f15fc708944fd41cd40a1",
+      "png": "49881288fd584df07c05a6902175837a5b58068ea0109e9ee7800d0911dbd050",
+      "world": {
+        "camera": [
+          216.000030517578,
+          426.0
+        ],
+        "foliage": [
+          592537717657,
+          592571272090,
+          -9223371444199617633,
+          -9223371444132508765
+        ],
+        "location": "overworld",
+        "owner": {
+          "background": 476640708385,
+          "game": 476456159064,
+          "viewport": 476372272937
+        },
+        "player": [
+          696.0,
+          696.0
+        ],
+        "seconds": 2.0,
+        "terrain": [
+          476959475210,
+          -9223371559928855034,
+          -9223371559794637292
+        ]
+      }
+    },
+    "preview-after": {
+      "file": "preview-after.png",
+      "pixels": "5e9e19bca68ef094e80665b76ef7afccf752bb858693720f7bb5b51696d75ac0",
+      "png": "76c2d0bbfb7bee0e80676a7abb3c71af7f0a4d378ba6b8de44cec0775b84f5ef",
+      "world": {
+        "camera": [
+          216.000030517578,
+          426.0
+        ],
+        "foliage": [
+          592940370855,
+          592973925288,
+          -9223371443796964435,
+          -9223371443729855567
+        ],
+        "location": "overworld",
+        "owner": {
+          "background": 556886133619,
+          "game": 556701584232,
+          "viewport": 556617698146
+        },
+        "player": [
+          696.0,
+          696.0
+        ],
+        "seconds": 7.0,
+        "terrain": [
+          557154569081,
+          -9223371479733761161,
+          -9223371479599543425
+        ]
+      }
+    },
+    "preview-before": {
+      "file": "preview-before.png",
+      "pixels": "5e9e19bca68ef094e80665b76ef7afccf752bb858693720f7bb5b51696d75ac0",
+      "png": "76c2d0bbfb7bee0e80676a7abb3c71af7f0a4d378ba6b8de44cec0775b84f5ef",
+      "world": {
+        "camera": [
+          216.000030517578,
+          426.0
+        ],
+        "foliage": [
+          592940370855,
+          592973925288,
+          -9223371443796964435,
+          -9223371443729855567
+        ],
+        "location": "overworld",
+        "owner": {
+          "background": 556886133619,
+          "game": 556701584232,
+          "viewport": 556617698146
+        },
+        "player": [
+          696.0,
+          696.0
+        ],
+        "seconds": 7.0,
+        "terrain": [
+          557154569081,
+          -9223371479733761161,
+          -9223371479599543425
+        ]
+      }
+    },
+    "resource-restored": {
+      "file": "resource-restored.png",
+      "pixels": "75cbaa52505f6c434b821c654c273aad7b3be25aab2ba578e551a675042a95f5",
+      "png": "0552f15e1672f7531641083e3d2b31ee6d6bf9fba446867beb7d181f1e714541",
+      "world": {
+        "camera": [
+          216.000030517578,
+          426.0
+        ],
+        "foliage": [
+          592537717657,
+          592571272090,
+          -9223371444199617633,
+          -9223371444132508765
+        ],
+        "location": "overworld",
+        "owner": {
+          "background": 476640708385,
+          "game": 476456159064,
+          "viewport": 476372272937
+        },
+        "player": [
+          696.0,
+          696.0
+        ],
+        "seconds": 2.0,
+        "terrain": [
+          476959475210,
+          -9223371559928855034,
+          -9223371559794637292
+        ]
+      }
+    }
+  },
+  "logical_viewport": [
+    1152.0,
+    648.0
+  ],
+  "profile": "Codex-VRENDER-010-farm-vrender-010-capture.9621u8",
+  "real_draw_pairs": 84,
+  "sources": {
+    "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9",
+    "project.godot": "466b0ec2219d596fd9be7f762c85e73653914c9b76b9830bba40517fda63819c",
+    "scripts/game_core.gd": "3b255130e71fd11b40765d9a8b92a76b57538405fb6438bf6c69089875a1b41a",
+    "scripts/presentation/foliage_wind.gd": "19984ac5d0e59b5b6e9d323a13139ff25ab5e9f0804bfb523839353344f761d8",
+    "scripts/presentation/foliage_wind_batch.gd": "aab9d9259d879d5f8e37da301f3d48a757ff9340dcb4c849f04da7831eb77f8f",
+    "scripts/presentation/post_motion_frame.gd": "e76ad109a69c228afd46b2e936c923baf073e0e56dba5b46f26354f38a6e00b1",
+    "scripts/presentation/terrain_local_revision.gd": "fcaa4bacc894301b342cd7a54353eccb03e129f831faf21dd4d5b263647325e2",
+    "scripts/systems/interior_visual_system.gd": "3347fa762119657c26941f7cbfd1a4b4cf6c8ad0392b331396ee10a7c4549e5c",
+    "scripts/systems/location_transition_system.gd": "51364c5a9aff9e7bdc10a990618cb789752853ae36a2d8853b7d7d4ab590303d",
+    "scripts/systems/tree_occlusion_system.gd": "90891995b1f284803de189d0e9b7e96dfaca86f6cf33bb33d9fb97b233491170",
+    "scripts/systems/workshop_system.gd": "5875e04e40c5fcf3155dcc9d27e39e7e8a5f970688353403892c08ef7a6f8469",
+    "scripts/world_background.gd": "496212ac50f2c5a60bcb7b9a67c581142ceda309c8677fbf26036d59f5a3a061",
+    "tools/qa/camera/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+    "tools/qa/world/render_order_game.gd": "662ad6e5af52bc95eb8d2804a7390ee5007caa88325aca2f7835873243a0000b",
+    "tools/qa/world/viewport/visual_world_release_capture.gd": "8cd1fd6ec9b9ac31822f5db0e0fa76566cd0c8c285662407d170ae881ab77b29"
+  },
+  "task": "VRENDER-010",
+  "transitions": [
+    {
+      "after": {
+        "active_layers": false,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "village_passage:right",
+      "same_bounded_terrain_resources": true,
+      "to": "village_market"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "village_market",
+      "route": "village_passage:left",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": false,
+        "handler": true,
+        "local": true,
+        "pending": 1,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "building:cottage",
+      "same_bounded_terrain_resources": true,
+      "to": "cottage_interior"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cottage_interior",
+      "route": "interior_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": false,
+        "handler": true,
+        "local": true,
+        "pending": 1,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": false,
+        "handler": true,
+        "local": true,
+        "pending": 1,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "village_passage:right",
+      "same_bounded_terrain_resources": true,
+      "to": "village_market"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "village_market",
+      "route": "village_passage:left",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "building:cottage",
+      "same_bounded_terrain_resources": true,
+      "to": "cottage_interior"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cottage_interior",
+      "route": "interior_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": false,
+        "handler": true,
+        "local": true,
+        "pending": 1,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": false,
+        "handler": true,
+        "local": true,
+        "pending": 1,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "village_passage:right",
+      "same_bounded_terrain_resources": true,
+      "to": "village_market"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "village_market",
+      "route": "village_passage:left",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": false,
+        "handler": true,
+        "local": true,
+        "pending": 1,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "building:cottage",
+      "same_bounded_terrain_resources": true,
+      "to": "cottage_interior"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cottage_interior",
+      "route": "interior_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": false,
+        "handler": true,
+        "local": true,
+        "pending": 1,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": false,
+        "handler": true,
+        "local": true,
+        "pending": 1,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "village_passage:right",
+      "same_bounded_terrain_resources": true,
+      "to": "village_market"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "village_market",
+      "route": "village_passage:left",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "building:cottage",
+      "same_bounded_terrain_resources": true,
+      "to": "cottage_interior"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cottage_interior",
+      "route": "interior_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": false,
+        "handler": true,
+        "local": true,
+        "pending": 1,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": false,
+        "handler": true,
+        "local": true,
+        "pending": 1,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "village_passage:right",
+      "same_bounded_terrain_resources": true,
+      "to": "village_market"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "village_market",
+      "route": "village_passage:left",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": false,
+        "handler": true,
+        "local": true,
+        "pending": 1,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "building:cottage",
+      "same_bounded_terrain_resources": true,
+      "to": "cottage_interior"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cottage_interior",
+      "route": "interior_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": false,
+        "handler": true,
+        "local": true,
+        "pending": 1,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    },
+    {
+      "after": {
+        "active_layers": false,
+        "full": false,
+        "handler": false,
+        "local": false,
+        "pending": 0,
+        "queued": false,
+        "ready": false
+      },
+      "before": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "contact_cleared": true,
+      "depth_cleared": true,
+      "foliage_parked": true,
+      "from": "overworld",
+      "route": "cave_entrance",
+      "same_bounded_terrain_resources": true,
+      "to": "cave"
+    },
+    {
+      "after": {
+        "active_layers": true,
+        "full": true,
+        "handler": true,
+        "local": false,
+        "pending": 0,
+        "queued": true,
+        "ready": false
+      },
+      "from": "cave",
+      "route": "cave_exit",
+      "to": "overworld"
+    }
+  ],
+  "visible_window": [
+    3584.0,
+    2240.0
+  ]
+}
