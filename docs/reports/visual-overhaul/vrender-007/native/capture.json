@@ -1,0 +1,1348 @@
+{
+	"base": "ccb8bf73e4ac9a4345dabccb683055adad8e4f7e",
+	"captures": {
+		"1-center-after": {
+			"camera": [
+				384.0000305175781,
+				186.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "3bb4e89f90d6dc1adb7c5496e0b67388bb1b01f1073d78f4fad061a1296e4c78",
+			"scale": 1.2
+		},
+		"1-center-before": {
+			"camera": [
+				384.0000305175781,
+				186.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "3bb4e89f90d6dc1adb7c5496e0b67388bb1b01f1073d78f4fad061a1296e4c78",
+			"scale": 1.2
+		},
+		"1-left-after": {
+			"camera": [
+				354.0000305175781,
+				186.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "c262dfdc1fe9163caab3b364031790d3e5d2281f9e3d509ccb283033d25719d8",
+			"scale": 1.2
+		},
+		"1-left-before": {
+			"camera": [
+				354.0000305175781,
+				186.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "704c4b1427e49513a94ddf785447e5cf71311a5843761c09ea694a299fb2ff71",
+			"scale": 1.2
+		},
+		"1-post-after": {
+			"camera": [
+				344.0000305175781,
+				270.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "3eff57b53e89cf01f4e874572cec8dc82952c3ebc5d650ec3e0a07089683d5dd",
+			"scale": 1.2
+		},
+		"1-post-before": {
+			"camera": [
+				344.0000305175781,
+				270.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "861833c695ab652cfdfcd5f545f9332fa1e2b32d52749d14bb2ebe56170fca58",
+			"scale": 1.2
+		},
+		"1-right-after": {
+			"camera": [
+				414.0000305175781,
+				186.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "88c1e380ad66a01b75f6c5782398f461bf741102e6c6908a36f4c92eee1df3bd",
+			"scale": 1.2
+		},
+		"1-right-before": {
+			"camera": [
+				414.0000305175781,
+				186.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "e1d10d57c7af73b6c9612c1a9d1d155c9dba2ae8be5f23e3c9ee993ad8128add",
+			"scale": 1.2
+		},
+		"1-settled-after": {
+			"camera": [
+				354.0000305175781,
+				186.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "c262dfdc1fe9163caab3b364031790d3e5d2281f9e3d509ccb283033d25719d8",
+			"scale": 1.2
+		},
+		"1-settled-before": {
+			"camera": [
+				354.0000305175781,
+				186.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "704c4b1427e49513a94ddf785447e5cf71311a5843761c09ea694a299fb2ff71",
+			"scale": 1.2
+		},
+		"1-south-after": {
+			"camera": [
+				354.0000305175781,
+				302.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "a6025224f14cae655e9f46c6748fc8533db7f84130fd6980f9b8cdb9ec781232",
+			"scale": 1.2
+		},
+		"1-south-before": {
+			"camera": [
+				354.0000305175781,
+				302.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "a6025224f14cae655e9f46c6748fc8533db7f84130fd6980f9b8cdb9ec781232",
+			"scale": 1.2
+		},
+		"1-unsplit-cache-after": {
+			"camera": [
+				354.0000305175781,
+				186.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "a3ee09f86a739492cdef9edfb715def5c0968d9d64233d98a8ad425fcdd88acf",
+			"scale": 1.2
+		},
+		"1-unsplit-cache-before": {
+			"camera": [
+				354.0000305175781,
+				186.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "5c67046c8c3241cca6e8aded5ade887753015747a6db36aed7afcae6f0ca6c6b",
+			"scale": 1.2
+		},
+		"2-center-after": {
+			"camera": [
+				1128.0,
+				690.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "52c5f5d4077183681bfd45a60e4c0c41dbd6ede351a9d4cbd82c4fade4ab3455",
+			"scale": 1.2
+		},
+		"2-center-before": {
+			"camera": [
+				1128.0,
+				690.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "52c5f5d4077183681bfd45a60e4c0c41dbd6ede351a9d4cbd82c4fade4ab3455",
+			"scale": 1.2
+		},
+		"2-direct-after": {
+			"camera": [
+				1158.0,
+				690.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "3d5a8f510639865142dd46eeefbd66be7e5bd117676c10fd7efd188f559c9d64",
+			"scale": 1.2
+		},
+		"2-direct-before": {
+			"camera": [
+				1158.0,
+				690.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "cf4690889fa55598bde6558e79f0d4b1514d6473bdf19f6133da37a7c3b5be76",
+			"scale": 1.2
+		},
+		"2-left-after": {
+			"camera": [
+				1098.0,
+				690.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "295a9eebfaad5eb4b4310f7bd198fbba0b9aa5c3bcb83570f14e125e06fa259c",
+			"scale": 1.2
+		},
+		"2-left-before": {
+			"camera": [
+				1098.0,
+				690.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "2f965bf031a0e543c1ae0f63d482fafe98a179026ec0307a845cf138d1557394",
+			"scale": 1.2
+		},
+		"2-post-after": {
+			"camera": [
+				1088.0,
+				774.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "9d336897aadb72b05068f0530c1f0d951d8d68cdc63d456af74b66d356d93452",
+			"scale": 1.2
+		},
+		"2-post-before": {
+			"camera": [
+				1088.0,
+				774.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "8ff084102c1acb58e50b23116b2840c414085cf88176858134455f2023bef7c3",
+			"scale": 1.2
+		},
+		"2-right-after": {
+			"camera": [
+				1158.0,
+				690.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "811a6b7ed5fb932cea8df9e4497d4ddf1dac476fa9262b1ebfd4bb21ce47a323",
+			"scale": 1.2
+		},
+		"2-right-before": {
+			"camera": [
+				1158.0,
+				690.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "f8e8e6586c8b1ea8b6de9197fadaf4f2b9d1100016b68da700d62dcee2b017cb",
+			"scale": 1.2
+		},
+		"2-south-after": {
+			"camera": [
+				1098.0,
+				806.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "d7f1c1e55dc234ba123419be181c09f79dc4b2c5666cc535369dddb81a5f61b4",
+			"scale": 1.2
+		},
+		"2-south-before": {
+			"camera": [
+				1098.0,
+				806.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "d7f1c1e55dc234ba123419be181c09f79dc4b2c5666cc535369dddb81a5f61b4",
+			"scale": 1.2
+		},
+		"cave": {
+			"camera": [
+				0.0,
+				552.0
+			],
+			"location": "cave",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "528f0ec0812d93e6c1b712983afb49d42eb6ee5706bcca4ea5157df119b2719d",
+			"scale": 1.0
+		},
+		"neighbor-after": {
+			"camera": [
+				1128.0,
+				690.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 557607553909,
+				"game": 557423004522,
+				"viewport": 557339118438
+			},
+			"png": "648d948e151a414ba09c44cd5d43461cdc513d4c7ef37d7b01deacf0d73db445",
+			"scale": 1.2
+		},
+		"neighbor-before": {
+			"camera": [
+				1128.0,
+				690.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 557607553909,
+				"game": 557423004522,
+				"viewport": 557339118438
+			},
+			"png": "648d948e151a414ba09c44cd5d43461cdc513d4c7ef37d7b01deacf0d73db445",
+			"scale": 1.2
+		},
+		"pause": {
+			"camera": [
+				354.0000305175781,
+				186.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "7e7b1d6cd9bf8c8bb22fe5fea84d2892d10b0ce4774737534cecedbc8efcd2ef",
+			"scale": 1.2
+		},
+		"returned": {
+			"camera": [
+				354.0000305175781,
+				186.0
+			],
+			"location": "overworld",
+			"owner": {
+				"background": 477177579291,
+				"game": 476993029972,
+				"viewport": 476909143841
+			},
+			"png": "2f6c186c4c9c28f312c79f1965af207547c02147ea91d59a13017cdb42e6df78",
+			"scale": 1.2
+		}
+	},
+	"display": "macOS",
+	"draw_checks": [
+		{
+			"after": "61b3fa1033b4f9ef54a74f50477a3f932364386a64c0b0dfdef2311ec0b97814",
+			"before": "61b3fa1033b4f9ef54a74f50477a3f932364386a64c0b0dfdef2311ec0b97814",
+			"geometry_after": {
+				"camera": "(1128.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1608.0, 960.0)"
+			},
+			"geometry_before": {
+				"camera": "(1128.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1608.0, 960.0)"
+			}
+		},
+		{
+			"after": "61b3fa1033b4f9ef54a74f50477a3f932364386a64c0b0dfdef2311ec0b97814",
+			"before": "61b3fa1033b4f9ef54a74f50477a3f932364386a64c0b0dfdef2311ec0b97814",
+			"geometry_after": {
+				"camera": "(1128.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1608.0, 960.0)"
+			},
+			"geometry_before": {
+				"camera": "(1128.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1608.0, 960.0)"
+			}
+		},
+		{
+			"after": "48bb5b10e70a0054359bbf94dce994b66a59abcb179d11c491ccf151a3d23a3a",
+			"before": "48bb5b10e70a0054359bbf94dce994b66a59abcb179d11c491ccf151a3d23a3a",
+			"geometry_after": {
+				"camera": "(384.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(864.0, 456.0)"
+			},
+			"geometry_before": {
+				"camera": "(384.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(864.0, 456.0)"
+			}
+		},
+		{
+			"after": "48bb5b10e70a0054359bbf94dce994b66a59abcb179d11c491ccf151a3d23a3a",
+			"before": "48bb5b10e70a0054359bbf94dce994b66a59abcb179d11c491ccf151a3d23a3a",
+			"geometry_after": {
+				"camera": "(384.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(864.0, 456.0)"
+			},
+			"geometry_before": {
+				"camera": "(384.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(864.0, 456.0)"
+			}
+		},
+		{
+			"after": "0651a68dd66f0e748150cba3ebbe6dc684e05aec431f3e37d6fb22b8d0b23835",
+			"before": "0651a68dd66f0e748150cba3ebbe6dc684e05aec431f3e37d6fb22b8d0b23835",
+			"geometry_after": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			},
+			"geometry_before": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			}
+		},
+		{
+			"after": "0651a68dd66f0e748150cba3ebbe6dc684e05aec431f3e37d6fb22b8d0b23835",
+			"before": "0651a68dd66f0e748150cba3ebbe6dc684e05aec431f3e37d6fb22b8d0b23835",
+			"geometry_after": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			},
+			"geometry_before": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			}
+		},
+		{
+			"after": "ef26bcdff8e40c47b7fa74f761d3da187cd3cd6982c767c89d3afd0ffe6376c0",
+			"before": "ef26bcdff8e40c47b7fa74f761d3da187cd3cd6982c767c89d3afd0ffe6376c0",
+			"geometry_after": {
+				"camera": "(414.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(894.0, 456.0)"
+			},
+			"geometry_before": {
+				"camera": "(414.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(894.0, 456.0)"
+			}
+		},
+		{
+			"after": "ef26bcdff8e40c47b7fa74f761d3da187cd3cd6982c767c89d3afd0ffe6376c0",
+			"before": "ef26bcdff8e40c47b7fa74f761d3da187cd3cd6982c767c89d3afd0ffe6376c0",
+			"geometry_after": {
+				"camera": "(414.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(894.0, 456.0)"
+			},
+			"geometry_before": {
+				"camera": "(414.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(894.0, 456.0)"
+			}
+		},
+		{
+			"after": "4dd0e7ef562e0caffbe2f17cc41a3a9e7a488e192b102437913807a479d73381",
+			"before": "4dd0e7ef562e0caffbe2f17cc41a3a9e7a488e192b102437913807a479d73381",
+			"geometry_after": {
+				"camera": "(344.0, 270.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(824.0, 540.0)"
+			},
+			"geometry_before": {
+				"camera": "(344.0, 270.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(824.0, 540.0)"
+			}
+		},
+		{
+			"after": "4dd0e7ef562e0caffbe2f17cc41a3a9e7a488e192b102437913807a479d73381",
+			"before": "4dd0e7ef562e0caffbe2f17cc41a3a9e7a488e192b102437913807a479d73381",
+			"geometry_after": {
+				"camera": "(344.0, 270.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(824.0, 540.0)"
+			},
+			"geometry_before": {
+				"camera": "(344.0, 270.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(824.0, 540.0)"
+			}
+		},
+		{
+			"after": "bb015fe17f2b8dd4553017cf7bb20925c0261b46ea6c62c1cbb23fb442ebd578",
+			"before": "bb015fe17f2b8dd4553017cf7bb20925c0261b46ea6c62c1cbb23fb442ebd578",
+			"geometry_after": {
+				"camera": "(354.0, 302.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 572.0)"
+			},
+			"geometry_before": {
+				"camera": "(354.0, 302.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 572.0)"
+			}
+		},
+		{
+			"after": "bb015fe17f2b8dd4553017cf7bb20925c0261b46ea6c62c1cbb23fb442ebd578",
+			"before": "bb015fe17f2b8dd4553017cf7bb20925c0261b46ea6c62c1cbb23fb442ebd578",
+			"geometry_after": {
+				"camera": "(354.0, 302.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 572.0)"
+			},
+			"geometry_before": {
+				"camera": "(354.0, 302.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 572.0)"
+			}
+		},
+		{
+			"after": "1ac872c4c452bdf0170969bf47b902ef11ce253f1d0a33c24731945956cfa6ea",
+			"before": "1ac872c4c452bdf0170969bf47b902ef11ce253f1d0a33c24731945956cfa6ea",
+			"geometry_after": {
+				"camera": "(1128.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1608.0, 960.0)"
+			},
+			"geometry_before": {
+				"camera": "(1128.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1608.0, 960.0)"
+			}
+		},
+		{
+			"after": "1ac872c4c452bdf0170969bf47b902ef11ce253f1d0a33c24731945956cfa6ea",
+			"before": "1ac872c4c452bdf0170969bf47b902ef11ce253f1d0a33c24731945956cfa6ea",
+			"geometry_after": {
+				"camera": "(1128.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1608.0, 960.0)"
+			},
+			"geometry_before": {
+				"camera": "(1128.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1608.0, 960.0)"
+			}
+		},
+		{
+			"after": "9e7667856fbe34390612ca09606b9b4c9090504d99ea50bd070c20fcb041c096",
+			"before": "9e7667856fbe34390612ca09606b9b4c9090504d99ea50bd070c20fcb041c096",
+			"geometry_after": {
+				"camera": "(1098.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1578.0, 960.0)"
+			},
+			"geometry_before": {
+				"camera": "(1098.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1578.0, 960.0)"
+			}
+		},
+		{
+			"after": "9e7667856fbe34390612ca09606b9b4c9090504d99ea50bd070c20fcb041c096",
+			"before": "9e7667856fbe34390612ca09606b9b4c9090504d99ea50bd070c20fcb041c096",
+			"geometry_after": {
+				"camera": "(1098.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1578.0, 960.0)"
+			},
+			"geometry_before": {
+				"camera": "(1098.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1578.0, 960.0)"
+			}
+		},
+		{
+			"after": "d633d1eafff3570881cb1c13525540c24a73a38735acc87e17e83dfea25068c2",
+			"before": "d633d1eafff3570881cb1c13525540c24a73a38735acc87e17e83dfea25068c2",
+			"geometry_after": {
+				"camera": "(1158.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1638.0, 960.0)"
+			},
+			"geometry_before": {
+				"camera": "(1158.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1638.0, 960.0)"
+			}
+		},
+		{
+			"after": "d633d1eafff3570881cb1c13525540c24a73a38735acc87e17e83dfea25068c2",
+			"before": "d633d1eafff3570881cb1c13525540c24a73a38735acc87e17e83dfea25068c2",
+			"geometry_after": {
+				"camera": "(1158.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1638.0, 960.0)"
+			},
+			"geometry_before": {
+				"camera": "(1158.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1638.0, 960.0)"
+			}
+		},
+		{
+			"after": "582d62908f7cd44a0bdf6fc22188a554a7792e2be48d324c848fc87e49ce8a58",
+			"before": "582d62908f7cd44a0bdf6fc22188a554a7792e2be48d324c848fc87e49ce8a58",
+			"geometry_after": {
+				"camera": "(1088.0, 774.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1568.0, 1044.0)"
+			},
+			"geometry_before": {
+				"camera": "(1088.0, 774.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1568.0, 1044.0)"
+			}
+		},
+		{
+			"after": "582d62908f7cd44a0bdf6fc22188a554a7792e2be48d324c848fc87e49ce8a58",
+			"before": "582d62908f7cd44a0bdf6fc22188a554a7792e2be48d324c848fc87e49ce8a58",
+			"geometry_after": {
+				"camera": "(1088.0, 774.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1568.0, 1044.0)"
+			},
+			"geometry_before": {
+				"camera": "(1088.0, 774.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1568.0, 1044.0)"
+			}
+		},
+		{
+			"after": "19a438decc2363a249c8a304fa2400ef8690e98df356df83485429269c37c814",
+			"before": "19a438decc2363a249c8a304fa2400ef8690e98df356df83485429269c37c814",
+			"geometry_after": {
+				"camera": "(1098.0, 806.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1578.0, 1076.0)"
+			},
+			"geometry_before": {
+				"camera": "(1098.0, 806.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1578.0, 1076.0)"
+			}
+		},
+		{
+			"after": "19a438decc2363a249c8a304fa2400ef8690e98df356df83485429269c37c814",
+			"before": "19a438decc2363a249c8a304fa2400ef8690e98df356df83485429269c37c814",
+			"geometry_after": {
+				"camera": "(1098.0, 806.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1578.0, 1076.0)"
+			},
+			"geometry_before": {
+				"camera": "(1098.0, 806.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1578.0, 1076.0)"
+			}
+		},
+		{
+			"after": "0651a68dd66f0e748150cba3ebbe6dc684e05aec431f3e37d6fb22b8d0b23835",
+			"before": "0651a68dd66f0e748150cba3ebbe6dc684e05aec431f3e37d6fb22b8d0b23835",
+			"geometry_after": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			},
+			"geometry_before": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			}
+		},
+		{
+			"after": "0651a68dd66f0e748150cba3ebbe6dc684e05aec431f3e37d6fb22b8d0b23835",
+			"before": "0651a68dd66f0e748150cba3ebbe6dc684e05aec431f3e37d6fb22b8d0b23835",
+			"geometry_after": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			},
+			"geometry_before": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			}
+		},
+		{
+			"after": "d633d1eafff3570881cb1c13525540c24a73a38735acc87e17e83dfea25068c2",
+			"before": "d633d1eafff3570881cb1c13525540c24a73a38735acc87e17e83dfea25068c2",
+			"geometry_after": {
+				"camera": "(1158.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1638.0, 960.0)"
+			},
+			"geometry_before": {
+				"camera": "(1158.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1638.0, 960.0)"
+			}
+		},
+		{
+			"after": "d633d1eafff3570881cb1c13525540c24a73a38735acc87e17e83dfea25068c2",
+			"before": "d633d1eafff3570881cb1c13525540c24a73a38735acc87e17e83dfea25068c2",
+			"geometry_after": {
+				"camera": "(1158.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1638.0, 960.0)"
+			},
+			"geometry_before": {
+				"camera": "(1158.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1638.0, 960.0)"
+			}
+		},
+		{
+			"after": "0651a68dd66f0e748150cba3ebbe6dc684e05aec431f3e37d6fb22b8d0b23835",
+			"before": "0651a68dd66f0e748150cba3ebbe6dc684e05aec431f3e37d6fb22b8d0b23835",
+			"geometry_after": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			},
+			"geometry_before": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			}
+		},
+		{
+			"after": "0651a68dd66f0e748150cba3ebbe6dc684e05aec431f3e37d6fb22b8d0b23835",
+			"before": "0651a68dd66f0e748150cba3ebbe6dc684e05aec431f3e37d6fb22b8d0b23835",
+			"geometry_after": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			},
+			"geometry_before": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			}
+		},
+		{
+			"after": "389a7f93a049fc74ff289a8b1e60f6307d3212cd1152f8b2e6aa013ec61fdcab",
+			"before": "389a7f93a049fc74ff289a8b1e60f6307d3212cd1152f8b2e6aa013ec61fdcab",
+			"geometry_after": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": true,
+				"player": "(834.0, 456.0)"
+			},
+			"geometry_before": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": true,
+				"player": "(834.0, 456.0)"
+			}
+		},
+		{
+			"after": "7a7a916d4c78f5209d9b93830a89096a17ed960e568aaf79628a7504daface9c",
+			"before": "7a7a916d4c78f5209d9b93830a89096a17ed960e568aaf79628a7504daface9c",
+			"geometry_after": {
+				"camera": "(0.0, 552.0)",
+				"location": "cave",
+				"pause": false,
+				"player": "(408.0, 960.0)"
+			},
+			"geometry_before": {
+				"camera": "(0.0, 552.0)",
+				"location": "cave",
+				"pause": false,
+				"player": "(408.0, 960.0)"
+			}
+		},
+		{
+			"after": "b21f6d37e027789897fd356fa43b482ea3d8324ea038cb915fda459a3e574eba",
+			"before": "b21f6d37e027789897fd356fa43b482ea3d8324ea038cb915fda459a3e574eba",
+			"geometry_after": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			},
+			"geometry_before": {
+				"camera": "(354.0, 186.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(834.0, 456.0)"
+			}
+		},
+		{
+			"after": "61b3fa1033b4f9ef54a74f50477a3f932364386a64c0b0dfdef2311ec0b97814",
+			"before": "61b3fa1033b4f9ef54a74f50477a3f932364386a64c0b0dfdef2311ec0b97814",
+			"geometry_after": {
+				"camera": "(1128.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1608.0, 960.0)"
+			},
+			"geometry_before": {
+				"camera": "(1128.0, 690.0)",
+				"location": "overworld",
+				"pause": false,
+				"player": "(1608.0, 960.0)"
+			}
+		}
+	],
+	"errors": [],
+	"godot": {
+		"build": "official",
+		"hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+		"hex": 263937,
+		"major": 4,
+		"minor": 7,
+		"patch": 1,
+		"status": "stable",
+		"string": "4.7.1-stable (official)",
+		"timestamp": 0
+	},
+	"navigation": [
+		{
+			"bridge": 1,
+			"left": "water",
+			"northbound": true,
+			"right": "water",
+			"southbound": true
+		},
+		{
+			"bridge": 2,
+			"left": "water",
+			"northbound": true,
+			"right": "water",
+			"southbound": true
+		}
+	],
+	"pairs": {
+		"1-center": {
+			"bridge_origin": [
+				489.5999755859375,
+				194.39999389648438
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				384.0000305175781,
+				186.0
+			],
+			"direction": [
+				0.0,
+				1.0
+			],
+			"foot_pixels": [
+				576.0,
+				324.0
+			],
+			"mode": "split",
+			"other_pixels_equal": true,
+			"overlap": false,
+			"walkability": "walkable"
+		},
+		"1-left": {
+			"bridge_origin": [
+				525.5999755859375,
+				194.39999389648438
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				354.0000305175781,
+				186.0
+			],
+			"direction": [
+				0.0,
+				1.0
+			],
+			"foot_pixels": [
+				576.0,
+				324.0
+			],
+			"mode": "split",
+			"other_pixels_equal": true,
+			"overlap": true,
+			"walkability": "walkable"
+		},
+		"1-post": {
+			"bridge_origin": [
+				537.5999755859375,
+				93.60000610351563
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				344.0000305175781,
+				270.0
+			],
+			"direction": [
+				0.0,
+				1.0
+			],
+			"foot_pixels": [
+				576.0,
+				324.0
+			],
+			"mode": "split",
+			"other_pixels_equal": true,
+			"overlap": true,
+			"walkability": "walkable"
+		},
+		"1-right": {
+			"bridge_origin": [
+				453.5999755859375,
+				194.39999389648438
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				414.0000305175781,
+				186.0
+			],
+			"direction": [
+				0.0,
+				-1.0
+			],
+			"foot_pixels": [
+				576.0,
+				324.0
+			],
+			"mode": "split",
+			"other_pixels_equal": true,
+			"overlap": true,
+			"walkability": "walkable"
+		},
+		"1-settled": {
+			"bridge_origin": [
+				525.5999755859375,
+				194.39999389648438
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				354.0000305175781,
+				186.0
+			],
+			"direction": [
+				0.0,
+				1.0
+			],
+			"foot_pixels": [
+				576.0,
+				324.0
+			],
+			"mode": "split",
+			"other_pixels_equal": true,
+			"overlap": true,
+			"walkability": "walkable"
+		},
+		"1-south": {
+			"bridge_origin": [
+				525.5999755859375,
+				55.199981689453125
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				354.0000305175781,
+				302.0
+			],
+			"direction": [
+				0.0,
+				-1.0
+			],
+			"foot_pixels": [
+				576.0,
+				324.0
+			],
+			"mode": "split",
+			"other_pixels_equal": true,
+			"overlap": false,
+			"walkability": "walkable"
+		},
+		"1-unsplit-cache": {
+			"bridge_origin": [
+				525.5999755859375,
+				194.39999389648438
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				354.0000305175781,
+				186.0
+			],
+			"direction": [
+				0.0,
+				1.0
+			],
+			"foot_pixels": [
+				576.0,
+				324.0
+			],
+			"mode": "unsplit",
+			"other_pixels_equal": true,
+			"overlap": true,
+			"walkability": "walkable"
+		},
+		"2-center": {
+			"bridge_origin": [
+				489.5999755859375,
+				194.39996337890625
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				1128.0,
+				690.0
+			],
+			"direction": [
+				0.0,
+				1.0
+			],
+			"foot_pixels": [
+				576.0,
+				323.99993896484375
+			],
+			"mode": "split",
+			"other_pixels_equal": true,
+			"overlap": false,
+			"walkability": "walkable"
+		},
+		"2-direct": {
+			"bridge_origin": [
+				453.5999755859375,
+				194.39996337890625
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				1158.0,
+				690.0
+			],
+			"direction": [
+				0.0,
+				-1.0
+			],
+			"foot_pixels": [
+				576.0,
+				323.99993896484375
+			],
+			"mode": "direct",
+			"other_pixels_equal": true,
+			"overlap": true,
+			"walkability": "walkable"
+		},
+		"2-left": {
+			"bridge_origin": [
+				525.5999755859375,
+				194.39996337890625
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				1098.0,
+				690.0
+			],
+			"direction": [
+				0.0,
+				1.0
+			],
+			"foot_pixels": [
+				576.0,
+				323.99993896484375
+			],
+			"mode": "split",
+			"other_pixels_equal": true,
+			"overlap": true,
+			"walkability": "walkable"
+		},
+		"2-post": {
+			"bridge_origin": [
+				537.5999755859375,
+				93.5999755859375
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				1088.0,
+				774.0
+			],
+			"direction": [
+				0.0,
+				1.0
+			],
+			"foot_pixels": [
+				576.0,
+				324.0
+			],
+			"mode": "split",
+			"other_pixels_equal": true,
+			"overlap": true,
+			"walkability": "walkable"
+		},
+		"2-right": {
+			"bridge_origin": [
+				453.5999755859375,
+				194.39996337890625
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				1158.0,
+				690.0
+			],
+			"direction": [
+				0.0,
+				-1.0
+			],
+			"foot_pixels": [
+				576.0,
+				323.99993896484375
+			],
+			"mode": "split",
+			"other_pixels_equal": true,
+			"overlap": true,
+			"walkability": "walkable"
+		},
+		"2-south": {
+			"bridge_origin": [
+				525.5999755859375,
+				55.20001220703125
+			],
+			"bridge_size": [
+				172.8000030517578,
+				259.20001220703125
+			],
+			"camera": [
+				1098.0,
+				806.0
+			],
+			"direction": [
+				0.0,
+				-1.0
+			],
+			"foot_pixels": [
+				576.0,
+				324.00006103515625
+			],
+			"mode": "split",
+			"other_pixels_equal": true,
+			"overlap": false,
+			"walkability": "walkable"
+		}
+	},
+	"profile": "Codex-VRENDER-007-trial-T9uue1AU",
+	"sources": {
+		"assets/game/locations/overworld/modular/bridge_modular_v1.png": "fc3845f00c81e7e30591e2212b8d1f53f963e636731838587c50112f94d9a1d0",
+		"main.tscn": "c212afbbdfb283b84a36a5b7c7675da9824d32aa79f2059356526a6f398f1086",
+		"project.godot": "3fa596d646a6c647bb4a9778e89a3fd41ed322ba5160991e9ba271c6e5259eeb",
+		"scripts/presentation/overworld_bridge_layers.gd": "6c28be64c75534b1062c7839d0830ab8608f9a85112e2532c5421f2ecb215520",
+		"scripts/presentation/post_motion_frame.gd": "e76ad109a69c228afd46b2e936c923baf073e0e56dba5b46f26354f38a6e00b1",
+		"scripts/presentation/village_ground_layer.gd": "6bdff58a9b85b7cd981cdfcee5852c3b3b0b75d1410dd6f044ba537ce4e40e4a",
+		"scripts/presentation/village_terrain_canvas.gd": "75a044ba17c341d10ed6b92a58ea7628a799054a57dc860bbc5f3036eb6332df",
+		"scripts/systems/navigation_system.gd": "651aa3cf996f745d9b45607264ce62664f37d9a7e9f5cd56973b3f1ee139d56f",
+		"scripts/systems/presentation_pose_system.gd": "734a32ba9b254edda8b0165a195295d7df6079eb2a27385e95506886dccad110",
+		"scripts/systems/render_system.gd": "e064c9d8378d80126a3c9b0fafed8439ad6ad628f5a74199386b55676afa6702",
+		"scripts/systems/village_layout_system.gd": "11323ef695b660dd1979ccdb9b43d6dbe457ea3bd28aad3f4c1c71d688584fda",
+		"scripts/systems/village_terrain_renderer.gd": "99262b37ad1ad69a87f437cd13630af6dc66f3d8b5e7bf75242e19e0b8b15edd",
+		"scripts/systems/water_topology.gd": "ce6b90c6b547808c0f4783a47a07f24fda587b6a96e1d4a8c498d96e06a9f6fa",
+		"scripts/systems/world_projection_system.gd": "1b08c3b32970cfa4d3b31db9e39692b8b8ccaf8f7f6bd4a8dadaccfec0350281",
+		"scripts/world_background.gd": "e3841cea99c96d5f7ba3ef6d9afb91f9809ba5023ed3c816d1557a3e6cacc077",
+		"tools/qa/camera/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+		"tools/qa/world/render_order_game.gd": "662ad6e5af52bc95eb8d2804a7390ee5007caa88325aca2f7835873243a0000b",
+		"tools/qa/world/viewport/bridge_layers_capture.gd": "dc848b24044dcd9860484de34395283ad3a6ac8891910f9ca0c3fe8a4111bb7e"
+	},
+	"version": "0.0.426",
+	"viewport": [
+		1152,
+		648
+	]
+}

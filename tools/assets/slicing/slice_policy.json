@@ -307,6 +307,11 @@
       "scope": "runtime-provider",
       "reason": "VRENDER-006 moves the existing melon crop_source and berry forage_sprite_layout calls from GameRenderer without changing textures, regions or geometry. The existing farm/forage slice exporters cover both providers; native legacy pairs remain pixel-identical."
     },
+    "scripts/presentation/overworld_bridge_layers.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "VRENDER-007 partitions the 144x216 bridge PNG into fixed x spans [0,24), [24,120), and [120,144). Each rail span is split at an integer row clamped to [0,216]. Native comparison bounds changed pixels to the two rail spans at the same camera."
+    },
     "scripts/systems/resident_visual_system.gd": {
       "calls": 1,
       "scope": "runtime-provider",
