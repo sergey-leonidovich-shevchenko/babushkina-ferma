@@ -17,7 +17,14 @@ const pilotError = computed(() =>
     : 'Очередь пилота недоступна. Пересоберите Wiki.'
 )
 const portions = computed(() =>
-  locationPortions(planning.value!.catalog.tasks, pilotError.value ? [] : pilot.value?.taskKeys)
+  locationPortions(
+    planning.value!.catalog.tasks,
+    pilotError.value ? [] : pilot.value?.taskKeys
+  ).map((portion, index) => ({
+    ...portion,
+    issue: index === 0 ? pilotError.value : '',
+    incomplete: portion.missing.length > 0 || (index === 0 && !!pilotError.value),
+  }))
 )
 const portionsDialog = ref<HTMLDialogElement>()
 const selectedId = ref('')
@@ -86,13 +93,18 @@ const progress = computed(() =>
             <strong>{{ portion.title }}</strong>
             <WikiIcon name="arrow" :size="20" />
           </span>
-          <span>{{ portion.done }} из {{ portion.tasks.length }} задач завершено</span>
-          <progress :value="portion.done" :max="portion.tasks.length || 1" aria-hidden="true" />
+          <span v-if="portion.incomplete">Список задач неполный</span>
+          <span v-else>{{ portion.done }} из {{ portion.tasks.length }} задач завершено</span>
+          <progress
+            v-if="!portion.incomplete"
+            :value="portion.done"
+            :max="portion.tasks.length || 1"
+            aria-hidden="true"
+          />
           <small v-if="index" class="muted">План после первой локации</small>
           <small v-else class="muted">Объём уточнит VMAP-001</small>
         </button>
       </div>
-      <p v-if="pilotError" class="planning-notice error" role="alert">{{ pilotError }}</p>
       <dialog
         ref="portionsDialog"
         class="location-dialog location-tasks-dialog"
@@ -103,7 +115,10 @@ const progress = computed(() =>
         <header v-if="selectedPortion" class="location-dialog-header">
           <div>
             <h2 id="location-portion-dialog-title">{{ selectedPortion.title }}</h2>
-            <p class="muted">
+            <p v-if="selectedPortion.incomplete" class="muted">
+              Доступно карточек {{ selectedPortion.tasks.length }}
+            </p>
+            <p v-else class="muted">
               {{ selectedPortion.done }} из {{ selectedPortion.tasks.length }} задач завершено
             </p>
           </div>
@@ -111,9 +126,12 @@ const progress = computed(() =>
             <button class="button" type="submit" autofocus>Закрыть</button>
           </form>
         </header>
-        <p v-if="selectedPortion?.missing.length" class="planning-notice error" role="alert">
-          Недоступные карточки: {{ selectedPortion.missing.join(', ') }}. Обновите данные.
-        </p>
+        <div v-if="selectedPortion?.incomplete" class="planning-notice error" role="alert">
+          <p v-if="selectedPortion.issue">{{ selectedPortion.issue }}</p>
+          <p v-if="selectedPortion.missing.length">
+            Недоступные карточки: {{ selectedPortion.missing.join(', ') }}. Обновите данные.
+          </p>
+        </div>
         <ol v-if="selectedPortion" class="location-portion-tasks" aria-label="Задачи локации">
           <li v-for="task in selectedPortion.tasks" :key="task.key">
             <RouterLink :to="developmentPath('tasks', task.key)">

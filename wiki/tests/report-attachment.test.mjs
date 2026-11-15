@@ -105,7 +105,15 @@ test('native comparison serves the original verified PNGs used by both catalogs'
         await readFile(new URL(snapshots[index], native))
       )
     }
-    await rm(join(published, result.after))
+    const servedAfter = join(published, result.after)
+    await writeFile(servedAfter, await readFile(join(published, result.before)))
+    assert.equal(await reportComparison(reference, root, { published }), undefined)
+    await writeFile(servedAfter, await readFile(new URL('1-post-after.png', native)))
+    const altered = await readFile(servedAfter)
+    altered[altered.length - 2] ^= 1
+    await writeFile(servedAfter, altered)
+    assert.equal(await reportComparison(reference, root, { published }), undefined)
+    await rm(servedAfter)
     assert.equal(await reportComparison(reference, root, { published }), undefined)
   })
 })

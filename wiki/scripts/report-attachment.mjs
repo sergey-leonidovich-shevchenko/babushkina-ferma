@@ -109,10 +109,10 @@ export async function reportComparison(reference, projectRoot, { destination, pu
     )
     if (published) {
       const publicRoot = await realpath(published)
-      const publishedFiles = await Promise.all(
-        [beforeUrl, afterUrl].map((url) => nativeFile(publicRoot, join(publicRoot, url)))
+      const publishedBytes = await Promise.all(
+        [beforeUrl, afterUrl].map((url) => nativeCapture(publicRoot, join(publicRoot, url)))
       )
-      if (publishedFiles.some((file) => !file)) return
+      if (!publishedBytes.every((data, index) => data?.equals(bytes[index]))) return
     }
     return { label, before: beforeUrl, after: afterUrl, width, height }
   } catch (error) {
