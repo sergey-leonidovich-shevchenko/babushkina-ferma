@@ -1481,7 +1481,8 @@
       "id": "VRENDER-007",
       "epic": "VRENDER",
       "title": "Разделить настил и перила моста",
-      "status": "in_progress",
+      "status": "done",
+      "completed_at": "2026-11-15",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1519,9 +1520,11 @@
       "branch": "codex/vrender-007-visual-task",
       "evidence": [
         "docs/reports/visual-overhaul/vrender-007/README.md",
-        "docs/reports/visual-overhaul/vrender-007/native/capture.json"
+        "docs/reports/visual-overhaul/vrender-007/native/capture.json",
+        "docs/reports/visual-overhaul/vrender-007/closeout/README.md"
       ],
-      "result": "Кандидат разделяет настил и перила обоих мостов первой карты. Нативная проверка реализации 46f430b726fd5c57e7a9e98a41cfbe5a286cc90f сравнила 13 пар при одинаковой камере, проход в обе стороны и блокировку воды по бокам. Проверены оба режима кеша, прямой вывод, независимый viewport, пауза и возврат. Карточка ждёт независимого ревью текущего коммита и CI. [PR №50](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/50)."
+      "result": "2026-11-15: настил и перила обоих мостов разделены. Нативная проверка сравнила 13 пар при одинаковой камере и 32 пары снимков состояния, подтвердила проход в обе стороны и блокировку воды по бокам. Проверены два режима кеша, прямой вывод, независимый viewport, пауза и возврат. PR №50 принят после независимого ревью и CI 9/9, влит как bf94b573.",
+      "approval": "Принято 15 ноября 2026 года через [PR №50](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/50). [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/50#pullrequestreview-5911829043) одобрило `ddc991ae`. CI 9/9. Merge `bf94b573`."
     },
     {
       "id": "VRENDER-008",
