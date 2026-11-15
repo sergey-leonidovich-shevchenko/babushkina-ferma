@@ -46,6 +46,7 @@ var errors: Array[String] = []
 var transitions: Array[Dictionary] = []
 var images := {}
 var snapshots := {}
+var review_controls := {}
 var draw_pairs := 0
 var disposed_worlds := 0
 var viewports: Array[SubViewport] = []
@@ -298,36 +299,63 @@ func _fallback(game: Node) -> void:
 	var material: ShaderMaterial = background.terrain_erase.material
 	var shader := material.shader
 	var completed: int = background.terrain_revision.full_paints
+	var ready_state := _terrain_state(background)
+	_expect(
+		ready_state.ready and not ready_state.queued and not ready_state.handler,
+		"shader-loss control requires a ready idle cache"
+	)
+	material.shader = null
+	background.queue_redraw()
+	await _check_fallback(game, "missing-shader-ready", completed)
+	review_controls["ready_shader_loss"] = {
+		"before": ready_state,
+		"after": _terrain_state(background),
+		"water_visible": background.water_layer.visible
+	}
+	material.shader = shader
+	await _restore_cache(game, "resource-restored-ready")
+
+	completed = background.terrain_revision.full_paints
 	background.refresh_terrain()
 	material.shader = null
-	await _settle_tree_fade([game])
-	await _draw_worlds([game])
-	_expect(
-		(
-			_inactive(_terrain_state(background))
-			and background.terrain_revision.full_paints == completed
-		),
-		"missing shader accepted an incomplete pass"
-	)
-	_capture(game, 0, "missing-shader")
-	_expect(
-		images["explicit-direct"].pixels == images["missing-shader"].pixels,
-		"fallback pixels differ from direct draw"
-	)
+	await _check_fallback(game, "missing-shader", completed)
 	_expect(
 		background.invalidate_terrain_rect(Rect2(144, 816, 48, 48)),
 		"fallback declined valid local input"
 	)
 	_expect(_inactive(_terrain_state(background)), "missing shader rearmed GPU work")
 	material.shader = shader
+	await _restore_cache(game, "resource-restored")
+
+
+func _check_fallback(game: Node, name: String, completed: int) -> void:
+	var background := game.get_node("WorldBackground")
+	await _settle_tree_fade([game])
+	await _draw_worlds([game])
+	_expect(
+		(
+			_inactive(_terrain_state(background))
+			and not background.water_layer.visible
+			and background.terrain_revision.full_paints == completed
+		),
+		name + " kept the cache, water layer or incomplete pass"
+	)
+	_capture(game, 0, name)
+	_expect(
+		images["explicit-direct"].pixels == images[name].pixels,
+		name + " pixels differ from direct draw"
+	)
+
+
+func _restore_cache(game: Node, name: String) -> void:
+	var background := game.get_node("WorldBackground")
 	background.refresh_terrain()
 	await _settle_tree_fade([game])
 	await _draw_worlds([game])
 	_expect(background.terrain_ready, "restored shader could not rebuild cache")
-	_capture(game, 0, "resource-restored")
+	_capture(game, 0, name)
 	_expect(
-		images["overworld-after"].pixels == images["resource-restored"].pixels,
-		"recovered cache changed scene"
+		images["overworld-after"].pixels == images[name].pixels, name + " changed the cached scene"
 	)
 
 
@@ -347,18 +375,49 @@ func _pause(game: Node) -> void:
 
 func _reattach(game: Node) -> void:
 	var background := game.get_node("WorldBackground")
-	background.refresh_terrain()
-	game.remove_child(background)
-	_expect(_inactive(_terrain_state(background)), "detached background kept rendering")
-	_expect(Context.read(game).is_empty(), "detached background still owns the game draw")
-	game.add_child(background)
-	game.sync_background_location()
-	game.update_camera()
-	await _draw_worlds([game])
-	_expect(
-		background.terrain_ready and not Context.read(game).is_empty(),
-		"reattached background could not resume"
-	)
+	for request: String in ["full", "local"]:
+		background.refresh_terrain()
+		game.remove_child(background)
+		var before := _terrain_state(background)
+		var revision: Dictionary = background.terrain_revision.snapshot()
+		var requests: int = background.terrain_requests
+		_expect(_inactive(before), "detached background kept rendering")
+		_expect(Context.read(game).is_empty(), "detached background still owns the game draw")
+		if request == "full":
+			background.refresh_terrain()
+		else:
+			_expect(
+				not background.invalidate_terrain_rect(Rect2(144, 816, 48, 48)),
+				"detached local request was accepted"
+			)
+		var after := _terrain_state(background)
+		_expect(
+			(
+				after == before
+				and revision == background.terrain_revision.snapshot()
+				and requests == background.terrain_requests
+			),
+			"detached %s request scheduled work" % request
+		)
+		game.add_child(background)
+		var attached := _terrain_state(background)
+		_expect(
+			attached.full and attached.queued and attached.handler,
+			"attach did not schedule a new pass"
+		)
+		game.sync_background_location()
+		game.update_camera()
+		await _draw_worlds([game])
+		_expect(
+			background.terrain_ready and not Context.read(game).is_empty(),
+			"reattached background could not resume"
+		)
+		review_controls["detached_" + request] = {
+			"before": before,
+			"after": after,
+			"attached": attached,
+			"completed": _terrain_state(background)
+		}
 
 
 func _draw_worlds(games: Array) -> void:
@@ -533,6 +592,7 @@ func _finish() -> void:
 					"transitions": transitions,
 					"real_draw_pairs": draw_pairs,
 					"disposed_worlds": disposed_worlds,
+					"review_controls": review_controls,
 					"errors": errors
 				},
 				"  "

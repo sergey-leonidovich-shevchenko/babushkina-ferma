@@ -1670,10 +1670,13 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vrender-010-visual-task",
+      "result": "Доработка по двум замечаниям проверена нативно. Ожидает повторного независимого ревью и CI текущего коммита.\n[PR №48](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48)",
+      "approval": "Ожидает повторного независимого ревью. [PR №48](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48).",
       "evidence": [
         "docs/reports/visual-overhaul/vrender-010/README.md",
         "docs/reports/visual-overhaul/vrender-010/native/capture.json",
         "docs/reports/visual-overhaul/vrender-010/native/draw-snapshots.json",
+        "docs/reports/visual-overhaul/vrender-010/review-baseline.json",
         "tools/qa/world/viewport/visual_world_release_capture.gd",
         "wiki/articles/viewport-world-isolation.md"
       ]

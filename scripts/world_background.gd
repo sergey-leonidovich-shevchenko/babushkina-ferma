@@ -355,7 +355,7 @@ func set_environment(next_season: String, next_weather: String) -> void:
 
 ## Инвалидирует только графический кеш земли, оставляя исходные спрайты и коллизии самостоятельными.
 func refresh_terrain() -> void:
-	if terrain_viewport == null or not VillageRegionData.contains(location):
+	if terrain_viewport == null or not is_inside_tree() or not VillageRegionData.contains(location):
 		return
 	if not _terrain_resources_ready():
 		_use_direct_terrain()
@@ -379,7 +379,11 @@ func refresh_terrain() -> void:
 
 ## Обновляет только прямоугольник первой карты в том же render target; плохой ввод не меняет кеш.
 func invalidate_terrain_rect(rect: Rect2) -> bool:
-	if location != "overworld" or not terrain_revision.clipped(rect).has_area():
+	if (
+		location != "overworld"
+		or (terrain_viewport != null and not is_inside_tree())
+		or not terrain_revision.clipped(rect).has_area()
+	):
 		return false
 	if terrain_viewport == null:
 		queue_redraw()
@@ -420,7 +424,7 @@ func _configure_terrain_canvas() -> void:
 
 ## Применяет аппаратное отсечение и локальный прозрачный clear, сохраняя остальную текстуру.
 func _start_terrain_region(visit: int) -> void:
-	if visit != _terrain_visit or location != "overworld":
+	if visit != _terrain_visit or not is_inside_tree() or location != "overworld":
 		return
 	var rect: Rect2 = terrain_revision.take()
 	if not rect.has_area():
@@ -455,6 +459,8 @@ func _terrain_rendered() -> void:
 
 ## Отрисовывает текущее визуальное состояние узла.
 func _draw() -> void:
+	if terrain_ready and not _terrain_resources_ready():
+		_cancel_terrain()
 	_sync_ground_layers()
 	if BuildingSystem.is_interior(location):
 		draw_interior()

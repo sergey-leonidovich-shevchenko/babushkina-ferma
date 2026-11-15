@@ -378,6 +378,8 @@ Feature flag переключает только эталонный участо
 
 Единый владелец пересечения: **OPT-04**. Эта карточка уточняет работу владельца, не закрывает его автоматически.
 
+Ожидает повторного независимого ревью. [PR №48](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48).
+
 Исходники:
 
 - [scripts/systems/render_system.gd](../../../../scripts/systems/render_system.gd)
@@ -402,4 +404,4 @@ Feature flag переключает только эталонный участо
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vrender-010/README.md, docs/reports/visual-overhaul/vrender-010/native/capture.json, docs/reports/visual-overhaul/vrender-010/native/draw-snapshots.json, tools/qa/world/viewport/visual_world_release_capture.gd, wiki/articles/viewport-world-isolation.md.
+Доказательства: docs/reports/visual-overhaul/vrender-010/README.md, docs/reports/visual-overhaul/vrender-010/native/capture.json, docs/reports/visual-overhaul/vrender-010/native/draw-snapshots.json, docs/reports/visual-overhaul/vrender-010/review-baseline.json, tools/qa/world/viewport/visual_world_release_capture.gd, wiki/articles/viewport-world-isolation.md.
