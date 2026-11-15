@@ -246,7 +246,7 @@ Feature flag переключает только эталонный участо
 
 ## VRENDER-007 — Разделить настил и перила моста
 
-Статус: `in_progress` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Ноги над настилом, ближние перила перед телом; вода под настилом не становится проходимой вне реального моста
 
@@ -255,6 +255,8 @@ Feature flag переключает только эталонный участо
 Зависимости: VRENDER-005.
 
 Единый владелец пересечения: **OPT-04**. Эта карточка уточняет работу владельца, не закрывает его автоматически.
+
+Принято 15 ноября 2026 года через [PR №50](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/50). [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/50#pullrequestreview-5911829043) одобрило `ddc991ae`. CI 9/9. Merge `bf94b573`.
 
 Исходники:
 
@@ -280,7 +282,7 @@ Feature flag переключает только эталонный участо
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vrender-007/README.md, docs/reports/visual-overhaul/vrender-007/native/capture.json.
+Доказательства: docs/reports/visual-overhaul/vrender-007/README.md, docs/reports/visual-overhaul/vrender-007/native/capture.json, docs/reports/visual-overhaul/vrender-007/closeout/README.md.
 
 <a id="vrender-008"></a>
 
