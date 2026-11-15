@@ -1634,7 +1634,8 @@
       "id": "VRENDER-010",
       "epic": "VRENDER",
       "title": "Проверить освобождение визуального мира",
-      "status": "in_progress",
+      "status": "done",
+      "completed_at": "2026-11-15",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1670,16 +1671,19 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vrender-010-visual-task",
-      "result": "Доработка по двум замечаниям проверена нативно. Ожидает повторного независимого ревью и CI текущего коммита.\n[PR №48](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48)",
-      "approval": "Ожидает повторного независимого ревью. [PR №48](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48).",
+      "result": "2026-11-15: 50 нативных смен карт, 87 сравнений состояния и шесть совпавших пар кадров с одинаковой камерой. Готовый кеш переключается на прямую отрисовку при потере шейдера, а отсоединённый фон сохраняет пустую очередь. PR №48 принят после независимого ревью 5908865375 и CI 9/9 и влит как 148c86e9.",
+      "approval": "Принято 15 ноября 2026 года через [PR №48](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48). [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48#pullrequestreview-5908865375) одобрило `283c118f`. CI 9/9. Merge `148c86e9`. [Данные приёмки](../../../reports/visual-overhaul/vrender-010/closeout/completion.json).",
       "evidence": [
         "docs/reports/visual-overhaul/vrender-010/README.md",
         "docs/reports/visual-overhaul/vrender-010/native/capture.json",
         "docs/reports/visual-overhaul/vrender-010/native/draw-snapshots.json",
         "docs/reports/visual-overhaul/vrender-010/review-baseline.json",
+        "docs/reports/visual-overhaul/vrender-010/closeout/README.md",
+        "docs/reports/visual-overhaul/vrender-010/closeout/completion.json",
         "tools/qa/world/viewport/visual_world_release_capture.gd",
         "wiki/articles/viewport-world-isolation.md"
-      ]
+      ],
+      "completion": "docs/reports/visual-overhaul/vrender-010/closeout/completion.json"
     },
     {
       "id": "VCAMERA-001",

@@ -1,0 +1,57 @@
+{
+  "task": "VRENDER-010",
+  "completed_at": "2026-11-15",
+  "implementation": {
+    "pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48",
+    "base_sha": "5349bafa344501645ed7ba1de14dec866cc8ce52",
+    "head_sha": "283c118f73b4e748f6a053f62cd5a64469320fcd",
+    "approved_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48#pullrequestreview-5908865375",
+    "resolved_review_threads": 3,
+    "team_lead_decision": "accepted",
+    "merged_sha": "148c86e9f472e98b034852edac4ff1edde71ea4a",
+    "merged_at": "2026-11-15T03:38:07Z",
+    "verified_head_and_merge_tree": "2d0349212441e5c301266e6b1f4d14ac45d93b15",
+    "version": "0.0.424"
+  },
+  "native": {
+    "capture_sha256": "a1624ffbc08f1f7b4890122ebd5443d6ae3c7a919af173eb08c4fc4da0a45939",
+    "snapshots_sha256": "fb394c346fa9e81f7c3f032ffe51310cb1dd926b431fd909cd7fff4e01e832f7",
+    "review_baseline_sha256": "b8b73624686d55e19e66a0f8aa856cef66ec54880159991839908f68b8332d47",
+    "logical_viewport": [1152, 648],
+    "map_transitions": 50,
+    "production_draws": 87,
+    "full_save_pairs": 13,
+    "pngs": 13,
+    "pixel_equal_pairs": 6,
+    "git_source_blobs": 15,
+    "disposed_worlds": 2,
+    "fallback_pixels_different_before_fix": 297477,
+    "fallback_pixels_different_after_fix": 0
+  },
+  "historical_r11f": {
+    "source_commit": "f4d1a04d1ebfb83063d3561534b832ea55c914e9",
+    "unchanged_verifier_stdout_sha256": "baefc53c3d801fd73f7d006d486d5ca59a5b31b688f5753e9dc664cbd9057d32"
+  },
+  "implementation_ci": {
+    "successful_jobs": 9,
+    "runs": {
+      "push": 43671171134,
+      "pull_request": 43671175248,
+      "vground_002_x11": 43671175242
+    },
+    "architecture_suites_per_run": 114,
+    "architecture_tests_per_run": 1533,
+    "game_assertions_per_run": 53619,
+    "game_failures": 0,
+    "redraw_assertions_per_mode": 90,
+    "wiki_tests_per_run": 154,
+    "performance_samples_per_run": 6,
+    "smoke_frames": 180
+  },
+  "vground_002_x11": {
+    "artifact_id": 14144153693,
+    "artifact_sha256": "d42c2c9fde6bf5a371be04e1215af650dfb098e3d270f6e5b5a000809b2993ad",
+    "pngs": 66,
+    "draw_observations": 240
+  }
+}
