@@ -1518,6 +1518,11 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vrender-007-visual-task",
+      "comparison": {
+        "manifest": "docs/reports/visual-overhaul/vrender-007/native/capture.json",
+        "case": "1-post",
+        "label": "Западный мост · ближние перила"
+      },
       "evidence": [
         "docs/reports/visual-overhaul/vrender-007/README.md",
         "docs/reports/visual-overhaul/vrender-007/native/capture.json",

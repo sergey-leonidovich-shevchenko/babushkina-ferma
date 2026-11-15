@@ -82,7 +82,9 @@ async function renderGuides(entries, destination, planning, queues) {
           }
           if (/\.mp4$/i.test(source)) {
             const media = await reportAttachment(
-              resolve(projectRoot, dirname(entry.source), source), destination, projectRoot
+              resolve(projectRoot, dirname(entry.source), source),
+              destination,
+              projectRoot
             )
             token.type = 'html_inline'
             token.content = reportVideo(media, token.content || 'Диагностическое видео')
@@ -262,7 +264,7 @@ export async function prepare() {
         ...chapters(await readFile(join(projectRoot, path), 'utf8'), prefix, path)
       )
     catalog.entries.push(...(await articles()))
-    const planning = await readPlanningCatalog()
+    const planning = await readPlanningCatalog({ comparisonMedia: { destination } })
     catalog.rolloutQueues = await readRolloutQueues(
       projectRoot,
       join(wikiRoot, 'planning/sources.json'),

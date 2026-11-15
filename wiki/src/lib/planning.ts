@@ -14,6 +14,13 @@ export interface PlanEpic {
   group: string
   source: string
 }
+export interface TaskComparison {
+  label: string
+  before: string
+  after: string
+  width: number
+  height: number
+}
 export interface PlanTask {
   key: string
   id: string
@@ -34,6 +41,7 @@ export interface PlanTask {
     date: string | null
     basis: string
     evidence: { label: string; url: string }[]
+    comparison?: TaskComparison
   }
 }
 export type IdeaStatus = 'proposed' | 'approved' | 'refining' | 'planned' | 'archived'

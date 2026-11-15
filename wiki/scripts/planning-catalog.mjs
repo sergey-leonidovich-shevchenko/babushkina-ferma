@@ -2,6 +2,7 @@ import { readFile, realpath, readdir } from 'node:fs/promises'
 import { resolve, join, sep } from 'node:path'
 import { projectRoot, wikiRoot } from './runtime.mjs'
 import { completionDate, enrichCompletions } from './task-completion.mjs'
+import { reportComparison } from './report-attachment.mjs'
 
 export const taskStatuses = ['backlog', 'ready', 'blocked', 'in_progress', 'done']
 const idPattern = /\b[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+\b/g
@@ -128,8 +129,12 @@ export function markdownTasks(markdown, epic, plan) {
 }
 
 /** Приводит две существующие схемы JSON к одному виду, не записывая их обратно. */
-function jsonTask(task, plan) {
+async function jsonTask(task, plan, root, comparisonMedia) {
   if (!taskStatuses.includes(task.status)) throw new Error(`Неизвестный статус ${task.id}`)
+  const comparison =
+    task.status === 'done' && task.comparison
+      ? await reportComparison(task.comparison, root, comparisonMedia)
+      : undefined
   return {
     key: `${plan.id}--${task.id}`,
     id: task.id,
@@ -165,6 +170,7 @@ function jsonTask(task, plan) {
           task.completionDate ??
           (typeof task.result === 'string' ? task.result.match(/^(\d{4}-\d{2}-\d{2}):/)?.[1] : null)
       ),
+      comparison,
     },
   }
 }
@@ -234,6 +240,7 @@ async function discoverPlans(root, registered) {
 export async function readPlanningCatalog({
   root = projectRoot,
   manifest = join(wikiRoot, 'planning/sources.json'),
+  comparisonMedia,
 } = {}) {
   const config = JSON.parse(await readFile(manifest, 'utf8'))
   if (config.schema !== 1 || !Array.isArray(config.plans))
@@ -260,7 +267,11 @@ export async function readPlanningCatalog({
           source: plan.file,
         }))
       )
-      tasks.push(...source.tasks.map((task) => jsonTask(task, plan)))
+      tasks.push(
+        ...(await Promise.all(
+          source.tasks.map((task) => jsonTask(task, plan, root, comparisonMedia))
+        ))
+      )
     } else if (['markdown', 'markdown-directory'].includes(plan.format)) {
       let definitions = plan.epics
       if (plan.format === 'markdown-directory') {

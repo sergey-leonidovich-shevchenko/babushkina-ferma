@@ -1,14 +1,91 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { readFile } from 'node:fs/promises'
 import { readPlanningCatalog } from '../scripts/planning-catalog.mjs'
 import { createWikiServer, listen } from '../scripts/server.mjs'
 import {
   firstLocationGroups,
   firstLocationOverview,
   firstLocationTasks,
+  locationPortions,
 } from '../src/lib/first-location.ts'
 
 const catalog = await readPlanningCatalog()
+const pilot = JSON.parse(
+  await readFile(
+    new URL('../../docs/reports/visual-overhaul/vrelease-001/queue.json', import.meta.url)
+  )
+)
+
+test('location portions contain their mapped cards once and count only canonical done', () => {
+  const portions = locationPortions(catalog.tasks, pilot.taskKeys)
+  const [first, forest, rocky] = portions
+  assert.deepEqual(
+    portions.map((portion) => portion.title),
+    ['Первая локация до VMAP-003', 'Обычный лес', 'Каменистая область']
+  )
+  const keys = portions.flatMap(({ tasks }) => tasks.map((task) => task.key))
+  assert.equal(new Set(keys).size, keys.length)
+  assert.deepEqual(
+    forest.tasks.map((task) => task.id),
+    ['VMAP-004', 'VMAP-005', 'VMAP-006']
+  )
+  assert.deepEqual(
+    rocky.tasks.map((task) => task.id),
+    ['VMAP-007', 'VMAP-008', 'VMAP-009']
+  )
+  for (const { tasks, done, missing } of portions) {
+    assert.deepEqual(missing, [])
+    assert.equal(done, tasks.filter((task) => task.status === 'done').length)
+    for (const task of tasks)
+      assert.strictEqual(
+        task,
+        catalog.tasks.find((row) => row.key === task.key)
+      )
+  }
+  const firstKeys = new Set(first.tasks.map((task) => task.key))
+  for (const key of [
+    ...pilot.taskKeys,
+    'visual--VMAP-001',
+    'visual--VMAP-002',
+    'visual--VMAP-003',
+    'visual--VRENDER-007',
+    'visual--VCOMPAT-005',
+    'visual--VSHADOW-002',
+  ])
+    assert.ok(firstKeys.has(key), key)
+  assert.ok(
+    !first.tasks.some((task) =>
+      ['VMAP-004', 'VMAP-007', 'WIKI-004', 'REFACTOR-03'].includes(task.id)
+    )
+  )
+  assert.ok(!first.tasks.some((task) => /^visual--V(BUILD|ACTOR|PLANT)$/.test(task.epic)))
+})
+
+test('next location statuses do not change first portion, and a missing card is flagged', () => {
+  const tasks = structuredClone(catalog.tasks)
+  const forestGate = tasks.find((task) => task.key === 'visual--VMAP-004')
+  const baseline = locationPortions(tasks, pilot.taskKeys)
+  forestGate.status = forestGate.status === 'done' ? 'blocked' : 'done'
+  const changed = locationPortions(tasks, pilot.taskKeys)
+  assert.equal(changed[0].done, baseline[0].done)
+  assert.equal(changed[1].done - baseline[1].done, forestGate.status === 'done' ? 1 : -1)
+  assert.equal(changed[2].done, baseline[2].done)
+  assert.ok(
+    locationPortions(
+      tasks.filter((task) => task !== forestGate),
+      pilot.taskKeys
+    )[1].missing.includes(forestGate.key)
+  )
+})
+
+test('history keeps the native bridge comparison alongside accepted proof', () => {
+  const { history } = firstLocationOverview(catalog)
+  const bridge = history.find((task) => task.key === 'visual--VRENDER-007')
+  assert.equal(bridge.completion.comparison.label, 'Западный мост · ближние перила')
+  assert.ok(bridge.completion.evidence.some((link) => link.url.endsWith('/pull/50')))
+  assert.ok(history.some((task) => !task.completion?.comparison))
+})
 
 // Сценарий: обзор дублирует выбранные эпики без переноса их владельцев и статусов.
 // Исходное состояние: действующий общий каталог, включая WATER и VIS.

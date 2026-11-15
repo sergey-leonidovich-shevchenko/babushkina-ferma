@@ -1,8 +1,34 @@
 <script setup lang="ts">
-import type { PlanTask } from '../lib/planning.ts'
+import { nextTick, ref } from 'vue'
+import { assetUrl } from '../lib/catalog.ts'
+import type { PlanTask, TaskComparison } from '../lib/planning.ts'
 import { developmentPath } from '../lib/planning.ts'
 
 defineProps<{ tasks: (PlanTask & { context: string })[] }>()
+
+const captureLabels = { before: 'До', after: 'После' }
+const captureDialog = ref<HTMLDialogElement>()
+const selectedCapture = ref<{ src: string; title: string }>()
+let captureTrigger: HTMLElement | undefined
+
+async function openCapture(
+  comparison: TaskComparison,
+  side: keyof typeof captureLabels,
+  event: MouseEvent
+) {
+  captureTrigger = event.currentTarget as HTMLElement
+  selectedCapture.value = {
+    src: assetUrl(comparison[side]),
+    title: `${captureLabels[side]} · ${comparison.label}`,
+  }
+  await nextTick()
+  captureDialog.value?.showModal()
+}
+
+function closeCapture() {
+  selectedCapture.value = undefined
+  captureTrigger?.focus({ preventScroll: true })
+}
 </script>
 
 <template>
@@ -36,9 +62,50 @@ defineProps<{ tasks: (PlanTask & { context: string })[] }>()
               </li>
             </ul>
           </details>
+          <details v-if="task.completion?.comparison" class="location-comparison">
+            <summary>До и после</summary>
+            <p>{{ task.completion.comparison.label }}</p>
+            <div class="location-comparison-grid">
+              <button
+                v-for="(label, side) in captureLabels"
+                :key="side"
+                class="location-thumbnail"
+                type="button"
+                aria-haspopup="dialog"
+                :aria-label="`Открыть снимок «${label}»`"
+                @click="openCapture(task.completion.comparison, side, $event)"
+              >
+                <img
+                  :src="assetUrl(task.completion.comparison[side])"
+                  :width="task.completion.comparison.width"
+                  :height="task.completion.comparison.height"
+                  alt=""
+                  loading="lazy"
+                />
+                <span>{{ label }}</span>
+              </button>
+            </div>
+          </details>
         </div>
       </li>
     </ol>
     <p v-else class="muted">В маршруте и его техническом обслуживании ещё нет завершённых задач.</p>
+    <dialog
+      ref="captureDialog"
+      class="location-dialog location-image-dialog"
+      aria-labelledby="location-image-title"
+      @close="closeCapture"
+      @keydown.esc.stop.prevent="captureDialog?.close()"
+    >
+      <template v-if="selectedCapture">
+        <header class="location-dialog-header">
+          <h2 id="location-image-title">{{ selectedCapture.title }}</h2>
+          <form method="dialog">
+            <button class="button" type="submit" autofocus>Закрыть</button>
+          </form>
+        </header>
+        <img :src="selectedCapture.src" :alt="selectedCapture.title" />
+      </template>
+    </dialog>
   </section>
 </template>

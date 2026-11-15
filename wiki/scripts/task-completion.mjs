@@ -164,6 +164,7 @@ export async function enrichCompletions(tasks, root) {
     const evidence = [...value.evidence, ...evidenceLinks(task, history)]
     task.completion = {
       ...value,
+      ...(task.completion?.comparison ? { comparison: task.completion.comparison } : {}),
       evidence: evidence.filter(
         (link, i) => evidence.findIndex((item) => item.url === link.url) === i
       ),

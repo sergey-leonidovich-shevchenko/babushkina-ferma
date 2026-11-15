@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { createHash } from 'node:crypto'
 import { projectRoot, wikiRoot } from './runtime.mjs'
 import { createPlanningApi } from './planning-api.mjs'
+import { readPlanningCatalog } from './planning-catalog.mjs'
 
 export const identity = createHash('sha256').update(projectRoot).digest('hex')
 const mime = {
@@ -46,7 +47,13 @@ export async function resolveAsset(root, pathname) {
 
 /** Создаёт локальную wiki с отдельным редакционным API без доступа к игровым слотам. */
 export function createWikiServer(root, { project = identity, token = '', planning, allowSameOriginFrames = false } = {}) {
-  const planningApi = planning === false ? undefined : createPlanningApi(planning)
+  const planningApi =
+    planning === false
+      ? undefined
+      : createPlanningApi({
+          loadCatalog: () => readPlanningCatalog({ comparisonMedia: { published: root } }),
+          ...planning,
+        })
   const server = createServer(async (request, response) => {
     response.setHeader('X-Content-Type-Options', 'nosniff')
     response.setHeader('X-Frame-Options', allowSameOriginFrames ? 'SAMEORIGIN' : 'DENY')
