@@ -18,6 +18,8 @@ const WorldProjection := preload("res://scripts/systems/world_projection_system.
 const ViewportWorldContext := preload("res://scripts/presentation/viewport_world_context.gd")
 const VillageRegionRenderer := preload("res://scripts/presentation/village_region_renderer.gd")
 const BasementRenderer := preload("res://scripts/presentation/basement_renderer.gd")
+const BridgeLayers := preload("res://scripts/presentation/overworld_bridge_layers.gd")
+const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
 
 
 ## Координирует отрисовку текущего состояния без изменения игровой логики.
@@ -81,7 +83,16 @@ static func draw(game: Node2D) -> void:
 	game.FenceRenderer.draw_world(game)
 	game.PublishedLevelRenderer.draw_layer(game, "objects")
 	game.LevelEditorRenderer.draw_layer(game, "objects")
-	game.draw_player()
+	if game.current_location == "overworld" and game.get_node("WorldBackground").split_bridge_rails:
+		var view := WorldProjection.view_rect(game)
+		var foot := Pose.ground(game)
+		WorldProjection.apply(game)
+		BridgeLayers.draw_rails(game, view, foot, false)
+		game.draw_player()
+		WorldProjection.apply(game)
+		BridgeLayers.draw_rails(game, view, foot, true)
+	else:
+		game.draw_player()
 	game.WorldLootRenderer.draw_front(game)
 	game.VillageEventRenderer.draw(game, true)
 	game.FenceRenderer.draw_world(game, true)

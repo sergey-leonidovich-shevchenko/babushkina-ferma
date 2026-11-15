@@ -8,6 +8,7 @@ var holes := false
 var soft_ground_edges := false
 var rectangular_roads := false
 var joined_roads := false
+var separate_bridge_rails := false
 var paint_count := 0
 
 
@@ -19,7 +20,8 @@ func configure(
 	is_hole: bool = false,
 	soft_edges: bool = false,
 	rectangular: bool = false,
-	joined: bool = false
+	joined: bool = false,
+	separate_rails: bool = false
 ) -> void:
 	if (
 		season == next_season
@@ -29,6 +31,7 @@ func configure(
 		and soft_ground_edges == soft_edges
 		and rectangular_roads == rectangular
 		and joined_roads == joined
+		and separate_bridge_rails == separate_rails
 		and paint_count > 0
 	):
 		return
@@ -39,6 +42,7 @@ func configure(
 	soft_ground_edges = soft_edges
 	rectangular_roads = rectangular
 	joined_roads = joined
+	separate_bridge_rails = separate_rails
 	queue_redraw()
 
 
@@ -48,7 +52,7 @@ func _draw() -> void:
 	if holes:
 		Terrain.draw_cutouts(self)
 	elif cover:
-		Terrain.draw_cover(self, season, weather)
+		Terrain.draw_cover(self, season, weather, separate_bridge_rails)
 		# Выходные дорожки раньше рисовались после всех цветов и мостов: порядок сохраняется внутри кеша.
 		preload("res://scripts/presentation/village_region_terrain.gd").paths(
 			self, "overworld", soft_ground_edges, rectangular_roads, joined_roads

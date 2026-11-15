@@ -14,6 +14,7 @@ var joined_roads := true
 var soft_plaza := true
 var soft_garden := true
 var color_patches := true
+var separate_bridge_rails := false
 var paint_count := 0
 
 
@@ -49,6 +50,7 @@ func _draw() -> void:
 				joined_roads,
 				soft_plaza,
 				soft_garden,
-				color_patches
+				color_patches,
+				separate_bridge_rails
 			)
 			RegionTerrain.paths(self, location, soft_ground_edges, rectangular_roads, joined_roads)

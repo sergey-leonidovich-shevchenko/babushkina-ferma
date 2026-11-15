@@ -6,7 +6,8 @@ const DIRT := preload("res://assets/game/locations/overworld/modular/dirt_materi
 const PATH := preload("res://assets/game/locations/overworld/modular/path_material_v1.png")
 const STONE := preload("res://assets/game/locations/overworld/modular/stone_material_v1.png")
 const WATER := preload("res://assets/game/locations/overworld/modular/water_material_v1.png")
-const BRIDGE := preload("res://assets/game/locations/overworld/modular/bridge_modular_v1.png")
+const BridgeLayers := preload("res://scripts/presentation/overworld_bridge_layers.gd")
+const BRIDGE := BridgeLayers.TEXTURE
 const UnderwaterBottom := preload("res://scripts/presentation/underwater_bottom.gd")
 const WaterMapRegistry := preload("res://scripts/systems/water_map_registry.gd")
 const FenceRenderer := preload("res://scripts/systems/fence_renderer.gd")
@@ -30,7 +31,8 @@ static func draw(
 	joined: bool = false,
 	plaza: bool = false,
 	garden: bool = false,
-	color_patches: bool = true
+	color_patches: bool = true,
+	separate_bridge_rails: bool = false
 ) -> void:
 	draw_base(
 		canvas,
@@ -46,7 +48,7 @@ static func draw(
 	)
 	draw_underwater_bottom(canvas, season, weather)
 	draw_surface(canvas, season, false, weather)
-	draw_cover(canvas, season, weather)
+	draw_cover(canvas, season, weather, separate_bridge_rails)
 
 
 ## Вычисляет прежний сезонный тон неподвижных материалов без изменения состояния игры.
@@ -96,13 +98,13 @@ static func draw_base(
 
 
 ## Оставляет ограды, неподвижные цветы и мосты над водой в прежнем порядке команд.
-static func draw_cover(canvas: Node2D, season: String, weather: String) -> void:
-	var tint := ground_tint(season, weather)
+static func draw_cover(
+	canvas: Node2D, season: String, _weather: String, separate_bridge_rails: bool = false
+) -> void:
 	for flower: Vector2 in MapData.FLOWERS:
 		if season != "winter":
 			Ambient.draw_cell(canvas, "flowers", flower, Color(0.92, 0.95, 0.84, 0.88))
-	for bridge: Rect2 in MapData.BRIDGES:
-		_draw_bridge(canvas, bridge)
+	BridgeLayers.draw_ground(canvas, separate_bridge_rails)
 
 
 ## Рисует повторяемый материал в полигоне, сохраняя одну мировую UV-сетку для соседних участков.
@@ -313,10 +315,3 @@ static func fence_source(column: int) -> Rect2:
 			source.position + Vector2(bounds.position), Vector2(bounds.size)
 		)
 	return _fence_sources[column]
-
-
-## Кладёт PNG 144×216 поверх русла; открытый настил занимает 96×192.
-static func _draw_bridge(canvas: Node2D, bridge: Rect2) -> void:
-	canvas.draw_texture_rect(
-		BRIDGE, Rect2(bridge.get_center() - Vector2(72, 108), Vector2(144, 216)), false
-	)

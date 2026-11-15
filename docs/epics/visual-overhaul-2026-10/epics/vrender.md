@@ -246,7 +246,7 @@ Feature flag переключает только эталонный участо
 
 ## VRENDER-007 — Разделить настил и перила моста
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `in_progress` · P0 · этап `foundation` · `engineering`
 
 Ноги над настилом, ближние перила перед телом; вода под настилом не становится проходимой вне реального моста
 
@@ -262,7 +262,7 @@ Feature flag переключает только эталонный участо
 - [scripts/world_background.gd](../../../../scripts/world_background.gd)
 - [scripts/presentation/village_terrain_canvas.gd](../../../../scripts/presentation/village_terrain_canvas.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrender-007/`.
+Результаты: `docs/reports/visual-overhaul/vrender-007/`.
 
 Критерии:
 
@@ -280,7 +280,7 @@ Feature flag переключает только эталонный участо
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrender-007/README.md, docs/reports/visual-overhaul/vrender-007/native/capture.json.
 
 <a id="vrender-008"></a>
 

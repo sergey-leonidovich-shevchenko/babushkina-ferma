@@ -1481,7 +1481,7 @@
       "id": "VRENDER-007",
       "epic": "VRENDER",
       "title": "Разделить настил и перила моста",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1517,7 +1517,11 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vrender-007-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vrender-007/README.md",
+        "docs/reports/visual-overhaul/vrender-007/native/capture.json"
+      ],
+      "result": "Кандидат разделяет настил и перила обоих мостов первой карты. Нативная проверка реализации 46f430b726fd5c57e7a9e98a41cfbe5a286cc90f сравнила 13 пар при одинаковой камере, проход в обе стороны и блокировку воды по бокам. Проверены оба режима кеша, прямой вывод, независимый viewport, пауза и возврат. Карточка ждёт независимого ревью текущего коммита и CI. [PR №50](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/50)."
     },
     {
       "id": "VRENDER-008",

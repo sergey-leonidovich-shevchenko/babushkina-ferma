@@ -56,6 +56,7 @@ const GRASS_VARIANTS := [
 	GRASS_TILE_VARIANT_2,
 ]
 
+@export var split_bridge_rails := false
 var location := "overworld"
 var season := "spring"
 var weather := "clear"
@@ -210,6 +211,19 @@ func set_ground_split(enabled: bool) -> void:
 	queue_redraw()
 
 
+## Даёт сравнить два прохода моста в одном viewport с теми же камерой и состоянием игры.
+func set_bridge_depth(enabled: bool) -> void:
+	if split_bridge_rails == enabled:
+		return
+	split_bridge_rails = enabled
+	if location == "overworld":
+		refresh_terrain()
+		queue_redraw()
+		var owner := get_parent()
+		if owner is Node2D:
+			owner.queue_redraw()
+
+
 ## Переключает только основу травы первой карты; позволяет сравнение и откат без миграции слотов.
 func set_painted_grass(enabled: bool) -> void:
 	if painted_grass == enabled:
@@ -292,7 +306,14 @@ func _sync_ground_layers() -> void:
 	cutout_layer.visible = enabled
 	water_layer.configure(season, weather, false)
 	cover_layer.configure(
-		season, weather, true, false, soft_ground_edges, rectangular_roads, joined_roads
+		season,
+		weather,
+		true,
+		false,
+		soft_ground_edges,
+		rectangular_roads,
+		joined_roads,
+		split_bridge_rails
 	)
 	cutout_layer.configure(season, weather, false, true)
 
@@ -417,6 +438,7 @@ func _configure_terrain_canvas() -> void:
 	terrain_canvas.soft_plaza = soft_plaza
 	terrain_canvas.soft_garden = soft_garden
 	terrain_canvas.color_patches = ground_color_patches
+	terrain_canvas.separate_bridge_rails = split_bridge_rails
 	terrain_canvas.season = season
 	terrain_canvas.weather = weather
 	terrain_canvas.queue_redraw()
@@ -558,7 +580,8 @@ func draw_overworld() -> void:
 			joined_roads,
 			soft_plaza,
 			soft_garden,
-			ground_color_patches
+			ground_color_patches,
+			split_bridge_rails
 		)
 		VillageRegionTerrain.paths(
 			self, location, soft_ground_edges, rectangular_roads, joined_roads
