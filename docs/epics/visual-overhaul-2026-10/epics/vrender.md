@@ -368,7 +368,7 @@ Feature flag переключает только эталонный участо
 
 ## VRENDER-010 — Проверить освобождение визуального мира
 
-Статус: `in_progress` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 После 50 смен карт нет зависших материалов и активного влияния прежнего героя; ошибка ресурса включает fallback
 
@@ -378,7 +378,7 @@ Feature flag переключает только эталонный участо
 
 Единый владелец пересечения: **OPT-04**. Эта карточка уточняет работу владельца, не закрывает его автоматически.
 
-Ожидает повторного независимого ревью. [PR №48](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48).
+Принято 15 ноября 2026 года через [PR №48](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48). [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48#pullrequestreview-5908865375) одобрило `283c118f`. CI 9/9. Merge `148c86e9`. [Данные приёмки](../../../reports/visual-overhaul/vrender-010/closeout/completion.json).
 
 Исходники:
 
@@ -404,4 +404,4 @@ Feature flag переключает только эталонный участо
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vrender-010/README.md, docs/reports/visual-overhaul/vrender-010/native/capture.json, docs/reports/visual-overhaul/vrender-010/native/draw-snapshots.json, docs/reports/visual-overhaul/vrender-010/review-baseline.json, tools/qa/world/viewport/visual_world_release_capture.gd, wiki/articles/viewport-world-isolation.md.
+Доказательства: docs/reports/visual-overhaul/vrender-010/README.md, docs/reports/visual-overhaul/vrender-010/native/capture.json, docs/reports/visual-overhaul/vrender-010/native/draw-snapshots.json, docs/reports/visual-overhaul/vrender-010/review-baseline.json, docs/reports/visual-overhaul/vrender-010/closeout/README.md, docs/reports/visual-overhaul/vrender-010/closeout/completion.json, tools/qa/world/viewport/visual_world_release_capture.gd, wiki/articles/viewport-world-isolation.md.

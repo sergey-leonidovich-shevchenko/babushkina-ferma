@@ -1,0 +1,9 @@
+# VRENDER-010 — приёмка
+
+Tech Lead одобрил `283c118f73b4e748f6a053f62cd5a64469320fcd`. После решения Team Lead PR №48 влит в `main` обычным merge-коммитом `148c86e9f472e98b034852edac4ff1edde71ea4a` 15 ноября 2026 года в 08:38:07 по времени Алматы. Дерево merge совпадает с проверенным коммитом. Все три обсуждения закрыты. [PR №48](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48) · [Независимое одобрение](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/48#pullrequestreview-5908865375).
+
+Нативная проверка версии 0.0.424 включает 50 смен карт, 87 сравнений полного состояния при отрисовке, 13 записанных пар снимков, 13 PNG и шесть попиксельно равных пар при одинаковой камере. До исправления потеря шейдера в готовом кеше давала 297 477 отличающихся пикселей. После исправления резервный кадр совпал с прямым. Полный и локальный запросы к отсоединённому фону оставили очередь, счётчик проходов и подписку без изменений. Повторное подключение восстановило кеш. Исторический R11F воспроизводится побайтно по обеим командам. [Нативный отчёт](../README.md) · [Данные проверки](../native/capture.json) · [Сводка R11F](../../vrender-009/summary.json).
+
+GitHub CI прошёл 9 из 9 заданий. В обоих общих прогонах прошли 114 архитектурных наборов, 53 619 игровых проверок, по 90 проверок normal и F10, 154 теста Wiki, smoke-прогон на 180 кадрах и шесть замеров производительности. Отдельный X11-прогон VGROUND-002 на том же коммите сохранил 66 PNG и 240 наблюдений отрисовки. [PR CI](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43671175248) · [Push CI](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43671171134) · [X11](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43671175242).
+
+Критерии скорости и всей первой локации учитываются в карточках VPERF и VMAP. [Данные приёмки](completion.json).
