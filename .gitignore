@@ -794,6 +794,7 @@ tools/qa/world/viewport/*
 !tools/qa/world/viewport/*.gd
 !tools/qa/world/viewport/viewport_isolation_capture.gd.uid
 !tools/qa/world/viewport/viewport_isolation_review.gd.uid
+!tools/qa/world/viewport/visual_world_release_capture.gd.uid
 !tools/qa/world/object_command_canvas.gd.uid
 !tools/qa/world/object_command_capture.gd.uid
 !tools/qa/world/object_command_review.gd.uid

@@ -17,6 +17,7 @@ const GameUnhandledInputRouter := preload("res://scripts/core/game_unhandled_inp
 const GameBootstrap := preload("res://scripts/core/game_bootstrap.gd")
 const GameInteractionRouter := preload("res://scripts/core/game_interaction_router.gd")
 const ViewportWorldContext := preload("res://scripts/presentation/viewport_world_context.gd")
+const FoliageWind := preload("res://scripts/presentation/foliage_wind.gd")
 const CameraSystem := preload("res://scripts/systems/camera_system.gd")
 const HeroActionSystem := preload("res://scripts/systems/hero_action_system.gd")
 const PresentationPose := preload("res://scripts/systems/presentation_pose_system.gd")
@@ -38,7 +39,7 @@ func _process(_delta: float) -> void:
 		is_physics_processing()
 		and PresentationPose.present(self, Engine.get_physics_interpolation_fraction())
 	)
-	preload("res://scripts/presentation/foliage_wind.gd").update(self)
+	FoliageWind.update(self)
 	GamePreviewController.process(self)
 	if _physics_redraw_pending or pose_changed:
 		_physics_redraw_pending = false
@@ -265,6 +266,13 @@ func sync_background_location() -> void:
 		EstateSystem.discover_location(self, current_location)
 	var background := get_node_or_null("WorldBackground")
 	if background:
+		if background.location != current_location:
+			remove_meta(preload("res://scripts/presentation/post_motion_frame.gd").META)
+			remove_meta(TreeOcclusion.META_KEY)
+			if current_location != "overworld":
+				FoliageWind.update(self)
+			if current_location == "cottage_interior":
+				WorkshopSystem.state(self, "pottery")
 		background.sync_from(self, ViewportWorldContext.ensure(self))
 
 

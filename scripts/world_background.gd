@@ -78,6 +78,7 @@ var local_terrain_updates := true
 var terrain_clip: Control
 var terrain_erase: TerrainRegionClear
 var terrain_revision: TerrainLocalRevision = TerrainLocalRevision.new()
+var _terrain_visit := 0
 
 
 ## Закрепляет фон и его offscreen-слои за одним миром, сохраняя только числовой неизменяемый токен.
@@ -187,6 +188,17 @@ func _ready() -> void:
 	_sync_ground_layers()
 
 
+## После повторного подключения строит грунт в контексте нового viewport.
+func _enter_tree() -> void:
+	if terrain_viewport != null:
+		refresh_terrain()
+
+
+## Отключает проходы и подписки при удалении фона из дерева.
+func _exit_tree() -> void:
+	_cancel_terrain()
+
+
 ## Включает разделённый проход либо прежний кеш целиком, не изменяя карту или сохранение.
 func set_ground_split(enabled: bool) -> void:
 	if ground_split == enabled:
@@ -285,16 +297,49 @@ func _sync_ground_layers() -> void:
 	cutout_layer.configure(season, weather, false, true)
 
 
-## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
+## Отменяет работу прежней карты до постановки рендера новой.
 func set_location(value: String) -> void:
-	if location != value:
-		location = value
-		if location != "overworld":
-			terrain_revision.pending.clear()
-		_sync_ground_layers()
-		if VillageRegionData.contains(location):
-			refresh_terrain()
-		queue_redraw()
+	if location == value:
+		return
+	_cancel_terrain()
+	location = value
+	_sync_ground_layers()
+	refresh_terrain()
+	queue_redraw()
+
+
+## Останавливает текущий проход и инвалидирует отложенную работу прежнего визита.
+func _cancel_terrain() -> void:
+	_terrain_visit += 1
+	terrain_ready = false
+	terrain_revision.cancel()
+	if terrain_viewport != null:
+		terrain_viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
+		terrain_erase.visible = false
+	if RenderingServer.frame_post_draw.is_connected(_terrain_rendered):
+		RenderingServer.frame_post_draw.disconnect(_terrain_rendered)
+
+
+## Для подготовленного прохода обязательны текстура буфера и обе маски вырезания.
+func _terrain_resources_ready() -> bool:
+	var texture := terrain_viewport.get_texture()
+	var cutout := cutout_layer.material as ShaderMaterial
+	var erase := terrain_erase.material as ShaderMaterial
+	return (
+		texture != null
+		and texture.get_rid().is_valid()
+		and cutout != null
+		and cutout.shader != null
+		and erase != null
+		and erase.shader != null
+	)
+
+
+## Включает прямую отрисовку до появления исправного ресурса кеша.
+func _use_direct_terrain() -> void:
+	_cancel_terrain()
+	_sync_ground_layers()
+	queue_redraw()
 
 
 ## Синхронизирует сезон и погоду фонового слоя без доступа к изменяемому состоянию игры.
@@ -310,7 +355,10 @@ func set_environment(next_season: String, next_weather: String) -> void:
 
 ## Инвалидирует только графический кеш земли, оставляя исходные спрайты и коллизии самостоятельными.
 func refresh_terrain() -> void:
-	if terrain_viewport == null or not VillageRegionData.contains(location):
+	if terrain_viewport == null or not is_inside_tree() or not VillageRegionData.contains(location):
+		return
+	if not _terrain_resources_ready():
+		_use_direct_terrain()
 		return
 	terrain_requests += 1
 	terrain_revision.begin_full()
@@ -331,10 +379,17 @@ func refresh_terrain() -> void:
 
 ## Обновляет только прямоугольник первой карты в том же render target; плохой ввод не меняет кеш.
 func invalidate_terrain_rect(rect: Rect2) -> bool:
-	if location != "overworld" or not terrain_revision.clipped(rect).has_area():
+	if (
+		location != "overworld"
+		or (terrain_viewport != null and not is_inside_tree())
+		or not terrain_revision.clipped(rect).has_area()
+	):
 		return false
 	if terrain_viewport == null:
 		queue_redraw()
+		return true
+	if not _terrain_resources_ready():
+		_use_direct_terrain()
 		return true
 	if not local_terrain_updates:
 		refresh_terrain()
@@ -345,7 +400,7 @@ func invalidate_terrain_rect(rect: Rect2) -> bool:
 	terrain_ready = false
 	_sync_ground_layers()
 	_configure_terrain_canvas()
-	_start_terrain_region()
+	_start_terrain_region(_terrain_visit)
 	queue_redraw()
 	return true
 
@@ -368,9 +423,8 @@ func _configure_terrain_canvas() -> void:
 
 
 ## Применяет аппаратное отсечение и локальный прозрачный clear, сохраняя остальную текстуру.
-func _start_terrain_region() -> void:
-	if location != "overworld":
-		terrain_revision.pending.clear()
+func _start_terrain_region(visit: int) -> void:
+	if visit != _terrain_visit or not is_inside_tree() or location != "overworld":
 		return
 	var rect: Rect2 = terrain_revision.take()
 	if not rect.has_area():
@@ -389,12 +443,15 @@ func _start_terrain_region() -> void:
 
 ## Подменяет готовые команды грунта одним GPU-слоем после реального завершения его отрисовки.
 func _terrain_rendered() -> void:
+	if not _terrain_resources_ready():
+		_use_direct_terrain()
+		return
 	terrain_viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
 	terrain_revision.complete()
 	terrain_ready = terrain_revision.pending.is_empty()
 	# Новый локальный проход ставится после завершения одноразового сигнала, без потери подписки.
 	if not terrain_ready:
-		_start_terrain_region.call_deferred()
+		_start_terrain_region.call_deferred(_terrain_visit)
 	_sync_ground_layers()
 	if VillageRegionData.contains(location):
 		queue_redraw()
@@ -402,6 +459,8 @@ func _terrain_rendered() -> void:
 
 ## Отрисовывает текущее визуальное состояние узла.
 func _draw() -> void:
+	if terrain_ready and not _terrain_resources_ready():
+		_cancel_terrain()
 	_sync_ground_layers()
 	if BuildingSystem.is_interior(location):
 		draw_interior()
