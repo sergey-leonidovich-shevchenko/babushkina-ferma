@@ -842,6 +842,7 @@ tools/qa/world/viewport/*
 !tools/qa/world/water_fishing_review.gd.uid
 !tools/qa/world/water_navigation_review.gd.uid
 !tools/qa/world/water_topology_review.gd.uid
+!tools/qa/world/water_visual_compatibility_review.gd.uid
 
 !tools/qa/ground/compiled_sources.gd.uid
 !tools/qa/ground/compiled_sources_review.gd.uid

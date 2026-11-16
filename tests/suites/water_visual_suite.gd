@@ -16,6 +16,7 @@ func run() -> void:
 	test_registry_visual_snapshots_cover_all_water_semantics()
 	test_underwater_bottom_is_visual_only_and_retained()
 	preload("res://tests/suites/river_flow_suite.gd").new(context).run()
+	preload("res://tests/suites/water_visual_compatibility_suite.gd").new(context).run()
 
 
 ## Сценарий: вода, берега, рыба и всплески используют один визуальный профиль.

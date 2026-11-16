@@ -158,7 +158,7 @@
 
 ## VCOMPAT-005 — Сохранить коллизии воды
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `in_progress` · P0 · этап `foundation` · `engineering`
 
 WaterTopology остаётся владельцем воды, мостов и рыбалки; визуальная прозрачность не означает проходимость
 
@@ -172,7 +172,7 @@ WaterTopology остаётся владельцем воды, мостов и р
 - [scripts/systems/atomic_json_store.gd](../../../../scripts/systems/atomic_json_store.gd)
 - [scripts/systems/content_reference_graph.gd](../../../../scripts/systems/content_reference_graph.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vcompat-005/`.
+Результаты: `docs/reports/visual-overhaul/vcompat-005/`.
 
 Критерии:
 
@@ -190,7 +190,7 @@ WaterTopology остаётся владельцем воды, мостов и р
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vcompat-005/README.md.
 
 <a id="vcompat-006"></a>
 

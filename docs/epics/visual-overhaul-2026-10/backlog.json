@@ -7689,7 +7689,7 @@
       "id": "VCOMPAT-005",
       "epic": "VCOMPAT",
       "title": "Сохранить коллизии воды",
-      "status": "ready",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -7725,7 +7725,9 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vcompat-005-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vcompat-005/README.md"
+      ]
     },
     {
       "id": "VCOMPAT-006",
