@@ -3111,7 +3111,7 @@
       "id": "VSHORE-006",
       "epic": "VSHORE",
       "title": "Направить течение по руслу",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3147,7 +3147,22 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vshore-006-visual-task",
-      "evidence": []
+      "comparison": {
+        "manifest": "docs/reports/visual-overhaul/vshore-006/native/comparison.json",
+        "case": "upper",
+        "label": "Течение на поворотах у западного моста"
+      },
+      "evidence": [
+        "docs/reports/visual-overhaul/vshore-006/README.md",
+        "docs/reports/visual-overhaul/vshore-006/native/capture.json",
+        "docs/reports/visual-overhaul/vshore-006/native/comparison.json",
+        "docs/reports/visual-overhaul/vshore-006/native/metrics.json",
+        "docs/reports/visual-overhaul/vshore-006/native/camera-pan.mp4",
+        "tools/qa/world/river_flow_capture.gd",
+        "tools/qa/world/river_flow.py",
+        "wiki/articles/river-flow.md"
+      ],
+      "result": "Рябь в первой реке движется по пяти осевым отрезкам и четырём изгибам. Обычный и низкий профили используют общий атлас, пруд сохраняет прежнее колебание. На трёх одинаковых камерах изменения ограничились речными пикселями. Суша, пруд и центр обоих мостов совпали. Кадр «До» у западного моста побайтно совпал с VSHORE-005. Проверено направление ряби на трёх прямых и четырёх изгибах. WATER 918/0, 12 нативных проверок, 120 кадров ролика. Готовится независимое ревью."
     },
     {
       "id": "VSHORE-007",

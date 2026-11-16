@@ -1,0 +1,97 @@
+{
+  "same_camera": {
+    "upper": {
+      "river_pixels_changed": 96096,
+      "max_rgb_delta": 20
+    },
+    "lower": {
+      "river_pixels_changed": 120556,
+      "max_rgb_delta": 21
+    },
+    "pond": {
+      "river_pixels_changed": 77728,
+      "max_rgb_delta": 23
+    }
+  },
+  "drift": {
+    "upper_right": {
+      "samples": 2120,
+      "mean_squared_error": {
+        "downstream": 5.092e-05,
+        "upstream": 0.00534822,
+        "cross_first": 0.00024079,
+        "cross_second": 0.00564504,
+        "stationary": 0.00319016
+      }
+    },
+    "lower_down": {
+      "samples": 4645,
+      "mean_squared_error": {
+        "downstream": 5.865e-05,
+        "upstream": 0.00465888,
+        "cross_first": 0.00437276,
+        "cross_second": 0.00020182,
+        "stationary": 0.00247291
+      }
+    },
+    "lower_right": {
+      "samples": 7830,
+      "mean_squared_error": {
+        "downstream": 4.229e-05,
+        "upstream": 0.0041601,
+        "cross_first": 0.00015773,
+        "cross_second": 0.00382525,
+        "stationary": 0.00219709
+      }
+    },
+    "low_profile_right": {
+      "samples": 2120,
+      "mean_squared_error": {
+        "downstream": 4.841e-05,
+        "upstream": 0.0053096,
+        "cross_first": 0.00020103,
+        "cross_second": 0.0053985,
+        "stationary": 0.00255341
+      }
+    },
+    "first_bend": {
+      "samples": 1002,
+      "mean_squared_error": {
+        "downstream": 3.353e-05,
+        "upstream": 0.00317832,
+        "stationary": 0.0013965
+      }
+    },
+    "second_bend": {
+      "samples": 1003,
+      "mean_squared_error": {
+        "downstream": 3.86e-05,
+        "upstream": 0.00374814,
+        "stationary": 0.00222455
+      }
+    },
+    "third_bend": {
+      "samples": 1003,
+      "mean_squared_error": {
+        "downstream": 4.782e-05,
+        "upstream": 0.00436435,
+        "stationary": 0.00186673
+      }
+    },
+    "fourth_bend": {
+      "samples": 999,
+      "mean_squared_error": {
+        "downstream": 4.721e-05,
+        "upstream": 0.00400721,
+        "stationary": 0.00166971
+      }
+    }
+  },
+  "phase_wrap_equal": true,
+  "camera_patch": {
+    "pixels": 25830,
+    "changed": 26,
+    "max_rgb_delta": 1
+  },
+  "atlas_bytes": 123088
+}

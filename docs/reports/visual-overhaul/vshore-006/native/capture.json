@@ -1,0 +1,3920 @@
+{
+	"adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+	"atlas": {
+		"bounds": [
+			-56.0,
+			232.0,
+			2512.0,
+			784.0
+		],
+		"bytes": 123088,
+		"size": [
+			314,
+			98
+		]
+	},
+	"base": "eda1aee85bc3cbaddfe8e432003256ee55d4df80",
+	"bridges": [
+		[
+			792.0,
+			348.0,
+			144.0,
+			216.0
+		],
+		[
+			1536.0,
+			852.0,
+			144.0,
+			216.0
+		]
+	],
+	"captures": {
+		"lower-after": {
+			"camera": [
+				700.0,
+				540.0
+			],
+			"directed": true,
+			"file": "lower-after.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "aebf07324ae28017a7cbbfe4b00340500aa3e7ef476989934e591bf20b26d7fa",
+			"quality": "normal",
+			"scale": 1.2,
+			"seconds": 1.25
+		},
+		"lower-before": {
+			"camera": [
+				700.0,
+				540.0
+			],
+			"directed": false,
+			"file": "lower-before.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "c34d3d7931e79ec2dd78f4b110a192c5f3931cfb40edbcc176bbb5ad80b10712",
+			"quality": "normal",
+			"scale": 1.2,
+			"seconds": 1.25
+		},
+		"lower-later": {
+			"camera": [
+				700.0,
+				540.0
+			],
+			"directed": true,
+			"file": "lower-later.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "394d4b4be926e7842839a97d209c45546bd014d8f95c4fd21cedeecb1479e964",
+			"quality": "normal",
+			"scale": 1.2,
+			"seconds": 7.91666666666667
+		},
+		"lower-static": {
+			"camera": [
+				700.0,
+				540.0
+			],
+			"directed": true,
+			"file": "lower-static.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "97ff4a942d3011d821852e8d801156d59437d8a03235f47150fc078facb4c63e",
+			"quality": "static",
+			"scale": 1.2,
+			"seconds": 1.25
+		},
+		"pond-after": {
+			"camera": [
+				1368.0,
+				618.0
+			],
+			"directed": true,
+			"file": "pond-after.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "57438a465a4b1dc2ab1cab8d874d170743603af7eaa8a2eaa41771e262c7542f",
+			"quality": "normal",
+			"scale": 1.2,
+			"seconds": 1.25
+		},
+		"pond-before": {
+			"camera": [
+				1368.0,
+				618.0
+			],
+			"directed": false,
+			"file": "pond-before.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "81dbc73543545a4df861ffc12e1ea0c8307e2fef5077e238b30d89820d6a02d4",
+			"quality": "normal",
+			"scale": 1.2,
+			"seconds": 1.25
+		},
+		"upper-after": {
+			"camera": [
+				288.0,
+				18.0
+			],
+			"directed": true,
+			"file": "upper-after.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "d1914f0600cb7e11254c344327410a93911adf8779ca0d3fadfb563efcfaa7a7",
+			"quality": "normal",
+			"scale": 1.2,
+			"seconds": 1.25
+		},
+		"upper-before": {
+			"camera": [
+				288.0,
+				18.0
+			],
+			"directed": false,
+			"file": "upper-before.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "7d4807487a08487163d943d85ba908fe6b08d8bcad9209ea06860fcb6b32dc8d",
+			"quality": "normal",
+			"scale": 1.2,
+			"seconds": 1.25
+		},
+		"upper-later": {
+			"camera": [
+				288.0,
+				18.0
+			],
+			"directed": true,
+			"file": "upper-later.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "e79f84508507a36109ceb781ccb4194a264f74b677c7f7de6e8d7f5d9266ccd4",
+			"quality": "normal",
+			"scale": 1.2,
+			"seconds": 7.91666666666667
+		},
+		"upper-low": {
+			"camera": [
+				288.0,
+				18.0
+			],
+			"directed": true,
+			"file": "upper-low.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "32e13a35094c1b6435e7a3a5078a5ae345866a7b7ba74e7e02136300273f144e",
+			"quality": "low",
+			"scale": 1.2,
+			"seconds": 1.25
+		},
+		"upper-low-later": {
+			"camera": [
+				288.0,
+				18.0
+			],
+			"directed": true,
+			"file": "upper-low-later.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "7535cbfb48f02ddf6c5999e7e1e85c0f4cd7ded3654eca8a20bd89f21fe107a4",
+			"quality": "low",
+			"scale": 1.2,
+			"seconds": 7.91666666666667
+		},
+		"upper-shifted": {
+			"camera": [
+				328.0,
+				18.0
+			],
+			"directed": true,
+			"file": "upper-shifted.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "181e2256b6253f4a113dddcc63a7f9f2c605c5d9533a8b53cf5713552e1eced8",
+			"quality": "normal",
+			"scale": 1.2,
+			"seconds": 1.25
+		},
+		"upper-static": {
+			"camera": [
+				288.0,
+				18.0
+			],
+			"directed": true,
+			"file": "upper-static.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "d58507c174b03580d4d02f6d1a17bed956711cc5fcfb923a03d160eaff236fcf",
+			"quality": "static",
+			"scale": 1.2,
+			"seconds": 1.25
+		},
+		"upper-wrapped": {
+			"camera": [
+				288.0,
+				18.0
+			],
+			"directed": true,
+			"file": "upper-wrapped.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "d1914f0600cb7e11254c344327410a93911adf8779ca0d3fadfb563efcfaa7a7",
+			"quality": "normal",
+			"scale": 1.2,
+			"seconds": 65.25
+		}
+	},
+	"checks": {
+		"direct_hidden": true,
+		"directed_default": true,
+		"low_keeps_flow": true,
+		"normal_fine": true,
+		"pause": true,
+		"reduced_motion_static": true,
+		"reference_static": true,
+		"resume": true,
+		"save_equal": true,
+		"split_visible": true,
+		"uniform_only": true,
+		"unsplit_hidden": true
+	},
+	"display": "macOS",
+	"driver": "opengl3",
+	"engine": "4.7.1-stable (official)",
+	"motion": [
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0000.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "aebf07324ae28017a7cbbfe4b00340500aa3e7ef476989934e591bf20b26d7fa",
+			"scale": 1.2,
+			"seconds": 1.25
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0001.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "16ceda669848a4be15136e00d8374720664823ca9a25afc43388d5b9675f0594",
+			"scale": 1.2,
+			"seconds": 1.28333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0002.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "4ff66e1953e78f611e92e79fc9687821ba189e7cab7c7efd754f43983fab51c7",
+			"scale": 1.2,
+			"seconds": 1.31666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0003.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "f8eda664c36370f7a114e1eb8b5341eac2d117bcec14f7616c04edc199805df2",
+			"scale": 1.2,
+			"seconds": 1.35
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0004.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "05f87d489209097ad66320c5c97222a16cbe48cdf602193a91114a3914b03742",
+			"scale": 1.2,
+			"seconds": 1.38333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0005.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "86f33ea2872e51d4af12c5758b35b99270ebc199d8208abe241fef197ea27a73",
+			"scale": 1.2,
+			"seconds": 1.41666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0006.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "a9533b3d1ad8f0560fb934b76fa1876a7aa552f23bca9f3513a1fe477707fa3d",
+			"scale": 1.2,
+			"seconds": 1.45
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0007.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "6a4ceaee100993fd64e479ca16e9000ebee6b93a3cba2905ae01e9a2f7acf05c",
+			"scale": 1.2,
+			"seconds": 1.48333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0008.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "a6097e75ca64705f18282c19bcd6b6b0ead1e93f360be4d920f833ab5bf54b45",
+			"scale": 1.2,
+			"seconds": 1.51666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0009.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "d153db706d0465bfb928e9bea50f5597ac459d88a14861ead9663560de22d378",
+			"scale": 1.2,
+			"seconds": 1.55
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0010.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "bbfa32af80345799a6d78b59c6f36e563ff3ab9f63036ee17b7a7b5ffd119566",
+			"scale": 1.2,
+			"seconds": 1.58333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0011.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "184c3331b6d1d19bdd10db6580e0ff99d88d1799bcc58629cc4f5025f51b0079",
+			"scale": 1.2,
+			"seconds": 1.61666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0012.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "602cbb8f36663ce868ff5dc921cc6d70e28905b4960b63c868b83e48784970dc",
+			"scale": 1.2,
+			"seconds": 1.65
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0013.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "3e6a84cc6ff38acdc247ce83fde35576df50a654fce89e0578f480e66b36aaeb",
+			"scale": 1.2,
+			"seconds": 1.68333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0014.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "e4de0b51b395050029dcee411761833684b1d95985042e762cbc0194f25e2440",
+			"scale": 1.2,
+			"seconds": 1.71666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0015.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "48ade6e75f33a9c5fb80e847cec8dfb9a211f7dc3677d93c65f6fbc186daf729",
+			"scale": 1.2,
+			"seconds": 1.75
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0016.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "a45dcb2a7c1e3b2bc8d5db97b26547f2a3da8f12d43db0e92fdb267dcbc7092a",
+			"scale": 1.2,
+			"seconds": 1.78333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0017.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "3bb30eba79836b04a49db9686aedd8656ccccda175aa4850ad9697f76ac74965",
+			"scale": 1.2,
+			"seconds": 1.81666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0018.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "ba0258220f68d60cf30249927b684473f5a88d9b2887534eee7a3c81721f82e5",
+			"scale": 1.2,
+			"seconds": 1.85
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0019.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "f80718c0ba0ae19e8942cd3fe467fee247cba3fc162e37e1364756532b6f4e97",
+			"scale": 1.2,
+			"seconds": 1.88333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0020.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "9bc7c1fc67bde6fae015af9d388d8131d4ffebd10ffbed9513dd9c4f0411bc41",
+			"scale": 1.2,
+			"seconds": 1.91666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0021.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "06e84cb176f8401a922ab7e7e487c1d67143de606ad49afeddd68b65a4af3d37",
+			"scale": 1.2,
+			"seconds": 1.95
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0022.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "16bc7c11be351c2ea193725bb0849e82cb5c7840dae561d12e0c6ec14686267f",
+			"scale": 1.2,
+			"seconds": 1.98333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0023.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "11eb80c674ffe8c556a863c6fd7afa7399d3bb022ac65fc402b2358807d89909",
+			"scale": 1.2,
+			"seconds": 2.01666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0024.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "2892c2facc51ad1656fcd2ae57a6d1569c0a322a4e7a584d21ebc2a806983a67",
+			"scale": 1.2,
+			"seconds": 2.05
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0025.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "9161fff3b363b1e997ddec7916ddf4db33f74c592013ccc9a8fa789f9f105105",
+			"scale": 1.2,
+			"seconds": 2.08333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0026.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "c32d7ceafeddaee80d0477e4c10eb29866032235fe3da7ea5ccce632c072e380",
+			"scale": 1.2,
+			"seconds": 2.11666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0027.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "3f3048bc2bdf45e83fc040085a05eb802e6db18c250d5016ad3c3dd3b5aa82f7",
+			"scale": 1.2,
+			"seconds": 2.15
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0028.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "51b82e05916ce77e3c1915e7472766e33c49c27fa32241549e7e4cd13b0e5d3a",
+			"scale": 1.2,
+			"seconds": 2.18333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0029.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "c96b62b9eeefc603e6b1bdd3c6d2d8bb86ad8cd9b17fc118a4e16cabb5f94548",
+			"scale": 1.2,
+			"seconds": 2.21666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0030.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "73f9c00aef94e93cadcc2d690c0361485184b2600cbdf0c9cfd1bc29481c4c54",
+			"scale": 1.2,
+			"seconds": 2.25
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0031.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "650333fdd6ba2bc02007d11ea0621c95d6478e173a03b0b0ad4590448805966d",
+			"scale": 1.2,
+			"seconds": 2.28333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0032.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "8f103d9296c71df3a6b0e32dd8ed38ac14d4109ff8d95a36401cce7126f33747",
+			"scale": 1.2,
+			"seconds": 2.31666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0033.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "d9a21fb04be366822a15a2456e014899eca181f774647cf5b338136a8a09357b",
+			"scale": 1.2,
+			"seconds": 2.35
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0034.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "57a2a7e7129117066a234ff21c3d7e807cd829a9bea4b9aaac3479a6c714af05",
+			"scale": 1.2,
+			"seconds": 2.38333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0035.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "dc46374b86af88aabbfdff83652c874588c1a73899bc715c6f5212e545b6c2be",
+			"scale": 1.2,
+			"seconds": 2.41666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0036.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "a62b096d7d797db9ac59682223268aa45acf934944457d0248f1c93ea1a10b4b",
+			"scale": 1.2,
+			"seconds": 2.45
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0037.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "2c69aa41ed296a230979e3b8df70a5a9da0048c4dd5eb0cdd582073d5992c50e",
+			"scale": 1.2,
+			"seconds": 2.48333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0038.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "17ed91c16bd5b797b20183d59c374aedd7c3efac71b3f03ad3f0f0ef12c160fe",
+			"scale": 1.2,
+			"seconds": 2.51666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0039.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "cac6781c9bd22f2e0c0cbbe73e75e9e91a7bbbb2c827e4b1168f71eea4958a27",
+			"scale": 1.2,
+			"seconds": 2.55
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0040.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "79f981c5d33b83c771f5ba63494b52fbc1ee34e76521e5ec761748d5bcba570f",
+			"scale": 1.2,
+			"seconds": 2.58333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0041.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "e9857b9509649190add141e491e819438d93c219c8f97dcce4cd40a99f1c274a",
+			"scale": 1.2,
+			"seconds": 2.61666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0042.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "ebb6a685bc5c0ae2da38324e8958c04480d3dac11a880a980c5a95d1dd5b0247",
+			"scale": 1.2,
+			"seconds": 2.65
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0043.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "aa835e166e7798226bb4a95cf39a98bd5fd227a4401ee76e5256702562d9edab",
+			"scale": 1.2,
+			"seconds": 2.68333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0044.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "4b2623b0b5e20604fa2ca3c7444233ffbc926cdf123ca2c014acc7c057e0f625",
+			"scale": 1.2,
+			"seconds": 2.71666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0045.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "4048f58b57cca53a3743a49d6d45e7f3f161109b48c27947c18d0d3b8bd8cf7f",
+			"scale": 1.2,
+			"seconds": 2.75
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0046.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "71fba18faac28131b67ab45ac6b72fe98869c21faac1606785989a8e51b0c4d1",
+			"scale": 1.2,
+			"seconds": 2.78333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0047.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "5b0257651e5386c3f7da00d09acf25676f9ec91b19995f16c061cc54d3ee68b1",
+			"scale": 1.2,
+			"seconds": 2.81666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0048.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "72cb251e6a5b8c8bcdfd1764597cffd61acbd484025cdc0874a079e671d10892",
+			"scale": 1.2,
+			"seconds": 2.85
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0049.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "c5970517375a642c9226da874a39b8653eae49d3f4f8f4af198b6c282a95edf7",
+			"scale": 1.2,
+			"seconds": 2.88333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0050.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "6c032e2fe5181e47c82f3c92ff38a2de961e362c6731d677be1320337162f8f3",
+			"scale": 1.2,
+			"seconds": 2.91666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0051.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "dc1a1995a1e0bfef98e742afd8ac89f32d7a3aaaf8ec7c751a2e6a61eddd1b23",
+			"scale": 1.2,
+			"seconds": 2.95
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0052.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "254317e4678bafe0b07e8c41c9c529a245ddc1268c046c4069b8e00d8832d601",
+			"scale": 1.2,
+			"seconds": 2.98333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0053.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "ed703d91845001d2981626298e866bba63890a67ba39d992c89553b65c02d01e",
+			"scale": 1.2,
+			"seconds": 3.01666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0054.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "725ce9db32105ab37b924ed0df922f4ad574b16674aa24daf7e07ecf49bcac09",
+			"scale": 1.2,
+			"seconds": 3.05
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0055.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "b618729ada3766dab7a380af3ccadc62d0bb6d86b4567adc2fb0bf5ed8019648",
+			"scale": 1.2,
+			"seconds": 3.08333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0056.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "e90962810487180f7467c5150438e35f00ef83322c007244755b0cd3ba92ec79",
+			"scale": 1.2,
+			"seconds": 3.11666666666667
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0057.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "f9f5d7cee7ff14254c19647f42b76d24fe740969a993129701f497de89ff5565",
+			"scale": 1.2,
+			"seconds": 3.15
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0058.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "fe479f59cbadda13c9d5d60e5b8113a3670f43ea6aaafeb4359a262725727391",
+			"scale": 1.2,
+			"seconds": 3.18333333333333
+		},
+		{
+			"camera": [
+				700.0,
+				540.0
+			],
+			"file": "frames/0059.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "4a672a590f10526392830471a084423e3192e62e241df6caaa4023d8209a3f4d",
+			"scale": 1.2,
+			"seconds": 3.21666666666667
+		},
+		{
+			"camera": [
+				268.0,
+				72.0
+			],
+			"file": "frames/0060.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "91dc7982b64d61a6cc2067ff1d063a0206f0364f49a9a4132def35036135389e",
+			"scale": 1.2,
+			"seconds": 1.25
+		},
+		{
+			"camera": [
+				271.457641601562,
+				72.3728790283203
+			],
+			"file": "frames/0061.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "eed8239e5f66c974ad7944e9974e15318bc2dc795a9e00a35fc4a8de475398cb",
+			"scale": 1.2,
+			"seconds": 1.28333333333333
+		},
+		{
+			"camera": [
+				274.915252685547,
+				72.7457656860352
+			],
+			"file": "frames/0062.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "424e9a877cf247c7041f95530d9d7fe678ab566c10bf87cdc4b222d4c5b26b1b",
+			"scale": 1.2,
+			"seconds": 1.31666666666667
+		},
+		{
+			"camera": [
+				278.372894287109,
+				73.1186447143555
+			],
+			"file": "frames/0063.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "5021975ba6dec34b5821e41ceb27e113edc19acdd7bb1669001205a9067bf1da",
+			"scale": 1.2,
+			"seconds": 1.35
+		},
+		{
+			"camera": [
+				281.830505371094,
+				73.4915237426758
+			],
+			"file": "frames/0064.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "0167907d9b91801b8587b44ad762835c69354036a7ff3e0c1bbd823f30537ae0",
+			"scale": 1.2,
+			"seconds": 1.38333333333333
+		},
+		{
+			"camera": [
+				285.288146972656,
+				73.8644104003906
+			],
+			"file": "frames/0065.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "a84e41af0d180e74cd506cb5eb7b93296bb3b183bdebbef934f73584844b5966",
+			"scale": 1.2,
+			"seconds": 1.41666666666667
+		},
+		{
+			"camera": [
+				288.745758056641,
+				74.2372894287109
+			],
+			"file": "frames/0066.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "28c5ff25d407431d29ac2eab8a1fc385365183585cb5b4f98f1b2640b8cd10a1",
+			"scale": 1.2,
+			"seconds": 1.45
+		},
+		{
+			"camera": [
+				292.203399658203,
+				74.6101684570312
+			],
+			"file": "frames/0067.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "019eca7e1c65637dc912892f577da6eb5dcd6bf7ad372e19ff2a69c01621dafa",
+			"scale": 1.2,
+			"seconds": 1.48333333333333
+		},
+		{
+			"camera": [
+				295.661010742188,
+				74.9830474853516
+			],
+			"file": "frames/0068.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "ac1938e8e35a0152b600c81fbd146a19aa2330b03edd0d146b7883e2a13259ef",
+			"scale": 1.2,
+			"seconds": 1.51666666666667
+		},
+		{
+			"camera": [
+				299.11865234375,
+				75.3559341430664
+			],
+			"file": "frames/0069.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "b14ca9151d09263eb9b6d13b9f1f3d4e178430791b9ba4d2d8871694330a8dc0",
+			"scale": 1.2,
+			"seconds": 1.55
+		},
+		{
+			"camera": [
+				302.576263427734,
+				75.7288131713867
+			],
+			"file": "frames/0070.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "6057f2150cca5d4b5ce8ce59940c1777e00c21dc3754de686fb25d27dde445c8",
+			"scale": 1.2,
+			"seconds": 1.58333333333333
+		},
+		{
+			"camera": [
+				306.033905029297,
+				76.101692199707
+			],
+			"file": "frames/0071.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "18e54ee8a8036a36d9356760e1a4e5c7c90debe6ebe81aa61f639b538108917a",
+			"scale": 1.2,
+			"seconds": 1.61666666666667
+		},
+		{
+			"camera": [
+				309.491516113281,
+				76.4745788574219
+			],
+			"file": "frames/0072.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "1152f2e6044c5108577d938211c0eac3ea21990a3798ea12f13e7fd409131a53",
+			"scale": 1.2,
+			"seconds": 1.65
+		},
+		{
+			"camera": [
+				312.949157714844,
+				76.8474578857422
+			],
+			"file": "frames/0073.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "d0674c313b2c040e1dec977e9a973f134072d01071032c1d1f4f1aca69a5891d",
+			"scale": 1.2,
+			"seconds": 1.68333333333333
+		},
+		{
+			"camera": [
+				316.406768798828,
+				77.2203369140625
+			],
+			"file": "frames/0074.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "1a58de6913c21902a6682897e430754d835a9ff4aaa6ef9aa5d383d15c2617d7",
+			"scale": 1.2,
+			"seconds": 1.71666666666667
+		},
+		{
+			"camera": [
+				319.864410400391,
+				77.5932235717773
+			],
+			"file": "frames/0075.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "3103d510259e1b3268e62ed6e9eaabf3780fb3d58f7753ae17f96c71fdf51b87",
+			"scale": 1.2,
+			"seconds": 1.75
+		},
+		{
+			"camera": [
+				323.322021484375,
+				77.9661026000977
+			],
+			"file": "frames/0076.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "7d73ba4e0da41bcc815e5b0957ea40decbef3a2773b486aad9d3122a28e04f25",
+			"scale": 1.2,
+			"seconds": 1.78333333333333
+		},
+		{
+			"camera": [
+				326.779663085938,
+				78.338981628418
+			],
+			"file": "frames/0077.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "8220305e294fe37eacad0e44f3f72aa1c61270660f9add80437bb1b8cc6db21c",
+			"scale": 1.2,
+			"seconds": 1.81666666666667
+		},
+		{
+			"camera": [
+				330.237274169922,
+				78.7118606567383
+			],
+			"file": "frames/0078.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "4f36d4dc0a32754474ce603ec373e0580a625446eea54780f06ab3c19cd5ff70",
+			"scale": 1.2,
+			"seconds": 1.85
+		},
+		{
+			"camera": [
+				333.694915771484,
+				79.0847473144531
+			],
+			"file": "frames/0079.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "56a63e06378d709a6f677cd7e31530d1ff632bffc591d05277378953e887f522",
+			"scale": 1.2,
+			"seconds": 1.88333333333333
+		},
+		{
+			"camera": [
+				337.152526855469,
+				79.4576263427734
+			],
+			"file": "frames/0080.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "04bcc428a72e3ba05206badf7b0edde004bc85a8da434a9c73a89d3f94a2f0b6",
+			"scale": 1.2,
+			"seconds": 1.91666666666667
+		},
+		{
+			"camera": [
+				340.610168457031,
+				79.8305053710938
+			],
+			"file": "frames/0081.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "3819f32af34c05d94a525bf39d7b51b7d1f25f48a83a30f7c5429ee5edfc3690",
+			"scale": 1.2,
+			"seconds": 1.95
+		},
+		{
+			"camera": [
+				344.067810058594,
+				80.2033920288086
+			],
+			"file": "frames/0082.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "0e8e85e1cc5e9bceba97fc8652b0994a564fd72f1acd10632fb32700437e6735",
+			"scale": 1.2,
+			"seconds": 1.98333333333333
+		},
+		{
+			"camera": [
+				347.525421142578,
+				80.5762710571289
+			],
+			"file": "frames/0083.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "cd8a686edfa62d59e4cd6bb68054ac23568c9b6417ca6281a7365bb202fe08f2",
+			"scale": 1.2,
+			"seconds": 2.01666666666667
+		},
+		{
+			"camera": [
+				350.983032226562,
+				80.9491500854492
+			],
+			"file": "frames/0084.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "ea1c1cdfd55490aedac2f6cea27e4709b23628af75ed4cd8f09ff982e592afd9",
+			"scale": 1.2,
+			"seconds": 2.05
+		},
+		{
+			"camera": [
+				354.440673828125,
+				81.3220367431641
+			],
+			"file": "frames/0085.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "710b1daf6476e322c21d104de376e8891f482d0cd408f44bfb09618e99cdc736",
+			"scale": 1.2,
+			"seconds": 2.08333333333333
+		},
+		{
+			"camera": [
+				357.898315429688,
+				81.6949157714844
+			],
+			"file": "frames/0086.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "1d84112e7573d677e02261d668bf80272cfc09759b2717dae6afc0d72e22fded",
+			"scale": 1.2,
+			"seconds": 2.11666666666667
+		},
+		{
+			"camera": [
+				361.355926513672,
+				82.0677947998047
+			],
+			"file": "frames/0087.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "f1e7b472923da653ff8afa587ee22849cd6dc21577d8ca8172ec742be02a3084",
+			"scale": 1.2,
+			"seconds": 2.15
+		},
+		{
+			"camera": [
+				364.813568115234,
+				82.440673828125
+			],
+			"file": "frames/0088.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "034a1598d1c945b24e6d096a9e82f9d533ac93972f3ea262f64d5c4a1a93393b",
+			"scale": 1.2,
+			"seconds": 2.18333333333333
+		},
+		{
+			"camera": [
+				368.271179199219,
+				82.8135604858398
+			],
+			"file": "frames/0089.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "e64d53e3bf1ec016aaa17d86ff6be561aabedc1d83bfe221655b5fa82eba1188",
+			"scale": 1.2,
+			"seconds": 2.21666666666667
+		},
+		{
+			"camera": [
+				371.728820800781,
+				83.1864395141602
+			],
+			"file": "frames/0090.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "39d19a60b7d314991c5bc8a6e711216faea82fed744437ed22b5425f8f0ddc3f",
+			"scale": 1.2,
+			"seconds": 2.25
+		},
+		{
+			"camera": [
+				375.186431884766,
+				83.5593185424805
+			],
+			"file": "frames/0091.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "95e63d0ea0cde95a18e0cdf97d1f00150876da1c5936abfa07adc73878cee497",
+			"scale": 1.2,
+			"seconds": 2.28333333333333
+		},
+		{
+			"camera": [
+				378.644073486328,
+				83.9322052001953
+			],
+			"file": "frames/0092.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "1d54977fab3927a5153c7a775e2f9b29cceb2b1ed02034055221b463520f9c91",
+			"scale": 1.2,
+			"seconds": 2.31666666666667
+		},
+		{
+			"camera": [
+				382.101684570312,
+				84.3050842285156
+			],
+			"file": "frames/0093.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "136e89e7a6dda9d2166b01a817dc20db44c3b81438262e66167065f673947b55",
+			"scale": 1.2,
+			"seconds": 2.35
+		},
+		{
+			"camera": [
+				385.559326171875,
+				84.6779632568359
+			],
+			"file": "frames/0094.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "dd17bb1810574fe8b7c7e342d8cbceb461097ccf67c0e380a9e164f8d6a90f99",
+			"scale": 1.2,
+			"seconds": 2.38333333333333
+		},
+		{
+			"camera": [
+				389.016967773438,
+				85.0508499145508
+			],
+			"file": "frames/0095.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "2753fcb5892b903e20bd36afb0c778d6b94b88e27930fd6d37a1a590d1b70c05",
+			"scale": 1.2,
+			"seconds": 2.41666666666667
+		},
+		{
+			"camera": [
+				392.474578857422,
+				85.4237289428711
+			],
+			"file": "frames/0096.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "d43bfe8d51fa004dc1e1870affa8988c38791c1ce620671d090715915d7385f0",
+			"scale": 1.2,
+			"seconds": 2.45
+		},
+		{
+			"camera": [
+				395.932189941406,
+				85.7966079711914
+			],
+			"file": "frames/0097.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "efcf78e0426b4ff2b7040e70553889ad289f7adbee374242dc3c2632c07af922",
+			"scale": 1.2,
+			"seconds": 2.48333333333333
+		},
+		{
+			"camera": [
+				399.389831542969,
+				86.1694946289062
+			],
+			"file": "frames/0098.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "a04db7b83df3b6104a6bf256c2a306d0213044bb85128b1d7d2160039bd9bc51",
+			"scale": 1.2,
+			"seconds": 2.51666666666667
+		},
+		{
+			"camera": [
+				402.847473144531,
+				86.5423736572266
+			],
+			"file": "frames/0099.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "8393a63aba60d7dbb14ee04d8e2a8a72f330ea27069d1ce97aa2bf3af59a379d",
+			"scale": 1.2,
+			"seconds": 2.55
+		},
+		{
+			"camera": [
+				406.305084228516,
+				86.9152526855469
+			],
+			"file": "frames/0100.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "57028dd11bf55d316cfdb4290f8f4ac9cbf667b041ecfc4b522aab2e38c45e5e",
+			"scale": 1.2,
+			"seconds": 2.58333333333333
+		},
+		{
+			"camera": [
+				409.7626953125,
+				87.2881317138672
+			],
+			"file": "frames/0101.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "c5129e4926b9f56fdfffa4e08fe5f4aa20e4fbf520ff88a6030a956f9fba7e01",
+			"scale": 1.2,
+			"seconds": 2.61666666666667
+		},
+		{
+			"camera": [
+				413.220336914062,
+				87.661018371582
+			],
+			"file": "frames/0102.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "6257b1fb52dc148419207ac9b1c5327e5957f0895f1fe6f20e038b5620d5f59d",
+			"scale": 1.2,
+			"seconds": 2.65
+		},
+		{
+			"camera": [
+				416.677978515625,
+				88.0338973999023
+			],
+			"file": "frames/0103.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "7de503fc616eb5bfa18fdd2bd846f095c56c36b6f014e526663b37bbcf2044b6",
+			"scale": 1.2,
+			"seconds": 2.68333333333333
+		},
+		{
+			"camera": [
+				420.135589599609,
+				88.4067840576172
+			],
+			"file": "frames/0104.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "9df205b24a3d1fb11a5b92880891f7e9b7f5939705c7af1ffe2bc2f1a424def6",
+			"scale": 1.2,
+			"seconds": 2.71666666666667
+		},
+		{
+			"camera": [
+				423.593231201172,
+				88.7796630859375
+			],
+			"file": "frames/0105.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "2c6abceeb1d8f7e11d5219a1b0f854f5c881d2bc615f89054232482ecb916ff5",
+			"scale": 1.2,
+			"seconds": 2.75
+		},
+		{
+			"camera": [
+				427.050842285156,
+				89.1525421142578
+			],
+			"file": "frames/0106.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "7dc1f4562a95c1fc435555d1d9c189d89aad61841288820c4aed358bb5f6c7d9",
+			"scale": 1.2,
+			"seconds": 2.78333333333333
+		},
+		{
+			"camera": [
+				430.508483886719,
+				89.5254211425781
+			],
+			"file": "frames/0107.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "3a2c411a4d9161d997927e9c739a2e342e7b4c4ec55a361596eba4d7d8897173",
+			"scale": 1.2,
+			"seconds": 2.81666666666667
+		},
+		{
+			"camera": [
+				433.966094970703,
+				89.8983001708984
+			],
+			"file": "frames/0108.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "44d6da4ce55bb1d630449fc95a1f753b2b7b4a7bcae2617628aec31d5ec83346",
+			"scale": 1.2,
+			"seconds": 2.85
+		},
+		{
+			"camera": [
+				437.423706054688,
+				90.2711868286133
+			],
+			"file": "frames/0109.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "b4c8a3712296c9211ac6e622d266453e69bb7f15f7770bb0e7efb08a7712449e",
+			"scale": 1.2,
+			"seconds": 2.88333333333333
+		},
+		{
+			"camera": [
+				440.88134765625,
+				90.6440658569336
+			],
+			"file": "frames/0110.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "25cfe237dbdde2c9cf50204cc0f163489f60631e3adf79702e122efc5ae94a2d",
+			"scale": 1.2,
+			"seconds": 2.91666666666667
+		},
+		{
+			"camera": [
+				444.338989257812,
+				91.0169525146484
+			],
+			"file": "frames/0111.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "9c5e3a9dcf3bace553ecbc2c2265a36a200bb8cd992517135ac39e192b7b05c5",
+			"scale": 1.2,
+			"seconds": 2.95
+		},
+		{
+			"camera": [
+				447.796630859375,
+				91.3898315429688
+			],
+			"file": "frames/0112.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "cd819b86b8e9b4873dd2dc2e66a07166059b95cc29edc4c57a3531d12e399f4f",
+			"scale": 1.2,
+			"seconds": 2.98333333333333
+		},
+		{
+			"camera": [
+				451.254211425781,
+				91.7627105712891
+			],
+			"file": "frames/0113.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "6eef86a8823da9d696cc2b845d07d5933ae171dc8908e97c7b3b165168351376",
+			"scale": 1.2,
+			"seconds": 3.01666666666667
+		},
+		{
+			"camera": [
+				454.711853027344,
+				92.1355895996094
+			],
+			"file": "frames/0114.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "64f7a0de7dec717a607de6722ce09c9021de566b398e3efe9f04f9b07aec40e7",
+			"scale": 1.2,
+			"seconds": 3.05
+		},
+		{
+			"camera": [
+				458.169494628906,
+				92.5084762573242
+			],
+			"file": "frames/0115.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "a73046e645af3843af4c81cd6ea7a60c9d08282ece8ed20e0a43c2fe1bae81d0",
+			"scale": 1.2,
+			"seconds": 3.08333333333333
+		},
+		{
+			"camera": [
+				461.627136230469,
+				92.8813552856445
+			],
+			"file": "frames/0116.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "58a21e41661abfdbf445a5d5e4ebe037a88e8b4e5ea4f5b54f81a1e1754eff44",
+			"scale": 1.2,
+			"seconds": 3.11666666666667
+		},
+		{
+			"camera": [
+				465.084747314453,
+				93.2542419433594
+			],
+			"file": "frames/0117.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "86db1f054420bebbb6193e75d3d0f0bdf8b0d5f803544ad0af6d7b4f98db6c8b",
+			"scale": 1.2,
+			"seconds": 3.15
+		},
+		{
+			"camera": [
+				468.542358398438,
+				93.6271209716797
+			],
+			"file": "frames/0118.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "e8033548223d68d6fd150a9499ef7a0bdc4b692ce76f36d10dbe0cb02efc35f7",
+			"scale": 1.2,
+			"seconds": 3.18333333333333
+		},
+		{
+			"camera": [
+				472.0,
+				94.0
+			],
+			"file": "frames/0119.png",
+			"location": "overworld",
+			"owner": "WorldBackground/WaterSurface/Ripples",
+			"png": "11977f91aecd4a466371fd7bff4a631fc2fb9a71fdf1c486b982bbd449bac850",
+			"scale": 1.2,
+			"seconds": 3.21666666666667
+		}
+	],
+	"pond_cells": [
+		[
+			72,
+			35
+		],
+		[
+			72,
+			36
+		],
+		[
+			72,
+			37
+		],
+		[
+			72,
+			38
+		],
+		[
+			73,
+			34
+		],
+		[
+			73,
+			35
+		],
+		[
+			73,
+			36
+		],
+		[
+			73,
+			37
+		],
+		[
+			73,
+			38
+		],
+		[
+			73,
+			39
+		],
+		[
+			74,
+			34
+		],
+		[
+			74,
+			35
+		],
+		[
+			74,
+			36
+		],
+		[
+			74,
+			37
+		],
+		[
+			74,
+			38
+		],
+		[
+			74,
+			39
+		],
+		[
+			75,
+			34
+		],
+		[
+			75,
+			35
+		],
+		[
+			75,
+			36
+		],
+		[
+			75,
+			37
+		],
+		[
+			75,
+			38
+		],
+		[
+			75,
+			39
+		],
+		[
+			76,
+			34
+		],
+		[
+			76,
+			35
+		],
+		[
+			76,
+			36
+		],
+		[
+			76,
+			37
+		],
+		[
+			76,
+			38
+		],
+		[
+			76,
+			39
+		],
+		[
+			77,
+			34
+		],
+		[
+			77,
+			35
+		],
+		[
+			77,
+			36
+		],
+		[
+			77,
+			37
+		],
+		[
+			77,
+			38
+		],
+		[
+			77,
+			39
+		],
+		[
+			78,
+			34
+		],
+		[
+			78,
+			35
+		],
+		[
+			78,
+			36
+		],
+		[
+			78,
+			37
+		],
+		[
+			78,
+			38
+		],
+		[
+			78,
+			39
+		],
+		[
+			79,
+			34
+		],
+		[
+			79,
+			35
+		],
+		[
+			79,
+			36
+		],
+		[
+			79,
+			37
+		],
+		[
+			79,
+			38
+		],
+		[
+			79,
+			39
+		],
+		[
+			80,
+			34
+		],
+		[
+			80,
+			35
+		],
+		[
+			80,
+			36
+		],
+		[
+			80,
+			37
+		],
+		[
+			80,
+			38
+		],
+		[
+			80,
+			39
+		],
+		[
+			81,
+			35
+		],
+		[
+			81,
+			36
+		],
+		[
+			81,
+			37
+		],
+		[
+			81,
+			38
+		]
+	],
+	"profile": "Codex-VSHORE-006-native-F2Az0i",
+	"renderer": "gl_compatibility",
+	"river_cells": [
+		[
+			0,
+			10
+		],
+		[
+			0,
+			11
+		],
+		[
+			0,
+			12
+		],
+		[
+			0,
+			13
+		],
+		[
+			1,
+			10
+		],
+		[
+			1,
+			11
+		],
+		[
+			1,
+			12
+		],
+		[
+			1,
+			13
+		],
+		[
+			2,
+			10
+		],
+		[
+			2,
+			11
+		],
+		[
+			2,
+			12
+		],
+		[
+			2,
+			13
+		],
+		[
+			3,
+			10
+		],
+		[
+			3,
+			11
+		],
+		[
+			3,
+			12
+		],
+		[
+			3,
+			13
+		],
+		[
+			4,
+			10
+		],
+		[
+			4,
+			11
+		],
+		[
+			4,
+			12
+		],
+		[
+			4,
+			13
+		],
+		[
+			5,
+			10
+		],
+		[
+			5,
+			11
+		],
+		[
+			5,
+			12
+		],
+		[
+			5,
+			13
+		],
+		[
+			6,
+			10
+		],
+		[
+			6,
+			11
+		],
+		[
+			6,
+			12
+		],
+		[
+			6,
+			13
+		],
+		[
+			7,
+			10
+		],
+		[
+			7,
+			11
+		],
+		[
+			7,
+			12
+		],
+		[
+			7,
+			13
+		],
+		[
+			8,
+			10
+		],
+		[
+			8,
+			11
+		],
+		[
+			8,
+			12
+		],
+		[
+			8,
+			13
+		],
+		[
+			9,
+			10
+		],
+		[
+			9,
+			11
+		],
+		[
+			9,
+			12
+		],
+		[
+			9,
+			13
+		],
+		[
+			10,
+			10
+		],
+		[
+			10,
+			11
+		],
+		[
+			10,
+			12
+		],
+		[
+			10,
+			13
+		],
+		[
+			11,
+			10
+		],
+		[
+			11,
+			11
+		],
+		[
+			11,
+			12
+		],
+		[
+			11,
+			13
+		],
+		[
+			12,
+			10
+		],
+		[
+			12,
+			11
+		],
+		[
+			12,
+			12
+		],
+		[
+			12,
+			13
+		],
+		[
+			13,
+			10
+		],
+		[
+			13,
+			11
+		],
+		[
+			13,
+			12
+		],
+		[
+			13,
+			13
+		],
+		[
+			14,
+			10
+		],
+		[
+			14,
+			11
+		],
+		[
+			14,
+			12
+		],
+		[
+			14,
+			13
+		],
+		[
+			15,
+			10
+		],
+		[
+			15,
+			11
+		],
+		[
+			15,
+			12
+		],
+		[
+			15,
+			13
+		],
+		[
+			16,
+			10
+		],
+		[
+			16,
+			11
+		],
+		[
+			16,
+			12
+		],
+		[
+			16,
+			13
+		],
+		[
+			17,
+			10
+		],
+		[
+			17,
+			11
+		],
+		[
+			17,
+			12
+		],
+		[
+			17,
+			13
+		],
+		[
+			18,
+			10
+		],
+		[
+			18,
+			11
+		],
+		[
+			18,
+			12
+		],
+		[
+			18,
+			13
+		],
+		[
+			19,
+			10
+		],
+		[
+			19,
+			11
+		],
+		[
+			19,
+			12
+		],
+		[
+			19,
+			13
+		],
+		[
+			20,
+			10
+		],
+		[
+			20,
+			11
+		],
+		[
+			20,
+			12
+		],
+		[
+			20,
+			13
+		],
+		[
+			21,
+			10
+		],
+		[
+			21,
+			11
+		],
+		[
+			21,
+			12
+		],
+		[
+			21,
+			13
+		],
+		[
+			22,
+			10
+		],
+		[
+			22,
+			11
+		],
+		[
+			22,
+			12
+		],
+		[
+			22,
+			13
+		],
+		[
+			22,
+			14
+		],
+		[
+			22,
+			15
+		],
+		[
+			22,
+			16
+		],
+		[
+			22,
+			17
+		],
+		[
+			22,
+			18
+		],
+		[
+			22,
+			19
+		],
+		[
+			22,
+			20
+		],
+		[
+			23,
+			10
+		],
+		[
+			23,
+			11
+		],
+		[
+			23,
+			12
+		],
+		[
+			23,
+			13
+		],
+		[
+			23,
+			14
+		],
+		[
+			23,
+			15
+		],
+		[
+			23,
+			16
+		],
+		[
+			23,
+			17
+		],
+		[
+			23,
+			18
+		],
+		[
+			23,
+			19
+		],
+		[
+			23,
+			20
+		],
+		[
+			24,
+			10
+		],
+		[
+			24,
+			11
+		],
+		[
+			24,
+			12
+		],
+		[
+			24,
+			13
+		],
+		[
+			24,
+			14
+		],
+		[
+			24,
+			15
+		],
+		[
+			24,
+			16
+		],
+		[
+			24,
+			17
+		],
+		[
+			24,
+			18
+		],
+		[
+			24,
+			19
+		],
+		[
+			24,
+			20
+		],
+		[
+			25,
+			10
+		],
+		[
+			25,
+			11
+		],
+		[
+			25,
+			12
+		],
+		[
+			25,
+			13
+		],
+		[
+			25,
+			14
+		],
+		[
+			25,
+			15
+		],
+		[
+			25,
+			16
+		],
+		[
+			25,
+			17
+		],
+		[
+			25,
+			18
+		],
+		[
+			25,
+			19
+		],
+		[
+			25,
+			20
+		],
+		[
+			26,
+			17
+		],
+		[
+			26,
+			18
+		],
+		[
+			26,
+			19
+		],
+		[
+			26,
+			20
+		],
+		[
+			27,
+			17
+		],
+		[
+			27,
+			18
+		],
+		[
+			27,
+			19
+		],
+		[
+			27,
+			20
+		],
+		[
+			28,
+			17
+		],
+		[
+			28,
+			18
+		],
+		[
+			28,
+			19
+		],
+		[
+			28,
+			20
+		],
+		[
+			29,
+			17
+		],
+		[
+			29,
+			18
+		],
+		[
+			29,
+			19
+		],
+		[
+			29,
+			20
+		],
+		[
+			30,
+			17
+		],
+		[
+			30,
+			18
+		],
+		[
+			30,
+			19
+		],
+		[
+			30,
+			20
+		],
+		[
+			31,
+			17
+		],
+		[
+			31,
+			18
+		],
+		[
+			31,
+			19
+		],
+		[
+			31,
+			20
+		],
+		[
+			32,
+			17
+		],
+		[
+			32,
+			18
+		],
+		[
+			32,
+			19
+		],
+		[
+			32,
+			20
+		],
+		[
+			33,
+			17
+		],
+		[
+			33,
+			18
+		],
+		[
+			33,
+			19
+		],
+		[
+			33,
+			20
+		],
+		[
+			34,
+			17
+		],
+		[
+			34,
+			18
+		],
+		[
+			34,
+			19
+		],
+		[
+			34,
+			20
+		],
+		[
+			35,
+			17
+		],
+		[
+			35,
+			18
+		],
+		[
+			35,
+			19
+		],
+		[
+			35,
+			20
+		],
+		[
+			36,
+			17
+		],
+		[
+			36,
+			18
+		],
+		[
+			36,
+			19
+		],
+		[
+			36,
+			20
+		],
+		[
+			37,
+			17
+		],
+		[
+			37,
+			18
+		],
+		[
+			37,
+			19
+		],
+		[
+			37,
+			20
+		],
+		[
+			38,
+			17
+		],
+		[
+			38,
+			18
+		],
+		[
+			38,
+			19
+		],
+		[
+			38,
+			20
+		],
+		[
+			39,
+			17
+		],
+		[
+			39,
+			18
+		],
+		[
+			39,
+			19
+		],
+		[
+			39,
+			20
+		],
+		[
+			40,
+			17
+		],
+		[
+			40,
+			18
+		],
+		[
+			40,
+			19
+		],
+		[
+			40,
+			20
+		],
+		[
+			41,
+			17
+		],
+		[
+			41,
+			18
+		],
+		[
+			41,
+			19
+		],
+		[
+			41,
+			20
+		],
+		[
+			41,
+			21
+		],
+		[
+			41,
+			22
+		],
+		[
+			41,
+			23
+		],
+		[
+			41,
+			24
+		],
+		[
+			41,
+			25
+		],
+		[
+			41,
+			26
+		],
+		[
+			41,
+			27
+		],
+		[
+			41,
+			28
+		],
+		[
+			41,
+			29
+		],
+		[
+			41,
+			30
+		],
+		[
+			41,
+			31
+		],
+		[
+			41,
+			32
+		],
+		[
+			41,
+			33
+		],
+		[
+			41,
+			34
+		],
+		[
+			41,
+			35
+		],
+		[
+			41,
+			36
+		],
+		[
+			41,
+			37
+		],
+		[
+			41,
+			38
+		],
+		[
+			41,
+			39
+		],
+		[
+			41,
+			40
+		],
+		[
+			41,
+			41
+		],
+		[
+			42,
+			17
+		],
+		[
+			42,
+			18
+		],
+		[
+			42,
+			19
+		],
+		[
+			42,
+			20
+		],
+		[
+			42,
+			21
+		],
+		[
+			42,
+			22
+		],
+		[
+			42,
+			23
+		],
+		[
+			42,
+			24
+		],
+		[
+			42,
+			25
+		],
+		[
+			42,
+			26
+		],
+		[
+			42,
+			27
+		],
+		[
+			42,
+			28
+		],
+		[
+			42,
+			29
+		],
+		[
+			42,
+			30
+		],
+		[
+			42,
+			31
+		],
+		[
+			42,
+			32
+		],
+		[
+			42,
+			33
+		],
+		[
+			42,
+			34
+		],
+		[
+			42,
+			35
+		],
+		[
+			42,
+			36
+		],
+		[
+			42,
+			37
+		],
+		[
+			42,
+			38
+		],
+		[
+			42,
+			39
+		],
+		[
+			42,
+			40
+		],
+		[
+			42,
+			41
+		],
+		[
+			43,
+			17
+		],
+		[
+			43,
+			18
+		],
+		[
+			43,
+			19
+		],
+		[
+			43,
+			20
+		],
+		[
+			43,
+			21
+		],
+		[
+			43,
+			22
+		],
+		[
+			43,
+			23
+		],
+		[
+			43,
+			24
+		],
+		[
+			43,
+			25
+		],
+		[
+			43,
+			26
+		],
+		[
+			43,
+			27
+		],
+		[
+			43,
+			28
+		],
+		[
+			43,
+			29
+		],
+		[
+			43,
+			30
+		],
+		[
+			43,
+			31
+		],
+		[
+			43,
+			32
+		],
+		[
+			43,
+			33
+		],
+		[
+			43,
+			34
+		],
+		[
+			43,
+			35
+		],
+		[
+			43,
+			36
+		],
+		[
+			43,
+			37
+		],
+		[
+			43,
+			38
+		],
+		[
+			43,
+			39
+		],
+		[
+			43,
+			40
+		],
+		[
+			43,
+			41
+		],
+		[
+			44,
+			17
+		],
+		[
+			44,
+			18
+		],
+		[
+			44,
+			19
+		],
+		[
+			44,
+			20
+		],
+		[
+			44,
+			21
+		],
+		[
+			44,
+			22
+		],
+		[
+			44,
+			23
+		],
+		[
+			44,
+			24
+		],
+		[
+			44,
+			25
+		],
+		[
+			44,
+			26
+		],
+		[
+			44,
+			27
+		],
+		[
+			44,
+			28
+		],
+		[
+			44,
+			29
+		],
+		[
+			44,
+			30
+		],
+		[
+			44,
+			31
+		],
+		[
+			44,
+			32
+		],
+		[
+			44,
+			33
+		],
+		[
+			44,
+			34
+		],
+		[
+			44,
+			35
+		],
+		[
+			44,
+			36
+		],
+		[
+			44,
+			37
+		],
+		[
+			44,
+			38
+		],
+		[
+			44,
+			39
+		],
+		[
+			44,
+			40
+		],
+		[
+			44,
+			41
+		],
+		[
+			45,
+			38
+		],
+		[
+			45,
+			39
+		],
+		[
+			45,
+			40
+		],
+		[
+			45,
+			41
+		],
+		[
+			46,
+			38
+		],
+		[
+			46,
+			39
+		],
+		[
+			46,
+			40
+		],
+		[
+			46,
+			41
+		],
+		[
+			47,
+			38
+		],
+		[
+			47,
+			39
+		],
+		[
+			47,
+			40
+		],
+		[
+			47,
+			41
+		],
+		[
+			48,
+			38
+		],
+		[
+			48,
+			39
+		],
+		[
+			48,
+			40
+		],
+		[
+			48,
+			41
+		],
+		[
+			49,
+			38
+		],
+		[
+			49,
+			39
+		],
+		[
+			49,
+			40
+		],
+		[
+			49,
+			41
+		],
+		[
+			50,
+			38
+		],
+		[
+			50,
+			39
+		],
+		[
+			50,
+			40
+		],
+		[
+			50,
+			41
+		],
+		[
+			51,
+			38
+		],
+		[
+			51,
+			39
+		],
+		[
+			51,
+			40
+		],
+		[
+			51,
+			41
+		],
+		[
+			52,
+			38
+		],
+		[
+			52,
+			39
+		],
+		[
+			52,
+			40
+		],
+		[
+			52,
+			41
+		],
+		[
+			53,
+			38
+		],
+		[
+			53,
+			39
+		],
+		[
+			53,
+			40
+		],
+		[
+			53,
+			41
+		],
+		[
+			54,
+			38
+		],
+		[
+			54,
+			39
+		],
+		[
+			54,
+			40
+		],
+		[
+			54,
+			41
+		],
+		[
+			55,
+			38
+		],
+		[
+			55,
+			39
+		],
+		[
+			55,
+			40
+		],
+		[
+			55,
+			41
+		],
+		[
+			56,
+			38
+		],
+		[
+			56,
+			39
+		],
+		[
+			56,
+			40
+		],
+		[
+			56,
+			41
+		],
+		[
+			57,
+			38
+		],
+		[
+			57,
+			39
+		],
+		[
+			57,
+			40
+		],
+		[
+			57,
+			41
+		],
+		[
+			58,
+			38
+		],
+		[
+			58,
+			39
+		],
+		[
+			58,
+			40
+		],
+		[
+			58,
+			41
+		],
+		[
+			59,
+			38
+		],
+		[
+			59,
+			39
+		],
+		[
+			59,
+			40
+		],
+		[
+			59,
+			41
+		],
+		[
+			60,
+			38
+		],
+		[
+			60,
+			39
+		],
+		[
+			60,
+			40
+		],
+		[
+			60,
+			41
+		],
+		[
+			61,
+			38
+		],
+		[
+			61,
+			39
+		],
+		[
+			61,
+			40
+		],
+		[
+			61,
+			41
+		],
+		[
+			62,
+			38
+		],
+		[
+			62,
+			39
+		],
+		[
+			62,
+			40
+		],
+		[
+			62,
+			41
+		],
+		[
+			63,
+			38
+		],
+		[
+			63,
+			39
+		],
+		[
+			63,
+			40
+		],
+		[
+			63,
+			41
+		],
+		[
+			64,
+			38
+		],
+		[
+			64,
+			39
+		],
+		[
+			64,
+			40
+		],
+		[
+			64,
+			41
+		],
+		[
+			65,
+			38
+		],
+		[
+			65,
+			39
+		],
+		[
+			65,
+			40
+		],
+		[
+			65,
+			41
+		],
+		[
+			66,
+			38
+		],
+		[
+			66,
+			39
+		],
+		[
+			66,
+			40
+		],
+		[
+			66,
+			41
+		],
+		[
+			67,
+			38
+		],
+		[
+			67,
+			39
+		],
+		[
+			67,
+			40
+		],
+		[
+			67,
+			41
+		],
+		[
+			68,
+			38
+		],
+		[
+			68,
+			39
+		],
+		[
+			68,
+			40
+		],
+		[
+			68,
+			41
+		],
+		[
+			69,
+			38
+		],
+		[
+			69,
+			39
+		],
+		[
+			69,
+			40
+		],
+		[
+			69,
+			41
+		],
+		[
+			70,
+			38
+		],
+		[
+			70,
+			39
+		],
+		[
+			70,
+			40
+		],
+		[
+			70,
+			41
+		],
+		[
+			71,
+			38
+		],
+		[
+			71,
+			39
+		],
+		[
+			71,
+			40
+		],
+		[
+			71,
+			41
+		],
+		[
+			72,
+			39
+		],
+		[
+			72,
+			40
+		],
+		[
+			72,
+			41
+		],
+		[
+			73,
+			40
+		],
+		[
+			73,
+			41
+		],
+		[
+			74,
+			40
+		],
+		[
+			74,
+			41
+		],
+		[
+			75,
+			40
+		],
+		[
+			75,
+			41
+		],
+		[
+			76,
+			40
+		],
+		[
+			76,
+			41
+		],
+		[
+			77,
+			40
+		],
+		[
+			77,
+			41
+		],
+		[
+			78,
+			40
+		],
+		[
+			78,
+			41
+		],
+		[
+			79,
+			40
+		],
+		[
+			79,
+			41
+		],
+		[
+			80,
+			40
+		],
+		[
+			80,
+			41
+		],
+		[
+			81,
+			39
+		],
+		[
+			81,
+			40
+		],
+		[
+			81,
+			41
+		],
+		[
+			82,
+			38
+		],
+		[
+			82,
+			39
+		],
+		[
+			82,
+			40
+		],
+		[
+			82,
+			41
+		],
+		[
+			83,
+			38
+		],
+		[
+			83,
+			39
+		],
+		[
+			83,
+			40
+		],
+		[
+			83,
+			41
+		],
+		[
+			84,
+			38
+		],
+		[
+			84,
+			39
+		],
+		[
+			84,
+			40
+		],
+		[
+			84,
+			41
+		],
+		[
+			85,
+			38
+		],
+		[
+			85,
+			39
+		],
+		[
+			85,
+			40
+		],
+		[
+			85,
+			41
+		],
+		[
+			86,
+			38
+		],
+		[
+			86,
+			39
+		],
+		[
+			86,
+			40
+		],
+		[
+			86,
+			41
+		],
+		[
+			87,
+			38
+		],
+		[
+			87,
+			39
+		],
+		[
+			87,
+			40
+		],
+		[
+			87,
+			41
+		],
+		[
+			88,
+			38
+		],
+		[
+			88,
+			39
+		],
+		[
+			88,
+			40
+		],
+		[
+			88,
+			41
+		],
+		[
+			89,
+			38
+		],
+		[
+			89,
+			39
+		],
+		[
+			89,
+			40
+		],
+		[
+			89,
+			41
+		],
+		[
+			90,
+			38
+		],
+		[
+			90,
+			39
+		],
+		[
+			90,
+			40
+		],
+		[
+			90,
+			41
+		],
+		[
+			91,
+			38
+		],
+		[
+			91,
+			39
+		],
+		[
+			91,
+			40
+		],
+		[
+			91,
+			41
+		],
+		[
+			92,
+			38
+		],
+		[
+			92,
+			39
+		],
+		[
+			92,
+			40
+		],
+		[
+			92,
+			41
+		],
+		[
+			93,
+			38
+		],
+		[
+			93,
+			39
+		],
+		[
+			93,
+			40
+		],
+		[
+			93,
+			41
+		],
+		[
+			94,
+			38
+		],
+		[
+			94,
+			39
+		],
+		[
+			94,
+			40
+		],
+		[
+			94,
+			41
+		],
+		[
+			95,
+			38
+		],
+		[
+			95,
+			39
+		],
+		[
+			95,
+			40
+		],
+		[
+			95,
+			41
+		],
+		[
+			96,
+			38
+		],
+		[
+			96,
+			39
+		],
+		[
+			96,
+			40
+		],
+		[
+			96,
+			41
+		],
+		[
+			97,
+			38
+		],
+		[
+			97,
+			39
+		],
+		[
+			97,
+			40
+		],
+		[
+			97,
+			41
+		],
+		[
+			98,
+			38
+		],
+		[
+			98,
+			39
+		],
+		[
+			98,
+			40
+		],
+		[
+			98,
+			41
+		],
+		[
+			99,
+			38
+		],
+		[
+			99,
+			39
+		],
+		[
+			99,
+			40
+		],
+		[
+			99,
+			41
+		]
+	],
+	"size": [
+		1152,
+		648
+	],
+	"sources": {
+		"assets/game/locations/overworld/modular/riverbed_material_v1.png": "bcdb9e35970056c93517708b400591733e0cf8800119391489cc9cc21761d084",
+		"assets/game/locations/overworld/modular/water_material_v1.png": "e6f548fab26b73b21fef1d11a546e7cbb851685539d3341e430f62c6d0dfa2b7",
+		"main.tscn": "c212afbbdfb283b84a36a5b7c7675da9824d32aa79f2059356526a6f398f1086",
+		"scripts/game_core.gd": "3b255130e71fd11b40765d9a8b92a76b57538405fb6438bf6c69089875a1b41a",
+		"scripts/presentation/post_motion_frame.gd": "e76ad109a69c228afd46b2e936c923baf073e0e56dba5b46f26354f38a6e00b1",
+		"scripts/presentation/underwater_bottom.gd": "1c5d92f7dcf1bb2ca60798a7fb92b5867545408c19a3570411c43c698a3f6473",
+		"scripts/presentation/village_ground_clock.gd": "66e8343b531d09557ad915c774d5ee88dff17ff882f2d620b95c1dd35d63d568",
+		"scripts/presentation/village_ground_layer.gd": "c9ac010f7495c8624b41a9d91db86db67955a24d2440539f4db27c846d667f8d",
+		"scripts/presentation/village_river_flow.gd": "093d39ed83e3414e07b2bb2a7258b1c286624a3b6023a05d71f0b8c10ab1141a",
+		"scripts/presentation/village_water_surface.gd": "e2613be13f59c1c6da2d4a459381ca6aa6b5395d67afced0bf159c22c51c1bc3",
+		"scripts/presentation/village_water_surface.gdshader": "5d5a28ecfff19fbf435a2866dd497dbfe5f7fa07109c64a7ee7327224dcaf5bc",
+		"scripts/presentation/visual_reference_mode.gd": "95919eb8ca14b9893a78220dcecf1479ad5691895646595d4482fde8e3904c8e",
+		"scripts/systems/village_terrain_renderer.gd": "7e2ef5702483d41ef0e64970bca4cb9eab59950e6650e6772823f584b13dbedb",
+		"scripts/systems/water_layout_data.gd": "83a678f0fc3dd8d12e9cf2ff3ecef82a0419a35267a4779af095664256164a1e",
+		"scripts/systems/water_map_registry.gd": "e5e0b88924850300f709b53e5e62f1e4b6d9f3bfcf252da319bb012167100da2",
+		"scripts/systems/water_topology.gd": "ce6b90c6b547808c0f4783a47a07f24fda587b6a96e1d4a8c498d96e06a9f6fa",
+		"scripts/world_background.gd": "34e6fc7af109246098f443067117e5fb883ea9510679f5331e818729d5743388",
+		"tools/qa/camera/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+		"tools/qa/world/river_flow_capture.gd": "817a999c88e38998676aebc80062760c3b52ce62139a11e916a7bedb2e2aeea7"
+	},
+	"task": "VSHORE-006"
+}

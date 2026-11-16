@@ -238,7 +238,11 @@ static func water_depth_tint(tint: Color, depth: float) -> Color:
 
 ## Рисует поверхность воды самостоятельным CanvasItem без запекания в UPDATE_ONCE.
 static func draw_surface(
-	canvas: Node2D, season: String, clipped: bool = false, weather: String = "clear"
+	canvas: Node2D,
+	season: String,
+	clipped: bool = false,
+	weather: String = "clear",
+	kind: String = ""
 ) -> void:
 	var snapshot: Dictionary = WaterMapRegistry.visual("overworld")
 	var regions: Array = snapshot.regions
@@ -252,6 +256,8 @@ static func draw_surface(
 		]
 	)
 	for region: Dictionary in regions:
+		if not kind.is_empty() and region.kind != kind:
+			continue
 		var depth: float = region.depth
 		var tint := water_depth_tint(base_tint, depth)
 		for points: PackedVector2Array in region.polygons:
