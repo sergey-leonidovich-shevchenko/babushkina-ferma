@@ -295,9 +295,13 @@
 
 ## WIKI-005 — Дорожная карта демо, полного релиза и дополнений
 
-**Статус:** in_progress · **Приоритет:** P1 · **Объём:** L · **Тип:** implementation.
+**Статус:** done · **Приоритет:** P1 · **Объём:** L · **Тип:** implementation.
 
 **Ветка:** codex/wiki-005-release-roadmap
+
+**Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/55
+
+**Дата завершения:** 2026-11-16
 
 **Результат и объём:** По прямому поручению владельца 16 ноября оформить в блоке «Прогресс по локациям» три крупных шага до демо, карточки всех 30 существующих карт и общих работ, отдельные ворота готовности демо/1.0 и план поддержки/DLC. Редакционную работу ведёт Expert Agent параллельно текущей VSHORE-005; игровая очередь не прерывается.
 
@@ -313,4 +317,4 @@
 
 **Проверка:** TESTING.md и wiki/reports/release-roadmap-2026-11/README.md.
 
-**Подтверждения / результат:** Реализация опубликована. Исходный head `6821d3666c5d01afc2e2e01a31da27b5115aff6c`, база `5f4306f4cfc9471cd8076b0d918b7a40fe717ee2`. Wiki: 164/0, quality: 0 failed steps, architecture: 114 групп / 1533 проверки, Game: 53601/0, normal и F10: по 90/0. В Chrome проверены карточки, поиск/переходы, возврат фокуса и ширина 390; отдельный каталог с пропуском VMAP-033 и устаревшей очередью не показывает ложный прогресс. Предварительные замечания Tech Lead исправлены до публикации. Текущий head и CI доступны в PR; до независимого ревью точного head, решения Team Lead и merge статус остаётся in_progress. [Протокол и кадры](../../../wiki/reports/release-roadmap-2026-11/README.md). [PR №55](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/55)
+**Подтверждения / результат:** Принята и влита 16 ноября 2026 через [PR №55](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/55). Итоговый head `3947c0cb14c0f1f6fc5f4bd01cbbcecd1d8805d2` получил [независимый APPROVED](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/55#pullrequestreview-5915734298), CI 9/9 и решение Team Lead. Merge `eda1aee85bc3cbaddfe8e432003256ee55d4df80`, дерево `99c0d1ae124924287e05e584c91957b0a1879232`: совместимость с учётом VSHORE-005 из main `061fad1d0be5578c23977b632e4baf8f5c1a9686` проверена отдельно автором и ревьюером. Wiki: 165/0; quality: 0 failed steps; architecture: 114 групп / 1533 проверки; Game: 53607/0; normal и F10: по 90/0. В Chrome проверены карточки, поиск/переходы, возврат фокуса и ширина 390; отсутствующий ID и устаревшая очередь не дают ложную готовность. Учёт оформлен отдельно с `Task-Complete: WIKI-005`; графика, FPS и выпуск самой игры остаются будущими задачами. Исходные проверки и кадры сохранены в [протоколе](../../../wiki/reports/release-roadmap-2026-11/README.md).
