@@ -8,7 +8,9 @@ REFACTOR-07 принята через [PR №28](https://github.com/sergey-leoni
 
 REFACTOR-06 принята через [PR №31](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31): exact head `81142f385603668792377964a1d4f2bd50afb8a6`, [независимое review5724142227](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/31#pullrequestreview-5724142227), CI 8/8 и решение Team Lead. Merge `bcf9b1031ba80a0d0840d10e615f5c7d00d31cf0` от `2026-10-31T17:50:59Z` имеет дерево `33fed2983acd12c30e2850969f7a5d07cf44a35e`, совпадающее с reviewed head. [Запись приёмки](../../reports/refactor-06/closeout/completion.json) закрывает только первый выпуск tools; REFACTOR-04/05 остаются `blocked`.
 
-[REFACTOR-08](TASKS.md#refactor-08--разделить-плотные-папки-tools-по-назначению) принята и влита через [PR №46](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/46). Инструменты проверки viewport собраны в `tools/qa/world/viewport`, а аудит соседних папок сохранён в ведомости. [Данные приёмки](../../reports/refactor-08/closeout/README.md). Следующий приоритет после учёта — первая `overworld` до VMAP-003. REFACTOR-04/05 остаются `blocked`.
+[REFACTOR-08](TASKS.md#refactor-08--разделить-плотные-папки-tools-по-назначению) принята и влита через [PR №46](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/46). Инструменты проверки viewport собраны в `tools/qa/world/viewport`, а аудит соседних папок сохранён в ведомости. [Данные приёмки](../../reports/refactor-08/closeout/README.md). После учёта команда вернулась к первой `overworld`. REFACTOR-04/05 остаются `blocked`.
+
+[REFACTOR-09](TASKS.md#refactor-09--сгруппировать-инструменты-проверки-деревенских-лавок) продолжает разбор `tools/qa/world` с семейства деревенских лавок. Developer Agent получает задачу первой после полной приёмки и учёта VSHORE-006. После этого пакета команда возвращается к маршруту первой `overworld` до VMAP-003.
 
 ## История промежуточных пакетов
 
