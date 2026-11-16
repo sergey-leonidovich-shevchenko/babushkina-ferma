@@ -208,7 +208,7 @@
 
 ## VSHORE-006 — Направить течение по руслу
 
-Статус: `in_progress` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Прямые участки имеют только осевые направления, повороты согласованы; диагональный vector из примера не переносится глобально
 
@@ -217,6 +217,8 @@
 Зависимости: VSHORE-005.
 
 Единый владелец пересечения: **WATER-05**. Эта карточка уточняет работу владельца, не закрывает его автоматически.
+
+Принято 16 ноября 2026 года. [PR №59](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/59) влит в main как [8a5f801d](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/8a5f801d499aec238482eaccb1b6013f98d8da4f) в 15:35:07 UTC+5. [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/59#pullrequestreview-5918560518) одобрило `b26147f3af74b4c451465735f65754fa18d4e319`. CI 9/9. [PR CI](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43844623282) · [Push CI](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43844336491) · [X11](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43844623220). [Отказ X11 на предыдущем коммите](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43832353662/job/133180467446) и [его повтор на том же SHA](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43832353662/job/133182963604) сохранены в истории.
 
 Исходники:
 

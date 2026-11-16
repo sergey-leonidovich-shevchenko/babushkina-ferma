@@ -3111,7 +3111,7 @@
       "id": "VSHORE-006",
       "epic": "VSHORE",
       "title": "Направить течение по руслу",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3164,7 +3164,8 @@
         "tools/qa/world/river_flow.py",
         "wiki/articles/river-flow.md"
       ],
-      "result": "Рябь в первой реке движется по пяти осевым отрезкам и четырём изгибам. Обычный и низкий профили используют общий атлас, пруд сохраняет прежнее колебание. На трёх одинаковых камерах изменения ограничились речными пикселями. Суша, пруд и центр обоих мостов совпали. Кадр «До» у западного моста побайтно совпал с VSHORE-005. Проверено направление ряби на трёх прямых и четырёх изгибах. WATER 918/0, 12 нативных проверок, 120 кадров ролика. Верификатор сверил 19 исходников по коммиту c874df4892fce54a81b4e21e39595e749898a526 и повторил метрики. Локально Game 53627/0, normal и F10 по 90/0, проверка архитектуры, Wiki 165/0. Пары и ролик открываются в Chrome. Ожидает независимого ревью.\n[PR №59](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/59)"
+      "result": "2026-11-16: рябь движется по пяти осевым отрезкам и четырём изгибам первой реки. Обычный и низкий профили используют один атлас. Три пары на одинаковой камере подтвердили прежние пиксели суши, пруда и центра обоих мостов. Кадр «До» у западного моста совпал с VSHORE-005. Проверены движение на прямых и поворотах, пауза, фаза и мировая привязка. WATER 918/0, 12 нативных проверок, 14 неподвижных и 120 исходных кадров ролика. Верификатор сверяет точные 19 исходников, базовый коммит и его предшествование реализации, отклоняет три подмены. В Chrome открылись обе пары и 4-секундный ролик. CI 9/9, архитектура 115 наборов / 1537 сценариев, Game 53645/0, normal и F10 по 90/0, Wiki 165/0. PR №59 принят и влит как 8a5f801d499aec238482eaccb1b6013f98d8da4f.",
+      "approval": "Принято 16 ноября 2026 года. [PR №59](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/59) влит в main как [8a5f801d](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/8a5f801d499aec238482eaccb1b6013f98d8da4f) в 15:35:07 UTC+5. [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/59#pullrequestreview-5918560518) одобрило `b26147f3af74b4c451465735f65754fa18d4e319`. CI 9/9. [PR CI](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43844623282) · [Push CI](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43844336491) · [X11](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43844623220). [Отказ X11 на предыдущем коммите](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43832353662/job/133180467446) и [его повтор на том же SHA](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43832353662/job/133182963604) сохранены в истории."
     },
     {
       "id": "VSHORE-007",
