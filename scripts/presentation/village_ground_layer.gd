@@ -59,4 +59,3 @@ func _draw() -> void:
 		)
 	else:
 		Terrain.draw_underwater_bottom(self, season, weather, true)
-		Terrain.draw_surface(self, season, true, weather)

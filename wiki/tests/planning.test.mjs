@@ -146,6 +146,33 @@ test('markdown adapter ignores index entries and refuses an unstated status', ()
   )
 })
 
+// JSON уже сохраняет ссылку PR; Markdown должен давать тот же контракт активной карточке.
+test('Markdown review links survive normalization for the existing task-card renderer', () => {
+  const epic = { key: 'test--TEST', source: 'card.md' },
+    plan = { id: 'test' }
+  const link = '[PR №7](https://github.com/example/game/pull/7)'
+  const text = `## TEST-01 — Проверка ссылки
+
+**Статус:** in_progress
+
+**Подтверждения / результат:** Подготовлено **ревью**. ${link} [Протокол](docs/proof.md)
+`
+  const result = markdownTasks(text, epic, plan)[0].result
+  assert.ok(result.includes(link))
+  assert.ok(result.includes('Подготовлено ревью.'))
+  assert.ok(result.includes('Протокол'))
+  assert.ok(!result.includes('docs/proof.md'))
+  const completed = markdownTasks(text.replace('in_progress', 'done'), epic, plan)[0].result
+  assert.ok(!completed.includes('https://'))
+  assert.ok(completed.includes('PR №7'))
+  const unsupported = markdownTasks(
+    text.replace('https://github.com/', 'https://example.org/'),
+    epic,
+    plan
+  )[0].result
+  assert.ok(!unsupported.includes('https://'))
+})
+
 // Сценарий: источник плана пытается открыть файл за пределами проекта.
 // Исходное состояние: временная папка с символической ссылкой наружу.
 // Ожидаемый результат: исходные пути и ссылки одинаково ограничены.
