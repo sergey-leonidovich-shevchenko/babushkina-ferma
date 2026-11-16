@@ -5,12 +5,16 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import re
+import subprocess
 from collections.abc import Callable, Iterable
 from pathlib import Path
+from tempfile import TemporaryDirectory
 from typing import Any
 
 from PIL import Image, ImageChops
 
+from tools.common.git import git_environment
 from tools.common.history import read_git_blob
 from tools.common.paths import project_root
 from tools.qa.world.water_chunk_seam import digest, require
@@ -30,6 +34,27 @@ REPORTS = ROOT / "docs/reports/visual-overhaul"
 CAMERAS = {"upper": [288, 18], "lower": [700, 540], "pond": [1368, 618]}
 START = 1.25
 LATER = START + 20 / 3
+SOURCES = {
+    "assets/game/locations/overworld/modular/riverbed_material_v1.png",
+    "assets/game/locations/overworld/modular/water_material_v1.png",
+    "main.tscn",
+    "scripts/game_core.gd",
+    "scripts/presentation/post_motion_frame.gd",
+    "scripts/presentation/underwater_bottom.gd",
+    "scripts/presentation/village_ground_clock.gd",
+    "scripts/presentation/village_ground_layer.gd",
+    "scripts/presentation/village_river_flow.gd",
+    "scripts/presentation/village_water_surface.gd",
+    "scripts/presentation/village_water_surface.gdshader",
+    "scripts/presentation/visual_reference_mode.gd",
+    "scripts/systems/village_terrain_renderer.gd",
+    "scripts/systems/water_layout_data.gd",
+    "scripts/systems/water_map_registry.gd",
+    "scripts/systems/water_topology.gd",
+    "scripts/world_background.gd",
+    "tools/qa/camera/visual_camera_points.gd",
+    "tools/qa/world/river_flow_capture.gd",
+}
 CHECKS = {
     "direct_hidden",
     "directed_default",
@@ -48,7 +73,33 @@ Point = tuple[int, int]
 PixelMap = Callable[[Point], Point]
 
 
-def verify_capture(folder: Path, capture: dict[str, Any], commit: str | None) -> None:
+def verify_base(base: str, commit: str | None) -> None:
+    """Check that the capture base is an actual ancestor of the selected source tree."""
+    require(
+        isinstance(base, str) and re.fullmatch(r"[0-9a-f]{40}", base) is not None,
+        "capture base must be a Git commit",
+    )
+    require(
+        commit is None or re.fullmatch(r"[0-9a-f]{40}", commit) is not None, "invalid source commit"
+    )
+    git = ["git", "--no-replace-objects", "-C", str(ROOT)]
+    environment = git_environment()
+    kind = subprocess.run(
+        [*git, "cat-file", "-t", base], env=environment, capture_output=True, check=False
+    )
+    require(
+        kind.returncode == 0 and kind.stdout == b"commit\n", "capture base must be a Git commit"
+    )
+    ancestry = subprocess.run(
+        [*git, "merge-base", "--is-ancestor", base, commit or "HEAD"],
+        env=environment,
+        capture_output=True,
+        check=False,
+    )
+    require(ancestry.returncode == 0, "capture base is not an ancestor of the source tree")
+
+
+def verify_capture(capture: dict[str, Any], commit: str | None) -> None:
     """Check runtime context, source provenance and the camera sequence before reading pixels."""
     require(capture["task"] == "VSHORE-006" and capture["display"] != "headless", "native capture")
     require(capture["renderer"] == "gl_compatibility" and capture["size"] == list(SIZE), "renderer")
@@ -68,18 +119,8 @@ def verify_capture(folder: Path, capture: dict[str, Any], commit: str | None) ->
         and len(capture["bridges"]) == 2,
         "canonical water and bridge coverage",
     )
-    require(
-        len(capture["sources"]) == 19
-        and {
-            "scripts/presentation/village_river_flow.gd",
-            "scripts/presentation/village_water_surface.gd",
-            "scripts/presentation/village_water_surface.gdshader",
-            "scripts/systems/water_layout_data.gd",
-            "scripts/world_background.gd",
-            "tools/qa/world/river_flow_capture.gd",
-        }.issubset(capture["sources"]),
-        "capture source coverage",
-    )
+    require(set(capture["sources"]) == SOURCES, "capture must name the exact source paths")
+    verify_base(capture["base"], commit)
     for path, sha in capture["sources"].items():
         source = (ROOT / path).resolve()
         require(source.is_relative_to(ROOT), "capture source outside the project")
@@ -312,13 +353,17 @@ def main() -> None:
     """Verify retained native evidence or package it from one fresh raw capture."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--folder", type=Path, default=REPORTS / "vshore-006/native")
-    parser.add_argument("--raw", type=Path)
     parser.add_argument("--commit")
+    output = parser.add_mutually_exclusive_group()
+    output.add_argument("--raw", type=Path, help="publish only the verified MP4 from all raw PNGs")
+    output.add_argument(
+        "--write-comparison", action="store_true", help="publish the comparison manifest"
+    )
     arguments = parser.parse_args()
     folder = arguments.folder.resolve()
     manifest = folder / "capture.json"
     capture = json.loads(manifest.read_text())
-    verify_capture(folder, capture, arguments.commit)
+    verify_capture(capture, arguments.commit)
     rows = capture["captures"]
     expected = {f"{case}-{profile}" for case in CAMERAS for profile in ("before", "after")}
     expected |= {
@@ -347,14 +392,19 @@ def main() -> None:
         picture(folder, capture["motion"][index], f"frames/{index:04d}.png")
     verified = folder / "comparison.json"
     if arguments.raw:
-        require(not verified.exists(), "comparison manifest already exists")
         encode(arguments.raw.resolve(), video, witnesses)
-        with verified.open("x") as output:
-            json.dump(comparison_manifest, output, indent=2, ensure_ascii=False)
-            output.write("\n")
     else:
-        require(json.loads(verified.read_text()) == comparison_manifest, "verified comparison")
         verify_video(video, folder, witnesses)
+        if arguments.write_comparison:
+            require(not verified.exists(), "comparison manifest already exists")
+            with TemporaryDirectory(dir=folder) as temporary:
+                staged = Path(temporary) / verified.name
+                staged.write_text(
+                    json.dumps(comparison_manifest, indent=2, ensure_ascii=False) + "\n"
+                )
+                verified.hardlink_to(staged)
+        else:
+            require(json.loads(verified.read_text()) == comparison_manifest, "verified comparison")
     print(json.dumps(results, indent=2, ensure_ascii=False))
 
 
