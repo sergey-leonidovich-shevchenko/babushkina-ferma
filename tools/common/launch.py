@@ -9,8 +9,12 @@ from pathlib import Path
 
 from .paths import project_root
 
-# Публичные команды VRENDER-009 остаются доступны после переноса семейства.
+# Публичные команды остаются доступны после переноса семейств World QA.
 COMMAND_ALIASES = {
+    "qa.world.test_village_bench": "qa.world.benches.test_village_bench",
+    "qa.world.village_bench_assets": "qa.world.benches.village_bench_assets",
+    "qa.world.village_bench_collect": "qa.world.benches.village_bench_collect",
+    "qa.world.village_bench_verify": "qa.world.benches.village_bench_verify",
     "qa.world.viewport_isolation_verify": "qa.world.viewport.viewport_isolation_verify",
     "qa.world.test_viewport_isolation": "qa.world.viewport.test_viewport_isolation",
 }

@@ -788,6 +788,10 @@ tools/qa/world/*
 !tools/qa/world/*.py
 !tools/qa/world/*.gd
 !tools/qa/world/README.md
+!tools/qa/world/benches/
+tools/qa/world/benches/*
+!tools/qa/world/benches/*.py
+!tools/qa/world/benches/*.gd
 !tools/qa/world/viewport/
 tools/qa/world/viewport/*
 !tools/qa/world/viewport/*.py
@@ -813,10 +817,10 @@ tools/qa/world/viewport/*
 !tools/qa/world/transient_save_capture.gd.uid
 !tools/qa/world/transient_save_probe.gd.uid
 !tools/qa/world/transient_save_review.gd.uid
-!tools/qa/world/village_bench_capture.gd.uid
-!tools/qa/world/village_bench_gallery.gd.uid
-!tools/qa/world/village_bench_leg_capture.gd.uid
-!tools/qa/world/village_bench_review.gd.uid
+!tools/qa/world/benches/village_bench_capture.gd.uid
+!tools/qa/world/benches/village_bench_gallery.gd.uid
+!tools/qa/world/benches/village_bench_leg_capture.gd.uid
+!tools/qa/world/benches/village_bench_review.gd.uid
 !tools/qa/world/village_board_capture.gd.uid
 !tools/qa/world/village_board_gallery.gd.uid
 !tools/qa/world/village_board_review.gd.uid
