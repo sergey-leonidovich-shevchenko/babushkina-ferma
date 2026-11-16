@@ -3055,7 +3055,7 @@
       "id": "VSHORE-005",
       "epic": "VSHORE",
       "title": "Сделать спокойную поверхность",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3093,7 +3093,16 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vshore-005-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vshore-005/README.md",
+        "docs/reports/visual-overhaul/vshore-005/native/capture.json",
+        "docs/reports/visual-overhaul/vshore-005/native/metrics.json",
+        "docs/reports/visual-overhaul/vshore-005/native/camera-pan.mp4",
+        "tools/qa/world/water_surface_capture.gd",
+        "tools/qa/world/water_surface.py",
+        "wiki/articles/water-surface.md"
+      ],
+      "result": "В первой overworld обычный профиль добавляет два масштаба ряби, низкий оставляет широкий. Сравнение снято при трёх одинаковых камерах. В четырёхсекундном ролике показаны пруд с неподвижной камерой и проход через стык. WATER 898/0. Цвет за границей воды и середина настила совпали, фаза остановилась в меню и продолжилась после выхода. Покрытие, прозрачность и данные игры совпали с контролем. Карточка остаётся в работе до независимого ревью и приёмки."
     },
     {
       "id": "VSHORE-006",
