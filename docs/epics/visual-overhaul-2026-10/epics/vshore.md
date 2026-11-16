@@ -166,7 +166,7 @@
 
 ## VSHORE-005 — Сделать спокойную поверхность
 
-Статус: `in_progress` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Общий shader даёт два масштаба ряби и умеренный блик; низкий профиль качества сохраняет форму и читаемое дно
 
@@ -175,6 +175,8 @@
 Зависимости: VSHORE-002, VSHORE-004, VRENDER-008.
 
 Единый владелец пересечения: **WATER-05**. Эта карточка уточняет работу владельца, не закрывает его автоматически.
+
+Принято 16 ноября 2026 года. [PR №54](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/54) влит в main как [9340b9ac](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/9340b9ac180eef9ee83d5514dfaf40e9c00dd3b8) в 09:38:38 UTC+5. [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/54#pullrequestreview-5915100079) одобрило `48efe1bce64e8f9292d48598a060b8e30b4dbda1`. CI 9/9. [PR CI](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43802811442) · [Push CI](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43802805565) · [X11](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43802811415).
 
 Исходники:
 
