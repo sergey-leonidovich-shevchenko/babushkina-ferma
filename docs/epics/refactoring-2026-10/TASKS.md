@@ -275,7 +275,9 @@
 
 ## REFACTOR-09 — Сгруппировать инструменты проверки деревенских лавок
 
-**Статус:** in_progress · **Приоритет:** P1 · **Объём:** M · **Тип:** refactor.
+**Статус:** done · **Приоритет:** P1 · **Объём:** M · **Тип:** refactor.
+
+**Дата завершения:** 2026-11-17
 
 **Исполнитель:** Developer Agent.
 
@@ -298,4 +300,4 @@
 
 **Проверка:** Сравнить живые команды по обоим адресам, прогнать профильные проверки и обязательный CI на точном head. Игру на компьютере пользователя не запускать. Если для приёмки нужен видимый нативный сценарий, выполнить его в CI или на отдельном удалённом стенде.
 
-**Подтверждения / результат:** Восемь инструментов и четыре UID перенесены в `tools/qa/world/benches/`. Реализация в коммите `c5a25a558a71536880611d262d51dc4a59c9ed57` прошла quality, architecture, Game 53 627/0 и Wiki 165/0. Старые и новые команды выдают одинаковую сводку архива VPROP-002. Ожидаются CI, независимое ревью текущего head и решение Team Lead. [PR №61](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/61) · [Ведомость переноса и аудит](../../reports/refactor-09/README.md) · [PR учёта VSHORE-006](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/60).
+**Подтверждения / результат:** Восемь инструментов и четыре UID перенесены в `tools/qa/world/benches/`. Старые и новые команды выдают одинаковую сводку архива VPROP-002. [PR №61](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/61) влит в `main` 17 ноября 2026 года. Принятый head `63690dd7bdacc10ece7199dd2ec0be74f7d131f6`, CI 9/9, merge `f8fb0e36`. Локально прошли quality, architecture, Game 53 627/0 и Wiki 165/0. Первый прогон X11 отклонил весеннюю пару кадров, повтор на том же SHA прошёл. [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/61#pullrequestreview-5925809038) · [Ведомость переноса и аудит](../../reports/refactor-09/README.md) · [Данные приёмки](../../reports/refactor-09/closeout/completion.json).

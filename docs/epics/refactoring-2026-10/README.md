@@ -10,7 +10,7 @@ REFACTOR-06 принята через [PR №31](https://github.com/sergey-leoni
 
 [REFACTOR-08](TASKS.md#refactor-08--разделить-плотные-папки-tools-по-назначению) принята и влита через [PR №46](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/46). Инструменты проверки viewport собраны в `tools/qa/world/viewport`, а аудит соседних папок сохранён в ведомости. [Данные приёмки](../../reports/refactor-08/closeout/README.md). После учёта команда вернулась к первой `overworld`. REFACTOR-04/05 остаются `blocked`.
 
-[REFACTOR-09](TASKS.md#refactor-09--сгруппировать-инструменты-проверки-деревенских-лавок) продолжает разбор `tools/qa/world` с семейства деревенских лавок. Developer Agent получает задачу первой после полной приёмки и учёта VSHORE-006. После этого пакета команда возвращается к маршруту первой `overworld` до VMAP-003.
+[REFACTOR-09](TASKS.md#refactor-09--сгруппировать-инструменты-проверки-деревенских-лавок) принята и влита через [PR №61](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/61). Инструменты проверки лавок собраны в `tools/qa/world/benches`, четыре UID и прежние команды сохранены. В корне World осталось 122 исходника с учётом совместимых входов. После учёта продолжается маршрут первой `overworld` до VMAP-003. [Ведомость и аудит](../../reports/refactor-09/README.md) · [Данные приёмки](../../reports/refactor-09/closeout/completion.json).
 
 ## История промежуточных пакетов
 
