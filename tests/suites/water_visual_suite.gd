@@ -6,6 +6,8 @@ const WaterMapRegistry := preload("res://scripts/systems/water_map_registry.gd")
 const WaterVisualSystem := preload("res://scripts/systems/water_visual_system.gd")
 const UnderwaterBottom := preload("res://scripts/presentation/underwater_bottom.gd")
 const Terrain := preload("res://scripts/systems/village_terrain_renderer.gd")
+const WaterSurface := preload("res://scripts/presentation/village_water_surface.gd")
+const Background := preload("res://scripts/world_background.gd")
 
 
 ## Запускает все сценарии водного визуального контракта в фиксированном порядке.
@@ -14,6 +16,47 @@ func run() -> void:
 	test_water_catalog_animation_and_navigation_share_the_24px_grid()
 	test_registry_visual_snapshots_cover_all_water_semantics()
 	test_underwater_bottom_is_visual_only_and_retained()
+	test_surface_quality_and_wrapped_phase_are_local()
+
+
+## Сценарий: независимые поверхности меняют профиль и фазу одного материала.
+## Исходное состояние: два владельца ожидают один шейдер, но имеют разные часы.
+## Результат: low оставляет широкую рябь, обёртка совпадает, static возвращает прежний draw.
+func test_surface_quality_and_wrapped_phase_are_local() -> void:
+	var primary := WaterSurface.new()
+	var secondary := WaterSurface.new()
+	primary._ready()
+	secondary._ready()
+	primary.apply_profile("normal", 1.25)
+	secondary.apply_profile("low", 2.5)
+	var normal := primary.material as ShaderMaterial
+	var low := secondary.material as ShaderMaterial
+	expect(
+		(
+			normal != low
+			and normal.shader == low.shader
+			and normal.shader == WaterSurface.SurfaceShader
+		),
+		"water shares shader source without sharing owner uniforms",
+	)
+	var normal_fine: bool = normal.get_shader_parameter("fine_ripples")
+	var low_fine: bool = low.get_shader_parameter("fine_ripples")
+	expect(normal_fine and not low_fine, "low quality removes only the fine ripple branch")
+	var phase: Vector2 = normal.get_shader_parameter("ripple_offset")
+	primary.apply_profile("normal", 1.25 + WaterSurface.LOOP_SECONDS)
+	var wrapped_phase: Vector2 = normal.get_shader_parameter("ripple_offset")
+	expect(
+		phase == wrapped_phase and primary.material == normal,
+		"water phase wraps to exactly the same value without replacing the material",
+	)
+	primary.apply_profile("static", 2.5)
+	expect(primary.material == null and secondary.material == low, "static uses the old surface")
+	primary.apply_profile("normal", INF)
+	expect(primary.material == null, "non-finite water phase leaves the previous surface usable")
+	primary.apply_profile("low", 2.5)
+	expect(primary.material == normal, "switching qualities reuses one material per water owner")
+	primary.free()
+	secondary.free()
 
 
 ## Сценарий: вода, берега, рыба и всплески используют один визуальный профиль.
@@ -287,10 +330,16 @@ func test_underwater_bottom_is_visual_only_and_retained() -> void:
 		),
 		"water stays translucent enough for the bottom while rain only darkens its color",
 	)
-	var layer_source := FileAccess.get_file_as_string(
-		"res://scripts/presentation/village_ground_layer.gd"
-	)
+	var background := Background.new()
+	background._ready()
 	expect(
-		layer_source.find("draw_underwater_bottom") < layer_source.find("draw_surface"),
+		(
+			background.water_surface.get_parent() == background.water_layer
+			and not background.water_surface.show_behind_parent
+			and background.water_layer.show_behind_parent
+			and background.cover_layer.get_parent() == background.terrain_canvas
+			and background.cover_layer.cover
+		),
 		"split terrain draws the bottom before the surface and keeps bridges in the cover pass",
 	)
+	background.free()

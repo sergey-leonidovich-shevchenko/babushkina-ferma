@@ -27,10 +27,14 @@ const TerrainCutoutShader := preload("res://scripts/presentation/terrain_cutout.
 const GardenSoil := preload("res://scripts/presentation/garden_soil.gd")
 const TerrainLocalRevision := preload("res://scripts/presentation/terrain_local_revision.gd")
 const TerrainRegionClear := preload("res://scripts/presentation/terrain_region_clear.gd")
+const GroundClock := preload("res://scripts/presentation/village_ground_clock.gd")
 const VillageDecorationRules := preload("res://scripts/presentation/village_decoration_rules.gd")
 const VillageGroundLayer := preload("res://scripts/presentation/village_ground_layer.gd")
 const VillageRegionTerrain := preload("res://scripts/presentation/village_region_terrain.gd")
 const VillageTerrainCanvas := preload("res://scripts/presentation/village_terrain_canvas.gd")
+const VillageWaterSurface := preload("res://scripts/presentation/village_water_surface.gd")
+const ViewportWorldContext := preload("res://scripts/presentation/viewport_world_context.gd")
+const VisualReferenceMode := preload("res://scripts/presentation/visual_reference_mode.gd")
 const VillageTerrainRenderer := preload("res://scripts/systems/village_terrain_renderer.gd")
 const VillageMapPreviewSystem := preload("res://scripts/systems/village_map_preview_system.gd")
 const VillageRegionData := preload("res://scripts/systems/village_region_data.gd")
@@ -72,6 +76,7 @@ var soft_plaza := true
 var soft_garden := true
 var ground_color_patches := true
 var water_layer: VillageGroundLayer
+var water_surface: VillageWaterSurface
 var cover_layer: VillageGroundLayer
 var cutout_layer: VillageGroundLayer
 var terrain_requests := 0
@@ -103,6 +108,7 @@ func _stamp_owned_layers(token: Dictionary) -> void:
 		terrain_clip,
 		terrain_erase,
 		water_layer,
+		water_surface,
 		cover_layer,
 		cutout_layer
 	]:
@@ -183,6 +189,9 @@ func _ready() -> void:
 	water_layer.show_behind_parent = true
 	water_layer.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	add_child(water_layer)
+	water_surface = VillageWaterSurface.new()
+	water_surface.name = "Ripples"
+	water_layer.add_child(water_surface)
 	var token: Variant = get_meta(OWNER_META, {})
 	if token is Dictionary and not token.is_empty():
 		_stamp_owned_layers(token)
@@ -305,6 +314,7 @@ func _sync_ground_layers() -> void:
 	cover_layer.visible = enabled
 	cutout_layer.visible = enabled
 	water_layer.configure(season, weather, false)
+	water_surface.configure(season, weather)
 	cover_layer.configure(
 		season,
 		weather,
@@ -316,6 +326,19 @@ func _sync_ground_layers() -> void:
 		split_bridge_rails
 	)
 	cutout_layer.configure(season, weather, false, true)
+
+
+## Передаёт фазу видимой воде после физических шагов. Пауза сохраняет часы мира.
+func _process(_delta: float) -> void:
+	if water_layer == null or not water_layer.visible:
+		return
+	var game := get_parent()
+	if game == null or not owned_by(ViewportWorldContext.read(game)):
+		return
+	var quality := str(game.get_meta(VillageWaterSurface.QUALITY, "normal"))
+	if game.settings_state.reduced_motion or not VisualReferenceMode.effects_enabled(game):
+		quality = "static"
+	water_surface.apply_profile(quality, GroundClock.seconds(game))
 
 
 ## Отменяет работу прежней карты до постановки рендера новой.

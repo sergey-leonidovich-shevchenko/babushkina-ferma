@@ -1,0 +1,56 @@
+{
+  "seam-normal": {
+    "changed_pixels": 96239,
+    "max_rgb_delta": 14,
+    "animated_pixels": 78372
+  },
+  "seam-low": {
+    "changed_pixels": 95470,
+    "max_rgb_delta": 10,
+    "animated_pixels": 64679
+  },
+  "seam-later": {
+    "changed_pixels": 96246,
+    "max_rgb_delta": 15
+  },
+  "seam-low-later": {
+    "changed_pixels": 95468,
+    "max_rgb_delta": 10
+  },
+  "river-normal": {
+    "changed_pixels": 127420,
+    "max_rgb_delta": 15,
+    "animated_pixels": 102472
+  },
+  "river-low": {
+    "changed_pixels": 126435,
+    "max_rgb_delta": 10,
+    "animated_pixels": 84354
+  },
+  "river-later": {
+    "changed_pixels": 127310,
+    "max_rgb_delta": 15
+  },
+  "river-low-later": {
+    "changed_pixels": 126108,
+    "max_rgb_delta": 10
+  },
+  "pond-normal": {
+    "changed_pixels": 118531,
+    "max_rgb_delta": 15,
+    "animated_pixels": 95096
+  },
+  "pond-low": {
+    "changed_pixels": 117421,
+    "max_rgb_delta": 10,
+    "animated_pixels": 78244
+  },
+  "pond-later": {
+    "changed_pixels": 118388,
+    "max_rgb_delta": 15
+  },
+  "pond-low-later": {
+    "changed_pixels": 117532,
+    "max_rgb_delta": 10
+  }
+}

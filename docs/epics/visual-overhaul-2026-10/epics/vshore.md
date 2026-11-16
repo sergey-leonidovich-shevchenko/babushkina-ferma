@@ -166,7 +166,7 @@
 
 ## VSHORE-005 — Сделать спокойную поверхность
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `in_progress` · P0 · этап `pilot` · `engineering`
 
 Общий shader даёт два масштаба ряби и умеренный блик; низкий профиль качества сохраняет форму и читаемое дно
 
@@ -182,7 +182,7 @@
 - [scripts/systems/water_map_registry.gd](../../../../scripts/systems/water_map_registry.gd)
 - [scripts/systems/water_visual_system.gd](../../../../scripts/systems/water_visual_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vshore-005/`.
+Результаты: `docs/reports/visual-overhaul/vshore-005/`.
 
 Критерии:
 
@@ -200,7 +200,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vshore-005/README.md, docs/reports/visual-overhaul/vshore-005/native/capture.json, docs/reports/visual-overhaul/vshore-005/native/metrics.json, docs/reports/visual-overhaul/vshore-005/native/camera-pan.mp4, tools/qa/world/water_surface_capture.gd, tools/qa/world/water_surface.py, wiki/articles/water-surface.md.
 
 <a id="vshore-006"></a>
 
