@@ -25,6 +25,17 @@ export function plain(value = '') {
     .trim()
 }
 
+/** Сохраняет в Markdown-карточках ту же метку PR, которую TaskBoard уже читает из JSON. */
+function markdownResult(value, status) {
+  const reviewLink =
+    status.toLowerCase() === 'in_progress'
+      ? value.match(/\[(PR [#№]\d+)\]\((https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/pull\/\d+)\)/)?.[0]
+      : undefined
+  return [plain(reviewLink ? value.replace(reviewLink, '') : value), reviewLink]
+    .filter(Boolean)
+    .join('\n')
+}
+
 /** Извлекает поля редакционных карточек без превращения таблицы-указателя в задачи. */
 function fields(body) {
   const matches = [...body.matchAll(/^\*\*([^*\n]+)\*\*\s*/gm)]
@@ -97,8 +108,9 @@ export function markdownTasks(markdown, epic, plan) {
       goal: plain(goal),
       acceptance: bullets(values['Приёмка']),
       dependencies,
-      result: plain(
-        values['Подтверждения / результат'] ?? (status === 'done' ? values['Проверки'] : '') ?? ''
+      result: markdownResult(
+        values['Подтверждения / результат'] ?? (status === 'done' ? values['Проверки'] : '') ?? '',
+        status
       ),
       sections: Object.entries(values)
         .filter(
