@@ -146,12 +146,13 @@ def encode(raw: Path, destination: Path, motion: list[dict[str, Any]]) -> None:
         finally:
             writer.close()
         require(path.stat().st_size > 0, "empty diagnostic video")
+        verify_video(path, destination.parent, motion)
         destination.hardlink_to(path)
 
 
-def verify_video(folder: Path, motion: list[dict[str, Any]]) -> None:
+def verify_video(video: Path, folder: Path, motion: list[dict[str, Any]]) -> None:
     """Match the first and last frames of each shot to retained native originals."""
-    reader = read_frames(str(folder / "camera-pan.mp4"), pix_fmt="rgb24")
+    reader = read_frames(str(video), pix_fmt="rgb24")
     try:
         meta = next(reader)
         require(meta["size"] == SIZE and meta["fps"] == 30, "video profile")
@@ -229,7 +230,8 @@ def main() -> None:
     )
     if arguments.raw:
         encode(arguments.raw.resolve(), folder / "camera-pan.mp4", capture["motion"])
-    verify_video(folder, capture["motion"])
+    else:
+        verify_video(folder / "camera-pan.mp4", folder, capture["motion"])
     print(json.dumps(metrics, indent=2, ensure_ascii=False))
 
 
