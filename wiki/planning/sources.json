@@ -1677,6 +1677,14 @@
       "file": "docs/epics/release-2026-11/backlog.json",
       "group": "technology",
       "expected": 13
+    },
+    {
+      "id": "hero",
+      "title": "Два образа героя и живая анимация",
+      "format": "json",
+      "file": "docs/epics/hero-demo-2026-11/backlog.json",
+      "group": "visual",
+      "expected": 3
     }
   ],
   "queues": [
