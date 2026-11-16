@@ -1,0 +1,112 @@
+{
+  "capture_sha256": "94279ea96032faf18b0e32907c174773b819d8233de455685bb4a4576a415e16",
+  "captures": {
+    "lower-after": {
+      "camera": [
+        700.0,
+        540.0
+      ],
+      "directed": true,
+      "file": "lower-after.png",
+      "location": "overworld",
+      "owner": "WorldBackground/WaterSurface/Ripples",
+      "png": "aebf07324ae28017a7cbbfe4b00340500aa3e7ef476989934e591bf20b26d7fa",
+      "quality": "normal",
+      "scale": 1.2,
+      "seconds": 1.25
+    },
+    "lower-before": {
+      "camera": [
+        700.0,
+        540.0
+      ],
+      "directed": false,
+      "file": "lower-before.png",
+      "location": "overworld",
+      "owner": "WorldBackground/WaterSurface/Ripples",
+      "png": "c34d3d7931e79ec2dd78f4b110a192c5f3931cfb40edbcc176bbb5ad80b10712",
+      "quality": "normal",
+      "scale": 1.2,
+      "seconds": 1.25
+    },
+    "pond-after": {
+      "camera": [
+        1368.0,
+        618.0
+      ],
+      "directed": true,
+      "file": "pond-after.png",
+      "location": "overworld",
+      "owner": "WorldBackground/WaterSurface/Ripples",
+      "png": "57438a465a4b1dc2ab1cab8d874d170743603af7eaa8a2eaa41771e262c7542f",
+      "quality": "normal",
+      "scale": 1.2,
+      "seconds": 1.25
+    },
+    "pond-before": {
+      "camera": [
+        1368.0,
+        618.0
+      ],
+      "directed": false,
+      "file": "pond-before.png",
+      "location": "overworld",
+      "owner": "WorldBackground/WaterSurface/Ripples",
+      "png": "81dbc73543545a4df861ffc12e1ea0c8307e2fef5077e238b30d89820d6a02d4",
+      "quality": "normal",
+      "scale": 1.2,
+      "seconds": 1.25
+    },
+    "upper-after": {
+      "camera": [
+        288.0,
+        18.0
+      ],
+      "directed": true,
+      "file": "upper-after.png",
+      "location": "overworld",
+      "owner": "WorldBackground/WaterSurface/Ripples",
+      "png": "d1914f0600cb7e11254c344327410a93911adf8779ca0d3fadfb563efcfaa7a7",
+      "quality": "normal",
+      "scale": 1.2,
+      "seconds": 1.25
+    },
+    "upper-before": {
+      "camera": [
+        288.0,
+        18.0
+      ],
+      "directed": false,
+      "file": "upper-before.png",
+      "location": "overworld",
+      "owner": "WorldBackground/WaterSurface/Ripples",
+      "png": "7d4807487a08487163d943d85ba908fe6b08d8bcad9209ea06860fcb6b32dc8d",
+      "quality": "normal",
+      "scale": 1.2,
+      "seconds": 1.25
+    }
+  },
+  "pairs": {
+    "upper": {
+      "camera": [
+        288,
+        18
+      ],
+      "other_pixels_equal": true
+    },
+    "lower": {
+      "camera": [
+        700,
+        540
+      ],
+      "other_pixels_equal": true
+    },
+    "pond": {
+      "camera": [
+        1368,
+        618
+      ],
+      "other_pixels_equal": true
+    }
+  }
+}

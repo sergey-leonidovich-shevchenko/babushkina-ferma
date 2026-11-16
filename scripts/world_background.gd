@@ -338,7 +338,8 @@ func _process(_delta: float) -> void:
 	var quality := str(game.get_meta(VillageWaterSurface.QUALITY, "normal"))
 	if game.settings_state.reduced_motion or not VisualReferenceMode.effects_enabled(game):
 		quality = "static"
-	water_surface.apply_profile(quality, GroundClock.seconds(game))
+	var directional: bool = game.get_meta(VillageWaterSurface.DIRECTIONAL, true) == true
+	water_surface.apply_profile(quality, GroundClock.seconds(game), directional)
 
 
 ## Отменяет работу прежней карты до постановки рендера новой.

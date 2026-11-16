@@ -208,7 +208,7 @@
 
 ## VSHORE-006 — Направить течение по руслу
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `in_progress` · P0 · этап `pilot` · `engineering`
 
 Прямые участки имеют только осевые направления, повороты согласованы; диагональный vector из примера не переносится глобально
 
@@ -224,7 +224,7 @@
 - [scripts/systems/water_map_registry.gd](../../../../scripts/systems/water_map_registry.gd)
 - [scripts/systems/water_visual_system.gd](../../../../scripts/systems/water_visual_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vshore-006/`.
+Результаты: `docs/reports/visual-overhaul/vshore-006/`.
 
 Критерии:
 
@@ -242,7 +242,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vshore-006/README.md, docs/reports/visual-overhaul/vshore-006/native/capture.json, docs/reports/visual-overhaul/vshore-006/native/comparison.json, docs/reports/visual-overhaul/vshore-006/native/metrics.json, docs/reports/visual-overhaul/vshore-006/native/camera-pan.mp4, tools/qa/world/river_flow_capture.gd, tools/qa/world/river_flow.py, wiki/articles/river-flow.md.
 
 <a id="vshore-007"></a>
 
