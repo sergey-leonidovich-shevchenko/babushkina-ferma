@@ -1,0 +1,50 @@
+{
+  "task": "REFACTOR-09",
+  "completed_at": "2026-11-17",
+  "implementation": {
+    "pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/61",
+    "base": "32ea7f971b959eb32a5bb94fb37daca0a3eaf78c",
+    "code_commit": "c5a25a558a71536880611d262d51dc4a59c9ed57",
+    "head": "63690dd7bdacc10ece7199dd2ec0be74f7d131f6",
+    "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/61#pullrequestreview-5925809038",
+    "review_verdict": "APPROVED",
+    "resolved_review_threads": 1,
+    "team_lead_decision": "accepted",
+    "merge": "f8fb0e3601433f0e593a0f097c794386c4a44da2",
+    "merged_at": "2026-11-16T19:06:56Z",
+    "head_and_merge_tree": "aa3180041aa0a9d26282e1f4af6c2ac44fc63b55",
+    "version": "0.0.442"
+  },
+  "bench_evidence": {
+    "archived_pngs": 50,
+    "archived_draw_callbacks": 224,
+    "unchanged_verifier_stdout_sha256": "b955501e4d12f72d9746e290f696b4fe6868eb0bc4fd887edde0787fe09e7132",
+    "asset_producer_equal_files": 6,
+    "python_tests": 10,
+    "godot_assertions_per_uri": 24,
+    "uid_paths_verified": 4
+  },
+  "ci": {
+    "successful_jobs": 9,
+    "pull_request_run": 43931121505,
+    "vground_002_x11_run": 43931121501,
+    "architecture_suites_per_run": 115,
+    "architecture_tests_per_run": 1539,
+    "game_assertions_per_run": 53645,
+    "game_failures": 0,
+    "redraw_assertions_per_mode": 90,
+    "smoke_frames": 180,
+    "performance_samples_per_run": 6,
+    "wiki_tests_per_run": 165
+  },
+  "vground_002_x11": {
+    "failed_job": 133523476548,
+    "failed_artifact": 14258416595,
+    "failed_check": "colour field is not visibly present: spring",
+    "successful_retry_job": 133529709304,
+    "successful_artifact": 14259357574,
+    "successful_artifact_sha256": "fc62f71e564d584934cb25ad56c6c2299c610527a7cb499c26b6b64ec4f21f60",
+    "pngs": 66,
+    "draw_snapshots": 240
+  }
+}

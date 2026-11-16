@@ -10,7 +10,7 @@ REFACTOR-06 принята через [PR №31](https://github.com/sergey-leoni
 
 [REFACTOR-08](#/development/tasks/refactoring--REFACTOR-08) принята через [PR №46](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/46). Нативный захват, проверка Godot, валидатор и его тесты находятся в `tools/qa/world/viewport`. Прежние команды запуска продолжают работать. После учёта команда вернулась к первой `overworld`. REFACTOR-04/05 остаются `blocked`. [Ведомость и аудит](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/a68ca8e02b5f3bc7ea980a5dcd7f3c10077b627e/docs/reports/refactor-08/README.md) · [Данные приёмки](../../docs/reports/refactor-08/closeout/completion.json) · [Требования к проверкам и стилю](code-quality.md).
 
-[REFACTOR-09](#/development/tasks/refactoring--REFACTOR-09) переносит инструменты проверки деревенских лавок в отдельную подпапку `tools/qa/world` и уточняет аудит соседних каталогов. Developer Agent берёт задачу после полной приёмки и учёта VSHORE-006. После REFACTOR-09 продолжается маршрут первой `overworld` до VMAP-003.
+[REFACTOR-09](#/development/tasks/refactoring--REFACTOR-09) принята через [PR №61](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/61). Проверки деревенских лавок, валидатор архива и генератор ассетов находятся в `tools/qa/world/benches`. Прежние команды запуска и четыре UID сохранены. Следующий этап разработки продолжает маршрут первой `overworld` до VMAP-003. [Ведомость и аудит](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/63690dd7bdacc10ece7199dd2ec0be74f7d131f6/docs/reports/refactor-09/README.md) · [Данные приёмки](../../docs/reports/refactor-09/closeout/completion.json).
 
 ## История промежуточных пакетов
 
