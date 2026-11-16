@@ -25,7 +25,7 @@ const firstLocationAccepted = computed(() =>
   )
 )
 const titles: Record<string, string> = {
-  'first-location': 'Первая локация · прогресс',
+  'first-location': 'Прогресс по локациям',
   search: 'Поиск по разработке',
   epics: 'Эпики',
   ideas: 'Идеи',
@@ -33,7 +33,7 @@ const titles: Record<string, string> = {
   tasks: 'Задачи',
 }
 const descriptions: Record<string, string> = {
-  'first-location': 'Эпики и этапы пути от принятого эталона к целой живописной локации.',
+  'first-location': 'Три шага до демо, все локации полного релиза и последующие дополнения.',
   search: 'Один запрос по идеям, эпикам и всем задачам игры.',
   epics: 'Большие направления игры. Собирайте связанные эпики в удобные группы.',
   ideas: 'Сохраняйте замыслы и выбирайте, какие из них стоит подробно проработать.',

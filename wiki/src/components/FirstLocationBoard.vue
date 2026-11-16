@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed, nextTick, ref } from 'vue'
+import { computed } from 'vue'
 import { catalog } from '../lib/catalog.ts'
 import { planning, developmentPath, taskLabels } from '../lib/planning.ts'
-import { firstLocationOverview, locationPortions } from '../lib/first-location.ts'
+import { firstLocationOverview } from '../lib/first-location.ts'
 import { queueProgress, queueIssue } from '../lib/task-queue.ts'
 import WikiIcon from './WikiIcon.vue'
 import LocationHistory from './LocationHistory.vue'
+import ReleaseRoadmap from './ReleaseRoadmap.vue'
 
 const overview = computed(() => firstLocationOverview(planning.value!.catalog))
 const pilot = computed(() =>
@@ -16,34 +17,6 @@ const pilotError = computed(() =>
     ? queueIssue(pilot.value, planning.value!.catalog.tasks)
     : 'Очередь пилота недоступна. Пересоберите Wiki.'
 )
-const portions = computed(() =>
-  locationPortions(
-    planning.value!.catalog.tasks,
-    pilotError.value ? [] : pilot.value?.taskKeys
-  ).map((portion, index) => ({
-    ...portion,
-    issue: index === 0 ? pilotError.value : '',
-    incomplete: portion.missing.length > 0 || (index === 0 && !!pilotError.value),
-  }))
-)
-const portionsDialog = ref<HTMLDialogElement>()
-const selectedId = ref('')
-const selectedPortion = computed(() =>
-  portions.value.find((portion) => portion.id === selectedId.value)
-)
-let portionTrigger: HTMLElement | undefined
-
-async function openPortion(id: string, event: MouseEvent) {
-  portionTrigger = event.currentTarget as HTMLElement
-  selectedId.value = id
-  await nextTick()
-  portionsDialog.value?.showModal()
-}
-
-function closePortion() {
-  portionTrigger?.focus({ preventScroll: true })
-}
-
 const progress = computed(() =>
   pilot.value && !pilotError.value
     ? queueProgress(pilot.value, planning.value!.catalog.tasks)
@@ -78,72 +51,6 @@ const progress = computed(() =>
       </p>
     </section>
 
-    <section aria-labelledby="location-portions">
-      <div class="section-heading"><h2 id="location-portions">Прогресс по локациям</h2></div>
-      <div class="location-portion-grid">
-        <button
-          v-for="(portion, index) in portions"
-          :key="portion.id"
-          class="planning-panel location-portion"
-          type="button"
-          aria-haspopup="dialog"
-          @click="openPortion(portion.id, $event)"
-        >
-          <span class="location-portion-title">
-            <strong>{{ portion.title }}</strong>
-            <WikiIcon name="arrow" :size="20" />
-          </span>
-          <span v-if="portion.incomplete">Список задач неполный</span>
-          <span v-else>{{ portion.done }} из {{ portion.tasks.length }} задач завершено</span>
-          <progress
-            v-if="!portion.incomplete"
-            :value="portion.done"
-            :max="portion.tasks.length || 1"
-            aria-hidden="true"
-          />
-          <small v-if="index" class="muted">План после первой локации</small>
-          <small v-else class="muted">Объём уточнит VMAP-001</small>
-        </button>
-      </div>
-      <dialog
-        ref="portionsDialog"
-        class="location-dialog location-tasks-dialog"
-        aria-labelledby="location-portion-dialog-title"
-        @close="closePortion"
-        @keydown.esc.stop.prevent="portionsDialog?.close()"
-      >
-        <header v-if="selectedPortion" class="location-dialog-header">
-          <div>
-            <h2 id="location-portion-dialog-title">{{ selectedPortion.title }}</h2>
-            <p v-if="selectedPortion.incomplete" class="muted">
-              Доступно карточек {{ selectedPortion.tasks.length }}
-            </p>
-            <p v-else class="muted">
-              {{ selectedPortion.done }} из {{ selectedPortion.tasks.length }} задач завершено
-            </p>
-          </div>
-          <form method="dialog">
-            <button class="button" type="submit" autofocus>Закрыть</button>
-          </form>
-        </header>
-        <div v-if="selectedPortion?.incomplete" class="planning-notice error" role="alert">
-          <p v-if="selectedPortion.issue">{{ selectedPortion.issue }}</p>
-          <p v-if="selectedPortion.missing.length">
-            Недоступные карточки: {{ selectedPortion.missing.join(', ') }}. Обновите данные.
-          </p>
-        </div>
-        <ol v-if="selectedPortion" class="location-portion-tasks" aria-label="Задачи локации">
-          <li v-for="task in selectedPortion.tasks" :key="task.key">
-            <RouterLink :to="developmentPath('tasks', task.key)">
-              <span class="planning-code">{{ task.id }}</span>
-              <strong>{{ task.title }}</strong>
-            </RouterLink>
-            <span class="planning-status" :class="task.status">{{ taskLabels[task.status] }}</span>
-          </li>
-        </ol>
-      </dialog>
-    </section>
-
     <section class="planning-panel location-current" aria-labelledby="location-current-title">
       <h2 id="location-current-title">Сейчас в работе</h2>
       <div v-if="overview.active.length" class="location-active">
@@ -171,6 +78,8 @@ const progress = computed(() =>
         </RouterLink>
       </template>
     </section>
+
+    <ReleaseRoadmap :pilot-keys="pilot?.taskKeys ?? []" :pilot-issue="pilotError" />
 
     <section aria-labelledby="location-gates">
       <div class="section-heading"><h2 id="location-gates">Этапы приёмки</h2></div>
