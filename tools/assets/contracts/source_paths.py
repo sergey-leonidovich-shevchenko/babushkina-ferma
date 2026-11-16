@@ -1,10 +1,12 @@
 """Отделяет прежние логические имена tools от известных текущих физических адресов."""
+
 from __future__ import annotations
 
 from pathlib import Path, PurePosixPath
 from types import MappingProxyType
 
 # Фиксированная карта принятых переносов; metadata не выбирает физический адрес.
+# fmt: off
 MOVED_PATHS = MappingProxyType({'tools/alpha_audit.py': 'tools/assets/alpha/alpha_audit.py',
  'tools/alpha_capture.gd': 'tools/assets/alpha/alpha_capture.gd',
  'tools/alpha_fixtures.py': 'tools/assets/alpha/alpha_fixtures.py',
@@ -496,17 +498,44 @@ MOVED_PATHS = MappingProxyType({'tools/alpha_audit.py': 'tools/assets/alpha/alph
  'tools/water_navigation_review.gd.uid': 'tools/qa/world/water_navigation_review.gd.uid',
  'tools/water_topology_review.gd': 'tools/qa/world/water_topology_review.gd',
  'tools/water_topology_review.gd.uid': 'tools/qa/world/water_topology_review.gd.uid'})
+# fmt: on
+
+# Второй перенос хранится отдельно от принятой карты REFACTOR-01.
+CURRENT_RELOCATIONS = MappingProxyType(
+    {
+        f"tools/qa/world/{name}": f"tools/qa/world/benches/{name}"
+        for name in (
+            "test_village_bench.py",
+            "village_bench_assets.py",
+            "village_bench_capture.gd",
+            "village_bench_capture.gd.uid",
+            "village_bench_collect.py",
+            "village_bench_gallery.gd",
+            "village_bench_gallery.gd.uid",
+            "village_bench_leg_capture.gd",
+            "village_bench_leg_capture.gd.uid",
+            "village_bench_review.gd",
+            "village_bench_review.gd.uid",
+            "village_bench_verify.py",
+        )
+    }
+)
 
 
 def _relative(name: str | Path) -> str:
     """Требует каноническое относительное имя, прежде чем читать путь или выбирать Git alias."""
     if isinstance(name, Path):
         name = name.as_posix()
-    if (not isinstance(name, str) or not name or PurePosixPath(name).is_absolute()
-            or PurePosixPath(name).as_posix() != name
-            or any(part in {'.', '..', '.git'} for part in name.split('/'))
-            or '\\' in name or any(ord(c) < 32 or ord(c) == 127 for c in name)):
-        raise ValueError('unsafe source path')
+    if (
+        not isinstance(name, str)
+        or not name
+        or PurePosixPath(name).is_absolute()
+        or PurePosixPath(name).as_posix() != name
+        or any(part in {".", "..", ".git"} for part in name.split("/"))
+        or "\\" in name
+        or any(ord(c) < 32 or ord(c) == 127 for c in name)
+    ):
+        raise ValueError("unsafe source path")
     return name
 
 
@@ -515,29 +544,34 @@ def current_source(root: Path, logical: str | Path) -> Path:
     name = _relative(logical)
     root = Path(root).resolve(strict=True)
     if not root.is_dir():
-        raise ValueError('source root must be a directory')
-    physical = MOVED_PATHS.get(name, name)
-    for relative in {name, physical}:
+        raise ValueError("source root must be a directory")
+    intermediate = MOVED_PATHS.get(name, name)
+    physical = CURRENT_RELOCATIONS.get(intermediate, intermediate)
+    for relative in {name, intermediate, physical}:
         path = root
-        for part in relative.split('/'):
+        for part in relative.split("/"):
             path /= part
             if path.is_symlink():
-                raise ValueError('unsafe source symlink')
+                raise ValueError("unsafe source symlink")
     path = root / physical
     if not path.resolve().is_relative_to(root):
-        raise ValueError('source outside root')
+        raise ValueError("source outside root")
     return path
 
 
 def historical_source(available: set[str], logical: str | Path) -> str:
     """Выбирает единственный старый/новый alias из дерева уже закреплённого Git commit."""
     name = _relative(logical)
-    aliases = {name, MOVED_PATHS.get(name, name)}
+    intermediate = MOVED_PATHS.get(name, name)
+    aliases = {name, intermediate}
+    # Asset provenance читает Python-генераторы. Godot-входы с фасадом проверяет World.
+    if intermediate.endswith(".py"):
+        aliases.add(CURRENT_RELOCATIONS.get(intermediate, intermediate))
     present = aliases.intersection(available)
     if not present:
-        raise FileNotFoundError('historical source missing: ' + name)
+        raise FileNotFoundError("historical source missing: " + name)
     if len(present) != 1:
-        raise ValueError('ambiguous historical source: ' + name)
+        raise ValueError("ambiguous historical source: " + name)
     return present.pop()
 
 
@@ -550,5 +584,5 @@ def recorded_paths(names: tuple[str, ...], reported: object) -> dict[str, str]:
     """Legacy-пустота либо полная известная карта; metadata не может выбрать произвольный файл."""
     expected = captured_paths(names)
     if not isinstance(reported, dict) or reported not in ({}, expected):
-        raise ValueError('invalid recorded source paths')
+        raise ValueError("invalid recorded source paths")
     return dict(reported)

@@ -1,6 +1,23 @@
 # Проверки игрового мира
 
-[Первый перенос REFACTOR-08](../../../docs/reports/refactor-08/README.md) группирует сценарии изоляции нескольких viewport в `viewport/`. Здесь находятся нативный захват, проверка в Godot, валидатор и его тесты. Сценарии деревни, воды, сохранений и порядка слоёв пока запускаются из `qa.world`.
+[REFACTOR-09](../../../docs/reports/refactor-09/README.md) собрал проверки деревенских лавок в `benches/`. Общие наблюдатели отрисовки и проверки оград, улицы, воды и сохранений находятся в `qa.world`.
+
+## Деревенские лавки
+
+```sh
+python3 tools/run.py qa.world.benches.village_bench_assets
+python3 tools/run.py qa.world.benches.village_bench_verify
+python3 tools/run.py qa.world.benches.test_village_bench
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa/world/benches/village_bench_review.gd
+```
+
+Первый вызов сверяет три производных PNG с мастерами, второй проверяет [принятый нативный архив VPROP-002](../../../docs/reports/visual-overhaul/vprop-002/README.md). При запуске извне передайте абсолютный путь к `tools/run.py`, а для Godot — к движку и проекту. Прежние команды `qa.world.village_bench_assets`, `qa.world.village_bench_collect`, `qa.world.village_bench_verify` и `qa.world.test_village_bench` сохраняют аргументы и формат вывода. Четыре прежних Godot URI делегируют одноимённым скриптам в `benches/`.
+
+Сборщик `qa.world.benches.village_bench_collect` принимает `--phase before|after`, требует свежую папку фазы и запускает окна 1152×648 и 1280×720 через macOS. Для прямого запуска `village_bench_capture.gd` передайте после `--` параметры `--output=<новая папка>`, `--profile=Codex-VPROP-002-<уникальное имя>` и `--phase=before|after`. Скрипт `village_bench_leg_capture.gd` принимает `--output=<новая папка>` и необязательный `--wide`. Обе команды съёмки требуют видимого окна на QA-стенде. Параметр `--build` у инструмента ассетов пишет производные PNG и каталог, а `--write` у валидатора обновляет сводку.
+
+## Изоляция viewport
+
+[REFACTOR-08](../../../docs/reports/refactor-08/README.md) группирует сценарии изоляции нескольких viewport в `viewport/`. Здесь находятся нативный захват, проверка в Godot, валидатор и его тесты.
 
 Из корня проекта:
 
