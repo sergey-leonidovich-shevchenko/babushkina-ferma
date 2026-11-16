@@ -3055,7 +3055,7 @@
       "id": "VSHORE-005",
       "epic": "VSHORE",
       "title": "Сделать спокойную поверхность",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3104,7 +3104,8 @@
         "tools/qa/world/water_surface.py",
         "wiki/articles/water-surface.md"
       ],
-      "result": "В первой overworld обычный профиль добавляет два масштаба ряби, низкий оставляет широкий. Сравнение снято при трёх одинаковых камерах. В четырёхсекундном ролике показаны пруд с неподвижной камерой и проход через стык. WATER 898/0. Цвет за границей воды и середина настила совпали, фаза остановилась в меню и продолжилась после выхода. Покрытие, прозрачность и данные игры совпали с контролем. Проверка Git сверила 17 исходников захвата по коммиту реализации 389445326c518390423297a3b903cdd822d06421 и повторила метрики. Локально Game 53607/0, normal и F10 по 90/0, architecture 114 наборов / 1533, Wiki 159/0. В Chrome подтверждено воспроизведение ролика. По P2 видео проходит проверку во временном файле. Удаление контрольного кадра не оставляет готовый файл, а возврат кадра позволяет повторить команду. Ожидает повторного независимого ревью.\n[PR №54](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/54)"
+      "result": "2026-11-16: в первой overworld обычный профиль добавляет два масштаба ряби, низкий оставляет широкий. На трёх одинаковых камерах цвет суши и середины настила совпал с контролем. Фаза останавливается в паузе и продолжается после неё. Четырёхсекундный ролик показывает пруд и проход через стык. Проверены 17 исходников захвата в коммите 389445326c518390423297a3b903cdd822d06421, 137 исходных PNG и 120 кадров ролика. Удаление контрольного кадра останавливает выпуск MP4. После возврата кадра повтор проходит, существующий файл защищён от перезаписи. WATER 898/0. CI 9/9, Game 53625/0, normal и F10 по 90/0, Wiki 159/0. PR №54 принят и влит как 9340b9ac180eef9ee83d5514dfaf40e9c00dd3b8.",
+      "approval": "Принято 16 ноября 2026 года. [PR №54](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/54) влит в main как [9340b9ac](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/9340b9ac180eef9ee83d5514dfaf40e9c00dd3b8) в 09:38:38 UTC+5. [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/54#pullrequestreview-5915100079) одобрило `48efe1bce64e8f9292d48598a060b8e30b4dbda1`. CI 9/9. [PR CI](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43802811442) · [Push CI](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43802805565) · [X11](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43802811415)."
     },
     {
       "id": "VSHORE-006",
