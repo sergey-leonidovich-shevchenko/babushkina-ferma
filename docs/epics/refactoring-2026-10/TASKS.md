@@ -298,4 +298,4 @@
 
 **Проверка:** Сравнить живые команды по обоим адресам, прогнать профильные проверки и обязательный CI на точном head. Игру на компьютере пользователя не запускать. Если для приёмки нужен видимый нативный сценарий, выполнить его в CI или на отдельном удалённом стенде.
 
-**Подтверждения / результат:** В работе после приёмки REFACTOR-08 и учёта VSHORE-006. [Ведомость переноса и аудит](../../reports/refactor-09/README.md) · [PR учёта VSHORE-006](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/60).
+**Подтверждения / результат:** Восемь инструментов и четыре UID перенесены в `tools/qa/world/benches/`. Реализация в коммите `c5a25a558a71536880611d262d51dc4a59c9ed57` прошла quality, architecture, Game 53 627/0 и Wiki 165/0. Старые и новые команды выдают одинаковую сводку архива VPROP-002. Ожидаются CI, независимое ревью текущего head и решение Team Lead. [PR №61](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/61) · [Ведомость переноса и аудит](../../reports/refactor-09/README.md) · [PR учёта VSHORE-006](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/60).
