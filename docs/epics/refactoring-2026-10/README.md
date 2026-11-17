@@ -12,7 +12,7 @@ REFACTOR-06 принята через [PR №31](https://github.com/sergey-leoni
 
 [REFACTOR-09](TASKS.md#refactor-09--сгруппировать-инструменты-проверки-деревенских-лавок) принята и влита через [PR №61](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/61). Инструменты проверки лавок собраны в `tools/qa/world/benches`, четыре UID и прежние команды сохранены. В корне World осталось 122 исходника с учётом совместимых входов. После учёта продолжается маршрут первой `overworld` до VMAP-003. [Ведомость и аудит](../../reports/refactor-09/README.md) · [Данные приёмки](../../reports/refactor-09/closeout/completion.json).
 
-[REFACTOR-10](TASKS.md#refactor-10--сгруппировать-инструменты-проверки-деревенской-улицы) группирует проверки деревенской улицы и обновляет аудит плотных папок после полного закрытия VCOMPAT-005. Затем продолжается маршрут первой `overworld` до VMAP-003.
+[REFACTOR-10](TASKS.md#refactor-10--сгруппировать-инструменты-проверки-деревенской-улицы) принята и влита. Семь инструментов колодца и телеги собраны в `tools/qa/world/street/`. Прежние входы и три UID сохранены. Далее продолжается маршрут первой `overworld` до VMAP-003. [PR №67](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/67) · [Ведомость и аудит](../../reports/refactor-10/README.md).
 
 ## История промежуточных пакетов
 

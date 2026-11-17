@@ -46,3 +46,9 @@
 - Godot-профиль прошёл 50/0 на исходном скрипте, на прежнем URI и на новом URI. Захват `before` в headless завершился с кодом 2 без папки результатов на всех трёх входах. Для проверки изображений использован ранее принятый нативный архив.
 - В одноразовой копии проекта удалены оба файла галереи. Прежний и новый URI фазы `before` прошли строгую компиляцию Godot и завершились штатным отказом headless с кодом 2.
 - Пройдены 15 проверок истории и физических путей, 16 проверок World Inputs, 17 проверок отчёта ассетов и 12 сценариев профиля улицы. Полный валидатор отчёта ассетов подтвердил принятый архив экспорта. Отдельная сборка Wiki прошла 165 тестов и вывела REFACTOR-10 первой в «Сейчас в работе» вместе с параллельной карточкой.
+
+## Приёмка
+
+Ревьюер одобрил `3baf96c43905de2929310e44f5f9640884405eec` после закрытия обоих замечаний. Team Lead слил PR №67 в `main` коммитом `74dfd66451f4874cf82658b7c5db05c8d400e189`. [Одобрение](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/67#pullrequestreview-5939464125) · [Коммит слияния](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/74dfd66451f4874cf82658b7c5db05c8d400e189).
+
+Штатный локальный hook прошёл статический анализ, 115 архитектурных наборов с 1 542 сценариями и 53 682 игровых проверки. Redraw normal и F10 прошли по 90 проверок. GitHub подтвердил все девять заданий на том же head. [CI PR](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44089756521) · [CI push](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44089745733) · [X11](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44089756635).

@@ -12,7 +12,7 @@ REFACTOR-06 принята через [PR №31](https://github.com/sergey-leoni
 
 [REFACTOR-09](#/development/tasks/refactoring--REFACTOR-09) принята через [PR №61](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/61). Проверки деревенских лавок, валидатор архива и генератор ассетов находятся в `tools/qa/world/benches`. Прежние команды запуска и четыре UID сохранены. [Ведомость и аудит](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/63690dd7bdacc10ece7199dd2ec0be74f7d131f6/docs/reports/refactor-09/README.md) · [Данные приёмки](../../docs/reports/refactor-09/closeout/completion.json).
 
-После полной приёмки и учёта [VCOMPAT-005](#/development/tasks/visual--VCOMPAT-005) команда берёт [REFACTOR-10](#/development/tasks/refactoring--REFACTOR-10), чтобы сгруппировать проверки деревенской улицы и обновить аудит плотных папок. Затем продолжается маршрут первой `overworld` до VMAP-003.
+[REFACTOR-10](#/development/tasks/refactoring--REFACTOR-10) принята после [VCOMPAT-005](#/development/tasks/visual--VCOMPAT-005). Инструменты проверки деревенской улицы собраны в `tools/qa/world/street/`, сохранены прежние входы и три UID. Аудит плотных папок обновлён. Команда продолжает маршрут первой `overworld` до VMAP-003. [PR №67](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/67) · [Ведомость и аудит](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/3baf96c43905de2929310e44f5f9640884405eec/docs/reports/refactor-10/README.md).
 
 ## История промежуточных пакетов
 
