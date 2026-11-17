@@ -20,3 +20,9 @@
 tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa/world/water_visual_compatibility_review.gd
 python3 tools/run.py qa.world.river_flow --commit c874df4892fce54a81b4e21e39595e749898a526
 ```
+
+## Приёмка
+
+Ревьюер одобрил коммит `b31d9082c6fd74d06042cb5e97f3fc4b2e01dfb4` и закрыл три замечания. Team Lead принял задачу. PR №65 влит в `main` коммитом `67765a9ebce2354181250a39b0da2df7fbf84368`. [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/65#pullrequestreview-5931758373) · [Коммит слияния](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/67765a9ebce2354181250a39b0da2df7fbf84368).
+
+Локальный hook на том же коммите прошёл 115 архитектурных наборов с 1 539 сценариями и 53 682 игровых проверки. Redraw normal и F10 прошли по 90 проверок. Отдельная сборка Wiki прошла 165 тестов. GitHub подтвердил все девять заданий. [CI PR](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43999884834) · [CI push](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43999877361) · [X11](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43999884759).

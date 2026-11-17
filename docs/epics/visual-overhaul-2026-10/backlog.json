@@ -7689,7 +7689,7 @@
       "id": "VCOMPAT-005",
       "epic": "VCOMPAT",
       "title": "Сохранить коллизии воды",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -7725,7 +7725,7 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vcompat-005-visual-task",
-      "result": "Парный сценарий сравнивает коллизии, рыбалку и полные игровые снимки при смене профиля воды. Проверены раздельные user:// и сохранность байтов тестовых настроек и слотов, отрицательный контроль noclip и штатное переключение материалов реки и пруда. Профиль с исправлениями прошёл 55/0 на актуальной базе с PR №64. PR https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/65 ожидает CI, повторного ревью и решения Team Lead.",
+      "result": "При обычной и статичной воде совпали переходы по двум мостам, остановка на берегах, рыбалка и полные снимки игры. Пройдены проверка изоляции настроек и слотов, контроль noclip и переключение материалов реки и пруда через reduced_motion. Профиль 55/0, архитектура 115 наборов и 1539 сценариев, Game 53682/0, redraw normal и F10 по 90/0, Wiki 165/0. Нативная пара VSHORE-006 на одной камере привязана к исходному коммиту, 19/19 исходников совпали. Head b31d9082c6fd74d06042cb5e97f3fc4b2e01dfb4 одобрен независимым ревью, GitHub CI 9/9. PR https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/65 принят Team Lead и влит как 67765a9ebce2354181250a39b0da2df7fbf84368.",
       "evidence": [
         "docs/reports/visual-overhaul/vcompat-005/README.md"
       ]
