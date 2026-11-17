@@ -4492,7 +4492,8 @@
       "evidence": [
         "docs/reports/visual-overhaul/vshadow-002/README.md",
         "docs/reports/visual-overhaul/vshadow-002/evidence.json"
-      ]
+      ],
+      "result": "Четыре формы контактной тени для верстака, фонаря, зрелых деревьев и стоп героя. Проверены 12 пар нативных кадров при одинаковой камере, обычном и уменьшенном движении. Все 24 PNG доступны в отчёте. Первичный коммит d4c83cb2dcd8af55a941bd8b07377422f2da2e92 прошёл полный pre-commit, Wiki и CI 9/9; Tech Lead дал SOURCE PASS с двумя P3. Замечания к воспроизведению и контракту героя исправлены, кадры повторно сняты и сверены. PR https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/69 ожидает повторного независимого ревью коммита исправлений и CI."
     },
     {
       "id": "VSHADOW-003",

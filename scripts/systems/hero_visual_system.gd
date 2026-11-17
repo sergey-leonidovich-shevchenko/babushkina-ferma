@@ -92,7 +92,7 @@ static func destination(ground: Vector2, frame: Dictionary) -> Rect2:
 	return Rect2(ground - pivot * scale_value, source.size * scale_value)
 
 
-## Рисует только тело героя; смена ракурса и анимации никогда не масштабирует физический мир.
+## Рисует контактную тень, тело героя и инструмент в порядке выбранного ракурса.
 static func draw_actor(
 	game: Node2D, ground: Vector2, direction: Vector2, moving: bool, tint: Color
 ) -> void:

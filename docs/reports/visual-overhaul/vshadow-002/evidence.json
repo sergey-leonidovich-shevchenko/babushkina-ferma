@@ -21,7 +21,7 @@
     },
     {
       "path": "scripts/systems/hero_visual_system.gd",
-      "sha256": "68f64ce95af2f6ec55b7d864ce357c34ec2da8920b0d4c6b477b7a944fb66cf9"
+      "sha256": "44e27731c7bec3b257ff2ee46fdafe99b20b6102a3868c71eafcee5d06a4e845"
     },
     {
       "path": "scripts/systems/village_prop_renderer.gd",
@@ -63,7 +63,7 @@
         "street-1140.png": "b9564d252fc35f7bb0de5f8605603bfa80d3ba1b64e32ff8a7f7bddc18563403",
         "street-720.png": "bd50f4cf2e08c0b8c0b2ba0aa0ff56645411ce10a9a82185e1f8461111c160d3"
       },
-      "archived": false
+      "archived": true
     },
     "candidate-normal": {
       "files": {
@@ -75,7 +75,7 @@
         "street-1140.png": "6b9f6568335475b8320b190a6985121bda6b19a65a3592ace6cc03da1dc039c2",
         "street-720.png": "82d451248886ce04d042bbefb982df1ba3ab5b148509b92a43b28d2e7aa817f2"
       },
-      "archived": false
+      "archived": true
     },
     "base-reduced": {
       "files": {
