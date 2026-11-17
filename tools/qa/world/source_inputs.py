@@ -16,7 +16,7 @@ from tools.assets.contracts.source_paths import (
     current_source,
     relocation_facade,
 )
-from tools.common.git import git_environment
+from tools.common.git import GitTreeEntry, git_environment, parse_git_tree, regular_git_blob
 from tools.qa.art.current_paths import MOVED_PATHS as ART_PATHS
 
 # Только разрешённые исторические aliases принятой World-карты. Физический переезд этим не объявляется.
@@ -208,7 +208,7 @@ def _owned_root(root: Path) -> Path:
 
 
 @lru_cache(maxsize=64)
-def _tree(root: Path, commit: str) -> MappingProxyType[str, tuple[bytes, bytes, bytes]]:
+def _tree(root: Path, commit: str) -> MappingProxyType[str, GitTreeEntry]:
     """Кеширует только успешное неизменное дерево commit, включая его каталоги и типы."""
     kind = _git(root, "cat-file", "-t", commit)
     kind.check_returncode()
@@ -216,14 +216,7 @@ def _tree(root: Path, commit: str) -> MappingProxyType[str, tuple[bytes, bytes, 
         raise ValueError("source history requires a commit object")
     result = _git(root, "ls-tree", "-r", "-t", "-z", "--full-tree", commit)
     result.check_returncode()
-    rows = {}
-    for row in result.stdout.split(b"\0"):
-        if not row:
-            continue
-        metadata, name = row.split(b"\t", 1)
-        mode, object_kind, object_id = metadata.split()
-        rows[name.decode()] = (mode, object_kind, object_id)
-    return MappingProxyType(rows)
+    return MappingProxyType(parse_git_tree(result.stdout))
 
 
 def _entry(root: Path, base: str, logical: str | Path, allow_tree: bool) -> tuple[str, str, bytes]:
@@ -253,8 +246,9 @@ def _entry(root: Path, base: str, logical: str | Path, allow_tree: bool) -> tupl
     facade = relocation_facade(intermediate, relocated) if relocated is not None else None
     if facade is not None and intermediate in present:
         # Оставленный launcher может сосуществовать только со своим точным исходником.
-        mode, kind, blob = tree[intermediate]
-        if kind == b"blob" and mode in (b"100644", b"100755"):
+        entry = tree[intermediate]
+        if regular_git_blob(entry):
+            _, _, blob = entry
             raw = _git(root, "cat-file", "blob", blob.decode())
             raw.check_returncode()
             if raw.stdout in (facade, facade.replace(b"\n", b"\r\n")):
@@ -266,14 +260,9 @@ def _entry(root: Path, base: str, logical: str | Path, allow_tree: bool) -> tupl
     if len(present) != 1:
         raise ValueError("ambiguous historical source: " + name)
     physical = present.pop()
-    mode, kind, _ = tree[physical]
-    if not (
-        kind == b"blob"
-        and mode in (b"100644", b"100755")
-        or allow_tree
-        and kind == b"tree"
-        and mode == b"040000"
-    ):
+    entry = tree[physical]
+    mode, kind, _ = entry
+    if not (regular_git_blob(entry) or (allow_tree and kind == b"tree" and mode == b"040000")):
         raise ValueError("historical source must be a regular file: " + name)
     return base, physical, kind
 

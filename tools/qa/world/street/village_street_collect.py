@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect source-bound before/after native bench captures without touching ordinary Godot."""
+"""Collect the VPROP-003 before/after captures of the village well and cart."""
 
 if not __package__:
     from tools.common.launch import prepare_imports

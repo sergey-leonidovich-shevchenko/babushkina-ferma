@@ -7,7 +7,6 @@ import argparse
 import csv
 import io
 import json
-import os
 import re
 import subprocess
 import sys
@@ -19,6 +18,7 @@ from typing import Any, cast
 from tools.assets.contracts.asset_costs import measure, names, origin, rgba_bytes, sha, summarize
 from tools.assets.contracts.source_paths import current_source, historical_source
 from tools.assets.migration.migration_inventory import git_bytes, git_read
+from tools.common.git import git_environment, parse_git_tree, regular_git_blob
 from tools.common.paths import project_root
 
 ROOT = project_root(__file__)
@@ -33,32 +33,34 @@ def json_bytes(value: object) -> bytes:
 
 def reader(root: Path, base: str) -> Callable[[str], bytes]:
     """Читает неизменённый текущий файл либо точные исторические байты без переключения checkout."""
-    available = git_read(root, "ls-tree", "-r", "--name-only", base, text=True).splitlines()
-    available_names = set(available)
+    output = cast(bytes, git_read(root, "ls-tree", "-r", "-z", "--full-tree", base))
+    tree = parse_git_tree(output)
+    available_names = set(tree)
     selected = [
         n
-        for n in available
-        if n.startswith(("assets/game/", "scripts/", "level_designs/"))
-        or n.startswith("tools/")
-        and n.endswith(".py")
-        or n
-        in [
-            "project.godot",
-            "main.tscn",
-            "tools/visual_asset_policy.json",
-            "tools/assets/contracts/visual_asset_policy.json",
-            "assets/app_icon.png",
-            "assets/app_icon.png.import",
-            "assets/title_art_rpg.png",
-            "assets/title_art_rpg.png.import",
-        ]
+        for n, entry in tree.items()
+        if regular_git_blob(entry)
+        and (
+            n.startswith(("assets/game/", "scripts/", "level_designs/"))
+            or (n.startswith("tools/") and n.endswith(".py"))
+            or n
+            in [
+                "project.godot",
+                "main.tscn",
+                "tools/visual_asset_policy.json",
+                "tools/assets/contracts/visual_asset_policy.json",
+                "assets/app_icon.png",
+                "assets/app_icon.png.import",
+                "assets/title_art_rpg.png",
+                "assets/title_art_rpg.png.import",
+            ]
+        )
     ]
-    env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
     result = subprocess.run(
         ["git", "-C", str(root), "cat-file", "--batch"],
-        input="".join(base + ":" + n + "\n" for n in selected).encode(),
+        input=b"".join(tree[n][2] + b"\n" for n in selected),
         capture_output=True,
-        env=env,
+        env=git_environment(),
         check=True,
     ).stdout
     blobs = {}
@@ -72,20 +74,25 @@ def reader(root: Path, base: str) -> Callable[[str], bytes]:
         blobs[name] = result[end + 1 : end + 1 + length]
         offset = end + length + 2
 
+    def read_blob(name: str) -> bytes:
+        """Проверяет mode до чтения фасада, реализации или отдельного исторического объекта."""
+        entry = tree[name]
+        if not regular_git_blob(entry):
+            raise ValueError("historical source must be a regular file: " + name)
+        if name in blobs:
+            return blobs[name]
+        return cast(bytes, git_read(root, "cat-file", "blob", entry[2].decode("ascii")))
+
     @cache
     def read(name: str) -> bytes:
         if not isinstance(name, str) or Path(name).is_absolute() or ".." in Path(name).parts:
             raise ValueError("unsafe source: " + str(name))
-        selected_name = historical_source(available_names, name, blobs.__getitem__)
+        selected_name = historical_source(available_names, name, read_blob)
         for path in [root / name, root / selected_name]:
             if path.is_symlink() or not path.resolve().is_relative_to(root.resolve()):
                 raise ValueError("symlink source: " + name)
         # Исторический аудит всегда читает Git; новый artwork не переписывает свидетельства прошлого.
-        return (
-            blobs[selected_name]
-            if selected_name in blobs
-            else cast(bytes, git_bytes(root, base, selected_name))
-        )
+        return read_blob(selected_name)
 
     return read
 

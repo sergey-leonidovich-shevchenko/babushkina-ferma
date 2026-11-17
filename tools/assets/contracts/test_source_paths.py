@@ -312,6 +312,33 @@ class SourcePathsTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "no implementation"):
             historical_bytes(self.root, orphaned, logical)
 
+    def test_street_asset_history_requires_regular_facade_and_implementation(self) -> None:
+        """Проверяет режимы исторического фасада и исходника после удаления ссылок из checkout."""
+        self.repository()
+        logical = "tools/village_street_assets.py"
+        intermediate = MOVED_PATHS[logical]
+        relocated = CURRENT_RELOCATIONS[intermediate]
+        facade = relocation_facade(intermediate, relocated)
+        assert facade is not None
+        safe_files = {
+            self.root / intermediate: facade,
+            self.root / relocated: b"regular current implementation\n",
+        }
+        for path, raw in safe_files.items():
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(raw)
+
+        for path, raw in safe_files.items():
+            with self.subTest(path=path.relative_to(self.root)):
+                path.unlink()
+                path.symlink_to("marker-not-source.py")
+                historical = self.commit()
+                path.unlink()
+                path.write_bytes(raw)
+                self.assertTrue(all(not candidate.is_symlink() for candidate in safe_files))
+                with self.assertRaisesRegex(ValueError, "historical source must be a regular file"):
+                    reader(self.root, historical)(logical)
+
     def test_missing_history_policy_is_not_replaced_by_live_new_file(self) -> None:
         commit = self.repository(policy=None)
         target = current_source(self.root, POLICY)
