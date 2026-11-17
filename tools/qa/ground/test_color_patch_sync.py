@@ -6,6 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from typing import Any
+from unittest.mock import patch
 
 from tools.qa.ground import color_patch_sync as sync
 
@@ -20,7 +21,7 @@ class ColorPatchSyncTests(unittest.TestCase):
             "schema": 1,
             "task": "QA-06",
             "display": "X11",
-            "engine": "4.7.1.stable.official",
+            "engine": "4.7.1-stable (official)",
             "window": [1152, 648],
             "initial": "00ff00ff",
             "requested": "ff0000ff",
@@ -89,6 +90,43 @@ class ColorPatchSyncTests(unittest.TestCase):
         proof["trace"].insert(1, "draw:1")
         with self.assertRaises(ValueError):
             sync.validate_probe(proof, 1, True, 1152, "00ff00ff")
+
+    def test_requires_native_engine_string_not_cli_version(self) -> None:
+        """Сценарий: JSON использует get_version_info().string, а не строку CLI.
+        Исходное состояние: формат подтверждён первым нативным артефактом QA-06.
+        Ожидаемый результат: точная официальная версия проходит, другие отвергаются.
+        """
+        proof = self.evidence(False)
+        sync.validate_probe(proof, 0, False, 1152, "ff0000ff")
+        for version in (
+            "4.7.1.stable.official",
+            "4.7.1-stable (custom)",
+            "4.7.2-stable (official)",
+        ):
+            with self.subTest(version=version), self.assertRaises(ValueError):
+                sync.validate_probe({**proof, "engine": version}, 0, False, 1152, "ff0000ff")
+
+    def test_engine_errors_never_count_as_expected_historical_failure(self) -> None:
+        """Сценарий: старый процесс завершился кодом 1 с ошибкой движка в журнале.
+        Исходное состояние: имитируются реальные ALSA/GLES и ошибки скрипта из CI.
+        Ожидаемый результат: отказ до чтения паспорта, журнал сохраняется для разбора.
+        """
+        for error in (
+            b'ERROR: Condition "status < 0" is true.\n',
+            b'ERROR: Condition "f.is_null()" is true.\n',
+            b"SCRIPT ERROR: Parse Error\n",
+        ):
+            with self.subTest(error=error), tempfile.TemporaryDirectory() as directory:
+                output = Path(directory)
+
+                def engine(*args: Any, error: bytes = error, **kwargs: Any) -> Any:
+                    kwargs["stdout"].write(error)
+                    return sync.subprocess.CompletedProcess(args[0], 1)
+
+                with patch.object(sync.subprocess, "run", side_effect=engine):
+                    with self.assertRaisesRegex(ValueError, "engine error"):
+                        sync.run_case(Path("unused"), output, "unused", 1152, True)
+                self.assertEqual((output / "historical-1152.log").read_bytes(), error)
 
     def test_extracts_only_exact_historical_method_and_rejects_ambiguity(self) -> None:
         """Сценарий: извлечение старого метода окружено соседними функциями.

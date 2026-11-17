@@ -67,7 +67,7 @@ def validate_probe(
         or evidence.get("schema") != 1
         or evidence.get("task") != "QA-06"
         or evidence.get("display") != "X11"
-        or not str(evidence.get("engine", "")).startswith("4.7.1.stable")
+        or evidence.get("engine") != "4.7.1-stable (official)"
         or evidence.get("window") != [width, 648 if width == 1152 else 720]
         or evidence.get("initial") != "00ff00ff"
         or evidence.get("requested") != "ff0000ff"
@@ -112,6 +112,8 @@ def run_case(binary: Path, output: Path, entry: str, width: int, historical: boo
         "gl_compatibility",
         "--display-driver",
         "x11",
+        "--audio-driver",
+        "Dummy",
         "--script",
         entry,
         "--",

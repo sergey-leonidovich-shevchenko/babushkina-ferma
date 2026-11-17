@@ -44,7 +44,7 @@
 
 ## VSHADOW-002 — Сделать набор контактных пятен
 
-Статус: `ready` · P1 · этап `pilot` · `engineering`
+Статус: `in_progress` · P1 · этап `pilot` · `engineering`
 
 Стол, колонна, дерево и персонаж используют разные формы опоры; тень не похожа на чёрный круг под любым объектом
 
@@ -58,7 +58,7 @@
 - [scripts/systems/interior_renderer.gd](../../../../scripts/systems/interior_renderer.gd)
 - [scripts/systems/tree_occlusion_system.gd](../../../../scripts/systems/tree_occlusion_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vshadow-002/`.
+Результаты: `docs/reports/visual-overhaul/vshadow-002/`.
 
 Критерии:
 
@@ -76,7 +76,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vshadow-002/README.md, docs/reports/visual-overhaul/vshadow-002/evidence.json.
 
 <a id="vshadow-003"></a>
 

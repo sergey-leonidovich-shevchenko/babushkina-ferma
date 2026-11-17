@@ -39,9 +39,28 @@ func _initialize() -> void:
 		push_error("Remote X11, fresh output and isolated profile required")
 		quit(2)
 		return
+	# GLES создаёт дерево кеша до _initialize. После смены user:// воспроизводим
+	# только папки, чтобы запись новых шейдеров не обращалась к отсутствующему пути.
+	var cache_directories := _cache_layout(ProjectSettings.globalize_path("user://shader_cache"))
 	ProjectSettings.set_setting("application/config/use_custom_user_dir", true)
 	ProjectSettings.set_setting("application/config/custom_user_dir_name", profile)
+	for relative in cache_directories:
+		var cache_path := OS.get_user_data_dir().path_join("shader_cache").path_join(relative)
+		if DirAccess.make_dir_recursive_absolute(cache_path) != OK:
+			push_error("Cannot create isolated shader cache directory")
+			quit(2)
+			return
 	_start.call_deferred()
+
+
+## Читает только структуру папок GLES; файлы кеша и данные пользователя не копируются.
+func _cache_layout(path: String, prefix: String = "") -> Array[String]:
+	var directories: Array[String] = [prefix]
+	if not DirAccess.dir_exists_absolute(path):
+		return directories
+	for child in DirAccess.get_directories_at(path):
+		directories.append_array(_cache_layout(path.path_join(child), prefix.path_join(child)))
+	return directories
 
 
 ## Вызывает настоящий унаследованный helper на отложенной смене команд одноразового кеша.

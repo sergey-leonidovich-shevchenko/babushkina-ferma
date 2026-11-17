@@ -787,6 +787,7 @@ tools/qa/world/*
 # REFACTOR-03: World-core92; Shore and shared render-order game remain for their consumer steps.
 !tools/qa/world/*.py
 !tools/qa/world/*.gd
+!tools/qa/world/contact_shadows_capture.gd.uid
 !tools/qa/world/README.md
 !tools/qa/world/benches/
 tools/qa/world/benches/*
