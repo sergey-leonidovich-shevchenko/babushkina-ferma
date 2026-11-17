@@ -792,6 +792,13 @@ tools/qa/world/*
 tools/qa/world/benches/*
 !tools/qa/world/benches/*.py
 !tools/qa/world/benches/*.gd
+!tools/qa/world/street/
+tools/qa/world/street/*
+!tools/qa/world/street/*.py
+!tools/qa/world/street/*.gd
+!tools/qa/world/street/village_street_capture.gd.uid
+!tools/qa/world/street/village_street_gallery.gd.uid
+!tools/qa/world/street/village_street_review.gd.uid
 !tools/qa/world/viewport/
 tools/qa/world/viewport/*
 !tools/qa/world/viewport/*.py
@@ -832,9 +839,6 @@ tools/qa/world/viewport/*
 !tools/qa/world/village_lamp_review.gd.uid
 !tools/qa/world/village_regions_capture.gd.uid
 !tools/qa/world/village_regions_review.gd.uid
-!tools/qa/world/village_street_capture.gd.uid
-!tools/qa/world/village_street_gallery.gd.uid
-!tools/qa/world/village_street_review.gd.uid
 !tools/qa/world/village_trade_capture.gd.uid
 !tools/qa/world/village_trade_gallery.gd.uid
 !tools/qa/world/village_trade_review.gd.uid

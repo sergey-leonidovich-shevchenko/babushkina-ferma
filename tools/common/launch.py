@@ -15,6 +15,10 @@ COMMAND_ALIASES = {
     "qa.world.village_bench_assets": "qa.world.benches.village_bench_assets",
     "qa.world.village_bench_collect": "qa.world.benches.village_bench_collect",
     "qa.world.village_bench_verify": "qa.world.benches.village_bench_verify",
+    "qa.world.test_village_street": "qa.world.street.test_village_street",
+    "qa.world.village_street_assets": "qa.world.street.village_street_assets",
+    "qa.world.village_street_collect": "qa.world.street.village_street_collect",
+    "qa.world.village_street_verify": "qa.world.street.village_street_verify",
     "qa.world.viewport_isolation_verify": "qa.world.viewport.viewport_isolation_verify",
     "qa.world.test_viewport_isolation": "qa.world.viewport.test_viewport_isolation",
 }
