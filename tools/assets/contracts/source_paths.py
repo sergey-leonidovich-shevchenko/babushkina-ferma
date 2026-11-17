@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from pathlib import Path, PurePosixPath
 from types import MappingProxyType
 
@@ -500,7 +501,7 @@ MOVED_PATHS = MappingProxyType({'tools/alpha_audit.py': 'tools/assets/alpha/alph
  'tools/water_topology_review.gd.uid': 'tools/qa/world/water_topology_review.gd.uid'})
 # fmt: on
 
-# Второй перенос хранится отдельно от принятой карты REFACTOR-01.
+# Семейства QA хранят актуальные адреса отдельно от принятой карты REFACTOR-01.
 CURRENT_RELOCATIONS = MappingProxyType(
     {
         f"tools/qa/world/{name}": f"tools/qa/world/benches/{name}"
@@ -519,7 +520,36 @@ CURRENT_RELOCATIONS = MappingProxyType(
             "village_bench_verify.py",
         )
     }
+    | {
+        f"tools/qa/world/{name}": f"tools/qa/world/street/{name}"
+        for name in (
+            "test_village_street.py",
+            "village_street_assets.py",
+            "village_street_capture.gd",
+            "village_street_capture.gd.uid",
+            "village_street_collect.py",
+            "village_street_gallery.gd",
+            "village_street_gallery.gd.uid",
+            "village_street_review.gd",
+            "village_street_review.gd.uid",
+            "village_street_verify.py",
+        )
+    }
 )
+
+
+def relocation_facade(intermediate: str, physical: str) -> bytes | None:
+    """Возвращает точное содержимое известного совместимого входа для сверки Git-объекта."""
+    if intermediate.endswith(".gd"):
+        return f'extends "res://{physical}"\n'.encode()
+    if intermediate.endswith(".py") and physical.startswith("tools/qa/world/street/"):
+        module = physical.removesuffix(".py").replace("/", ".")
+        return (
+            '"""Совместимый вход для перенесённой проверки деревенской улицы."""\n\n'
+            "from tools.common.launch import facade\n\n"
+            f'facade(__name__, "{module}")\n'
+        ).encode()
+    return None
 
 
 def _relative(name: str | Path) -> str:
@@ -559,15 +589,27 @@ def current_source(root: Path, logical: str | Path) -> Path:
     return path
 
 
-def historical_source(available: set[str], logical: str | Path) -> str:
+def historical_source(
+    available: set[str], logical: str | Path, read_blob: Callable[[str], bytes] | None = None
+) -> str:
     """Выбирает единственный старый/новый alias из дерева уже закреплённого Git commit."""
     name = _relative(logical)
     intermediate = MOVED_PATHS.get(name, name)
     aliases = {name, intermediate}
     # Asset provenance читает Python-генераторы. Godot-входы с фасадом проверяет World.
-    if intermediate.endswith(".py"):
-        aliases.add(CURRENT_RELOCATIONS.get(intermediate, intermediate))
+    relocated = CURRENT_RELOCATIONS.get(intermediate) if intermediate.endswith(".py") else None
+    if relocated is not None:
+        aliases.add(relocated)
     present = aliases.intersection(available)
+    if relocated is not None and intermediate in present and read_blob is not None:
+        facade = relocation_facade(intermediate, relocated)
+        if facade is not None and read_blob(intermediate) in (
+            facade,
+            facade.replace(b"\n", b"\r\n"),
+        ):
+            if relocated not in present:
+                raise FileNotFoundError("historical source launcher has no implementation: " + name)
+            present.remove(intermediate)
     if not present:
         raise FileNotFoundError("historical source missing: " + name)
     if len(present) != 1:

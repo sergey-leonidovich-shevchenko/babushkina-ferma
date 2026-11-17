@@ -16,10 +16,12 @@ from tools.assets.contracts.source_paths import (
     current_source,
     historical_source,
     recorded_paths,
+    relocation_facade,
 )
 from tools.assets.migration.migration_inventory import build, historical_errors
 from tools.common.git import git_environment
 from tools.common.paths import project_root
+from tools.qa.world.source_inputs import historical_bytes
 
 POLICY = "tools/visual_asset_policy.json"
 PREVIEW = ("tools/item_ui_fitter.gd", "tools/preview_portability_capture.gd")
@@ -260,6 +262,55 @@ class SourcePathsTests(unittest.TestCase):
             reader(self.root, relocated_commit)(logical), b"relocated bench generator\n"
         )
         self.assertEqual(working_reader(self.root)(logical), b"current bench generator\n")
+
+    def test_street_facades_resolve_three_generations_without_accepting_duplicates(self) -> None:
+        """Проверяет три реальных Git-адреса и отказы для повреждённого и осиротевшего фасада."""
+        self.repository()
+        logical = "tools/village_street_assets.py"
+        intermediate = MOVED_PATHS[logical]
+        relocated = CURRENT_RELOCATIONS[intermediate]
+        old = self.root / logical
+        middle = self.root / intermediate
+        current = self.root / relocated
+        old.parent.mkdir(exist_ok=True)
+        old.write_bytes(b"first street generator\n")
+        original = self.commit()
+        middle.parent.mkdir(parents=True)
+        old.rename(middle)
+        middle.write_bytes(b"intermediate street generator\n")
+        second = self.commit()
+        current.parent.mkdir()
+        middle.rename(current)
+        current.write_bytes(b"current street generator\n")
+        facade = relocation_facade(intermediate, relocated)
+        assert facade is not None
+        middle.write_bytes(facade)
+        third = self.commit()
+
+        for commit, expected in (
+            (original, b"first street generator\n"),
+            (second, b"intermediate street generator\n"),
+            (third, b"current street generator\n"),
+        ):
+            with self.subTest(commit=commit):
+                self.assertEqual(reader(self.root, commit)(logical), expected)
+                self.assertEqual(historical_bytes(self.root, commit, logical), expected)
+        for path in (logical, intermediate, relocated):
+            self.assertEqual(current_source(self.root, path), current.resolve())
+
+        middle.write_bytes(facade + b"# modified compatibility source\n")
+        damaged = self.commit()
+        with self.assertRaisesRegex(ValueError, "ambiguous"):
+            reader(self.root, damaged)(logical)
+        with self.assertRaisesRegex(ValueError, "ambiguous"):
+            historical_bytes(self.root, damaged, logical)
+        middle.write_bytes(facade)
+        current.unlink()
+        orphaned = self.commit()
+        with self.assertRaisesRegex(FileNotFoundError, "no implementation"):
+            reader(self.root, orphaned)(logical)
+        with self.assertRaisesRegex(ValueError, "no implementation"):
+            historical_bytes(self.root, orphaned, logical)
 
     def test_missing_history_policy_is_not_replaced_by_live_new_file(self) -> None:
         commit = self.repository(policy=None)

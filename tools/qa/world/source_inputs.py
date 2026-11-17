@@ -10,7 +10,12 @@ from pathlib import Path
 from types import MappingProxyType
 from typing import Literal, overload
 
-from tools.assets.contracts.source_paths import CURRENT_RELOCATIONS, MOVED_PATHS, current_source
+from tools.assets.contracts.source_paths import (
+    CURRENT_RELOCATIONS,
+    MOVED_PATHS,
+    current_source,
+    relocation_facade,
+)
 from tools.common.git import git_environment
 from tools.qa.art.current_paths import MOVED_PATHS as ART_PATHS
 
@@ -245,14 +250,14 @@ def _entry(root: Path, base: str, logical: str | Path, allow_tree: bool) -> tupl
     for alias in aliases:
         current_source(root, alias)
     present = aliases.intersection(tree)
-    if relocated is not None and intermediate.endswith(".gd") and intermediate in present:
+    facade = relocation_facade(intermediate, relocated) if relocated is not None else None
+    if facade is not None and intermediate in present:
         # Оставленный launcher может сосуществовать только со своим точным исходником.
         mode, kind, blob = tree[intermediate]
         if kind == b"blob" and mode in (b"100644", b"100755"):
-            redirect = f'extends "res://{relocated}"\n'.encode()
             raw = _git(root, "cat-file", "blob", blob.decode())
             raw.check_returncode()
-            if raw.stdout in (redirect, redirect.replace(b"\n", b"\r\n")):
+            if raw.stdout in (facade, facade.replace(b"\n", b"\r\n")):
                 if relocated not in present:
                     raise ValueError("historical source launcher has no implementation: " + name)
                 present.remove(intermediate)

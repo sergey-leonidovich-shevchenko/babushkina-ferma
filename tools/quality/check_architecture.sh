@@ -130,8 +130,8 @@ python3 tools/run.py qa.world.object_command_verify >/dev/null
 python3 tools/run.py qa.world.test_object_command
 python3 tools/run.py qa.world.benches.village_bench_verify >/dev/null
 python3 tools/run.py qa.world.benches.test_village_bench
-python3 tools/run.py qa.world.village_street_verify >/dev/null
-python3 tools/run.py qa.world.test_village_street
+python3 tools/run.py qa.world.street.village_street_verify >/dev/null
+python3 tools/run.py qa.world.street.test_village_street
 python3 tools/run.py qa.world.village_board_verify >/dev/null
 python3 tools/run.py qa.world.test_village_board
 python3 tools/run.py qa.world.village_trade_verify >/dev/null
