@@ -158,7 +158,7 @@
 
 ## VCOMPAT-005 — Сохранить коллизии воды
 
-Статус: `in_progress` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 WaterTopology остаётся владельцем воды, мостов и рыбалки; визуальная прозрачность не означает проходимость
 
