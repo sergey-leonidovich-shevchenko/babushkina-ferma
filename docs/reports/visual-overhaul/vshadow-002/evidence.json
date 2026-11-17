@@ -1,0 +1,254 @@
+{
+  "task": "VSHADOW-002",
+  "baseline_git": "9a1e2f7c571e1b44e6a506b231f2199aa016d4ad",
+  "baseline_inputs_sha256": {
+    "scripts/systems/render_system.gd": "e064c9d8378d80126a3c9b0fafed8439ad6ad628f5a74199386b55676afa6702",
+    "scripts/systems/hero_visual_system.gd": "41020a67d6a7ee5766216d2115c7efd8f8909e465dddf09a95ef35e33d70edc8",
+    "scripts/systems/village_prop_renderer.gd": "f371fe350aa507a3a194f0752c75983bbdeca2d751eccc362e746e440b880e09"
+  },
+  "candidate_inputs": [
+    {
+      "path": "scripts/presentation/contact_shadow_shapes.gd",
+      "sha256": "77934b6b0cb552eb1cd516bfd8a24cb0e193c35426652f780425ef10e796b2dc"
+    },
+    {
+      "path": "scripts/presentation/overworld_contact_shadows.gd",
+      "sha256": "6a068efca05ca595b102317d00baaeefc2560f6dc319b6d33e2dab0a20f1a1ea"
+    },
+    {
+      "path": "scripts/systems/render_system.gd",
+      "sha256": "d69f87185c7bc8d681934e1e2bc8ab1479d79ebf0be1bf3a22d6a7d1fec09cc3"
+    },
+    {
+      "path": "scripts/systems/hero_visual_system.gd",
+      "sha256": "44e27731c7bec3b257ff2ee46fdafe99b20b6102a3868c71eafcee5d06a4e845"
+    },
+    {
+      "path": "scripts/systems/village_prop_renderer.gd",
+      "sha256": "4ae5ade35936f43a8fcbeed43edd089339851d21d8da92cb57e6198f6cbb8cbb"
+    },
+    {
+      "path": "tools/qa/world/contact_shadows_capture.gd",
+      "sha256": "7d1d2e5deba29d3945c95a1dfb2ca85ab6aab709464364413259195b46cf4480"
+    },
+    {
+      "path": "tools/qa/world/contact_shadows_verify.py",
+      "sha256": "c9fafd1ba3760c775e64bf3e23e5aea8bdbe53b7cc6c7658491cff7ebbb1e134"
+    }
+  ],
+  "project_without_version_sha256": "73355ea4c1083ec58f694c7ee2da05863d7f599cf6fd79510708683fd3a3e57c",
+  "platform": "15.4.1",
+  "engine": "Godot 4.7.1.stable.official.a13da4feb",
+  "renderer": "gl_compatibility",
+  "configuration": {
+    "window": [
+      1152,
+      648
+    ],
+    "camera_zoom": 1.2,
+    "active_scene": "overworld",
+    "minutes": [
+      720,
+      1140
+    ]
+  },
+  "captures": {
+    "base-normal": {
+      "files": {
+        "capture.json": "1df1d0827f79efe31b09a7564cfda2f084d5d09093043e4c668ba370172d3cd7",
+        "farm-1140.png": "974135c785c7af86401e56f67d787803fc5d7e941c8b547afada62a82e88b9a8",
+        "farm-720.png": "f99d37bc859aee354c7e7e8d389536b840c76067c9409d8d8654ab2351e0f458",
+        "grove-1140.png": "add1be75e67f6af63913213c5feaf85babc3d0ebed16000f3e22375f0af9a17e",
+        "grove-720.png": "ced48683ffa65b1537423305f065307cfe1f155268485b4bed450e23b95a079c",
+        "street-1140.png": "b9564d252fc35f7bb0de5f8605603bfa80d3ba1b64e32ff8a7f7bddc18563403",
+        "street-720.png": "bd50f4cf2e08c0b8c0b2ba0aa0ff56645411ce10a9a82185e1f8461111c160d3"
+      },
+      "archived": true
+    },
+    "candidate-normal": {
+      "files": {
+        "capture.json": "1df1d0827f79efe31b09a7564cfda2f084d5d09093043e4c668ba370172d3cd7",
+        "farm-1140.png": "54f9618f6eb8464109d89766985479cdf5e28bfcceb5de74e7d8f8fa1ebdaf19",
+        "farm-720.png": "5b977d74d3f518cb85e79504670bc52c66ed46f297c19ba0bab70567bc16dc48",
+        "grove-1140.png": "af1c3fadc12a35b4283888e643b6dc2918adab0cd5a81bf5528c4a42da432f16",
+        "grove-720.png": "bdbd51a1c0733ac65ac75d5d06fa8d335cd1682556411cc4e359deabd1b6b968",
+        "street-1140.png": "6b9f6568335475b8320b190a6985121bda6b19a65a3592ace6cc03da1dc039c2",
+        "street-720.png": "82d451248886ce04d042bbefb982df1ba3ab5b148509b92a43b28d2e7aa817f2"
+      },
+      "archived": true
+    },
+    "base-reduced": {
+      "files": {
+        "capture.json": "c8a1d60bcb5ee2d7d837f13f2108e958b2873b2e9affe88602b68818a55717fd",
+        "farm-1140.png": "1d0231c6efe3b31b009eca47f5b4067f659396b1806044d15e441e119fc17fd8",
+        "farm-720.png": "f80682aeff3d60157ee863a05fce14d6f7e13235d68fb8090711e12facdd8950",
+        "grove-1140.png": "2779dbb9040042808982ebd170ab8f2e3e52b66022a785b7fa6c00383a7b0808",
+        "grove-720.png": "3600c9a6fde3cdf693715da4d740990d4d86718f68f25252a3263deb869f3036",
+        "street-1140.png": "e3359dca57d1826af614d0b8c3cc16956d490d2998af3aa3b7f06b5762c47b3a",
+        "street-720.png": "da6bcea0299b59496cf647082e464828cb987c3e5a48c762feb14c37dcb03771"
+      },
+      "archived": true
+    },
+    "candidate-reduced": {
+      "files": {
+        "capture.json": "c8a1d60bcb5ee2d7d837f13f2108e958b2873b2e9affe88602b68818a55717fd",
+        "farm-1140.png": "5b89d5857e40faa6cd2b8692a2e65a7600e68e867ff05025e8f0d8ce186cf16d",
+        "farm-720.png": "536322224f3312def99d970ceb8f1385ed01628c4c3fccfc9054331d38900597",
+        "grove-1140.png": "fe5325a65c78c90345f16827c8fe84a1280b48793d55a888084060610eea2afe",
+        "grove-720.png": "ededd9bbddc23ccf8051c6e1b457d549bb415e7c5cf84386ffc37583a33acea8",
+        "street-1140.png": "0119e950a933673a7bdac60d07e3793e4606598ef2cfb4c36d28f800d0d07196",
+        "street-720.png": "c7041e590272d8f205ba5ed63bd5b8430af7077ee7b3d153d5f3542c332c9d92"
+      },
+      "archived": true
+    }
+  },
+  "measurements": {
+    "normal": {
+      "motion": "normal",
+      "frames": {
+        "farm-1140": {
+          "visible": {
+            "hero": 1,
+            "table": 1
+          },
+          "contact_pixels": {
+            "hero": 365,
+            "table": 1449
+          },
+          "changed_pixels": 1814
+        },
+        "farm-720": {
+          "visible": {
+            "hero": 1,
+            "table": 1
+          },
+          "contact_pixels": {
+            "hero": 359,
+            "table": 1542
+          },
+          "changed_pixels": 1901
+        },
+        "grove-1140": {
+          "visible": {
+            "hero": 1,
+            "tree": 4
+          },
+          "contact_pixels": {
+            "hero": 350,
+            "tree": 805
+          },
+          "changed_pixels": 2792
+        },
+        "grove-720": {
+          "visible": {
+            "hero": 1,
+            "tree": 4
+          },
+          "contact_pixels": {
+            "hero": 356,
+            "tree": 825
+          },
+          "changed_pixels": 2853
+        },
+        "street-1140": {
+          "visible": {
+            "hero": 1,
+            "tree": 4,
+            "post": 1
+          },
+          "contact_pixels": {
+            "hero": 356,
+            "post": 179
+          },
+          "changed_pixels": 2693
+        },
+        "street-720": {
+          "visible": {
+            "hero": 1,
+            "tree": 4,
+            "post": 1
+          },
+          "contact_pixels": {
+            "hero": 367,
+            "post": 189
+          },
+          "changed_pixels": 2755
+        }
+      }
+    },
+    "reduced": {
+      "motion": "reduced",
+      "frames": {
+        "farm-1140": {
+          "visible": {
+            "hero": 1,
+            "table": 1
+          },
+          "contact_pixels": {
+            "hero": 365,
+            "table": 1449
+          },
+          "changed_pixels": 1814
+        },
+        "farm-720": {
+          "visible": {
+            "hero": 1,
+            "table": 1
+          },
+          "contact_pixels": {
+            "hero": 359,
+            "table": 1542
+          },
+          "changed_pixels": 1901
+        },
+        "grove-1140": {
+          "visible": {
+            "hero": 1,
+            "tree": 4
+          },
+          "contact_pixels": {
+            "hero": 350,
+            "tree": 805
+          },
+          "changed_pixels": 2792
+        },
+        "grove-720": {
+          "visible": {
+            "hero": 1,
+            "tree": 4
+          },
+          "contact_pixels": {
+            "hero": 356,
+            "tree": 825
+          },
+          "changed_pixels": 2853
+        },
+        "street-1140": {
+          "visible": {
+            "hero": 1,
+            "tree": 4,
+            "post": 1
+          },
+          "contact_pixels": {
+            "hero": 356,
+            "post": 179
+          },
+          "changed_pixels": 2693
+        },
+        "street-720": {
+          "visible": {
+            "hero": 1,
+            "tree": 4,
+            "post": 1
+          },
+          "contact_pixels": {
+            "hero": 367,
+            "post": 189
+          },
+          "changed_pixels": 2755
+        }
+      }
+    }
+  },
+  "negative_identical": "VSHADOW-002: farm-1140 hero only changed 0 pixels"
+}

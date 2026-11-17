@@ -19,6 +19,7 @@ const ViewportWorldContext := preload("res://scripts/presentation/viewport_world
 const VillageRegionRenderer := preload("res://scripts/presentation/village_region_renderer.gd")
 const BasementRenderer := preload("res://scripts/presentation/basement_renderer.gd")
 const BridgeLayers := preload("res://scripts/presentation/overworld_bridge_layers.gd")
+const ContactShadows := preload("res://scripts/presentation/overworld_contact_shadows.gd")
 const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
 
 
@@ -46,6 +47,7 @@ static func draw(game: Node2D) -> void:
 	elif game.current_location == "overworld":
 		game.VillageAmbientRenderer.draw_ground(game)
 		game.draw_farm()
+		ContactShadows.draw(game)
 		VillagePropRenderer.draw(game, false)
 		game.draw_rpg_world()
 	else:
