@@ -4453,7 +4453,7 @@
       "id": "VSHADOW-002",
       "epic": "VSHADOW",
       "title": "Сделать набор контактных пятен",
-      "status": "ready",
+      "status": "in_progress",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -4489,7 +4489,10 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vshadow-002-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vshadow-002/README.md",
+        "docs/reports/visual-overhaul/vshadow-002/evidence.json"
+      ]
     },
     {
       "id": "VSHADOW-003",
