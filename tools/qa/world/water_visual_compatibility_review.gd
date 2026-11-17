@@ -3,12 +3,8 @@ extends "res://tools/qa/compatibility/dev_cabinet_review.gd"
 const WaterSuite := preload("res://tests/suites/water_visual_compatibility_suite.gd")
 
 
-## Выбирает отдельный профиль и ждёт входа корневого viewport в дерево.
+## Ждёт входа корневого viewport в дерево перед созданием игровых сцен.
 func _initialize() -> void:
-	ProjectSettings.set_setting("application/config/use_custom_user_dir", true)
-	ProjectSettings.set_setting(
-		"application/config/custom_user_dir_name", "Codex-VCOMPAT-005-" + str(Time.get_ticks_usec())
-	)
 	_run.call_deferred()
 
 

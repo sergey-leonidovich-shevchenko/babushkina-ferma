@@ -5,24 +5,98 @@ const Water := preload("res://scripts/systems/water_map_registry.gd")
 const WaterLayout := preload("res://scripts/systems/water_layout_data.gd")
 const Background := preload("res://scripts/world_background.gd")
 const Surface := preload("res://scripts/presentation/village_water_surface.gd")
+const GroundClock := preload("res://scripts/presentation/village_ground_clock.gd")
+const DebugOverlay := preload("res://scripts/systems/debug_overlay_system.gd")
 const WorldProjection := preload("res://scripts/systems/world_projection_system.gd")
 const Fishing := preload("res://scripts/systems/fishing_system.gd")
 
 const VIEW_SIZE := Vector2i(1152, 648)
 const CAMERA := Vector2(264, 144)
 const ZOOM := 1.2
+const WATER_SECONDS := 1.25
 const SAVE_FIXTURE := "res://tests/fixtures/saves/v1-core.json"
+const CUSTOM_USER_DIR := "application/config/use_custom_user_dir"
+const USER_DIR_NAME := "application/config/custom_user_dir_name"
+const SETTINGS_FILE := "farm-settings.cfg"
+const SAVE_FILE := "farm-save.json"
 
 
-## Запускает сравнение двух профилей воды в настоящих игровых сценах.
+## Временно отделяет пробные слоты и оба игровых экземпляра от профиля процесса.
 func run() -> void:
-	test_graphics_profiles_preserve_water_gameplay()
+	var previous_dir := OS.get_user_data_dir()
+	var previous_setting: Variant = ProjectSettings.get_setting(CUSTOM_USER_DIR)
+	var previous_name: Variant = ProjectSettings.get_setting(USER_DIR_NAME)
+	var profile := "Codex-VCOMPAT-005-%d-%d" % [OS.get_process_id(), Time.get_ticks_usec()]
+	ProjectSettings.set_setting(CUSTOM_USER_DIR, true)
+	ProjectSettings.set_setting(USER_DIR_NAME, profile)
+	var control_dir := OS.get_user_data_dir()
+	var owned := (
+		control_dir != previous_dir
+		and not DirAccess.dir_exists_absolute(control_dir)
+		and DirAccess.make_dir_recursive_absolute(control_dir) == OK
+	)
+	expect(owned, "a fresh directory owns the dummy user files")
+	if owned:
+		_run_with_dummy_slots(previous_dir, control_dir, profile + "-replay")
+	ProjectSettings.set_setting(USER_DIR_NAME, previous_name)
+	ProjectSettings.set_setting(CUSTOM_USER_DIR, previous_setting)
+	expect(
+		OS.get_user_data_dir() == previous_dir,
+		"the preceding user directory is restored for other suites",
+	)
+
+
+## Оставляет старые настройки и два слота в контрольном профиле и сравнивает их байты после запуска.
+func _run_with_dummy_slots(
+	previous_dir: String, control_dir: String, replay_profile: String
+) -> void:
+	var legacy := FileAccess.get_file_as_string(SAVE_FIXTURE)
+	var expected := {
+		SETTINGS_FILE: "[meta]\nschema_version=1\n[accessibility]\nreduced_motion=true\n",
+		SAVE_FILE: legacy,
+		SAVE_FILE + ".bak": legacy + "\n",
+	}
+	var prepared := true
+	for filename: String in expected:
+		var file := FileAccess.open(control_dir.path_join(filename), FileAccess.WRITE)
+		if file == null:
+			prepared = false
+			continue
+		var contents: String = expected[filename]
+		file.store_string(contents)
+		file.close()
+	expect(prepared, "the dummy settings, primary and backup slots were created")
+
+	ProjectSettings.set_setting(USER_DIR_NAME, replay_profile)
+	var effective := OS.get_user_data_dir()
+	var isolated := (
+		effective != previous_dir
+		and effective != control_dir
+		and not DirAccess.dir_exists_absolute(effective)
+		and (
+			ProjectSettings.globalize_path("user://" + SETTINGS_FILE)
+			== effective.path_join(SETTINGS_FILE)
+		)
+	)
+	expect(isolated, "both scenes use a fresh user directory before entering the tree")
+	if prepared and isolated:
+		_compare_graphics_profiles()
+
+	for filename: String in expected:
+		var path := control_dir.path_join(filename)
+		var contents: String = expected[filename]
+		expect(
+			FileAccess.get_file_as_bytes(path) == contents.to_utf8_buffer(),
+			"the dummy %s keeps its exact original bytes" % filename,
+		)
+		DirAccess.remove_absolute(path)
+	expect(DirAccess.remove_absolute(control_dir) == OK, "the owned fixture is removed")
 
 
 ## Сценарий: одинаковые команды вводятся в две сцены со статичной и анимированной водой.
 ## Исходное состояние: общий legacy JSON, один seed, камера, масштаб и размеры viewport.
 ## Ожидаемый результат: материалы различаются, а маршруты, рыбалка и игровые поля совпадают.
-func test_graphics_profiles_preserve_water_gameplay() -> void:
+func _compare_graphics_profiles() -> void:
 	var traces: Array[Dictionary] = []
 	for animated: bool in [true, false]:
 		var viewport := SubViewport.new()
@@ -31,6 +105,10 @@ func test_graphics_profiles_preserve_water_gameplay() -> void:
 		context.root.add_child(viewport)
 		var game := Points.create_game() as GameScript
 		viewport.add_child(game)
+		expect(
+			game.menu_state.title_selected == 1 and not game.settings_state.reduced_motion,
+			"bootstrap sees neither the dummy save slots nor the dummy accessibility setting",
+		)
 		var camera_point: Dictionary = Points.registry().points[0]
 		Points.configure(game, camera_point)
 		traces.append(_replay(game, animated))
@@ -104,20 +182,36 @@ func _replay(game: GameScript, animated: bool) -> Dictionary:
 	}
 
 
-## Настраивает визуальный профиль и фиксирует камеру после загрузки старой позиции.
+## Прогоняет обычное обновление WorldBackground при смене настройки уменьшенного движения.
 func _apply_profile(game: GameScript, animated: bool) -> void:
-	game.settings_state.reduced_motion = not animated
 	WorldProjection.set_reference_zoom(game, ZOOM)
 	game.camera_offset = CAMERA
 	WorldProjection.sync_background(game)
 	var background := game.get_node("WorldBackground") as Background
 	var visual: Surface = background.water_surface
 	var river := visual.get_node("RiverCurrent") as Node2D
-	visual.apply_profile("normal" if animated else "static", 1.25)
+	# В headless нет GPU-кадра, который обычно открывает подготовленный слой воды.
+	if DisplayServer.get_name() == "headless":
+		background.water_layer.show()
+	game.set_meta(GroundClock.META, WATER_SECONDS)
+	game.settings_state.reduced_motion = false
+	background._process(0.0)
 	expect(
-		(river.material is ShaderMaterial) == animated,
-		"the same scene uses the requested river render profile",
+		river.material is ShaderMaterial and visual.material is ShaderMaterial,
+		"normal WorldBackground updates shader materials for the river and pond",
 	)
+	game.settings_state.reduced_motion = not animated
+	background._process(0.0)
+	if animated:
+		expect(
+			river.material is ShaderMaterial and visual.material is ShaderMaterial,
+			"river and pond keep their shaders with normal motion",
+		)
+	else:
+		expect(
+			river.material == null and visual.material == null,
+			"reduced motion removes both shaders through the same production update",
+		)
 
 
 ## Пропускает один и тот же радиус героя через два настила и останавливает его на берегах.
@@ -140,17 +234,42 @@ func _walk(game: GameScript) -> Dictionary:
 	]:
 		var start: Vector2 = point.start
 		var direction: Vector2 = point.direction
+		var motion := direction * 144.0
 		game.player = start
-		game.move_player_with_collisions(direction * 144.0)
-		var reason: String = game.NavigationSystem.walkability_reason(
-			game, game.player + direction * 8.0
-		)
+		game.move_player_with_collisions(motion)
+		var stopped: Vector2 = game.player
+		expect(_is_bank_stop(game, start, motion), "the body stops on dry ground before water")
+		game.move_player_with_collisions(direction * 8.0)
+		expect(game.player == stopped, "the next attempted step still stops at the bank")
+
+		# Настоящий noclip выполняет ту же команду без коллизий как контроль ложного успеха.
+		var debug := DebugOverlay.default_state()
+		debug["noclip"] = true
+		game.set_meta(DebugOverlay.META_KEY, debug)
+		game.player = start
+		game.move_player_with_collisions(motion)
 		expect(
-			game.player != start and reason == "water",
-			"movement from %s stops at water: %s · %s" % [start, game.player, reason],
+			game.player == start + motion and not _is_bank_stop(game, start, motion),
+			"the same shore assertion rejects an actual noclip traverse",
 		)
-		banks.append({"position": game.player, "reason": reason})
+		game.remove_meta(DebugOverlay.META_KEY)
+		game.player = stopped
+		banks.append({"position": stopped, "next_step": direction * 8.0})
 	return {"bridges": bridges, "banks": banks}
+
+
+## Требует частичного перемещения и сухого места для полного тела перед блокирующей водой.
+func _is_bank_stop(game: GameScript, start: Vector2, motion: Vector2) -> bool:
+	var direction := motion.normalized()
+	var traveled: float = (game.player - start).dot(direction)
+	var next: Vector2 = game.player + direction * 8.0
+	var reason: String = game.NavigationSystem.walkability_reason(game, next)
+	return (
+		traveled > 0.0
+		and traveled < motion.length()
+		and not Water.blocks(game.current_location, game.player, game.PLAYER_RADIUS)
+		and reason == "water"
+	)
 
 
 ## Проверяет точку, тип водоёма и расход при одном забросе удочки.
