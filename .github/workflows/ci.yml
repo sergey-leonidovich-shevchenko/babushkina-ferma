@@ -137,6 +137,15 @@ jobs:
         run: python tools/run.py quality.self_review --output "${{ runner.temp }}/refactor07-self-review-${{ github.run_id }}-${{ github.run_attempt }}"
       - name: Check architecture
         run: zsh tools/check_architecture.sh
+      - name: Verify water collision compatibility and isolated user files
+        run: |
+          set -o pipefail
+          log="${RUNNER_TEMP}/water-compatibility.log"
+          timeout 90s "$FARM_GODOT_BIN" --headless --path . \
+            --script res://tools/qa/world/water_visual_compatibility_review.gd \
+            2>&1 | tee "$log"
+          grep -Eq '^WATER VISUAL COMPATIBILITY: [1-9][0-9]* passed, 0 failed$' "$log"
+          ! grep -Eq '^ERROR:|SCRIPT ERROR|Parse Error|Failed to load script' "$log"
       - name: Run automated tests
         run: zsh run_tests.sh
       - name: Run gameplay smoke test
