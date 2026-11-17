@@ -252,7 +252,7 @@ func _board(id: String, board: Node2D, target: Vector2i, scale: Vector2 = Vector
 	await process_frame
 
 
-## Ждёт заданное число настоящих GPU callbacks.
+## Ждёт обычную отрисовку после сборки отложенных команд CanvasItem.
 func _redraw(count: int) -> void:
 	if not virtual_display:
 		DisplayServer.window_move_to_foreground()
@@ -260,7 +260,9 @@ func _redraw(count: int) -> void:
 	for index in count:
 		game.queue_redraw()
 		await process_frame
-		RenderingServer.force_draw(false)
+		# process_frame предшествует _process и отложенному draw; принудительный
+		# рендер здесь может завершить одноразовый кеш со старыми командами.
+		await RenderingServer.frame_post_draw
 
 
 ## Даёт оконному серверу закончить размещение окна без замера FPS.
