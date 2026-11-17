@@ -3,6 +3,20 @@
   "discoverPlans": true,
   "plans": [
     {
+      "id": "qa-followups",
+      "title": "Адресные исправления проверки графики",
+      "format": "markdown",
+      "group": "technology",
+      "expected": 1,
+      "epics": [
+        {
+          "id": "QA",
+          "title": "Достоверная проверка графики",
+          "file": "docs/backlog/qa-followups-2026-11/README.md"
+        }
+      ]
+    },
+    {
       "id": "base",
       "title": "Базовый план октября",
       "format": "json",

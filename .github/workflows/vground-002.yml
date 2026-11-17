@@ -48,6 +48,7 @@ jobs:
           echo "FARM_GODOT_BIN=$RUNNER_TEMP/vground-002/Godot_v4.7.1-stable_linux.x86_64" >> "$GITHUB_ENV"
           echo "VGROUND_EVIDENCE_DIR=$RUNNER_TEMP/vground-002/evidence" >> "$GITHUB_ENV"
           echo "VGROUND_LOG_DIR=$RUNNER_TEMP/vground-002/logs" >> "$GITHUB_ENV"
+          echo "QA06_SYNC_DIR=$RUNNER_TEMP/vground-002/sync" >> "$GITHUB_ENV"
       - name: Install pinned rendering and verification dependencies
         run: |
           sudo apt-get update
@@ -67,6 +68,11 @@ jobs:
           set -o pipefail
           "$FARM_GODOT_BIN" --headless --path . --script res://tools/qa/ground/color_patch_review.gd | tee "$VGROUND_LOG_DIR/review.txt"
           python tools/run.py qa.ground.test_compiled_sources | tee "$VGROUND_LOG_DIR/compiled-sources.txt"
+      - name: Prove deferred redraw regression with historical and current helpers
+        run: |
+          set -o pipefail
+          export LIBGL_ALWAYS_SOFTWARE=1
+          xvfb-run -a -s '-screen 0 1280x720x24' python tools/run.py qa.ground.color_patch_sync --output "$QA06_SYNC_DIR" | tee "$VGROUND_LOG_DIR/sync.txt"
       - name: Collect and verify exact-head X11 comparisons
         run: |
           set -o pipefail
@@ -81,6 +87,7 @@ jobs:
           path: |
             ${{ env.VGROUND_EVIDENCE_DIR }}
             ${{ env.VGROUND_LOG_DIR }}
+            ${{ env.QA06_SYNC_DIR }}
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 14
