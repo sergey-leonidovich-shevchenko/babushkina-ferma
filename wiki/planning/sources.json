@@ -3,6 +3,20 @@
   "discoverPlans": true,
   "plans": [
     {
+      "id": "qa-followups",
+      "title": "Адресные исправления проверки графики",
+      "format": "markdown",
+      "group": "technology",
+      "expected": 1,
+      "epics": [
+        {
+          "id": "QA",
+          "title": "Достоверная проверка графики",
+          "file": "docs/backlog/qa-followups-2026-11/README.md"
+        }
+      ]
+    },
+    {
       "id": "base",
       "title": "Базовый план октября",
       "format": "json",
@@ -112,13 +126,13 @@
       "title": "Рефакторинг структуры проекта",
       "format": "markdown",
       "group": "technology",
-      "expected": 10,
+      "expected": 11,
       "epics": [
         {
           "id": "REFACTOR",
           "title": "Понятная структура инструментов и модулей",
           "file": "docs/epics/refactoring-2026-10/TASKS.md",
-          "goal": "Первый выпуск tools, REFACTOR-08 и REFACTOR-09 приняты. Проверки деревенских лавок собраны в tools/qa/world/benches, аудит плотных папок сохранён. VSHORE-006 завершена. Текущая разработка возвращается к первой overworld до VMAP-003 по зависимостям карточек."
+          "goal": "Первый выпуск tools и REFACTOR-08…10 приняты. Проверки лавок и деревенской улицы находятся в пакетах benches и street. Аудит плотных папок сохранён. Маршрут первой overworld продолжается до VMAP-003."
         }
       ]
     },

@@ -15,6 +15,21 @@ tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa
 
 Сборщик `qa.world.benches.village_bench_collect` принимает `--phase before|after`, требует свежую папку фазы и запускает окна 1152×648 и 1280×720 через macOS. Для прямого запуска `village_bench_capture.gd` передайте после `--` параметры `--output=<новая папка>`, `--profile=Codex-VPROP-002-<уникальное имя>` и `--phase=before|after`. Скрипт `village_bench_leg_capture.gd` принимает `--output=<новая папка>` и необязательный `--wide`. Обе команды съёмки требуют видимого окна на QA-стенде. Параметр `--build` у инструмента ассетов пишет производные PNG и каталог, а `--write` у валидатора обновляет сводку.
 
+## Деревенская улица
+
+```sh
+python3 tools/run.py qa.world.street.village_street_assets
+python3 tools/run.py qa.world.street.village_street_verify
+python3 tools/run.py qa.world.street.test_village_street
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/qa/world/street/village_street_review.gd
+```
+
+Первый вызов сверяет шесть производных PNG и опоры колодца и телеги. Второй читает [принятый архив VPROP-003](../../../docs/reports/visual-overhaul/vprop-003/README.md). Для сборки производных в копии проекта используется `--build`, для записи сводки архива используется `--write`.
+
+`qa.world.street.village_street_collect --phase before|after` требует свежего каталога фазы. Нативный захват использует `res://tools/qa/world/street/village_street_capture.gd`. После `--` он принимает `--output=<новый каталог>`, `--profile=Codex-VPROP-003-<имя>`, `--phase=before|after` и необязательный `--wide`. Для захвата нужен видимый дисплей на QA-стенде.
+
+Из внешнего каталога используйте абсолютные пути к launcher, Godot и проекту. Прежние команды и Python-импорты в `qa.world`, а также три прежних Godot URI делегируют тем же реализациям. [Ведомость REFACTOR-10](../../../docs/reports/refactor-10/README.md).
+
 ## Изоляция viewport
 
 [REFACTOR-08](../../../docs/reports/refactor-08/README.md) группирует сценарии изоляции нескольких viewport в `viewport/`. Здесь находятся нативный захват, проверка в Godot, валидатор и его тесты.

@@ -148,7 +148,7 @@ VPROP-005: `python3 tools/run.py qa.world.village_fence_assets`, `python3 tools/
 
 VPROP-004: `python3 tools/run.py qa.world.village_lamp_verify` проверяет 84 PNG/400 draw в двух окнах, обычный день/сумерки/ночь и точную разницу dry/lit только внутри свечения. `tools/qa/world/test_village_lamp.py` — 13 отрицательных/положительных сценариев; оба входят в architecture. Профиль `tools/qa/world/village_lamp_review.gd` — 42 утверждения, включая настоящий физический цикл паузы/продолжения. Обязательны общий gate, полный игровой набор, Wiki check и браузер. [Методика](docs/reports/visual-overhaul/vprop-004/README.md) фиксирует отдельный профиль, два общих meshes и прежние часы; FPS/VMAP-003 не принимаются.
 
-VPROP-003: `python3 tools/run.py qa.world.village_street_verify` сверяет шесть PNG, реальные опоры, два нативных окна и неизменность пикселей/сохранений за пределами колодца и телеги. `tools/qa/world/test_village_street.py` содержит одиннадцать отрицательных/положительных сценариев; оба входят в architecture gate. Профиль `tools/qa/world/village_street_review.gd` — 50 утверждений о геометрии, навигации, мостах и реальной продаже. Обязательны настоящий общий gate, полный игровой набор, Wiki check и браузер. [Методика](docs/reports/visual-overhaul/vprop-003/README.md) отделяет видимые контакты от скрытого колеса и не принимает FPS/VMAP-003.
+VPROP-003: `python3 tools/run.py qa.world.street.village_street_verify` сверяет шесть PNG, реальные опоры, два нативных окна и неизменность пикселей/сохранений за пределами колодца и телеги. `tools/qa/world/street/test_village_street.py` содержит двенадцать отрицательных/положительных сценариев, включая совместимость импортов. Оба входа включены в architecture gate один раз. Профиль `tools/qa/world/street/village_street_review.gd` — 50 утверждений о геометрии, навигации, мостах и реальной продаже. Обязательны настоящий общий gate, полный игровой набор, Wiki check и браузер. Методика отделяет видимые контакты от скрытого колеса. [Методика VPROP-003](docs/reports/visual-overhaul/vprop-003/README.md) · [Проверки переноса REFACTOR-10](docs/reports/refactor-10/README.md).
 
 VPROP-002: `tools/qa/world/benches/village_bench_review.gd` — 24 утверждения о трёх ракурсах, четырёх реальных контактах, общей плотности и кешированной тени, прежних коллизиях/save/навигации. `python3 tools/run.py qa.world.benches.village_bench_verify` сверяет 50 нативных PNG / 224 draw callbacks, две фазы одного commit, одинаковые камеры и snapshots, полные RGBA вне лавочек, три контрастных фона и настоящего героя. Девять `tools/qa/world/benches/test_village_bench.py` портят только временные копии; fullscreen вместо оконного размера, потерянный четвёртый контакт и ложная замена блокируют приёмку. Verifier и тесты обязательны в architecture. Мастера отдельно от runtime, новый art только у двух лавочек overworld; другие карты и FPS не принимаются. Обязательны общий gate, Wiki check и браузерная проверка до/после, иллюстраций, поиска и трёх точных JSON. [Партия и границы](docs/reports/visual-overhaul/vprop-002/README.md).
 
@@ -247,6 +247,8 @@ VART-008: `python3 tools/run.py qa.art.visual_modules` сравнивает ка
 VART-007: `python3 tools/run.py qa.art.visual_light` сверяет прямой выбор A, три слоя света, направление, два контакта стола, 24 настоящих readback PNG 1152×648, повтор, источники и HTML. Пять сценариев `tools/qa/art/test_visual_light.py` входят в architecture gate. [Ограничения художественной alpha-проекции](docs/reports/visual-overhaul/vart-007/README.md); FPS и runtime не заявляются.
 
 ## VIS: план визуальной переделки
+
+VSHADOW-002. Снимите первую `overworld` до и после изменения по [протоколу контактных теней](docs/reports/visual-overhaul/vshadow-002/README.md). Проверьте обе серии `qa.world.contact_shadows_verify` при дневном и вечернем освещении, с обычным и уменьшенным движением. Сохранение и камера должны совпадать, а каждый изменённый пиксель должен попадать в область одной из разрешённых опор. Перед публикацией выполните полный hook и проверку Wiki.
 
 VART-006: `python3 tools/run.py qa.art.visual_density` проверяет пять образцов, общего героя A в обоих вариантах, неизменные области/опоры, 12 браузерных состояний, шесть настоящих PNG Godot 1152×648 и парный лист. `tools/qa/art/visual_density_capture.gd` требует новый output и профиль `Codex-VART-006-*`, графику вместо headless; каждый повтор readback совпадает. Восемь отрицательных/положительных сценариев `tools/qa/art/test_visual_density.py` включены в architecture gate. Измерения частоты исходника не заменяют художественный выбор B. [Методика, sampling и границы нативной витрины](docs/reports/visual-overhaul/vart-006/README.md).
 
@@ -359,6 +361,16 @@ Creative Agent меняет только Markdown-постановку; новы
 точный угол вместо AABB, ограниченный поиск, локальные dirty-чанки, независимые снимки и отрицательные данные.
 Старые игровые карты, сохранения и новая графика этим набором не объявляются мигрированными.
 
+## Совместимость воды VCOMPAT-005
+
+`WaterVisualCompatibilitySuite` входит в `WaterVisualSuite` полного игрового набора. Профиль
+`res://tools/qa/world/water_visual_compatibility_review.gd` сравнивает два экземпляра игровой сцены
+с одним сохранением первой версии, seed и фиксированной камерой. Проверяются физика двух настилов,
+берега реки и пруда, точки заброса, расход и полные игровые снимки при нормальной и статичной воде.
+CI запускает профиль отдельно и в составе Game. Оба входа проверяют исходные байты
+контрольных настроек и слотов, отказ проверки при `noclip` и реакцию материалов на `reduced_motion`.
+[Воспроизводимый сценарий и принятая нативная пара](docs/reports/visual-overhaul/vcompat-005/README.md).
+
 ## Исходная база WATER-01
 
 `tools/water_audit.gd` снимает реальные кадры и три повтора пяти водных сцен в изолированном профиле.
@@ -404,6 +416,19 @@ Creative Agent меняет только Markdown-постановку; новы
 - Git hook `pre-commit` не позволяет создать коммит при падающих тестах; `post-commit` показывает исторический счётчик без отправки. Готовая реализация публикуется в ветке и PR, затем проходит Tech Lead Agent и Team Lead Agent по `docs/CODE_REVIEW.md`. Слияние в `main` разрешено после принятия текущего SHA и решения тимлида; прежний прямой пакетный push не обходит ревью.
 
 CI загружает зафиксированную версию Godot 4.7.1 и запускает тот же quality gate на каждом push и pull request. В `jobs.test.env` задан общий абсолютный `FARM_GODOT_BIN`: его наследуют architecture, игровые тесты, smoke и performance; путь не должен быть ограничен только последними шагами. Перед architecture выполняется штатный импорт ресурсов в чистом checkout. Новая функция должна попасть в подходящий suite; новый suite не может превышать 350 строк.
+
+## QA-06: отложенные команды и нативный захват
+
+`python3 tools/run.py qa.ground.test_color_patch_sync` проверяет отказы валидатора и свежие пути без запуска движка. Контролируемый нативный прогон выполняется только в удалённом Linux CI с Godot 4.7.1, X11 и отдельными профилями:
+
+```sh
+export LIBGL_ALWAYS_SOFTWARE=1
+# FARM_GODOT_BIN и VGROUND_EXPECTED_HEAD задаёт workflow для точного head.
+# Родитель существует; sync — новый каталог вне checkout.
+xvfb-run -a -s '-screen 0 1280x720x24' python tools/run.py qa.ground.color_patch_sync --output "$RUNNER_TEMP/vground-002/sync"
+```
+
+Старый helper из закреплённого Git blob должен воспроизвести чтение прежнего кеша; текущий — прочитать свежие команды после завершения кадра. Для обоих требуются 1152×648 и 1280×720, настоящий PNG, порядок callbacks и хеши. Отказ движка/таймаут не считается успешным воспроизведением. Проба запускается с Dummy audio и создаёт структуру папок GLES в отдельном профиле; ошибки кеша не игнорируются. Версия сверяется по фактическому `Engine.get_version_info().string`, а не формату CLI. Затем обязательны полный `color_patch_collect` и неизменённый `color_patch_verify` в том же head. Пороговые значения, игровой runtime и принятый архив не меняются. [Протокол и ограничения](docs/reports/qa-06/README.md). Пока нативный результат не получен, эта проверка не объявляется пройденной.
 
 ## Комментарии к коду и тестам
 

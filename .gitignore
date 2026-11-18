@@ -787,11 +787,19 @@ tools/qa/world/*
 # REFACTOR-03: World-core92; Shore and shared render-order game remain for their consumer steps.
 !tools/qa/world/*.py
 !tools/qa/world/*.gd
+!tools/qa/world/contact_shadows_capture.gd.uid
 !tools/qa/world/README.md
 !tools/qa/world/benches/
 tools/qa/world/benches/*
 !tools/qa/world/benches/*.py
 !tools/qa/world/benches/*.gd
+!tools/qa/world/street/
+tools/qa/world/street/*
+!tools/qa/world/street/*.py
+!tools/qa/world/street/*.gd
+!tools/qa/world/street/village_street_capture.gd.uid
+!tools/qa/world/street/village_street_gallery.gd.uid
+!tools/qa/world/street/village_street_review.gd.uid
 !tools/qa/world/viewport/
 tools/qa/world/viewport/*
 !tools/qa/world/viewport/*.py
@@ -832,9 +840,6 @@ tools/qa/world/viewport/*
 !tools/qa/world/village_lamp_review.gd.uid
 !tools/qa/world/village_regions_capture.gd.uid
 !tools/qa/world/village_regions_review.gd.uid
-!tools/qa/world/village_street_capture.gd.uid
-!tools/qa/world/village_street_gallery.gd.uid
-!tools/qa/world/village_street_review.gd.uid
 !tools/qa/world/village_trade_capture.gd.uid
 !tools/qa/world/village_trade_gallery.gd.uid
 !tools/qa/world/village_trade_review.gd.uid
@@ -842,6 +847,7 @@ tools/qa/world/viewport/*
 !tools/qa/world/water_fishing_review.gd.uid
 !tools/qa/world/water_navigation_review.gd.uid
 !tools/qa/world/water_topology_review.gd.uid
+!tools/qa/world/water_visual_compatibility_review.gd.uid
 
 !tools/qa/ground/compiled_sources.gd.uid
 !tools/qa/ground/compiled_sources_review.gd.uid
