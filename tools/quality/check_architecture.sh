@@ -54,6 +54,7 @@ python3 tools/run.py qa.world.test_world_context
 python3 tools/run.py qa.ground.test_ground_context
 python3 tools/run.py qa.ground.test_ground_layout
 python3 tools/run.py qa.ground.test_compiled_sources
+python3 tools/run.py qa.ground.test_color_patch_sync
 python3 tools/run.py qa.foliage.test_foliage_context
 python3 tools/run.py qa.foliage.test_relocation_provenance
 python3 tools/run.py qa.foliage.test_foliage_producers

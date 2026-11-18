@@ -118,6 +118,20 @@ export function roadmapStages(tasks: PlanTask[], pilotKeys: readonly string[]): 
           'Проверить все выходы, расписания жителей, услуги и награды. Ни одного доступного недорисованного места.',
           ['release--DEMO-001', 'release--DEMO-002']
         ),
+        card(
+          'heroes',
+          'Два героя: выбор и живое движение',
+          'Мужской и женский образы, плавная походка, действия и предметы в руках. Выбор в начале игры и сохранения; сначала проба 3D → 2D.',
+          [
+            'visual--VANIM-002',
+            'visual--VACTOR-001',
+            'visual--VACTOR-002',
+            'visual--VACTOR-003',
+            'visual--VACTOR-004',
+            'hero--HERO-01',
+            'hero--HERO-02',
+          ]
+        ),
         ...releaseMaps
           .filter(([map]) => map !== 'overworld' && demoMaps.includes(map))
           .map(mapCard),
