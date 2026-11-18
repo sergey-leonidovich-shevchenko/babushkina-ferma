@@ -108,6 +108,61 @@ test('dependency traversal deduplicates and rejects cycles and ambiguous externa
   assert.ok(result.issues.some((issue) => issue.includes('однозначная')))
 })
 
+// Реальные ворота демо: паспорт не заменяет выбор, движение и приёмку обоих тел.
+test('hero guide is published and reachable from the release roadmap', async () => {
+  const built = JSON.parse(
+    await readFile(new URL('../public/generated/catalog.json', import.meta.url), 'utf8')
+  )
+  const guide = built.entries.find(
+    (entry) => entry.category === 'guides' && entry.id === 'demo-heroes'
+  )
+  const roadmap = built.entries.find((entry) => entry.id === 'release-roadmap')
+  assert.ok(guide)
+  assert.ok(guide.tags.includes('HERO'))
+  assert.match(roadmap.html, /#\/guides\/demo-heroes/)
+  assert.match(guide.html, /#\/development\/epics\/hero--HERO/)
+})
+
+test('demo requires both hero production and acceptance, including missing task failures', () => {
+  const tasks = structuredClone(catalog.tasks)
+  for (const task of tasks) task.status = 'done'
+  const hero = tasks.find((task) => task.key === 'hero--HERO-02')
+  const art = tasks.find((task) => task.key === 'visual--VACTOR-003')
+  const demoArt = tasks.find((task) => task.key === 'release--DEMO-007')
+  assert.ok(demoArt.dependencies.includes('HERO-02'))
+  const gate = roadmapClosure(['release--DEMO-006'], tasks)
+  assert.deepEqual(gate.issues, [])
+  for (const id of [
+    'VANIM-002',
+    'VACTOR-001',
+    'VACTOR-002',
+    'VACTOR-003',
+    'VACTOR-004',
+    'HERO-01',
+    'HERO-02',
+  ]) {
+    assert.ok(
+      gate.tasks.some((task) => task.id === id),
+      id
+    )
+  }
+  for (const pending of [hero, art]) {
+    pending.status = 'blocked'
+    const stages = releaseRoadmap(tasks, pilot.taskKeys)
+    const card = stages[1].cards.find((card) => card.id === 'heroes')
+    assert.ok(card.tasks.some((task) => task.key === pending.key && task.status === 'blocked'))
+    assert.equal(stages[1].accepted, false)
+    assert.equal(stages[2].accepted, false)
+    pending.status = 'done'
+  }
+  const missing = releaseRoadmap(
+    tasks.filter((task) => task !== hero),
+    pilot.taskKeys
+  )
+  assert.equal(missing[2].accepted, false)
+  assert.ok(missing[1].issues.some((issue) => issue.includes('HERO-02')))
+})
+
 test('editorial workspace stays valid and rollout does not mutate decisions or canonical statuses', async () => {
   const state = JSON.parse(await readFile(new URL('../planning/state.json', import.meta.url)))
   validateWorkspace(state, catalog)
