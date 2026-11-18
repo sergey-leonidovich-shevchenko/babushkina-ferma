@@ -63,3 +63,11 @@ python3 "$candidate_dir/tools/run.py" qa.world.contact_shadows_verify \
 ```
 
 Журнал нативного процесса должен содержать `CONTACT SHADOWS NATIVE: 6 frames, []`. Приложите обе проверки, SHA исходного коммита и хеши точных файлов кандидата. Результаты полного pre-commit, Wiki и GitHub CI указываются в PR.
+
+## Приёмка
+
+Учёт PR №71 обновлён обычным merge принятой `main` `edaa617b397ea19e69ef20633e86f3010495e342`. Конфликт общего HTML разрешён его генератором из объединённого бэклога. Изменения QA-06, HERO-00 и следующих заблокированных карточек героев сохранены; игровые исходники и состояние планирования совпадают с этой main. Новый коммит учёта проходит отдельные проверки и независимое ревью; прежнее одобрение его не подменяет.
+
+Tech Lead одобрил коммит `f3f6ecd5e147af754e0a83ff866f8784cf834f29` после повторной независимой проверки всех 12 опубликованных пар и их SHA-256. Оба замечания P3 закрыты. После решения Team Lead PR №69 влит в `main` коммитом `90392218eb972d79121a254b270c3b3c97a77364`. Дерево слияния точно совпало с одобренным `38afea470576666b0eb681807060174912bfe2a5`. [Ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/69#pullrequestreview-5946894661) · [PR №69](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/69).
+
+Полный штатный hook этого коммита прошёл quality без ошибок, 115 архитектурных наборов с 1 542 сценариями, Game 53 682/0 и redraw normal/F10 по 90/0. Отдельная сборка Wiki прошла 165 тестов. GitHub CI подтвердил все девять заданий текущего SHA, включая Linux, macOS и X11. [CI PR](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44175447284) · [CI push](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44175434967) · [X11](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44175447280).
