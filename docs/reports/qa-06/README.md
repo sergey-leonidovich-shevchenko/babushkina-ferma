@@ -1,6 +1,20 @@
 # QA-06: синхронизация захвата кадра
 
-Статус: `in_progress`, [PR №70](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/70) остаётся draft. Первый нативный прогон остановлен на ошибках окружения; полная приёмка **не пройдена**. [Карточка](../../backlog/qa-followups-2026-11/README.md#qa-06).
+Статус: `done`. Исправление принято 18 ноября 2026 через [PR №70](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/70), merge `af87d37f2cc26c74c94759a4f7496b8f7028d6db`. [Карточка](../../backlog/qa-followups-2026-11/README.md#qa-06) · [Паспорт приёмки](acceptance.json).
+
+## Итог приёмки
+
+Принят точный head `b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec` на базе `90392218eb972d79121a254b270c3b3c97a77364`: [независимое APPROVED](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/70#pullrequestreview-5947917598), оба P2 закрыты, CI **9/9**. После новой прямой команды владельца принимать решения самостоятельно Team Lead подтвердил обычное слияние. Дерево merge `4814fdf67ce7ff598317d291ab9c523b576f7163` побайтно совпало с одобренным head; дополнительных изменений при слиянии нет.
+
+В [новом X11 run](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189689806/job/134415456175) модель прошла 30/0, compiled masks — 36/0, provenance — 101/0. Все четыре нативные пробы выполнились с чистыми журналами. Старый helper в обоих размерах возвращает код 1 и зелёный кадр после запроса красного, до свежего draw. Исправленный helper возвращает код 0 и красный кадр после последовательности request → draw → complete → read. Изменение закрывает преждевременное чтение команд, показанное контролируемым воспроизведением.
+
+Полный прежний collector/verifier того же head прошёл **66 PNG / 240 полных снимков команд отрисовки**: по 10 пар и 5 проверок старых путей на каждое окно. Пороговые значения не менялись. Весенняя пара 1152×648 имеет максимум RGB-разницы 18, среднее 2,939753; пара 1280×720 — максимум 18, среднее 2,969301. Прежнее нулевое различие не повторилось.
+
+[Артефакт 14377915278](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189689806/artifacts/14377915278): 75 899 057 байт, SHA256 zip `1584cb4aeb4a8aba9902bb8551c2b9fc5306838157e0e5510b2452ba82e75aa1`. Автор и Tech Lead независимо скачали и сверили архив: все 16 sync-хешей, точные исходники Git, четыре отдельных профиля, PNG, коды и порядок событий. Каждый повторно запустил неизменённый `color_patch_verify` с `--expected-head b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec` на своей распаковке. Нативные логи без `ERROR`, строгий отказ на ошибках сохранён. [Машиночитаемые результаты](acceptance.json) содержат исходный sync manifest, четыре паспорта и полный итог verifier.
+
+На принятом head локальный штатный hook прошёл quality 0 failed, architecture PASS, Game **53682/0**, normal/F10 **90/0** каждый; Wiki — сборка и **165/165**. В общем CI PR: Game **53700/0**, normal/F10 **90/0**, smoke 180 кадров и все шесть измерений установленного бюджета прошли. [CI PR](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189689764) · [CI push](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189673996). Контрольные 8 Python-тестов и форматирование/типизация прошли у автора и независимого ревьюера.
+
+Учёт статуса, Wiki и единственного `Task-Complete: QA-06` ведётся отдельной веткой `codex/qa-06-closeout` после принятия реализации. Это не приёмка анимации героев, всей локации или общего FPS игры. HERO-00 остаётся отдельным PR №63; перед повторной приёмкой он получает актуальную main обычным merge и собственные проверки. Ниже сохранена история исследования и неуспешных запусков.
 
 ## Сохранённый отказ
 
@@ -17,9 +31,9 @@
 
 После публикации документационного исправления HERO-00 (`cf5a28f14f4102ce8284fd72358ad9e99537abd8`) новый [обязательный запуск](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43981596997/job/133699176227) также завершился тем же `ValueError`; модель и compiled-проверки снова прошли. [Артефакт 14283472228](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/43981596997/artifacts/14283472228), SHA256 из GitHub: `04804695c007a0866b4b282d70413448d556374d3fa567fadd2c12da39009f17`. Этот третий zip не скачивался и его пиксели отдельно не анализировались; это новый автоматический CI нового head, не ручной повтор.
 
-## Проверяемая гипотеза
+## Исходная гипотеза
 
-`SceneTree.process_frame` испускается до `_process`; `CanvasItem.queue_redraw` откладывает сборку команд. Старый helper вызывает `RenderingServer.force_draw(false)` сразу после `process_frame`. Гипотеза: он рендерит прежние команды, а обработчик `frame_post_draw` завершает одноразовый SubViewport и отключает его до свежей сборки. Кандидат ждёт обычный `frame_post_draw`, не вызывая ранний принудительный рендер. Это пока объяснение для проверки, а не установленная причина.
+`SceneTree.process_frame` испускается до `_process`; `CanvasItem.queue_redraw` откладывает сборку команд. Старый helper вызывает `RenderingServer.force_draw(false)` сразу после `process_frame`. Гипотеза: он рендерит прежние команды, а обработчик `frame_post_draw` завершает одноразовый SubViewport и отключает его до свежей сборки. Кандидат ждёт обычный `frame_post_draw`, не вызывая ранний принудительный рендер. Так была сформулирована гипотеза до пробы; контролируемый старый/новый запуск и полный X11 принятого head описаны выше.
 
 Источники контракта движка: [process_frame](https://docs.godotengine.org/en/stable/classes/class_scenetree.html#class-scenetree-signal-process-frame), [queue_redraw](https://docs.godotengine.org/en/stable/classes/class_canvasitem.html#class-canvasitem-method-queue-redraw), [frame_post_draw](https://docs.godotengine.org/en/stable/classes/class_renderingserver.html#class-renderingserver-signal-frame-post-draw).
 
@@ -48,9 +62,9 @@
 
 Дополнительно фактический `Engine.get_version_info().string` равен `4.7.1-stable (official)`, а прежний валидатор ожидал формат CLI. Исправлена точная проверка этой строки; другой выпуск или сборка не принимается. Две новые регрессии проверяют реальный формат метаданных и обязательный отказ на ALSA/GLES/ошибке скрипта даже при старом коде 1.
 
-Независимое ревью подтвердило оба дефекта: [версия движка](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/70#discussion_r4605226937), [окружение](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/70#discussion_r4605226943). Для закрытия нужны чистые четыре процесса и полный прежний X11 collector/verifier в новом head. Сохранённый неуспешный архив не переименовывается в успешный.
+Независимое ревью подтвердило оба дефекта: [версия движка](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/70#discussion_r4605226937), [окружение](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/70#discussion_r4605226943). Для закрытия требовались чистые четыре процесса и полный прежний X11 collector/verifier в новом head; это выполнено в принятом `b1dbf373` и независимо проверено. Сохранённый неуспешный архив не переименовывается в успешный.
 
-## Локальные проверки и оставшаяся приёмка
+## История локальной подготовки
 
 Для первого опубликованного head `2553427774c55ae34ffd6d09e793671fbba80ff4` выполнены Python 6/6; ruff check/format, mypy двух Python-файлов; gdformat/gdlint helper и пробы; Node planning/release-roadmap 20/20. Каталог содержит единственную `qa-followups--QA-06` со статусом `in_progress` и зависимостью VGROUND-002, исходный базовый план сохранил 50 задач. Первый Node-прогон упёрся в sandbox-запрет временного localhost listener; повтор с доступом только для этих Node-проверок прошёл.
 
@@ -58,4 +72,4 @@
 
 Владелец возобновил разработку 17 ноября 2026. Первый head основан на main `9a1e2f7c571e1b44e6a506b231f2199aa016d4ad`; перед повторным полным прогоном обычным merge включена принятая main `90392218eb972d79121a254b270c3b3c97a77364` с VSHADOW-002. Разрешены только три конфликта служебной версии в пользу более новой main; последующий bump выполняет штатный hook. Локальные прогоны выполняются последовательно с Developer Agent. Для Wiki и hook проверены отдельные профили `Codex-QA06`; временный override удалён только по совпадению собственных байтов. После первого hook локальный Godot освобождён Developer Agent. Нативная проба остаётся в удалённом X11.
 
-Исправления замечаний подготовлены. На обновлённых файлах прошли Python 8/8, ruff check/format, mypy, gdformat/gdlint, Node planning/release-roadmap 20/20 и проверка документации. Четыре сохранённых JSON/PNG дополнительно сверены исправленным валидатором; это проверяет контракт версии, но не отменяет ошибки в прежних журналах. После объединения с main `90392218` полный Wiki check повторён: сборка и 165/165 тестов прошли с отдельным профилем. Новый полный hook, CI и независимое ревью нового head ещё впереди. Только после них допустимы решение Team Lead, merge и учёт. HERO-00 остаётся отдельным PR и ожидает принятия QA-06.
+Исправления замечаний подготовлены. На обновлённых файлах прошли Python 8/8, ruff check/format, mypy, gdformat/gdlint, Node planning/release-roadmap 20/20 и проверка документации. Четыре сохранённых JSON/PNG дополнительно сверены исправленным валидатором; это проверяет контракт версии, но не отменяет ошибки в прежних журналах. После объединения с main `90392218` полный Wiki check повторён: сборка и 165/165 тестов прошли с отдельным профилем. На момент подготовки этого пакета новый полный hook, CI и независимое ревью ещё ожидались. Их фактический успешный итог и последующее слияние зафиксированы выше; старые результаты не заменяют проверки принятого head.

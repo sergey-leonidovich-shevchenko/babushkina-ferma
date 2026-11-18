@@ -6,9 +6,11 @@
 
 ## QA-06 — Синхронизировать нативный захват с отложенной отрисовкой
 
-**Статус:** in_progress · **Приоритет:** P1 · **Объём:** M · **Тип:** bugfix.
+**Статус:** done · **Приоритет:** P1 · **Объём:** M · **Тип:** bugfix.
 
-**Ветка:** `codex/qa-06-native-capture-sync`. **PR:** [№70](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/70), draft; ожидает исправления замечаний и повторного независимого ревью.
+**Дата завершения:** 2026-11-18
+
+**Ветка:** `codex/qa-06-native-capture-sync`. **PR:** [№70](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/70), принят и влит 18 ноября 2026; merge `af87d37f2cc26c74c94759a4f7496b8f7028d6db`. Учёт — отдельная ветка `codex/qa-06-closeout`.
 
 **Результат и объём:** Исследовать и исправить повторяемый отказ X11 `colour field is not visibly present: spring`: первая пара 1280 до/после содержит одинаковые пиксели, хотя поздняя пара того же биома различается. Владелец — Expert Agent по [решению Team Lead](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/63#issuecomment-6931792400). Отдельный PR предшествует повторной приёмке HERO-00. Область изменения — helper захвата и его проверка; игровой runtime, пороги визуального verifier и принятый архив не меняются.
 
@@ -23,4 +25,4 @@
 
 **Проверка:** [Протокол и исходный отказ](../../reports/qa-06/README.md), команды в [TESTING.md](../../../TESTING.md). Отдельные случаи запускаются последовательно в изолированных процессах X11; данные пользователя не используются. После принятия QA-06 HERO-00 объединяется с актуальной main обычным merge и повторно проходит CI и ревью.
 
-**Подтверждения / результат:** Для первого head `25534277` пройдены Python 6/6, formatter/lint, mypy, Node 20/20, строгая семантическая проверка GDScript, Wiki 165/165 и полный штатный hook: quality/architecture PASS, Game 53682/0, normal/F10 по 90/0. Первый удалённый X11 остановился на ошибках ALSA/GLES, полный collector/verifier пропущен. Сохранённые old/new PNG различаются ожидаемо, но приёмка не пройдена. Исправления окружения и формата версии по двум замечаниям Tech Lead подготовлены; нужны новые полный hook, CI и ревью точного head. [Подробности и хеш неуспешного архива](../../reports/qa-06/README.md#первый-нативный-запуск-и-замечания-ревью).
+**Подтверждения / результат:** Принят head `b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec`: [независимое APPROVED](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/70#pullrequestreview-5947917598), оба P2 закрыты, CI 9/9, решение Team Lead и обычный merge `af87d37f2cc26c74c94759a4f7496b8f7028d6db` с точным совпадением дерева. Штатный локальный hook: quality/architecture PASS, Game 53682/0, normal/F10 по 90/0; Wiki 165/165. Новый X11: четыре чистые контрольные пробы в обоих размерах и полный прежний verifier 66 PNG / 240 снимков отрисовки. Артефакт 14377915278 независимо сверён автором и Tech Lead по SHA256 и повторным verifier. [Полный протокол и история первого отказа](../../reports/qa-06/README.md) · [Паспорт приёмки](../../reports/qa-06/acceptance.json). Игровые механики, анимация героев и приёмка всей локации этим не закрываются.

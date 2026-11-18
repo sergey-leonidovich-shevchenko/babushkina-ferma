@@ -1,0 +1,512 @@
+{
+  "schema": 1,
+  "task": "QA-06",
+  "accepted_on": "2026-11-18",
+  "pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/70",
+  "head": "b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec",
+  "base": "90392218eb972d79121a254b270c3b3c97a77364",
+  "merge": "af87d37f2cc26c74c94759a4f7496b8f7028d6db",
+  "tree": "4814fdf67ce7ff598317d291ab9c523b576f7163",
+  "independent_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/70#pullrequestreview-5947917598",
+  "checks": [
+    {
+      "id": 134415462734,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head": "b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec",
+      "conclusion": "success",
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189689764/job/134415462734"
+    },
+    {
+      "id": 134415462686,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head": "b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec",
+      "conclusion": "success",
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189689764/job/134415462686"
+    },
+    {
+      "id": 134415462542,
+      "name": "Wiki quality gate",
+      "head": "b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec",
+      "conclusion": "success",
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189689764/job/134415462542"
+    },
+    {
+      "id": 134415462173,
+      "name": "test",
+      "head": "b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec",
+      "conclusion": "success",
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189689764/job/134415462173"
+    },
+    {
+      "id": 134415456175,
+      "name": "Exact-head X11 comparison",
+      "head": "b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec",
+      "conclusion": "success",
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189689806/job/134415456175"
+    },
+    {
+      "id": 134415403254,
+      "name": "test",
+      "head": "b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec",
+      "conclusion": "success",
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189673996/job/134415403254"
+    },
+    {
+      "id": 134415403104,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head": "b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec",
+      "conclusion": "success",
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189673996/job/134415403104"
+    },
+    {
+      "id": 134415403093,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head": "b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec",
+      "conclusion": "success",
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189673996/job/134415403093"
+    },
+    {
+      "id": 134415402895,
+      "name": "Wiki quality gate",
+      "head": "b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec",
+      "conclusion": "success",
+      "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189673996/job/134415402895"
+    }
+  ],
+  "local_checks": {
+    "quality_failed": 0,
+    "architecture": "PASS",
+    "game_passed": 53682,
+    "normal_passed": 90,
+    "f10_passed": 90,
+    "wiki_passed": 165,
+    "python_cases": 8
+  },
+  "ci_pr_checks": {
+    "job": 134415462173,
+    "game_passed": 53700,
+    "normal_passed": 90,
+    "f10_passed": 90,
+    "smoke_frames": 180,
+    "budget_runs_passed": 6
+  },
+  "native": {
+    "run": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189689806",
+    "job": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189689806/job/134415456175",
+    "artifact": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44189689806/artifacts/14377915278",
+    "zip_sha256": "1584cb4aeb4a8aba9902bb8551c2b9fc5306838157e0e5510b2452ba82e75aa1",
+    "zip_bytes": 75899057,
+    "manifest": {
+      "task": "QA-06",
+      "schema": 1,
+      "head": "b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec",
+      "baseline": {
+        "commit": "e79a3a870eb683e09e4ce3c5dfd02e6ea67e9777",
+        "source": "tools/qa/ground/color_patch_capture.gd",
+        "sha256": "0da370807958fc5e5a826641bf8e0c976579631939d308aa3ae3998555fff325"
+      },
+      "candidate_sha256": "2813ef4794a171442800055ca4a01c320dfe9c1a8ae6b081646adf20a221fba5",
+      "probe_sha256": "3f74c3c50c3b1df5bd3a971b80bd0a52ae7ea434c91d9da1b9610aee4970be4b",
+      "performance_eligible": false,
+      "passed": true,
+      "failures": [],
+      "files": {
+        "candidate-1152/probe.json": "bb0501db0edaab77667b02b82f32c8b7e24bf9b7b5fcfe87213e9ee16c4738e2",
+        "candidate-1152/readback.png": "9a56b73a4e3c5902a64be84820543bc59b21d846f5262df38f7708a9f74f4cfc",
+        "candidate-1152.log": "8b197b48f8e160b4aaa1e953a0c9347bfed7bbdfa44326d4c0984691a2e9283a",
+        "candidate-1280/probe.json": "9560c710443bd1cfe0f20a884349c517f69a9030b2944e027af49aaf971320ca",
+        "candidate-1280/readback.png": "9a56b73a4e3c5902a64be84820543bc59b21d846f5262df38f7708a9f74f4cfc",
+        "candidate-1280.log": "8b197b48f8e160b4aaa1e953a0c9347bfed7bbdfa44326d4c0984691a2e9283a",
+        "candidate-capture.gd.txt": "2813ef4794a171442800055ca4a01c320dfe9c1a8ae6b081646adf20a221fba5",
+        "historical-1152/probe.json": "2b5a31e30436998a5a041d062af99f8edf492bcd7193183af5b7268b77359f14",
+        "historical-1152/readback.png": "4c615c0152a87c2ee889f5ff095bcfbba354c81d0da4d7eb338e720ef167f6e6",
+        "historical-1152.log": "8b197b48f8e160b4aaa1e953a0c9347bfed7bbdfa44326d4c0984691a2e9283a",
+        "historical-1280/probe.json": "a0a8a18fdacd0f7065d25a6d06d750955258caa353f2367fec22c4d6c2aef110",
+        "historical-1280/readback.png": "4c615c0152a87c2ee889f5ff095bcfbba354c81d0da4d7eb338e720ef167f6e6",
+        "historical-1280.log": "8b197b48f8e160b4aaa1e953a0c9347bfed7bbdfa44326d4c0984691a2e9283a",
+        "historical-capture.gd.txt": "0da370807958fc5e5a826641bf8e0c976579631939d308aa3ae3998555fff325",
+        "historical-entry.gd": "e9221f70d0ed88c3a5b0f9b515d52a210c43e552934834649642a3eca329f103",
+        "probe.gd.txt": "3f74c3c50c3b1df5bd3a971b80bd0a52ae7ea434c91d9da1b9610aee4970be4b"
+      }
+    },
+    "cases": {
+      "historical-1152": {
+        "display": "X11",
+        "engine": "4.7.1-stable (official)",
+        "exit_code": 1,
+        "initial": "00ff00ff",
+        "performance_eligible": false,
+        "profile": "Codex-QA-06-803ca9e3bbe049c79a4d0001536de2b2",
+        "readback": "00ff00ff",
+        "requested": "ff0000ff",
+        "schema": 1,
+        "task": "QA-06",
+        "trace": [
+          "request:1",
+          "complete",
+          "read:00ff00ff"
+        ],
+        "window": [
+          1152.0,
+          648.0
+        ]
+      },
+      "candidate-1152": {
+        "display": "X11",
+        "engine": "4.7.1-stable (official)",
+        "exit_code": 0,
+        "initial": "00ff00ff",
+        "performance_eligible": false,
+        "profile": "Codex-QA-06-8a06d7c6dc5d4f6b9eb0ed88f531460c",
+        "readback": "ff0000ff",
+        "requested": "ff0000ff",
+        "schema": 1,
+        "task": "QA-06",
+        "trace": [
+          "request:1",
+          "draw:1",
+          "complete",
+          "read:ff0000ff"
+        ],
+        "window": [
+          1152.0,
+          648.0
+        ]
+      },
+      "historical-1280": {
+        "display": "X11",
+        "engine": "4.7.1-stable (official)",
+        "exit_code": 1,
+        "initial": "00ff00ff",
+        "performance_eligible": false,
+        "profile": "Codex-QA-06-d9452e6c108a4eb4ae6e240d653d8026",
+        "readback": "00ff00ff",
+        "requested": "ff0000ff",
+        "schema": 1,
+        "task": "QA-06",
+        "trace": [
+          "request:1",
+          "complete",
+          "read:00ff00ff"
+        ],
+        "window": [
+          1280.0,
+          720.0
+        ]
+      },
+      "candidate-1280": {
+        "display": "X11",
+        "engine": "4.7.1-stable (official)",
+        "exit_code": 0,
+        "initial": "00ff00ff",
+        "performance_eligible": false,
+        "profile": "Codex-QA-06-e642b84c15c6457eaedea163df05972f",
+        "readback": "ff0000ff",
+        "requested": "ff0000ff",
+        "schema": 1,
+        "task": "QA-06",
+        "trace": [
+          "request:1",
+          "draw:1",
+          "complete",
+          "read:ff0000ff"
+        ],
+        "window": [
+          1280.0,
+          720.0
+        ]
+      }
+    },
+    "independent_full_verifier": {
+      "task": "VGROUND-002",
+      "base_commit": "b1dbf3730846fc8cc6d0cb6e94d45dc8f73117ec",
+      "windows": {
+        "1152": {
+          "pairs": 10,
+          "legacy_paths": 5,
+          "png_count": 33,
+          "differences": {
+            "spring": {
+              "mean": 2.939753193587105,
+              "max": 18,
+              "bbox": [
+                0,
+                0,
+                1025,
+                648
+              ]
+            },
+            "summer": {
+              "mean": 2.3587703975194327,
+              "max": 15,
+              "bbox": [
+                0,
+                0,
+                1025,
+                648
+              ]
+            },
+            "autumn": {
+              "mean": 2.1632743734282123,
+              "max": 15,
+              "bbox": [
+                0,
+                0,
+                1025,
+                648
+              ]
+            },
+            "winter": {
+              "mean": 2.306162837219936,
+              "max": 15,
+              "bbox": [
+                0,
+                0,
+                1025,
+                648
+              ]
+            },
+            "biome-overworld": {
+              "mean": 2.939753193587105,
+              "max": 18,
+              "bbox": [
+                0,
+                0,
+                1025,
+                648
+              ]
+            },
+            "biome-village_market": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "biome-village_garden": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "biome-village_river": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "biome-village_workyard": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "biome-village_orchard": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            }
+          },
+          "legacy_differences": {
+            "village_market": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "village_garden": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "village_river": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "village_workyard": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "village_orchard": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            }
+          },
+          "biome_means": [
+            [
+              104.218529432524,
+              126.58567723037832,
+              40.63045242800678
+            ],
+            [
+              116.19736377752682,
+              125.07609577922078,
+              37.63953098531903
+            ],
+            [
+              94.07944840485601,
+              131.7923666007905,
+              39.0080992377188
+            ],
+            [
+              112.88896633258047,
+              131.7923666007905,
+              52.74196252117448
+            ],
+            [
+              112.88962803500847,
+              117.88944275832863,
+              36.206618788819874
+            ],
+            [
+              115.23529256070017,
+              131.7923666007905,
+              40.647550818746474
+            ]
+          ]
+        },
+        "1280": {
+          "pairs": 10,
+          "legacy_paths": 5,
+          "png_count": 33,
+          "differences": {
+            "spring": {
+              "mean": 2.969300853587963,
+              "max": 18,
+              "bbox": [
+                0,
+                0,
+                1138,
+                720
+              ]
+            },
+            "summer": {
+              "mean": 2.3821365017361114,
+              "max": 15,
+              "bbox": [
+                0,
+                0,
+                1138,
+                720
+              ]
+            },
+            "autumn": {
+              "mean": 2.185418113425926,
+              "max": 15,
+              "bbox": [
+                0,
+                0,
+                1138,
+                720
+              ]
+            },
+            "winter": {
+              "mean": 2.3282150607638887,
+              "max": 15,
+              "bbox": [
+                0,
+                0,
+                1138,
+                720
+              ]
+            },
+            "biome-overworld": {
+              "mean": 2.969300853587963,
+              "max": 18,
+              "bbox": [
+                0,
+                0,
+                1138,
+                720
+              ]
+            },
+            "biome-village_market": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "biome-village_garden": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "biome-village_river": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "biome-village_workyard": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "biome-village_orchard": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            }
+          },
+          "legacy_differences": {
+            "village_market": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "village_garden": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "village_river": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "village_workyard": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            },
+            "village_orchard": {
+              "mean": 0.0,
+              "max": 0,
+              "bbox": null
+            }
+          },
+          "biome_means": [
+            [
+              104.218529432524,
+              126.58567723037832,
+              40.63045242800678
+            ],
+            [
+              116.19736377752682,
+              125.07609577922078,
+              37.63953098531903
+            ],
+            [
+              94.07944840485601,
+              131.7923666007905,
+              39.0080992377188
+            ],
+            [
+              112.88896633258047,
+              131.7923666007905,
+              52.74196252117448
+            ],
+            [
+              112.88962803500847,
+              117.88944275832863,
+              36.206618788819874
+            ],
+            [
+              115.23529256070017,
+              131.7923666007905,
+              40.647550818746474
+            ]
+          ]
+        }
+      },
+      "performance_eligible": false,
+      "gpu_time_ms": null
+    }
+  },
+  "scope": "Capture synchronization only; not animation, whole-map or FPS acceptance."
+}
