@@ -1699,6 +1699,38 @@
       "file": "docs/epics/hero-demo-2026-11/backlog.json",
       "group": "visual",
       "expected": 3
+    },
+    {
+      "id": "smith-access",
+      "title": "Городские кузницы и право работать у мастера",
+      "format": "json",
+      "file": "docs/epics/smith-access/backlog.json",
+      "group": "trade-services",
+      "expected": 7
+    },
+    {
+      "id": "field-sharpening",
+      "title": "Дорожные горны и временная заточка",
+      "format": "json",
+      "file": "docs/epics/field-sharpening/backlog.json",
+      "group": "items-equipment",
+      "expected": 5
+    },
+    {
+      "id": "smith-orders",
+      "title": "Заказы кузнецу и хранение переданной вещи",
+      "format": "json",
+      "file": "docs/epics/smith-orders/backlog.json",
+      "group": "trade-services",
+      "expected": 6
+    },
+    {
+      "id": "smith-stories",
+      "title": "Личное доверие и истории кузнецов",
+      "format": "json",
+      "file": "docs/epics/smith-stories/backlog.json",
+      "group": "stories",
+      "expected": 5
     }
   ],
   "queues": [
