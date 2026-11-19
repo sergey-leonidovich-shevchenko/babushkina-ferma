@@ -417,6 +417,10 @@ CI запускает профиль отдельно и в составе Game.
 
 CI загружает зафиксированную версию Godot 4.7.1 и запускает тот же quality gate на каждом push и pull request. В `jobs.test.env` задан общий абсолютный `FARM_GODOT_BIN`: его наследуют architecture, игровые тесты, smoke и performance; путь не должен быть ограничен только последними шагами. Перед architecture выполняется штатный импорт ресурсов в чистом checkout. Новая функция должна попасть в подходящий suite; новый suite не может превышать 350 строк.
 
+## VSHADOW-010: контакт героя и читаемость лута
+
+`python3 tools/run.py qa.world.shadows.verify` проверяет64 нативных PNG на двух размерах окна. `qa.world.shadows.test_contract` и `qa.world.shadows.test_readability` входят в architecture: проверяют реальные исходники, старый дефект, повреждённые копии, фактические argv и границы producer. Перед публикацией отдельно выполнить `qa.world.shadows.verify --check-current-candidate`. Новая съёмка — `qa.world.shadows.collect --output <новая внешняя папка>`; для незакоммиченного адресного исправления используется `--working-candidate` с явными сохранёнными байтами двух runtime-файлов. Полный Game включает `hero_contact_scope_suite` для двух миров и вложенных callbacks. [Доказательства и границы](docs/reports/visual-overhaul/vshadow-010/README.md). Остановленная симуляция не является FPS-приёмкой; Task-Complete разрешён только после CI, независимого exact-head review, решения Team Lead и merge.
+
 ## QA-06: отложенные команды и нативный захват
 
 `python3 tools/run.py qa.ground.test_color_patch_sync` проверяет отказы валидатора и свежие пути без запуска движка. Контролируемый нативный прогон выполняется только в удалённом Linux CI с Godot 4.7.1, X11 и отдельными профилями:

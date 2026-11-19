@@ -1,0 +1,12 @@
+{
+  "exit_code": 1,
+  "source_complete": false,
+  "reason": "QA source changed during capture",
+  "changed_input": "tools/qa/world/shadows/collect.py",
+  "before_sha256": "489891ebcda223b5d2a83b52bf54a666442b369bcf865e06ce97327464010335",
+  "after_sha256": "0f00171daf9cce6c52475828e4c98485ec25095a6c93adb956a17dd657f56831",
+  "change": "CLI help: four explicit runtime files → explicit runtime files",
+  "acceptance_eligible": false,
+  "performance_eligible": false,
+  "raw_frames_external": "/private/tmp/farm-vshadow010-native-20261119-b"
+}

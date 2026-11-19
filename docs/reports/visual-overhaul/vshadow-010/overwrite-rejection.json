@@ -1,0 +1,10 @@
+{
+  "command": "qa.world.shadows.collect --output <existing C> --working-candidate",
+  "exit_code": 1,
+  "foreign_cwd": "/private/tmp/shadow overwrite foreign 5lr6wmq4",
+  "hostile_python_git": true,
+  "all_output_files_preserved": 65040,
+  "foreign_index_config_preserved": true,
+  "acceptance_eligible": false,
+  "performance_eligible": false
+}

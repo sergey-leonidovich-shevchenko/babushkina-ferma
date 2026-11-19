@@ -1,0 +1,354 @@
+{
+  "schema": 1,
+  "task": "VSHADOW-010",
+  "commit": "bc483b7b09635415fd29e8fac7447789209bc9cc",
+  "asset_tree": "771bb42de77513de83c003d6c94f7562c8686df1",
+  "scripts_tree": "cadebc9e210cf694c7d278d7604999fe3d024427",
+  "qa_inputs": {
+    "tools/qa/world/shadows/contact_probe.gd": "c7bed4323a2c2b82c4e744e35109d7ecb789e85e5b65539f7c93de5230b8e3b4",
+    "tools/qa/world/shadows/contact_probe.gd.uid": "2c1b04abff67324d20285b9aad85b8cce6a085383892edfa12455f59a1362c48",
+    "tools/qa/world/shadows/readability_game.gd": "977359187d0d61666bebe27c351ee921cbf6efb92b33e5b59803966af13eb527",
+    "tools/qa/world/shadows/readability_game.gd.uid": "bd52d6fe4906eec46437ad8c0336cc11e6fecb147f9dcb2521582b88496a5c01",
+    "tools/qa/world/shadows/readability_cases.gd": "61a518c4cc80fb90d453872592ca5dfc00d32dfa17723a18b43a0765de39d05e",
+    "tools/qa/world/shadows/readability_cases.gd.uid": "4b63df511fad628efda064cf4b748428aa3f6c7506628bdb1213ed0ab4a8b2c7",
+    "tools/qa/world/shadows/readability_capture.gd": "8fae56fcf3f1c08378cec43c5b8c7b0d3f1315299b680067d4c0d291f96b8850",
+    "tools/qa/world/shadows/readability_capture.gd.uid": "0ef8e0930360cc66ec2b029ad249ad9e55e44ce0acb69b684bc62e11647556f5",
+    "tools/qa/world/shadows/collect.py": "86c642a2f23384dc66f5fbc6c7d266f23ef1fbd169a1ebcf56f80df3173823d1",
+    "tools/qa/world/shadows/contract.py": "054bdfd9c47be85732e074bef234a50a6ada7ba6e12ce83c1861cbdd8d842cea",
+    "tools/qa/world/shadows/__init__.py": "6d603f09f79a6c3b6f15bd369b2a7a7e513096ce1847cdb6b1336d7099607e6b"
+  },
+  "overlays": {
+    "scripts/presentation/contact_shadow_shapes.gd": {
+      "source": "77934b6b0cb552eb1cd516bfd8a24cb0e193c35426652f780425ef10e796b2dc",
+      "instrumented": "b4d072dc06afd28da3a79badf34b0210f8fb059c4d28ca1c4d90546542ed8c8b"
+    },
+    "scripts/presentation/village_bench_visual.gd": {
+      "source": "847dce57297018e989c756daf46bb6a56078ab55963cd926631e88750c3fd619",
+      "instrumented": "f061ce54647b201a956bfcc8d3c574b106d547105466fe6462f42af1b85b864d"
+    },
+    "scripts/presentation/village_street_visual.gd": {
+      "source": "4ab038dc1f470364201dce690e8826499b1d324ee9688341809c97be817b8694",
+      "instrumented": "f52c08392e8a9a3017f011e3a4687487d93a557b52b21aa001d4c93366bd68cf"
+    },
+    "scripts/presentation/village_lamp_visual.gd": {
+      "source": "8b7fc17535f0007fbe3790d14c4f98b75682694690984758003afa9fc5ac8d4f",
+      "instrumented": "306278a79d77b1d1aa63eb3befb1da6e610bc0ca79172f6403018a11f7af2493"
+    },
+    "scripts/presentation/village_board_visual.gd": {
+      "source": "050146331cc48425477c29b64749f2ea84e4d7d36c63ea040ae3518287133386",
+      "instrumented": "81c5412236479858025e4e8a2ec62e7c14a009a2acc078e38434662c97993fd8"
+    },
+    "scripts/presentation/village_trade_visual.gd": {
+      "source": "a181d01332810d53ef375c753427645b130ec88299337e5d8b735ff367cb7f43",
+      "instrumented": "09d117100e2cd6027575e2ff43a15a9d16c9f384873ef336c5635dd1ed8c4fe0"
+    },
+    "scripts/systems/directional_character_system.gd": {
+      "source": "b5565f30f6594cbc4c09bfea0e8226576806a2cecd597ea2491f53574e4bc961",
+      "instrumented": "8a2b3f9073cf465efde86a5586f3870fe04fe0afe483c013d221b0c3fe999b82"
+    }
+  },
+  "import_profile": "Codex-VSHADOW-010-import-757c3cec77a246068e06a8b0cd0fd632",
+  "setup_artifacts": {
+    "import.txt": "294efaa943c75937f21296abbd37e5b6e0da1f498c1abc180179eaf84c8159cd",
+    "import.stdout.txt": "8ff62e2ecc1e08745a9143de1436923cb6424cb0db8c61f4e3a9878a3d4f06a9",
+    "import.launch.json": "19a2ffb22b46950e30392244605767b722d4c8e8e68165e721b82b8714b3cd28"
+  },
+  "runs": {
+    "1152-production": {
+      "launcher_exit_code": 0,
+      "profile": "Codex-VSHADOW-010-0901527082544793b61375bbe0ef2592",
+      "arguments": [
+        "--windowed",
+        "--resolution",
+        "1152x648",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--script",
+        "res://tools/qa/world/shadows/readability_capture.gd",
+        "--",
+        "--output=/private/tmp/farm-vshadow010-native-20261119-a/1152-production/frames",
+        "--profile=Codex-VSHADOW-010-0901527082544793b61375bbe0ef2592",
+        "--variant=production"
+      ],
+      "artifacts": {
+        "engine.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "engine.txt": "d0ccf8118b917c0a8acbc08e70bbe1a454d8bc333858a170f7f21e6fb7a6f45b",
+        "engine.launch.json": "05bc06ab25b9759d5149aa10a866e9263f53f5517da00cced99a4fde87ec96a7",
+        "frames/farm-720.png": "03cdd7c34b6a4b0daf1af813666945f1b000f4115b2c06e0bc3bedea7e91237e",
+        "frames/street-720.png": "024346995a5ee0b1ee42b2555e5434714048907d5b21d8fbd251f028c6780048",
+        "frames/farm-1140.png": "357da982a7ba18c57816d17991e0cce697286492968600291985f82efa78bb8e",
+        "frames/home-720.png": "17840b21faabe16e283761a28f1b67de66c61b1e8a2120c334ef80d2ea3f6840",
+        "frames/grove-720.png": "6848f9072c73ad248f5dc058a67f197db265d25489771738230ccaeea813b7f1",
+        "frames/capture.json": "5cba20d6997ca835409b4e30d29673908b0f694fc7de4120e94c2e73767f05db",
+        "frames/street-1140.png": "23edfdeeec69cd233fd12510750cbb31c27324648c1cb06e20cc1cfb3712da4c",
+        "frames/loot-source-wood.png": "c9f9a2a875df7d80de81dfc3646260efe83992071577da88194e2cfde826e082",
+        "frames/loot-source-apple.png": "963d71e093feac463b79021d6233994423bc8bf0c354689ce00d7abed8398f50",
+        "frames/loot-source-stone.png": "8a924fb856484a4394358bf22a787d498192b0bd6258ce3e727306ea8b0fbf49",
+        "frames/grove-1140.png": "6bf8d82237049a14249d043999314313e6e74097529c4360bef53ba3693a3db1",
+        "frames/home-1140.png": "fa42300aa7e3d5b7549dcf90449a4076aaa38a8fcf841f30f305e4bf7032fbec"
+      }
+    },
+    "1152-on": {
+      "launcher_exit_code": 0,
+      "profile": "Codex-VSHADOW-010-9d2b11036bc1453bab14cb3888380825",
+      "arguments": [
+        "--windowed",
+        "--resolution",
+        "1152x648",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--script",
+        "res://tools/qa/world/shadows/readability_capture.gd",
+        "--",
+        "--output=/private/tmp/farm-vshadow010-native-20261119-a/1152-on/frames",
+        "--profile=Codex-VSHADOW-010-9d2b11036bc1453bab14cb3888380825",
+        "--variant=on"
+      ],
+      "artifacts": {
+        "engine.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "engine.txt": "d0ccf8118b917c0a8acbc08e70bbe1a454d8bc333858a170f7f21e6fb7a6f45b",
+        "engine.launch.json": "eff0f5f06a9a6910dc2d70b07c3be22c22703be0e6caf9e4ed69ee3f23f3140a",
+        "frames/farm-720.png": "03cdd7c34b6a4b0daf1af813666945f1b000f4115b2c06e0bc3bedea7e91237e",
+        "frames/street-720.png": "024346995a5ee0b1ee42b2555e5434714048907d5b21d8fbd251f028c6780048",
+        "frames/farm-1140.png": "357da982a7ba18c57816d17991e0cce697286492968600291985f82efa78bb8e",
+        "frames/home-720.png": "17840b21faabe16e283761a28f1b67de66c61b1e8a2120c334ef80d2ea3f6840",
+        "frames/grove-720.png": "6848f9072c73ad248f5dc058a67f197db265d25489771738230ccaeea813b7f1",
+        "frames/capture.json": "2942ab3f0da23b0d4501378ab734697b817cfdd47603c0620761164392ff9b1e",
+        "frames/street-1140.png": "23edfdeeec69cd233fd12510750cbb31c27324648c1cb06e20cc1cfb3712da4c",
+        "frames/loot-source-wood.png": "c9f9a2a875df7d80de81dfc3646260efe83992071577da88194e2cfde826e082",
+        "frames/loot-source-apple.png": "963d71e093feac463b79021d6233994423bc8bf0c354689ce00d7abed8398f50",
+        "frames/loot-source-stone.png": "8a924fb856484a4394358bf22a787d498192b0bd6258ce3e727306ea8b0fbf49",
+        "frames/grove-1140.png": "6bf8d82237049a14249d043999314313e6e74097529c4360bef53ba3693a3db1",
+        "frames/home-1140.png": "fa42300aa7e3d5b7549dcf90449a4076aaa38a8fcf841f30f305e4bf7032fbec"
+      }
+    },
+    "1152-off": {
+      "launcher_exit_code": 0,
+      "profile": "Codex-VSHADOW-010-1d6144b1ec9c4f27bf4b61ffdb9965e7",
+      "arguments": [
+        "--windowed",
+        "--resolution",
+        "1152x648",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--script",
+        "res://tools/qa/world/shadows/readability_capture.gd",
+        "--",
+        "--output=/private/tmp/farm-vshadow010-native-20261119-a/1152-off/frames",
+        "--profile=Codex-VSHADOW-010-1d6144b1ec9c4f27bf4b61ffdb9965e7",
+        "--variant=off",
+        "--without-contacts"
+      ],
+      "artifacts": {
+        "engine.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "engine.txt": "d0ccf8118b917c0a8acbc08e70bbe1a454d8bc333858a170f7f21e6fb7a6f45b",
+        "engine.launch.json": "29078339c147e5ff1a08c3a4337298e5978472bca8be2200eb7742e060170cb3",
+        "frames/farm-720.png": "0d8bb6dd7609b31107589ea87b087e773f7bf7c9687ca3bb40f1ba8e56bc8977",
+        "frames/street-720.png": "1748ca150b33fbf906e906cd153787a3e1b1a32de51effadb07f09807b9f9793",
+        "frames/farm-1140.png": "44d11f344920b481849ff805f55914189850308d9967cafd0035e6a970dc80d7",
+        "frames/home-720.png": "a3596695e630eda66187b1852ba09915d24122fd5cb2949029aec80d4c35ba17",
+        "frames/grove-720.png": "78aa8f3e688b1d8ba7f39688918093e5c4674b911a15c354d9530ddfb65d1667",
+        "frames/capture.json": "8a3711e320e1af35ff472f023d2662c1abbe61a43e5d1cfd85f00552334c4175",
+        "frames/street-1140.png": "bca3135fa5d1f926e96c47d71af9152191cded49ed2c34b852f77221cb0170a3",
+        "frames/loot-source-wood.png": "c9f9a2a875df7d80de81dfc3646260efe83992071577da88194e2cfde826e082",
+        "frames/loot-source-apple.png": "963d71e093feac463b79021d6233994423bc8bf0c354689ce00d7abed8398f50",
+        "frames/loot-source-stone.png": "8a924fb856484a4394358bf22a787d498192b0bd6258ce3e727306ea8b0fbf49",
+        "frames/grove-1140.png": "d7a977e9f24cc5f3ce4357d0084ad861e8e08b48e4c512f9f78b1ca284fe76ed",
+        "frames/home-1140.png": "0d3857b6c4acaaee6408265123425e04fa2527ab39e0962bc2f0620d161d1284"
+      }
+    },
+    "1152-no-loot": {
+      "launcher_exit_code": 0,
+      "profile": "Codex-VSHADOW-010-ab290b4fc3434987bce93ba6bfd00c34",
+      "arguments": [
+        "--windowed",
+        "--resolution",
+        "1152x648",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--script",
+        "res://tools/qa/world/shadows/readability_capture.gd",
+        "--",
+        "--output=/private/tmp/farm-vshadow010-native-20261119-a/1152-no-loot/frames",
+        "--profile=Codex-VSHADOW-010-ab290b4fc3434987bce93ba6bfd00c34",
+        "--variant=no-loot"
+      ],
+      "artifacts": {
+        "engine.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "engine.txt": "d0ccf8118b917c0a8acbc08e70bbe1a454d8bc333858a170f7f21e6fb7a6f45b",
+        "engine.launch.json": "07c2751c4bb6f6f16dee2e74a39c9f7b6584a10bbd480a6cbcd8567c86778464",
+        "frames/farm-720.png": "5d56eb4bdd7613402dcd3326e342f5c9eb4326d377e9ffc5f42ae4f29e1f60a4",
+        "frames/street-720.png": "c7041e590272d8f205ba5ed63bd5b8430af7077ee7b3d153d5f3542c332c9d92",
+        "frames/farm-1140.png": "0e44a880126e981aaffd4e87965aea5886129350f689c78d0bd0acdebea2daf4",
+        "frames/home-720.png": "cf60c92f39086d0b19cd2d8781862f2bf5e9ea236a60f81dc5bae3528bb4fa9e",
+        "frames/grove-720.png": "ededd9bbddc23ccf8051c6e1b457d549bb415e7c5cf84386ffc37583a33acea8",
+        "frames/capture.json": "92c01e16966fa94e1305eccd353e49829bb49ebb7496331f13f1a582db5bfe76",
+        "frames/street-1140.png": "0119e950a933673a7bdac60d07e3793e4606598ef2cfb4c36d28f800d0d07196",
+        "frames/loot-source-wood.png": "c9f9a2a875df7d80de81dfc3646260efe83992071577da88194e2cfde826e082",
+        "frames/loot-source-apple.png": "963d71e093feac463b79021d6233994423bc8bf0c354689ce00d7abed8398f50",
+        "frames/loot-source-stone.png": "8a924fb856484a4394358bf22a787d498192b0bd6258ce3e727306ea8b0fbf49",
+        "frames/grove-1140.png": "fe5325a65c78c90345f16827c8fe84a1280b48793d55a888084060610eea2afe",
+        "frames/home-1140.png": "e092090413a1d79d6ee567989e4abd7ec4d13f375a1e465f09c9f4ad30b76f29"
+      }
+    },
+    "1280-production": {
+      "launcher_exit_code": 0,
+      "profile": "Codex-VSHADOW-010-70ac17b2b33b42809ef09cbd2046a208",
+      "arguments": [
+        "--windowed",
+        "--resolution",
+        "1280x720",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--script",
+        "res://tools/qa/world/shadows/readability_capture.gd",
+        "--",
+        "--output=/private/tmp/farm-vshadow010-native-20261119-a/1280-production/frames",
+        "--profile=Codex-VSHADOW-010-70ac17b2b33b42809ef09cbd2046a208",
+        "--variant=production",
+        "--wide"
+      ],
+      "artifacts": {
+        "engine.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "engine.txt": "d0ccf8118b917c0a8acbc08e70bbe1a454d8bc333858a170f7f21e6fb7a6f45b",
+        "engine.launch.json": "341cef6cef3e22e458f45af0637a594d6723a34d3d2479cc0d569c11edf47fa6",
+        "frames/farm-720.png": "9920404513796209bd0eef71643823880a0a80a556fc0a5eed25253c8ab9f0a7",
+        "frames/street-720.png": "e0f3ef7d97c38691bd9dbf8471b10fc65ecff065d867d0bfbb788d2bdf39365c",
+        "frames/farm-1140.png": "26f53e523579a6bf6803e95f8a5632071df76d00e63fca2479465094fa671d03",
+        "frames/home-720.png": "08fcc8cdab50858f79219396b056de8dff4ec4bae90cf3667825697e997ac891",
+        "frames/grove-720.png": "ab08071d5a6b73d8531fa324b3151c84567e0d1205715eb45e66c3a14736d580",
+        "frames/capture.json": "0e0f3295ce1efd34c901987e5a342c9dd4a2d47bee032736e8f609902b833f54",
+        "frames/street-1140.png": "f81cf2e819e569e113168d07075d324f0261d96609781cf891b2e119483c42a9",
+        "frames/loot-source-wood.png": "c9f9a2a875df7d80de81dfc3646260efe83992071577da88194e2cfde826e082",
+        "frames/loot-source-apple.png": "963d71e093feac463b79021d6233994423bc8bf0c354689ce00d7abed8398f50",
+        "frames/loot-source-stone.png": "8a924fb856484a4394358bf22a787d498192b0bd6258ce3e727306ea8b0fbf49",
+        "frames/grove-1140.png": "fd113cf22286ca08101a7261a6ff5524639b30cce2999b48a2fb210990e428a8",
+        "frames/home-1140.png": "a1c34a7535641f85cf08d83ee6e7daee3ed3041214279fb04966ec02a0a4fd3e"
+      }
+    },
+    "1280-on": {
+      "launcher_exit_code": 0,
+      "profile": "Codex-VSHADOW-010-ec6a88ca8fb3423daf89cf7d8d45384e",
+      "arguments": [
+        "--windowed",
+        "--resolution",
+        "1280x720",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--script",
+        "res://tools/qa/world/shadows/readability_capture.gd",
+        "--",
+        "--output=/private/tmp/farm-vshadow010-native-20261119-a/1280-on/frames",
+        "--profile=Codex-VSHADOW-010-ec6a88ca8fb3423daf89cf7d8d45384e",
+        "--variant=on",
+        "--wide"
+      ],
+      "artifacts": {
+        "engine.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "engine.txt": "d0ccf8118b917c0a8acbc08e70bbe1a454d8bc333858a170f7f21e6fb7a6f45b",
+        "engine.launch.json": "ff8cb9ef0357991dc8d7088ed162168f36279716f7e94d845e7a1654c3513f85",
+        "frames/farm-720.png": "9920404513796209bd0eef71643823880a0a80a556fc0a5eed25253c8ab9f0a7",
+        "frames/street-720.png": "e0f3ef7d97c38691bd9dbf8471b10fc65ecff065d867d0bfbb788d2bdf39365c",
+        "frames/farm-1140.png": "26f53e523579a6bf6803e95f8a5632071df76d00e63fca2479465094fa671d03",
+        "frames/home-720.png": "08fcc8cdab50858f79219396b056de8dff4ec4bae90cf3667825697e997ac891",
+        "frames/grove-720.png": "ab08071d5a6b73d8531fa324b3151c84567e0d1205715eb45e66c3a14736d580",
+        "frames/capture.json": "1dd711a297f529e23e4e1b17295ae8e5f4b4e42d0dc2f1fd0b0c690e5717a3b7",
+        "frames/street-1140.png": "f81cf2e819e569e113168d07075d324f0261d96609781cf891b2e119483c42a9",
+        "frames/loot-source-wood.png": "c9f9a2a875df7d80de81dfc3646260efe83992071577da88194e2cfde826e082",
+        "frames/loot-source-apple.png": "963d71e093feac463b79021d6233994423bc8bf0c354689ce00d7abed8398f50",
+        "frames/loot-source-stone.png": "8a924fb856484a4394358bf22a787d498192b0bd6258ce3e727306ea8b0fbf49",
+        "frames/grove-1140.png": "fd113cf22286ca08101a7261a6ff5524639b30cce2999b48a2fb210990e428a8",
+        "frames/home-1140.png": "a1c34a7535641f85cf08d83ee6e7daee3ed3041214279fb04966ec02a0a4fd3e"
+      }
+    },
+    "1280-off": {
+      "launcher_exit_code": 0,
+      "profile": "Codex-VSHADOW-010-b4da5f2e6d374f7b95e8733bbfbe31e5",
+      "arguments": [
+        "--windowed",
+        "--resolution",
+        "1280x720",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--script",
+        "res://tools/qa/world/shadows/readability_capture.gd",
+        "--",
+        "--output=/private/tmp/farm-vshadow010-native-20261119-a/1280-off/frames",
+        "--profile=Codex-VSHADOW-010-b4da5f2e6d374f7b95e8733bbfbe31e5",
+        "--variant=off",
+        "--wide",
+        "--without-contacts"
+      ],
+      "artifacts": {
+        "engine.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "engine.txt": "d0ccf8118b917c0a8acbc08e70bbe1a454d8bc333858a170f7f21e6fb7a6f45b",
+        "engine.launch.json": "97abcd2f5adefaa298f2f67f89142f14923b90472679e3a6ff8054850a020412",
+        "frames/farm-720.png": "306e480ce9e5d93089903b731bbd22b262d6a72f2d8c81ecaca2679628be5064",
+        "frames/street-720.png": "07f6fd4b78ceb2019945e42c80aa01270d2e622906c03bdb1a30cf8be7ebb54a",
+        "frames/farm-1140.png": "6e5700410d7d4ad96bf761291c255b0d4b5142d710fa7f076b655ea585195a8f",
+        "frames/home-720.png": "ebf4c0c16b2c12e6ea28f3e4c698bc82be06b48702af75f41fb8b7063c264c7b",
+        "frames/grove-720.png": "75d3388cf1f0265d9285ad11520a1f4e1c8fb36ea4e101d1fde19e19c9b6ab4b",
+        "frames/capture.json": "486b017f59a8b12b8c0af448a7aec6dba13e4825a4379f136893b8c0d9220ac9",
+        "frames/street-1140.png": "8db703b04aca5f456d08f76d47dd2ae368625336c69535aa8073ce5de5e3770b",
+        "frames/loot-source-wood.png": "c9f9a2a875df7d80de81dfc3646260efe83992071577da88194e2cfde826e082",
+        "frames/loot-source-apple.png": "963d71e093feac463b79021d6233994423bc8bf0c354689ce00d7abed8398f50",
+        "frames/loot-source-stone.png": "8a924fb856484a4394358bf22a787d498192b0bd6258ce3e727306ea8b0fbf49",
+        "frames/grove-1140.png": "32280017387e2c9e9e1daaa627e8f88f273eeee1257e2eda8f48df0835da4108",
+        "frames/home-1140.png": "427487817a7a279861cf7f050828cad6deb7a0bd23a3488514f05264817682ae"
+      }
+    },
+    "1280-no-loot": {
+      "launcher_exit_code": 0,
+      "profile": "Codex-VSHADOW-010-c003aa2441b24881891f047e60a2b85d",
+      "arguments": [
+        "--windowed",
+        "--resolution",
+        "1280x720",
+        "--rendering-method",
+        "gl_compatibility",
+        "--audio-driver",
+        "Dummy",
+        "--script",
+        "res://tools/qa/world/shadows/readability_capture.gd",
+        "--",
+        "--output=/private/tmp/farm-vshadow010-native-20261119-a/1280-no-loot/frames",
+        "--profile=Codex-VSHADOW-010-c003aa2441b24881891f047e60a2b85d",
+        "--variant=no-loot",
+        "--wide"
+      ],
+      "artifacts": {
+        "engine.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "engine.txt": "d0ccf8118b917c0a8acbc08e70bbe1a454d8bc333858a170f7f21e6fb7a6f45b",
+        "engine.launch.json": "5266330897b2546bc012bcb3bc9e22ebca94af374e863913fee83d775ae1383c",
+        "frames/farm-720.png": "5327fb5c69192ab226951e4f225f6570d5f91f595917073bb2ae8d93570c714b",
+        "frames/street-720.png": "0fa01b7cd1a905f2c277b83778ab41e0c470bdf51f706f0e19cae19508c4a374",
+        "frames/farm-1140.png": "4d46d14cd8142b5f225ef08d16b6d69f08c5a0dec2bb7b1f78e9f4a347cbca75",
+        "frames/home-720.png": "b8dff1d08837dac5aefeb46c767d0a62c8d5307dcc743ab145ef18d6c5122542",
+        "frames/grove-720.png": "40031a5c166e1d360612055acdd16ed8764e9872c59ad1784a8de8395d91694d",
+        "frames/capture.json": "70beb7648dd780e7142934bbb23697a1c348fb1728eca6cfe31d4708ed30f913",
+        "frames/street-1140.png": "652e55309d1c4afa3ecf277d811c32c918affba0dea9f4c0c4b41891d0e2d914",
+        "frames/loot-source-wood.png": "c9f9a2a875df7d80de81dfc3646260efe83992071577da88194e2cfde826e082",
+        "frames/loot-source-apple.png": "963d71e093feac463b79021d6233994423bc8bf0c354689ce00d7abed8398f50",
+        "frames/loot-source-stone.png": "8a924fb856484a4394358bf22a787d498192b0bd6258ce3e727306ea8b0fbf49",
+        "frames/grove-1140.png": "57697aa5aa9578ea5ab2c77ed5c0b2f312ff2cdfe047e8046549e082ef058cc6",
+        "frames/home-1140.png": "6818448f86353ec22199fe7e5f3c8f1cec0545eb649d13f5d63ce80de8c2430c"
+      }
+    }
+  },
+  "complete": true,
+  "performance_eligible": false
+}

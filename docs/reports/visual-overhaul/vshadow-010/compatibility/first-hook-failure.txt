@@ -1,0 +1,15 @@
+======================================================================
+FAIL: test_render_order_real_inputs_and_failed_fake_child (__main__.WorldProducerInputsTests.test_render_order_real_inputs_and_failed_fake_child)
+Actual inventory/capture writes real instrumentation and keeps complete false.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/test_world_producers.py", line 230, in test_render_order_real_inputs_and_failed_fake_child
+    self.producer(render_order)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/test_world_producers.py", line 154, in producer
+    self.assertTrue(witness.is_file(),'actual fake-open child must be reached only after source I/O')
+AssertionError: False is not true : actual fake-open child must be reached only after source I/O
+
+----------------------------------------------------------------------
+Ran 14 tests in 27.001s
+
+FAILED (failures=1)
