@@ -348,7 +348,7 @@
 
 ## VSHADOW-010 — Принять тени на светлом и тёмном фоне
 
-Статус: `in_progress` · P1 · этап `pilot` · `engineering`
+Статус: `done` · P1 · этап `pilot` · `engineering`
 
 День, сумерки и интерьер проверены без bloom; нет двойного контура и потери читаемости лута
 
@@ -380,4 +380,4 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vshadow-010/README.md, docs/reports/visual-overhaul/vshadow-010/verification-current.json.
+Доказательства: docs/reports/visual-overhaul/vshadow-010/README.md, docs/reports/visual-overhaul/vshadow-010/verification-current.json, docs/reports/visual-overhaul/vshadow-010/closeout/result.json, docs/reports/visual-overhaul/vshadow-010/hook-env/README.md.
