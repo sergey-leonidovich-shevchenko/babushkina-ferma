@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<stdin>", line 17, in <module>
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/verify.py", line 339, in verify
+    cpu[str(width)] = pixels.costs(group["on"])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/pixels.py", line 136, in costs
+    raise ValueError("CPU sample scene differs from captured comparison")
+ValueError: CPU sample scene differs from captured comparison

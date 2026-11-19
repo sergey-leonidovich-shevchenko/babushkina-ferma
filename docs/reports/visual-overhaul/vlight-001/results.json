@@ -1,0 +1,325 @@
+{
+  "task": "VLIGHT-001",
+  "analysis_sources": {
+    "tools/qa/world/lighting/verify.py": "d4ed411fec9633ec2f095983b4813c7a621603c6c7ec7c333cbcf4c0fb36df5e",
+    "tools/qa/world/lighting/pixels.py": "95ec353d64ca74748f2eabc6bc8f18e591316ad6c06b03e926e8341d5a4dc9d1",
+    "tools/qa/world/lighting/storage.py": "541ea5e53aa5d437a70fd71176694c2d48230c71b598d8b37ad1d94396b1a858"
+  },
+  "acceptance_eligible": true,
+  "native_world_frames": 54,
+  "native_HUD_frames": 54,
+  "provenance": {
+    "captured_commit": "dc4429f89be9ddc29cf5a052ae4dd665fbfd71df",
+    "current_checked": false,
+    "shared_QA_inputs": {
+      "tools/qa/camera/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+      "tools/qa/world/render_order_game.gd": "662ad6e5af52bc95eb8d2804a7390ee5007caa88325aca2f7835873243a0000b",
+      "tools/qa/world/render_order_game.gd.uid": "7b49ff32159df62e69774b82710e23c012563014d9c03ef14d04f95448069352",
+      "docs/reports/visual-overhaul/vbase-003/camera-points.json": "3848320b5130ce3b29baf65a0a6ca1705e0675f2186d28934cc9d8ff9f2df7b8"
+    }
+  },
+  "comparisons": {
+    "1152": [
+      {
+        "id": "east-lamp-1140",
+        "changed_pixels": 681525,
+        "light_calls": 3,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 1
+      },
+      {
+        "id": "east-lamp-1320",
+        "changed_pixels": 682288,
+        "light_calls": 3,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 1
+      },
+      {
+        "id": "east-lamp-720",
+        "changed_pixels": 0,
+        "light_calls": 0,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 0
+      },
+      {
+        "id": "home-1140",
+        "changed_pixels": 673441,
+        "light_calls": 2,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 1
+      },
+      {
+        "id": "home-1320",
+        "changed_pixels": 673678,
+        "light_calls": 2,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 1
+      },
+      {
+        "id": "home-720",
+        "changed_pixels": 11762,
+        "light_calls": 1,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 0
+      },
+      {
+        "id": "west-lamp-1140",
+        "changed_pixels": 682180,
+        "light_calls": 3,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 1
+      },
+      {
+        "id": "west-lamp-1320",
+        "changed_pixels": 682910,
+        "light_calls": 3,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 1
+      },
+      {
+        "id": "west-lamp-720",
+        "changed_pixels": 0,
+        "light_calls": 0,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 0
+      }
+    ],
+    "1280": [
+      {
+        "id": "east-lamp-1140",
+        "changed_pixels": 842491,
+        "light_calls": 3,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 1
+      },
+      {
+        "id": "east-lamp-1320",
+        "changed_pixels": 843392,
+        "light_calls": 3,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 1
+      },
+      {
+        "id": "east-lamp-720",
+        "changed_pixels": 0,
+        "light_calls": 0,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 0
+      },
+      {
+        "id": "home-1140",
+        "changed_pixels": 832713,
+        "light_calls": 2,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 1
+      },
+      {
+        "id": "home-1320",
+        "changed_pixels": 833116,
+        "light_calls": 2,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 1
+      },
+      {
+        "id": "home-720",
+        "changed_pixels": 14581,
+        "light_calls": 1,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 0
+      },
+      {
+        "id": "west-lamp-1140",
+        "changed_pixels": 843241,
+        "light_calls": 3,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 1
+      },
+      {
+        "id": "west-lamp-1320",
+        "changed_pixels": 844116,
+        "light_calls": 3,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 1
+      },
+      {
+        "id": "west-lamp-720",
+        "changed_pixels": 0,
+        "light_calls": 0,
+        "production_equal": true,
+        "HUD_equal": true,
+        "opaque_HUD_max_delta": 0
+      }
+    ]
+  },
+  "CPU_submission": {
+    "1152": {
+      "west-lamp": {
+        "on_median_us": 7612.5,
+        "off_median_us": 7602.0,
+        "delta_us": 10.5,
+        "samples": [
+          270,
+          270
+        ],
+        "repeats": [
+          {
+            "repeat": 1,
+            "on_median_us": 7510.5,
+            "off_median_us": 7456.5,
+            "delta_us": 54.0
+          },
+          {
+            "repeat": 2,
+            "on_median_us": 7492.5,
+            "off_median_us": 7724.5,
+            "delta_us": -232.0
+          },
+          {
+            "repeat": 3,
+            "on_median_us": 7959.0,
+            "off_median_us": 7670.5,
+            "delta_us": 288.5
+          }
+        ],
+        "paired_saved_state_equal": true,
+        "camera_equal_to_visual_frame": true,
+        "visual_frame_save_delta": [
+          "estate.discovered",
+          "estate.expansion.workshops"
+        ]
+      },
+      "home": {
+        "on_median_us": 4262.0,
+        "off_median_us": 4031.5,
+        "delta_us": 230.5,
+        "samples": [
+          270,
+          270
+        ],
+        "repeats": [
+          {
+            "repeat": 1,
+            "on_median_us": 4284.0,
+            "off_median_us": 4007.5,
+            "delta_us": 276.5
+          },
+          {
+            "repeat": 2,
+            "on_median_us": 3968.0,
+            "off_median_us": 3918.5,
+            "delta_us": 49.5
+          },
+          {
+            "repeat": 3,
+            "on_median_us": 4490.5,
+            "off_median_us": 4206.0,
+            "delta_us": 284.5
+          }
+        ],
+        "paired_saved_state_equal": true,
+        "camera_equal_to_visual_frame": true,
+        "visual_frame_save_delta": []
+      }
+    },
+    "1280": {
+      "west-lamp": {
+        "on_median_us": 7594.0,
+        "off_median_us": 8072.0,
+        "delta_us": -478.0,
+        "samples": [
+          270,
+          270
+        ],
+        "repeats": [
+          {
+            "repeat": 1,
+            "on_median_us": 7534.5,
+            "off_median_us": 8099.0,
+            "delta_us": -564.5
+          },
+          {
+            "repeat": 2,
+            "on_median_us": 7612.0,
+            "off_median_us": 8293.5,
+            "delta_us": -681.5
+          },
+          {
+            "repeat": 3,
+            "on_median_us": 7608.5,
+            "off_median_us": 7670.5,
+            "delta_us": -62.0
+          }
+        ],
+        "paired_saved_state_equal": true,
+        "camera_equal_to_visual_frame": true,
+        "visual_frame_save_delta": [
+          "estate.discovered",
+          "estate.expansion.workshops"
+        ]
+      },
+      "home": {
+        "on_median_us": 4261.0,
+        "off_median_us": 4022.0,
+        "delta_us": 239.0,
+        "samples": [
+          270,
+          270
+        ],
+        "repeats": [
+          {
+            "repeat": 1,
+            "on_median_us": 3989.5,
+            "off_median_us": 3943.0,
+            "delta_us": 46.5
+          },
+          {
+            "repeat": 2,
+            "on_median_us": 4351.5,
+            "off_median_us": 4199.5,
+            "delta_us": 152.0
+          },
+          {
+            "repeat": 3,
+            "on_median_us": 4463.5,
+            "off_median_us": 4035.0,
+            "delta_us": 428.5
+          }
+        ],
+        "paired_saved_state_equal": true,
+        "camera_equal_to_visual_frame": true,
+        "visual_frame_save_delta": []
+      }
+    }
+  },
+  "viewports": {
+    "1152": {
+      "states": 6,
+      "independent_targets": true,
+      "both_directions_equal": true
+    },
+    "1280": {
+      "states": 6,
+      "independent_targets": true,
+      "both_directions_equal": true
+    }
+  },
+  "hardware_FPS_accepted": false,
+  "whole_map_accepted": false
+}

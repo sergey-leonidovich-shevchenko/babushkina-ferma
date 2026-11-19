@@ -1,0 +1,16 @@
+id,source,function,coordinates,representation,clock,retain,followup,scope,line
+world-darkness,scripts/systems/atmosphere_renderer.gd,draw,screen-after-world-before-HUD,alpha rectangle,game_minutes,Календарь и событие затмения,VLIGHT-003,first-location,7
+village-lamp,scripts/presentation/village_lamp_visual.gd,draw_glow,screen-after-darkness,shared colored ArrayMesh,WorldEventSystem.darkness,"Корпус, emitter-anchor и три ракурса",VLIGHT-004,first-location,44
+window-ray,scripts/systems/interior_renderer.gd,draw_textured_shell,world-before-actors,constant alpha polygon,none,"Окно, привязка к комнате и коллизии",VLIGHT-005,first-location,74
+eclipse-portal,scripts/systems/atmosphere_renderer.gd,draw_lights,screen-after-darkness,alpha circle,day/game_minutes,Условия перехода и положение портала,VLIGHT-002,first-location,24
+eclipse-sky,scripts/systems/atmosphere_renderer.gd,draw_eclipse,screen-before-HUD,decorative circles; not illumination,day/game_minutes,Небесное событие; не выключать вместе со светом,VLIGHT-009,first-location,64
+storm-flash,scripts/systems/atmosphere_renderer.gd,draw_rain,screen-before-HUD,weather-owned white alpha rectangle; not a local light,wall-clock Time.get_ticks_msec,Погоду и вспышку не выключать прибором освещения; комфорт и тон проверять отдельно,VLIGHT-009,first-location,43
+moon-return-portal,scripts/systems/atmosphere_renderer.gd,draw_lights,screen-after-darkness,alpha circle; moon_glade only,game_minutes; reduced scene darkness,Условия возврата и маркер перехода; только аудит существующего владельца,VLIGHT-002,compatibility-source-only,24
+cave-vein,scripts/systems/cave_renderer.gd,draw_lights,world-before-actors,shared radial GradientTexture2D,wall-clock Time.get_ticks_msec,Истощённая жила не светится,VLIGHT-007,compatibility-source-only,33
+cave-entrance-torch,scripts/systems/cave_renderer.gd,draw_lights,world-before-actors,shared radial GradientTexture2D,wall-clock Time.get_ticks_msec,Привязки к существующему выходу,VLIGHT-006,compatibility-source-only,33
+cave-static-beds,scripts/systems/cave_theme_renderer.gd,draw_background,cached-world-background,tinted radial texture and painted vegetation,none,Статичный декор и открытые проходы,VLIGHT-007,compatibility-source-only,14
+cave-dynamic-beds,scripts/systems/cave_theme_renderer.gd,draw_lights,world-before-actors,radial textures and decorative lake arcs,wall-clock Time.get_ticks_msec,"Кластеры, водоёмы и декор",VLIGHT-007,compatibility-source-only,54
+boss-crystals-and-seals,scripts/systems/cave_boss_arena_renderer.gd,draw_lights,world-before-actors,"radial textures, polygons and seal line",saved cave_boss.clock,"Победа, печати и возможность выхода",VLIGHT-007,compatibility-source-only,25
+cave-passages,scripts/systems/cave_renderer.gd,_draw_passage,world-gate-pass,radial texture and decorative arc,none,Межкомнатные переходы и подписи,VLIGHT-002,compatibility-source-only,81
+kitchen-fire-and-steam,scripts/presentation/kitchen_fx_renderer.gd,draw,world-station-pass,fire sprite frames and steam circles; no light cast,paid job progress,"Топливо, рецепт, пауза и производство",VLIGHT-006,compatibility-source-only,14
+basement-painted-lantern,scripts/presentation/basement_room_renderer.gd,draw,cached-interior-background,painted lantern texture; no separate glow,none,Самостоятельный спрайт и его пропорции,VLIGHT-006,compatibility-source-only,8

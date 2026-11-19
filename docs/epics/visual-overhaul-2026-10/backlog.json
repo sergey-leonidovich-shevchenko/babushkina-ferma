@@ -4841,7 +4841,7 @@
       "id": "VLIGHT-001",
       "epic": "VLIGHT",
       "title": "Составить карту существующего света",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -4878,7 +4878,12 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vlight-001-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vlight-001/README.md",
+        "docs/reports/visual-overhaul/vlight-001/results.json",
+        "docs/reports/visual-overhaul/vlight-001/native/source.json"
+      ],
+      "result": "Составлена карта 15 групп/16 runtime-входов и четырёх общих QA-зависимостей. На принятой production-базе dc4429f8 снята свежая native-D: 126 PNG в двух окнах, 54 world/54 HUD, точный production/on, bounded off, два viewport, 2160 CPU samples. Состояния CPU on/off/повторов точны; отличие прогрева от раннего PNG явно сохранено. Строгая semantic5, 8 contract и 16 reader проверок прошли. Runtime и графика не заменены; впереди полный TESTING.md, Wiki/браузер, CI и независимое exact-head review/решение Team Lead. Статус in_progress; ожидается слот после второго SMITH hook."
     },
     {
       "id": "VLIGHT-002",
