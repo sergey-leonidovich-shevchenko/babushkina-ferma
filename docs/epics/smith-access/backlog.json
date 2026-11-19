@@ -28,7 +28,7 @@
         "Проверка сохранности старых реестров и ацикличности полного графа; Wiki check, браузер и обязательные проверки TESTING.md."
       ],
       "needs": [],
-      "result": "Подготовка в codex/smith-00-forge-service-plan от dc4429f89be9ddc29cf5a052ae4dd665fbfd71df. Ожидает публикации PR и независимого ревью; runtime не меняется.",
+      "result": "PR https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/76, ветка codex/smith-00-forge-service-plan, база dc4429f89be9ddc29cf5a052ae4dd665fbfd71df. Первый опубликованный head fb87ac003db7d709bcd8d3661d15679545608c98: полный штатный hook PASS (quality, architecture, Game 53693/0, normal/F10 по 90/0), Wiki 167/167, каталог и браузер. Актуальный head и его проверки фиксируются в PR; ожидаются независимое ревью и решение Team Lead. Новые механики ещё не реализованы; статус остаётся in_progress до принятого merge.",
       "branch": "codex/smith-00-forge-service-plan"
     },
     {
