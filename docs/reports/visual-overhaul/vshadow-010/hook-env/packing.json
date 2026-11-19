@@ -1,0 +1,40 @@
+{
+  "files": {
+    "README.md": {
+      "bytes": 4796,
+      "sha256": "5720c2baecd68174f2951cc9dfd37b668b6d33540536efc5732f6b0e42da9a9d"
+    },
+    "contract.txt": {
+      "bytes": 105,
+      "sha256": "f7f86a4a9269ba19fd3cb55fb74ed8750058cfd9275691284e8972b2ced69710"
+    },
+    "current.json": {
+      "bytes": 3762,
+      "sha256": "92af9d40ffb19951dd8825caed1f96e774ac2fd370077d414ba867ebb1f089d4"
+    },
+    "first-hook-failure.zip": {
+      "bytes": 23600,
+      "sha256": "58ab851b31d336f6efbb2950b9f7638806e358ffb42d4efda7490f5e5c0146d3"
+    },
+    "previous.json": {
+      "bytes": 5022,
+      "sha256": "471e08e26d61c8aa5f949082d2f5143448f6f525651ac63b46ad92d9b47d7146"
+    },
+    "readability.txt": {
+      "bytes": 123,
+      "sha256": "72d72853e8d6193672e46dae983ca9e2863632c71a928c065c4d39c342902bef"
+    },
+    "regression.txt": {
+      "bytes": 100,
+      "sha256": "5b074d9f84028d823f55ee4aab753e4c94e0f1e3d1fe5b071d60d5b2d4410047"
+    },
+    "repair.json": {
+      "bytes": 1340,
+      "sha256": "5f2a106c388cfb879e9ccc7f89551ea84689c48c15e98ea8b025d8dc2198058e"
+    },
+    "verification.json": {
+      "bytes": 6702,
+      "sha256": "d77413ce6abac7be606f6124975d355a17f704a00c959d8765bc239408de6b7d"
+    }
+  }
+}

@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any
 from unittest.mock import patch
 
+from tools.common.git import git_environment
 from tools.qa.world.shadows.contract import (
     MESH_FILES,
     ROOT,
@@ -110,8 +111,10 @@ class ContactContractTests(unittest.TestCase):
                 target = repo / name
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes(raw)
-            subprocess.run(["git", "init", "-q", str(repo)], check=True)
-            subprocess.run(["git", "-C", str(repo), "add", "."], check=True)
+            # Git hook передаёт GIT_DIR/INDEX родителя даже команде с явным -C.
+            environment = git_environment()
+            subprocess.run(["git", "init", "-q", str(repo)], check=True, env=environment)
+            subprocess.run(["git", "-C", str(repo), "add", "."], check=True, env=environment)
             subprocess.run(
                 [
                     "git",
@@ -128,11 +131,15 @@ class ContactContractTests(unittest.TestCase):
                     "isolated fixture",
                 ],
                 check=True,
+                env=environment,
             )
             commit = subprocess.check_output(
-                ["git", "-C", str(repo), "rev-parse", "HEAD"], text=True
+                ["git", "-C", str(repo), "rev-parse", "HEAD"], text=True, env=environment
             ).strip()
-            index = (repo / ".git/index").read_bytes()
+            # Собственный git diff вправе обновлять stat-cache после восстановления файлов.
+            # Состав staged blobs неизменен; чужой index проверяется побайтно в hook-регрессии.
+            index_command = ["git", "-C", str(repo), "ls-files", "--stage", "-z"]
+            index = subprocess.check_output(index_command, env=environment)
             config = (repo / ".git/config").read_bytes()
             with (
                 patch("tools.qa.world.shadows.contract.ROOT", repo),
@@ -157,7 +164,7 @@ class ContactContractTests(unittest.TestCase):
                         with self.assertRaisesRegex(ValueError, "production must match"):
                             head(True)
                         (repo / name).write_bytes(files[name])
-            self.assertEqual((repo / ".git/index").read_bytes(), index)
+            self.assertEqual(subprocess.check_output(index_command, env=environment), index)
             self.assertEqual((repo / ".git/config").read_bytes(), config)
 
     def test_traversal_cannot_enter_project_but_external_alias_is_normalized(self) -> None:

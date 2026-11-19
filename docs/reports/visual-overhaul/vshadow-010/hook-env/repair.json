@@ -1,0 +1,23 @@
+{
+  "task": "VSHADOW-010",
+  "failure": "unsanitized fixture Git commands inherited actual pre-commit GIT_DIR; git init set common core.bare=true",
+  "repair": "only core.bare restored from true to false",
+  "config_after_equals_failure_with_only_bare_repaired": true,
+  "failed_config_sha256": "b0aa2865b2289aa8ac8d0693f0ad99e536f4703293be5e0e49fc1e466aab6db8",
+  "repaired_config_sha256": "e5fea4f1df0d0eed70b00ad8e945dfc90088567ffdd47e34a4e4efbaade74eaf",
+  "head": "4cf7b421a1c879f9240e37a9aa478a1d97e5cf69",
+  "original_checkout_head": "7976630ce372d3e7ac0c15b154ca7377d398450c",
+  "full_pre_hook_index_config_snapshot_available": false,
+  "negative_rerun_in_real_project": false,
+  "capture_inputs_unchanged": true,
+  "git_family_audit": {
+    "contract.git": "git_environment",
+    "collect.archive": "git_environment",
+    "test_support.all_git": "git_environment",
+    "test_contract.fixture_git": "fixed to git_environment",
+    "test_readability.cli": "intentional hostile CLI environment; its Git reads are sanitized",
+    "test_hook_context.setup": "git_environment; actual hook exports its own temporary parent GIT_DIR"
+  },
+  "regression_source_sha256": "e24ef941e7140605a0f1c38a3a31ae112792f9b18bb600c9f53519c98137b114",
+  "current_contract_test_sha256": "97bf11b7f917d28cbdfa06ea46944a604fe574b72172487179356465ce5fc74e"
+}

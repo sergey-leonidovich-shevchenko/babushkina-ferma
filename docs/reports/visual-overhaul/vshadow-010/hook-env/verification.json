@@ -1,0 +1,283 @@
+{
+  "task": "VSHADOW-010",
+  "commit": "bc483b7b09635415fd29e8fac7447789209bc9cc",
+  "source_state": "working-tree",
+  "runtime_overlay_sha256": "8ef1a619f81c0325e12a299880c834897e7c829965f910fbfe5ef4c1ba0a568e",
+  "checked_current_candidate": true,
+  "acceptance_eligible": true,
+  "performance_eligible": false,
+  "results": {
+    "1152-farm-1140": {
+      "contact_pixels": 418,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 1730,
+          "opaque_core_pixels": 914
+        },
+        "stone": {
+          "visible_pixels": 1730,
+          "opaque_core_pixels": 972
+        },
+        "wood": {
+          "visible_pixels": 1361,
+          "opaque_core_pixels": 719
+        }
+      }
+    },
+    "1152-farm-720": {
+      "contact_pixels": 464,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 1738,
+          "opaque_core_pixels": 914
+        },
+        "stone": {
+          "visible_pixels": 1744,
+          "opaque_core_pixels": 972
+        },
+        "wood": {
+          "visible_pixels": 1370,
+          "opaque_core_pixels": 719
+        }
+      }
+    },
+    "1152-grove-1140": {
+      "contact_pixels": 2614,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 1732,
+          "opaque_core_pixels": 887
+        },
+        "stone": {
+          "visible_pixels": 1711,
+          "opaque_core_pixels": 952
+        },
+        "wood": {
+          "visible_pixels": 1455,
+          "opaque_core_pixels": 694
+        }
+      }
+    },
+    "1152-grove-720": {
+      "contact_pixels": 2684,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 1743,
+          "opaque_core_pixels": 887
+        },
+        "stone": {
+          "visible_pixels": 1735,
+          "opaque_core_pixels": 952
+        },
+        "wood": {
+          "visible_pixels": 1480,
+          "opaque_core_pixels": 694
+        }
+      }
+    },
+    "1152-home-1140": {
+      "contact_pixels": 23,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 1189,
+          "opaque_core_pixels": 563
+        },
+        "stone": {
+          "visible_pixels": 1183,
+          "opaque_core_pixels": 599
+        },
+        "wood": {
+          "visible_pixels": 1002,
+          "opaque_core_pixels": 432
+        }
+      }
+    },
+    "1152-home-720": {
+      "contact_pixels": 25,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 1207,
+          "opaque_core_pixels": 563
+        },
+        "stone": {
+          "visible_pixels": 1198,
+          "opaque_core_pixels": 599
+        },
+        "wood": {
+          "visible_pixels": 1019,
+          "opaque_core_pixels": 432
+        }
+      }
+    },
+    "1152-street-1140": {
+      "contact_pixels": 3458,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 1117,
+          "opaque_core_pixels": 517
+        },
+        "stone": {
+          "visible_pixels": 1716,
+          "opaque_core_pixels": 972
+        },
+        "wood": {
+          "visible_pixels": 940,
+          "opaque_core_pixels": 409
+        }
+      }
+    },
+    "1152-street-720": {
+      "contact_pixels": 3544,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 1112,
+          "opaque_core_pixels": 517
+        },
+        "stone": {
+          "visible_pixels": 1736,
+          "opaque_core_pixels": 972
+        },
+        "wood": {
+          "visible_pixels": 956,
+          "opaque_core_pixels": 409
+        }
+      }
+    },
+    "1280-farm-1140": {
+      "contact_pixels": 508,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 2126,
+          "opaque_core_pixels": 1131
+        },
+        "stone": {
+          "visible_pixels": 2125,
+          "opaque_core_pixels": 1213
+        },
+        "wood": {
+          "visible_pixels": 1677,
+          "opaque_core_pixels": 889
+        }
+      }
+    },
+    "1280-farm-720": {
+      "contact_pixels": 576,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 2130,
+          "opaque_core_pixels": 1131
+        },
+        "stone": {
+          "visible_pixels": 2144,
+          "opaque_core_pixels": 1213
+        },
+        "wood": {
+          "visible_pixels": 1688,
+          "opaque_core_pixels": 890
+        }
+      }
+    },
+    "1280-grove-1140": {
+      "contact_pixels": 3267,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 2121,
+          "opaque_core_pixels": 1131
+        },
+        "stone": {
+          "visible_pixels": 2136,
+          "opaque_core_pixels": 1213
+        },
+        "wood": {
+          "visible_pixels": 1780,
+          "opaque_core_pixels": 893
+        }
+      }
+    },
+    "1280-grove-720": {
+      "contact_pixels": 3332,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 2135,
+          "opaque_core_pixels": 1131
+        },
+        "stone": {
+          "visible_pixels": 2151,
+          "opaque_core_pixels": 1213
+        },
+        "wood": {
+          "visible_pixels": 1808,
+          "opaque_core_pixels": 893
+        }
+      }
+    },
+    "1280-home-1140": {
+      "contact_pixels": 26,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 1469,
+          "opaque_core_pixels": 759
+        },
+        "stone": {
+          "visible_pixels": 1460,
+          "opaque_core_pixels": 817
+        },
+        "wood": {
+          "visible_pixels": 1242,
+          "opaque_core_pixels": 596
+        }
+      }
+    },
+    "1280-home-720": {
+      "contact_pixels": 25,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 1482,
+          "opaque_core_pixels": 759
+        },
+        "stone": {
+          "visible_pixels": 1474,
+          "opaque_core_pixels": 817
+        },
+        "wood": {
+          "visible_pixels": 1265,
+          "opaque_core_pixels": 596
+        }
+      }
+    },
+    "1280-street-1140": {
+      "contact_pixels": 4282,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 1353,
+          "opaque_core_pixels": 626
+        },
+        "stone": {
+          "visible_pixels": 2144,
+          "opaque_core_pixels": 1213
+        },
+        "wood": {
+          "visible_pixels": 1174,
+          "opaque_core_pixels": 522
+        }
+      }
+    },
+    "1280-street-720": {
+      "contact_pixels": 4387,
+      "visible_loot_pixels": {
+        "apple": {
+          "visible_pixels": 1344,
+          "opaque_core_pixels": 626
+        },
+        "stone": {
+          "visible_pixels": 2140,
+          "opaque_core_pixels": 1213
+        },
+        "wood": {
+          "visible_pixels": 1191,
+          "opaque_core_pixels": 522
+        }
+      }
+    }
+  }
+}

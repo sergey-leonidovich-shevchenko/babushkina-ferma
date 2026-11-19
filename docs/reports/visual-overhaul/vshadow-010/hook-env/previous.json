@@ -1,0 +1,77 @@
+{
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "fatal: this operation must be run in a work tree\nE\n======================================================================\nERROR: test_working_candidate_guard_uses_real_git_and_rejects_unrelated_production (shadow_hook_candidate.ContactContractTests.test_working_candidate_guard_uses_real_git_and_rejects_unrelated_production)\nВ своей Git-копии разрешены два runtime-входа; ассеты, сцена и project не обходят guard.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/shadow-hook-biw2fy2m/candidate.py\", line 114, in test_working_candidate_guard_uses_real_git_and_rejects_unrelated_production\n    subprocess.run([\"git\", \"-C\", str(repo), \"add\", \".\"], check=True)\n  File \"/Users/sergeyshevchenko/my farm/tmp/vfoliage-python-managed/cpython-3.11.17-macos-x86_64-none/lib/python3.11/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['git', '-C', '/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/shadow candidate Git iuk5ee1c', 'add', '.']' returned non-zero exit status 128.\n\n----------------------------------------------------------------------\nRan 1 test in 0.055s\n\nFAILED (errors=1)\n",
+  "parent_before_commit": {
+    "files": {
+      "config": "a03bc785c95ac8efd89ad31fe3796a4854cf9b44c6fa713efdaab495c71cf04d",
+      "parent_index": "0f9111a35cb4ee2707d7929804efa0e07c1883df343ea32c88d23c56e147ba94",
+      "parent_head": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+      "linked_index": "79de50918164eb12210d77a975b4e38c8be72e8946cba4534fb6a56eddc0dc33",
+      "linked_head": "a3934f51b5022794a6eaf6bedea231a77ee2435f10cf6f83dee1b5c218da40d8",
+      "linked_config": null
+    },
+    "refs": {
+      "refs/heads/hook-candidate": "a41b12da53c80fa25c1773e2b7a64a86e9206574784c8cb7d992fedfef5ff83f",
+      "refs/heads/main": "a41b12da53c80fa25c1773e2b7a64a86e9206574784c8cb7d992fedfef5ff83f"
+    },
+    "bare": false
+  },
+  "parent_after_commit": {
+    "files": {
+      "config": "7b2c4d16d998f2d338800b2e821fc11004ee07ac5d177bb3d8ebbefa3825bbda",
+      "parent_index": "0f9111a35cb4ee2707d7929804efa0e07c1883df343ea32c88d23c56e147ba94",
+      "parent_head": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+      "linked_index": "658f622502e133816a5a594f7edd6b704a4793601c2a34f4b67c27eec09ebcd2",
+      "linked_head": "a3934f51b5022794a6eaf6bedea231a77ee2435f10cf6f83dee1b5c218da40d8",
+      "linked_config": null
+    },
+    "refs": {
+      "refs/heads/hook-candidate": "a41b12da53c80fa25c1773e2b7a64a86e9206574784c8cb7d992fedfef5ff83f",
+      "refs/heads/main": "a41b12da53c80fa25c1773e2b7a64a86e9206574784c8cb7d992fedfef5ff83f"
+    },
+    "bare": true
+  },
+  "hook": {
+    "candidate_sha256": "2e39c3e79ee4811bd44b7e1a14ba4109d15817c2c38afd55bde4f9989a0f0168",
+    "tests": 1,
+    "passed": false,
+    "inherited": {
+      "GIT_DIR": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/shadow-hook-biw2fy2m/parent/.git/worktrees/linked-project",
+      "GIT_INDEX_FILE": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/shadow-hook-biw2fy2m/parent/.git/worktrees/linked-project/index",
+      "GIT_WORK_TREE": null,
+      "GIT_PREFIX": ""
+    },
+    "before": {
+      "files": {
+        "config": "a03bc785c95ac8efd89ad31fe3796a4854cf9b44c6fa713efdaab495c71cf04d",
+        "parent_index": "0f9111a35cb4ee2707d7929804efa0e07c1883df343ea32c88d23c56e147ba94",
+        "parent_head": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+        "linked_index": "658f622502e133816a5a594f7edd6b704a4793601c2a34f4b67c27eec09ebcd2",
+        "linked_head": "a3934f51b5022794a6eaf6bedea231a77ee2435f10cf6f83dee1b5c218da40d8",
+        "linked_config": null
+      },
+      "refs": {
+        "refs/heads/hook-candidate": "a41b12da53c80fa25c1773e2b7a64a86e9206574784c8cb7d992fedfef5ff83f",
+        "refs/heads/main": "a41b12da53c80fa25c1773e2b7a64a86e9206574784c8cb7d992fedfef5ff83f"
+      },
+      "bare": false
+    },
+    "after": {
+      "files": {
+        "config": "7b2c4d16d998f2d338800b2e821fc11004ee07ac5d177bb3d8ebbefa3825bbda",
+        "parent_index": "0f9111a35cb4ee2707d7929804efa0e07c1883df343ea32c88d23c56e147ba94",
+        "parent_head": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+        "linked_index": "658f622502e133816a5a594f7edd6b704a4793601c2a34f4b67c27eec09ebcd2",
+        "linked_head": "a3934f51b5022794a6eaf6bedea231a77ee2435f10cf6f83dee1b5c218da40d8",
+        "linked_config": null
+      },
+      "refs": {
+        "refs/heads/hook-candidate": "a41b12da53c80fa25c1773e2b7a64a86e9206574784c8cb7d992fedfef5ff83f",
+        "refs/heads/main": "a41b12da53c80fa25c1773e2b7a64a86e9206574784c8cb7d992fedfef5ff83f"
+      },
+      "bare": true
+    },
+    "environment_preserved": true
+  }
+}
