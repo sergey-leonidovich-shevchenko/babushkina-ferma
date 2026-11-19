@@ -1,0 +1,17 @@
+{
+  "source_sha256": "41b36c3ef0c9b8ee6d1cf1b61cb5893c5f3b37f40e87065425e25541cbdc2963",
+  "raw_bytes_preserved": true,
+  "format": "ZIP_DEFLATED",
+  "packages": {
+    "1152": {
+      "files": 62,
+      "zip_sha256": "b3ee36583f42817a04b18076f8730ca4ffd7489e138b966d0255242ef5d4814d",
+      "zip_bytes": 30440920
+    },
+    "1280": {
+      "files": 60,
+      "zip_sha256": "c8f034bf3a5c7ba1c106579b08939efa1b498c795c9a1a2fb29c6d92bbd0debf",
+      "zip_bytes": 33943001
+    }
+  }
+}

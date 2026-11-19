@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py", line 10, in <module>
+    main()
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/common/launch.py", line 78, in main
+    runpy.run_module(target, run_name="__main__", alter_sys=True)
+  File "<frozen runpy>", line 226, in run_module
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/shadows/verify.py", line 296, in <module>
+    main()
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/shadows/verify.py", line 288, in main
+    verify(args.input, args.diagnostic, args.check_current_candidate),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/shadows/verify.py", line 264, in verify
+    results[f"{width}-{frame_id}"] = compare(images, frames["on"], sources)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/shadows/pixels.py", line 90, in compare
+    raise ValueError(f"shadow covers opaque loot: {item['kind']} ({overlap} pixels)")
+ValueError: shadow covers opaque loot: stone (227 pixels)

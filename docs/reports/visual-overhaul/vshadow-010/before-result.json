@@ -1,0 +1,8 @@
+{
+  "command": "python3 tools/run.py qa.world.shadows.verify --input docs/reports/visual-overhaul/vshadow-010/native-before",
+  "exit_code": 1,
+  "expected_failure": "shadow covers opaque loot: stone",
+  "source_commit": "bc483b7b09635415fd29e8fac7447789209bc9cc",
+  "complete_native_frames": 64,
+  "performance_eligible": false
+}

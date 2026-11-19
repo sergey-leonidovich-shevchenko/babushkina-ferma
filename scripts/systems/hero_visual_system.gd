@@ -5,6 +5,7 @@ const SpriteMatteSystem := preload("res://scripts/systems/sprite_matte_system.gd
 const Combat := preload("res://scripts/systems/hero_combat_visual_system.gd")
 const FullActions := preload("res://scripts/systems/hero_action_visual_system.gd")
 const ContactShadows := preload("res://scripts/presentation/contact_shadow_shapes.gd")
+const CONTACT_SCOPE := &"hero_contact_ground_pass"
 const WALK_MASTER := preload("res://assets/game/characters/hero_v3/walk_master.png")
 const HOE_MASTER := preload("res://assets/game/characters/hero_v3/hoe_master.png")
 const DRAW_SCALE := 0.32
@@ -101,17 +102,42 @@ static func draw_actor(
 	var full_body_action: bool = pose.get("full_body_action", false)
 	if Combat.active(game) or full_body_action:
 		action = {}
+	var contact_in_ground_pass: bool = game.get_meta(CONTACT_SCOPE, false)
+	if not contact_in_ground_pass:
+		draw_shadow(game, ground)
+	if not action.is_empty() and action.action != "hoe" and direction == Vector2.UP:
+		draw_tool(game, ground, action)
+	draw_pose(game, ground, pose, tint)
+	if not action.is_empty() and action.action != "hoe" and direction != Vector2.UP:
+		draw_tool(game, ground, action)
+
+
+## Мировой проход вызывает контакт до лута; самостоятельные превью сохраняют прежний default.
+static func draw_shadow(game: Node2D, ground: Vector2) -> void:
 	if game.get("current_location") == "overworld":
 		ContactShadows.draw(game, ContactShadows.Shape.BOOTS, ground)
 	else:
 		# Игровой фасад и витрина персонажей оба предоставляют эту систему.
 		@warning_ignore("unsafe_property_access", "unsafe_method_access")
 		game.DirectionalCharacterSystem.draw_soft_shadow(game, ground, Vector2(15, 5))
-	if not action.is_empty() and action.action != "hoe" and direction == Vector2.UP:
-		draw_tool(game, ground, action)
-	draw_pose(game, ground, pose, tint)
-	if not action.is_empty() and action.action != "hoe" and direction != Vector2.UP:
-		draw_tool(game, ground, action)
+
+
+## Ограничивает пропуск контакта одним синхронным вызовом тела и восстанавливает вложенный scope.
+## Флаг не переживает draw, не входит в сохранение и не меняет самостоятельные превью.
+static func draw_player_pass(
+	game: Node2D, draw_body: Callable, contact_in_ground_pass: bool
+) -> void:
+	if not contact_in_ground_pass:
+		draw_body.call()
+		return
+	var existed := game.has_meta(CONTACT_SCOPE)
+	var previous: Variant = game.get_meta(CONTACT_SCOPE, false)
+	game.set_meta(CONTACT_SCOPE, true)
+	draw_body.call()
+	if existed:
+		game.set_meta(CONTACT_SCOPE, previous)
+	else:
+		game.remove_meta(CONTACT_SCOPE)
 
 
 ## Даёт отрисовке и инспектору один источник текущей позы и её фактических границ.

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/Godot.app/Contents/MacOS/Godot",
+    "--path",
+    "/private/tmp/farm-vshadow010-native-20261119-a/production-project",
+    "--log-file",
+    "/private/tmp/farm-vshadow010-native-20261119-a/import.txt",
+    "--headless",
+    "--editor",
+    "--quit"
+  ],
+  "project": "/private/tmp/farm-vshadow010-native-20261119-a/production-project",
+  "status": "exited",
+  "exit_code": 0
+}

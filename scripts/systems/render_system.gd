@@ -21,6 +21,7 @@ const BasementRenderer := preload("res://scripts/presentation/basement_renderer.
 const BridgeLayers := preload("res://scripts/presentation/overworld_bridge_layers.gd")
 const ContactShadows := preload("res://scripts/presentation/overworld_contact_shadows.gd")
 const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
+const HeroVisual := preload("res://scripts/systems/hero_visual_system.gd")
 
 
 ## Координирует отрисовку текущего состояния без изменения игровой логики.
@@ -41,13 +42,19 @@ static func draw(game: Node2D) -> void:
 		return
 	TreeOcclusion.begin_frame(game)
 	WorldProjection.apply(game)
+	var separate_hero_contact: bool = (
+		game.current_location == "overworld"
+		or game.BuildingSystem.is_interior(game.current_location)
+	)
 	if game.BuildingSystem.is_interior(game.current_location):
 		game.draw_interior_objects()
+		HeroVisual.draw_shadow(game, Pose.ground(game))
 		game.draw_quest_npcs()
 	elif game.current_location == "overworld":
 		game.VillageAmbientRenderer.draw_ground(game)
 		game.draw_farm()
 		ContactShadows.draw(game)
+		HeroVisual.draw_shadow(game, Pose.ground(game))
 		VillagePropRenderer.draw(game, false)
 		game.draw_rpg_world()
 	else:
@@ -90,11 +97,12 @@ static func draw(game: Node2D) -> void:
 		var foot := Pose.ground(game)
 		WorldProjection.apply(game)
 		BridgeLayers.draw_rails(game, view, foot, false)
-		game.draw_player()
+		# Явный вызов сохраняет инвентарь render-команд и прежнюю точку тела героя.
+		HeroVisual.draw_player_pass(game, func() -> void: game.draw_player(), separate_hero_contact)
 		WorldProjection.apply(game)
 		BridgeLayers.draw_rails(game, view, foot, true)
 	else:
-		game.draw_player()
+		HeroVisual.draw_player_pass(game, func() -> void: game.draw_player(), separate_hero_contact)
 	game.WorldLootRenderer.draw_front(game)
 	game.VillageEventRenderer.draw(game, true)
 	game.FenceRenderer.draw_world(game, true)

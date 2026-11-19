@@ -1,0 +1,23 @@
+SHADOW READABILITY 1152-production
+SHADOW READABILITY 1152-on
+SHADOW READABILITY 1152-off
+SHADOW READABILITY 1152-no-loot
+SHADOW READABILITY 1280-production
+SHADOW READABILITY 1280-on
+SHADOW READABILITY 1280-off
+SHADOW READABILITY 1280-no-loot
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py", line 10, in <module>
+    main()
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/common/launch.py", line 78, in main
+    runpy.run_module(target, run_name="__main__", alter_sys=True)
+  File "<frozen runpy>", line 226, in run_module
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/shadows/collect.py", line 289, in <module>
+    main()
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/shadows/collect.py", line 285, in main
+    collect(args.output, [args.width] if args.width else [1152, 1280], args.working_candidate)
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/shadows/collect.py", line 262, in collect
+    raise ValueError("QA source changed during capture")
+ValueError: QA source changed during capture

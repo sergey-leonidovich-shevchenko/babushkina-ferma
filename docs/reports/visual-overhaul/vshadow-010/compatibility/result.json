@@ -1,0 +1,11 @@
+{
+  "first_hook_exit_code": 1,
+  "commit_created": false,
+  "quality_failed_steps": 0,
+  "failed_test": "test_render_order_real_inputs_and_failed_fake_child",
+  "cause": "source inventory requires an explicit game.draw_player call; a bound method reference was not inventoried",
+  "fix": "explicit synchronous callback in both existing player branches",
+  "producer_retry_tests": 14,
+  "producer_retry_failures": 0,
+  "native_frames_in_retry": 0
+}

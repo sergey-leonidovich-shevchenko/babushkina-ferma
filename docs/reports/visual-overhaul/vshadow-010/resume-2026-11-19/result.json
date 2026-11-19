@@ -1,0 +1,32 @@
+{
+  "task": "VSHADOW-010",
+  "date": "2026-11-19",
+  "base": "bc483b7b09635415fd29e8fac7447789209bc9cc",
+  "local_godot_after_resume": false,
+  "interrupted_hook": "quality passed; architecture interrupted by owner stop; Game/normal/F10 not run",
+  "contract_tests": 7,
+  "readability_tests": 23,
+  "current_candidate_verified": true,
+  "publication": {
+    "draft": true,
+    "command": "git commit --no-verify -F tmp/vshadow-010/commit-message.txt",
+    "authorization": "Team Lead decision 2026-11-19 following owner continuation while local Godot prohibition remains",
+    "reason": "pre-commit launches local Godot; mandatory equivalent quality/architecture/Game/normal/F10/Wiki checks move to exact-head GitHub CI",
+    "status": "required remote gates pending; no merge authorization"
+  },
+  "artifacts": {
+    "contract.txt": "15a83205cf5beff9cbac33d92d8b4be75dc5db0819ac34f5266d9781a744f3c1",
+    "planning.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "quality-before-stop.txt": "48ce2f73a09f012cd4566b0b9d2e032dff8c9e2bd3b927ab0a23184566269f66",
+    "readability.txt": "1a61dc512564ccf0d57c3223eb133e4fbedf4d0a8463e3c666c9a95132d2c2f4",
+    "static.txt": "fea5962bcfb06b697b2f32fc96ed46b53ad786e75326bde8608c8e055f2c4ef6",
+    "verification.json": "d77413ce6abac7be606f6124975d355a17f704a00c959d8765bc239408de6b7d"
+  },
+  "static_checks": [
+    "Ruff lint",
+    "Ruff format",
+    "mypy",
+    "gdformat",
+    "gdlint"
+  ]
+}

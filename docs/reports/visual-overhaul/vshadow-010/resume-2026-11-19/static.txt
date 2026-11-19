@@ -1,0 +1,11 @@
+CHECK ruff
+All checks passed!
+CHECK ruff
+9 files already formatted
+CHECK mypy
+Success: no issues found in 9 source files
+CHECK gdformat
+8 files would be left unchanged
+CHECK gdlint
+Success: no problems found
+STATIC CHECKS: 5 passed; Godot not invoked

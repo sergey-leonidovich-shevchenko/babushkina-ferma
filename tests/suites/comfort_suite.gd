@@ -1,21 +1,22 @@
 extends "res://tests/suites/suite_base.gd"
 
-const RuntimeSuite:=preload("res://tests/suites/runtime_comfort_suite.gd")
-const ItemSuite:=preload("res://tests/suites/item_window_comfort_suite.gd")
-const HudSuite:=preload("res://tests/suites/hud_comfort_suite.gd")
-const HeroActionSuite:=preload("res://tests/suites/hero_action_suite.gd")
-const HeroVisualSuite:=preload("res://tests/suites/hero_visual_suite.gd")
-const VillageMapSuite:=preload("res://tests/suites/village_map_suite.gd")
-const TextMetricsSuite:=preload("res://tests/suites/ui_text_metrics_cache_suite.gd")
-const CornerSuite:=preload("res://tests/suites/player_corner_assist_suite.gd")
-const TreeOcclusionSuite:=preload("res://tests/suites/tree_occlusion_suite.gd")
-const CornerWorldSuite:=preload("res://tests/suites/player_corner_world_suite.gd")
-const GrandmotherSuite:=preload("res://tests/suites/grandmother_visual_suite.gd")
-const CompactHudSuite:=preload("res://tests/suites/compact_hud_suite.gd")
-const QuickAccessSuite:=preload("res://tests/suites/quick_access_visual_suite.gd")
+const RuntimeSuite := preload("res://tests/suites/runtime_comfort_suite.gd")
+const ItemSuite := preload("res://tests/suites/item_window_comfort_suite.gd")
+const HudSuite := preload("res://tests/suites/hud_comfort_suite.gd")
+const HeroActionSuite := preload("res://tests/suites/hero_action_suite.gd")
+const HeroVisualSuite := preload("res://tests/suites/hero_visual_suite.gd")
+const VillageMapSuite := preload("res://tests/suites/village_map_suite.gd")
+const TextMetricsSuite := preload("res://tests/suites/ui_text_metrics_cache_suite.gd")
+const CornerSuite := preload("res://tests/suites/player_corner_assist_suite.gd")
+const TreeOcclusionSuite := preload("res://tests/suites/tree_occlusion_suite.gd")
+const CornerWorldSuite := preload("res://tests/suites/player_corner_world_suite.gd")
+const GrandmotherSuite := preload("res://tests/suites/grandmother_visual_suite.gd")
+const CompactHudSuite := preload("res://tests/suites/compact_hud_suite.gd")
+const QuickAccessSuite := preload("res://tests/suites/quick_access_visual_suite.gd")
+
 
 ## Объединяет независимые регрессии удобства, сохраняя главный тестовый runner компактным.
-func run()->void:
+func run() -> void:
 	preload("res://tests/suites/action_lifecycle_suite.gd").new(context).run()
 	preload("res://tests/suites/focus_pause_suite.gd").new(context).run()
 	preload("res://tests/suites/runtime_maintenance_suite.gd").new(context).run()
@@ -33,6 +34,7 @@ func run()->void:
 	HudSuite.new(context).run()
 	HeroActionSuite.new(context).run()
 	HeroVisualSuite.new(context).run()
+	preload("res://tests/suites/hero_contact_scope_suite.gd").new(context).run()
 	VillageMapSuite.new(context).run()
 	TextMetricsSuite.new(context).run()
 	CornerSuite.new(context).run()
