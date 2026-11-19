@@ -69,3 +69,5 @@ Guard отклоняет нормализованный путь с .., веду
 Team Lead согласовал публикацию draft и перенос оставшихся обязательных проверок в GitHub CI точного head. Только для публикации этой задачи используется `git commit --no-verify -F tmp/vshadow-010/commit-message.txt`: локальный pre-commit запускает Godot. Это явный пропуск локального hook, а не его успешное выполнение; настройки Git и сам hook не ослабляются. Версия0.0.457 уже повышена штатным инструментом до остановки.
 
 Удалённо обязательны полный quality, реальные producer, architecture, Game/normal/F10, Wiki, smoke/performance и остальные checks проекта. До их фактического успеха, независимого APPROVED текущего head и решения Team Lead задача остаётся `in_progress`, merge запрещён. [Машиночитаемый протокол](resume-2026-11-19/result.json) различает выполненные и ожидающие проверки.
+
+Draft PR: [№74](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/74), реализация `975340096c8268d9c5496ada5cfc5fd8d1402426`. Обязательные CI-проверки и независимое ревью текущего PR head ожидаются; реализация и учёт ещё не приняты.
