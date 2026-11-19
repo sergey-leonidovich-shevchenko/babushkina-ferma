@@ -122,6 +122,27 @@ class LightingArchiveTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "actual native argv"):
             verify(self.folder)
 
+    def test_different_official_patch_is_rejected_after_rehash(self) -> None:
+        self.captured(lambda capture: capture.update(engine="4.7.10-stable (official)"))
+        with self.assertRaisesRegex(ValueError, "pinned native Compatibility engine"):
+            verify(self.folder)
+
+    def test_unofficial_engine_is_rejected_after_rehash(self) -> None:
+        self.captured(lambda capture: capture.update(engine="4.7.1-stable (unofficial)"))
+        with self.assertRaisesRegex(ValueError, "pinned native Compatibility engine"):
+            verify(self.folder)
+
+    def test_actual_engine_header_must_match_capture_after_rehash(self) -> None:
+        key, name = "1152-on", "engine.txt"
+        path = self.folder / key / name
+        original = path.read_bytes()
+        changed = original.replace(b"Godot Engine v4.7.1.", b"Godot Engine v4.8.", 1)
+        self.assertNotEqual(changed, original)
+        path.write_bytes(changed)
+        self.rehash(key, name)
+        with self.assertRaisesRegex(ValueError, "pinned native Compatibility engine"):
+            verify(self.folder)
+
     def test_saved_state_and_geometry_flags_do_not_hide_mutation(self) -> None:
         self.captured(
             lambda capture: capture["frames"]["home-720"]["after"].update(negative_control=True)

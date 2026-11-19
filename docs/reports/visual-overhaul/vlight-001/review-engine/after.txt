@@ -1,0 +1,9 @@
+test_complete_real_archive (tools.qa.world.lighting.test_reader.LightingArchiveTests.test_complete_real_archive) ... ok
+test_different_official_patch_is_rejected_after_rehash (tools.qa.world.lighting.test_reader.LightingArchiveTests.test_different_official_patch_is_rejected_after_rehash) ... ok
+test_unofficial_engine_is_rejected_after_rehash (tools.qa.world.lighting.test_reader.LightingArchiveTests.test_unofficial_engine_is_rejected_after_rehash) ... ok
+test_actual_engine_header_must_match_capture_after_rehash (tools.qa.world.lighting.test_reader.LightingArchiveTests.test_actual_engine_header_must_match_capture_after_rehash) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 19.736s
+
+OK

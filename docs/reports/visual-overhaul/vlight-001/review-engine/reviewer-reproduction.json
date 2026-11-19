@@ -1,0 +1,18 @@
+{
+  "reviewed_head": "1fc3379385cd68543a2aebf5ad136b6d1ee24298",
+  "cases": [
+    {
+      "case": "different_official_patch",
+      "acceptance_eligible": true
+    },
+    {
+      "case": "unofficial_build",
+      "acceptance_eligible": true
+    },
+    {
+      "case": "mismatching_actual_engine_log",
+      "acceptance_eligible": true
+    }
+  ],
+  "baseline_acceptance": true
+}

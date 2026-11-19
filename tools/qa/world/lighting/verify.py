@@ -15,6 +15,8 @@ from tools.qa.world.lighting.storage import SETUP, Artifacts
 
 DEFAULT = contract.ROOT / "docs/reports/visual-overhaul/vlight-001/native"
 OWNERS = {row[0] for rows in contract.CALLS.values() for row in rows}
+ENGINE_CAPTURE = "4.7.1-stable (official)"
+ENGINE_BANNER = "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org"
 SHARED_QA = (
     "tools/qa/camera/visual_camera_points.gd",
     "tools/qa/world/render_order_game.gd",
@@ -222,9 +224,12 @@ def run_check(artifacts: Artifacts, key: str, run: dict[str, Any]) -> dict[str, 
         or capture["performance_eligible"]
     ):
         raise ValueError("native capture failed or makes an FPS claim")
+    # JSON-строка не содержит build hash: полный официальный build подтверждает
+    # фактический engine.txt того же запуска. Похожие версии и unofficial недопустимы.
+    headers = [line for line in log.splitlines() if line.startswith("Godot Engine ")]
     if (
-        not capture["engine"].startswith("4.7.1")
-        or "official" not in capture["engine"]
+        capture["engine"] != ENGINE_CAPTURE
+        or headers != [ENGINE_BANNER]
         or capture["display"] == "headless"
         or capture["renderer"] != "gl_compatibility"
     ):

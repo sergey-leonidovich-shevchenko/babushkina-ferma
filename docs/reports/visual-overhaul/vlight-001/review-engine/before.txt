@@ -1,0 +1,33 @@
+test_complete_real_archive (tools.qa.world.lighting.test_reader.LightingArchiveTests.test_complete_real_archive) ... ok
+test_different_official_patch_is_rejected_after_rehash (tools.qa.world.lighting.test_reader.LightingArchiveTests.test_different_official_patch_is_rejected_after_rehash) ... FAIL
+test_unofficial_engine_is_rejected_after_rehash (tools.qa.world.lighting.test_reader.LightingArchiveTests.test_unofficial_engine_is_rejected_after_rehash) ... FAIL
+test_actual_engine_header_must_match_capture_after_rehash (tools.qa.world.lighting.test_reader.LightingArchiveTests.test_actual_engine_header_must_match_capture_after_rehash) ... FAIL
+
+======================================================================
+FAIL: test_different_official_patch_is_rejected_after_rehash (tools.qa.world.lighting.test_reader.LightingArchiveTests.test_different_official_patch_is_rejected_after_rehash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/test_reader.py", line 127, in test_different_official_patch_is_rejected_after_rehash
+    with self.assertRaisesRegex(ValueError, "pinned native Compatibility engine"):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_unofficial_engine_is_rejected_after_rehash (tools.qa.world.lighting.test_reader.LightingArchiveTests.test_unofficial_engine_is_rejected_after_rehash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/test_reader.py", line 132, in test_unofficial_engine_is_rejected_after_rehash
+    with self.assertRaisesRegex(ValueError, "pinned native Compatibility engine"):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_actual_engine_header_must_match_capture_after_rehash (tools.qa.world.lighting.test_reader.LightingArchiveTests.test_actual_engine_header_must_match_capture_after_rehash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/test_reader.py", line 143, in test_actual_engine_header_must_match_capture_after_rehash
+    with self.assertRaisesRegex(ValueError, "pinned native Compatibility engine"):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 4 tests in 44.106s
+
+FAILED (failures=3)

@@ -1,7 +1,7 @@
 {
   "task": "VLIGHT-001",
   "analysis_sources": {
-    "tools/qa/world/lighting/verify.py": "d4ed411fec9633ec2f095983b4813c7a621603c6c7ec7c333cbcf4c0fb36df5e",
+    "tools/qa/world/lighting/verify.py": "1a6ff713b89eee3f7e459514b9f7e03bfec58916afd3c737c7acbbed0e0e984f",
     "tools/qa/world/lighting/pixels.py": "95ec353d64ca74748f2eabc6bc8f18e591316ad6c06b03e926e8341d5a4dc9d1",
     "tools/qa/world/lighting/storage.py": "541ea5e53aa5d437a70fd71176694c2d48230c71b598d8b37ad1d94396b1a858"
   },
