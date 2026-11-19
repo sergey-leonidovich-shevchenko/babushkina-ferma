@@ -1,6 +1,6 @@
 # VSHADOW-010 · Читаемость теней
 
-Статус: `in_progress`. Задача начата после полной приёмки и учёта VSHADOW-002 в PR №69/71. База — принятая `main` `bc483b7b09635415fd29e8fac7447789209bc9cc`, ветка `codex/vshadow-010-visual-task`. Все семь транзитивных зависимостей завершены.
+Реализация принята в PR №74; канонический учёт подготовлен в отдельной ветке и проходит собственную проверку/ревью. Задача начата после полной приёмки и учёта VSHADOW-002 в PR №69/71. База — принятая `main` `bc483b7b09635415fd29e8fac7447789209bc9cc`, ветка `codex/vshadow-010-visual-task`. Все семь транзитивных зависимостей завершены.
 
 ## Первичный аудит
 
@@ -48,7 +48,7 @@
 
 ## Подтверждения
 
-Нативная проверка исправления и30 профильных теста пройдены. Полный набор TESTING.md, Wiki, CI и независимое ревью точного head обязательны до принятия; маршрут публикации draft при запрете локального Godot уточнён ниже. Решение и merge выполняются через Team Lead. VSHADOW-010 остаётся `in_progress` до принятия и учёта. Доказательства VSHADOW-001/002 не переобозначаются как результат этой задачи.
+Первые нативная проверка исправления и30 профильных теста предшествовали полному gate. Последующий полный CI, независимое ревью и принятие реализации записаны ниже. Доказательства VSHADOW-001/002 не переобозначаются как результат этой задачи.
 
 Кадры и большие JSON/журналы сохранены в ZIP по размерам окна: [1152](native/1152.zip), [1280](native/1280.zip), [исходная1152](native-before/1152.zip), [исходная1280](native-before/1280.zip). PNG и распакованные документы побайтно совпадают с raw SHA producer; Source.json не переписывался. Reader читает контейнеры в памяти, проверяет состав/CRC/SHA, отклоняет лишние пути и смешение с raw-файлами. Два неизменённых PNG вынесены для быстрого просмотра: [до](previews/hero-loot-before.png), [после](previews/hero-loot-after.png).
 
@@ -71,3 +71,21 @@ Team Lead согласовал публикацию draft и перенос ос
 Удалённо обязательны полный quality, реальные producer, architecture, Game/normal/F10, Wiki, smoke/performance и остальные checks проекта. До их фактического успеха, независимого APPROVED текущего head и решения Team Lead задача остаётся `in_progress`, merge запрещён. [Машиночитаемый протокол](resume-2026-11-19/result.json) различает выполненные и ожидающие проверки.
 
 Draft PR: [№74](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/74), реализация `975340096c8268d9c5496ada5cfc5fd8d1402426`. Обязательные CI-проверки и независимое ревью текущего PR head ожидаются; реализация и учёт ещё не приняты.
+
+## Принятие реализации и отдельный учёт · 19 ноября 2026
+
+[PR №74](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/74) принят обычным merge `4cf7b421a1c879f9240e37a9aa478a1d97e5cf69`. Дерево `2d500f5a00b895df761251b907c8d7d73101b2ef` точно совпало с независимо одобренным head `3732a9b5580c9da5db706e05cd0efcba861b9151`; родители merge сохранены. [Tech Lead APPROVED](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/74#pullrequestreview-5976040188) и решение Team Lead предшествовали merge. Обязательных замечаний нет. Проверены все16 production-кадров, исторические отказы, текущие runtime/QA и сохранность остальных1036 карточек.
+
+Полный обязательный CI этого head прошёл9/9: [PR](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44442152814), [push](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44442145341), [X11](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44442152789). В PR job: quality147файлов/0failed, architecture118наборов/1580тестов, Game53711/0, normal90/0 и F1090/0, water55/0, smoke180кадров, шесть успешных CPU performance-серий с прежним бюджетом50. Wiki167/0, обе платформы fixed-input и X11 также success. Это CPU gate и адресная VSHADOW-010, а не новый аппаратный FPS/GPU-допуск или приёмка всей карты.
+
+После новой прямой команды владельца о свободном ПК Wiki этого head дополнительно собрана локально в отдельном профиле `Codex-VSHADOW-010-wiki-start.dcFmfT`:167/0, override удалён. Старая неполная локальная попытка hook остаётся неполной и не переобозначается задним числом. Текущий strict-reader повторно подтвердил неизменённые runtime/QA; релевантных графических правок после native-current не было, повторная съёмка не заявляется.
+
+[Машиночитаемый учёт](closeout/result.json), [строгая сверка](closeout/verification.json), [локальная Wiki](closeout/wiki-3732a9b5.txt) и [исходные CI-журналы с ZIP измерений](closeout/ci-3732a9b5.zip) сохранены. [Packing](closeout/packing.json) связывает raw SHA файлов. Второй тематический коммит учёта меняет только принятую карточку, документацию и version metadata. Перед ним необходимый QA-fix отдельным коммитом устраняет описанный ниже hook-дефект; игровые скрипты, assets и пользовательские planning state/sources не меняются. Учётная ветка требует собственного полного gate, независимого ревью точного head и решения Team Lead. Trailer `Task-Complete: VSHADOW-010` добавляется ровно один раз; следующая задача начинается после принятого учёта.
+
+## Подтверждённый hook-дефект и QA follow-up
+
+Первый полный hook учёта выявил утечку Git-окружения в новой fixture. Это реальный отказ после принятого PR №74, а не отмена прежних визуальных результатов. Team Lead согласовал адресный QA-fix и отдельный коммит учёта в [PR №75](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/75). [Детали отказа, восстановления и двух настоящих hook-регрессий](hook-env/README.md) сохранены. Отрицательный опыт повторяется только на полностью временном родителе; рабочий Git для него не используется.
+
+QA-fix `a355734cff6cf6cd4b04c02f83f17cc1cde50c26` / tree `adb40367bea259adc0676e89002e1f39721ae0c0` прошёл настоящий стандартный hook без обхода: quality 148 файлов/0 ошибок, architecture 119 наборов/1582 теста, локальный Mac Game 53693/0, normal 90/0 и F10 90/0. [Полный журнал](closeout/qa-fix-local-gate.zip) и [сохранность Git](closeout/qa-fix-git-preservation.json) привязаны к этому commit. До push общий config и индекс исходного checkout побайтно совпали с pre-hook снимками; tree commit равен подготовленному staged tree. После обычного push добавилась только upstream-секция собственной ветки.
+
+Старое одобрение PR №74 не применяется к новому QA-коду. Окончательный head PR №75 после отдельного учёта требует своих CI, независимого ревью и решения Team Lead. Новых игровых правок и нативных кадров QA-fix не содержит: 11 frozen-входов и runtime-overlay сохранены, строгая проверка кадров пройдена.

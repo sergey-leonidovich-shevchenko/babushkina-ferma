@@ -4793,7 +4793,7 @@
       "id": "VSHADOW-010",
       "epic": "VSHADOW",
       "title": "Принять тени на светлом и тёмном фоне",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -4831,9 +4831,11 @@
       "branch": "codex/vshadow-010-visual-task",
       "evidence": [
         "docs/reports/visual-overhaul/vshadow-010/README.md",
-        "docs/reports/visual-overhaul/vshadow-010/verification-current.json"
+        "docs/reports/visual-overhaul/vshadow-010/verification-current.json",
+        "docs/reports/visual-overhaul/vshadow-010/closeout/result.json",
+        "docs/reports/visual-overhaul/vshadow-010/hook-env/README.md"
       ],
-      "result": "В первой overworld и существующих интерьерах контакт героя перенесён раньше лута; scope восстанавливается после вложенных callbacks и сохраняет прежние API/превью. Текущий пакет native-current:64 PNG/два окна, строгая сверка и30 профильных тестов пройдены. Исходная серия воспроизводит дефект; исторический пакет сохранён. Source inventory снова проходит14 producer-сценариев; guard нормализует пути с .. . Отчёт: docs/reports/visual-overhaul/vshadow-010/README.md. Задача in_progress: полный TESTING.md, Wiki, PR/CI и независимое exact-head review до принятия и учёта. После остановки владельца локальный Godot запрещён; повторены30 Python-профильных проверок и строгая сверка кадров. Team Lead согласовал draft PR с переносом полного gate в CI; прерванный hook не считается PASS. Протокол: docs/reports/visual-overhaul/vshadow-010/resume-2026-11-19/result.json. [PR №74](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/74) (draft). Реализация опубликована на 975340096c8268d9c5496ada5cfc5fd8d1402426; обязательный CI и независимое ревью текущего PR head ожидаются."
+      "result": "Принято 19 ноября 2026: [PR №74](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/74), независимое APPROVED head 3732a9b5580c9da5db706e05cd0efcba861b9151 и решение Team Lead. Обычный merge 4cf7b421a1c879f9240e37a9aa478a1d97e5cf69, tree 2d500f5a00b895df761251b907c8d7d73101b2ef. Контакт героя рисуется раньше лута в первой overworld и существующих интерьерах; scope восстанавливается, API/превью и остальные карты сохранены. Native-current: 64 PNG, 16 комбинаций, два окна; строгая сверка байтов, 30 исходных профильных тестов и отрицательная серия сохранены. CI реализации: 9/9, quality 147/0, architecture 118 наборов/1580 тестов, Linux Game 53711/0, normal 90/0, F10 90/0, Wiki 167/0, water 55/0, smoke 180 кадров и 6 CPU-серий с прежним бюджетом 50. [PR №75](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/75) содержит адресную изоляцию fixture Git от настоящего hook (fix a355734c), две реальные old/new hook-регрессии и отдельный учёт. Стандартный hook QA-fix без обхода: quality 148/0, architecture 119/1582, Mac Game 53693/0, normal/F10 по 90/0. Родительские config/index/refs защищены; исходный отказ, адресное восстановление и ограничения снимков сохранены. Runtime и 11 входов съёмки не менялись. Отчёт: docs/reports/visual-overhaul/vshadow-010/. Учёт не принимает новый аппаратный FPS/GPU или VMAP; остальные карточки сохранены."
     },
     {
       "id": "VLIGHT-001",

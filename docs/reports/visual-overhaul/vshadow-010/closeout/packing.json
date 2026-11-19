@@ -1,0 +1,31 @@
+{
+  "task": "VSHADOW-010",
+  "implementation_head": "3732a9b5580c9da5db706e05cd0efcba861b9151",
+  "qa_fix_head": "a355734cff6cf6cd4b04c02f83f17cc1cde50c26",
+  "files": {
+    "ci-3732a9b5.zip": {
+      "bytes": 284435,
+      "sha256": "2dd82e4fd5d8f70f2eb662117c7571e0710e59df4f447a901b3cce173c181174"
+    },
+    "qa-fix-git-preservation.json": {
+      "bytes": 927,
+      "sha256": "a670d1d54017374c2382c2ea0143f38e126aaec1eba49cb162230d218bd07533"
+    },
+    "qa-fix-local-gate.zip": {
+      "bytes": 25556,
+      "sha256": "3aaa182f40cb29741f453cfcc392876885920ebe15ddecc1b21351107145ac86"
+    },
+    "result.json": {
+      "bytes": 6496,
+      "sha256": "a881a435a368b843d212bd9d22b169b313cc195e77952d2fabb182e563b82c2c"
+    },
+    "verification.json": {
+      "bytes": 6702,
+      "sha256": "d77413ce6abac7be606f6124975d355a17f704a00c959d8765bc239408de6b7d"
+    },
+    "wiki-3732a9b5.txt": {
+      "bytes": 16230,
+      "sha256": "d36dc66ed65e5878b56de7ec74a9a52956551de9109da0277df81d991948a0c9"
+    }
+  }
+}

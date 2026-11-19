@@ -1,0 +1,23 @@
+{
+  "task": "VSHADOW-010",
+  "fix_head": "a355734cff6cf6cd4b04c02f83f17cc1cde50c26",
+  "fix_tree": "adb40367bea259adc0676e89002e1f39721ae0c0",
+  "pre_hook_staged_tree": "adb40367bea259adc0676e89002e1f39721ae0c0",
+  "same_committed_tree": true,
+  "shared_config_byte_preservation_before_push_observed": true,
+  "only_config_delta_after_push": "new own branch upstream section",
+  "original_checkout_index_byte_preserved": true,
+  "private_config_files_published": false,
+  "user_ref_changes_since_pre_hook": {
+    "refs/heads/codex/vshadow-010-closeout": {
+      "before": "4cf7b421a1c879f9240e37a9aa478a1d97e5cf69",
+      "after": "a355734cff6cf6cd4b04c02f83f17cc1cde50c26"
+    },
+    "refs/remotes/origin/codex/vshadow-010-closeout": {
+      "before": null,
+      "after": "a355734cff6cf6cd4b04c02f83f17cc1cde50c26"
+    }
+  },
+  "application_checkpoint_ref_changes_count": 6,
+  "application_checkpoint_refs_reverted": false
+}

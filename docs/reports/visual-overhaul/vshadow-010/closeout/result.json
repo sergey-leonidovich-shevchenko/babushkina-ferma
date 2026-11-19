@@ -1,0 +1,196 @@
+{
+  "task": "VSHADOW-010",
+  "implementation_pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/74",
+  "approved_head": "3732a9b5580c9da5db706e05cd0efcba861b9151",
+  "accepted_merge": "4cf7b421a1c879f9240e37a9aa478a1d97e5cf69",
+  "accepted_tree": "2d500f5a00b895df761251b907c8d7d73101b2ef",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/74#pullrequestreview-5976040188",
+  "team_decision": "2026-11-19: accept approved exact head, ordinary merge, then independent accounting PR",
+  "checks": [
+    {
+      "id": 135285358088,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "3732a9b5580c9da5db706e05cd0efcba861b9151",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44442152814/job/135285358088",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135285358036,
+      "name": "test",
+      "head_sha": "3732a9b5580c9da5db706e05cd0efcba861b9151",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44442152814/job/135285358036",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135285357969,
+      "name": "Wiki quality gate",
+      "head_sha": "3732a9b5580c9da5db706e05cd0efcba861b9151",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44442152814/job/135285357969",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135285357704,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "3732a9b5580c9da5db706e05cd0efcba861b9151",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44442152814/job/135285357704",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135285357691,
+      "name": "Exact-head X11 comparison",
+      "head_sha": "3732a9b5580c9da5db706e05cd0efcba861b9151",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44442152789/job/135285357691",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135285333365,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "3732a9b5580c9da5db706e05cd0efcba861b9151",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44442145341/job/135285333365",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135285333226,
+      "name": "test",
+      "head_sha": "3732a9b5580c9da5db706e05cd0efcba861b9151",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44442145341/job/135285333226",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135285333162,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "3732a9b5580c9da5db706e05cd0efcba861b9151",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44442145341/job/135285333162",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135285332776,
+      "name": "Wiki quality gate",
+      "head_sha": "3732a9b5580c9da5db706e05cd0efcba861b9151",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44442145341/job/135285332776",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    }
+  ],
+  "counts": {
+    "quality_files": 147,
+    "quality_failed_steps": 0,
+    "architecture_suites": 118,
+    "architecture_tests": 1580,
+    "game_passed": 53711,
+    "game_failed": 0,
+    "normal_redraw_passed": 90,
+    "f10_redraw_passed": 90,
+    "wiki_passed": 167,
+    "wiki_failed": 0,
+    "water_compatibility_passed": 55,
+    "smoke_frames": 180,
+    "cpu_performance_series": 6,
+    "cpu_minimum_budget": 50
+  },
+  "native": {
+    "frames": 64,
+    "combinations": 16,
+    "windows": [
+      [
+        1152,
+        648
+      ],
+      [
+        1280,
+        720
+      ]
+    ],
+    "runtime_overlay_sha256": "8ef1a619f81c0325e12a299880c834897e7c829965f910fbfe5ef4c1ba0a568e",
+    "new_capture_since_implementation": false,
+    "hardware_fps_accepted": false,
+    "whole_map_accepted": false
+  },
+  "performance_artifact": {
+    "id": 14493265882,
+    "run": 44442152814,
+    "bytes": 193561,
+    "sha256": "ccad4b4dbaaec7cbe758cc7530e605b5f0c484960e0af0323df2849dae7989b9"
+  },
+  "accounting_status": "submitted only after implementation accepted; its own exact-head gate and review remain required",
+  "qa_followup": {
+    "pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/75",
+    "fix_head": "a355734cff6cf6cd4b04c02f83f17cc1cde50c26",
+    "fix_tree": "adb40367bea259adc0676e89002e1f39721ae0c0",
+    "local_standard_hook": {
+      "quality_files": 148,
+      "quality_failed": 0,
+      "architecture_suites": 119,
+      "architecture_tests": 1582,
+      "game_passed": 53693,
+      "game_failed": 0,
+      "normal_passed": 90,
+      "f10_passed": 90
+    },
+    "real_hook_regressions": 2,
+    "native_inputs_changed": false,
+    "status": "QA-fix published; final accounting head still requires independent review, CI and Team decision"
+  }
+}

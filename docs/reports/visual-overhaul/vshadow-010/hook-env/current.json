@@ -1,0 +1,77 @@
+{
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.278s\n\nOK\n",
+  "parent_before_commit": {
+    "files": {
+      "config": "9148d0c6a6fcb4e188ee0fb95b3c70743a48903cd03b560787cefb161d236b2b",
+      "parent_index": "b68f6ff08a170567c1a9255f8d8b0332ca73795d9947f9dc48642c64219de0c9",
+      "parent_head": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+      "linked_index": "69c4c45bcc17c66cd30380c8f8a394f8050dcdbedb3a6680ed4dfcc13f61e1e7",
+      "linked_head": "a3934f51b5022794a6eaf6bedea231a77ee2435f10cf6f83dee1b5c218da40d8",
+      "linked_config": null
+    },
+    "refs": {
+      "refs/heads/hook-candidate": "20280c6d3c3a344ac7b9e4d4bd8c7c740b59771e179edb04637475caddaac3f6",
+      "refs/heads/main": "20280c6d3c3a344ac7b9e4d4bd8c7c740b59771e179edb04637475caddaac3f6"
+    },
+    "bare": false
+  },
+  "parent_after_commit": {
+    "files": {
+      "config": "9148d0c6a6fcb4e188ee0fb95b3c70743a48903cd03b560787cefb161d236b2b",
+      "parent_index": "b68f6ff08a170567c1a9255f8d8b0332ca73795d9947f9dc48642c64219de0c9",
+      "parent_head": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+      "linked_index": "150f867b270c886a8c5502c1de8844383601a6447d50d9986eb8851323d226c5",
+      "linked_head": "a3934f51b5022794a6eaf6bedea231a77ee2435f10cf6f83dee1b5c218da40d8",
+      "linked_config": null
+    },
+    "refs": {
+      "refs/heads/hook-candidate": "c683814812c95ca10d59339fd316c95327e8eb647c59c037faa7e8cd6a16b96d",
+      "refs/heads/main": "20280c6d3c3a344ac7b9e4d4bd8c7c740b59771e179edb04637475caddaac3f6"
+    },
+    "bare": false
+  },
+  "hook": {
+    "candidate_sha256": "97bf11b7f917d28cbdfa06ea46944a604fe574b72172487179356465ce5fc74e",
+    "tests": 1,
+    "passed": true,
+    "inherited": {
+      "GIT_DIR": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/shadow-hook-hd2g6gu3/parent/.git/worktrees/linked-project",
+      "GIT_INDEX_FILE": "/private/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/shadow-hook-hd2g6gu3/parent/.git/worktrees/linked-project/index",
+      "GIT_WORK_TREE": null,
+      "GIT_PREFIX": ""
+    },
+    "before": {
+      "files": {
+        "config": "9148d0c6a6fcb4e188ee0fb95b3c70743a48903cd03b560787cefb161d236b2b",
+        "parent_index": "b68f6ff08a170567c1a9255f8d8b0332ca73795d9947f9dc48642c64219de0c9",
+        "parent_head": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+        "linked_index": "150f867b270c886a8c5502c1de8844383601a6447d50d9986eb8851323d226c5",
+        "linked_head": "a3934f51b5022794a6eaf6bedea231a77ee2435f10cf6f83dee1b5c218da40d8",
+        "linked_config": null
+      },
+      "refs": {
+        "refs/heads/hook-candidate": "20280c6d3c3a344ac7b9e4d4bd8c7c740b59771e179edb04637475caddaac3f6",
+        "refs/heads/main": "20280c6d3c3a344ac7b9e4d4bd8c7c740b59771e179edb04637475caddaac3f6"
+      },
+      "bare": false
+    },
+    "after": {
+      "files": {
+        "config": "9148d0c6a6fcb4e188ee0fb95b3c70743a48903cd03b560787cefb161d236b2b",
+        "parent_index": "b68f6ff08a170567c1a9255f8d8b0332ca73795d9947f9dc48642c64219de0c9",
+        "parent_head": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+        "linked_index": "150f867b270c886a8c5502c1de8844383601a6447d50d9986eb8851323d226c5",
+        "linked_head": "a3934f51b5022794a6eaf6bedea231a77ee2435f10cf6f83dee1b5c218da40d8",
+        "linked_config": null
+      },
+      "refs": {
+        "refs/heads/hook-candidate": "20280c6d3c3a344ac7b9e4d4bd8c7c740b59771e179edb04637475caddaac3f6",
+        "refs/heads/main": "20280c6d3c3a344ac7b9e4d4bd8c7c740b59771e179edb04637475caddaac3f6"
+      },
+      "bare": false
+    },
+    "environment_preserved": true
+  }
+}
