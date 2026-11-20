@@ -1,0 +1,111 @@
+{
+  "review_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/80#pullrequestreview-5989617089",
+  "old_reader_head": "249c1dbea63196e77e9ab9cba68fd0fecf3eaae5",
+  "after_code_state": "working P2 QA fix after metadata head b04f5654e1875d6aa2a1ce2a88614e1f0d533fcd",
+  "after_module_sha256": {
+    "pixels.py": "542425fe52eb4373b2243ce9f4ee236c5788035494a12872c1b52eeba3b03a0e",
+    "timing.py": "19bf7704c0bc10ab0013e7a34aaaa179cc24cef84172d43e5f3f3d7173239f2c",
+    "test_reader.py": "d17c4173c0d79530968ac256ed27fc6d235cb090314236778cbf9eb3b4e113ef"
+  },
+  "native_packet_hashes": {
+    "source.json": "34ec84235d807c0a2cb09e4e508bff4f3cd7406af1faacd6724a955dde59f270",
+    "1152.zip": "59ea0918faf1040151518f11f956f5d4f0d00a88137af55a84ede94a3333f720",
+    "1280.zip": "389c1818afb8486271cd4f2964101e910f934262f8d17f5d5e4f27ffcf9fff07"
+  },
+  "reviewer_packet_hashes": {
+    "timed_native_light_disabled": {
+      "source.json": "a5f4bbeb05d3dc4f9e3516c76b45a1d71b26a865e75080266e6443116fec6a4a",
+      "1152.zip": "fc4d47d4ef1ea37d3426763063e65ee070692a58f4b9146d34e1c11a66f12312",
+      "1280.zip": "389c1818afb8486271cd4f2964101e910f934262f8d17f5d5e4f27ffcf9fff07"
+    },
+    "visual_point_texture_scale_x4": {
+      "source.json": "a808165146d76be8096effe5a4ac1f92ff9db1ee30a208e2bb966af4f6456179",
+      "1152.zip": "4df396fef26c123df37f70e077143d4524936d9e627f798d1a29f5768886b437",
+      "1280.zip": "389c1818afb8486271cd4f2964101e910f934262f8d17f5d5e4f27ffcf9fff07"
+    }
+  },
+  "before": {
+    "baseline": {
+      "command": [
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/vlight-002/run-old-reader.py",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/vlight-002/review-before-reader",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/visual-overhaul/vlight-002/native"
+      ],
+      "exit_code": 0,
+      "native_complete": true
+    },
+    "timed_native_light_disabled": {
+      "command": [
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/vlight-002/run-old-reader.py",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/vlight-002/review-before-reader",
+        "/private/tmp/farm-vlight002-review-regressions-b5110fc20c17438593cfb38653bdcae4/timed_native_light_disabled"
+      ],
+      "exit_code": 0,
+      "native_complete": true
+    },
+    "visual_point_texture_scale_x4": {
+      "command": [
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/vlight-002/run-old-reader.py",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/vlight-002/review-before-reader",
+        "/private/tmp/farm-vlight002-review-regressions-b5110fc20c17438593cfb38653bdcae4/visual_point_texture_scale_x4"
+      ],
+      "exit_code": 0,
+      "native_complete": true
+    }
+  },
+  "after": {
+    "baseline": {
+      "exit_code": 0,
+      "command": [
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python",
+        "tools/run.py",
+        "qa.world.lighting.comparison.verify",
+        "--input",
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/docs/reports/visual-overhaul/vlight-002/native",
+        "--check-current-candidate"
+      ],
+      "stderr_tail": ""
+    },
+    "timed_native_light_disabled": {
+      "exit_code": 1,
+      "command": [
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python",
+        "tools/run.py",
+        "qa.world.lighting.comparison.verify",
+        "--input",
+        "/private/tmp/farm-vlight002-review-regressions-b5110fc20c17438593cfb38653bdcae4/timed_native_light_disabled",
+        "--check-current-candidate"
+      ],
+      "stderr_tail": "File \"/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/comparison/pixels.py\", line 101, in light_mode\n    require(\n  File \"/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/comparison/assertions.py\", line 7, in require\n    raise ValueError(message)\nValueError: actual light energy differs from scene time\n"
+    },
+    "visual_point_texture_scale_x4": {
+      "exit_code": 1,
+      "command": [
+        "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python",
+        "tools/run.py",
+        "qa.world.lighting.comparison.verify",
+        "--input",
+        "/private/tmp/farm-vlight002-review-regressions-b5110fc20c17438593cfb38653bdcae4/visual_point_texture_scale_x4",
+        "--check-current-candidate"
+      ],
+      "stderr_tail": "nko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/comparison/pixels.py\", line 82, in light_geometry\n    require(\n  File \"/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/comparison/assertions.py\", line 7, in require\n    raise ValueError(message)\nValueError: actual PointLight texture_scale/radius differs from source profile\n"
+    }
+  },
+  "unchanged_baseline_stdout_sha256": "cd4cd159c858405713e799a54ce766ccbf10a11b57af2c6062476202877b12d0",
+  "baseline_summary_unchanged": true,
+  "all_native_and_review_packets_unchanged": true,
+  "all30_producer_inputs_unchanged": true,
+  "payload_kind": "Deliberately invalid metadata controls copied from independent review; not new native experiments.",
+  "payload_archive": "reviewer-invalid-payloads.zip",
+  "payload_archive_sha256": "2187da0adeeee36e21cfe68fbb8e33627c7420fbd87c5036ed9d554b9fbe27b5",
+  "baseline_result": "review-baseline.json",
+  "after_errors": [
+    "review-timed-state-after.stderr.txt",
+    "review-texture-scale-after.stderr.txt"
+  ],
+  "reader_snapshot": "reader-before-review.zip",
+  "engine_started": false
+}

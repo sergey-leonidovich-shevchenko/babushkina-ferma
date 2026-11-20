@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py", line 10, in <module>
+    main()
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/common/launch.py", line 78, in main
+    runpy.run_module(target, run_name="__main__", alter_sys=True)
+  File "<frozen runpy>", line 226, in run_module
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/comparison/verify.py", line 114, in <module>
+    main()
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/comparison/verify.py", line 106, in main
+    verify(args.input, args.diagnostic, args.check_current_candidate),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/comparison/verify.py", line 80, in verify
+    frame_results = pixels.frames(store, key, capture)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/comparison/pixels.py", line 155, in frames
+    light_geometry(light, row["before"]["world_context"])
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/comparison/pixels.py", line 82, in light_geometry
+    require(
+  File "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/comparison/assertions.py", line 7, in require
+    raise ValueError(message)
+ValueError: actual PointLight texture_scale/radius differs from source profile

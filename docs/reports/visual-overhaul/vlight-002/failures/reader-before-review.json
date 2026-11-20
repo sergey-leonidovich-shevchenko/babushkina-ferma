@@ -1,0 +1,21 @@
+{
+  "head": "249c1dbea63196e77e9ab9cba68fd0fecf3eaae5",
+  "files": {
+    "tools/qa/world/lighting/comparison/__init__.py": "829c0790eac60ad1b5ebc357b66b45741b13a6c285c09825c37e56199e00b044",
+    "tools/qa/world/lighting/comparison/assertions.py": "2165fa69d4b2a43f0b8dc3b05a6095b341f8536a3a6abef5c23a4c95b7790dca",
+    "tools/qa/world/lighting/comparison/collect.py": "37dafd48a8cdde58e917df79f92d89861aeb169231e8209e39e9810c72d2d7d2",
+    "tools/qa/world/lighting/comparison/contract.py": "2e743533a74b38cad7958f5a73c0a586163bb7b328037b7a109e2155ead3a9a2",
+    "tools/qa/world/lighting/comparison/exports.py": "b2fe06f75d94b4cf07cd8d6f23c5447f2be3170ee005ced788bcb475708ab49a",
+    "tools/qa/world/lighting/comparison/gallery.py": "564e5b58ca360550b0517192420677686194c22ed35b300417a702a641474faf",
+    "tools/qa/world/lighting/comparison/pixels.py": "05a55264cf8894f2868152178d777e922f416811a3419d413a55a5748a5e8c9f",
+    "tools/qa/world/lighting/comparison/provenance.py": "0c289979a8188e0da293179df2a78ba0dffee187053d7af833270426beb11250",
+    "tools/qa/world/lighting/comparison/publish.py": "e3df2e5cd8ad132d9494131122250c4df158867806ad44e8e90f3d27aa5ba9e7",
+    "tools/qa/world/lighting/comparison/storage.py": "a78ed2b78fc3daa6784670cb9621407ba8e31bd7c3814e7a4311e6f3b2e094a2",
+    "tools/qa/world/lighting/comparison/summarize.py": "161649a295356e0f03de349f4777165c68a3668e2b3943f24a2034d12af834ea",
+    "tools/qa/world/lighting/comparison/test_contract.py": "4c69da6a343c5f5ebb000fb81c1ad02eb5f7e634906a849039e28704f890351f",
+    "tools/qa/world/lighting/comparison/test_reader.py": "f7c9fd7bf8fdcf148cddd5bed78adc59b9f20b065fc50c938217d22b5f2fe4b1",
+    "tools/qa/world/lighting/comparison/timing.py": "577ce5eef0c44262c9befa27590cd89d5d49e133e3c7e9f3b89932967eb5fbb1",
+    "tools/qa/world/lighting/comparison/verify.py": "44568a39599aa50451b12c8506c8dbd7f0c8e68e098591f8826d659580288520"
+  },
+  "zip_sha256": "c8d8af69c074ee09b897939558982504c974b42ef7be15cd6d556478aa622bb0"
+}

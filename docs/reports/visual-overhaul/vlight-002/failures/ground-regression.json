@@ -1,0 +1,8 @@
+{
+  "same_input": "tmp/vlight-002/native-b-published; immutable source B",
+  "before_exit_code": 0,
+  "after_exit_code": 1,
+  "before_reader_zip_sha256": "ac062f0ad6c93bc348ad7b620ff7129297f570c3037e192036d7f9196bd359a6",
+  "current_reader_checks": "actual production ground +24 and emitter projection, not only equality of mode centers",
+  "raw_native_untouched": true
+}

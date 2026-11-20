@@ -1,0 +1,28 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+LANTERN FRAME: west-lamp-720-off
+LANTERN FRAME: west-lamp-720-mask
+LANTERN FRAME: west-lamp-720-local
+LANTERN FRAME: west-lamp-720-shadow
+LANTERN FRAME: west-lamp-1140-off
+LANTERN FRAME: west-lamp-1140-mask
+LANTERN FRAME: west-lamp-1140-local
+LANTERN FRAME: west-lamp-1140-shadow
+LANTERN FRAME: west-lamp-1320-off
+LANTERN FRAME: west-lamp-1320-mask
+LANTERN FRAME: west-lamp-1320-local
+LANTERN FRAME: west-lamp-1320-shadow
+LANTERN FRAME: home-720-off
+LANTERN FRAME: home-720-mask
+LANTERN FRAME: home-720-local
+LANTERN FRAME: home-720-shadow
+LANTERN FRAME: home-1140-off
+LANTERN FRAME: home-1140-mask
+LANTERN FRAME: home-1140-local
+LANTERN FRAME: home-1140-shadow
+LANTERN FRAME: home-1320-off
+LANTERN FRAME: home-1320-mask
+LANTERN FRAME: home-1320-local
+LANTERN FRAME: home-1320-shadow
+LANTERN COMPARISON NATIVE: 24 cases, ["west-lamp-720-mask: save/framebuffer failure", "west-lamp-720-local: save/framebuffer failure", "west-lamp-720-shadow: save/framebuffer failure", "west-lamp-1140-off: save/framebuffer failure", "west-lamp-1140-mask: save/framebuffer failure", "west-lamp-1140-local: save/framebuffer failure", "west-lamp-1140-shadow: save/framebuffer failure", "west-lamp-1320-off: save/framebuffer failure", "west-lamp-1320-mask: save/framebuffer failure", "west-lamp-1320-local: save/framebuffer failure", "west-lamp-1320-shadow: save/framebuffer failure", "home-720-off: save/framebuffer failure", "home-720-mask: save/framebuffer failure", "home-720-local: save/framebuffer failure", "home-720-shadow: save/framebuffer failure", "home-1140-off: save/framebuffer failure", "home-1140-mask: save/framebuffer failure", "home-1140-local: save/framebuffer failure", "home-1140-shadow: save/framebuffer failure", "home-1320-off: save/framebuffer failure", "home-1320-mask: save/framebuffer failure", "home-1320-local: save/framebuffer failure", "home-1320-shadow: save/framebuffer failure"]

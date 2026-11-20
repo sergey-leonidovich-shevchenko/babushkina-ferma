@@ -2313,5 +2313,18 @@
       "Свет",
       "QA"
     ]
+  },
+  {
+    "id": "lantern-light-methods",
+    "file": "lantern-light-methods.md",
+    "title": "Как светится один фонарь",
+    "summary": "VLIGHT-002: маска, PointLight2D и PCF5 на Compatibility;114 native PNG, проверка опоры, материалов, HUD и raw времени.",
+    "tags": [
+      "Разработка",
+      "VLIGHT-002",
+      "Первая локация",
+      "Свет",
+      "QA"
+    ]
   }
 ]

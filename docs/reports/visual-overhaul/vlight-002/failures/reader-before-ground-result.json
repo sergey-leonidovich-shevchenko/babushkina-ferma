@@ -1,0 +1,851 @@
+{
+  "task": "VLIGHT-002",
+  "native_complete": true,
+  "hardware_fps_accepted": false,
+  "results": {
+    "1152": {
+      "frames": [
+        {
+          "case": "west-lamp-720-off",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "west-lamp-720-mask",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "west-lamp-720-local",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "west-lamp-720-shadow",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "west-lamp-1140-off",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "west-lamp-1140-mask",
+          "max_channel_difference_from_off": 71,
+          "difference_bounds": [
+            538,
+            131,
+            614,
+            206
+          ]
+        },
+        {
+          "case": "west-lamp-1140-local",
+          "max_channel_difference_from_off": 33,
+          "difference_bounds": [
+            538,
+            131,
+            614,
+            206
+          ]
+        },
+        {
+          "case": "west-lamp-1140-shadow",
+          "max_channel_difference_from_off": 33,
+          "difference_bounds": [
+            538,
+            131,
+            614,
+            202
+          ]
+        },
+        {
+          "case": "west-lamp-1320-off",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "west-lamp-1320-mask",
+          "max_channel_difference_from_off": 144,
+          "difference_bounds": [
+            538,
+            131,
+            614,
+            206
+          ]
+        },
+        {
+          "case": "west-lamp-1320-local",
+          "max_channel_difference_from_off": 37,
+          "difference_bounds": [
+            538,
+            131,
+            614,
+            206
+          ]
+        },
+        {
+          "case": "west-lamp-1320-shadow",
+          "max_channel_difference_from_off": 37,
+          "difference_bounds": [
+            538,
+            131,
+            614,
+            205
+          ]
+        },
+        {
+          "case": "home-720-off",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "home-720-mask",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "home-720-local",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "home-720-shadow",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "home-1140-off",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "home-1140-mask",
+          "max_channel_difference_from_off": 40,
+          "difference_bounds": [
+            615,
+            365,
+            677,
+            427
+          ]
+        },
+        {
+          "case": "home-1140-local",
+          "max_channel_difference_from_off": 51,
+          "difference_bounds": [
+            615,
+            365,
+            677,
+            428
+          ]
+        },
+        {
+          "case": "home-1140-shadow",
+          "max_channel_difference_from_off": 51,
+          "difference_bounds": [
+            615,
+            365,
+            677,
+            427
+          ]
+        },
+        {
+          "case": "home-1320-off",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "home-1320-mask",
+          "max_channel_difference_from_off": 80,
+          "difference_bounds": [
+            614,
+            365,
+            678,
+            428
+          ]
+        },
+        {
+          "case": "home-1320-local",
+          "max_channel_difference_from_off": 91,
+          "difference_bounds": [
+            615,
+            365,
+            677,
+            428
+          ]
+        },
+        {
+          "case": "home-1320-shadow",
+          "max_channel_difference_from_off": 91,
+          "difference_bounds": [
+            615,
+            365,
+            677,
+            427
+          ]
+        }
+      ],
+      "costs": [
+        {
+          "room": "west-lamp",
+          "mode": "off",
+          "repeat": 0,
+          "draw_median_us": 4644.5,
+          "frame_median_us": 10724.0,
+          "frame_max_us": 12543,
+          "frame_p95_us": 11826
+        },
+        {
+          "room": "west-lamp",
+          "mode": "mask",
+          "repeat": 0,
+          "draw_median_us": 4656.5,
+          "frame_median_us": 10714.5,
+          "frame_max_us": 12119,
+          "frame_p95_us": 11788
+        },
+        {
+          "room": "west-lamp",
+          "mode": "local",
+          "repeat": 0,
+          "draw_median_us": 4847.0,
+          "frame_median_us": 11190.0,
+          "frame_max_us": 15034,
+          "frame_p95_us": 13655
+        },
+        {
+          "room": "west-lamp",
+          "mode": "shadow",
+          "repeat": 0,
+          "draw_median_us": 4611.0,
+          "frame_median_us": 10736.5,
+          "frame_max_us": 11990,
+          "frame_p95_us": 11617
+        },
+        {
+          "room": "west-lamp",
+          "mode": "shadow",
+          "repeat": 1,
+          "draw_median_us": 4576.0,
+          "frame_median_us": 10605.5,
+          "frame_max_us": 12117,
+          "frame_p95_us": 11587
+        },
+        {
+          "room": "west-lamp",
+          "mode": "local",
+          "repeat": 1,
+          "draw_median_us": 4603.5,
+          "frame_median_us": 10749.0,
+          "frame_max_us": 12394,
+          "frame_p95_us": 11828
+        },
+        {
+          "room": "west-lamp",
+          "mode": "mask",
+          "repeat": 1,
+          "draw_median_us": 4592.0,
+          "frame_median_us": 10612.0,
+          "frame_max_us": 12003,
+          "frame_p95_us": 11506
+        },
+        {
+          "room": "west-lamp",
+          "mode": "off",
+          "repeat": 1,
+          "draw_median_us": 4578.5,
+          "frame_median_us": 10605.5,
+          "frame_max_us": 14040,
+          "frame_p95_us": 12400
+        },
+        {
+          "room": "west-lamp",
+          "mode": "local",
+          "repeat": 2,
+          "draw_median_us": 4585.5,
+          "frame_median_us": 10675.0,
+          "frame_max_us": 11893,
+          "frame_p95_us": 11458
+        },
+        {
+          "room": "west-lamp",
+          "mode": "off",
+          "repeat": 2,
+          "draw_median_us": 4591.0,
+          "frame_median_us": 10704.0,
+          "frame_max_us": 14001,
+          "frame_p95_us": 11552
+        },
+        {
+          "room": "west-lamp",
+          "mode": "shadow",
+          "repeat": 2,
+          "draw_median_us": 4646.5,
+          "frame_median_us": 10703.0,
+          "frame_max_us": 13276,
+          "frame_p95_us": 11794
+        },
+        {
+          "room": "west-lamp",
+          "mode": "mask",
+          "repeat": 2,
+          "draw_median_us": 4591.0,
+          "frame_median_us": 10630.5,
+          "frame_max_us": 11941,
+          "frame_p95_us": 11617
+        },
+        {
+          "room": "home",
+          "mode": "off",
+          "repeat": 0,
+          "draw_median_us": 1543.5,
+          "frame_median_us": 6265.5,
+          "frame_max_us": 7545,
+          "frame_p95_us": 7371
+        },
+        {
+          "room": "home",
+          "mode": "mask",
+          "repeat": 0,
+          "draw_median_us": 1553.5,
+          "frame_median_us": 6278.5,
+          "frame_max_us": 7665,
+          "frame_p95_us": 7259
+        },
+        {
+          "room": "home",
+          "mode": "local",
+          "repeat": 0,
+          "draw_median_us": 1541.0,
+          "frame_median_us": 6283.5,
+          "frame_max_us": 7614,
+          "frame_p95_us": 7279
+        },
+        {
+          "room": "home",
+          "mode": "shadow",
+          "repeat": 0,
+          "draw_median_us": 1607.5,
+          "frame_median_us": 6505.5,
+          "frame_max_us": 8263,
+          "frame_p95_us": 7860
+        },
+        {
+          "room": "home",
+          "mode": "shadow",
+          "repeat": 1,
+          "draw_median_us": 1589.0,
+          "frame_median_us": 6511.0,
+          "frame_max_us": 7963,
+          "frame_p95_us": 7490
+        },
+        {
+          "room": "home",
+          "mode": "local",
+          "repeat": 1,
+          "draw_median_us": 1582.0,
+          "frame_median_us": 6376.0,
+          "frame_max_us": 7916,
+          "frame_p95_us": 7521
+        },
+        {
+          "room": "home",
+          "mode": "mask",
+          "repeat": 1,
+          "draw_median_us": 1499.5,
+          "frame_median_us": 6256.5,
+          "frame_max_us": 7936,
+          "frame_p95_us": 7182
+        },
+        {
+          "room": "home",
+          "mode": "off",
+          "repeat": 1,
+          "draw_median_us": 1542.5,
+          "frame_median_us": 6328.5,
+          "frame_max_us": 10490,
+          "frame_p95_us": 7242
+        },
+        {
+          "room": "home",
+          "mode": "local",
+          "repeat": 2,
+          "draw_median_us": 1584.0,
+          "frame_median_us": 6454.0,
+          "frame_max_us": 8457,
+          "frame_p95_us": 7451
+        },
+        {
+          "room": "home",
+          "mode": "off",
+          "repeat": 2,
+          "draw_median_us": 1542.0,
+          "frame_median_us": 6364.0,
+          "frame_max_us": 7956,
+          "frame_p95_us": 7368
+        },
+        {
+          "room": "home",
+          "mode": "shadow",
+          "repeat": 2,
+          "draw_median_us": 1533.0,
+          "frame_median_us": 6368.0,
+          "frame_max_us": 7971,
+          "frame_p95_us": 7506
+        },
+        {
+          "room": "home",
+          "mode": "mask",
+          "repeat": 2,
+          "draw_median_us": 1598.0,
+          "frame_median_us": 6439.0,
+          "frame_max_us": 9070,
+          "frame_p95_us": 8008
+        }
+      ],
+      "viewports": {
+        "both-local": {
+          "max_difference": [
+            0,
+            0
+          ]
+        },
+        "left-off": {
+          "max_difference": [
+            37,
+            0
+          ]
+        },
+        "right-off": {
+          "max_difference": [
+            0,
+            91
+          ]
+        }
+      }
+    },
+    "1280": {
+      "frames": [
+        {
+          "case": "west-lamp-720-off",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "west-lamp-720-mask",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "west-lamp-720-local",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "west-lamp-720-shadow",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "west-lamp-1140-off",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "west-lamp-1140-mask",
+          "max_channel_difference_from_off": 70,
+          "difference_bounds": [
+            598,
+            145,
+            682,
+            229
+          ]
+        },
+        {
+          "case": "west-lamp-1140-local",
+          "max_channel_difference_from_off": 32,
+          "difference_bounds": [
+            598,
+            146,
+            682,
+            229
+          ]
+        },
+        {
+          "case": "west-lamp-1140-shadow",
+          "max_channel_difference_from_off": 32,
+          "difference_bounds": [
+            598,
+            146,
+            682,
+            226
+          ]
+        },
+        {
+          "case": "west-lamp-1320-off",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "west-lamp-1320-mask",
+          "max_channel_difference_from_off": 143,
+          "difference_bounds": [
+            598,
+            145,
+            682,
+            230
+          ]
+        },
+        {
+          "case": "west-lamp-1320-local",
+          "max_channel_difference_from_off": 38,
+          "difference_bounds": [
+            598,
+            146,
+            682,
+            229
+          ]
+        },
+        {
+          "case": "west-lamp-1320-shadow",
+          "max_channel_difference_from_off": 38,
+          "difference_bounds": [
+            598,
+            146,
+            682,
+            228
+          ]
+        },
+        {
+          "case": "home-720-off",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "home-720-mask",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "home-720-local",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "home-720-shadow",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "home-1140-off",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "home-1140-mask",
+          "max_channel_difference_from_off": 34,
+          "difference_bounds": [
+            683,
+            406,
+            753,
+            475
+          ]
+        },
+        {
+          "case": "home-1140-local",
+          "max_channel_difference_from_off": 53,
+          "difference_bounds": [
+            683,
+            406,
+            753,
+            475
+          ]
+        },
+        {
+          "case": "home-1140-shadow",
+          "max_channel_difference_from_off": 53,
+          "difference_bounds": [
+            683,
+            406,
+            753,
+            474
+          ]
+        },
+        {
+          "case": "home-1320-off",
+          "max_channel_difference_from_off": 0,
+          "difference_bounds": null
+        },
+        {
+          "case": "home-1320-mask",
+          "max_channel_difference_from_off": 67,
+          "difference_bounds": [
+            682,
+            406,
+            753,
+            475
+          ]
+        },
+        {
+          "case": "home-1320-local",
+          "max_channel_difference_from_off": 91,
+          "difference_bounds": [
+            683,
+            406,
+            753,
+            475
+          ]
+        },
+        {
+          "case": "home-1320-shadow",
+          "max_channel_difference_from_off": 91,
+          "difference_bounds": [
+            683,
+            406,
+            753,
+            474
+          ]
+        }
+      ],
+      "costs": [
+        {
+          "room": "west-lamp",
+          "mode": "off",
+          "repeat": 0,
+          "draw_median_us": 4651.5,
+          "frame_median_us": 10829.5,
+          "frame_max_us": 14349,
+          "frame_p95_us": 12407
+        },
+        {
+          "room": "west-lamp",
+          "mode": "mask",
+          "repeat": 0,
+          "draw_median_us": 4692.0,
+          "frame_median_us": 10950.5,
+          "frame_max_us": 13245,
+          "frame_p95_us": 12120
+        },
+        {
+          "room": "west-lamp",
+          "mode": "local",
+          "repeat": 0,
+          "draw_median_us": 5182.0,
+          "frame_median_us": 12095.0,
+          "frame_max_us": 20599,
+          "frame_p95_us": 17102
+        },
+        {
+          "room": "west-lamp",
+          "mode": "shadow",
+          "repeat": 0,
+          "draw_median_us": 5239.0,
+          "frame_median_us": 12416.0,
+          "frame_max_us": 15136,
+          "frame_p95_us": 14554
+        },
+        {
+          "room": "west-lamp",
+          "mode": "shadow",
+          "repeat": 1,
+          "draw_median_us": 4687.0,
+          "frame_median_us": 10950.0,
+          "frame_max_us": 15457,
+          "frame_p95_us": 13157
+        },
+        {
+          "room": "west-lamp",
+          "mode": "local",
+          "repeat": 1,
+          "draw_median_us": 4822.5,
+          "frame_median_us": 11251.0,
+          "frame_max_us": 13144,
+          "frame_p95_us": 12595
+        },
+        {
+          "room": "west-lamp",
+          "mode": "mask",
+          "repeat": 1,
+          "draw_median_us": 4992.0,
+          "frame_median_us": 11589.5,
+          "frame_max_us": 13809,
+          "frame_p95_us": 13213
+        },
+        {
+          "room": "west-lamp",
+          "mode": "off",
+          "repeat": 1,
+          "draw_median_us": 4701.5,
+          "frame_median_us": 11015.0,
+          "frame_max_us": 12180,
+          "frame_p95_us": 11748
+        },
+        {
+          "room": "west-lamp",
+          "mode": "local",
+          "repeat": 2,
+          "draw_median_us": 4704.5,
+          "frame_median_us": 10939.0,
+          "frame_max_us": 11974,
+          "frame_p95_us": 11757
+        },
+        {
+          "room": "west-lamp",
+          "mode": "off",
+          "repeat": 2,
+          "draw_median_us": 4669.5,
+          "frame_median_us": 10890.0,
+          "frame_max_us": 13630,
+          "frame_p95_us": 12119
+        },
+        {
+          "room": "west-lamp",
+          "mode": "shadow",
+          "repeat": 2,
+          "draw_median_us": 4640.0,
+          "frame_median_us": 10873.5,
+          "frame_max_us": 12203,
+          "frame_p95_us": 11767
+        },
+        {
+          "room": "west-lamp",
+          "mode": "mask",
+          "repeat": 2,
+          "draw_median_us": 4738.5,
+          "frame_median_us": 11013.5,
+          "frame_max_us": 14475,
+          "frame_p95_us": 12645
+        },
+        {
+          "room": "home",
+          "mode": "off",
+          "repeat": 0,
+          "draw_median_us": 1631.5,
+          "frame_median_us": 6595.0,
+          "frame_max_us": 8026,
+          "frame_p95_us": 7607
+        },
+        {
+          "room": "home",
+          "mode": "mask",
+          "repeat": 0,
+          "draw_median_us": 1611.0,
+          "frame_median_us": 6506.5,
+          "frame_max_us": 10669,
+          "frame_p95_us": 7831
+        },
+        {
+          "room": "home",
+          "mode": "local",
+          "repeat": 0,
+          "draw_median_us": 1309.5,
+          "frame_median_us": 5458.5,
+          "frame_max_us": 7393,
+          "frame_p95_us": 6270
+        },
+        {
+          "room": "home",
+          "mode": "shadow",
+          "repeat": 0,
+          "draw_median_us": 1560.5,
+          "frame_median_us": 6503.5,
+          "frame_max_us": 8176,
+          "frame_p95_us": 7883
+        },
+        {
+          "room": "home",
+          "mode": "shadow",
+          "repeat": 1,
+          "draw_median_us": 1618.5,
+          "frame_median_us": 6581.5,
+          "frame_max_us": 10731,
+          "frame_p95_us": 7408
+        },
+        {
+          "room": "home",
+          "mode": "local",
+          "repeat": 1,
+          "draw_median_us": 1626.5,
+          "frame_median_us": 6532.5,
+          "frame_max_us": 7763,
+          "frame_p95_us": 7609
+        },
+        {
+          "room": "home",
+          "mode": "mask",
+          "repeat": 1,
+          "draw_median_us": 1584.0,
+          "frame_median_us": 6433.0,
+          "frame_max_us": 7669,
+          "frame_p95_us": 7324
+        },
+        {
+          "room": "home",
+          "mode": "off",
+          "repeat": 1,
+          "draw_median_us": 1570.5,
+          "frame_median_us": 6530.5,
+          "frame_max_us": 7696,
+          "frame_p95_us": 7250
+        },
+        {
+          "room": "home",
+          "mode": "local",
+          "repeat": 2,
+          "draw_median_us": 1639.0,
+          "frame_median_us": 6607.5,
+          "frame_max_us": 8416,
+          "frame_p95_us": 7545
+        },
+        {
+          "room": "home",
+          "mode": "off",
+          "repeat": 2,
+          "draw_median_us": 1616.5,
+          "frame_median_us": 6458.0,
+          "frame_max_us": 8191,
+          "frame_p95_us": 7508
+        },
+        {
+          "room": "home",
+          "mode": "shadow",
+          "repeat": 2,
+          "draw_median_us": 1574.0,
+          "frame_median_us": 6473.0,
+          "frame_max_us": 8181,
+          "frame_p95_us": 7769
+        },
+        {
+          "room": "home",
+          "mode": "mask",
+          "repeat": 2,
+          "draw_median_us": 1521.5,
+          "frame_median_us": 6306.5,
+          "frame_max_us": 7788,
+          "frame_p95_us": 7529
+        }
+      ],
+      "viewports": {
+        "both-local": {
+          "max_difference": [
+            0,
+            0
+          ]
+        },
+        "left-off": {
+          "max_difference": [
+            37,
+            0
+          ]
+        },
+        "right-off": {
+          "max_difference": [
+            0,
+            91
+          ]
+        }
+      }
+    }
+  }
+}

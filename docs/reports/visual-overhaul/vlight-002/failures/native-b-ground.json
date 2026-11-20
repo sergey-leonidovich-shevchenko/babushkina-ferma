@@ -1,0 +1,86 @@
+{
+  "task": "VLIGHT-002",
+  "accepted": false,
+  "source_commit": "be306229e41700aa75220c13ab24d3f7c8940dcb",
+  "capture_sha256": "c657079629cf8183e578afe7019aa7e287717461566a3a08ffe8b78ea1701cfa",
+  "source_case": "west-lamp-1320-mask",
+  "expected_ground": [
+    768,
+    576
+  ],
+  "observed_ground": [
+    768.0,
+    552.0
+  ],
+  "missed_production_ground_offset": [
+    0,
+    24
+  ],
+  "native_record": {
+    "light": {
+      "center": [
+        576.0,
+        168.581512451172
+      ],
+      "enabled": false,
+      "energy": 1.0,
+      "ground": [
+        768.0,
+        552.0
+      ],
+      "hud_canvas_layer": 2,
+      "light_canvas_layer_range": [
+        0,
+        0
+      ],
+      "mode": "mask",
+      "normal_maps_added": false,
+      "occluder": "QA stem rectangle, x[-2,2] y[9,28] relative to emitter",
+      "production_materials_changed": false,
+      "radius": 38.4,
+      "shadow_enabled": false,
+      "shadow_filter": 1,
+      "texture": [
+        256,
+        256
+      ],
+      "texture_rid": 2821793514020,
+      "texture_scale": 0.300000011920929
+    },
+    "before": {
+      "world_context": {
+        "camera": [
+          288.000030517578,
+          344.0
+        ],
+        "day": 2,
+        "facing": [
+          0.0,
+          1.0
+        ],
+        "id": "comparison",
+        "location": "overworld",
+        "minutes": 1320.0,
+        "phase": "other",
+        "physics_processing": false,
+        "player": [
+          768.0,
+          614.0
+        ],
+        "season": "spring",
+        "seed": 20261015,
+        "walkable": "walkable",
+        "weather": "clear",
+        "zoom": 1.2
+      }
+    }
+  },
+  "original_native_retained": "/private/tmp/farm-vlight002-native-20261120-b",
+  "lossless_packet_retained": "tmp/vlight-002/native-b-published",
+  "full_original_record": {
+    "zip": "native-b-full-record.zip",
+    "member": "native-b-ground-full.json",
+    "payload_sha256": "1f74824076ce359684ef929b62c7170230a2a88287516197c078a9fdff9076fd",
+    "zip_sha256": "17a7dc1ec8a09979ec80fb5a5d458d1fb5efc0f7b263c54f6655f12997a1c668"
+  }
+}

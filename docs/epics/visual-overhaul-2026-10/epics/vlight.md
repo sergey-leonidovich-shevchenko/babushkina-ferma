@@ -44,7 +44,7 @@
 
 ## VLIGHT-002 — Сравнить локальный свет и рисованные маски
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `in_progress` · P1 · этап `pilot` · `engineering`
 
 Один фонарь показан двумя способами на Compatibility; решение учитывает текстуры, тени и время кадра
 
@@ -58,7 +58,7 @@
 - [scripts/systems/cave_lighting_system.gd](../../../../scripts/systems/cave_lighting_system.gd)
 - [scripts/systems/interior_renderer.gd](../../../../scripts/systems/interior_renderer.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vlight-002/`.
+Результаты: `docs/reports/visual-overhaul/vlight-002/`.
 
 Критерии:
 
@@ -76,7 +76,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vlight-002/README.md, docs/reports/visual-overhaul/vlight-002/results.json, docs/reports/visual-overhaul/vlight-002/native/source.json, docs/reports/visual-overhaul/vlight-002/failures/ground-regression.json, docs/reports/visual-overhaul/vlight-002/failures/review-regressions.json.
 
 <a id="vlight-003"></a>
 
