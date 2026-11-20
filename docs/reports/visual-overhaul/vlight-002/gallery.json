@@ -1,0 +1,393 @@
+{
+  "task": "VLIGHT-002",
+  "source_commit": "be306229e41700aa75220c13ab24d3f7c8940dcb",
+  "font_sha256": "525979822591a3447cfc49d943d6f7683508e25543407871c0ed8fed05fd2bd9",
+  "placements": [
+    {
+      "output": "comparison.png",
+      "case": "west-lamp-1320-off",
+      "source_sha256": "1d836f52861952949497163fdd15bd7cde4afa5e7e75f207481198e692304730",
+      "source_rect": [
+        512,
+        133,
+        640,
+        293
+      ],
+      "destination": [
+        24,
+        103,
+        256,
+        320
+      ],
+      "scale": 2,
+      "resampling": "nearest; diagnostic enlargement"
+    },
+    {
+      "output": "comparison.png",
+      "case": "west-lamp-1320-mask",
+      "source_sha256": "719eef86e033810555ada07f07e7b4012c9d82677141e1b66f9afb71d62ca4dc",
+      "source_rect": [
+        512,
+        133,
+        640,
+        293
+      ],
+      "destination": [
+        310,
+        103,
+        256,
+        320
+      ],
+      "scale": 2,
+      "resampling": "nearest; diagnostic enlargement"
+    },
+    {
+      "output": "comparison.png",
+      "case": "west-lamp-1320-local",
+      "source_sha256": "c1b0214f01fc9a7e1dccd22f390168a27af8f7d9e7d3d7a7b787d017b26d0b7a",
+      "source_rect": [
+        512,
+        133,
+        640,
+        293
+      ],
+      "destination": [
+        596,
+        103,
+        256,
+        320
+      ],
+      "scale": 2,
+      "resampling": "nearest; diagnostic enlargement"
+    },
+    {
+      "output": "comparison.png",
+      "case": "west-lamp-1320-shadow",
+      "source_sha256": "7a914e446a3999548b9fc182834e1f6e15c50b6d6934d254cccf28206782893e",
+      "source_rect": [
+        512,
+        133,
+        640,
+        293
+      ],
+      "destination": [
+        882,
+        103,
+        256,
+        320
+      ],
+      "scale": 2,
+      "resampling": "nearest; diagnostic enlargement"
+    },
+    {
+      "output": "comparison.png",
+      "case": "home-1320-off",
+      "source_sha256": "fc09139d57f616e45b93f86c6ceac76d94d2550275b27aee50503e653191434a",
+      "source_rect": [
+        582,
+        332,
+        710,
+        492
+      ],
+      "destination": [
+        24,
+        488,
+        256,
+        320
+      ],
+      "scale": 2,
+      "resampling": "nearest; diagnostic enlargement"
+    },
+    {
+      "output": "comparison.png",
+      "case": "home-1320-mask",
+      "source_sha256": "d68ee4eed0d925077b05aa0dc7aa3c05e3221a6453fee7f7c23a2cbfc27eed84",
+      "source_rect": [
+        582,
+        332,
+        710,
+        492
+      ],
+      "destination": [
+        310,
+        488,
+        256,
+        320
+      ],
+      "scale": 2,
+      "resampling": "nearest; diagnostic enlargement"
+    },
+    {
+      "output": "comparison.png",
+      "case": "home-1320-local",
+      "source_sha256": "0ac1bef015e3301183a2c1b7b7e16ed2c876a66694d4fb427d2223654f48cb56",
+      "source_rect": [
+        582,
+        332,
+        710,
+        492
+      ],
+      "destination": [
+        596,
+        488,
+        256,
+        320
+      ],
+      "scale": 2,
+      "resampling": "nearest; diagnostic enlargement"
+    },
+    {
+      "output": "comparison.png",
+      "case": "home-1320-shadow",
+      "source_sha256": "671510b7f73bb6b736f71e54b01425e8979fcffa9ee3396e910a40190c718146",
+      "source_rect": [
+        582,
+        332,
+        710,
+        492
+      ],
+      "destination": [
+        882,
+        488,
+        256,
+        320
+      ],
+      "scale": 2,
+      "resampling": "nearest; diagnostic enlargement"
+    },
+    {
+      "output": "overview.png",
+      "case": "west-lamp-720-mask",
+      "source_sha256": "f61af9c79c80ee02a38c9184fd4ab1ef2342246678284432972d981b45207fd5",
+      "source_rect": [
+        0,
+        0,
+        1152,
+        648
+      ],
+      "destination": [
+        16,
+        64,
+        384,
+        216
+      ],
+      "scale": 0.3333333333333333,
+      "resampling": "lanczos; overview only"
+    },
+    {
+      "output": "overview.png",
+      "case": "west-lamp-1140-mask",
+      "source_sha256": "0419561b3b93146e2ff8da1cf37bb633fae2397937a9b0f68d4177182e68f700",
+      "source_rect": [
+        0,
+        0,
+        1152,
+        648
+      ],
+      "destination": [
+        412,
+        64,
+        384,
+        216
+      ],
+      "scale": 0.3333333333333333,
+      "resampling": "lanczos; overview only"
+    },
+    {
+      "output": "overview.png",
+      "case": "west-lamp-1320-mask",
+      "source_sha256": "719eef86e033810555ada07f07e7b4012c9d82677141e1b66f9afb71d62ca4dc",
+      "source_rect": [
+        0,
+        0,
+        1152,
+        648
+      ],
+      "destination": [
+        808,
+        64,
+        384,
+        216
+      ],
+      "scale": 0.3333333333333333,
+      "resampling": "lanczos; overview only"
+    },
+    {
+      "output": "overview.png",
+      "case": "west-lamp-720-local",
+      "source_sha256": "f61af9c79c80ee02a38c9184fd4ab1ef2342246678284432972d981b45207fd5",
+      "source_rect": [
+        0,
+        0,
+        1152,
+        648
+      ],
+      "destination": [
+        16,
+        302,
+        384,
+        216
+      ],
+      "scale": 0.3333333333333333,
+      "resampling": "lanczos; overview only"
+    },
+    {
+      "output": "overview.png",
+      "case": "west-lamp-1140-local",
+      "source_sha256": "55d28e6294ac3533864c9f9acc6f9e14232c01a54ae9c99eec4536752577ca24",
+      "source_rect": [
+        0,
+        0,
+        1152,
+        648
+      ],
+      "destination": [
+        412,
+        302,
+        384,
+        216
+      ],
+      "scale": 0.3333333333333333,
+      "resampling": "lanczos; overview only"
+    },
+    {
+      "output": "overview.png",
+      "case": "west-lamp-1320-local",
+      "source_sha256": "c1b0214f01fc9a7e1dccd22f390168a27af8f7d9e7d3d7a7b787d017b26d0b7a",
+      "source_rect": [
+        0,
+        0,
+        1152,
+        648
+      ],
+      "destination": [
+        808,
+        302,
+        384,
+        216
+      ],
+      "scale": 0.3333333333333333,
+      "resampling": "lanczos; overview only"
+    },
+    {
+      "output": "overview.png",
+      "case": "home-720-mask",
+      "source_sha256": "31bb0ddee2cc6df54f09b4c7456c76681ca12425b85a2ff84ca9aeb788d9f2bb",
+      "source_rect": [
+        0,
+        0,
+        1152,
+        648
+      ],
+      "destination": [
+        16,
+        540,
+        384,
+        216
+      ],
+      "scale": 0.3333333333333333,
+      "resampling": "lanczos; overview only"
+    },
+    {
+      "output": "overview.png",
+      "case": "home-1140-mask",
+      "source_sha256": "6eea36a2d2813308e7b104bba426ec02917f894e1bb75ba055551b29e39e82c4",
+      "source_rect": [
+        0,
+        0,
+        1152,
+        648
+      ],
+      "destination": [
+        412,
+        540,
+        384,
+        216
+      ],
+      "scale": 0.3333333333333333,
+      "resampling": "lanczos; overview only"
+    },
+    {
+      "output": "overview.png",
+      "case": "home-1320-mask",
+      "source_sha256": "d68ee4eed0d925077b05aa0dc7aa3c05e3221a6453fee7f7c23a2cbfc27eed84",
+      "source_rect": [
+        0,
+        0,
+        1152,
+        648
+      ],
+      "destination": [
+        808,
+        540,
+        384,
+        216
+      ],
+      "scale": 0.3333333333333333,
+      "resampling": "lanczos; overview only"
+    },
+    {
+      "output": "overview.png",
+      "case": "home-720-local",
+      "source_sha256": "31bb0ddee2cc6df54f09b4c7456c76681ca12425b85a2ff84ca9aeb788d9f2bb",
+      "source_rect": [
+        0,
+        0,
+        1152,
+        648
+      ],
+      "destination": [
+        16,
+        778,
+        384,
+        216
+      ],
+      "scale": 0.3333333333333333,
+      "resampling": "lanczos; overview only"
+    },
+    {
+      "output": "overview.png",
+      "case": "home-1140-local",
+      "source_sha256": "1651013dd351f25d36e6a65b88cf45770d25fe4692e56c708958ff2797d2e671",
+      "source_rect": [
+        0,
+        0,
+        1152,
+        648
+      ],
+      "destination": [
+        412,
+        778,
+        384,
+        216
+      ],
+      "scale": 0.3333333333333333,
+      "resampling": "lanczos; overview only"
+    },
+    {
+      "output": "overview.png",
+      "case": "home-1320-local",
+      "source_sha256": "0ac1bef015e3301183a2c1b7b7e16ed2c876a66694d4fb427d2223654f48cb56",
+      "source_rect": [
+        0,
+        0,
+        1152,
+        648
+      ],
+      "destination": [
+        808,
+        778,
+        384,
+        216
+      ],
+      "scale": 0.3333333333333333,
+      "resampling": "lanczos; overview only"
+    }
+  ],
+  "byte_exact_viewport_source": "1152/frames/viewport-both-local.png",
+  "outputs": {
+    "comparison.png": "07bf1355f7a2c16e871e5117d5a60a651dd748c8d38a22aea35a8dd6c11f33b2",
+    "overview.png": "53c45a81286dee90d7dcb1998ca7ffed29585e4206458bd1aff80ac4734559d1",
+    "viewports.png": "34b1f929bf3228ceb1665c978348b31e240ca92b842f6e4c11fc48d2937d8ce3"
+  }
+}

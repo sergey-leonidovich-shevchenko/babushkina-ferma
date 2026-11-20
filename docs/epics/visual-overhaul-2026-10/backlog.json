@@ -4890,7 +4890,7 @@
       "id": "VLIGHT-002",
       "epic": "VLIGHT",
       "title": "Сравнить локальный свет и рисованные маски",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -4926,7 +4926,13 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vlight-002-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vlight-002/README.md",
+        "docs/reports/visual-overhaul/vlight-002/results.json",
+        "docs/reports/visual-overhaul/vlight-002/native/source.json",
+        "docs/reports/visual-overhaul/vlight-002/failures/ground-regression.json"
+      ],
+      "result": "20 ноября 2026: подготовлено авторское сравнение на Compatibility от принятой main be306229 (0.0.467). Полная серия C:114 PNG,48 парных временных строк/4320 CPU и frame samples, два окна/улица/существующий дом/три времени, HUD и независимые viewport.3755 production blobs и30 QA-входов проверены по байтам; raw/ZIP результаты точны. A отклонена из-за resize, B — из-за пропущенного GROUND_OFFSET24; новое правило отвергает одинаковое неверное смещение обоих источников. Для малого halo выбран общий cached color mesh; скорость не объявляется выигрышем, GPU/FPS и runtime-миграция не приняты. Полные проверки, независимое ревью и приёмка PR ещё впереди."
     },
     {
       "id": "VLIGHT-003",

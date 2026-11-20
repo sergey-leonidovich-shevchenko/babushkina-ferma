@@ -1,0 +1,58 @@
+{
+  "task": "VLIGHT-002",
+  "run": "native-a diagnostic width1152",
+  "accepted": false,
+  "external_root": "/private/tmp/farm-vlight002-native-20261120-a",
+  "failures": [
+    "west-lamp-720-mask: save/framebuffer failure",
+    "west-lamp-720-local: save/framebuffer failure",
+    "west-lamp-720-shadow: save/framebuffer failure",
+    "west-lamp-1140-off: save/framebuffer failure",
+    "west-lamp-1140-mask: save/framebuffer failure",
+    "west-lamp-1140-local: save/framebuffer failure",
+    "west-lamp-1140-shadow: save/framebuffer failure",
+    "west-lamp-1320-off: save/framebuffer failure",
+    "west-lamp-1320-mask: save/framebuffer failure",
+    "west-lamp-1320-local: save/framebuffer failure",
+    "west-lamp-1320-shadow: save/framebuffer failure",
+    "home-720-off: save/framebuffer failure",
+    "home-720-mask: save/framebuffer failure",
+    "home-720-local: save/framebuffer failure",
+    "home-720-shadow: save/framebuffer failure",
+    "home-1140-off: save/framebuffer failure",
+    "home-1140-mask: save/framebuffer failure",
+    "home-1140-local: save/framebuffer failure",
+    "home-1140-shadow: save/framebuffer failure",
+    "home-1320-off: save/framebuffer failure",
+    "home-1320-mask: save/framebuffer failure",
+    "home-1320-local: save/framebuffer failure",
+    "home-1320-shadow: save/framebuffer failure"
+  ],
+  "captured_cases": 24,
+  "png_files": 25,
+  "first_window": [
+    1152,
+    648
+  ],
+  "later_window": [
+    3584,
+    2240
+  ],
+  "seed_observed": 490495224,
+  "seed_expected": 20261015,
+  "cpu_accepted": false,
+  "next_changes": [
+    "restore seed after set_script",
+    "settle native window three times after creating instances",
+    "preserve every actual failed PNG and fail fast",
+    "record actual window in every performance sample"
+  ],
+  "raw_capture_sha256": "05a09c7c8e1bf850eee12d262258f5ffb2f8f4847d3e08bb4f6ff295f74c98c7",
+  "source_sha256": "442b2edca00d10a730b55794fcc2674dec02575a606b7d0a786793a3c843159b",
+  "capture_transport": {
+    "zip": "native-a-capture.zip",
+    "member": "capture.json",
+    "sha256": "05a09c7c8e1bf850eee12d262258f5ffb2f8f4847d3e08bb4f6ff295f74c98c7",
+    "zip_sha256": "69425acc4573a2e9721ef99c879181c80340c4628145e10e83234a485fd1668c"
+  }
+}
