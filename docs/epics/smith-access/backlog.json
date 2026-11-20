@@ -13,7 +13,7 @@
       "id": "SMITH-00",
       "epic": "SMITH",
       "title": "Поставить кузницы, заточку, заказы и личные истории мастеров",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "size": "M",
       "goal": "Оформить прямое поручение владельца четырьмя тематическими эпиками в Wiki с совместимым договором, квестами и предметной приёмкой.",
@@ -28,7 +28,7 @@
         "Проверка сохранности старых реестров и ацикличности полного графа; Wiki check, браузер и обязательные проверки TESTING.md."
       ],
       "needs": [],
-      "result": "[PR №76](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/76) Ветка codex/smith-00-forge-service-plan, база dc4429f89be9ddc29cf5a052ae4dd665fbfd71df. Первый опубликованный head fb87ac003db7d709bcd8d3661d15679545608c98: полный штатный hook PASS (quality, architecture, Game 53693/0, normal/F10 по 90/0), Wiki 167/167, каталог и браузер. Актуальный head и его проверки фиксируются в PR; ожидаются независимое ревью и решение Team Lead. Новые механики ещё не реализованы; статус остаётся in_progress до принятого merge.",
+      "result": "Принято 2026-11-20: [PR №76](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/76), head b19d0508b6819199528f6e52e00e4b2899f9f3a8, независимое APPROVED 5984244824 и решение Team Lead; merge 4ef296745c99474b56fd3ddef0ab6ddfaf62e0ee, дерево e0c80d8544da206232e188d2f8ebd9e073ce8aa6 совпало с одобренным. Проверки принятой постановки: Wiki 167/167, каталог 177 эпиков/2091 задача без циклов, сохранены прежние 173 эпика/2068 задач и планирование; Node planning 15/15. Полный штатный hook: quality/architecture PASS, Game 53693/0, normal/F10 по 90/0. CI нового head 8/8: Game 53711/0 в обоих прогонах, normal/F10 по 90/0, smoke 180 и по 6 performance-серий PASS. Браузер подтвердил настоящий переход из карточки в PR и отсутствие переполнения на 390 CSS px; DESIGN/QUESTS доступны в принятой main. Приняты только постановка четырёх эпиков и три цепочки квестов; 22 задачи реализации остаются blocked за VMAP-003 и предметными зависимостями. Новые механики и квесты ещё не реализованы.",
       "branch": "codex/smith-00-forge-service-plan"
     },
     {
