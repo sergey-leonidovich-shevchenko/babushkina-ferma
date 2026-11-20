@@ -1,0 +1,86 @@
+{
+  "record_revision": "5d67e5ca5c1138583df25f3b240d72e187379d4e",
+  "record_sha256": "1d52453a49fc40be088ce9171b4a179d011c641ca3e9ea2284a4cb0684265d86",
+  "archives_sha256": {
+    "1152.zip": "e7f3ceee51bf394a2d8cfc7bb95cca2eaec09693482bc7dd60e547390eeb2fbd",
+    "1280.zip": "47a49ac868b18a9e71b68aa2a4534472cc12a39500084ed4f8f7bee804b86da0"
+  },
+  "captures": [
+    {
+      "capture": "1152-production/frames/capture.json",
+      "sha256": "24b9d4403c2f580749c7360133e13ee40d3f67b4bfb4627f8e69805f26e9ac32",
+      "world_cases": 9,
+      "world_callbacks": 18,
+      "twin_states": 0,
+      "twin_callbacks": 0
+    },
+    {
+      "capture": "1152-on/frames/capture.json",
+      "sha256": "eb201768e1a51dc5fdbccacaf237ea1356fb1f5db8b8dc3bc1730affdee118a6",
+      "world_cases": 9,
+      "world_callbacks": 18,
+      "twin_states": 6,
+      "twin_callbacks": 12
+    },
+    {
+      "capture": "1152-off/frames/capture.json",
+      "sha256": "02fd53a538beb2bb85198fb1205fb21281b3fae045b325c79ee1cded0e79abb0",
+      "world_cases": 9,
+      "world_callbacks": 18,
+      "twin_states": 0,
+      "twin_callbacks": 0
+    },
+    {
+      "capture": "1280-production/frames/capture.json",
+      "sha256": "be0d81b000e1f5fc6fd9fc6464fb4f0a06893b25c8780b75d29f1e3ca7f49b8d",
+      "world_cases": 9,
+      "world_callbacks": 18,
+      "twin_states": 0,
+      "twin_callbacks": 0
+    },
+    {
+      "capture": "1280-on/frames/capture.json",
+      "sha256": "8e474b348503733af725164f8ada3a176a91fbb5d8eba087f4b23bc06967a5b3",
+      "world_cases": 9,
+      "world_callbacks": 18,
+      "twin_states": 6,
+      "twin_callbacks": 12
+    },
+    {
+      "capture": "1280-off/frames/capture.json",
+      "sha256": "a4765ff8aa9d96d3b73ba808e0e51e8d98623ff993feaabd9bf3041a73371d18",
+      "world_cases": 9,
+      "world_callbacks": 18,
+      "twin_states": 0,
+      "twin_callbacks": 0
+    }
+  ],
+  "world_cases": 54,
+  "twin_states": 12,
+  "expected_from_native_draw_arrays": {
+    "observed_world_case_callbacks": 108,
+    "observed_twin_callbacks": 24,
+    "observed_callbacks_total": 132
+  },
+  "record_claims": {
+    "observed_world_case_callbacks": null,
+    "observed_twin_callbacks": 132,
+    "observed_callbacks_total": null
+  },
+  "differences": {
+    "observed_world_case_callbacks": {
+      "record": null,
+      "native": 108
+    },
+    "observed_twin_callbacks": {
+      "record": 132,
+      "native": 24
+    },
+    "observed_callbacks_total": {
+      "record": null,
+      "native": 132
+    }
+  },
+  "passed": false,
+  "native_archives_unchanged": true
+}

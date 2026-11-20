@@ -4841,7 +4841,7 @@
       "id": "VLIGHT-001",
       "epic": "VLIGHT",
       "title": "Составить карту существующего света",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -4881,9 +4881,10 @@
       "evidence": [
         "docs/reports/visual-overhaul/vlight-001/README.md",
         "docs/reports/visual-overhaul/vlight-001/results.json",
-        "docs/reports/visual-overhaul/vlight-001/native/source.json"
+        "docs/reports/visual-overhaul/vlight-001/native/source.json",
+        "docs/reports/visual-overhaul/vlight-001/closeout/result.json"
       ],
-      "result": "Составлена карта 15 групп/16 runtime-входов и четырёх общих QA-зависимостей. На принятой production-базе dc4429f8 снята свежая native-D: 126 PNG в двух окнах, 54 world/54 HUD, точный production/on, bounded off, два viewport, 2160 CPU samples. Состояния CPU on/off/повторов точны; отличие прогрева от раннего PNG явно сохранено. Строгая semantic5, 8 contract и 19 reader проверок прошли. P2 предварительного ревью исправлен: точная официальная сборка сверяется с фактическим engine.txt; тот же тестовый файл дал старому reader три failed assertions, исправленному 4/0 вместе с неизменённым baseline. Исходная native-D и 14 QA-входов сохранены побайтно. Первый опубликованный кандидат 1fc3379385cd68543a2aebf5ad136b6d1ee24298 (0.0.462) прошёл штатный hook: quality/architecture PASS, Game53693/0, normal90/0, F10 90/0. Wiki check167/0, браузер1280/390 и четыре HTTP-вложения проверены; strict-current подтверждает только metadata delta461→462. [PR №77](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/77) открыт draft, передан Tech на предварительное source/evidence review. Runtime и графика не заменены. Статус in_progress; финальный P2+URL/result-кандидат, полный штатный hook, post-bump Wiki/браузер, текущий CI, повторное независимое exact-head review и решение Team Lead ещё обязательны."
+      "result": "20 ноября 2026 аудит принят: [PR №77](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/77), точный head 4f5122c61c369852a99935b2628ad4b0fe9ba90f (0.0.464), независимое APPROVED review 5986004576 и решение Team Lead. Все 9 актуальных CI checks — success; инфраструктурная отмена до тестов не засчитывалась, адресный повтор того же SHA прошёл. Обычный merge f74d1afabfe05ea5696bfbbbe84789611d25685d: родители 4ef296745c99474b56fd3ddef0ab6ddfaf62e0ee + 4f5122c61c369852a99935b2628ad4b0fe9ba90f; tree 4edc6e54288dea6c6df045a9ecefc1dd5f1ab211 равен одобренному. Карта 15 групп / 16 runtime-входов и 4 общих QA-зависимостей; native 126 PNG, 18 точных production/on пар, отдельный HUD, оба направления независимых viewport, 132 state/geometry callbacks и 2160 CPU samples. Native и 14 producer inputs сохранены. P2 точной официальной версии и фактического banner исправлен с одинаковыми реальными old/new регрессиями; reader 19/0 и contract 8/0. Итоговый локальный hook: quality 163/0, architecture PASS, Game 53693/0, normal 90/0, F10 90/0; PR CI: Game 53711/0, WATER 55/0, normal 90/0, F10 90/0, smoke 180. Post-bump Wiki 167/0, браузер 390/1280, 3 галереи и 4 HTTP-вложения проверены. Принят аудит существующего света и CPU draw submission; новая графика, аппаратный FPS/GPU, диагностический HUD 960 и вся первая локация не приняты. Отдельная запись учёта: docs/reports/visual-overhaul/vlight-001/closeout/result.json; собственные hook/CI/независимое ревью учёта обязательны, другие VLIGHT-карточки не начаты."
     },
     {
       "id": "VLIGHT-002",

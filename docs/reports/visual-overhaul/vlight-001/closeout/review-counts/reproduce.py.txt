@@ -1,0 +1,92 @@
+"""Compare the acceptance record with real draw arrays in unchanged native ZIPs."""
+
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import subprocess
+from zipfile import ZipFile
+
+REPORT = Path('docs/reports/visual-overhaul/vlight-001')
+RECORD = REPORT / 'closeout/result.json'
+
+
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--root', required=True, type=Path)
+    parser.add_argument('--revision')
+    args = parser.parse_args()
+    root = args.root.resolve(strict=True)
+    environment = {k: v for k, v in os.environ.items() if not k.startswith('GIT_')}
+    if args.revision:
+        if not re.fullmatch('[0-9a-f]{40}', args.revision):
+            raise ValueError('an exact Git revision is required')
+        record_bytes = subprocess.check_output(
+            ['git', '-C', str(root), 'show', args.revision + ':' + RECORD.as_posix()],
+            env=environment,
+        )
+    else:
+        record_bytes = (root / RECORD).read_bytes()
+    record = json.loads(record_bytes)
+    native = root / REPORT / 'native'
+    manifest = json.loads((native / 'source.json').read_bytes())
+    archives_before = {p.name: sha(p.read_bytes()) for p in sorted(native.glob('*.zip'))}
+    captures = []
+    for width in (1152, 1280):
+        archive = native / (str(width) + '.zip')
+        with ZipFile(archive) as packed:
+            for variant in ('production', 'on', 'off'):
+                key = str(width) + '-' + variant
+                name = key + '/frames/capture.json'
+                if packed.namelist().count(name) != 1:
+                    raise ValueError('missing or duplicate native capture: ' + name)
+                raw = packed.read(name)
+                digest = sha(raw)
+                if digest != manifest['runs'][key]['artifacts']['frames/capture.json']:
+                    raise ValueError('native capture differs from its manifest: ' + name)
+                capture = json.loads(raw)
+                modes = capture['viewports'].get('records', {})
+                states = [state for mode in modes.values() for state in mode['states']]
+                captures.append({
+                    'capture': name,
+                    'sha256': digest,
+                    'world_cases': len(capture['frames']),
+                    'world_callbacks': sum(len(frame['draws']) for frame in capture['frames'].values()),
+                    'twin_states': len(states),
+                    'twin_callbacks': sum(len(state['draws']) for state in states),
+                })
+    expected = {
+        'observed_world_case_callbacks': sum(row['world_callbacks'] for row in captures),
+        'observed_twin_callbacks': sum(row['twin_callbacks'] for row in captures),
+    }
+    expected['observed_callbacks_total'] = sum(expected.values())
+    actual = {key: record['native'].get(key) for key in expected}
+    differences = {key: {'record': actual[key], 'native': value} for key, value in expected.items() if actual[key] != value}
+    archives_after = {p.name: sha(p.read_bytes()) for p in sorted(native.glob('*.zip'))}
+    if archives_before != archives_after:
+        raise ValueError('source ZIPs changed during the read-only check')
+    result = {
+        'record_revision': args.revision or 'working-candidate',
+        'record_sha256': sha(record_bytes),
+        'archives_sha256': archives_after,
+        'captures': captures,
+        'world_cases': sum(row['world_cases'] for row in captures),
+        'twin_states': sum(row['twin_states'] for row in captures),
+        'expected_from_native_draw_arrays': expected,
+        'record_claims': actual,
+        'differences': differences,
+        'passed': not differences,
+        'native_archives_unchanged': True,
+    }
+    print(json.dumps(result, indent=2))
+    return 1 if differences else 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
