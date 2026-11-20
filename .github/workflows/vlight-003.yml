@@ -1,0 +1,77 @@
+name: VLIGHT-003 calendar palette
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/vlight-003.yml'
+      - 'scripts/presentation/daylight_palette.gd*'
+      - 'scripts/systems/atmosphere_renderer.gd'
+      - 'tools/qa/world/lighting/daycycle/**'
+      - 'tests/suites/daylight_palette_suite.gd*'
+      - 'docs/reports/visual-overhaul/vlight-003/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native_palette:
+    name: Calendar palette native X11
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      VLIGHT_EXPECTED_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+      LIBGL_ALWAYS_SOFTWARE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - name: Set isolated evidence paths
+        run: |
+          echo "FARM_GODOT_BIN=$RUNNER_TEMP/vlight-003/Godot_v4.7.1-stable_linux.x86_64" >> "$GITHUB_ENV"
+          echo "VLIGHT_OUTPUT=$RUNNER_TEMP/vlight-003/evidence" >> "$GITHUB_ENV"
+      - name: Install rendering and reader dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y fonts-noto-cjk fonts-liberation xvfb xauth libgl1-mesa-dri libglx-mesa0
+          python -m pip install Pillow==11.3.0
+      - name: Download official pinned Godot 4.7.1
+        run: |
+          mkdir -p "$(dirname "$FARM_GODOT_BIN")"
+          curl -fsSL -o "${FARM_GODOT_BIN}.zip" https://github.com/godotengine/godot/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip
+          GODOT_ZIP="${FARM_GODOT_BIN}.zip" python -c 'import hashlib,os,pathlib; assert hashlib.sha256(pathlib.Path(os.environ["GODOT_ZIP"]).read_bytes()).hexdigest() == "c7ff14fd28472c8d4f193043de30278dcf7e5241a1dcf7566b02e27addaa33ba"'
+          unzip -q "${FARM_GODOT_BIN}.zip" -d "$(dirname "$FARM_GODOT_BIN")"
+          chmod +x "$FARM_GODOT_BIN"
+      - name: Collect exact-head native baseline and palette
+        run: |
+          xvfb-run -a -s '-screen 0 1280x720x24' python tools/run.py qa.world.lighting.daycycle.collect --output "$VLIGHT_OUTPUT"
+      - name: Verify pixels, HUD, targets, state and raw samples
+        run: |
+          set -o pipefail
+          python tools/run.py qa.world.lighting.daycycle.verify --output "$VLIGHT_OUTPUT" --expected-head "$VLIGHT_EXPECTED_HEAD" | tee "$RUNNER_TEMP/vlight-003/verification.txt"
+      - name: Preserve raw evidence including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vlight-003-native
+          path: |
+            ${{ env.VLIGHT_OUTPUT }}/source.json
+            ${{ env.VLIGHT_OUTPUT }}/inputs
+            ${{ env.VLIGHT_OUTPUT }}/baseline/production-blobs.json
+            ${{ env.VLIGHT_OUTPUT }}/baseline/*.txt
+            ${{ env.VLIGHT_OUTPUT }}/baseline/*.launch.json
+            ${{ env.VLIGHT_OUTPUT }}/baseline/1152
+            ${{ env.VLIGHT_OUTPUT }}/baseline/1280
+            ${{ env.VLIGHT_OUTPUT }}/candidate/production-blobs.json
+            ${{ env.VLIGHT_OUTPUT }}/candidate/*.txt
+            ${{ env.VLIGHT_OUTPUT }}/candidate/*.launch.json
+            ${{ env.VLIGHT_OUTPUT }}/candidate/1152
+            ${{ env.VLIGHT_OUTPUT }}/candidate/1280
+            ${{ runner.temp }}/vlight-003/verification.txt
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
