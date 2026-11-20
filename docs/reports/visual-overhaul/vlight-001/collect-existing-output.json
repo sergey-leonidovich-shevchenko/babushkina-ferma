@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tmp/refactor07-quality-venv/bin/python3",
+    "tools/run.py",
+    "qa.world.lighting.collect",
+    "--output",
+    "/private/tmp/farm-vlight001-native-20261119-d"
+  ],
+  "exit_code": 1,
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/run.py\", line 10, in <module>\n    main()\n  File \"/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/common/launch.py\", line 78, in main\n    runpy.run_module(target, run_name=\"__main__\", alter_sys=True)\n  File \"<frozen runpy>\", line 226, in run_module\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/collect.py\", line 305, in <module>\n    main()\n  File \"/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/collect.py\", line 297, in main\n    collect(\n  File \"/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/collect.py\", line 224, in collect\n    folder = contract.fresh_output(output)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/sergeyshevchenko/.codex/worktrees/refactor-03-isolated-qa/my farm/tools/qa/world/lighting/contract.py\", line 135, in fresh_output\n    raise ValueError(\"fresh external output with existing parent required\")\nValueError: fresh external output with existing parent required\n",
+  "source_sha256": "e84a402e4eb9c976a1d1e1a39b6b93c68cee2fa0878d92dcbb0849b6d4ba18f9",
+  "source_preserved": true,
+  "no_Godot_before_after": true,
+  "acceptance": false,
+  "reason": "actual producer refusal of existing output; no native rendering"
+}

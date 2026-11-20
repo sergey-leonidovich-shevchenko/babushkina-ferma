@@ -1,0 +1,69 @@
+from pathlib import Path
+import hashlib
+import importlib.util
+import json
+import sys
+import unittest
+
+from tools.qa.world.lighting import contract, test_reader
+
+root = contract.ROOT
+old_head = '1fc3379385cd68543a2aebf5ad136b6d1ee24298'
+output = contract.fresh_output(Path(sys.argv[1]))
+package = output / 'old-analysis'
+package.mkdir()
+files = ['verify.py', 'pixels.py', 'storage.py']
+old_sources = {}
+for name in files:
+    raw = contract.git('show', old_head + ':' + contract.PREFIX + name)
+    (package / name).write_bytes(raw)
+    old_sources[name] = contract.digest(raw)
+    if name != 'verify.py':
+        assert (root / contract.PREFIX / name).read_bytes() == raw, 'old analysis dependency changed'
+
+spec = importlib.util.spec_from_file_location('vlight001_engine_old_reader', package / 'verify.py')
+assert spec is not None and spec.loader is not None
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+current = test_reader.verify
+names = [
+    'test_complete_real_archive',
+    'test_different_official_patch_is_rejected_after_rehash',
+    'test_unofficial_engine_is_rejected_after_rehash',
+    'test_actual_engine_header_must_match_capture_after_rehash',
+]
+base = root / 'docs/reports/visual-overhaul/vlight-001/native'
+def hashes():
+    return {str(p.relative_to(base)): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(base.rglob('*')) if p.is_file()}
+original = hashes()
+test_sha = hashlib.sha256(Path(test_reader.__file__).read_bytes()).hexdigest()
+results = {}
+for label, function in [('before', module.verify), ('after', current)]:
+    test_reader.verify = function
+    suite = unittest.TestSuite(test_reader.LightingArchiveTests(name) for name in names)
+    with (output / (label + '.txt')).open('x') as stream:
+        result = unittest.TextTestRunner(stream=stream, verbosity=2).run(suite)
+    results[label] = {
+        'ran': result.testsRun,
+        'failures': [test.id() for test, _ in result.failures],
+        'errors': [test.id() for test, _ in result.errors],
+        'baseline_pass': not any(test.id().endswith(names[0]) for test, _ in result.failures + result.errors),
+    }
+    assert hashlib.sha256(Path(test_reader.__file__).read_bytes()).hexdigest() == test_sha
+    assert hashes() == original, 'native evidence changed'
+test_reader.verify = current
+assert results['before']['ran'] == results['after']['ran'] == 4
+assert len(results['before']['failures']) == 3 and not results['before']['errors']
+assert results['before']['baseline_pass'] and results['after']['baseline_pass']
+assert not results['after']['failures'] and not results['after']['errors']
+receipt = {
+    'task': 'VLIGHT-001', 'review_fix': 'PR77 P2 exact official engine and actual log',
+    'before_head': old_head, 'before_analysis_sha256': old_sources,
+    'current_analysis_sha256': {name: contract.digest((root / contract.PREFIX / name).read_bytes()) for name in files},
+    'test_sha256': test_sha, 'test_names': names, 'results': results,
+    'native_before': original, 'native_after': hashes(), 'native_unchanged': True,
+    'engine_started': False,
+}
+(output / 'receipt.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')
+print(json.dumps({'output': str(output), 'results': results, 'native_unchanged': True, 'engine_started': False}, indent=2))

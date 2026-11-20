@@ -795,6 +795,12 @@ tools/qa/world/shadows/*
 !tools/qa/world/shadows/*.gd
 !tools/qa/world/shadows/*.gd.uid
 !tools/qa/world/shadows/README.md
+!tools/qa/world/lighting/
+tools/qa/world/lighting/*
+!tools/qa/world/lighting/*.py
+!tools/qa/world/lighting/*.gd
+!tools/qa/world/lighting/*.gd.uid
+!tools/qa/world/lighting/README.md
 !tools/qa/world/benches/
 tools/qa/world/benches/*
 !tools/qa/world/benches/*.py

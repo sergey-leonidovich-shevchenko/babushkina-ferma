@@ -1,0 +1,262 @@
+{
+  "native-a/1152-production/engine.launch.json": {
+    "sha256": "889ffa833638956dea61f3ff3e49779ab4d92352fd9dd001436fb5eb499d828b",
+    "bytes": 898
+  },
+  "native-a/1152-production/engine.stdout.txt": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "native-a/1152-production/engine.txt": {
+    "sha256": "7ca3d06154886d1daec0679d4f0dbacac746e02f4efe37d772ca61e1d45da384",
+    "bytes": 2117
+  },
+  "native-a/import.launch.json": {
+    "sha256": "ba3469e9d7917eb64fad8f21899a033dae5ab083df6b0e0464d473f54194649e",
+    "bytes": 488
+  },
+  "native-a/import.stdout.txt": {
+    "sha256": "8f7d6102dcf343030b3fc90685c85a9a02008c90629c0223a9e4891f7dd34b0b",
+    "bytes": 369917
+  },
+  "native-a/import.txt": {
+    "sha256": "093434ff12e9be253c578e3414956196e3fb6ccb2a88906f946a329d7ce7998e",
+    "bytes": 261541
+  },
+  "native-a/inputs/tools/qa/world/lighting/__init__.py": {
+    "sha256": "94e0e547d989c4e576163d416be94c205ac343acdeb86c729f331716202f7853",
+    "bytes": 136
+  },
+  "native-a/inputs/tools/qa/world/lighting/collect.py": {
+    "sha256": "1c38a9eeb6067c453a2a2a78ef224da1a04e860690ccf66ad3a0bd054393e817",
+    "bytes": 11181
+  },
+  "native-a/inputs/tools/qa/world/lighting/contract.py": {
+    "sha256": "d6fe4c99ee3007df3eb7a07899e540ff51dcc7f8bd0cfaefe7a5ad87e33eb6f9",
+    "bytes": 5636
+  },
+  "native-a/inputs/tools/qa/world/lighting/inventory.py": {
+    "sha256": "2f32e52cc5eefb94b1476da2e52347f6a095ee8f630160bf5c179e9d8cd91354",
+    "bytes": 9111
+  },
+  "native-a/inputs/tools/qa/world/lighting/inventory_capture.gd": {
+    "sha256": "79d91560f824202e54c9a5918355d25d43bd7e996acfe7c274088a7e6c63f1bf",
+    "bytes": 7216
+  },
+  "native-a/inputs/tools/qa/world/lighting/inventory_capture.gd.uid": {
+    "sha256": "e1bc40467008be6b59eacd56cde8e1adf2a427eee6b09a850d1c7d388ffe1349",
+    "bytes": 20
+  },
+  "native-a/inputs/tools/qa/world/lighting/inventory_cases.gd": {
+    "sha256": "e17c9e022c38af84dd1a5d4aed496c9c303abe6ca2582a08a8d005ef7cb817d4",
+    "bytes": 2730
+  },
+  "native-a/inputs/tools/qa/world/lighting/inventory_cases.gd.uid": {
+    "sha256": "b53e27705f0e40f38202b66b2d8ff61f5a9ede44adc2d36880cd9c2f31112b2e",
+    "bytes": 20
+  },
+  "native-a/inputs/tools/qa/world/lighting/inventory_game.gd": {
+    "sha256": "3eb10db21d58f143b01d0c4cf55692f2da76a3f37a2d89170c84ee844cc0ac5e",
+    "bytes": 1501
+  },
+  "native-a/inputs/tools/qa/world/lighting/inventory_game.gd.uid": {
+    "sha256": "7c06c18413655e48e248385b73a811ee5498dea2f42fa35cbd4ed5c025a2feed",
+    "bytes": 20
+  },
+  "native-a/inputs/tools/qa/world/lighting/inventory_viewports.gd": {
+    "sha256": "de6adebd743eb58848dfb0307695991945fd4116aa165f0e98492e962a750ed4",
+    "bytes": 3633
+  },
+  "native-a/inputs/tools/qa/world/lighting/inventory_viewports.gd.uid": {
+    "sha256": "6ec98e31eafbedcb7722809f4b0dc6377d12d74644367c199fb3e802e7400325",
+    "bytes": 19
+  },
+  "native-a/inputs/tools/qa/world/lighting/light_probe.gd": {
+    "sha256": "b3d373a308c86a1a4ab5815f62671daa4761237a347c8c4f4dca3a12644b077e",
+    "bytes": 2151
+  },
+  "native-a/inputs/tools/qa/world/lighting/light_probe.gd.uid": {
+    "sha256": "ed67f72a659453fd7344cfcedbdf8d07cd20057f46bc90d5e86424f6c62b5ec0",
+    "bytes": 20
+  },
+  "native-a/inventory.json": {
+    "sha256": "0a9d8c51c116e666d57b1013caa76a0231e913c0c0e49ef3ce6e8cd6b755d564",
+    "bytes": 9960
+  },
+  "native-a/overlays/scripts/presentation/village_lamp_visual.gd": {
+    "sha256": "004f464b251a0b960bc21f58d5ea45b896133891c1117c6147e24b38078c7675",
+    "bytes": 5790
+  },
+  "native-a/overlays/scripts/systems/atmosphere_renderer.gd": {
+    "sha256": "bbbc849e9f40bf65bf948485ea42b42efcc0436d621e2502704e36d4fd00c75a",
+    "bytes": 4416
+  },
+  "native-a/overlays/scripts/systems/interior_renderer.gd": {
+    "sha256": "e58ac3bbc4d632619e5c77a9c670960a141ad11bb5514c49caa68e1366a1d4d6",
+    "bytes": 8844
+  },
+  "native-a/source.json": {
+    "sha256": "30fa7088f17ce17a87543838a35091e9b0e419ab039b9bf1e4cfd713c22083cb",
+    "bytes": 3229
+  },
+  "native-c/1152-on/engine.launch.json": {
+    "sha256": "cbc703e6c78b08ebe140c08b6303fa6a30bbb060a75a5b9f422551ee7107cd5a",
+    "bytes": 852
+  },
+  "native-c/1152-on/engine.stdout.txt": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "native-c/1152-on/engine.txt": {
+    "sha256": "73462e107b9990247aa8aa292be2a15d0a765363480d93e58ab7b1ff54c227ec",
+    "bytes": 1054
+  },
+  "native-c/1152-on/frames/capture.json": {
+    "sha256": "02fbb5baa47e9034ece7bab418004997df902f6dd078d1fe50135611ccf39b87",
+    "bytes": 7787354
+  },
+  "native-c/1152-production/engine.launch.json": {
+    "sha256": "c101967a7d334f139be36741b29c84a82f5bbd609a4423e135e4b910aef576fe",
+    "bytes": 882
+  },
+  "native-c/1152-production/engine.stdout.txt": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "native-c/1152-production/engine.txt": {
+    "sha256": "fcfbdeca3849757ebb9e0086bbba3d9251790dd249a4cefbefa7fdb487d18fa5",
+    "bytes": 459
+  },
+  "native-c/1152-production/frames/capture.json": {
+    "sha256": "d8ca7b4c55e4a2cf7a106fe3428daf75d362e56be599f8e60ccdfee0b64aa92c",
+    "bytes": 4930174
+  },
+  "native-c/compile-control.launch.json": {
+    "sha256": "caf5506369e474ffce43a655cc69fb505e6284034d3257b836dbb75e46b89b1b",
+    "bytes": 543
+  },
+  "native-c/compile-control.stdout.txt": {
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "bytes": 73
+  },
+  "native-c/compile-control.txt": {
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "bytes": 73
+  },
+  "native-c/compile-production.launch.json": {
+    "sha256": "80ce6adbf08464da06dd9e0eede9930a3f823e1ade681584797685e3bb5940fd",
+    "bytes": 552
+  },
+  "native-c/compile-production.stdout.txt": {
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "bytes": 73
+  },
+  "native-c/compile-production.txt": {
+    "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "bytes": 73
+  },
+  "native-c/import.launch.json": {
+    "sha256": "f7356ce340e3c3abcf919c400daebc469899bf0bad1a2f08f8d26c3c585cd11c",
+    "bytes": 476
+  },
+  "native-c/import.stdout.txt": {
+    "sha256": "8f7d6102dcf343030b3fc90685c85a9a02008c90629c0223a9e4891f7dd34b0b",
+    "bytes": 369917
+  },
+  "native-c/import.txt": {
+    "sha256": "093434ff12e9be253c578e3414956196e3fb6ccb2a88906f946a329d7ce7998e",
+    "bytes": 261541
+  },
+  "native-c/inputs/tools/qa/world/lighting/__init__.py": {
+    "sha256": "94e0e547d989c4e576163d416be94c205ac343acdeb86c729f331716202f7853",
+    "bytes": 136
+  },
+  "native-c/inputs/tools/qa/world/lighting/collect.py": {
+    "sha256": "a3db4fb432dcc51fa0fc6842ddf1fd56c782fece6be9cc1add52015e00825b5b",
+    "bytes": 11938
+  },
+  "native-c/inputs/tools/qa/world/lighting/contract.py": {
+    "sha256": "d6fe4c99ee3007df3eb7a07899e540ff51dcc7f8bd0cfaefe7a5ad87e33eb6f9",
+    "bytes": 5636
+  },
+  "native-c/inputs/tools/qa/world/lighting/inventory.py": {
+    "sha256": "2f32e52cc5eefb94b1476da2e52347f6a095ee8f630160bf5c179e9d8cd91354",
+    "bytes": 9111
+  },
+  "native-c/inputs/tools/qa/world/lighting/inventory_capture.gd": {
+    "sha256": "fefe3482712843871aba2cc2c293cdaaa34aa5629707a89e547ff0397bc0b9df",
+    "bytes": 7713
+  },
+  "native-c/inputs/tools/qa/world/lighting/inventory_capture.gd.uid": {
+    "sha256": "e1bc40467008be6b59eacd56cde8e1adf2a427eee6b09a850d1c7d388ffe1349",
+    "bytes": 20
+  },
+  "native-c/inputs/tools/qa/world/lighting/inventory_cases.gd": {
+    "sha256": "4bdb713107e8bdd679396f06e3c7fc705702737a97e3981bf7a3e498b3e519a2",
+    "bytes": 2867
+  },
+  "native-c/inputs/tools/qa/world/lighting/inventory_cases.gd.uid": {
+    "sha256": "b53e27705f0e40f38202b66b2d8ff61f5a9ede44adc2d36880cd9c2f31112b2e",
+    "bytes": 20
+  },
+  "native-c/inputs/tools/qa/world/lighting/inventory_game.gd": {
+    "sha256": "5c0925e1fd34ed11d22cf751184e484736e1395d7f5253dafd88ad3acceba523",
+    "bytes": 1543
+  },
+  "native-c/inputs/tools/qa/world/lighting/inventory_game.gd.uid": {
+    "sha256": "7c06c18413655e48e248385b73a811ee5498dea2f42fa35cbd4ed5c025a2feed",
+    "bytes": 20
+  },
+  "native-c/inputs/tools/qa/world/lighting/inventory_viewports.gd": {
+    "sha256": "f149a3913afd020b26c292ad460ef2c48177357cc2e20f7c3cfae67ef6470b26",
+    "bytes": 3677
+  },
+  "native-c/inputs/tools/qa/world/lighting/inventory_viewports.gd.uid": {
+    "sha256": "6ec98e31eafbedcb7722809f4b0dc6377d12d74644367c199fb3e802e7400325",
+    "bytes": 19
+  },
+  "native-c/inputs/tools/qa/world/lighting/light_probe.gd": {
+    "sha256": "33ad4ba7b65d8eb74c203b98b348dd9cd6a22968916b0e4b8d02707277d60ec7",
+    "bytes": 2448
+  },
+  "native-c/inputs/tools/qa/world/lighting/light_probe.gd.uid": {
+    "sha256": "ed67f72a659453fd7344cfcedbdf8d07cd20057f46bc90d5e86424f6c62b5ec0",
+    "bytes": 20
+  },
+  "native-c/inventory.json": {
+    "sha256": "0a9d8c51c116e666d57b1013caa76a0231e913c0c0e49ef3ce6e8cd6b755d564",
+    "bytes": 9960
+  },
+  "native-c/overlays/scripts/presentation/village_lamp_visual.gd": {
+    "sha256": "004f464b251a0b960bc21f58d5ea45b896133891c1117c6147e24b38078c7675",
+    "bytes": 5790
+  },
+  "native-c/overlays/scripts/systems/atmosphere_renderer.gd": {
+    "sha256": "bbbc849e9f40bf65bf948485ea42b42efcc0436d621e2502704e36d4fd00c75a",
+    "bytes": 4416
+  },
+  "native-c/overlays/scripts/systems/interior_renderer.gd": {
+    "sha256": "e58ac3bbc4d632619e5c77a9c670960a141ad11bb5514c49caa68e1366a1d4d6",
+    "bytes": 8844
+  },
+  "native-c/source.json": {
+    "sha256": "63a5fb3bc7b9e00c19ca653d63e0c547ab803480d054200ff9da1ca48de3b622",
+    "bytes": 6760
+  },
+  "preflight-negative/engine.launch.json": {
+    "sha256": "e6daafdb5881eb9c2fc439a40a64c0b631cd007d9132ec848f8af181162d6ff9",
+    "bytes": 558
+  },
+  "preflight-negative/engine.stdout.txt": {
+    "sha256": "b216c6d4c4832ace8f2a6ce55d62c598c5c27a4d4e9aaddefa88205160ef26fb",
+    "bytes": 1789
+  },
+  "preflight-negative/engine.txt": {
+    "sha256": "8a41dbb85b18ffdabd3dc9277d60b6a46f7ce674595aca7638dbe20d5346f33e",
+    "bytes": 1726
+  },
+  "preflight-negative/result.json": {
+    "sha256": "3c6c61d675f17761b31f426d5d05d58afac94b6365a0263741d4ce6f254809c2",
+    "bytes": 305
+  }
+}

@@ -1,0 +1,331 @@
+{
+  "schema": 1,
+  "task": "VLIGHT-001",
+  "commit": "dc4429f89be9ddc29cf5a052ae4dd665fbfd71df",
+  "sources": {
+    "assets/game/locations/overworld/lamps/profile.json": {
+      "sha256": "489c4f34a0cd1c11ac153e885f6f5be98796cfbc43af662e675f4e674112e21e",
+      "bytes": 1086
+    },
+    "main.tscn": {
+      "sha256": "c212afbbdfb283b84a36a5b7c7675da9824d32aa79f2059356526a6f398f1086",
+      "bytes": 370
+    },
+    "project.godot": {
+      "sha256": "653255075a60a0e94e6fb1b55de006064f6aa99df35966f7e5b7676c32b59ab5",
+      "bytes": 983
+    },
+    "scripts/presentation/basement_room_renderer.gd": {
+      "sha256": "bf2d1e78f72cc7f69b6bd2e1c3125be877f3f1d43f22b2cf9113d7ae09061ff0",
+      "bytes": 2553
+    },
+    "scripts/presentation/kitchen_fx_renderer.gd": {
+      "sha256": "c79190912b6548c30048f0dfd68e2f6df41058c8f5826bd83bd1813e8cf9edd3",
+      "bytes": 1904
+    },
+    "scripts/presentation/viewport_world_context.gd": {
+      "sha256": "59a644585041f31db33e6d7b4721cbf0bf00d834a2f7b35c3edd3d77849d2c42",
+      "bytes": 2885
+    },
+    "scripts/presentation/village_lamp_visual.gd": {
+      "sha256": "8b7fc17535f0007fbe3790d14c4f98b75682694690984758003afa9fc5ac8d4f",
+      "bytes": 5722
+    },
+    "scripts/presentation/visual_reference_mode.gd": {
+      "sha256": "95919eb8ca14b9893a78220dcecf1479ad5691895646595d4482fde8e3904c8e",
+      "bytes": 1535
+    },
+    "scripts/systems/atmosphere_renderer.gd": {
+      "sha256": "a013bde0dc9cb57c382a37b84716035578708f9554bd4a5452937390c9290582",
+      "bytes": 4209
+    },
+    "scripts/systems/cave_boss_arena_renderer.gd": {
+      "sha256": "16eff24ba727259797d267898382741399eb70ea3e78be5e2765a77e0dd5ade1",
+      "bytes": 3422
+    },
+    "scripts/systems/cave_lighting_system.gd": {
+      "sha256": "186e215e70aecf225aaf284e8d3326e6aabad44d169da19b7a56e3e873c2902d",
+      "bytes": 1396
+    },
+    "scripts/systems/cave_renderer.gd": {
+      "sha256": "46a7c4235661fa91aa2aee169ed2e71479c790f0c9cf1e7e66b8cf5db4a9e979",
+      "bytes": 6567
+    },
+    "scripts/systems/cave_theme_renderer.gd": {
+      "sha256": "2043dd46669d8cdd59c41ce762755ba81906ab89396617dc1011606d3d9521d5",
+      "bytes": 5899
+    },
+    "scripts/systems/interior_renderer.gd": {
+      "sha256": "4e9410653cfadc242a077a1920a1d6b0e64998310c513e0d6c6fd7f4f0d725bb",
+      "bytes": 8786
+    },
+    "scripts/systems/render_system.gd": {
+      "sha256": "3ca66231a5838c343cededa8629745258f3b7342f002036592f083a16465d8be",
+      "bytes": 7816
+    },
+    "scripts/systems/world_event_system.gd": {
+      "sha256": "bd0237da858710cf5a2984faca43117f2937595d0b10cfe6c648da643213c201",
+      "bytes": 8712
+    }
+  },
+  "owners": [
+    {
+      "id": "world-darkness",
+      "source": "scripts/systems/atmosphere_renderer.gd",
+      "function": "draw",
+      "coordinates": "screen-after-world-before-HUD",
+      "representation": "alpha rectangle",
+      "clock": "game_minutes",
+      "retain": "Календарь и событие затмения",
+      "followup": "VLIGHT-003",
+      "scope": "first-location",
+      "line": 7
+    },
+    {
+      "id": "village-lamp",
+      "source": "scripts/presentation/village_lamp_visual.gd",
+      "function": "draw_glow",
+      "coordinates": "screen-after-darkness",
+      "representation": "shared colored ArrayMesh",
+      "clock": "WorldEventSystem.darkness",
+      "retain": "Корпус, emitter-anchor и три ракурса",
+      "followup": "VLIGHT-004",
+      "scope": "first-location",
+      "line": 44
+    },
+    {
+      "id": "window-ray",
+      "source": "scripts/systems/interior_renderer.gd",
+      "function": "draw_textured_shell",
+      "coordinates": "world-before-actors",
+      "representation": "constant alpha polygon",
+      "clock": "none",
+      "retain": "Окно, привязка к комнате и коллизии",
+      "followup": "VLIGHT-005",
+      "scope": "first-location",
+      "line": 74
+    },
+    {
+      "id": "eclipse-portal",
+      "source": "scripts/systems/atmosphere_renderer.gd",
+      "function": "draw_lights",
+      "coordinates": "screen-after-darkness",
+      "representation": "alpha circle",
+      "clock": "day/game_minutes",
+      "retain": "Условия перехода и положение портала",
+      "followup": "VLIGHT-002",
+      "scope": "first-location",
+      "line": 24
+    },
+    {
+      "id": "eclipse-sky",
+      "source": "scripts/systems/atmosphere_renderer.gd",
+      "function": "draw_eclipse",
+      "coordinates": "screen-before-HUD",
+      "representation": "decorative circles; not illumination",
+      "clock": "day/game_minutes",
+      "retain": "Небесное событие; не выключать вместе со светом",
+      "followup": "VLIGHT-009",
+      "scope": "first-location",
+      "line": 64
+    },
+    {
+      "id": "storm-flash",
+      "source": "scripts/systems/atmosphere_renderer.gd",
+      "function": "draw_rain",
+      "coordinates": "screen-before-HUD",
+      "representation": "weather-owned white alpha rectangle; not a local light",
+      "clock": "wall-clock Time.get_ticks_msec",
+      "retain": "Погоду и вспышку не выключать прибором освещения; комфорт и тон проверять отдельно",
+      "followup": "VLIGHT-009",
+      "scope": "first-location",
+      "line": 43
+    },
+    {
+      "id": "moon-return-portal",
+      "source": "scripts/systems/atmosphere_renderer.gd",
+      "function": "draw_lights",
+      "coordinates": "screen-after-darkness",
+      "representation": "alpha circle; moon_glade only",
+      "clock": "game_minutes; reduced scene darkness",
+      "retain": "Условия возврата и маркер перехода; только аудит существующего владельца",
+      "followup": "VLIGHT-002",
+      "scope": "compatibility-source-only",
+      "line": 24
+    },
+    {
+      "id": "cave-vein",
+      "source": "scripts/systems/cave_renderer.gd",
+      "function": "draw_lights",
+      "coordinates": "world-before-actors",
+      "representation": "shared radial GradientTexture2D",
+      "clock": "wall-clock Time.get_ticks_msec",
+      "retain": "Истощённая жила не светится",
+      "followup": "VLIGHT-007",
+      "scope": "compatibility-source-only",
+      "line": 33
+    },
+    {
+      "id": "cave-entrance-torch",
+      "source": "scripts/systems/cave_renderer.gd",
+      "function": "draw_lights",
+      "coordinates": "world-before-actors",
+      "representation": "shared radial GradientTexture2D",
+      "clock": "wall-clock Time.get_ticks_msec",
+      "retain": "Привязки к существующему выходу",
+      "followup": "VLIGHT-006",
+      "scope": "compatibility-source-only",
+      "line": 33
+    },
+    {
+      "id": "cave-static-beds",
+      "source": "scripts/systems/cave_theme_renderer.gd",
+      "function": "draw_background",
+      "coordinates": "cached-world-background",
+      "representation": "tinted radial texture and painted vegetation",
+      "clock": "none",
+      "retain": "Статичный декор и открытые проходы",
+      "followup": "VLIGHT-007",
+      "scope": "compatibility-source-only",
+      "line": 14
+    },
+    {
+      "id": "cave-dynamic-beds",
+      "source": "scripts/systems/cave_theme_renderer.gd",
+      "function": "draw_lights",
+      "coordinates": "world-before-actors",
+      "representation": "radial textures and decorative lake arcs",
+      "clock": "wall-clock Time.get_ticks_msec",
+      "retain": "Кластеры, водоёмы и декор",
+      "followup": "VLIGHT-007",
+      "scope": "compatibility-source-only",
+      "line": 54
+    },
+    {
+      "id": "boss-crystals-and-seals",
+      "source": "scripts/systems/cave_boss_arena_renderer.gd",
+      "function": "draw_lights",
+      "coordinates": "world-before-actors",
+      "representation": "radial textures, polygons and seal line",
+      "clock": "saved cave_boss.clock",
+      "retain": "Победа, печати и возможность выхода",
+      "followup": "VLIGHT-007",
+      "scope": "compatibility-source-only",
+      "line": 25
+    },
+    {
+      "id": "cave-passages",
+      "source": "scripts/systems/cave_renderer.gd",
+      "function": "_draw_passage",
+      "coordinates": "world-gate-pass",
+      "representation": "radial texture and decorative arc",
+      "clock": "none",
+      "retain": "Межкомнатные переходы и подписи",
+      "followup": "VLIGHT-002",
+      "scope": "compatibility-source-only",
+      "line": 81
+    },
+    {
+      "id": "kitchen-fire-and-steam",
+      "source": "scripts/presentation/kitchen_fx_renderer.gd",
+      "function": "draw",
+      "coordinates": "world-station-pass",
+      "representation": "fire sprite frames and steam circles; no light cast",
+      "clock": "paid job progress",
+      "retain": "Топливо, рецепт, пауза и производство",
+      "followup": "VLIGHT-006",
+      "scope": "compatibility-source-only",
+      "line": 14
+    },
+    {
+      "id": "basement-painted-lantern",
+      "source": "scripts/presentation/basement_room_renderer.gd",
+      "function": "draw",
+      "coordinates": "cached-interior-background",
+      "representation": "painted lantern texture; no separate glow",
+      "clock": "none",
+      "retain": "Самостоятельный спрайт и его пропорции",
+      "followup": "VLIGHT-006",
+      "scope": "compatibility-source-only",
+      "line": 8
+    }
+  ],
+  "dedicated_light_nodes": [],
+  "scanned_runtime_sources": 407,
+  "lamp_profile": {
+    "schema": 1,
+    "task": "VPROP-004",
+    "render_scale": 0.25,
+    "glow": {
+      "darkness_peak": 0.62,
+      "radii": [
+        0,
+        3,
+        7,
+        16,
+        32
+      ],
+      "alpha": [
+        0.65,
+        0.4,
+        0.16,
+        0.055,
+        0
+      ],
+      "color": [
+        1,
+        0.77,
+        0.36
+      ],
+      "segments": 24,
+      "clock": "WorldEventSystem.darkness; no separate timer"
+    },
+    "views": {
+      "south": {
+        "pixels": [
+          115,
+          496
+        ],
+        "anchor": [
+          57.17,
+          484.3860369609856
+        ],
+        "emitter": [
+          57.17,
+          214.32443531827516
+        ]
+      },
+      "west": {
+        "pixels": [
+          211,
+          496
+        ],
+        "anchor": [
+          148.8512396694215,
+          484.1264290517821
+        ],
+        "emitter": [
+          46.67768595041322,
+          208.45729657027573
+        ]
+      },
+      "east": {
+        "pixels": [
+          217,
+          496
+        ],
+        "anchor": [
+          65.05806451612904,
+          483.47169811320754
+        ],
+        "emitter": [
+          169.7725806451613,
+          208.86253369272237
+        ]
+      }
+    }
+  },
+  "native_acceptance": false,
+  "performance_eligible": false,
+  "note": "Source inventory only. Cave/interior production systems are preserved; native matrix is separate."
+}

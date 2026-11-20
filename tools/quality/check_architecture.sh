@@ -168,6 +168,9 @@ python3 tools/run.py qa.world.shadows.verify >/dev/null
 python3 tools/run.py qa.world.shadows.test_contract
 python3 tools/run.py qa.world.shadows.test_hook_context
 python3 tools/run.py qa.world.shadows.test_readability
+python3 tools/run.py qa.world.lighting.verify >/dev/null
+python3 tools/run.py qa.world.lighting.test_contract
+python3 tools/run.py qa.world.lighting.test_reader
 python3 tools/run.py qa.world.village_fence_verify >/dev/null
 python3 tools/run.py qa.world.test_village_fence
 python3 tools/run.py qa.world.village_lamp_verify >/dev/null

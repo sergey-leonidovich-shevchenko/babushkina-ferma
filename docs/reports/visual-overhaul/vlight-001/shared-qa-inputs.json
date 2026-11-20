@@ -1,0 +1,30 @@
+{
+  "commit": "dc4429f89be9ddc29cf5a052ae4dd665fbfd71df",
+  "inputs": {
+    "tools/qa/camera/visual_camera_points.gd": {
+      "sha256": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+      "bytes": 4789,
+      "production_equal_to_Git": true,
+      "control_equal_to_Git": true
+    },
+    "tools/qa/world/render_order_game.gd": {
+      "sha256": "662ad6e5af52bc95eb8d2804a7390ee5007caa88325aca2f7835873243a0000b",
+      "bytes": 966,
+      "production_equal_to_Git": true,
+      "control_equal_to_Git": true
+    },
+    "tools/qa/world/render_order_game.gd.uid": {
+      "sha256": "7b49ff32159df62e69774b82710e23c012563014d9c03ef14d04f95448069352",
+      "bytes": 20,
+      "production_equal_to_Git": true,
+      "control_equal_to_Git": true
+    },
+    "docs/reports/visual-overhaul/vbase-003/camera-points.json": {
+      "sha256": "3848320b5130ce3b29baf65a0a6ca1705e0675f2186d28934cc9d8ff9f2df7b8",
+      "bytes": 12775,
+      "production_equal_to_Git": true,
+      "control_equal_to_Git": true
+    }
+  },
+  "note": "unchanged dependencies from the actual retained D export, bound to captured Git; owned14 QA and native artifacts unchanged"
+}

@@ -1,0 +1,96 @@
+{
+  "task": "VLIGHT-001",
+  "review_fix": "PR77 P2 exact official engine and actual log",
+  "before_head": "1fc3379385cd68543a2aebf5ad136b6d1ee24298",
+  "before_analysis_sha256": {
+    "verify.py": "d4ed411fec9633ec2f095983b4813c7a621603c6c7ec7c333cbcf4c0fb36df5e",
+    "pixels.py": "95ec353d64ca74748f2eabc6bc8f18e591316ad6c06b03e926e8341d5a4dc9d1",
+    "storage.py": "541ea5e53aa5d437a70fd71176694c2d48230c71b598d8b37ad1d94396b1a858"
+  },
+  "current_analysis_sha256": {
+    "verify.py": "1a6ff713b89eee3f7e459514b9f7e03bfec58916afd3c737c7acbbed0e0e984f",
+    "pixels.py": "95ec353d64ca74748f2eabc6bc8f18e591316ad6c06b03e926e8341d5a4dc9d1",
+    "storage.py": "541ea5e53aa5d437a70fd71176694c2d48230c71b598d8b37ad1d94396b1a858"
+  },
+  "test_sha256": "42a8f60537a6cb0e9538ae90ca97c39ef5c5082ff01b2fba524ef18e7ebfcbee",
+  "test_names": [
+    "test_complete_real_archive",
+    "test_different_official_patch_is_rejected_after_rehash",
+    "test_unofficial_engine_is_rejected_after_rehash",
+    "test_actual_engine_header_must_match_capture_after_rehash"
+  ],
+  "results": {
+    "before": {
+      "ran": 4,
+      "failures": [
+        "tools.qa.world.lighting.test_reader.LightingArchiveTests.test_different_official_patch_is_rejected_after_rehash",
+        "tools.qa.world.lighting.test_reader.LightingArchiveTests.test_unofficial_engine_is_rejected_after_rehash",
+        "tools.qa.world.lighting.test_reader.LightingArchiveTests.test_actual_engine_header_must_match_capture_after_rehash"
+      ],
+      "errors": [],
+      "baseline_pass": true
+    },
+    "after": {
+      "ran": 4,
+      "failures": [],
+      "errors": [],
+      "baseline_pass": true
+    }
+  },
+  "native_before": {
+    "1152.zip": "e7f3ceee51bf394a2d8cfc7bb95cca2eaec09693482bc7dd60e547390eeb2fbd",
+    "1280.zip": "47a49ac868b18a9e71b68aa2a4534472cc12a39500084ed4f8f7bee804b86da0",
+    "base-qa/docs/reports/visual-overhaul/vbase-003/camera-points.json": "3848320b5130ce3b29baf65a0a6ca1705e0675f2186d28934cc9d8ff9f2df7b8",
+    "base-qa/tools/qa/camera/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+    "base-qa/tools/qa/world/render_order_game.gd": "662ad6e5af52bc95eb8d2804a7390ee5007caa88325aca2f7835873243a0000b",
+    "base-qa/tools/qa/world/render_order_game.gd.uid": "7b49ff32159df62e69774b82710e23c012563014d9c03ef14d04f95448069352",
+    "inputs/tools/qa/world/lighting/__init__.py": "94e0e547d989c4e576163d416be94c205ac343acdeb86c729f331716202f7853",
+    "inputs/tools/qa/world/lighting/collect.py": "7e8a4718706a37cd62d3f51af46fdaa968de46d9a5947cbbe25e67b036841ce4",
+    "inputs/tools/qa/world/lighting/contract.py": "d6fe4c99ee3007df3eb7a07899e540ff51dcc7f8bd0cfaefe7a5ad87e33eb6f9",
+    "inputs/tools/qa/world/lighting/inventory.py": "ebb4835f07325be6a39572dde075185011c4d756a5e34e6158f81319bd9a17c0",
+    "inputs/tools/qa/world/lighting/inventory_capture.gd": "3bb45fbc1429125308f8605c76c4b20604303301547eb3d6bdc3aa57015b8c34",
+    "inputs/tools/qa/world/lighting/inventory_capture.gd.uid": "e1bc40467008be6b59eacd56cde8e1adf2a427eee6b09a850d1c7d388ffe1349",
+    "inputs/tools/qa/world/lighting/inventory_cases.gd": "b20ad560cc35c8682b93e91237685964a1ee1cc54d85e1cfa08c3b6727b36c78",
+    "inputs/tools/qa/world/lighting/inventory_cases.gd.uid": "b53e27705f0e40f38202b66b2d8ff61f5a9ede44adc2d36880cd9c2f31112b2e",
+    "inputs/tools/qa/world/lighting/inventory_game.gd": "5c0925e1fd34ed11d22cf751184e484736e1395d7f5253dafd88ad3acceba523",
+    "inputs/tools/qa/world/lighting/inventory_game.gd.uid": "7c06c18413655e48e248385b73a811ee5498dea2f42fa35cbd4ed5c025a2feed",
+    "inputs/tools/qa/world/lighting/inventory_viewports.gd": "e0fa3b222fc337cfbc8b108d74d6d902e26f20f91032484aef62eba55609a590",
+    "inputs/tools/qa/world/lighting/inventory_viewports.gd.uid": "6ec98e31eafbedcb7722809f4b0dc6377d12d74644367c199fb3e802e7400325",
+    "inputs/tools/qa/world/lighting/light_probe.gd": "33ad4ba7b65d8eb74c203b98b348dd9cd6a22968916b0e4b8d02707277d60ec7",
+    "inputs/tools/qa/world/lighting/light_probe.gd.uid": "ed67f72a659453fd7344cfcedbdf8d07cd20057f46bc90d5e86424f6c62b5ec0",
+    "inventory.json": "7cbfde5214d42174760610628e21a0bf2f452ac97274cc094a1e222f423edb4f",
+    "overlays/scripts/presentation/village_lamp_visual.gd": "004f464b251a0b960bc21f58d5ea45b896133891c1117c6147e24b38078c7675",
+    "overlays/scripts/systems/atmosphere_renderer.gd": "bbbc849e9f40bf65bf948485ea42b42efcc0436d621e2502704e36d4fd00c75a",
+    "overlays/scripts/systems/interior_renderer.gd": "e58ac3bbc4d632619e5c77a9c670960a141ad11bb5514c49caa68e1366a1d4d6",
+    "source.json": "e84a402e4eb9c976a1d1e1a39b6b93c68cee2fa0878d92dcbb0849b6d4ba18f9"
+  },
+  "native_after": {
+    "1152.zip": "e7f3ceee51bf394a2d8cfc7bb95cca2eaec09693482bc7dd60e547390eeb2fbd",
+    "1280.zip": "47a49ac868b18a9e71b68aa2a4534472cc12a39500084ed4f8f7bee804b86da0",
+    "base-qa/docs/reports/visual-overhaul/vbase-003/camera-points.json": "3848320b5130ce3b29baf65a0a6ca1705e0675f2186d28934cc9d8ff9f2df7b8",
+    "base-qa/tools/qa/camera/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+    "base-qa/tools/qa/world/render_order_game.gd": "662ad6e5af52bc95eb8d2804a7390ee5007caa88325aca2f7835873243a0000b",
+    "base-qa/tools/qa/world/render_order_game.gd.uid": "7b49ff32159df62e69774b82710e23c012563014d9c03ef14d04f95448069352",
+    "inputs/tools/qa/world/lighting/__init__.py": "94e0e547d989c4e576163d416be94c205ac343acdeb86c729f331716202f7853",
+    "inputs/tools/qa/world/lighting/collect.py": "7e8a4718706a37cd62d3f51af46fdaa968de46d9a5947cbbe25e67b036841ce4",
+    "inputs/tools/qa/world/lighting/contract.py": "d6fe4c99ee3007df3eb7a07899e540ff51dcc7f8bd0cfaefe7a5ad87e33eb6f9",
+    "inputs/tools/qa/world/lighting/inventory.py": "ebb4835f07325be6a39572dde075185011c4d756a5e34e6158f81319bd9a17c0",
+    "inputs/tools/qa/world/lighting/inventory_capture.gd": "3bb45fbc1429125308f8605c76c4b20604303301547eb3d6bdc3aa57015b8c34",
+    "inputs/tools/qa/world/lighting/inventory_capture.gd.uid": "e1bc40467008be6b59eacd56cde8e1adf2a427eee6b09a850d1c7d388ffe1349",
+    "inputs/tools/qa/world/lighting/inventory_cases.gd": "b20ad560cc35c8682b93e91237685964a1ee1cc54d85e1cfa08c3b6727b36c78",
+    "inputs/tools/qa/world/lighting/inventory_cases.gd.uid": "b53e27705f0e40f38202b66b2d8ff61f5a9ede44adc2d36880cd9c2f31112b2e",
+    "inputs/tools/qa/world/lighting/inventory_game.gd": "5c0925e1fd34ed11d22cf751184e484736e1395d7f5253dafd88ad3acceba523",
+    "inputs/tools/qa/world/lighting/inventory_game.gd.uid": "7c06c18413655e48e248385b73a811ee5498dea2f42fa35cbd4ed5c025a2feed",
+    "inputs/tools/qa/world/lighting/inventory_viewports.gd": "e0fa3b222fc337cfbc8b108d74d6d902e26f20f91032484aef62eba55609a590",
+    "inputs/tools/qa/world/lighting/inventory_viewports.gd.uid": "6ec98e31eafbedcb7722809f4b0dc6377d12d74644367c199fb3e802e7400325",
+    "inputs/tools/qa/world/lighting/light_probe.gd": "33ad4ba7b65d8eb74c203b98b348dd9cd6a22968916b0e4b8d02707277d60ec7",
+    "inputs/tools/qa/world/lighting/light_probe.gd.uid": "ed67f72a659453fd7344cfcedbdf8d07cd20057f46bc90d5e86424f6c62b5ec0",
+    "inventory.json": "7cbfde5214d42174760610628e21a0bf2f452ac97274cc094a1e222f423edb4f",
+    "overlays/scripts/presentation/village_lamp_visual.gd": "004f464b251a0b960bc21f58d5ea45b896133891c1117c6147e24b38078c7675",
+    "overlays/scripts/systems/atmosphere_renderer.gd": "bbbc849e9f40bf65bf948485ea42b42efcc0436d621e2502704e36d4fd00c75a",
+    "overlays/scripts/systems/interior_renderer.gd": "e58ac3bbc4d632619e5c77a9c670960a141ad11bb5514c49caa68e1366a1d4d6",
+    "source.json": "e84a402e4eb9c976a1d1e1a39b6b93c68cee2fa0878d92dcbb0849b6d4ba18f9"
+  },
+  "native_unchanged": true,
+  "engine_started": false
+}

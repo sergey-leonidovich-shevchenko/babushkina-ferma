@@ -1,0 +1,94 @@
+{
+  "overview.png": {
+    "sha256": "20d6bd9ab1993cc8d3ce267634817be94b795f9276fb161badfd6fc77f0a11b2",
+    "inputs": [
+      {
+        "source": "1152-production/frames/west-lamp-720.png",
+        "sha256": "f61af9c79c80ee02a38c9184fd4ab1ef2342246678284432972d981b45207fd5",
+        "label": "Западная улица · день"
+      },
+      {
+        "source": "1152-production/frames/west-lamp-1140.png",
+        "sha256": "0419561b3b93146e2ff8da1cf37bb633fae2397937a9b0f68d4177182e68f700",
+        "label": "Западная улица · сумерки"
+      },
+      {
+        "source": "1152-production/frames/west-lamp-1320.png",
+        "sha256": "719eef86e033810555ada07f07e7b4012c9d82677141e1b66f9afb71d62ca4dc",
+        "label": "Западная улица · ночь"
+      },
+      {
+        "source": "1152-production/frames/east-lamp-720.png",
+        "sha256": "060a69b0b242390afc2d726ff6007bec2afff2eee0ed46c8b7b01876f4ec5560",
+        "label": "Восточная улица · день"
+      },
+      {
+        "source": "1152-production/frames/east-lamp-1140.png",
+        "sha256": "6cbf05ad0ee38b1894208688db0a352d78b87c7f16e783aad7912533e58ab6af",
+        "label": "Восточная улица · сумерки"
+      },
+      {
+        "source": "1152-production/frames/east-lamp-1320.png",
+        "sha256": "4b42e11d060661791bcebb54efeb3fd5cc3fa061c28f7e45ffe6dba503e415e6",
+        "label": "Восточная улица · ночь"
+      },
+      {
+        "source": "1152-production/frames/home-720.png",
+        "sha256": "745f78e3691b8dcb3f42a50992b5501bf82ddc08193578b72f24eb8cd6008743",
+        "label": "Дом · день"
+      },
+      {
+        "source": "1152-production/frames/home-1140.png",
+        "sha256": "17fa24eeefba2559d038ad59da8890a584eeab0ce2b39d8819e6dc23e959db75",
+        "label": "Дом · сумерки"
+      },
+      {
+        "source": "1152-production/frames/home-1320.png",
+        "sha256": "6c4f002f39ad57d0e90c3a8d934d79a938e865ed551cbf8b078f95501e19f921",
+        "label": "Дом · ночь"
+      }
+    ],
+    "derivation": "whole actual native PNG, uniform LANCZOS downscale 1152x648 to512x288; labels outside framebuffer; no asset repaint"
+  },
+  "light-controls.png": {
+    "sha256": "26bda68598cd440edfef8e9b136219363d02fa246fd13035b93e6b136e82eefc",
+    "inputs": [
+      {
+        "source": "1152-on/frames/west-lamp-1320.png",
+        "sha256": "719eef86e033810555ada07f07e7b4012c9d82677141e1b66f9afb71d62ca4dc",
+        "label": "Улица ночью · свет включён"
+      },
+      {
+        "source": "1152-off/frames/west-lamp-1320.png",
+        "sha256": "80d52e4bcd64d7ba17214e0129756c0f8d8d32fbf6078fed75692dc3efdd0979",
+        "label": "Улица ночью · контроль без света"
+      },
+      {
+        "source": "1152-on/frames/home-720.png",
+        "sha256": "745f78e3691b8dcb3f42a50992b5501bf82ddc08193578b72f24eb8cd6008743",
+        "label": "Дом днём · свет включён"
+      },
+      {
+        "source": "1152-off/frames/home-720.png",
+        "sha256": "20255f49fc6ba2bd12147ed60e46d5e877dc4f01d88b40d0725505dcc8cd6c2a",
+        "label": "Дом днём · контроль без света"
+      },
+      {
+        "source": "1152-on/frames/home-1320.png",
+        "sha256": "6c4f002f39ad57d0e90c3a8d934d79a938e865ed551cbf8b078f95501e19f921",
+        "label": "Дом ночью · свет включён"
+      },
+      {
+        "source": "1152-off/frames/home-1320.png",
+        "sha256": "12ce17d6bda43594ffd71e7a9c0740b3e3c2ac034a55307572cd538b8c967c3f",
+        "label": "Дом ночью · контроль без света"
+      }
+    ],
+    "derivation": "whole actual native PNG, uniform LANCZOS downscale 1152x648 to512x288; labels outside framebuffer; no asset repaint"
+  },
+  "viewports.png": {
+    "source": "1152-on/frames/viewport-both-on.png",
+    "sha256": "b0dc9a2aac160750df121c49dd80a2ecce50e42f3b4970d93054b339ea28ce02",
+    "derivation": "byte-exact actual native root framebuffer, no resize or composition"
+  }
+}
