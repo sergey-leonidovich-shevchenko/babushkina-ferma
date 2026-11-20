@@ -1,0 +1,232 @@
+{
+  "task": "VLIGHT-001",
+  "accepted_on": "2026-11-20",
+  "implementation_pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/77",
+  "approved_head": "4f5122c61c369852a99935b2628ad4b0fe9ba90f",
+  "accepted_base": "4ef296745c99474b56fd3ddef0ab6ddfaf62e0ee",
+  "accepted_merge": "f74d1afabfe05ea5696bfbbbe84789611d25685d",
+  "merge_parents": [
+    "4ef296745c99474b56fd3ddef0ab6ddfaf62e0ee",
+    "4f5122c61c369852a99935b2628ad4b0fe9ba90f"
+  ],
+  "accepted_tree": "4edc6e54288dea6c6df045a9ecefc1dd5f1ab211",
+  "version": "0.0.464",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/77#pullrequestreview-5986004576",
+  "review_verdict": "APPROVED exact head; explicit independent verdict via COMMENTED review because the agents share one GitHub account",
+  "team_decision": "2026-11-20: accept exact approved head; ordinary merge, then separate independently reviewed accounting PR",
+  "resolved_review_threads": [
+    "PRRT_kwDOTqkhCs65tqMm"
+  ],
+  "checks": [
+    {
+      "id": 136003981780,
+      "name": "Wiki quality gate",
+      "head_sha": "4f5122c61c369852a99935b2628ad4b0fe9ba90f",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44646946831/job/136003981780",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 136003937754,
+      "name": "test",
+      "head_sha": "4f5122c61c369852a99935b2628ad4b0fe9ba90f",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44646946831/job/136003937754",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 136003936496,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "4f5122c61c369852a99935b2628ad4b0fe9ba90f",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44646946831/job/136003936496",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 136003934952,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "4f5122c61c369852a99935b2628ad4b0fe9ba90f",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44646946831/job/136003934952",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135991862653,
+      "name": "Exact-head X11 comparison",
+      "head_sha": "4f5122c61c369852a99935b2628ad4b0fe9ba90f",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44646946909/job/135991862653",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135991805492,
+      "name": "Wiki quality gate",
+      "head_sha": "4f5122c61c369852a99935b2628ad4b0fe9ba90f",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44646937882/job/135991805492",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135991805457,
+      "name": "test",
+      "head_sha": "4f5122c61c369852a99935b2628ad4b0fe9ba90f",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44646937882/job/135991805457",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135991805334,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "4f5122c61c369852a99935b2628ad4b0fe9ba90f",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44646937882/job/135991805334",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 135991805083,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "4f5122c61c369852a99935b2628ad4b0fe9ba90f",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44646937882/job/135991805083",
+      "output": {
+        "title": null,
+        "summary": null,
+        "text": null,
+        "annotations_count": 1
+      }
+    }
+  ],
+  "implementation_validation": {
+    "local_normal_hook": {
+      "quality_files": 163,
+      "quality_failed_steps": 0,
+      "architecture": "PASS",
+      "reader_passed": 19,
+      "contract_passed": 8,
+      "game_passed": 53693,
+      "game_failed": 0,
+      "normal_redraw_passed": 90,
+      "f10_redraw_passed": 90
+    },
+    "ci_pr_test": {
+      "job": 136003937754,
+      "quality_files": 163,
+      "quality_failed_steps": 0,
+      "architecture": "PASS",
+      "game_passed": 53711,
+      "game_failed": 0,
+      "normal_redraw_passed": 90,
+      "f10_redraw_passed": 90,
+      "water_compatibility_passed": 55,
+      "smoke_frames": 180,
+      "excerpt": "ci-pr-test-excerpt.txt"
+    },
+    "post_bump_wiki": {
+      "passed": 167,
+      "failed": 0,
+      "build": "TypeScript/Vite/export PASS",
+      "browser_widths": [
+        390,
+        1280
+      ],
+      "galleries": 3,
+      "byte_exact_http_attachments": 4
+    },
+    "strict_current": "PASS, only explicit config/VERSION metadata 0.0.461 -> 0.0.464 differs from the original capture",
+    "infrastructure_cancellation": "The first PR Linux reproduction was cancelled before tests during Ubuntu package download. It was not counted as PASS; actual retry job136003934952 succeeded on this same head."
+  },
+  "native": {
+    "capture_base": "dc4429f89be9ddc29cf5a052ae4dd665fbfd71df",
+    "png": 126,
+    "world_png": 54,
+    "hud_png": 54,
+    "independent_target_png": 12,
+    "actual_root_composites": 6,
+    "production_on_exact_pairs": 18,
+    "observed_twin_callbacks": 132,
+    "cpu_submission_samples": 2160,
+    "cpu_repetitions": 3,
+    "windows": [
+      [
+        1152,
+        648
+      ],
+      [
+        1280,
+        720
+      ]
+    ],
+    "frozen_producer_inputs": 14,
+    "shared_dependencies": 4,
+    "new_capture_for_accounting": false
+  },
+  "preserved": {
+    "other_visual_tasks": 1036,
+    "planning_revision": 245,
+    "planning_state_sha256": "c49915e89a5b082c93ca798cf8432a4535b213251fe44a84f059642b6006651e",
+    "planning_sources_sha256": "17eb539d8f0ff9713edd081dc2ec8ca98a66fa0e222dce8295e899851f0cc04f"
+  },
+  "limits": {
+    "existing_light_audit_accepted": true,
+    "new_lighting_implemented": false,
+    "hardware_fps_accepted": false,
+    "gpu_budget_accepted": false,
+    "whole_map_accepted": false,
+    "source_only_interiors": [
+      "cave",
+      "kitchen",
+      "basement"
+    ],
+    "diagnostic_hud_960_layout_accepted": false
+  },
+  "accounting": "Separate acceptance record after merged implementation; its own normal hook, CI, independent exact-head review and Team decision are required. Implementation checks above do not substitute accounting checks."
+}

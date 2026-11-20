@@ -1,0 +1,12 @@
+Source: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44646946831/job/136003937754
+Exact head: 4f5122c61c369852a99935b2628ad4b0fe9ba90f
+Selected output lines, not a full job log.
+
+2026-11-20T00:38:09.1689154Z QUALITY: 163 whole changed/new files
+2026-11-20T00:42:15.8209304Z QUALITY: 0 failed steps; 247.002s
+2026-11-20T00:54:59.8282364Z ARCHITECTURE: boundaries and whitespace are valid
+2026-11-20T00:55:04.5006524Z WATER VISUAL COMPATIBILITY: 55 passed, 0 failed
+2026-11-20T00:58:20.2982123Z TESTS: 53711 passed, 0 failed
+2026-11-20T00:58:29.0651722Z REDRAW: 90 passed, 0 failed
+2026-11-20T00:58:37.8311805Z REDRAW: 90 passed, 0 failed
+2026-11-20T00:58:43.3751631Z SMOKE: старт, игровой цикл и автопереход локации прошли 180 кадров

@@ -6,7 +6,7 @@
 
 ## VLIGHT-001 — Составить карту существующего света
 
-Статус: `in_progress` · P1 · этап `pilot` · `engineering`
+Статус: `done` · P1 · этап `pilot` · `engineering`
 
 Описать рисованные кольца, затемнение, окна и пещерные акценты; сохраняемые источники и заменяемые эффекты различены
 
@@ -38,7 +38,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vlight-001/README.md, docs/reports/visual-overhaul/vlight-001/results.json, docs/reports/visual-overhaul/vlight-001/native/source.json.
+Доказательства: docs/reports/visual-overhaul/vlight-001/README.md, docs/reports/visual-overhaul/vlight-001/results.json, docs/reports/visual-overhaul/vlight-001/native/source.json, docs/reports/visual-overhaul/vlight-001/closeout/result.json.
 
 <a id="vlight-002"></a>
 
