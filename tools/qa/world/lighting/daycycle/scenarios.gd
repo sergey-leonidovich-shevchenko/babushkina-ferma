@@ -31,6 +31,15 @@ static func create(parent: Node) -> Fixture:
 	return game
 
 
+## Тип сохраняется и в baseline: условное выражение Godot теряет Array[String].
+static func capture_modes(baseline: bool) -> Array[String]:
+	var result: Array[String] = ["palette"]
+	if not baseline:
+		result.append("legacy")
+		result.append("reference")
+	return result
+
+
 ## Существующая угроза перенесена только внутри QA fixture к фиксированной камере первой карты.
 static func configure(game: Fixture, entry: Dictionary) -> void:
 	var room: String = entry.room

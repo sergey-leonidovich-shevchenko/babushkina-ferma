@@ -58,7 +58,7 @@ func _start() -> void:
 	await Cases.redraw(self, game, 10)
 	for entry: Dictionary in Cases.CASES:
 		Cases.configure(game, entry)
-		var modes: Array[String] = ["palette"] if baseline else ["palette", "legacy", "reference"]
+		var modes := Cases.capture_modes(baseline)
 		for value: String in modes:
 			Cases.mode(game, value)
 			await _capture(str(entry.id) + "-" + value, entry)
