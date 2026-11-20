@@ -1,0 +1,60 @@
+{
+  "head_verified_by_http": "292188c0b1c3808d3db30bde8f5468e4c8cfa870",
+  "tree_verified_by_http": "18422b4a7a9e1249b3588ec97476c154b66c02bf",
+  "version": "0.0.470",
+  "mechanism": "fresh temporary tab in the same selected IAB, same origin and port4174",
+  "wide": {
+    "width": 1280,
+    "height": 720,
+    "scrollWidth": 1280,
+    "gallery_complete": 3
+  },
+  "narrow": {
+    "width": 390,
+    "height": 844,
+    "scrollWidth": 390,
+    "gallery_complete": 3,
+    "sidebar_right_after_transition": 0
+  },
+  "gallery_native_sizes": [
+    [
+      1168,
+      840
+    ],
+    [
+      1200,
+      1030
+    ],
+    [
+      1152,
+      648
+    ]
+  ],
+  "task": {
+    "id": "VLIGHT-002",
+    "state": "in_progress",
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "github_click": {
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/80",
+    "draft": true,
+    "exact_final_head_visible": true
+  },
+  "search": {
+    "query": "VLIGHT-002",
+    "results": 1,
+    "target": "#/development/tasks/visual--VLIGHT-002"
+  },
+  "first_location": {
+    "done": 83,
+    "total": 93,
+    "whole_map_accepted": false
+  },
+  "temporary_tabs_closed": [
+    "6",
+    "7"
+  ],
+  "viewport_reset": true,
+  "engine_started": false
+}

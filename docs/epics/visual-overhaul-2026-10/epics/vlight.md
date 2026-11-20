@@ -44,7 +44,7 @@
 
 ## VLIGHT-002 — Сравнить локальный свет и рисованные маски
 
-Статус: `in_progress` · P1 · этап `pilot` · `engineering`
+Статус: `done` · P1 · этап `pilot` · `engineering`
 
 Один фонарь показан двумя способами на Compatibility; решение учитывает текстуры, тени и время кадра
 
@@ -76,7 +76,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vlight-002/README.md, docs/reports/visual-overhaul/vlight-002/results.json, docs/reports/visual-overhaul/vlight-002/native/source.json, docs/reports/visual-overhaul/vlight-002/failures/ground-regression.json, docs/reports/visual-overhaul/vlight-002/failures/review-regressions.json.
+Доказательства: docs/reports/visual-overhaul/vlight-002/README.md, docs/reports/visual-overhaul/vlight-002/results.json, docs/reports/visual-overhaul/vlight-002/native/source.json, docs/reports/visual-overhaul/vlight-002/failures/ground-regression.json, docs/reports/visual-overhaul/vlight-002/failures/review-regressions.json, docs/reports/visual-overhaul/vlight-002/closeout/result.json.
 
 <a id="vlight-003"></a>
 
