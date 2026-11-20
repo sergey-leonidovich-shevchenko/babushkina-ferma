@@ -1,0 +1,189 @@
+{
+  "task": "VLIGHT-002",
+  "accepted_on": "2026-11-20",
+  "implementation_pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/80",
+  "approved_head": "292188c0b1c3808d3db30bde8f5468e4c8cfa870",
+  "accepted_base": "be306229e41700aa75220c13ab24d3f7c8940dcb",
+  "accepted_merge": "68387d000bdbf82db28bd396f3798add6cc33100",
+  "merge_parents": [
+    "be306229e41700aa75220c13ab24d3f7c8940dcb",
+    "292188c0b1c3808d3db30bde8f5468e4c8cfa870"
+  ],
+  "accepted_tree": "18422b4a7a9e1249b3588ec97476c154b66c02bf",
+  "version": "0.0.470",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/80#pullrequestreview-5991403283",
+  "review_verdict": "APPROVED exact head; explicit independent COMMENTED review because agents share one GitHub account",
+  "team_decision": "2026-11-20: exact head accepted after independent review, CI9/9 and final browser .470; ordinary merge, then separately reviewed completion accounting",
+  "resolved_review_threads": [
+    "PRRT_kwDOTqkhCs655gNx",
+    "PRRT_kwDOTqkhCs655gN4"
+  ],
+  "checks": [
+    {
+      "id": 136224878980,
+      "name": "Exact-head X11 comparison",
+      "head_sha": "292188c0b1c3808d3db30bde8f5468e4c8cfa870",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44717607812/job/136224878980"
+    },
+    {
+      "id": 136224877490,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "292188c0b1c3808d3db30bde8f5468e4c8cfa870",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44717607535/job/136224877490"
+    },
+    {
+      "id": 136224877406,
+      "name": "test",
+      "head_sha": "292188c0b1c3808d3db30bde8f5468e4c8cfa870",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44717607535/job/136224877406"
+    },
+    {
+      "id": 136224877393,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "292188c0b1c3808d3db30bde8f5468e4c8cfa870",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44717607535/job/136224877393"
+    },
+    {
+      "id": 136224877097,
+      "name": "Wiki quality gate",
+      "head_sha": "292188c0b1c3808d3db30bde8f5468e4c8cfa870",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44717607535/job/136224877097"
+    },
+    {
+      "id": 136224848674,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "292188c0b1c3808d3db30bde8f5468e4c8cfa870",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44717598559/job/136224848674"
+    },
+    {
+      "id": 136224848609,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "292188c0b1c3808d3db30bde8f5468e4c8cfa870",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44717598559/job/136224848609"
+    },
+    {
+      "id": 136224848501,
+      "name": "Wiki quality gate",
+      "head_sha": "292188c0b1c3808d3db30bde8f5468e4c8cfa870",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44717598559/job/136224848501"
+    },
+    {
+      "id": 136224847957,
+      "name": "test",
+      "head_sha": "292188c0b1c3808d3db30bde8f5468e4c8cfa870",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44717598559/job/136224847957"
+    }
+  ],
+  "implementation_validation": {
+    "local_normal_hook": {
+      "quality_files": 182,
+      "quality_failed_steps": 0,
+      "architecture": "PASS",
+      "reader_passed": 17,
+      "contract_passed": 7,
+      "existing_light_reader_passed": 19,
+      "game_passed": 53693,
+      "game_failed": 0,
+      "normal_redraw_passed": 90,
+      "f10_redraw_passed": 90,
+      "normal_userdata_unchanged": true,
+      "own_override_removed": true
+    },
+    "ci": {
+      "quality_files": 182,
+      "architecture_suites": 123,
+      "architecture_tests": 1633,
+      "game_passed": 53711,
+      "game_failed": 0,
+      "water_passed": 55,
+      "normal_redraw_passed": 90,
+      "f10_redraw_passed": 90,
+      "smoke_frames": 180,
+      "performance_series": 6,
+      "all_performance_series_valid_and_budget_passed": true,
+      "counts_source": "implementation-review.json; local and CI counts belong to separate real runs"
+    },
+    "post_bump_wiki": {
+      "version": "0.0.470",
+      "passed": 167,
+      "failed": 0,
+      "independent_browser_receipt": "implementation-browser.json",
+      "browser_widths": [
+        1280,
+        390
+      ],
+      "images": 3,
+      "byte_exact_http_attachments": 5
+    },
+    "mandatory_p2": {
+      "same_exact_review_packets_replayed": true,
+      "old_reader_head": "249c1dbea63196e77e9ab9cba68fd0fecf3eaae5",
+      "baseline_exit_before_after": [
+        0,
+        0
+      ],
+      "disabled_timed_light_exit_before_after": [
+        0,
+        1
+      ],
+      "fourfold_texture_scale_exit_before_after": [
+        0,
+        1
+      ],
+      "proof": "../failures/review-regressions.json"
+    }
+  },
+  "native": {
+    "capture_base": "be306229e41700aa75220c13ab24d3f7c8940dcb",
+    "png": 114,
+    "world_png": 48,
+    "hud_png": 48,
+    "independent_target_png": 12,
+    "root_composites": 6,
+    "world_callbacks": 96,
+    "cpu_submission_samples": 4320,
+    "frame_interval_samples": 4320,
+    "repetitions": 3,
+    "windows": [
+      [
+        1152,
+        648
+      ],
+      [
+        1280,
+        720
+      ]
+    ],
+    "production_asset_blobs": 3755,
+    "frozen_producer_inputs": 30,
+    "new_capture_for_accounting": false
+  },
+  "decision": "Keep the shared cached color mask for this small stationary lantern halo; measured differences do not establish a stable speed winner.",
+  "limits": {
+    "runtime_lighting_migration": false,
+    "hardware_fps_accepted": false,
+    "gpu_budget_accepted": false,
+    "whole_map_accepted": false,
+    "diagnostic_hud_960_layout_accepted": false
+  },
+  "preservation": "preservation.json",
+  "accounting": "This separate record follows accepted implementation merge. Its own normal hook, Wiki, CI, independent exact-head review and Team decision remain required; implementation evidence does not replace them."
+}
