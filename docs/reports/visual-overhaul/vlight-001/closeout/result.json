@@ -192,7 +192,9 @@
     "independent_target_png": 12,
     "actual_root_composites": 6,
     "production_on_exact_pairs": 18,
-    "observed_twin_callbacks": 132,
+    "observed_world_case_callbacks": 108,
+    "observed_twin_callbacks": 24,
+    "observed_callbacks_total": 132,
     "cpu_submission_samples": 2160,
     "cpu_repetitions": 3,
     "windows": [
