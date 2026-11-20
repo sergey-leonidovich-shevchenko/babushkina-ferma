@@ -48,7 +48,8 @@ jobs:
           chmod +x "$FARM_GODOT_BIN"
       - name: Collect exact-head native baseline and palette
         run: |
-          xvfb-run -a -s '-screen 0 1280x720x24' python tools/run.py qa.world.lighting.daycycle.collect --output "$VLIGHT_OUTPUT"
+          set -o pipefail
+          xvfb-run -a -s '-screen 0 1280x720x24' python tools/run.py qa.world.lighting.daycycle.collect --output "$VLIGHT_OUTPUT" |& tee "$RUNNER_TEMP/vlight-003/collection.txt"
       - name: Verify pixels, HUD, targets, state and raw samples
         run: |
           set -o pipefail
@@ -72,6 +73,7 @@ jobs:
             ${{ env.VLIGHT_OUTPUT }}/candidate/1152
             ${{ env.VLIGHT_OUTPUT }}/candidate/1280
             ${{ runner.temp }}/vlight-003/verification.txt
+            ${{ runner.temp }}/vlight-003/collection.txt
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 14

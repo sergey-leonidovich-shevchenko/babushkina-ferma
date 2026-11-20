@@ -1,0 +1,16 @@
+{
+  "task": "VLIGHT-003",
+  "head": "d5cd791284e2a516b46ee7ca1eba085277f98f90",
+  "workflow_run": 44767722068,
+  "job": 136396742177,
+  "stage": "read QA inputs before any engine or native capture",
+  "error": "FileNotFoundError: tools/qa/camera/visual_camera_points.gd.uid",
+  "cause": "Legacy camera-points UID existed only after local editor import and was not a Git input.",
+  "engine_started_by_collector": false,
+  "native_complete": false,
+  "native_png_count": 0,
+  "accepted_as_evidence": false,
+  "hardware_fps_accepted": false,
+  "artifact_upload_failed": true,
+  "fix": "Use an explicit tracked UID closure, check committed inputs before creating output, retain collection.txt on early CI failure, and prove fresh exported prepare/profile/import/compile."
+}

@@ -30,27 +30,37 @@ SHARED_GD = (
     "tools/qa/world/render_order_game.gd",
     "tools/qa/camera/visual_camera_points.gd",
 )
-INPUTS = tuple(path for name in (*GDSCRIPTS, *SHARED_GD) for path in (name, name + ".uid")) + (
-    "docs/reports/visual-overhaul/vbase-003/camera-points.json",
-    ".github/workflows/vlight-003.yml",
-    "tools/run.py",
-    "tools/common/git.py",
-    "tools/common/paths.py",
-    "tools/common/launch.py",
-    "tools/qa/world/lighting/contract.py",
-    *(
-        PREFIX + name
-        for name in (
-            "__init__.py",
-            "contract.py",
-            "collect.py",
-            "evidence.py",
-            "pixels.py",
-            "verify.py",
-            "provenance.py",
-            "readings.py",
-        )
-    ),
+# У исторического camera-points нет Git UID: ссылки используют res://путь,
+# а импорт disposable-проекта создаёт свой локальный UID. Его не выдаём за source input.
+SHARED_UIDS = tuple(
+    name + ".uid" for name in SHARED_GD if name != "tools/qa/camera/visual_camera_points.gd"
+)
+INPUTS = (
+    tuple(path for name in GDSCRIPTS for path in (name, name + ".uid"))
+    + SHARED_GD
+    + SHARED_UIDS
+    + (
+        "docs/reports/visual-overhaul/vbase-003/camera-points.json",
+        ".github/workflows/vlight-003.yml",
+        "tools/run.py",
+        "tools/common/git.py",
+        "tools/common/paths.py",
+        "tools/common/launch.py",
+        "tools/qa/world/lighting/contract.py",
+        *(
+            PREFIX + name
+            for name in (
+                "__init__.py",
+                "contract.py",
+                "collect.py",
+                "evidence.py",
+                "pixels.py",
+                "verify.py",
+                "provenance.py",
+                "readings.py",
+            )
+        ),
+    )
 )
 
 

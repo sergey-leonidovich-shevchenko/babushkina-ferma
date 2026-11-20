@@ -123,6 +123,18 @@ def capture(store: Evidence, source: dict[str, Any], label: str, width: int) -> 
         )
         seen.add(key)
         c.need(row["before"] == row["after"] and row["warmup"] == 20, "timing state/warmup differs")
+        # У старого Git есть один визуальный dusk witness; все три timed режима
+        # всё равно обязаны иметь его настоящую сцену и собственные реальные флаги.
+        visual_mode = "palette" if label == "baseline" else row["mode"]
+        visual = data["frames"]["street-dusk-" + visual_mode]["before"]
+        c.need(
+            all(row["before"][field] == visual[field] for field in ("geometry", "owner"))
+            and row["before"]["legacy"] == (row["mode"] == "legacy")
+            and row["before"]["reference"] == (row["mode"] == "reference"),
+            "timed scene/mode differs from validated dusk visual context",
+        )
+        # Save сравнивается внутри timed before/after выше: подготовка предыдущих сцен
+        # может законно отличать его от более раннего visual save.
         c.need(row["engine_max_fps"] == 0 and row["vsync"] == 0, "timing cap/vsync differs")
         for field in ("draw_us", "frame_us"):
             c.need(

@@ -114,7 +114,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vlight-003/PLAN.md, wiki/articles/daylight-cycle.md.
+Доказательства: [Методика](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/d5cd791284e2a516b46ee7ca1eba085277f98f90/docs/reports/visual-overhaul/vlight-003/PLAN.md), [День и сумерки](../../../../wiki/articles/daylight-cycle.md), [PR №82](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82), [Подготовка чистых экспортов](../../../reports/visual-overhaul/vlight-003/export-preflight.json).
 
 <a id="vlight-004"></a>
 

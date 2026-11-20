@@ -4977,10 +4977,12 @@
       },
       "branch": "codex/vlight-003-visual-task",
       "evidence": [
-        "docs/reports/visual-overhaul/vlight-003/PLAN.md",
-        "wiki/articles/daylight-cycle.md"
+        "[Методика](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/d5cd791284e2a516b46ee7ca1eba085277f98f90/docs/reports/visual-overhaul/vlight-003/PLAN.md)",
+        "[День и сумерки](../../../../wiki/articles/daylight-cycle.md)",
+        "[PR №82](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82)",
+        "[Подготовка чистых экспортов](../../../reports/visual-overhaul/vlight-003/export-preflight.json)"
       ],
-      "result": "20 ноября 2026: VLIGHT-003 в работе от принятой main c1f2eda0 (0.0.471); прямой VLIGHT-001 и семь полных зависимостей done, внешних needs нет. Добавлена чистая плавная календарная палитра только первой overworld, временный per-canvas legacy-откат и отдельный QA для старого/current Git, обычного root/HUD, героя/угрозы, двух viewport и сырых затрат. Модельные 16 условий, семь новых contract и девять исторических contract VLIGHT-001 и 18 reader-сценариев VLIGHT-002 прошли; прежний probe проверяет свой принятый source без изменения frozen evidence. Native X11/полный gate/CI/независимое exact-head review ещё обязательны; визуальный результат и вся локация не приняты. Остальные карточки, planning state/sources и 132 прежних файла доказательств сохранены. Task-Complete не выставлен."
+      "result": "20 ноября 2026: VLIGHT-003 в работе от принятой main c1f2eda0 (0.0.471), draft PR №82, опубликованный implementation head d5cd7912 (0.0.472). Прямой VLIGHT-001 и семь полных зависимостей done, внешних needs нет. Плавная календарная палитра ограничена первой overworld; временный per-canvas legacy-откат не меняет save. Полный штатный hook d5: quality/architecture PASS, Game 53709/0, normal/F10 по 90/0; post-bump Wiki 167/0. Модель 16, новые contract 8, исторические VLIGHT-001 contract 9 и VLIGHT-002 reader 18 прошли. Первый native CI run44767722068 остановился до движка на незакоммиченном старом UID: PNG нет, прогон не принят. Manifest исправлен; actual clean Git export/import/compile обеих баз прошли с явным working QA overlay, normal userdata сохранён. Исправления P1/P2/P3 ревью и повторные полные gates/CI ещё не приняты; полный native, переподписанные отрицательные контроли, independent exact-head review и решение Team Lead обязательны. Прочие 1036 карточек, planning и 132 frozen файла сохранены. Task-Complete не выставлен; визуальный результат и вся локация не приняты."
     },
     {
       "id": "VLIGHT-004",

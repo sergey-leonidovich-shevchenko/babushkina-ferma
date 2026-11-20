@@ -106,6 +106,14 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(c.blob_id(c.shared.git("show", c.BASE + ":" + name)), inventory[name])
         self.assertNotIn("scripts/presentation/daylight_palette.gd", inventory)
 
+    def test_declared_inputs_exist_in_git_without_local_import_cache(self) -> None:
+        """Тот же список обязан существовать в чистом checkout; локальный generated UID не доказательство."""
+        head = c.shared.git("rev-parse", "HEAD").decode().strip()
+        for name in c.INPUTS:
+            with self.subTest(name=name):
+                self.assertTrue(c.shared.git("show", head + ":" + name))
+        self.assertNotIn("tools/qa/camera/visual_camera_points.gd.uid", c.INPUTS)
+
 
 if __name__ == "__main__":
     unittest.main()

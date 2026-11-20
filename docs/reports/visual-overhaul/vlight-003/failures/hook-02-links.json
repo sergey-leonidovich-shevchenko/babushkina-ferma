@@ -1,0 +1,16 @@
+{
+  "task": "VLIGHT-003",
+  "kind": "local_hook_failure",
+  "head": "d5cd791284e2a516b46ee7ca1eba085277f98f90",
+  "quality": {
+    "passed": true,
+    "elapsed_seconds": 541.18
+  },
+  "architecture": "failed at check_documentation: two newly added evidence links used project-root paths in a nested generated Markdown file",
+  "game_ran": false,
+  "commit_created": false,
+  "normal_userdata_unchanged": true,
+  "own_override_removed": true,
+  "fix": "Evidence links now resolve relative to generated epics/vlight.md; regenerate and run the real documentation gate before full hook retry.",
+  "native_evidence": false
+}

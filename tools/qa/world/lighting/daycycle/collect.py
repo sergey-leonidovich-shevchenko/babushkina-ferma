@@ -148,6 +148,16 @@ def run_variant(
     }
 
 
+def committed_inputs(head: str) -> dict[str, bytes]:
+    """Проверяет Git-входы до создания output; локальный сгенерированный UID не заменяет commit."""
+    result = {}
+    for name in c.INPUTS:
+        raw = shared.git("show", head + ":" + name)
+        c.need(raw == (c.ROOT / name).read_bytes(), "QA input is not committed: " + name)
+        result[name] = raw
+    return result
+
+
 def collect(output: Path) -> None:
     """Отказ на macOS/headless/грязном source предшествует запуску движка; raw не перезаписывается."""
     if sys.platform != "linux" or not os.environ.get("DISPLAY"):
@@ -161,10 +171,8 @@ def collect(output: Path) -> None:
         not shared.git("status", "--porcelain", "--untracked-files=all"),
         "clean Git checkout required",
     )
+    inputs = committed_inputs(head)
     folder = shared.fresh_output(output)
-    inputs = {name: (c.ROOT / name).read_bytes() for name in c.INPUTS}
-    for name, raw in inputs.items():
-        c.need(raw == shared.git("show", head + ":" + name), "QA input is not committed: " + name)
     for name, raw in inputs.items():
         target = folder / "inputs" / name
         target.parent.mkdir(parents=True, exist_ok=True)
