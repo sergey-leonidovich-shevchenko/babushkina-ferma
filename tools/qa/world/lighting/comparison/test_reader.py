@@ -31,7 +31,7 @@ class ReaderTests(unittest.TestCase):
             cls.capture = json.loads(archive.read("frames/capture.json"))
 
     def test_complete_real_archive(self) -> None:
-        result = verify(REPORT)
+        result = verify(REPORT, current=True)
         self.assertTrue(result["native_complete"])
         self.assertFalse(result["hardware_fps_accepted"])
         self.assertEqual(set(result["results"]), {"1152", "1280"})
@@ -104,7 +104,82 @@ class ReaderTests(unittest.TestCase):
                     archive.writestr(item, raw)
             (root / "source.json").write_text(json.dumps(source))
             with self.assertRaisesRegex(ValueError, expected):
-                verify(root)
+                verify(root, current=True)
+
+    def changed_capture(self, change: Callable[[dict[str, Any]], None], expected: str) -> None:
+        """Пересчитывает SHA настоящего capture; отказ не может свестись к целостности ZIP."""
+
+        def mutate(raw: bytes) -> bytes:
+            capture = json.loads(raw)
+            change(capture)
+            return json.dumps(capture).encode()
+
+        self.changed_archive("frames/capture.json", mutate, expected)
+
+    def test_review_timed_native_light_disabled(self) -> None:
+        def change(capture: dict[str, Any]) -> None:
+            rows = [r for r in capture["costs"] if r["mode"] in ["local", "shadow"]]
+            self.assertEqual(len(rows), 12)
+            for row in rows:
+                row["light"].update(enabled=False, energy=0, shadow_enabled=False)
+
+        self.changed_capture(change, "actual light energy|actual light enabled|actual shadow")
+
+    def test_review_visual_point_texture_scale(self) -> None:
+        def change(capture: dict[str, Any]) -> None:
+            rows = [
+                row
+                for row in capture["frames"].values()
+                if row["light"]["mode"] in ["local", "shadow"]
+            ]
+            self.assertEqual(len(rows), 12)
+            for row in rows:
+                row["light"]["texture_scale"] *= 4
+
+        self.changed_capture(change, "actual PointLight texture_scale/radius")
+
+    def test_each_timed_light_parameter_is_required(self) -> None:
+        for field, value in [("enabled", False), ("energy", 0), ("shadow_enabled", False)]:
+            with self.subTest(field=field):
+
+                def change(
+                    capture: dict[str, Any], field: str = field, value: bool | int = value
+                ) -> None:
+                    row = next(r for r in capture["costs"] if r["mode"] == "shadow")
+                    row["light"][field] = value
+
+                self.changed_capture(
+                    change, "actual light energy|actual light enabled|actual shadow"
+                )
+
+    def test_geometry_is_checked_in_costs_and_viewports(self) -> None:
+        for target in ["costs", "viewport", "viewport-with-matching-claimed-radius"]:
+            with self.subTest(target=target):
+
+                def change(capture: dict[str, Any], target: str = target) -> None:
+                    if target == "costs":
+                        rows = [r for r in capture["costs"] if r["mode"] in ["local", "shadow"]]
+                    else:
+                        rows = [capture["viewports"]["both-local"]["items"][0]]
+                    for row in rows:
+                        row["light"]["texture_scale"] *= 4
+                        if target == "viewport-with-matching-claimed-radius":
+                            row["light"]["radius"] *= 4
+
+                self.changed_capture(change, "actual PointLight texture_scale/radius")
+
+    def test_timed_context_matches_validated_visual_case(self) -> None:
+        for name in ["world_context", "hud_context"]:
+            with self.subTest(context=name):
+
+                def change(capture: dict[str, Any], name: str = name) -> None:
+                    for row in capture["costs"]:
+                        for side in ["before", "after"]:
+                            row[side][name]["seed"] += 1
+
+                self.changed_capture(
+                    change, "timed scene differs from validated 1320 visual context"
+                )
 
     def test_unofficial_log_even_resigned(self) -> None:
         self.changed_archive(

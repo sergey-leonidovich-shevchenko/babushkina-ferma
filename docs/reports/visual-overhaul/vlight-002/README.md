@@ -66,4 +66,16 @@ CPU — полный `_draw` основного игрового CanvasItem вм
 
 Native ZIP сохраняют точные исходные PNG/JSON/log. Raw/ZIP сводки сравнены на равенство. [Manifest](native/source.json),[проверенные Git blobs](native/exported-blobs.json),[результаты](results.json),[происхождение листов](gallery.json). Source commit относится к производственной базе; новые QA-входы перечислены отдельно. Обычный reader остаётся историческим, `--check-current-candidate` дополнительно проверяет рабочие runtime/assets/QA; допускается только явно согласованная SemVer metadata.
 
+## Доработки независимого ревью PR80
+
+[Предварительное ревью249c1db](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/80#pullrequestreview-5989617089) обнаружило два обязательных P2 в reader. На копиях C после пересчёта SHA он принимал12 timed local/shadow с выключенными enabled/energy/shadow и12 visual local/shadow с texture_scale×4 при прежнем radius. Исходная C содержит правильные параметры; это дефекты проверки, не новые результаты native-опыта.
+
+Теперь реальный номинальный радиус выводится как `texture_width × texture_scale / 2` и отдельно по высоте. Оба значения сверяются с `max(source_profile.glow.radii) × zoom`; поле radius проверяется независимо. Общая функция обслуживает кадры, временные строки и оба viewport. Enabled, энергия0/0.5/1 и shadow/PCF5 сверяются по режиму и закреплённым часам. Временные строки связаны с валидированным визуальным случаем1320 через light и оба scene context.
+
+Full saves остаются строгими до/после каждой timed-пары и между её режимами. С ранним PNG сравниваются контексты, а не весь save: к началу измерений уже законно обнаружен существующий дом и подготовлены прежние workshop defaults. Это различие сохранено явно.
+
+[Те же пакеты, фактические команды и коды выхода](failures/review-regressions.json): baseline0→0 с прежней сводкой; timed-state0→1 (`actual light energy differs from scene time`); texture-scale0→1 (`actual PointLight texture_scale/radius differs from source profile`). [Снимок старого reader](failures/reader-before-review.zip) привязан к Git249c;[компактные испорченные payload](failures/reviewer-invalid-payloads.zip) содержат исходные source/capture JSON ревьюера, остальные данные берутся из неизменной C. Это отрицательные контроли метаданных, не переснятые кадры.
+
+Фактически прошли contract7/0, reader17/0 и mypy15/0. Отдельные контроли enabled/energy/shadow, world/HUD context и геометрии costs/viewports не позволяют общему повреждению скрыть пропущенную проверку. CSV, native source/оба ZIP,30 producer inputs и галереи точны. В results меняются только SHA двух усиленных модулей анализа. Production и повторная native-съёмка не входят в исправление; полный штатный gate, Wiki и новый exact-head review/CI остаются обязательными.
+
 Команды и границы — в[QA comparison](../../../../tools/qa/world/lighting/comparison/README.md). Обязательны профильные/отрицательные проверки, штатный полный hook, Wiki check/браузер и независимый exact-head PR review. Проверки C сами по себе не заменяют приёмку текущего PR.

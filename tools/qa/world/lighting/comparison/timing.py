@@ -7,7 +7,7 @@ from typing import Any
 
 from tools.qa.world.lighting.comparison import contract
 from tools.qa.world.lighting.comparison.assertions import require
-from tools.qa.world.lighting.comparison.pixels import light_geometry
+from tools.qa.world.lighting.comparison.pixels import light_geometry, light_mode
 
 
 def costs(capture: dict[str, Any]) -> list[dict[str, Any]]:
@@ -30,7 +30,16 @@ def costs(capture: dict[str, Any]) -> list[dict[str, Any]]:
     }
     for row in rows:
         light_geometry(row["light"], row["before"]["world_context"])
-        require(row["light"]["mode"] == row["mode"], "actual timed light mode")
+        light_mode(row["light"], row["before"]["world_context"], row["mode"])
+        reference = capture["frames"][f"{row['room']}-1320-{row['mode']}"]
+        for name in ["world_context", "hud_context"]:
+            require(
+                row["before"][name] == reference["before"][name],
+                "timed scene differs from validated 1320 visual context",
+            )
+        require(
+            row["light"] == reference["light"], "timed light differs from validated visual state"
+        )
         require(row["before"] == row["after"] == baseline[row["room"]], "cost save/context changed")
         require(row["warmup_frames"] == 30 and row["sample_frames"] == 90, "fixed sampling plan")
         require(len(row["samples"]) == len(row["draw_us"]) == 90, "missing CPU/frame samples")

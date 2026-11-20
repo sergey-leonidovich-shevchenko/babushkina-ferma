@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import io
 import json
+import math
 from functools import cache
 from typing import Any, cast
 
@@ -13,6 +14,9 @@ from tools.qa.world.lighting import contract as shared
 from tools.qa.world.lighting.comparison import contract
 from tools.qa.world.lighting.comparison.assertions import require
 from tools.qa.world.lighting.comparison.storage import Evidence
+
+ENERGY_BY_MINUTE = {720: 0.0, 1140: 0.5, 1320: 1.0}
+PCF5 = 1
 
 
 def image(raw: bytes, size: tuple[int, int]) -> Image.Image:
@@ -33,13 +37,26 @@ def max_difference(a: Image.Image, b: Image.Image) -> int:
 
 
 @cache
+def lamp_profile() -> dict[str, Any]:
+    """Читает геометрию принятого source-profile независимо от меток capture."""
+    return cast(
+        dict[str, Any],
+        json.loads(
+            shared.git(
+                "show", contract.BASE + ":assets/game/locations/overworld/lamps/profile.json"
+            )
+        ),
+    )
+
+
+@cache
 def emitter_offset() -> tuple[float, float]:
     """Берёт фактическую опору/стекло неизменённого source-profile из принятого Git."""
-    profile = json.loads(
-        shared.git("show", contract.BASE + ":assets/game/locations/overworld/lamps/profile.json")
-    )["views"]["south"]
+    data = lamp_profile()
+    profile = data["views"]["south"]
     offsets = tuple(
-        (float(profile["emitter"][i]) - float(profile["anchor"][i])) * 0.25 for i in range(2)
+        (float(profile["emitter"][i]) - float(profile["anchor"][i])) * data["render_scale"]
+        for i in range(2)
     )
     return offsets[0], offsets[1]
 
@@ -52,11 +69,45 @@ def light_geometry(light: dict[str, Any], context: dict[str, Any]) -> None:
     offset = emitter_offset()
     emitter = [ground[i] + offset[i] for i in range(2)]
     expected = [(emitter[i] - context["camera"][i]) * context["zoom"] for i in range(2)]
-    # Vector2/Transform2D используют float32; допуск относится только к координате, не к PNG.
+    # Допуск float32 применяется к геометрии; PNG сравниваются отдельно без него.
     require(
         all(abs(a - b) < 0.001 for a, b in zip(light["center"], expected, strict=True)),
         "emitter projection does not match actual body",
     )
+    zoom = float(context["zoom"])
+    require(math.isfinite(zoom) and zoom > 0.0, "invalid light geometry zoom")
+    radius = max(float(value) for value in lamp_profile()["glow"]["radii"]) * zoom
+    require(light["texture"] == [256, 256], "actual PointLight texture dimensions")
+    # texture_scale относится к полной текстуре; её полуширина/полувысота дают радиус.
+    require(
+        all(
+            math.isclose(size * light["texture_scale"] / 2.0, radius, rel_tol=0.0, abs_tol=0.001)
+            for size in light["texture"]
+        ),
+        "actual PointLight texture_scale/radius differs from source profile",
+    )
+    require(
+        math.isclose(light["radius"], radius, rel_tol=0.0, abs_tol=0.001),
+        "declared light radius differs from source profile",
+    )
+
+
+def light_mode(light: dict[str, Any], context: dict[str, Any], mode: str) -> None:
+    """Сверяет настоящие flags/energy с тремя фиксированными часами принятой сцены."""
+    # В закреплённых WorldEventSystem.darkness/Lantern.intensity это день, полусумерки и ночь.
+    minute = context["minutes"]
+    require(minute in ENERGY_BY_MINUTE, "unplanned light scene time")
+    require(light["mode"] == mode, "actual light mode")
+    require(
+        type(light["energy"]) in (int, float)
+        and math.isclose(light["energy"], ENERGY_BY_MINUTE[minute], rel_tol=0.0, abs_tol=0.000001),
+        "actual light energy differs from scene time",
+    )
+    enabled = mode in ["local", "shadow"] and ENERGY_BY_MINUTE[minute] > 0.0
+    shadow = mode == "shadow"
+    require(light["enabled"] is enabled, "actual light enabled flag differs from mode/time")
+    require(light["shadow_enabled"] is shadow, "actual shadow enabled flag")
+    require(light["shadow_filter"] == PCF5, "actual PCF5 shadow filter")
 
 
 def frames(store: Evidence, key: str, capture: dict[str, Any]) -> list[dict[str, Any]]:
@@ -102,21 +153,14 @@ def frames(store: Evidence, key: str, capture: dict[str, Any]) -> list[dict[str,
                 )
                 light = row["light"]
                 light_geometry(light, row["before"]["world_context"])
+                light_mode(light, row["before"]["world_context"], mode)
                 require(
                     light["mode"] == mode
                     and light["center"] == baseline["light"]["center"]
                     and light["radius"] == baseline["light"]["radius"],
                     "light mode/geometry",
                 )
-                require(
-                    light["enabled"] == (mode in ["local", "shadow"] and minute != 720),
-                    "actual light enabled",
-                )
-                require(light["shadow_enabled"] == (mode == "shadow"), "actual shadow flag")
-                require(
-                    light["texture"] == [256, 256] and light["light_canvas_layer_range"] == [0, 0],
-                    "texture/layer config",
-                )
+                require(light["light_canvas_layer_range"] == [0, 0], "light layer config")
                 texture_rids.add(light["texture_rid"])
                 actual = image(store.read(key, "frames/" + row["file"]), size)
                 hud = image(store.read(key, "frames/" + row["hud_file"]), size)
@@ -160,6 +204,8 @@ def viewports(store: Evidence, key: str, capture: dict[str, Any]) -> dict[str, A
         for index, size in enumerate(sizes):
             row = record["items"][index]
             light_geometry(row["light"], row["before"]["world_context"])
+            own_off = mode == ("left-off" if index == 0 else "right-off")
+            light_mode(row["light"], row["before"]["world_context"], "off" if own_off else "local")
             require(
                 row["size"] == list(size)
                 and row["png_error"] == 0
@@ -172,7 +218,6 @@ def viewports(store: Evidence, key: str, capture: dict[str, Any]) -> dict[str, A
             )
             actual = image(store.read(key, "frames/" + row["file"]), size)
             maximum = max_difference(actual, reference[index])
-            own_off = mode == ("left-off" if index == 0 else "right-off")
             require(
                 (maximum > 0) == own_off,
                 "light leaked between viewports or no actual source effect",
