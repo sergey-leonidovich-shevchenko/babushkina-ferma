@@ -6,17 +6,20 @@ import copy
 import io
 import json
 import shutil
+import subprocess
 import tempfile
 import unittest
 import zipfile
 from collections.abc import Callable
 from pathlib import Path
 from typing import Any
+from unittest.mock import patch
 
 from PIL import Image
 
+from tools.common.git import git_environment
 from tools.qa.world.lighting import contract as shared
-from tools.qa.world.lighting.comparison import gallery, pixels, timing
+from tools.qa.world.lighting.comparison import contract, gallery, pixels, timing
 from tools.qa.world.lighting.comparison.verify import REPORT, verify
 
 
@@ -31,10 +34,64 @@ class ReaderTests(unittest.TestCase):
             cls.capture = json.loads(archive.read("frames/capture.json"))
 
     def test_complete_real_archive(self) -> None:
-        result = verify(REPORT, current=True)
+        result = verify(REPORT)
         self.assertTrue(result["native_complete"])
         self.assertFalse(result["hardware_fps_accepted"])
         self.assertEqual(set(result["results"]), {"1152", "1280"})
+
+    def test_current_guard_on_real_historical_checkout(self) -> None:
+        """Current работает на настоящем принятом Git и отвергает дрейф, не требуя старого live-кода."""
+        environment = git_environment()
+        parent_root = shared.ROOT
+        parent_paths = [
+            Path(shared.git("rev-parse", "--git-path", name).decode().strip())
+            for name in ("index", "config")
+        ]
+        parent_bytes = [path.read_bytes() for path in parent_paths]
+        with tempfile.TemporaryDirectory(prefix="lantern historical current ") as temporary:
+            project = Path(temporary).resolve() / "project"
+            subprocess.run(
+                [
+                    "git",
+                    "-c",
+                    "core.hooksPath=/dev/null",
+                    "clone",
+                    "--shared",
+                    "--no-checkout",
+                    "--quiet",
+                    str(parent_root),
+                    str(project),
+                ],
+                env=environment,
+                check=True,
+            )
+            subprocess.run(
+                [
+                    "git",
+                    "-c",
+                    "core.hooksPath=/dev/null",
+                    "-C",
+                    str(project),
+                    "checkout",
+                    "--quiet",
+                    "--detach",
+                    contract.BASE,
+                ],
+                env=environment,
+                check=True,
+            )
+            source = json.loads((REPORT / "source.json").read_bytes())
+            for name in source["qa_inputs"]:
+                path = project / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes((REPORT / "inputs" / name).read_bytes())
+            with patch.object(shared, "ROOT", project), patch.object(contract, "ROOT", project):
+                self.assertTrue(verify(REPORT, current=True)["native_complete"])
+                path = project / "scripts/systems/atmosphere_renderer.gd"
+                path.write_bytes(path.read_bytes() + b"\n# controlled historical current drift\n")
+                with self.assertRaisesRegex(ValueError, "uncommitted production changes"):
+                    verify(REPORT, current=True)
+        self.assertEqual([path.read_bytes() for path in parent_paths], parent_bytes)
 
     def test_actual_cpu_controls(self) -> None:
         cases: list[Callable[[dict[str, Any]], None]] = [
@@ -104,7 +161,7 @@ class ReaderTests(unittest.TestCase):
                     archive.writestr(item, raw)
             (root / "source.json").write_text(json.dumps(source))
             with self.assertRaisesRegex(ValueError, expected):
-                verify(root, current=True)
+                verify(root)
 
     def changed_capture(self, change: Callable[[dict[str, Any]], None], expected: str) -> None:
         """Пересчитывает SHA настоящего capture; отказ не может свестись к целостности ZIP."""

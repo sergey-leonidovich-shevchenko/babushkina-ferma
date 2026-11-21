@@ -1,0 +1,223 @@
+{
+  "task": "VLIGHT-003",
+  "native_head": "1abc82b229188d437e8d0eaa4217202c6941c78f",
+  "source_sha256": "cfc81c80f9c6b3b4bb9cc0732e6e93d83edc65c521d06a8cd4e3cdda68363907",
+  "samples": 2160,
+  "hardware_fps_acceptance": false,
+  "p95_method": "nearest rank",
+  "whole_draw_cpu_submission": true,
+  "results": {
+    "baseline/1152": {
+      "adapter": "llvmpipe (LLVM 20.1.2, 256 bits)",
+      "display": "X11",
+      "renderer": "gl_compatibility",
+      "vsync_driver_warning": true,
+      "modes": {
+        "palette": {
+          "draw": {
+            "median_us": 3238.5,
+            "p95_us": 3704
+          },
+          "frame": {
+            "median_us": 12817.0,
+            "p95_us": 14413
+          },
+          "repeat_draw_medians_us": [
+            3204.5,
+            3107.5,
+            3369.5
+          ]
+        },
+        "legacy": {
+          "draw": {
+            "median_us": 3059.0,
+            "p95_us": 4290
+          },
+          "frame": {
+            "median_us": 12448.5,
+            "p95_us": 16484
+          },
+          "repeat_draw_medians_us": [
+            2980.5,
+            3967.5,
+            2948.5
+          ]
+        },
+        "reference": {
+          "draw": {
+            "median_us": 2898.0,
+            "p95_us": 3634
+          },
+          "frame": {
+            "median_us": 10495.5,
+            "p95_us": 12349
+          },
+          "repeat_draw_medians_us": [
+            2880.0,
+            2831.0,
+            3299.0
+          ]
+        }
+      }
+    },
+    "baseline/1280": {
+      "adapter": "llvmpipe (LLVM 20.1.2, 256 bits)",
+      "display": "X11",
+      "renderer": "gl_compatibility",
+      "vsync_driver_warning": true,
+      "modes": {
+        "palette": {
+          "draw": {
+            "median_us": 4087.5,
+            "p95_us": 4548
+          },
+          "frame": {
+            "median_us": 16590.0,
+            "p95_us": 17815
+          },
+          "repeat_draw_medians_us": [
+            4087.0,
+            4099.5,
+            4057.0
+          ]
+        },
+        "legacy": {
+          "draw": {
+            "median_us": 4041.5,
+            "p95_us": 4498
+          },
+          "frame": {
+            "median_us": 16377.0,
+            "p95_us": 17549
+          },
+          "repeat_draw_medians_us": [
+            4062.5,
+            3980.0,
+            4106.5
+          ]
+        },
+        "reference": {
+          "draw": {
+            "median_us": 3866.0,
+            "p95_us": 4268
+          },
+          "frame": {
+            "median_us": 14001.0,
+            "p95_us": 15107
+          },
+          "repeat_draw_medians_us": [
+            3835.0,
+            3876.0,
+            3874.5
+          ]
+        }
+      }
+    },
+    "candidate/1152": {
+      "adapter": "llvmpipe (LLVM 20.1.2, 256 bits)",
+      "display": "X11",
+      "renderer": "gl_compatibility",
+      "vsync_driver_warning": true,
+      "modes": {
+        "palette": {
+          "draw": {
+            "median_us": 2993.5,
+            "p95_us": 3129
+          },
+          "frame": {
+            "median_us": 12104.0,
+            "p95_us": 12958
+          },
+          "repeat_draw_medians_us": [
+            2994.0,
+            3004.5,
+            2982.0
+          ]
+        },
+        "legacy": {
+          "draw": {
+            "median_us": 2987.0,
+            "p95_us": 3430
+          },
+          "frame": {
+            "median_us": 12121.5,
+            "p95_us": 13465
+          },
+          "repeat_draw_medians_us": [
+            2963.0,
+            2990.0,
+            3004.0
+          ]
+        },
+        "reference": {
+          "draw": {
+            "median_us": 2878.0,
+            "p95_us": 2977
+          },
+          "frame": {
+            "median_us": 10133.0,
+            "p95_us": 10724
+          },
+          "repeat_draw_medians_us": [
+            2870.5,
+            2867.0,
+            2894.0
+          ]
+        }
+      }
+    },
+    "candidate/1280": {
+      "adapter": "llvmpipe (LLVM 20.1.2, 256 bits)",
+      "display": "X11",
+      "renderer": "gl_compatibility",
+      "vsync_driver_warning": true,
+      "modes": {
+        "palette": {
+          "draw": {
+            "median_us": 3042.5,
+            "p95_us": 3805
+          },
+          "frame": {
+            "median_us": 13981.0,
+            "p95_us": 16037
+          },
+          "repeat_draw_medians_us": [
+            3130.5,
+            2935.0,
+            3053.0
+          ]
+        },
+        "legacy": {
+          "draw": {
+            "median_us": 3145.5,
+            "p95_us": 3978
+          },
+          "frame": {
+            "median_us": 14204.5,
+            "p95_us": 16089
+          },
+          "repeat_draw_medians_us": [
+            3185.5,
+            3422.0,
+            3015.5
+          ]
+        },
+        "reference": {
+          "draw": {
+            "median_us": 3001.0,
+            "p95_us": 3351
+          },
+          "frame": {
+            "median_us": 11821.5,
+            "p95_us": 13312
+          },
+          "repeat_draw_medians_us": [
+            3019.5,
+            3031.0,
+            2970.0
+          ]
+        }
+      }
+    }
+  }
+}

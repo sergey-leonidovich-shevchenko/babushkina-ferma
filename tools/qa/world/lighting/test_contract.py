@@ -12,14 +12,29 @@ from unittest.mock import patch
 from tools.common.git import git_environment
 from tools.qa.world.lighting import contract
 
+CAPTURED_COMMIT = "dc4429f89be9ddc29cf5a052ae4dd665fbfd71df"
+
+
+def captured_source(name: str) -> bytes:
+    """VLIGHT-001 проверяет свой принятый source, а новая палитра имеет отдельный прибор VLIGHT-003."""
+    return contract.git("show", CAPTURED_COMMIT + ":" + name)
+
 
 class LightingContractTests(unittest.TestCase):
-    """Контроли работают с настоящими исходниками и отдельными временными каталогами."""
+    """Исторический прибор проверяет свои принятые исходники; новый runtime имеет отдельный QA."""
+
+    def test_historical_probe_refuses_new_live_palette(self) -> None:
+        """Смена владельца не выдаётся за успешную съёмку старым прибором VLIGHT-001."""
+        name = contract.SOURCES[0]
+        raw = (contract.ROOT / name).read_bytes()
+        self.assertNotEqual(raw, captured_source(name))
+        with self.assertRaisesRegex(ValueError, "expected one lighting call"):
+            contract.instrument(name, raw)
 
     def test_overlay_is_exactly_reversible_for_every_real_owner(self) -> None:
         """Никакой соседний примитив не меняется вместе с пятью объявленными вызовами."""
         for name, calls in contract.CALLS.items():
-            raw = (contract.ROOT / name).read_bytes()
+            raw = captured_source(name)
             modified = contract.instrument(name, raw).decode()
             for _owner, original, replacement in calls:
                 modified = modified.replace(f'preload("{contract.PROBE}").' + replacement, original)
@@ -32,7 +47,7 @@ class LightingContractTests(unittest.TestCase):
             contract.SOURCES[1]: ("draw", "draw_shadow", "shadow", "glow_mesh"),
         }
         for name, functions in cases.items():
-            raw = (contract.ROOT / name).read_text()
+            raw = captured_source(name).decode()
             changed = contract.instrument(name, raw.encode()).decode()
             for function in functions:
                 self.assertEqual(
@@ -42,7 +57,7 @@ class LightingContractTests(unittest.TestCase):
     def test_missing_and_duplicate_calls_fail_closed(self) -> None:
         """Неизвестная версия source не получает оптимистичный пустой прибор."""
         name = contract.SOURCES[0]
-        raw = (contract.ROOT / name).read_text()
+        raw = captured_source(name).decode()
         marker = contract.CALLS[name][0][1]
         for changed in (
             raw.replace(marker, "pass"),
@@ -54,7 +69,7 @@ class LightingContractTests(unittest.TestCase):
     def test_new_unlisted_native_call_is_rejected(self) -> None:
         """Новый световой примитив требует обновления ведомости и повторной приёмки."""
         name = contract.SOURCES[0]
-        raw = (contract.ROOT / name).read_text()
+        raw = captured_source(name).decode()
         changed = raw.replace(
             "\tvar darkness:", "\tgame.draw_circle(Vector2.ZERO, 1.0, Color.WHITE)\n\tvar darkness:"
         )

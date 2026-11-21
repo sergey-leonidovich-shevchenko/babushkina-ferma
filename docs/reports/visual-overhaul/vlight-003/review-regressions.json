@@ -1,0 +1,86 @@
+{
+  "task": "VLIGHT-003",
+  "native_head": "1abc82b229188d437e8d0eaa4217202c6941c78f",
+  "native_source_sha256": "cfc81c80f9c6b3b4bb9cc0732e6e93d83edc65c521d06a8cd4e3cdda68363907",
+  "historical_timing_head": "d5cd791284e2a516b46ee7ca1eba085277f98f90",
+  "historical_readings_sha256": "4b283b9c0153d06544ae08073f1a7884b6de12faf826bbbd4f0c9e7056cba173",
+  "current_readings_sha256": "7203304df6b10857d1e7d559d41d99a38c4194a74aa714c71641fb62f6d8d564",
+  "experiment_source_sha256": "1b69b5d94c2a0d5e993e90d0dac1f25561c9977d4f15d7d7ad4d690b5e66603e",
+  "strict_current": true,
+  "method": "Exact historical d5 capture function inside the common full verifier with corrected P1 input closure; not a claim that the entire old head accepts the new 34-input manifest.",
+  "native_png_generated": false,
+  "cases": {
+    "pristine-old-timing": {
+      "exit_code": 0,
+      "stdout_sha256": "22fa93fe96ca556b889cd9b4d5a106b6acd210bd1dfc1e96d1f3550b7f5326fb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "last_error": []
+    },
+    "pristine-current": {
+      "exit_code": 0,
+      "stdout_sha256": "22fa93fe96ca556b889cd9b4d5a106b6acd210bd1dfc1e96d1f3550b7f5326fb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "last_error": []
+    },
+    "all-reference-noon": {
+      "capture_sha256": "6376c187e41c3fcab92840c845b073368b8a480063c3903c635b7aee811cb04b",
+      "resigned": true,
+      "old_timing": {
+        "exit_code": 0,
+        "stdout_sha256": "22fa93fe96ca556b889cd9b4d5a106b6acd210bd1dfc1e96d1f3550b7f5326fb",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "last_error": []
+      },
+      "current": {
+        "exit_code": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "1a84c314be792793bed6e9d607bd677e8b7a08f65c32d9df509ea6c2f72a5892",
+        "last_error": [
+          "ValueError: timed scene/mode differs from validated dusk visual context"
+        ]
+      }
+    },
+    "timed-legacy-off": {
+      "capture_sha256": "438bcd3134f7a5f990247eaf2e38a5a09c1a3759ba355c61e4d908e22e4f4804",
+      "resigned": true,
+      "old_timing": {
+        "exit_code": 0,
+        "stdout_sha256": "22fa93fe96ca556b889cd9b4d5a106b6acd210bd1dfc1e96d1f3550b7f5326fb",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "last_error": []
+      },
+      "current": {
+        "exit_code": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "1a84c314be792793bed6e9d607bd677e8b7a08f65c32d9df509ea6c2f72a5892",
+        "last_error": [
+          "ValueError: timed scene/mode differs from validated dusk visual context"
+        ]
+      }
+    },
+    "timed-other-scene": {
+      "capture_sha256": "d74502d9eb694b867683740115faa74600155fc9991a594ccc33c1969b655d16",
+      "resigned": true,
+      "old_timing": {
+        "exit_code": 0,
+        "stdout_sha256": "22fa93fe96ca556b889cd9b4d5a106b6acd210bd1dfc1e96d1f3550b7f5326fb",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "last_error": []
+      },
+      "current": {
+        "exit_code": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "1a84c314be792793bed6e9d607bd677e8b7a08f65c32d9df509ea6c2f72a5892",
+        "last_error": [
+          "ValueError: timed scene/mode differs from validated dusk visual context"
+        ]
+      }
+    },
+    "unchanged-current": {
+      "exit_code": 0,
+      "stdout_sha256": "22fa93fe96ca556b889cd9b4d5a106b6acd210bd1dfc1e96d1f3550b7f5326fb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "last_error": []
+    }
+  }
+}

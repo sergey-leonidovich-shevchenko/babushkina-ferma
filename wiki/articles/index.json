@@ -2315,6 +2315,13 @@
     ]
   },
   {
+    "id": "daylight-cycle",
+    "file": "daylight-cycle.md",
+    "title": "День и сумерки",
+    "summary": "VLIGHT-003: мягкая календарная палитра первой деревни. Настоящие кадры до/после, HUD, независимые viewport, исходные замеры и границы проверки; PR №82 проходит приёмку.",
+    "tags": ["Разработка", "VLIGHT-003", "Первая локация", "Свет", "QA"]
+  },
+  {
     "id": "lantern-light-methods",
     "file": "lantern-light-methods.md",
     "title": "Как светится один фонарь",

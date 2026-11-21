@@ -4940,7 +4940,7 @@
       "id": "VLIGHT-003",
       "epic": "VLIGHT",
       "title": "Согласовать день и сумерки",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -4976,7 +4976,13 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vlight-003-visual-task",
-      "evidence": []
+      "evidence": [
+        "[Нативная серия и методика](../../../reports/visual-overhaul/vlight-003/README.md)",
+        "[Проверка и границы](../../../reports/visual-overhaul/vlight-003/acceptance.json)",
+        "[День и сумерки](../../../../wiki/articles/daylight-cycle.md)",
+        "[PR №82](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82)"
+      ],
+      "result": "21 ноября 2026: VLIGHT-003 in_progress, draft PR №82, опубликованный runtime/QA head1abc82b2 (0.0.474) от main c1f2eda0. CI3 run44797637789/job136501225030 PASS: настоящий X11/Compatibility/llvmpipe, оба Git и окна1152/1280, 10случаев,222PNG,256артефактов/34QA-входа; полный local raw/package strict-current reader PASS. Legacy совпадает с принятой main, меняются только overworld dawn/dusk; HUD, save/геометрия, endpoints, комната/рынок/затмение и независимые viewport сохранены. 2160raw samples измеряют целый production draw, GPU/аппаратныйFPS/VMAP-003 не принимаются. Три реальных переподписанных P2 контекста дают actual old0/new1, pristine/неизменённый пакет0 в строгом полном CLI; scope общего исправленного P1 verifier описан явно. 16native reader-тестов прошли, gallery/metrics targeted3/0; окончательный полный набор18 и report gates/CI/review ещё требуются. У captured1abc полный quality/architecture, Game53709/0, normal/F10 по90/0, Wiki167/0; модель+dispatch18/0. CI1/2 и исходный диагностический ZIP сохранены. Другие1036карточек/planning/132frozen файла не изменены. До принятия точного итогового head ревьюером и Team Lead merge/Task-Complete отсутствуют."
     },
     {
       "id": "VLIGHT-004",

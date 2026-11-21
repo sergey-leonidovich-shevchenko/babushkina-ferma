@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "task": "VLIGHT-003",
+  "status": "in_progress",
+  "independent_review": "pending",
+  "team_decision": "pending",
+  "task_complete": false,
+  "whole_location_accepted": false,
+  "captured_base": "c1f2eda0d1d36e1491dab32fef090bb5a3d22e12",
+  "captured_head": "1abc82b229188d437e8d0eaa4217202c6941c78f",
+  "capture_version": "0.0.474",
+  "source_sha256": "cfc81c80f9c6b3b4bb9cc0732e6e93d83edc65c521d06a8cd4e3cdda68363907",
+  "native_ci": {
+    "run": 44797637789,
+    "job": 136501225030,
+    "artifact": 14659727690,
+    "artifact_bytes": 135206798,
+    "artifact_sha256": "c16ac562ffe4c69d793cceae311d2807d251cd748cc19dcf2094eb5e270a1277",
+    "conclusion": "success"
+  },
+  "matrix": {
+    "widths": [
+      1152,
+      1280
+    ],
+    "cases_per_width": 10,
+    "ordinary_roots": 80,
+    "hud_png": 80,
+    "independent_hidden_object_png": 48,
+    "native_bad_hud_png": 2,
+    "twin_png": 12,
+    "png_total": 222,
+    "artifact_count": 256,
+    "qa_inputs": 34,
+    "raw_timing_samples": 2160
+  },
+  "local_verification": {
+    "raw_strict_current": true,
+    "packaged_strict_current": true,
+    "palette_scope": [
+      "overworld-dawn",
+      "overworld-dusk"
+    ],
+    "same_time_hud_unchanged": true,
+    "legacy_matches_accepted_runtime": true,
+    "endpoints_other_scenes_eclipse_unchanged": true,
+    "save_geometry_unchanged": true,
+    "independent_viewports": true,
+    "paired_p2_current": true,
+    "initial_reader_tests": {
+      "passed": 16,
+      "failed": 0
+    },
+    "new_gallery_metrics_targeted": {
+      "passed": 3,
+      "failed": 0
+    }
+  },
+  "performance_scope": "Whole production draw CPU submission and X11 llvmpipe software frame intervals; driver warns VSync change unsupported. Not GPU, hardware FPS, Retina, long-session or whole-map acceptance.",
+  "protected": {
+    "other_visual_cards": 1036,
+    "frozen_lighting_files": 132,
+    "planning_state_sha256": "c49915e89a5b082c93ca798cf8432a4535b213251fe44a84f059642b6006651e",
+    "planning_sources_sha256": "17eb539d8f0ff9713edd081dc2ec8ca98a66fa0e222dce8295e899851f0cc04f"
+  },
+  "final_report_gates": "pending full hook/Wiki/CI/exact-head review on the report commit"
+}

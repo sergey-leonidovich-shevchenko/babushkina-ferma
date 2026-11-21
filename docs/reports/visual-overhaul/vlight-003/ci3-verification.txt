@@ -1,0 +1,91 @@
+{
+  "task": "VLIGHT-003",
+  "head": "1abc82b229188d437e8d0eaa4217202c6941c78f",
+  "widths": {
+    "1152": {
+      "street-dawn": {
+        "changed": true,
+        "legacy_matches_main": true
+      },
+      "street-day": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "street-dusk": {
+        "changed": true,
+        "legacy_matches_main": true
+      },
+      "street-night": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "home-dawn": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "home-day": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "home-dusk": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "home-night": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "market-dusk": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "eclipse-night": {
+        "changed": false,
+        "legacy_matches_main": true
+      }
+    },
+    "1280": {
+      "street-dawn": {
+        "changed": true,
+        "legacy_matches_main": true
+      },
+      "street-day": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "street-dusk": {
+        "changed": true,
+        "legacy_matches_main": true
+      },
+      "street-night": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "home-dawn": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "home-day": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "home-dusk": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "home-night": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "market-dusk": {
+        "changed": false,
+        "legacy_matches_main": true
+      },
+      "eclipse-night": {
+        "changed": false,
+        "legacy_matches_main": true
+      }
+    }
+  },
+  "hardware_fps_acceptance": false
+}

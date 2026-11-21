@@ -1,0 +1,20 @@
+{
+  "task": "VLIGHT-003",
+  "source_head_before_fix": "64707d3b487b88623ecbdf4160ba0f00ca11580f",
+  "working_qa_overlay": true,
+  "engine": "Godot 4.7.1 official a13da4feb",
+  "model_conditions": 16,
+  "actual_capture_dispatch_conditions": 2,
+  "passed": 18,
+  "failed": 0,
+  "headless": true,
+  "native_evidence": false,
+  "normal_userdata_unchanged": true,
+  "own_override_removed": true,
+  "stdout_sha256": "b1d31e4bb8654739330462009a64c3ad2938836cf6dac8b5145e11a97f4bad13",
+  "inputs": {
+    "tools/qa/world/lighting/daycycle/capture.gd": "62344389bf5da4c952a181ab52ab05793abd545ecfe5c78d2071d0ecf22564ba",
+    "tools/qa/world/lighting/daycycle/scenarios.gd": "e7f32192e0b3f577ee488217c8905867955cf98ff6407703a1e954194f26ce93",
+    "tools/qa/world/lighting/daycycle/review.gd": "7b2c46b88ca8d9aed9c786c90df8500774be10847323905ac65022009d5c7fba"
+  }
+}

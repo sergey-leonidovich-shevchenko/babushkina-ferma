@@ -1,0 +1,16 @@
+{
+  "task": "VLIGHT-003",
+  "head": "64707d3b487b88623ecbdf4160ba0f00ca11580f",
+  "run": 44783685367,
+  "job": 136452772167,
+  "artifact": 14654387485,
+  "artifact_sha256": "337db18bd275f1b018c166b51808cc16cd23e8ac1d5a7ccb1852e9b433de2fb2",
+  "stage": "first baseline native _start, capture.gd:61",
+  "error": "Trying to assign an array of type Array to a variable of type Array[String].",
+  "timeout_seconds": 900,
+  "source_complete": false,
+  "native_png_count": 0,
+  "accepted": false,
+  "raw_log": "evidence/baseline/1152.txt inside ci-02-artifact.zip",
+  "fix": "Replace typed-array ternary with the real scenarios.capture_modes helper. Headless review executes both actual dispatch branches plus the existing 16 model conditions before the next full hook/native run."
+}

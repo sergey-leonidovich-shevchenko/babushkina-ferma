@@ -1,0 +1,93 @@
+{
+  "task": "VLIGHT-003",
+  "head": "d5cd791284e2a516b46ee7ca1eba085277f98f90",
+  "working_qa_overlay": true,
+  "native_evidence": false,
+  "inputs": {
+    "tools/qa/world/lighting/daycycle/game.gd": "9d562770e1df7cbfc7110f4cdcfd85274426c1317639c9efa069a62b442ba70b",
+    "tools/qa/world/lighting/daycycle/game.gd.uid": "663cd9670e3b6e7454a0610b027afac1402166f46fd452ba493c96eb7f2cfdf4",
+    "tools/qa/world/lighting/daycycle/scenarios.gd": "bdb05b5151d456a42d624933d48bdc549dca9e930c34552eb60fe1ce0f6dba6f",
+    "tools/qa/world/lighting/daycycle/scenarios.gd.uid": "562582d3ab7aa2e7345b02b14d4bf1ff71e460c94bfd5343f2b5383ea1b750a6",
+    "tools/qa/world/lighting/daycycle/viewports.gd": "fdad3ea24fab4ef2a4f7a6978807c37654bebfb15bcc59bb46f612e79b63bbf1",
+    "tools/qa/world/lighting/daycycle/viewports.gd.uid": "8e32bfa032a36e26d7ddddcd8582eb2fe397eee79e5a07a6aa75b4a9a0746829",
+    "tools/qa/world/lighting/daycycle/capture.gd": "8129168d265fe08855b5e7150e15bbe614dfa35e5021afc1021bff8d8321cca0",
+    "tools/qa/world/lighting/daycycle/capture.gd.uid": "2fc01c9a761181812a382a356495cdb74f815e71a28f9feb34dbb72dca51abf1",
+    "tools/qa/world/lighting/daycycle/profile.gd": "75a0e2847c88205dda91dd8b443e6c8132a6ba8bf83eee6005fe495bf27aa446",
+    "tools/qa/world/lighting/daycycle/profile.gd.uid": "33ef1be1dbc49204b0762c54fd3537ef64d6476a57c783e60c9f9517a65c6efc",
+    "tools/qa/world/lighting/inventory_cases.gd": "b20ad560cc35c8682b93e91237685964a1ee1cc54d85e1cfa08c3b6727b36c78",
+    "tools/qa/world/lighting/inventory_game.gd": "5c0925e1fd34ed11d22cf751184e484736e1395d7f5253dafd88ad3acceba523",
+    "tools/qa/world/lighting/light_probe.gd": "33ad4ba7b65d8eb74c203b98b348dd9cd6a22968916b0e4b8d02707277d60ec7",
+    "tools/qa/world/render_order_game.gd": "662ad6e5af52bc95eb8d2804a7390ee5007caa88325aca2f7835873243a0000b",
+    "tools/qa/camera/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+    "tools/qa/world/lighting/inventory_cases.gd.uid": "b53e27705f0e40f38202b66b2d8ff61f5a9ede44adc2d36880cd9c2f31112b2e",
+    "tools/qa/world/lighting/inventory_game.gd.uid": "7c06c18413655e48e248385b73a811ee5498dea2f42fa35cbd4ed5c025a2feed",
+    "tools/qa/world/lighting/light_probe.gd.uid": "ed67f72a659453fd7344cfcedbdf8d07cd20057f46bc90d5e86424f6c62b5ec0",
+    "tools/qa/world/render_order_game.gd.uid": "7b49ff32159df62e69774b82710e23c012563014d9c03ef14d04f95448069352",
+    "docs/reports/visual-overhaul/vbase-003/camera-points.json": "3848320b5130ce3b29baf65a0a6ca1705e0675f2186d28934cc9d8ff9f2df7b8",
+    ".github/workflows/vlight-003.yml": "2f1a2428af79f9527946078dcd0f55aed8a34efd1d7cacdf614289a7e5facf5a",
+    "tools/run.py": "6d2dbe824e5f25b60495b78948e053319f31758772d1c1d746a4cfa4106c9a58",
+    "tools/common/git.py": "4387c77bad0fb536b9391e05b2a8aa31c3701fcb2385f14f320d256ed202e6c8",
+    "tools/common/paths.py": "3cc7f84bdd520e8489d60f05b2050999c841f403eec91aa56574ecdc5feb389e",
+    "tools/common/launch.py": "5fdbd36d53d36593f40e36562a0bcc2544ca1ce140b2341a5057f5518e134cec",
+    "tools/qa/world/lighting/contract.py": "d6fe4c99ee3007df3eb7a07899e540ff51dcc7f8bd0cfaefe7a5ad87e33eb6f9",
+    "tools/qa/world/lighting/daycycle/__init__.py": "708ff8374ec04ae785cb6724af6395213fefbcd172ed74c9ed8bdcfa98b2b5d1",
+    "tools/qa/world/lighting/daycycle/contract.py": "3656b0d21ea1fca2da9f6921c9ba33e24426c836ac1b4dc612929de812e1c3f4",
+    "tools/qa/world/lighting/daycycle/collect.py": "157eb3d88815b2ec3735ed2d14f7ac3831e20fc419fd7c7c7821c0689cf25677",
+    "tools/qa/world/lighting/daycycle/evidence.py": "8955684dfc9db5d36ca54d6de95aa2cc34d647e1f793dfe784c9476fb9b0b9e3",
+    "tools/qa/world/lighting/daycycle/pixels.py": "7cd24b3ac0ecf1d7bf17800f0f2f1f2a90c764604178989aa37aedb7a42abb46",
+    "tools/qa/world/lighting/daycycle/verify.py": "14f3b2331f9cb7822d6f10feaaf30cadf6a71ed06db6789ed3a538d293b9d1d6",
+    "tools/qa/world/lighting/daycycle/provenance.py": "7067c91782eff8e2db8d3d92babe0c53db7f80784efdee0aa5b28cfbeb610ce5",
+    "tools/qa/world/lighting/daycycle/readings.py": "9dde168fd91d0a1cf1ddeb67c98fbd48a0a3bc783820e417eef3d81ffc904e1a"
+  },
+  "variants": {
+    "baseline": {
+      "commit": "c1f2eda0d1d36e1491dab32fef090bb5a3d22e12",
+      "profile": "Codex-VLIGHT-003-export-preflight-950fbdcf0a6643b597743b245e6a5411",
+      "blobs": 3755,
+      "qa_unchanged": true,
+      "headless_import_compile_passed": true
+    },
+    "candidate": {
+      "commit": "d5cd791284e2a516b46ee7ca1eba085277f98f90",
+      "profile": "Codex-VLIGHT-003-export-preflight-7267b5fe584b40e7bbc9264102b16331",
+      "blobs": 3757,
+      "qa_unchanged": true,
+      "headless_import_compile_passed": true
+    }
+  },
+  "method": "Actual collect.prepare/profile/execute on fresh full Git archives; isolated headless import and capture.gd check-only, no GUI game.",
+  "phase": {
+    "phase": "export-preflight",
+    "native_exit_code": 0,
+    "exit_code": 0,
+    "normal_unchanged": true,
+    "override_removed": true
+  },
+  "logs": {
+    "baseline/profile.txt": {
+      "sha256": "1fccd3d2e4f4729263904b645cdaa2e22a34b7e184c0f79f7e99b775bf4df5fc",
+      "bytes": 210
+    },
+    "baseline/import.txt": {
+      "sha256": "d7d2d5956afb116dc79c8728c8c95be86b7b67975b8962968f126b5b48a615a8",
+      "bytes": 370439
+    },
+    "baseline/compile.txt": {
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    },
+    "candidate/profile.txt": {
+      "sha256": "f3e730eef3251232d8d354358f7c93b1ec848f0790746e036f6e404868b37415",
+      "bytes": 210
+    },
+    "candidate/import.txt": {
+      "sha256": "4dc869d0a0d4b59d59448bbfef413b55ff0c8758856dbb7a747a9d07071423a9",
+      "bytes": 370613
+    },
+    "candidate/compile.txt": {
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "bytes": 73
+    }
+  },
+  "limits": "Working QA overlay on implementation d5; preparation evidence only. No native PNG, HUD/readability, timing or final-head acceptance."
+}

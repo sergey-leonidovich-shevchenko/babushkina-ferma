@@ -82,7 +82,7 @@
 
 ## VLIGHT-003 — Согласовать день и сумерки
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `in_progress` · P1 · этап `pilot` · `engineering`
 
 Палитра плавно меняется с игровым временем, не перекрашивает HUD и не скрывает опасности
 
@@ -96,7 +96,7 @@
 - [scripts/systems/cave_lighting_system.gd](../../../../scripts/systems/cave_lighting_system.gd)
 - [scripts/systems/interior_renderer.gd](../../../../scripts/systems/interior_renderer.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vlight-003/`.
+Результаты: `docs/reports/visual-overhaul/vlight-003/`.
 
 Критерии:
 
@@ -114,7 +114,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: [Нативная серия и методика](../../../reports/visual-overhaul/vlight-003/README.md), [Проверка и границы](../../../reports/visual-overhaul/vlight-003/acceptance.json), [День и сумерки](../../../../wiki/articles/daylight-cycle.md), [PR №82](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82).
 
 <a id="vlight-004"></a>
 
