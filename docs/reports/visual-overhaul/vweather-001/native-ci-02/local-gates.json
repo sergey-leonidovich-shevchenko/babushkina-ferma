@@ -1,0 +1,46 @@
+{
+  "task": "VWEATHER-001",
+  "head": "8689c111392c4e2f93f9af0c78a4a5fa4bec5197",
+  "tree": "5c4d48afe4a2696b7482b81c4ba868f9620c30f0",
+  "version": "0.0.478",
+  "correction_full_hook": {
+    "receipt": "tmp/vweather-001/phase-commit-weather-camera-42dbaff2ade34cbc9eeb8540683e1020.json",
+    "exit": 0,
+    "quality": 219,
+    "quality_failed": 0,
+    "architecture_groups": 127,
+    "game_passed": 53759,
+    "game_failed": 0,
+    "normal": 90,
+    "f10": 90,
+    "normal_userdata_unchanged": true,
+    "own_override_removed": true,
+    "seconds": 4116.8
+  },
+  "wiki": {
+    "version": "0.0.478",
+    "passed": 167,
+    "failed": 0,
+    "export_build_typescript": true,
+    "normal_userdata_unchanged": true,
+    "own_override_removed": true,
+    "http_exact_commit_and_tree": true,
+    "actual_browser_current_task": "VWEATHER-001",
+    "actual_browser_route": "83/93",
+    "source_state": "working-task",
+    "source_dirty": false
+  },
+  "native": {
+    "run": 44948199161,
+    "head": "8689c111392c4e2f93f9af0c78a4a5fa4bec5197",
+    "verifier_exit": 0,
+    "native_png": 160,
+    "hardware_fps_acceptance": false
+  },
+  "stdout_extract": {
+    "file": "local-gates-output.txt",
+    "sha256": "662956ff03005ead8d6dbd7b28284b05b18007e786477161255755f9c75d56a7",
+    "original_full_stdout_sha256": "e7050c1af0c1ff594262df828b82c70bf8d5ff018911313a27de1cf089e85b49",
+    "policy": "Verbatim lines starting QUALITY:, VERSION:, ARCHITECTURE:, TESTS:, REDRAW: from the completed actual hook; excludes unrelated intentional negative fixture logs"
+  }
+}

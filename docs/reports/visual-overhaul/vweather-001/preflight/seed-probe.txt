@@ -1,0 +1,12 @@
+extends SceneTree
+const Cases := preload("res://tools/qa/world/weather/scenarios.gd")
+const Points := preload("res://tools/qa/camera/visual_camera_points.gd")
+func _initialize() -> void:
+    start.call_deferred()
+func start() -> void:
+    var game := Cases.create(root, "rain")
+    var actual: int = game.world_loot_seed
+    print("WEATHER ACTUAL PRODUCER SEED: ", actual, " EXPECTED: ", Points.SEED)
+    game.queue_free()
+    await process_frame
+    quit(0 if actual == Points.SEED else 1)

@@ -1,0 +1,25 @@
+{
+  "task": "VWEATHER-001",
+  "run": 44939326831,
+  "job": 136952836812,
+  "head": "e3935bc9a3a1ceda8ac810a9705b31909065cc92",
+  "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44939326831",
+  "status": "failure",
+  "collection": "success; complete source and 160 actual PNG preserved",
+  "failed_step": "Verify source, physical windows, paused pixels and independent viewports",
+  "reason": "Verifier required 120% in all frames; existing world_projection_system.gd zoom policy uses 120% overworld and 100% cottage_interior. Four interior frames per run correctly have 1.0.",
+  "artifact": {
+    "id": 14721575056,
+    "file": "ci-01-artifact.zip",
+    "bytes": 20853064,
+    "sha256": "3e6bd2ba4b9fda3ca52fe0ce5aad8e94c0f7c4bd54130b08f05ad86a52ff8cfd"
+  },
+  "same_archive_regression": {
+    "old_policy_exit": 1,
+    "old_error": "actual accepted 120% camera differs",
+    "corrected_policy_exit": 0,
+    "corrected_native_png": 160,
+    "hardware_fps_acceptance": false
+  },
+  "acceptance": "Diagnostic only. Original CI remains failed; new exact-head CI and independent review are required."
+}

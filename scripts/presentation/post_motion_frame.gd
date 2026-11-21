@@ -42,6 +42,7 @@ static func publish(game: Node, delta: float) -> bool:
 	if owner.is_empty():
 		return false
 	Clock.advance(game, delta)
+	preload("res://scripts/presentation/weather_visual_clock.gd").advance(game, delta)
 	var value := {
 		"owner": int(owner.game),
 		"viewport_owner": int(owner.viewport),

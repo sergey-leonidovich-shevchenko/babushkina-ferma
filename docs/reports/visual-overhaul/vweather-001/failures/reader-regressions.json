@@ -1,0 +1,21 @@
+{
+  "task": "VWEATHER-001",
+  "source_base_head": "e3935bc9a3a1ceda8ac810a9705b31909065cc92",
+  "command": [
+    "python3",
+    "tools/run.py",
+    "qa.world.weather.test_reader"
+  ],
+  "passed": 14,
+  "failed": 0,
+  "duration_seconds": 47.806,
+  "fixture": "ci-01-artifact.zip",
+  "fixture_sha256": "3e6bd2ba4b9fda3ca52fe0ce5aad8e94c0f7c4bd54130b08f05ad86a52ff8cfd",
+  "test_source_sha256": "a02a06c88cccb5c4d80daca5acdb2047e93e20a1443890a23f18ee38f0da564e",
+  "archive_reader_sha256": "b82c0c4289467ce6bcfd360531340df8cdbe5ec506bddf07eef078c9d685c6f9",
+  "verifier_sha256": "d45ed37bf78114a4b30a3935fe271345646b42f9d83d33da9b6f1995cb3b85e2",
+  "stdout": "",
+  "stderr": "reader-regressions.txt",
+  "native_acceptance": false,
+  "note": "Original CI1 remains failure. These are real-artifact reader regressions; a new clean-head capture and independent approval are still required."
+}

@@ -789,6 +789,12 @@ tools/qa/world/*
 !tools/qa/world/*.gd
 !tools/qa/world/contact_shadows_capture.gd.uid
 !tools/qa/world/README.md
+!tools/qa/world/weather/
+tools/qa/world/weather/*
+!tools/qa/world/weather/*.py
+!tools/qa/world/weather/*.gd
+!tools/qa/world/weather/*.gd.uid
+!tools/qa/world/weather/README.md
 !tools/qa/world/shadows/
 tools/qa/world/shadows/*
 !tools/qa/world/shadows/*.py

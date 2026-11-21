@@ -1,0 +1,34 @@
+{
+  "task": "VWEATHER-001",
+  "classification": "real headless Cases.create regression; not native image or FPS acceptance",
+  "production_base": "0ca4eb345933d2766b340f3d79ea45fb4f38cf5b",
+  "before_source_origin": "uncommitted preparation index, before the one-line fix; not an accepted production commit",
+  "probe": "seed-probe.txt",
+  "probe_sha256": "ad1f89a69cdc7cf44fbc1163f031134541354389069bd70ad82293edee71d454",
+  "before_source": "scenarios-before.txt",
+  "rows": [
+    {
+      "stage": "before",
+      "actual_seed": 923694286,
+      "expected_seed": 20261015,
+      "exit_code": 1,
+      "actual_stdout_line": "WEATHER ACTUAL PRODUCER SEED: 923694286 EXPECTED: 20261015",
+      "normal_userdata_unchanged": true,
+      "own_override_removed": true,
+      "producer_sha256": "712823ebae4b314cddf39e4b54a0c8aeb580fc2bbc18dacecce2a19e91578ed0"
+    },
+    {
+      "stage": "after",
+      "actual_seed": 20261015,
+      "expected_seed": 20261015,
+      "exit_code": 0,
+      "actual_stdout_line": "WEATHER ACTUAL PRODUCER SEED: 20261015 EXPECTED: 20261015",
+      "normal_userdata_unchanged": true,
+      "own_override_removed": true,
+      "producer_sha256": "af0620c436dd59966814de97697432e3dc8c9824b44fa114db13874ed0222404"
+    }
+  ],
+  "first_full_hook": "Cancelled only own verified descendants during quality; no commit, no publication, not accepted; full hook must run again.",
+  "after_source_commit": "e3935bc9a3a1ceda8ac810a9705b31909065cc92",
+  "after_source_path": "tools/qa/world/weather/scenarios.gd"
+}
