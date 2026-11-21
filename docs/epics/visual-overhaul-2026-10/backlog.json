@@ -4940,7 +4940,7 @@
       "id": "VLIGHT-003",
       "epic": "VLIGHT",
       "title": "Согласовать день и сумерки",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -4980,9 +4980,10 @@
         "[Нативная серия и методика](../../../reports/visual-overhaul/vlight-003/README.md)",
         "[Проверка и границы](../../../reports/visual-overhaul/vlight-003/acceptance.json)",
         "[День и сумерки](../../../../wiki/articles/daylight-cycle.md)",
-        "[PR №82](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82)"
+        "[PR №82](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82)",
+        "[Приёмка PR №82](../../../reports/visual-overhaul/vlight-003/closeout/result.json)"
       ],
-      "result": "21 ноября 2026: VLIGHT-003 in_progress, draft PR №82, опубликованный runtime/QA head1abc82b2 (0.0.474) от main c1f2eda0. CI3 run44797637789/job136501225030 PASS: настоящий X11/Compatibility/llvmpipe, оба Git и окна1152/1280, 10случаев,222PNG,256артефактов/34QA-входа; полный local raw/package strict-current reader PASS. Legacy совпадает с принятой main, меняются только overworld dawn/dusk; HUD, save/геометрия, endpoints, комната/рынок/затмение и независимые viewport сохранены. 2160raw samples измеряют целый production draw, GPU/аппаратныйFPS/VMAP-003 не принимаются. Три реальных переподписанных P2 контекста дают actual old0/new1, pristine/неизменённый пакет0 в строгом полном CLI; scope общего исправленного P1 verifier описан явно. 16native reader-тестов прошли, gallery/metrics targeted3/0; окончательный полный набор18 и report gates/CI/review ещё требуются. У captured1abc полный quality/architecture, Game53709/0, normal/F10 по90/0, Wiki167/0; модель+dispatch18/0. CI1/2 и исходный диагностический ZIP сохранены. Другие1036карточек/planning/132frozen файла не изменены. До принятия точного итогового head ревьюером и Team Lead merge/Task-Complete отсутствуют."
+      "result": "21 ноября 2026 VLIGHT-003 принята: [PR №82](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82), exact head abb32457fa307c70a0fe9724200c3d70d3a5ab62 (0.0.475), независимое APPROVED6005842576 и решение Team Lead после CI10/10. Обычный merge59117c81d1a24d021868829e6a1e9abd4fa6431b: родители c1f2eda0d1d36e1491dab32fef090bb5a3d22e12 + abb32457; tree7d77df07236b937b592529e4ec4f84e20b45dd07 равен одобренному. Первая overworld получает плавную палитру dawn/dusk на существующих дробных минутах и один слой перед HUD; endpoints, события, фонари, другие сцены, геометрия/save и per-canvas rollback сохранены. Captured1abc82b2: 222PNG/256артефактов/34QAinputs/2160samples; финальный abb прошёл strict-current и новую native CI. Native crops12, reader18/0, contract8/0; три переподписанных P2 пакета actual old0/new1 в9полныхCLI, неизменённый0. P1/P2/P3 закрыты; CI1/2 и диагностика сохранены. Локальный полный normal hook: quality/architecture125групп, Game53709/0, normal/F10 по90/0; CI Game53727/0, water55/0, smoke180 и шесть валидных performance series в каждом test job. Wiki167/0, независимый браузер1280/390 и точные HTTP-вложения .475. CPU whole-draw/software renderer не означает GPU/аппаратныйFPS/Retina/long-session/VMAP-003. Отдельная запись учёта: docs/reports/visual-overhaul/vlight-003/closeout/result.json; её собственные gates/CI/exact-head review/решение Team обязательны. Другие1036карточек, top metadata/planning и189прежних файлов VLIGHT-001/002/003 сохранены; следующая карточка не начата."
     },
     {
       "id": "VLIGHT-004",
