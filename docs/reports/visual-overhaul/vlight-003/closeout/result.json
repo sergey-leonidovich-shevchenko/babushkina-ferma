@@ -1,0 +1,165 @@
+{
+  "task": "VLIGHT-003",
+  "accepted_on": "2026-11-21",
+  "date_source": "calendar part of accepted merge git %cI: 2026-11-21T19:16:08+05:00",
+  "implementation_pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82",
+  "approved_head": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+  "accepted_base": "c1f2eda0d1d36e1491dab32fef090bb5a3d22e12",
+  "accepted_merge": "59117c81d1a24d021868829e6a1e9abd4fa6431b",
+  "merge_parents": [
+    "c1f2eda0d1d36e1491dab32fef090bb5a3d22e12",
+    "abb32457fa307c70a0fe9724200c3d70d3a5ab62"
+  ],
+  "accepted_tree": "7d77df07236b937b592529e4ec4f84e20b45dd07",
+  "version": "0.0.475",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82#pullrequestreview-6005842576",
+  "review_verdict": "Independent APPROVED exact head; GitHub COMMENTED because agents share one account",
+  "review_evidence": "implementation-review.json",
+  "ci_evidence": "implementation-checks.json",
+  "checks": [
+    {
+      "id": 136862357061,
+      "name": "Exact-head X11 comparison",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909593819/job/136862357061"
+    },
+    {
+      "id": 136862356974,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909593672/job/136862356974"
+    },
+    {
+      "id": 136862356937,
+      "name": "Wiki quality gate",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909593672/job/136862356937"
+    },
+    {
+      "id": 136862356875,
+      "name": "test",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909593672/job/136862356875"
+    },
+    {
+      "id": 136862356661,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909593672/job/136862356661"
+    },
+    {
+      "id": 136862356555,
+      "name": "Calendar palette native X11",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909593678/job/136862356555"
+    },
+    {
+      "id": 136862343583,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909588631/job/136862343583"
+    },
+    {
+      "id": 136862343571,
+      "name": "test",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909588631/job/136862343571"
+    },
+    {
+      "id": 136862343500,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909588631/job/136862343500"
+    },
+    {
+      "id": 136862343335,
+      "name": "Wiki quality gate",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909588631/job/136862343335"
+    }
+  ],
+  "team_decision": "2026-11-21: Team Lead accepted exact head/tree after APPROVED6005842576 and 10/10 CI; ordinary merge, then separately reviewed completion accounting",
+  "resolved_review_threads": [
+    "PRRT_kwDOTqkhCs66D8Wy",
+    "PRRT_kwDOTqkhCs66D8W7",
+    "PRRT_kwDOTqkhCs66D8W-"
+  ],
+  "implementation_validation": {
+    "local_normal_hook": {
+      "architecture": "PASS; 125 unittest groups",
+      "reader_passed": 18,
+      "contract_passed": 8,
+      "game_passed": 53709,
+      "game_failed": 0,
+      "normal_redraw_passed": 90,
+      "f10_redraw_passed": 90,
+      "normal_userdata_unchanged": true,
+      "own_override_removed": true
+    },
+    "post_bump_wiki": {
+      "version": "0.0.475",
+      "passed": 167,
+      "failed": 0,
+      "browser_widths": [
+        1280,
+        390
+      ],
+      "native_images": 3,
+      "csv_rows": 2160,
+      "console_errors": 0,
+      "viewport_reset": true
+    },
+    "independent_reviewer_validation": "implementation-review.json records separate real CI Game53727/0 and six valid performance series in each test job, independent strict-current/18reader/8contract/nine P2 CLI, native crops/samples and exact HTTP/browser checks; local and CI counters are not combined"
+  },
+  "native": {
+    "captured_base": "c1f2eda0d1d36e1491dab32fef090bb5a3d22e12",
+    "captured_head": "1abc82b229188d437e8d0eaa4217202c6941c78f",
+    "source_sha256": "cfc81c80f9c6b3b4bb9cc0732e6e93d83edc65c521d06a8cd4e3cdda68363907",
+    "png": 222,
+    "artifacts": 256,
+    "qa_inputs": 34,
+    "timing_samples": 2160,
+    "gallery_native_crops": 12,
+    "new_capture_for_accounting": false,
+    "strict_current_on_approved_head": true,
+    "metadata_exception": "SemVer only; captured runtime and producer bytes preserved"
+  },
+  "decision": "Smooth dawn/dusk palette only for first overworld, one world layer before HUD, existing fractional clock; endpoints/events/lamps/other scenes/save/geometry preserved, per-canvas temporary rollback",
+  "limits": {
+    "gpu_accepted": false,
+    "hardware_fps_accepted": false,
+    "retina_accepted": false,
+    "long_session_accepted": false,
+    "whole_map_accepted": false
+  },
+  "preservation": "preservation.json",
+  "accounting": "This separate record follows accepted implementation merge; its own full normal hook, post-bump Wiki/browser, CI, independent exact-head review and Team decision are still required. Implementation checks do not substitute for accounting checks.",
+  "first_location": {
+    "before_done": 83,
+    "after_done": 83,
+    "total": 93,
+    "task_in_dependency_portion": false,
+    "whole_location_accepted": false,
+    "proof": "route.json"
+  }
+}

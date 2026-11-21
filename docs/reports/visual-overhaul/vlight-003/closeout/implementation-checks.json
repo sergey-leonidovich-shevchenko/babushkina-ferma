@@ -1,0 +1,86 @@
+{
+  "head": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+  "total": 10,
+  "checks": [
+    {
+      "id": 136862357061,
+      "name": "Exact-head X11 comparison",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909593819/job/136862357061"
+    },
+    {
+      "id": 136862356974,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909593672/job/136862356974"
+    },
+    {
+      "id": 136862356937,
+      "name": "Wiki quality gate",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909593672/job/136862356937"
+    },
+    {
+      "id": 136862356875,
+      "name": "test",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909593672/job/136862356875"
+    },
+    {
+      "id": 136862356661,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909593672/job/136862356661"
+    },
+    {
+      "id": 136862356555,
+      "name": "Calendar palette native X11",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909593678/job/136862356555"
+    },
+    {
+      "id": 136862343583,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909588631/job/136862343583"
+    },
+    {
+      "id": 136862343571,
+      "name": "test",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909588631/job/136862343571"
+    },
+    {
+      "id": 136862343500,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909588631/job/136862343500"
+    },
+    {
+      "id": 136862343335,
+      "name": "Wiki quality gate",
+      "head_sha": "abb32457fa307c70a0fe9724200c3d70d3a5ab62",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44909588631/job/136862343335"
+    }
+  ]
+}

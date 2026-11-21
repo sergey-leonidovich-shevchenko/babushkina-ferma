@@ -2,8 +2,11 @@
 
 Первая деревня получает мягкий переход от ночи к дню и обратно: небольшой тёплый
 оттенок внутри рассвета и сумерек. Числовое время в HUD не возвращается.
-Нативный пакет VLIGHT-003 проверен; реализация ещё проходит приёмку в
-[PR №82](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82).
+VLIGHT-003 принята 21 ноября 2026 в
+[PR №82](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82):
+независимое ревью точного head abb32457, все10 CI checks и решение Team Lead.
+[Запись приёмки](../../docs/reports/visual-overhaul/vlight-003/closeout/result.json)
+сохраняет SHA, родителей merge, исходные проверки и границы решения.
 
 [Карточка VLIGHT-003](#/development/tasks/visual--VLIGHT-003) ·
 [Первый живописный участок](visual-pilot.md) ·
@@ -46,7 +49,7 @@ Legacy совпадает со старой main во всех десяти сл
 сравнен со старым кадром при тех же часах; герой и угроза имеют отдельные native
 контроли без одного объекта. Настоящее перекрашивание HUD отвергается reader.
 
-[Запись проверки и границы](../../docs/reports/visual-overhaul/vlight-003/acceptance.json) ·
+[Исходная запись до ревью и границы](../../docs/reports/visual-overhaul/vlight-003/acceptance.json) ·
 [Исходный manifest](../../docs/reports/visual-overhaul/vlight-003/native/source.json) ·
 [Происхождение всех 12 native-вставок](../../docs/reports/visual-overhaul/vlight-003/gallery.json)
 
@@ -70,8 +73,9 @@ redraw каждого режима. В1152 median CPU всего production draw
 
 Это фиксированная сцена с остановленной симуляцией и software renderer. GPU,
 аппаратный FPS, Retina, долгая сессия и вся первая локация этим опытом не принимаются.
-До merge обязательны финальные gates, CI, независимое ревью точного head и решение
-Team Lead. Статус остаётся «В работе»; VMAP-003 ещё впереди.
+Принята ограниченная палитра первой деревни; VMAP-003 ещё впереди.
+Отдельный учёт получает собственные проверки, CI, независимое ревью и решение
+Team Lead. Результаты реализации не заменяют проверок учётного PR.
 
 ## Сохранённая диагностика
 
