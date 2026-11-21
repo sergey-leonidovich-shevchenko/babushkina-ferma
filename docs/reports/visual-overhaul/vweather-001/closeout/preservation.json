@@ -1,0 +1,45 @@
+{
+  "base": "2c96121133c48d52ececd61bffc023ac2b6eea0a",
+  "other_visual_tasks": 1036,
+  "other_tasks_sha256": "7ab35be662fb67f3e8cc15983f020f5da1eece34b8f5c5e9d3c0761f92b13436",
+  "source_for_other_tasks_comparison": "accepted implementation backlog.json; only VWEATHER-001 status/evidence/result change",
+  "top_metadata_unchanged": true,
+  "planning": {
+    "wiki/planning/state.json": "c49915e89a5b082c93ca798cf8432a4535b213251fe44a84f059642b6006651e",
+    "wiki/planning/sources.json": "17eb539d8f0ff9713edd081dc2ec8ca98a66fa0e222dce8295e899851f0cc04f"
+  },
+  "immutable_pre_accounting_weather_report_files": {
+    "docs/reports/visual-overhaul/vweather-001/PLAN.md": "787a1d3ad995c4d40ec9536ca508b12dba33431a41c395e3f158b79638d0e6f5",
+    "docs/reports/visual-overhaul/vweather-001/failures/ci-01-artifact.zip": "3e6bd2ba4b9fda3ca52fe0ce5aad8e94c0f7c4bd54130b08f05ad86a52ff8cfd",
+    "docs/reports/visual-overhaul/vweather-001/failures/ci-01.json": "469929e0f48cbd0b45afb4a9d0d31985ce1598b44f4eaa0bebe5038f7f22a4bc",
+    "docs/reports/visual-overhaul/vweather-001/failures/reader-regressions.json": "3b584c129182b21822144b3258080a0fe18c0b17a03c97896ebda412753ddd91",
+    "docs/reports/visual-overhaul/vweather-001/failures/reader-regressions.txt": "29b83619ca82d61b637e71670f45bfdf394a2970ab89c9bab9b5a9f775197b66",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/artifact.zip": "4b68fa34dc99c25f1d6b3dc159dd361589b8194a247a714ee474487d636eaa56",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/baseline-rain-full.png": "e04e939462c2c4764b4fbdc3b7e47d8ec14b68fd9d992556806e6201ead3f026",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/baseline-rain-pause-a.png": "f958049a0fa6d2c210f065c9c9760e41df4dabbb9b493484efc53c4790293168",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/baseline-rain-pause-b.png": "e1b20fd14956d854f029ba11bcfbbdf2f99b86c178a67d1e6c0df467126ac87c",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/candidate-rain-full.png": "4dc82925d60b6edb063f0d98cf964750bc54f852c913d028d6c1192c5899146e",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/candidate-rain-interior.png": "8ae4fba7d4b56c232d3ca92678c0e95152f20368c29a5d0565fe5d0f77eaa751",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/candidate-rain-pause-a.png": "2db2b2028806ad9aeda12584520ff02cc54db661646bd719bdbc854eb54440d9",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/candidate-rain-pause-b.png": "2db2b2028806ad9aeda12584520ff02cc54db661646bd719bdbc854eb54440d9",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/candidate-snow-full.png": "78bf0dd52ebfcbcee7c334b3b99a72c9241a6120d5eda9677f6c8faf011237db",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/candidate-storm-full.png": "63d03afc5359acecbedbb73b54867071e9119b0004b49a3c3a414fcf76271eac",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/local-gates-output.txt": "662956ff03005ead8d6dbd7b28284b05b18007e786477161255755f9c75d56a7",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/local-gates.json": "f3ee13875e2e47f5567d5c5896eccd06bbdea35faddd40881534f591dc86b12e",
+    "docs/reports/visual-overhaul/vweather-001/native-ci-02/summary.json": "5f2d1c150dda394a244d4bd4801f786d3f426b619f20e94a567ccb46cc1e34bc",
+    "docs/reports/visual-overhaul/vweather-001/preflight/README.md": "9406dc81a65a28b2eb0a296c13b9664a9af6da1ddad65538452668533fec8bb4",
+    "docs/reports/visual-overhaul/vweather-001/preflight/scenarios-before.txt": "712823ebae4b314cddf39e4b54a0c8aeb580fc2bbc18dacecce2a19e91578ed0",
+    "docs/reports/visual-overhaul/vweather-001/preflight/seed-probe.txt": "ad1f89a69cdc7cf44fbc1163f031134541354389069bd70ad82293edee71d454",
+    "docs/reports/visual-overhaul/vweather-001/preflight/seed-regression.json": "59ef72da51adc84ada55fd3caf32a152f2ff44d1f73ae7c471aadfd185a1ca1e"
+  },
+  "immutable_pre_accounting_weather_report_count": 22,
+  "all_other_reports_method": "git diff versus accepted implementation has no modified/deleted pre-existing report path except this task root README.md; new closeout paths are separate",
+  "runtime_tools_tests_art_workflows_changed": [],
+  "scope": "Only accepted VWEATHER-001 accounting, generated views, TESTING guidance and Wiki acceptance prose. Original CI1/CI2 archives, native images/source matrix, preflight and prior reports remain byte-identical.",
+  "accepted_reports_tree": "31e5523763a024e6db16fb0f4e72e52ffc11e0da",
+  "accepted_report_file_count": 23144,
+  "modified_existing_report_paths": [
+    "docs/reports/visual-overhaul/vweather-001/README.md"
+  ],
+  "preexisting_task_complete_count": 0
+}
