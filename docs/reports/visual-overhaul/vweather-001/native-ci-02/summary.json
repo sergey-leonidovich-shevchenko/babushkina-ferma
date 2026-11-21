@@ -1,0 +1,298 @@
+{
+  "schema": 1,
+  "task": "VWEATHER-001",
+  "acceptance": "Native evidence verified; independent review and Team decision pending",
+  "base": "0ca4eb345933d2766b340f3d79ea45fb4f38cf5b",
+  "captured_head": "8689c111392c4e2f93f9af0c78a4a5fa4bec5197",
+  "captured_tree": "5c4d48afe4a2696b7482b81c4ba868f9620c30f0",
+  "captured_version": "0.0.478",
+  "ci": {
+    "run": 44948199161,
+    "job": 136980079387,
+    "conclusion": "success",
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44948199161"
+  },
+  "artifact": {
+    "id": 14724611930,
+    "file": "artifact.zip",
+    "bytes": 20851843,
+    "sha256": "4b68fa34dc99c25f1d6b3dc159dd361589b8194a247a714ee474487d636eaa56",
+    "original_entries": 216
+  },
+  "verification": {
+    "exit_code": 0,
+    "native_png": 160,
+    "runs": 4,
+    "current_candidate_checked": true,
+    "clean_before": true,
+    "clean_after": true,
+    "stdout": "{\"task\": \"VWEATHER-001\", \"head\": \"8689c111392c4e2f93f9af0c78a4a5fa4bec5197\", \"native_png\": 160, \"runs\": 4, \"hardware_fps_acceptance\": false}\n",
+    "stderr": "",
+    "seconds": 7.099,
+    "reproduction_command": [
+      "python3",
+      "tools/run.py",
+      "qa.world.weather.archive",
+      "--archive",
+      "docs/reports/visual-overhaul/vweather-001/native-ci-02/artifact.zip",
+      "--expected-head",
+      "8689c111392c4e2f93f9af0c78a4a5fa4bec5197",
+      "--check-current-candidate"
+    ]
+  },
+  "runs": [
+    {
+      "variant": "baseline",
+      "window": [
+        1152,
+        648
+      ],
+      "profile": "Codex-VWEATHER-001-2238b64dfcb54f13b6aee1c59f783e79",
+      "engine": "4.7.1-stable (official)",
+      "display": "X11",
+      "renderer": "gl_compatibility",
+      "root_frames": 36,
+      "viewport_frames": 4
+    },
+    {
+      "variant": "candidate",
+      "window": [
+        1152,
+        648
+      ],
+      "profile": "Codex-VWEATHER-001-41798cee80cc4215829c8314adf5ad49",
+      "engine": "4.7.1-stable (official)",
+      "display": "X11",
+      "renderer": "gl_compatibility",
+      "root_frames": 36,
+      "viewport_frames": 4
+    },
+    {
+      "variant": "baseline",
+      "window": [
+        1280,
+        720
+      ],
+      "profile": "Codex-VWEATHER-001-5d0811ac142642799af7f0ab8779c5ff",
+      "engine": "4.7.1-stable (official)",
+      "display": "X11",
+      "renderer": "gl_compatibility",
+      "root_frames": 36,
+      "viewport_frames": 4
+    },
+    {
+      "variant": "candidate",
+      "window": [
+        1280,
+        720
+      ],
+      "profile": "Codex-VWEATHER-001-5764fc72a4a64c6eb849fe5a2fff59cb",
+      "engine": "4.7.1-stable (official)",
+      "display": "X11",
+      "renderer": "gl_compatibility",
+      "root_frames": 36,
+      "viewport_frames": 4
+    }
+  ],
+  "pause_matrix": [
+    {
+      "width": 1152,
+      "weather": "rain",
+      "baseline": {
+        "paused_rgba_equal": false,
+        "phase_a": -1.0,
+        "phase_b": -1.0,
+        "resume_phase": -1.0,
+        "interior_zoom": 1.0,
+        "interior_phase": -1.0,
+        "return_phase": -1.0,
+        "actual_pause_gap_usec": 164335
+      },
+      "candidate": {
+        "paused_rgba_equal": true,
+        "phase_a": 0.04,
+        "phase_b": 0.04,
+        "resume_phase": 0.06,
+        "interior_zoom": 1.0,
+        "interior_phase": 0.0,
+        "return_phase": 0.0,
+        "actual_pause_gap_usec": 168429
+      }
+    },
+    {
+      "width": 1152,
+      "weather": "snow",
+      "baseline": {
+        "paused_rgba_equal": false,
+        "phase_a": -1.0,
+        "phase_b": -1.0,
+        "resume_phase": -1.0,
+        "interior_zoom": 1.0,
+        "interior_phase": -1.0,
+        "return_phase": -1.0,
+        "actual_pause_gap_usec": 169781
+      },
+      "candidate": {
+        "paused_rgba_equal": true,
+        "phase_a": 0.04,
+        "phase_b": 0.04,
+        "resume_phase": 0.06,
+        "interior_zoom": 1.0,
+        "interior_phase": 0.0,
+        "return_phase": 0.0,
+        "actual_pause_gap_usec": 168313
+      }
+    },
+    {
+      "width": 1152,
+      "weather": "storm",
+      "baseline": {
+        "paused_rgba_equal": false,
+        "phase_a": -1.0,
+        "phase_b": -1.0,
+        "resume_phase": -1.0,
+        "interior_zoom": 1.0,
+        "interior_phase": -1.0,
+        "return_phase": -1.0,
+        "actual_pause_gap_usec": 165836
+      },
+      "candidate": {
+        "paused_rgba_equal": true,
+        "phase_a": 0.04,
+        "phase_b": 0.04,
+        "resume_phase": 0.06,
+        "interior_zoom": 1.0,
+        "interior_phase": 0.0,
+        "return_phase": 0.0,
+        "actual_pause_gap_usec": 159652
+      }
+    },
+    {
+      "width": 1280,
+      "weather": "rain",
+      "baseline": {
+        "paused_rgba_equal": false,
+        "phase_a": -1.0,
+        "phase_b": -1.0,
+        "resume_phase": -1.0,
+        "interior_zoom": 1.0,
+        "interior_phase": -1.0,
+        "return_phase": -1.0,
+        "actual_pause_gap_usec": 162751
+      },
+      "candidate": {
+        "paused_rgba_equal": true,
+        "phase_a": 0.04,
+        "phase_b": 0.04,
+        "resume_phase": 0.06,
+        "interior_zoom": 1.0,
+        "interior_phase": 0.0,
+        "return_phase": 0.0,
+        "actual_pause_gap_usec": 162522
+      }
+    },
+    {
+      "width": 1280,
+      "weather": "snow",
+      "baseline": {
+        "paused_rgba_equal": false,
+        "phase_a": -1.0,
+        "phase_b": -1.0,
+        "resume_phase": -1.0,
+        "interior_zoom": 1.0,
+        "interior_phase": -1.0,
+        "return_phase": -1.0,
+        "actual_pause_gap_usec": 158719
+      },
+      "candidate": {
+        "paused_rgba_equal": true,
+        "phase_a": 0.04,
+        "phase_b": 0.04,
+        "resume_phase": 0.06,
+        "interior_zoom": 1.0,
+        "interior_phase": 0.0,
+        "return_phase": 0.0,
+        "actual_pause_gap_usec": 159252
+      }
+    },
+    {
+      "width": 1280,
+      "weather": "storm",
+      "baseline": {
+        "paused_rgba_equal": false,
+        "phase_a": -1.0,
+        "phase_b": -1.0,
+        "resume_phase": -1.0,
+        "interior_zoom": 1.0,
+        "interior_phase": -1.0,
+        "return_phase": -1.0,
+        "actual_pause_gap_usec": 163819
+      },
+      "candidate": {
+        "paused_rgba_equal": true,
+        "phase_a": 0.04,
+        "phase_b": 0.04,
+        "resume_phase": 0.06,
+        "interior_zoom": 1.0,
+        "interior_phase": 0.0,
+        "return_phase": 0.0,
+        "actual_pause_gap_usec": 151756
+      }
+    }
+  ],
+  "inspected_images": {
+    "baseline-rain-full.png": {
+      "source_path": "baseline/1152/rain-full.png",
+      "sha256": "e04e939462c2c4764b4fbdc3b7e47d8ec14b68fd9d992556806e6201ead3f026",
+      "pixels": "unmodified original CI PNG"
+    },
+    "candidate-rain-full.png": {
+      "source_path": "candidate/1152/rain-full.png",
+      "sha256": "4dc82925d60b6edb063f0d98cf964750bc54f852c913d028d6c1192c5899146e",
+      "pixels": "unmodified original CI PNG"
+    },
+    "baseline-rain-pause-a.png": {
+      "source_path": "baseline/1152/rain-pause-a.png",
+      "sha256": "f958049a0fa6d2c210f065c9c9760e41df4dabbb9b493484efc53c4790293168",
+      "pixels": "unmodified original CI PNG"
+    },
+    "baseline-rain-pause-b.png": {
+      "source_path": "baseline/1152/rain-pause-b.png",
+      "sha256": "e1b20fd14956d854f029ba11bcfbbdf2f99b86c178a67d1e6c0df467126ac87c",
+      "pixels": "unmodified original CI PNG"
+    },
+    "candidate-rain-pause-a.png": {
+      "source_path": "candidate/1152/rain-pause-a.png",
+      "sha256": "2db2b2028806ad9aeda12584520ff02cc54db661646bd719bdbc854eb54440d9",
+      "pixels": "unmodified original CI PNG"
+    },
+    "candidate-rain-pause-b.png": {
+      "source_path": "candidate/1152/rain-pause-b.png",
+      "sha256": "2db2b2028806ad9aeda12584520ff02cc54db661646bd719bdbc854eb54440d9",
+      "pixels": "unmodified original CI PNG"
+    },
+    "candidate-snow-full.png": {
+      "source_path": "candidate/1152/snow-full.png",
+      "sha256": "78bf0dd52ebfcbcee7c334b3b99a72c9241a6120d5eda9677f6c8faf011237db",
+      "pixels": "unmodified original CI PNG"
+    },
+    "candidate-storm-full.png": {
+      "source_path": "candidate/1152/storm-full.png",
+      "sha256": "63d03afc5359acecbedbb73b54867071e9119b0004b49a3c3a414fcf76271eac",
+      "pixels": "unmodified original CI PNG"
+    },
+    "candidate-rain-interior.png": {
+      "source_path": "candidate/1152/rain-interior.png",
+      "sha256": "8ae4fba7d4b56c232d3ca92678c0e95152f20368c29a5d0565fe5d0f77eaa751",
+      "pixels": "unmodified original CI PNG"
+    }
+  },
+  "limitations": {
+    "hardware_fps_acceptance": false,
+    "retina_acceptance": false,
+    "whole_map_acceptance": false,
+    "roof_mask_acceptance": false,
+    "existing_interior_weather": "Isolated AtmosphereRenderer still draws precipitation after actual cottage entry; VWEATHER-003 remains open"
+  },
+  "later_metadata_only_commits": "The same verifier rejects runtime/QA drift; current-candidate comparison allows only explicit project SemVer metadata differences."
+}
