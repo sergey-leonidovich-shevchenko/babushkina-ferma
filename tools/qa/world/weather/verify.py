@@ -81,7 +81,10 @@ def check_run(store: Evidence, folder: str, candidate: bool, width: int) -> dict
             "invalid numeric clock phase",
         )
         c.need(row["wall_end_usec"] >= row["wall_start_usec"], "wall interval invalid")
-        c.need(math.isclose(row["before"]["zoom"], 1.2), "actual accepted 120% camera differs")
+        expected_world = "cottage_interior" if key.endswith("-interior") else "overworld"
+        c.need(row["before"]["world"] == expected_world, "frame belongs to the wrong location")
+        expected_zoom = 1.0 if expected_world == "cottage_interior" else 1.2
+        c.need(math.isclose(row["before"]["zoom"], expected_zoom), "actual location camera differs")
     for weather in c.WEATHERS:
         a, b = (frames[f"{weather}-pause-{suffix}"] for suffix in ("a", "b"))
         c.need(

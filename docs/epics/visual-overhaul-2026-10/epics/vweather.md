@@ -38,7 +38,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vweather-001/PLAN.md — база, полные needs и границы реализации., docs/reports/visual-overhaul/vweather-001/README.md — подготовка: 50 профильных проверок, нативные доказательства/полный hook/независимая приёмка ещё не завершены., wiki/articles/weather-clock.md — текущая статья о паузе погоды; задача остаётся in_progress..
+Доказательства: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/84 — draft; CI1 отклонён из-за политики камеры в reader, исправление и новый CI ещё не приняты., docs/reports/visual-overhaul/vweather-001/PLAN.md — база, полные needs и границы., docs/reports/visual-overhaul/vweather-001/README.md — полный hook e393, профиль50/0, reader14/0; новый exact-head CI и независимая приёмка предстоят., docs/reports/visual-overhaul/vweather-001/failures/ci-01.json — неизменённый диагностический архив и настоящая регрессия камер., wiki/articles/weather-clock.md — текущая статья; задача in_progress..
 
 <a id="vweather-002"></a>
 

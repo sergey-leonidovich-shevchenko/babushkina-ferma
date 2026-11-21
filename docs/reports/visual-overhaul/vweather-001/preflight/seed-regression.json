@@ -28,5 +28,7 @@
       "producer_sha256": "af0620c436dd59966814de97697432e3dc8c9824b44fa114db13874ed0222404"
     }
   ],
-  "first_full_hook": "Cancelled only own verified descendants during quality; no commit, no publication, not accepted; full hook must run again."
+  "first_full_hook": "Cancelled only own verified descendants during quality; no commit, no publication, not accepted; full hook must run again.",
+  "after_source_commit": "e3935bc9a3a1ceda8ac810a9705b31909065cc92",
+  "after_source_path": "tools/qa/world/weather/scenarios.gd"
 }
