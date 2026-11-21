@@ -39,3 +39,23 @@ python3 tools/run.py qa.world.lighting.daycycle.verify --output /тот/же/out
 Неполная серия не проходит reader. До получения настоящего пакета default verify
 ожидаемо откажет; отсутствие доказательств не означает завершённую задачу.
 Методика, заранее выбранные ограничения и границы: [PLAN](../../../../../docs/reports/visual-overhaul/vlight-003/PLAN.md).
+
+Настоящий CI3-пакет теперь сохранён в [отчёте](../../../../../docs/reports/visual-overhaul/vlight-003/README.md).
+`test_reader` проверяет переподписанные копии ZIP/JSON/PNG целиком, а не отдельные
+parser blocks. Исторические negatives не требуют совпадения будущего live-runtime;
+strict-current отдельно проверяется в настоящем временном Git checkout съёмки
+с SemVer-only и контролируемым runtime drift, без изменения parent index/config.
+
+`review_regressions` запускает полные old-timing/current CLI с настоящими OS exit.
+Old — неизменённая capture-функция d5 внутри общего verifier с исправленной P1
+closure; весь старый head не объявляется совместимым с новым manifest. Обычный
+отчёт требует strict-current; `--historical` применяется только в регрессиях архива.
+`gallery` проверяет все 12 native crop без resize; `metrics` сохраняет2160 исходных
+samples и статистику целого draw. Статические X11-сцены не принимают аппаратный FPS.
+
+```sh
+python3 tools/run.py qa.world.lighting.daycycle.test_reader
+python3 tools/run.py qa.world.lighting.daycycle.review_regressions --output /новая/внешняя/папка
+python3 tools/run.py qa.world.lighting.daycycle.gallery --output docs/reports/visual-overhaul/vlight-003 --check
+python3 tools/run.py qa.world.lighting.daycycle.metrics --output docs/reports/visual-overhaul/vlight-003 --check
+```

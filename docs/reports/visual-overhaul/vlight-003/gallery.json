@@ -1,0 +1,229 @@
+{
+  "task": "VLIGHT-003",
+  "native_head": "1abc82b229188d437e8d0eaa4217202c6941c78f",
+  "native_source_sha256": "cfc81c80f9c6b3b4bb9cc0732e6e93d83edc65c521d06a8cd4e3cdda68363907",
+  "generator_sha256": "cab5f4d7b6005410c78867a2319d564f271471ad9b61af3f41641942d19a4d0a",
+  "figures": {
+    "comparison.png": {
+      "size": [
+        1152,
+        1392
+      ],
+      "placements": [
+        {
+          "source": "baseline/1152/street-dusk-palette.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            0,
+            40,
+            1152,
+            648
+          ],
+          "label": "До · принятая main · сумерки"
+        },
+        {
+          "source": "candidate/1152/street-dusk-palette.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            0,
+            744,
+            1152,
+            648
+          ],
+          "label": "После · календарная палитра · сумерки"
+        }
+      ]
+    },
+    "cycle.png": {
+      "size": [
+        1456,
+        936
+      ],
+      "placements": [
+        {
+          "source": "candidate/1152/street-dawn-palette.png",
+          "crop": [
+            240,
+            120,
+            960,
+            540
+          ],
+          "at": [
+            0,
+            40,
+            720,
+            420
+          ],
+          "label": "Рассвет · 06:00"
+        },
+        {
+          "source": "candidate/1152/street-day-palette.png",
+          "crop": [
+            240,
+            120,
+            960,
+            540
+          ],
+          "at": [
+            736,
+            40,
+            720,
+            420
+          ],
+          "label": "День · 12:00"
+        },
+        {
+          "source": "candidate/1152/street-dusk-palette.png",
+          "crop": [
+            240,
+            120,
+            960,
+            540
+          ],
+          "at": [
+            0,
+            516,
+            720,
+            420
+          ],
+          "label": "Сумерки · 19:00"
+        },
+        {
+          "source": "candidate/1152/street-night-palette.png",
+          "crop": [
+            240,
+            120,
+            960,
+            540
+          ],
+          "at": [
+            736,
+            516,
+            720,
+            420
+          ],
+          "label": "Ночь · 22:00"
+        }
+      ]
+    },
+    "viewports.png": {
+      "size": [
+        916,
+        1052
+      ],
+      "placements": [
+        {
+          "source": "candidate/1152/twin-both-0.png",
+          "crop": [
+            351,
+            100,
+            801,
+            400
+          ],
+          "at": [
+            0,
+            40,
+            450,
+            300
+          ],
+          "label": "A · сумерки"
+        },
+        {
+          "source": "candidate/1152/twin-both-1.png",
+          "crop": [
+            255,
+            100,
+            705,
+            400
+          ],
+          "at": [
+            466,
+            40,
+            450,
+            300
+          ],
+          "label": "B · день"
+        },
+        {
+          "source": "candidate/1152/twin-first-legacy-0.png",
+          "crop": [
+            351,
+            100,
+            801,
+            400
+          ],
+          "at": [
+            0,
+            396,
+            450,
+            300
+          ],
+          "label": "A · прежний цвет"
+        },
+        {
+          "source": "candidate/1152/twin-first-legacy-1.png",
+          "crop": [
+            255,
+            100,
+            705,
+            400
+          ],
+          "at": [
+            466,
+            396,
+            450,
+            300
+          ],
+          "label": "B · день без изменений"
+        },
+        {
+          "source": "candidate/1152/twin-second-night-0.png",
+          "crop": [
+            351,
+            100,
+            801,
+            400
+          ],
+          "at": [
+            0,
+            752,
+            450,
+            300
+          ],
+          "label": "A · цвет без изменений"
+        },
+        {
+          "source": "candidate/1152/twin-second-night-1.png",
+          "crop": [
+            255,
+            100,
+            705,
+            400
+          ],
+          "at": [
+            466,
+            752,
+            450,
+            300
+          ],
+          "label": "B · ночь"
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "comparison.png": "916c1ebe84ca10b15482b2d31137f7c5149345913e32d93eb5ab19b7463fc89e",
+    "cycle.png": "bc26e3f7f3cfa33568069fb6488a2046177ed9300b6de60976824f4a29866ce4",
+    "viewports.png": "7d5eefb41695e7f7ba473de96dc0330ac0b27c1a1229d833eb1149b47bdd0766"
+  }
+}

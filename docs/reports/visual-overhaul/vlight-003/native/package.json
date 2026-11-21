@@ -1,0 +1,12 @@
+{
+  "task": "VLIGHT-003",
+  "head": "1abc82b229188d437e8d0eaa4217202c6941c78f",
+  "source_sha256": "cfc81c80f9c6b3b4bb9cc0732e6e93d83edc65c521d06a8cd4e3cdda68363907",
+  "artifact_count": 256,
+  "input_count": 34,
+  "archives": {
+    "baseline.zip": "9f0f0e37ff51a28178819e7a21eebd335ac8fbc77dd541bd3f7344454d5a241d",
+    "candidate.zip": "82711f5c477e70bad70401dbccf3f33040d730bb16851fbd344fd03ca4e0988b"
+  },
+  "unchanged_native_payload": true
+}

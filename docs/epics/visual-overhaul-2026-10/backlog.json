@@ -4977,12 +4977,12 @@
       },
       "branch": "codex/vlight-003-visual-task",
       "evidence": [
-        "[Методика](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/blob/d5cd791284e2a516b46ee7ca1eba085277f98f90/docs/reports/visual-overhaul/vlight-003/PLAN.md)",
+        "[Нативная серия и методика](../../../reports/visual-overhaul/vlight-003/README.md)",
+        "[Проверка и границы](../../../reports/visual-overhaul/vlight-003/acceptance.json)",
         "[День и сумерки](../../../../wiki/articles/daylight-cycle.md)",
-        "[PR №82](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82)",
-        "[Подготовка чистых экспортов](../../../reports/visual-overhaul/vlight-003/export-preflight.json)"
+        "[PR №82](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/82)"
       ],
-      "result": "20 ноября 2026: VLIGHT-003 in_progress от main c1f2eda0 (0.0.471), draft PR №82. Опубликованный head 64707d3b (0.0.473): полный quality/architecture PASS, Game 53709/0, normal/F10 по 90/0, post-bump Wiki 167/0; браузер статьи/поиска/PR/JSON/390 px проверен. Плавная календарная палитра только первой overworld; per-canvas legacy не меняет save. Прямой VLIGHT-001 и семь полных зависимостей done, внешних needs нет. CI1 до движка обнаружил локальный UID вне Git; manifest исправлен до 34 committed QA-входов. CI2 run44783685367 дошёл до X11, но capture.gd:61 потерял тип массива из-за ternary: source неполный, PNG0, timeout900; исходный ZIP/логи сохранены, прогон не принят. В working QA диспетчер теперь явно типизирован; настоящие обе ветки и модель прошли headless 18/0 (16+2), normal userdata сохранён. Новому исправлению ещё нужны полный hook/Wiki, CI3 и реальный native-пакет, парный P2 regression и независимое exact-head review/решение Team Lead. Остальные 1036 карточек, planning и 132 frozen файла сохранены. Task-Complete отсутствует; визуальный результат и вся локация не приняты."
+      "result": "21 ноября 2026: VLIGHT-003 in_progress, draft PR №82, опубликованный runtime/QA head1abc82b2 (0.0.474) от main c1f2eda0. CI3 run44797637789/job136501225030 PASS: настоящий X11/Compatibility/llvmpipe, оба Git и окна1152/1280, 10случаев,222PNG,256артефактов/34QA-входа; полный local raw/package strict-current reader PASS. Legacy совпадает с принятой main, меняются только overworld dawn/dusk; HUD, save/геометрия, endpoints, комната/рынок/затмение и независимые viewport сохранены. 2160raw samples измеряют целый production draw, GPU/аппаратныйFPS/VMAP-003 не принимаются. Три реальных переподписанных P2 контекста дают actual old0/new1, pristine/неизменённый пакет0 в строгом полном CLI; scope общего исправленного P1 verifier описан явно. 16native reader-тестов прошли, gallery/metrics targeted3/0; окончательный полный набор18 и report gates/CI/review ещё требуются. У captured1abc полный quality/architecture, Game53709/0, normal/F10 по90/0, Wiki167/0; модель+dispatch18/0. CI1/2 и исходный диагностический ZIP сохранены. Другие1036карточек/planning/132frozen файла не изменены. До принятия точного итогового head ревьюером и Team Lead merge/Task-Complete отсутствуют."
     },
     {
       "id": "VLIGHT-004",
