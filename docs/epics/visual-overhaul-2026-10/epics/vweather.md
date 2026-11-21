@@ -6,7 +6,7 @@
 
 ## VWEATHER-001 — Определить согласованный visual clock погоды
 
-Статус: `ready` · P2 · этап `pilot` · `engineering`
+Статус: `in_progress` · P2 · этап `pilot` · `engineering`
 
 Осадки не живут на независимом настенном таймере при ручной паузе; переход карты сбрасывает локальные частицы
 
@@ -20,7 +20,7 @@
 - [scripts/systems/world_event_system.gd](../../../../scripts/systems/world_event_system.gd)
 - [scripts/world_background.gd](../../../../scripts/world_background.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vweather-001/`.
+Результаты: `docs/reports/visual-overhaul/vweather-001/`.
 
 Критерии:
 
@@ -38,7 +38,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vweather-001/PLAN.md — база, полные needs и границы реализации., docs/reports/visual-overhaul/vweather-001/README.md — подготовка: 50 профильных проверок, нативные доказательства/полный hook/независимая приёмка ещё не завершены., wiki/articles/weather-clock.md — текущая статья о паузе погоды; задача остаётся in_progress..
 
 <a id="vweather-002"></a>
 

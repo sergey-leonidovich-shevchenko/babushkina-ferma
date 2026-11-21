@@ -5283,7 +5283,7 @@
       "id": "VWEATHER-001",
       "epic": "VWEATHER",
       "title": "Определить согласованный visual clock погоды",
-      "status": "ready",
+      "status": "in_progress",
       "priority": "P2",
       "phase": "pilot",
       "kind": "engineering",
@@ -5319,7 +5319,11 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vweather-001-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vweather-001/PLAN.md — база, полные needs и границы реализации.",
+        "docs/reports/visual-overhaul/vweather-001/README.md — подготовка: 50 профильных проверок, нативные доказательства/полный hook/независимая приёмка ещё не завершены.",
+        "wiki/articles/weather-clock.md — текущая статья о паузе погоды; задача остаётся in_progress."
+      ]
     },
     {
       "id": "VWEATHER-002",

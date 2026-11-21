@@ -10,6 +10,7 @@ const Palette := preload("res://scripts/presentation/daylight_palette.gd")
 const Reference := preload("res://scripts/presentation/visual_reference_mode.gd")
 const Caves := preload("res://scripts/systems/cave_room_data.gd")
 const Lamp := preload("res://scripts/presentation/village_lamp_visual.gd")
+const WeatherClock := preload("res://scripts/presentation/weather_visual_clock.gd")
 
 
 ## Рисует поверх мира освещение, осадки и небесное событие, не затрагивая интерфейс.
@@ -70,22 +71,23 @@ static func draw_lights(game: Node2D, darkness: float) -> void:
 ## Рисует детерминированные диагональные дождевые полосы без создания узлов на каждом кадре.
 static func draw_rain(game: Node2D, storm: bool) -> void:
 	var size := game.get_viewport_rect().size
-	var phase := Time.get_ticks_msec() / 18
+	var seconds := WeatherClock.seconds(game)
+	var phase := seconds * 1000.0 / 18.0
 	for index in 64:
-		var x := float(posmod(index * 97 + phase, int(size.x + 80))) - 40.0
-		var y := float(posmod(index * 53 + phase * 2, int(size.y + 80))) - 40.0
+		var x := fposmod(index * 97 + phase, size.x + 80) - 40.0
+		var y := fposmod(index * 53 + phase * 2, size.y + 80) - 40.0
 		game.draw_line(Vector2(x, y), Vector2(x - 9, y + 20), Color(0.62, 0.82, 1.0, 0.55), 2.0)
-	if storm and posmod(Time.get_ticks_msec(), 4200) < 80:
+	if storm and not game.settings_state.reduced_motion and fposmod(seconds, 4.2) < 0.08:
 		game.draw_rect(Rect2(Vector2.ZERO, size), Color(0.85, 0.9, 1.0, 0.25))
 
 
 ## Рисует мягкий снег как лёгкий экранный слой.
 static func draw_snow(game: Node2D) -> void:
 	var size := game.get_viewport_rect().size
-	var phase := Time.get_ticks_msec() / 35
+	var phase := WeatherClock.seconds(game) * 1000.0 / 35.0
 	for index in 52:
-		var x := float(posmod(index * 83 + phase + index * index, int(size.x)))
-		var y := float(posmod(index * 61 + phase, int(size.y)))
+		var x := fposmod(index * 83 + phase + index * index, size.x)
+		var y := fposmod(index * 61 + phase, size.y)
 		game.draw_circle(Vector2(x, y), 1.5 + float(index % 3), Color(0.94, 0.98, 1.0, 0.78))
 
 
