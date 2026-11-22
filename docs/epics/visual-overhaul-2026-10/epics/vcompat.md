@@ -350,7 +350,7 @@ WaterTopology остаётся владельцем воды, мостов и р
 
 ## VCOMPAT-010 — Проверить откат визуальной версии
 
-Статус: `in_progress` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Отключение флага возвращает старую отрисовку без миграции сохранений и потери пользовательских уровней
 
@@ -382,4 +382,4 @@ WaterTopology остаётся владельцем воды, мостов и р
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: [PR №88](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/88), [Протокол и границы](../../../reports/visual-overhaul/vcompat-010/README.md), [Первый отказ CI и исправление фабрики](../../../reports/visual-overhaul/vcompat-010/failures/ci-01/result.json), [Обратимый профиль первой локации](../../../../wiki/articles/visual-rollback.md), [Отказ общего CI и регрессия теней](../../../reports/visual-overhaul/vcompat-010/failures/general-ci-01/result.json), [Успешная нативная серия и исходный архив](../../../reports/visual-overhaul/vcompat-010/native-ci-02/summary.json), [Полный hook и post-bump Wiki кандидата](../../../reports/visual-overhaul/vcompat-010/p2-validation.json).
+Доказательства: [PR №88](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/88), [Протокол и границы](../../../reports/visual-overhaul/vcompat-010/README.md), [Первый отказ CI и исправление фабрики](../../../reports/visual-overhaul/vcompat-010/failures/ci-01/result.json), [Обратимый профиль первой локации](../../../../wiki/articles/visual-rollback.md), [Отказ общего CI и регрессия теней](../../../reports/visual-overhaul/vcompat-010/failures/general-ci-01/result.json), [Успешная нативная серия и исходный архив](../../../reports/visual-overhaul/vcompat-010/native-ci-02/summary.json), [Полный hook и post-bump Wiki кандидата](../../../reports/visual-overhaul/vcompat-010/p2-validation.json), [Приёмка, merge и границы результата](../../../reports/visual-overhaul/vcompat-010/closeout/result.json), [Независимые вердикты принятого head](../../../reports/visual-overhaul/vcompat-010/closeout/implementation-review.json), [Все 11 успешных CI принятой реализации](../../../reports/visual-overhaul/vcompat-010/closeout/implementation-checks.json).
