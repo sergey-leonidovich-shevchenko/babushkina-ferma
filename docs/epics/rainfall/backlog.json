@@ -14,7 +14,7 @@
       "id": "RAIN-00",
       "epic": "RAIN",
       "title": "Проработать живописный дождь и согласовать задачи эпика",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "size": "M",
       "goal": "Выполнить поручение владельца 22 ноября: качественный дождь первой overworld, снег пока исключён. Оформить дизайн капель, контактов, укрытий, влажности, переходов и звука без дублирования VWEATHER.",
@@ -32,7 +32,7 @@
       ],
       "needs": [],
       "branch": "codex/rain-00-rainfall-plan",
-      "result": "Постановка опубликована в [PR №86](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/86). Первый проверенный head 2f4dd4e3d62de0ea99153a0128d5ca95efb7b5b4: полный штатный hook — quality 219/0, architecture 127 групп/1681 тест, Game 53759/0, normal/F10 по 90/0; fresh post-commit Wiki 167/0, браузер и HTTP проверены. Принятый учёт PR № 85 включён обычным merge 820b73b2ed59ce78639e87100bffe5d7b88274f9; карточка VWEATHER-001 сохраняет принятый done. Ожидаются проверки окончательного head, независимое ревью Tech Lead и решение Team Lead. Статус остаётся in_progress; игровая графика и звук дождя ещё не переделаны."
+      "result": "Постановка принята 2026-11-22: head 47252291b997b163cd47b67af0016ba161d9c5ab, независимое APPROVED 6011123556 и решение Team Lead; merge 12d1ecee553b3a215ad2abadf014703e646ec1ee, дерево 8b84672de1f083290840ebe329f103609bd7080c совпало с одобренным. Все 9 CI этого head успешны: Game 53777/0 в обоих общих прогонах, normal/F10 по 90/0, smoke 180, все шесть performance-серий каждого прогона valid/budget PASS; Wiki export/TypeScript/build 167/0. Авторский полный hook: quality 219/0, architecture 127 групп/1681 тест, Game 53759/0, normal/F10 по 90/0; свежая post-commit Wiki 167/0. Настоящий браузер подтвердил переход из карточки в PR №86, ширину 390 CSS px без переполнения и пустой console warn/error; HTTP совпал со сборкой и источниками. Сохранены 1037 старых visual ID/статусов, принятая VWEATHER-001, planning state и frozen evidence; прогресс первой карты 84/93 и пилот 52/52 прежние. Приняты дизайн дождя, три этапа, бриф звука и задачи; RAIN-01…03 остаются blocked до назначения и собственных зависимостей. Новые runtime, графика и звук дождя ещё не реализованы; снег исключён из этого выпуска, VMAP-003 и демо не приняты. [PR №86](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/86)"
     },
     {
       "id": "RAIN-01",
