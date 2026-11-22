@@ -7977,7 +7977,7 @@
       "id": "VCOMPAT-010",
       "epic": "VCOMPAT",
       "title": "Проверить откат визуальной версии",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -8020,9 +8020,13 @@
         "[Обратимый профиль первой локации](../../../../wiki/articles/visual-rollback.md)",
         "[Отказ общего CI и регрессия теней](../../../reports/visual-overhaul/vcompat-010/failures/general-ci-01/result.json)",
         "[Успешная нативная серия и исходный архив](../../../reports/visual-overhaul/vcompat-010/native-ci-02/summary.json)",
-        "[Полный hook и post-bump Wiki кандидата](../../../reports/visual-overhaul/vcompat-010/p2-validation.json)"
+        "[Полный hook и post-bump Wiki кандидата](../../../reports/visual-overhaul/vcompat-010/p2-validation.json)",
+        "[Приёмка, merge и границы результата](../../../reports/visual-overhaul/vcompat-010/closeout/result.json)",
+        "[Независимые вердикты принятого head](../../../reports/visual-overhaul/vcompat-010/closeout/implementation-review.json)",
+        "[Все 11 успешных CI принятой реализации](../../../reports/visual-overhaul/vcompat-010/closeout/implementation-checks.json)"
       ],
-      "result": "В работе: [PR №88](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/88). Кандидат 1c0590048f38c8f8448abf48a88bb9a4e314f7f5 (0.0.486) прошёл штатный hook: quality 249/0, architecture 130 групп / 1709 тестов, Game 53986/0, normal/F10 по 90/0; post-bump Wiki 167/0 и браузер 1280/390. CI2 45041661293 и независимый reader приняли 136 PNG / 4 серии: seed 20261015, одинаковые полные save/camera/player/location, строгие RGBA-return/startup/twins. Исходный ZIP сохранён тремя частями; восемь повреждений временной копии отвергнуты. Tech: SOURCE PASS 6013201866, native finding 4658898780, первое P2 закрыто. Первоначальные native/general CI failures и старые доказательства сохранены. Новый отчётный head требует своего полного hook, Wiki/браузера, CI, exact-head review и решения Team. Финального APPROVED, merge и Task-Complete нет. Все четыре workflow кандидата завершились успешно, включая общий quality gate."
+      "result": "22 ноября 2026 принята реализация [PR №88](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/88): exact head afa52dd9c588a0e4961ef2b72b472c031643c980, tree 6700d0a55e00da2a4e65c9f550f3ff371b03aa83, версия 0.0.487. Независимое APPROVED 6013761541, все 11 checks этого SHA и решение Team Lead. Обычный merge 878665d695a69c71392b559f46783090f1c98f06 имеет родителей 0effa1d3ecec8a28cade61c49a5a0ca4eb172005 и одобренный head; дерево совпадает. Общий флаг возвращает прежнее представление первой overworld поверх текущих игровых данных, сохраняет настройки компонентов, слоты и авторские уровни. Сохранены 136 нативных PNG / 4 серии, seed 20261015, одинаковые полные игровые снимки и строгие RGBA-return/startup/twins. Восемь отрицательных контролей независимо воспроизведены; исходные CI1 failures и успешный CI2 ZIP сохранены побайтно. Локальный hook: quality 249/0, architecture 1709/0, Game 53986/0, normal/F10 по 90/0; CI Game 54004/0 учитывается отдельно. Wiki 167/0, оба поиска, реальные 1280/390 и точные JSON. Учёт имеет собственные проверки и единственный Task-Complete; аппаратный FPS и VMAP-003 остаются открытыми.",
+      "completed_at": "2026-11-22"
     },
     {
       "id": "VUI-001",

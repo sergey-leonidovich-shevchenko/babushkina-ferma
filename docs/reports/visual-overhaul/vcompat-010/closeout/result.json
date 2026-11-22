@@ -1,0 +1,115 @@
+{
+  "task": "VCOMPAT-010",
+  "accepted_on": "2026-11-22",
+  "date_source": "GitHub merged_at converted to Asia/Almaty",
+  "accepted_at": "2026-11-22T23:38:11+05:00",
+  "implementation_pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/88",
+  "approved_head": "afa52dd9c588a0e4961ef2b72b472c031643c980",
+  "accepted_base": "0effa1d3ecec8a28cade61c49a5a0ca4eb172005",
+  "accepted_merge": "878665d695a69c71392b559f46783090f1c98f06",
+  "merge_parents": [
+    "0effa1d3ecec8a28cade61c49a5a0ca4eb172005",
+    "afa52dd9c588a0e4961ef2b72b472c031643c980"
+  ],
+  "accepted_tree": "6700d0a55e00da2a4e65c9f550f3ff371b03aa83",
+  "version": "0.0.487",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/88#pullrequestreview-6013761541",
+  "source_review": 6013638634,
+  "review_evidence": "implementation-review.json",
+  "ci_evidence": "implementation-checks.json",
+  "all_11_exact_head_checks_success": true,
+  "team_accepted_exact_head": true,
+  "tree_equals_approved_head": true,
+  "implementation_branch_cleanup": {
+    "branch": "codex/vcompat-010-visual-task",
+    "fully_merged": true,
+    "unused_by_other_worktrees": true,
+    "local_deleted": true,
+    "remote_deleted": true
+  },
+  "native_evidence": "../native-ci-02/summary.json",
+  "native_png": 136,
+  "native_runs": 4,
+  "retained_capture_head": "1c0590048f38c8f8448abf48a88bb9a4e314f7f5",
+  "strict_current_candidate_at_approved_head": true,
+  "negative_controls": 8,
+  "implementation_local_hook": {
+    "quality": [
+      249,
+      0
+    ],
+    "architecture_groups": 130,
+    "architecture_tests": 1709,
+    "game": [
+      53986,
+      0
+    ],
+    "normal": [
+      90,
+      0
+    ],
+    "f10": [
+      90,
+      0
+    ],
+    "normal_unchanged": true,
+    "override_removed": true
+  },
+  "reviewed_ci_game": [
+    54004,
+    0
+  ],
+  "reviewed_ci_water": [
+    55,
+    0
+  ],
+  "reviewed_ci_performance_valid_runs": 12,
+  "reviewed_ci_performance_total_runs": 12,
+  "post_bump_wiki": [
+    167,
+    0
+  ],
+  "browser_widths": [
+    1280,
+    390
+  ],
+  "browser_json_byte_exact": 4,
+  "browser_searches": 2,
+  "browser_console": [],
+  "implementation_log_archive_sha256": "b308d3ff3873ea071334d27f780aa7def06ce1bb5a40274b66003e264bb16101",
+  "implementation_log_members": {
+    "implementation-final-hook.json": {
+      "bytes": 4973,
+      "sha256": "77ba918a532790d3233e04942901ca8c6ab6a9e3dc3db8d90d32a09ccca9959b"
+    },
+    "implementation-final-hook.stdout.txt": {
+      "bytes": 428045,
+      "sha256": "0db1c665cca63c8640130b92a7306538e0eb6011e016dbd132a8db50fbdf9a22"
+    },
+    "implementation-post-bump-wiki.json": {
+      "bytes": 4914,
+      "sha256": "59cfd7007f2827322c41bf5d44968ff7fb58cc4ea24423b781da25cfee221e89"
+    },
+    "implementation-post-bump-wiki.stdout.txt": {
+      "bytes": 15903,
+      "sha256": "83ecc1a7c983c7837ba0a21ff1c788886fad1545436efd4874d377ca67a8a653"
+    },
+    "strict-reader-first-refusal.txt": {
+      "bytes": 1481,
+      "sha256": "008489136272b9e1517c0e02b41bb40b4071c79600365bbb16888f5f6ef475fd"
+    },
+    "strict-reader-clean-pass.txt": {
+      "bytes": 194,
+      "sha256": "c7b7986ea4e16a9e36f1af7ddedbecbd9fd37b39854710fb6ab4e54540a2de88"
+    },
+    "browser.json": {
+      "bytes": 2365,
+      "sha256": "655118fe0fb4d6c6ae9a6813467e963251c27d9288798227a0ca2697d41c36c8"
+    }
+  },
+  "accounting_own_full_hook_pending": true,
+  "accounting_own_wiki_ci_review_pending": true,
+  "vmap_003_accepted": false,
+  "hardware_fps_accepted": false,
+  "stage": "accepted implementation; accounting preparation snapshot"
+}
