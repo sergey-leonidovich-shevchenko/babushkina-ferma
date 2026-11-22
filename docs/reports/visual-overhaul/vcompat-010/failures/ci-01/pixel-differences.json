@@ -1,0 +1,127 @@
+{
+  "task": "VCOMPAT-010",
+  "head": "ae7485b343a374f04c460b09c9353d822f771e76",
+  "archive_sha256": "dbee328e6fc7d89acf4f9675189a0bfdcf99a39e0022dc1ea741b7cdd57ce918",
+  "differences": [
+    {
+      "width": 1280,
+      "frame": "east-bank-on",
+      "changed_pixels": 5990,
+      "box": [
+        1104,
+        416,
+        1200,
+        499
+      ],
+      "max_channel_delta": 207
+    },
+    {
+      "width": 1280,
+      "frame": "east-bank-restore",
+      "changed_pixels": 5990,
+      "box": [
+        1104,
+        416,
+        1200,
+        499
+      ],
+      "max_channel_delta": 207
+    },
+    {
+      "width": 1280,
+      "frame": "evening-on",
+      "changed_pixels": 5893,
+      "box": [
+        1104,
+        416,
+        1200,
+        499
+      ],
+      "max_channel_delta": 95
+    },
+    {
+      "width": 1280,
+      "frame": "evening-restore",
+      "changed_pixels": 5893,
+      "box": [
+        1104,
+        416,
+        1200,
+        499
+      ],
+      "max_channel_delta": 95
+    },
+    {
+      "width": 1280,
+      "frame": "home-on",
+      "changed_pixels": 7053,
+      "box": [
+        752,
+        164,
+        848,
+        275
+      ],
+      "max_channel_delta": 242
+    },
+    {
+      "width": 1280,
+      "frame": "home-restore",
+      "changed_pixels": 7053,
+      "box": [
+        752,
+        164,
+        848,
+        275
+      ],
+      "max_channel_delta": 242
+    },
+    {
+      "width": 1280,
+      "frame": "old-return-on",
+      "changed_pixels": 7053,
+      "box": [
+        752,
+        196,
+        848,
+        307
+      ],
+      "max_channel_delta": 242
+    },
+    {
+      "width": 1280,
+      "frame": "old-return-restore",
+      "changed_pixels": 7053,
+      "box": [
+        752,
+        196,
+        848,
+        307
+      ],
+      "max_channel_delta": 242
+    },
+    {
+      "width": 1280,
+      "frame": "west-bank-on",
+      "changed_pixels": 12419,
+      "box": [
+        240,
+        256,
+        912,
+        691
+      ],
+      "max_channel_delta": 242
+    },
+    {
+      "width": 1280,
+      "frame": "west-bank-restore",
+      "changed_pixels": 12419,
+      "box": [
+        240,
+        256,
+        912,
+        691
+      ],
+      "max_channel_delta": 242
+    }
+  ]
+}

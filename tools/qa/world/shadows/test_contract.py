@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import ast
+import json
 import os
 import subprocess
 import tempfile
@@ -14,6 +15,7 @@ from unittest.mock import patch
 from tools.common.git import git_environment
 from tools.qa.world.shadows.contract import (
     MESH_FILES,
+    PROBE,
     ROOT,
     RUNTIME,
     SOURCES,
@@ -28,15 +30,51 @@ class ContactContractTests(unittest.TestCase):
     """Повреждения ограничены копиями настоящих функций, рабочие исходники не меняются."""
 
     def test_all_real_owners_are_instrumented_once(self) -> None:
-        """Прибор вставляется во все семь владельцев, остальные байты сохраняются."""
+        """HEAD и рабочие байты проверяются до commit; прибор полностью обратим."""
+        for name in SOURCES:
+            versions = {"HEAD": git("show", "HEAD:" + name), "working": (ROOT / name).read_bytes()}
+            for version, source in versions.items():
+                with self.subTest(name=name, version=version):
+                    result = instrument(name, source)
+                    self.assertNotEqual(source, result)
+                    self.assertEqual(result.count(f'preload("{PROBE}")'.encode()), 1)
+                    if name in MESH_FILES:
+                        insertion = f'preload("{PROBE}").mesh("{Path(name).stem}", canvas, '
+                        restored = result.replace(insertion.encode(), b"canvas.draw_mesh(")
+                    else:
+                        gate = f'\tif not preload("{PROBE}").ellipse(center, radii):\n\t\treturn\n'
+                        restored = result.replace(gate.encode(), b"")
+                    self.assertEqual(restored, source)
+
+    def test_historical_overlays_remain_byte_exact(self) -> None:
+        """Принятый нативный архив сохраняет прежний результат инструментации."""
+        folder = ROOT / "docs/reports/visual-overhaul/vshadow-010/native-current"
+        commit = json.loads((folder / "source.json").read_bytes())["commit"]
         for name in SOURCES:
             with self.subTest(name=name):
-                source = git("show", "HEAD:" + name)
-                result = instrument(name, source)
-                self.assertNotEqual(source, result)
+                source = git("show", commit + ":" + name)
                 self.assertEqual(
-                    result.count(b'preload("res://tools/qa/world/shadows/contact_probe.gd")'), 1
+                    instrument(name, source), (folder / "overlays" / name).read_bytes()
                 )
+
+    def test_malformed_multiline_owner_cannot_consume_another_function(self) -> None:
+        """Отсутствующая скобка, неверный отступ и два владельца дают отказ."""
+        name = "scripts/presentation/village_street_visual.gd"
+        source = (ROOT / name).read_bytes()
+        start = source.index(b"static func draw_shadow(")
+        end = source.index(b") -> void:", start)
+        header = source[start:end]
+        self.assertIn(b"\n\t", header)
+        for broken in (
+            source[:start] + header.replace(b"\n\t", b"\n", 1) + source[end:],
+            source[:end] + source[end + 1 :],
+            source + b"\n" + source[start:],
+        ):
+            with (
+                self.subTest(broken=broken[-40:]),
+                self.assertRaisesRegex(ValueError, "expected one shadow owner"),
+            ):
+                instrument(name, broken)
 
     def test_lamp_glow_is_not_a_shadow(self) -> None:
         """В настоящем фонаре два mesh-вызова: световой обязан остаться побайтно прежним."""

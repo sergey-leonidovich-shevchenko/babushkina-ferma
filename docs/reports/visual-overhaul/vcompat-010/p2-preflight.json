@@ -1,0 +1,77 @@
+{
+  "task": "VCOMPAT-010",
+  "stage": "working_correction_before_full_commit_hook",
+  "published_head": "ae7485b343a374f04c460b09c9353d822f771e76",
+  "working_source_sha256": {
+    "tools/qa/world/rollback/archive.py": "8859d3f3e8d73f81d77f48849184a9112a02057bc65f959d96d1f30f3d5ceb29",
+    "tools/qa/world/rollback/verify.py": "4b9576c2c9d7ff8e0ae072820b9eaaa8ad65d945bdcc73766376a5a6acf26673",
+    "tools/qa/world/rollback/contract.py": "5b11a6108d5d20750baa2765ef5709b798ac50c1510c9eacee5a56894926b63e",
+    "tools/qa/world/rollback/test_reader.py": "87c6634a315ce895f120b68c09edeb0d8ed0632a08c64f91006fd215459449f6",
+    "tools/qa/world/rollback/test_archive.py": "1cbc449343a6445c97257aa91d3ee8e1f473205fc064b166c2e30a0e88528eeb",
+    "tools/qa/world/rollback/cases.gd": "9fe9ad05000130ef2e9868cfb953d5dad8fd9ee2da451dd8c17735b5d7c93abc",
+    "tools/qa/world/rollback/review.gd": "5b0fef6f8a396746223c5d027a911d1fdd75d05d7a0907eb6397f0b0c274cdfe",
+    "tests/suites/visual_rollback_suite.gd": "f32964f02b83ec52d1576f5227d5547e2ee2817e9edd392c9d2ed975ae8d1f87",
+    "tools/qa/world/shadows/contract.py": "39310c65ba8d4e9d5ccd58ed8dc18931c52d0dde7930f8eaef3cb9e9a0ec0c1f",
+    "tools/qa/world/shadows/test_contract.py": "739fa92ee4186c643434d36a99904d3da6cd8df5fa8f9de666d31b4e610cb8b4"
+  },
+  "factory_old": [
+    214,
+    10
+  ],
+  "factory_fixed": [
+    224,
+    0
+  ],
+  "python": [
+    26,
+    0
+  ],
+  "python_groups": {
+    "contract": 5,
+    "reader": 12,
+    "archive": 9
+  },
+  "target_quality": {
+    "python_files": 5,
+    "gdscript_files": 3,
+    "exit_code": 0
+  },
+  "game": [
+    53986,
+    0
+  ],
+  "normal": [
+    90,
+    0
+  ],
+  "f10": [
+    90,
+    0
+  ],
+  "normal_files_unchanged": true,
+  "startup_override_removed": true,
+  "documentation_repeat": "pass",
+  "architecture_actual_size_prefix": "pass",
+  "git_diff_check": "pass",
+  "game_log_sha256": "0ffdaa1497c42d8e44bf28b02fa73dfa3ea44457ec1b4dbbe8e15d0a4b84cc27",
+  "captured_native_png_ci1": 136,
+  "accepted_native_png": 0,
+  "new_full_hook_pending": true,
+  "corrected_native_series_pending": true,
+  "independent_approval": false,
+  "vmap_003_accepted": false,
+  "shadow_contract_and_historical_reader": {
+    "tests": 32,
+    "failed": 0,
+    "old_new_driver_errors": 6,
+    "same_driver_fixed_tests": 9,
+    "proof": "failures/general-ci-01/result.json"
+  },
+  "shadow_instrumented_semantics": {
+    "owners": 7,
+    "exit_code": 0,
+    "preserved_existing_legacy_warning_baseline": true,
+    "normal_files_unchanged": true,
+    "startup_override_removed": true
+  }
+}

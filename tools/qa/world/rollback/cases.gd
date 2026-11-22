@@ -35,6 +35,9 @@ static func create(parent: Node) -> Game:
 	var scene := Points.create_game()
 	scene.set_script(Game)
 	var game := scene as Game
+	# set_script сбрасывает script-state: одинаковый seed нужен до настоящего _ready и генерации лута.
+	seed(Points.SEED)
+	game.world_loot_seed = Points.SEED
 	parent.add_child(game)
 	Points.configure(game, Points.registry().points[0])
 	game.remove_meta(&"camera_reference_zoom")

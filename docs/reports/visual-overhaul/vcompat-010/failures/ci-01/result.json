@@ -1,0 +1,128 @@
+{
+  "task": "VCOMPAT-010",
+  "status": "failure_preserved",
+  "source_head": "ae7485b343a374f04c460b09c9353d822f771e76",
+  "run_id": 45026807462,
+  "artifact_id": 14756277327,
+  "source_archive": "parts.json",
+  "source_archive_bytes": 131554556,
+  "source_archive_sha256": "dbee328e6fc7d89acf4f9675189a0bfdcf99a39e0022dc1ea741b7cdd57ce918",
+  "collected_png": 136,
+  "accepted_native_png": 0,
+  "series": [
+    {
+      "width": 1152,
+      "variant": "baseline",
+      "frames": 34,
+      "errors": [],
+      "seed_home": 1193334609,
+      "seed_startup_on": 975295183,
+      "seed_startup_off": 1386975458
+    },
+    {
+      "width": 1152,
+      "variant": "candidate",
+      "frames": 34,
+      "errors": [],
+      "seed_home": 2697126418,
+      "seed_startup_on": 3653504159,
+      "seed_startup_off": 888834113
+    },
+    {
+      "width": 1280,
+      "variant": "baseline",
+      "frames": 34,
+      "errors": [],
+      "seed_home": 2297492879,
+      "seed_startup_on": 3395291583,
+      "seed_startup_off": 266039984
+    },
+    {
+      "width": 1280,
+      "variant": "candidate",
+      "frames": 34,
+      "errors": [],
+      "seed_home": 2703168184,
+      "seed_startup_on": 372718055,
+      "seed_startup_off": 192747605
+    }
+  ],
+  "expected_seed": 20261015,
+  "cause": "Points.create_game sets the seed, but set_script(Game) replaces script-state before add_child/_ready. Random world seeds produce different real RNG and containers. Rendering regression is not established by this comparison.",
+  "ci_failure": "default rendering changed: west-bank-on",
+  "original_local_reader_exit_code": 1,
+  "original_local_failure": "default rendering changed: west-bank-restore",
+  "review": {
+    "state": "changes_requested",
+    "review_id": 6012503826,
+    "comment_id": 4658308469,
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/88#discussion_r4658308469"
+  },
+  "factory_regression": {
+    "red": {
+      "passed": 214,
+      "failed": 10,
+      "case_sha256": "a1196cd8f7a18c1df35fe4daa81c602442520e0566276d74fcf3e177637313aa"
+    },
+    "green": {
+      "passed": 224,
+      "failed": 0,
+      "case_sha256": "9fe9ad05000130ef2e9868cfb953d5dad8fd9ee2da451dd8c17735b5d7c93abc"
+    },
+    "same_suite_sha256": "f32964f02b83ec52d1576f5227d5547e2ee2817e9edd392c9d2ed975ae8d1f87",
+    "same_driver_sha256": "5b0fef6f8a396746223c5d027a911d1fdd75d05d7a0907eb6397f0b0c274cdfe",
+    "normal_files_unchanged": true,
+    "startup_override_removed": true,
+    "native_evidence": false
+  },
+  "new_python_tests": {
+    "contract": 5,
+    "reader": 12,
+    "archive": 9,
+    "total": 26,
+    "failed": 0
+  },
+  "target_quality": {
+    "python_files": 5,
+    "gdscript_files": 3,
+    "exit_code": 0,
+    "normal_files_unchanged": true,
+    "startup_override_removed": true
+  },
+  "logs": {
+    "factory-red.txt": {
+      "path": "regression-logs.zip#factory-red.txt",
+      "sha256": "49db7f9097a848527744171b128e41426341bca109f3d49399c0dfa7817a051b",
+      "bytes": 703
+    },
+    "factory-green.txt": {
+      "path": "regression-logs.zip#factory-green.txt",
+      "sha256": "8b0f8b94a6b74501b63df61c9b54289e16cb80331af52d53b4baf6b901b73820",
+      "bytes": 118
+    },
+    "factory-quality.txt": {
+      "path": "regression-logs.zip#factory-quality.txt",
+      "sha256": "b91dc98b0d7506be15a8aae97f57440e00d07b0bddea3ca72355a2428979d142",
+      "bytes": 374461
+    },
+    "original-reader.txt": {
+      "path": "regression-logs.zip#original-reader.txt",
+      "sha256": "5be05bbeaa30da9c376585839da0873d8ce76be73cf6346fdb28a789260f02ef",
+      "bytes": 1314
+    },
+    "python-tests.txt": {
+      "path": "regression-logs.zip#python-tests.txt",
+      "sha256": "9f3bb4c04a33736cf08203c478c128a8f34b867e92866f6f8f63f65b23b2a11f",
+      "bytes": 6421
+    }
+  },
+  "decoded_api_job_log": {
+    "path": "job-log.zip#job.log",
+    "sha256": "b37110b9026a959f9755f2da43998a8df5fb39f6869fb106e551b3376528c0a1",
+    "bytes": 53000
+  },
+  "new_head_full_hook_pending": true,
+  "corrected_native_series_pending": true,
+  "hardware_fps_acceptance": false,
+  "vmap_003_accepted": false
+}

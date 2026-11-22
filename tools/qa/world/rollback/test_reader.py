@@ -11,7 +11,7 @@ from pathlib import Path
 from PIL import Image
 
 from tools.qa.world.rollback import contract as c
-from tools.qa.world.rollback.verify import check_run
+from tools.qa.world.rollback.verify import check_run, compare_gameplay
 from tools.qa.world.weather.verify import Evidence
 
 
@@ -30,6 +30,7 @@ def fixture(root: Path) -> dict:
                 "location": "cottage_interior" if interior else "overworld",
                 "coins": 41,
                 "counts": {"wood": 14, "apple": 2},
+                "world_loot_seed": c.SEED,
             },
             "player": [432, 672],
             "camera": [0, 0],
@@ -147,6 +148,34 @@ class ReaderTests(unittest.TestCase):
         self.capture_doc["frames"][0]["after"]["save"]["coins"] = 0
         with self.assertRaisesRegex(ValueError, "mutated"):
             self.check()
+
+    def test_unpinned_seed_in_initial_startup_and_twins(self) -> None:
+        """Одинаковые пиксели не оправдывают случайный seed у любого владельца."""
+        for name in ("home-on", "startup-on", "startup-off", "twin-0-0", "twin-1-1"):
+            with self.subTest(frame=name):
+                row = next(row for row in self.capture_doc["frames"] if row["id"] == name)
+                row["before"]["save"]["world_loot_seed"] = 7
+                row["after"] = copy.deepcopy(row["before"])
+                with self.assertRaisesRegex(ValueError, "fixed world seed"):
+                    self.check()
+                row["before"]["save"]["world_loot_seed"] = c.SEED
+                row["after"] = copy.deepcopy(row["before"])
+
+    def test_variants_require_identical_complete_gameplay(self) -> None:
+        """RNG, невидимый лут и камера сверяются между вариантами независимо от PNG."""
+        for label in ("baseline", "candidate"):
+            folder = self.root / label / "1152"
+            folder.mkdir(parents=True)
+            (folder / "capture.json").write_text(json.dumps(self.capture_doc))
+        compare_gameplay(Evidence(self.root), 1152)
+        for field in ("rng", "containers"):
+            with self.subTest(field=field):
+                changed = copy.deepcopy(self.capture_doc)
+                changed["frames"][0]["before"]["save"][field] = {"changed": True}
+                changed["frames"][0]["after"] = copy.deepcopy(changed["frames"][0]["before"])
+                (self.root / "candidate/1152/capture.json").write_text(json.dumps(changed))
+                with self.assertRaisesRegex(ValueError, "gameplay differs.*save"):
+                    compare_gameplay(Evidence(self.root), 1152)
 
     def test_no_visual_return(self) -> None:
         """Вернувшийся флаг без вернувшихся пикселей проваливает сравнение."""

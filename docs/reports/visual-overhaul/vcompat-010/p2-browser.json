@@ -1,0 +1,58 @@
+{
+  "task": "VCOMPAT-010",
+  "stage": "working_P2_preflight_before_commit",
+  "site": "http://127.0.0.1:4174",
+  "source_head": "ae7485b343a374f04c460b09c9353d822f771e76",
+  "source_state": "working-task",
+  "source_dirty": true,
+  "source_working_snapshot": "f47b84f11e8369844d684f1259a5efa262247c7eae0809e521fe90b7000d3013",
+  "version": "0.0.485",
+  "browser": "existing IAB2/tab5",
+  "widths": [
+    1280,
+    390
+  ],
+  "article": {
+    "route": "#/guides/visual-rollback",
+    "page_overflow": false,
+    "table_count": 0,
+    "six_readable_family_paragraphs": true
+  },
+  "attachments": [
+    {
+      "source": "failures/ci-01/result.json",
+      "browser_visible_raw_sha256": "cd0663e53c848bf598396a4e434db74c09c1dbdee12fffc7190893311c386b10",
+      "exact_repository_bytes": true
+    },
+    {
+      "source": "failures/input-closure/regression.json",
+      "browser_visible_raw_sha256": "82b52f52c0516c699bc481a2454c119b6f40811c3d76365f871d6d5c8c31facc",
+      "exact_repository_bytes": true
+    },
+    {
+      "source": "p2-preflight.json",
+      "browser_visible_raw_sha256": "7970f1b2bf830029ff6057ba9d7daa1c2bddf3b704a4822890725d2f5872e07d",
+      "exact_repository_bytes": true
+    }
+  ],
+  "artifact_method": "Opened each actual observed JSON URL as a browser document; SHA of DOM text exactly matched served file name and repository bytes. No network fetch through page evaluate.",
+  "download_api_note": "downloadMedia timed out and reset runtime; ordinary download event was not emitted after the observed link click. Download is not claimed. Same browser/tab restored and JSON documents visibly verified.",
+  "task_link_note": "Role click after JSON navigation did not navigate; the actual observed href was navigated directly and its rendered task/PR were verified.",
+  "console_warn_error": [],
+  "temporary_viewport_reset": true,
+  "screenshot": {
+    "file": "p2-browser-390.jpg",
+    "sha256": "51e749e40bf938866408fc7a11e6fdf3c333ee7d534972a09bc4435d938909ec",
+    "native_game_evidence": false
+  },
+  "new_post_bump_wiki_still_required": true,
+  "native_series_accepted": false,
+  "task_view": {
+    "id": "VCOMPAT-010",
+    "route": "#/development/tasks/visual--VCOMPAT-010",
+    "status": "in_progress",
+    "pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/88",
+    "actual_pr_link_visible": true,
+    "page_overflow_390": false
+  }
+}

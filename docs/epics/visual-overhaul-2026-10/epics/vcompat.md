@@ -364,7 +364,7 @@ WaterTopology остаётся владельцем воды, мостов и р
 - [scripts/systems/atomic_json_store.gd](../../../../scripts/systems/atomic_json_store.gd)
 - [scripts/systems/content_reference_graph.gd](../../../../scripts/systems/content_reference_graph.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vcompat-010/`.
+Результаты: `docs/reports/visual-overhaul/vcompat-010/`.
 
 Критерии:
 
@@ -382,4 +382,4 @@ WaterTopology остаётся владельцем воды, мостов и р
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: [PR №88](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/88), [Протокол и границы](../../../reports/visual-overhaul/vcompat-010/README.md), [Первый отказ CI и исправление фабрики](../../../reports/visual-overhaul/vcompat-010/failures/ci-01/result.json), [Обратимый профиль первой локации](../../../../wiki/articles/visual-rollback.md), [Отказ общего CI и регрессия теней](../../../reports/visual-overhaul/vcompat-010/failures/general-ci-01/result.json).

@@ -180,6 +180,7 @@ python3 tools/run.py qa.world.weather.test_contract
 python3 tools/run.py qa.world.weather.test_reader
 python3 tools/run.py qa.world.rollback.test_contract
 python3 tools/run.py qa.world.rollback.test_reader
+python3 tools/run.py qa.world.rollback.test_archive
 python3 tools/run.py qa.world.village_fence_verify >/dev/null
 python3 tools/run.py qa.world.test_village_fence
 python3 tools/run.py qa.world.village_lamp_verify >/dev/null

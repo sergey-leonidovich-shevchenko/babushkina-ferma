@@ -9,6 +9,8 @@ const Store := preload("res://scripts/systems/atomic_json_store.gd")
 const Editor := preload("res://scripts/systems/level_editor_system.gd")
 const Published := preload("res://scripts/systems/published_level_system.gd")
 const Wind := preload("res://scripts/presentation/foliage_wind.gd")
+const CaptureCases := preload("res://tools/qa/world/rollback/cases.gd")
+const Rng := preload("res://scripts/systems/world_rng_system.gd")
 const PATH := "user://vcompat-010-save.json"
 const LEVEL := "user://level_designs/vcompat_010_user_level.json"
 const SETTINGS := "user://vcompat-010-settings.cfg"
@@ -22,6 +24,7 @@ static func run(ctx: SceneTree) -> void:
 	_legacy(ctx)
 	_levels(ctx)
 	_replay(ctx)
+	_capture_factory(ctx)
 	for path: String in [PATH, LEVEL, SETTINGS]:
 		for suffix: String in ["", ".bak", ".tmp"]:
 			if FileAccess.file_exists(path + suffix):
@@ -232,3 +235,36 @@ static func _game() -> Node2D:
 	Points.configure(game, point)
 	game.WorkshopSystem.state(game, "pottery")
 	return game
+
+
+## Проверяет настоящий set_script/add_child/_ready до съёмки, включая оба окна и холодные флаги.
+static func _capture_factory(ctx: SceneTree) -> void:
+	var previous_setting: Variant = ProjectSettings.get_setting(Version.SETTING, true)
+	var previous_size := ctx.root.size
+	for width: int in [1152, 1280]:
+		ctx.root.size = Vector2i(width, int(width * 9.0 / 16.0))
+		var snapshots := []
+		for modern: bool in [false, true]:
+			ProjectSettings.set_setting(Version.SETTING, modern)
+			var game := CaptureCases.create(ctx.root)
+			ctx.expect(game.is_node_ready(), "capture factory executes the real ready lifecycle")
+			ctx.expect(
+				game.world_loot_seed == Points.SEED,
+				"capture seed survives script replacement before ready"
+			)
+			ctx.expect(
+				Rng.valid(game.state.world.rng_state, Points.SEED),
+				"capture RNG belongs to the fixed world seed"
+			)
+			ctx.expect(
+				Version.enabled(game) == modern and not game.has_meta(Version.FLAG),
+				"capture factory respects cold project flags without local metadata"
+			)
+			snapshots.append(Save.snapshot(game))
+			game.free()
+		ctx.expect(
+			snapshots[0] == snapshots[1],
+			"independent capture factories produce identical complete gameplay"
+		)
+	ProjectSettings.set_setting(Version.SETTING, previous_setting)
+	ctx.root.size = previous_size

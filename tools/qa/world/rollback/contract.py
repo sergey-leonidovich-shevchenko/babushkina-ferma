@@ -17,6 +17,7 @@ from tools.qa.world.weather.contract import (
 BASE = "820b73b2ed59ce78639e87100bffe5d7b88274f9"
 PREFIX = "tools/qa/world/rollback/"
 WIDTHS = (1152, 1280)
+SEED = 20261015
 TERRAIN_FLAGS = (
     "base_only",
     "painted_grass",

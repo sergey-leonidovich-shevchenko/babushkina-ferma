@@ -8013,7 +8013,14 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vcompat-010-visual-task",
-      "evidence": []
+      "evidence": [
+        "[PR №88](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/88)",
+        "[Протокол и границы](../../../reports/visual-overhaul/vcompat-010/README.md)",
+        "[Первый отказ CI и исправление фабрики](../../../reports/visual-overhaul/vcompat-010/failures/ci-01/result.json)",
+        "[Обратимый профиль первой локации](../../../../wiki/articles/visual-rollback.md)",
+        "[Отказ общего CI и регрессия теней](../../../reports/visual-overhaul/vcompat-010/failures/general-ci-01/result.json)"
+      ],
+      "result": "В работе: [PR №88](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/88), опубликованный head ae7485b343a374f04c460b09c9353d822f771e76 (0.0.485). Полный локальный hook и post-bump Wiki прошли. CI1 снял 136 PNG, но отклонён: set_script сбросил seed до _ready, варианты получили разные RNG и лут. Исходный ZIP сохранён без перепаковки по двум частям с SHA256; отказ остаётся failure. P2 независимого ревью 6012503826 дорабатывается: одинаковый реальный тест old214/10 → fixed224/0, все26 Python-контролей и целевая строгая проверка прошли. Reader проверяет seed всех владельцев и полный save/camera/player/location между вариантами, сохраняя строгие RGBA-критерии. Новые полный hook, CI/native, post-bump Wiki и ревью exact head ещё обязательны; одобрения и Task-Complete нет. Общий CI1 также отклонил multiline QA-инструментацию теней после gdformat; тот же расширенный сценарий воспроизвёл6errors →9/0, текущий и исторический reader32/0. Неудачный журнал сохранён, игровые функции и прежние архивы не изменены."
     },
     {
       "id": "VUI-001",

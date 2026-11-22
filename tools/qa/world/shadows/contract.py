@@ -61,9 +61,13 @@ def instrument(name: str, raw: bytes) -> bytes:
     source = raw.decode()
     if name in MESH_FILES:
         function = "draw" if name == MESH_FILES[0] else "draw_shadow"
+        # gdformat переносит параметры: продолжения обязаны иметь отступ,
+        # чтобы повреждённая сигнатура не захватила следующую функцию.
         matches = list(
             re.finditer(
-                r"^static func " + function + r"\([^\n]*\)\s*->\s*void:\n(?:\t[^\n]*\n|\n)+",
+                r"^static func "
+                + function
+                + r"\([^\n]*(?:\n[ \t]+[^\n]*)*\n?\)[ \t]*->[ \t]*void:\n(?:\t[^\n]*\n|\n)+",
                 source,
                 re.MULTILINE,
             )

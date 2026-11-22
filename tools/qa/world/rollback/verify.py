@@ -67,6 +67,11 @@ def check_run(store: Evidence, folder: str, candidate: bool, width: int) -> dict
             "wrong viewport owner",
         )
         c.need(state["save"]["location"] == state["location"], "save belongs to another world")
+        c.need(
+            type(state["save"].get("world_loot_seed")) is int
+            and state["save"]["world_loot_seed"] == c.SEED,
+            "capture lost the fixed world seed: " + name,
+        )
         if state["location"] == "overworld" and candidate and state["master"] is False:
             c.need(
                 all(value is False for value in state["terrain"].values()),
@@ -146,6 +151,23 @@ def check_run(store: Evidence, folder: str, candidate: bool, width: int) -> dict
         "cold project flag differs from real runtime rollback",
     )
     return images
+
+
+def compare_gameplay(store: Evidence, width: int) -> None:
+    """Сначала сверяет весь игровой ввод вариантов, даже когда разный лут не попал в кадр."""
+    variants = {
+        label: {
+            row["id"]: row["before"]
+            for row in store.document(f"{label}/{width}/capture.json")["frames"]
+        }
+        for label in ("baseline", "candidate")
+    }
+    for name in sorted(c.FRAME_IDS):
+        for field in ("save", "camera", "player", "location"):
+            c.need(
+                variants["baseline"][name][field] == variants["candidate"][name][field],
+                "baseline/candidate gameplay differs: " + name + "/" + field,
+            )
 
 
 def current_candidate(source: dict[str, Any], store: Evidence) -> None:
@@ -284,7 +306,8 @@ def verify(output: Path, expected_head: str, current: bool = False) -> dict[str,
             runs[label, width] = check_run(store, folder, label == "candidate", width)
     c.need(len(set(profiles)) == 4, "reused userdata")
     for width in c.WIDTHS:
-        for name in c.FRAME_IDS:
+        compare_gameplay(store, width)
+        for name in sorted(c.FRAME_IDS):
             if (
                 name.endswith("-on")
                 or name.endswith("-restore")

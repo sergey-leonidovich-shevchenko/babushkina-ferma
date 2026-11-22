@@ -1,0 +1,95 @@
+{
+  "task": "VCOMPAT-010",
+  "run_id": 45026807537,
+  "job_id": 137221514858,
+  "published_head": "ae7485b343a374f04c460b09c9353d822f771e76",
+  "actual_ci_conclusion": "failure",
+  "failed_step": "Check architecture",
+  "cause": "single-line-only shadow instrumentation rejects gdformat multiline declarations",
+  "actual_owner_errors": [
+    "village_street_visual",
+    "village_board_visual",
+    "village_trade_visual"
+  ],
+  "original_contract_local": {
+    "tests": 7,
+    "errors": 3
+  },
+  "same_new_driver_red": {
+    "tests": 9,
+    "errors": 6,
+    "exit_code": 1
+  },
+  "same_new_driver_green": {
+    "tests": 9,
+    "errors": 0,
+    "exit_code": 0
+  },
+  "same_driver_sha256": "ef6ebace282a6fbd284d5f0c56f7a13d39d206253eaff16730834cc818b781b7",
+  "old_contract_sha256": "5900d5dc666fcd08b844bebbef933a605c43f45a045240a5d1a64c0687b8c721",
+  "fixed_contract_sha256": "39310c65ba8d4e9d5ccd58ed8dc18931c52d0dde7930f8eaef3cb9e9a0ec0c1f",
+  "current_and_historical_reader": {
+    "tests": 32,
+    "errors": 0,
+    "exit_code": 0
+  },
+  "historical_overlays_byte_exact": true,
+  "published_ci_pass": false,
+  "corrected_full_hook_pending": true,
+  "archive_sha256": "8a8094d298403455ad4a786ef058c683accbe21ccf1f95da6f48409afcf11b2c",
+  "members": {
+    "original-contract.txt": {
+      "bytes": 4797,
+      "sha256": "5900d5dc666fcd08b844bebbef933a605c43f45a045240a5d1a64c0687b8c721"
+    },
+    "regression-driver.txt": {
+      "bytes": 12110,
+      "sha256": "ef6ebace282a6fbd284d5f0c56f7a13d39d206253eaff16730834cc818b781b7"
+    },
+    "job.log": {
+      "bytes": 1048057,
+      "sha256": "19576350ba28ae6887a45be31664f3c097416fd45625e2a11634ae76ceb9af55"
+    },
+    "local-original.txt": {
+      "bytes": 3208,
+      "sha256": "44b9b3cfe4c7efbe7db2649f47433cfb3ea54b213ff02fb83d26625fe543b676"
+    },
+    "red.txt": {
+      "bytes": 6314,
+      "sha256": "c9f07e0f53f060c7a97f2cefb7ca59893bedb4790b52d1cb0eeae8079601f232"
+    },
+    "green.txt": {
+      "bytes": 107,
+      "sha256": "e5e622c583334ee87e753859f74161fb7628144b1ce28ae3dedef7f6ecf224fa"
+    },
+    "current-and-history.txt": {
+      "bytes": 132,
+      "sha256": "c66cacfceb078ec191a6536925d57b2ebf68a856797c2a1836bd5417ee0590b8"
+    },
+    "self-cancel.json": {
+      "bytes": 341,
+      "sha256": "aaea1f69cc30648ee572947562caa15b47bacb3aaaa6c257554bd73250afaf27"
+    },
+    "semantic-first-strict-legacy.txt": {
+      "bytes": 383643,
+      "sha256": "13529ec413240b56d060bb72e13edee6b7541519afa08d089401274a4ceb1320"
+    },
+    "semantic-accepted-baseline.txt": {
+      "bytes": 374744,
+      "sha256": "263da30f1ebac3d23643c347c25c83f0dcf4fc8409af21e1c3acaad6336a2d70"
+    }
+  },
+  "semantic-first-strict-legacy": {
+    "exit_code": 1,
+    "normal_unchanged": true,
+    "override_removed": true,
+    "cause": "forced strict mode on unchanged legacy directional owner; accepted baseline annotations were discarded by temporary overlay setup"
+  },
+  "semantic-accepted-baseline": {
+    "exit_code": 0,
+    "normal_unchanged": true,
+    "override_removed": true,
+    "owner_count": 7,
+    "preserved_existing_baseline": true
+  }
+}
