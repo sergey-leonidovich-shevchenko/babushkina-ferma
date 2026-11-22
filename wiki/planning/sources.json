@@ -1731,6 +1731,14 @@
       "file": "docs/epics/smith-stories/backlog.json",
       "group": "stories",
       "expected": 5
+    },
+    {
+      "id": "rainfall",
+      "title": "Дождь и мокрая деревня",
+      "format": "json",
+      "file": "docs/epics/rainfall/backlog.json",
+      "group": "visual",
+      "expected": 4
     }
   ],
   "queues": [
