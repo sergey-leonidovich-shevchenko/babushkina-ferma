@@ -22,6 +22,7 @@ const BridgeLayers := preload("res://scripts/presentation/overworld_bridge_layer
 const ContactShadows := preload("res://scripts/presentation/overworld_contact_shadows.gd")
 const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
 const HeroVisual := preload("res://scripts/systems/hero_visual_system.gd")
+const Version := preload("res://scripts/presentation/visual_version.gd")
 
 
 ## Координирует отрисовку текущего состояния без изменения игровой логики.
@@ -43,7 +44,7 @@ static func draw(game: Node2D) -> void:
 	TreeOcclusion.begin_frame(game)
 	WorldProjection.apply(game)
 	var separate_hero_contact: bool = (
-		game.current_location == "overworld"
+		(game.current_location == "overworld" and Version.enabled(game))
 		or game.BuildingSystem.is_interior(game.current_location)
 	)
 	if game.BuildingSystem.is_interior(game.current_location):
@@ -54,7 +55,8 @@ static func draw(game: Node2D) -> void:
 		game.VillageAmbientRenderer.draw_ground(game)
 		game.draw_farm()
 		ContactShadows.draw(game)
-		HeroVisual.draw_shadow(game, Pose.ground(game))
+		if separate_hero_contact:
+			HeroVisual.draw_shadow(game, Pose.ground(game))
 		VillagePropRenderer.draw(game, false)
 		game.draw_rpg_world()
 	else:
@@ -92,7 +94,11 @@ static func draw(game: Node2D) -> void:
 	game.FenceRenderer.draw_world(game)
 	game.PublishedLevelRenderer.draw_layer(game, "objects")
 	game.LevelEditorRenderer.draw_layer(game, "objects")
-	if game.current_location == "overworld" and game.get_node("WorldBackground").split_bridge_rails:
+	if (
+		game.current_location == "overworld"
+		and game.get_node("WorldBackground").split_bridge_rails
+		and Version.enabled(game)
+	):
 		var view := WorldProjection.view_rect(game)
 		var foot := Pose.ground(game)
 		WorldProjection.apply(game)

@@ -9,6 +9,7 @@ const WATER := preload("res://assets/game/locations/overworld/modular/water_mate
 const BridgeLayers := preload("res://scripts/presentation/overworld_bridge_layers.gd")
 const BRIDGE := BridgeLayers.TEXTURE
 const UnderwaterBottom := preload("res://scripts/presentation/underwater_bottom.gd")
+const Version := preload("res://scripts/presentation/visual_version.gd")
 const WaterMapRegistry := preload("res://scripts/systems/water_map_registry.gd")
 const FenceRenderer := preload("res://scripts/systems/fence_renderer.gd")
 const Ambient := preload("res://scripts/systems/village_ambient_renderer.gd")
@@ -210,6 +211,8 @@ static func draw_banks(canvas: Node2D) -> void:
 static func draw_underwater_bottom(
 	canvas: Node2D, season: String, weather: String = "clear", clipped: bool = false
 ) -> void:
+	if not Version.enabled(canvas):
+		return
 	var tint := ground_tint(season, weather) * Color("f4f0df")
 	UnderwaterBottom.draw(
 		canvas, surface_polygons(clipped), &"overworld-clipped" if clipped else &"overworld", tint
@@ -246,7 +249,11 @@ static func draw_surface(
 ) -> void:
 	var snapshot: Dictionary = WaterMapRegistry.visual("overworld")
 	var regions: Array = snapshot.regions
-	var base_tint := water_surface_tint(season, weather)
+	var base_tint := (
+		water_surface_tint(season, weather)
+		if Version.enabled(canvas)
+		else ground_tint(season, weather)
+	)
 	var frame := PackedVector2Array(
 		[
 			Vector2.ZERO,
@@ -295,7 +302,7 @@ static func draw_cutouts(canvas: Node2D) -> void:
 
 
 ## Ставит секцию ограды в блокирующую клетку, сохраняя широкие проёмы.
-static func _draw_fences(canvas: Node2D, tint: Color) -> void:
+static func draw_legacy_fences(canvas: Node2D, tint: Color) -> void:
 	for span: Rect2i in MapData.FENCE_SPANS:
 		var vertical: bool = span.size.y > span.size.x
 		for y in range(span.position.y, span.end.y):

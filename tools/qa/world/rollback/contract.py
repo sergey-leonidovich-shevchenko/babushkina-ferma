@@ -1,0 +1,123 @@
+"""Закреплённые Git-входы и полный набор кадров настоящего отката первой карты."""
+
+from __future__ import annotations
+
+from tools.qa.world.weather.contract import ROOT as ROOT
+from tools.qa.world.weather.contract import (
+    check_export as check_export,
+)
+from tools.qa.world.weather.contract import (
+    digest as digest,
+)
+from tools.qa.world.weather.contract import (
+    git,
+    need,
+)
+
+BASE = "820b73b2ed59ce78639e87100bffe5d7b88274f9"
+PREFIX = "tools/qa/world/rollback/"
+WIDTHS = (1152, 1280)
+SEED = 20261015
+TERRAIN_FLAGS = (
+    "base_only",
+    "painted_grass",
+    "soft_ground_edges",
+    "rectangular_roads",
+    "joined_roads",
+    "soft_plaza",
+    "soft_garden",
+    "color_patches",
+    "separate_bridge_rails",
+)
+CAMERAS = ("home", "garden", "animals", "square", "west-bank", "east-bank", "evening", "old-return")
+FRAME_IDS = {f"{camera}-{mode}" for camera in CAMERAS for mode in ("on", "off", "restore")} | {
+    "old-interior-on",
+    "old-interior-off",
+    "repeat-before",
+    "repeat-after",
+    "startup-on",
+    "startup-off",
+    "twin-0-0",
+    "twin-0-1",
+    "twin-1-0",
+    "twin-1-1",
+}
+PRODUCTION = (
+    "scripts",
+    "assets",
+    "main.tscn",
+    "project.godot",
+    "VERSION",
+    "level_designs",
+    "tests/fixtures/saves",
+)
+GD = tuple(PREFIX + name + ".gd" for name in ("game", "cases", "capture", "profile"))
+INPUTS = (
+    tuple(path for name in GD for path in (name, name + ".uid"))
+    + (
+        "tools/qa/camera/visual_camera_points.gd",
+        "docs/reports/visual-overhaul/vbase-003/camera-points.json",
+        "tools/qa/world/weather/contract.py",
+        "tools/qa/world/weather/collect.py",
+        "tools/qa/world/weather/verify.py",
+        "tools/qa/world/weather/archive.py",
+        "tools/run.py",
+        "tools/common/git.py",
+        "tools/common/paths.py",
+        "tools/common/launch.py",
+        ".github/workflows/vcompat-010.yml",
+    )
+    + tuple(
+        PREFIX + name
+        for name in ("__init__.py", "contract.py", "collect.py", "verify.py", "archive.py")
+    )
+)
+
+
+def blobs(commit: str) -> dict[str, str]:
+    """Закрепляет runtime, все ресурсы, уровни и старые JSON по настоящим Git-объектам."""
+    result = {}
+    for row in git("ls-tree", "-rz", commit, "--", *PRODUCTION).split(b"\0"):
+        if row:
+            metadata, path = row.split(b"\t", 1)
+            mode, kind, oid = metadata.decode().split()
+            need(kind == "blob" and mode in ("100644", "100755"), "unexpected production entry")
+            result[path.decode()] = oid
+    need(len(result) > 3000, "incomplete production inventory")
+    return result
+
+
+def artifacts() -> set[str]:
+    """Требует каждую реальную картинку, журнал, код завершения и снимок исходников."""
+    result = set()
+    for variant in ("baseline", "candidate"):
+        result.add(variant + "/production-blobs.json")
+        for label in (
+            "import-profile",
+            "import",
+            "compile",
+            "1152-profile",
+            "1280-profile",
+            "1152",
+            "1280",
+        ):
+            result.update(f"{variant}/{label}{suffix}" for suffix in (".txt", ".launch.json"))
+        for width in WIDTHS:
+            folder = f"{variant}/{width}/"
+            result.add(folder + "capture.json")
+            result.update(folder + name + ".png" for name in FRAME_IDS)
+    return result
+
+
+def export_inputs() -> tuple[str, dict[str, bytes]]:
+    """Не позволяет снимать непринятый dirty overlay вместо опубликованного exact head."""
+    head = git("rev-parse", "HEAD").decode().strip()
+    need(
+        not git("status", "--porcelain", "--untracked-files=all"),
+        "clean committed checkout required",
+    )
+    data = {name: git("show", head + ":" + name) for name in INPUTS}
+    need(
+        all((ROOT / name).read_bytes() == raw for name, raw in data.items()), "committed QA differs"
+    )
+    return head, data

@@ -1,0 +1,37 @@
+{
+  "old": {
+    "tests": 1,
+    "failures": 2,
+    "errors": 0,
+    "passed": false,
+    "log": "raw-logs.zip#old-02.txt"
+  },
+  "current": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "passed": true,
+    "log": "raw-logs.zip#current-02.txt"
+  },
+  "native_evidence": false,
+  "original_data_modified": false,
+  "old_subject": "old-contract.txt",
+  "old_source_sha256": "a0ad73d98ea72e18afe936624cc169e3fffe8ff070eb7f5aac46eee44b1939b7",
+  "current_source_sha256": "10d18a1ce0f1c0a4da787cefa91d6124c228c6e84ee9787be14cbf421a543d7f",
+  "test_source_sha256": "8f2d53c14c2c92f1de457afa184e98d5c65d42d5008cb24aff0bffd2428cb5f0",
+  "test": "tools.qa.world.rollback.test_contract.ContractTests.test_executed_data_and_other_assets_reject_tampering",
+  "prior_diagnostic": "run-01.json",
+  "note": "Second execution uses the exact final formatted test source. Raw first-run logs and subject were preserved. First-run test digest was recorded after formatting and is not used as byte-bound execution evidence; the second run supplies the final exact source digest. Raw run-01 log names refer to ZIP entries.",
+  "raw_logs": {
+    "archive": "raw-logs.zip",
+    "sha256": "fe70b30f885b4d488e678042a9f33fee8f1fca6387bffa7335e4b44dbd7583e2",
+    "entries": {
+      "old.txt": "6be674306c60a32316f52d0e72843380e10537b6bc25df5568a7e9ed3a7be201",
+      "current.txt": "191e0f07b18a728f13eb972bffafb4291295b332b96d3f1a5b36006a30a9b560",
+      "old-02.txt": "bb25e18af65d89e06e46722d11398f9575d36e7c867a5bcf0b47ca279aba9dbf",
+      "current-02.txt": "689732a5cc60368aa3f5371aa4ef422f7eadc0e455823042205e15ab5c4579fb"
+    },
+    "byte_exact_after_decode": true,
+    "reason": "Preserves original unittest output including its meaningful raw trailing spaces without treating captured output as editable source."
+  }
+}

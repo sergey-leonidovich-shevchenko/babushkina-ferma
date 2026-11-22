@@ -1,0 +1,95 @@
+{
+  "task": "VCOMPAT-010",
+  "stage": "completed_validation_of_capture_head_before_report_commit",
+  "head": "1c0590048f38c8f8448abf48a88bb9a4e314f7f5",
+  "tree": "8550a2b4416be44a81e4613aa12f0be9f02f515f",
+  "version": "0.0.486",
+  "full_hook": {
+    "exit_code": 0,
+    "quality_files": 249,
+    "quality_failed_steps": 0,
+    "architecture_groups": 130,
+    "architecture_tests": 1709,
+    "game": [
+      53986,
+      0
+    ],
+    "normal": [
+      90,
+      0
+    ],
+    "f10": [
+      90,
+      0
+    ],
+    "normal_unchanged": true,
+    "override_removed": true,
+    "frozen_source_and_proof_blobs_verified": 34,
+    "semver_files": 3
+  },
+  "post_bump_wiki": {
+    "build_typescript_exit_code": 0,
+    "tests": [
+      167,
+      0
+    ],
+    "normal_unchanged": true,
+    "override_removed": true,
+    "browser_proof": "p2-post-bump-browser.json",
+    "browser_image": "p2-post-bump-390.jpg",
+    "widths": [
+      1280,
+      390
+    ],
+    "new_visible_json_bytes_exact": 2,
+    "overflow": false,
+    "console_warn_error": [],
+    "viewport_reset": true
+  },
+  "native": {
+    "summary": "native-ci-02/summary.json",
+    "png": 136,
+    "runs": 4,
+    "reversible": true,
+    "baseline_unwired_reproduced": true,
+    "seed": 20261015,
+    "negative_controls_rejected": 8
+  },
+  "independent_review": {
+    "source_pass": 6013201866,
+    "native_finding": 4658898780,
+    "p2_resolved": true,
+    "final_approved": false
+  },
+  "normal_userdata_scope_note": "Successful isolated phases preserved normal files. The earlier unisolated Wiki attempt rotated two ordinary log files; its failure remains in the report, not rewritten as PASS.",
+  "new_report_commit_hook_pending": true,
+  "new_report_commit_wiki_pending": true,
+  "new_report_commit_ci_and_review_pending": true,
+  "task_complete": false,
+  "vmap_003_accepted": false,
+  "logs_zip_sha256": "dd8d56f0ecd14d4b764fca6aac0ae315c95fc4b8560336cab09596b8aab81681",
+  "log_members": {
+    "full-hook.json": {
+      "bytes": 4971,
+      "sha256": "2a8c65589ea707252ee6eb3ebdbd78293623834ad7f658da43dd235471736724"
+    },
+    "full-hook.stdout.txt": {
+      "bytes": 427650,
+      "sha256": "7e01b45f8da767d312ab2dfb9c289d00d3abd2a4ac5d3c05525bea4fe765a15e"
+    },
+    "post-bump-wiki.json": {
+      "bytes": 4914,
+      "sha256": "9734a7570f48c03cd7d5088da21ff7edaa972e55798ae503940286af50bdbd72"
+    },
+    "post-bump-wiki.stdout.txt": {
+      "bytes": 15904,
+      "sha256": "9d271e072477f1894bf5da74d81b94c19d4790806da53f75900d0d25640ba2eb"
+    },
+    "browser.json": {
+      "bytes": 1096,
+      "sha256": "95574cc4247c3606c8c8e50b4acbe83a720736d3e8880c3baec3884bfd890042"
+    }
+  },
+  "capture_head_all_four_workflows_success": true,
+  "ci_status": "native-ci-02/ci-status.json"
+}

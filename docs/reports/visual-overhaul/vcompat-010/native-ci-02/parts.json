@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "format": "zip-parts-v1",
+  "task": "VCOMPAT-010",
+  "bytes": 131469076,
+  "sha256": "cb87148e9b49a9d5dca75dc8abd23b8af3a41dc4deabeb91ea667e4b9e2edc1a",
+  "parts": [
+    {
+      "file": "artifact.zip.001",
+      "bytes": 50331648,
+      "sha256": "2f0ea3d624fe9e35b335de1e49c27bb5073b5c1155b428811f445e50ef39240f"
+    },
+    {
+      "file": "artifact.zip.002",
+      "bytes": 50331648,
+      "sha256": "ab30839c1b07fe671bdc7dca8623f040d54c1e237e2e71208d09d8675ba0a332"
+    },
+    {
+      "file": "artifact.zip.003",
+      "bytes": 30805780,
+      "sha256": "f64e6e0b9453136d33f15968b0c7cb4aae69ed7c0b2de856dc9bac9e7e105cfb"
+    }
+  ]
+}

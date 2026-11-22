@@ -11,6 +11,8 @@ const Visibility := preload("res://scripts/systems/world_visibility_system.gd")
 
 ## Ставит контакт на землю под игровыми телами и независимо от временных эффектов.
 static func draw(game: Node2D) -> void:
+	if not preload("res://scripts/presentation/visual_version.gd").enabled(game):
+		return
 	var ground_view := Visibility.visible_rect(game)
 	var workbench_ground: Vector2 = game.workbench_position + Vector2(0, 24)
 	_draw_inside(game, Shapes.Shape.TABLE, workbench_ground, ground_view.grow(24))

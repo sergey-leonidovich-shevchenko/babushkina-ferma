@@ -1,0 +1,100 @@
+{
+  "task": "VCOMPAT-010",
+  "capture_head": "1c0590048f38c8f8448abf48a88bb9a4e314f7f5",
+  "base": "820b73b2ed59ce78639e87100bffe5d7b88274f9",
+  "run_id": 45041661293,
+  "job_id": 137267236311,
+  "artifact_id": 14762117327,
+  "ci_conclusion": "success",
+  "archive_sha256": "cb87148e9b49a9d5dca75dc8abd23b8af3a41dc4deabeb91ea667e4b9e2edc1a",
+  "archive_bytes": 131469076,
+  "archive_parts": 3,
+  "reader": {
+    "task": "VCOMPAT-010",
+    "head": "1c0590048f38c8f8448abf48a88bb9a4e314f7f5",
+    "native_png": 136,
+    "runs": 4,
+    "reversible": true,
+    "baseline_unwired_reproduced": true,
+    "performance_eligible": false
+  },
+  "negative_controls_rejected": 8,
+  "original_archive_unchanged": true,
+  "series": [
+    {
+      "variant": "baseline",
+      "width": 1152,
+      "frames": 34,
+      "seed": 20261015,
+      "capture_sha256": "1191d910e4bac09c0b66df7cd33a0564d01059e793b8005b9c0bdced23ab7b64"
+    },
+    {
+      "variant": "baseline",
+      "width": 1280,
+      "frames": 34,
+      "seed": 20261015,
+      "capture_sha256": "73c24906cf2ff817be73e17c67baf058e5f2ad06f6d9bcfd6cbec26ef0bcf1e9"
+    },
+    {
+      "variant": "candidate",
+      "width": 1152,
+      "frames": 34,
+      "seed": 20261015,
+      "capture_sha256": "ce015e94a7b1fef4f124d3f85bde16b507411f5e8c039776b1e1b4bfc669ce06"
+    },
+    {
+      "variant": "candidate",
+      "width": 1280,
+      "frames": 34,
+      "seed": 20261015,
+      "capture_sha256": "3f5584b552547c29e22a6e16a64ab7cd8bd0e047965ec69d9d66fffc2a3c1919"
+    }
+  ],
+  "visual_inspection": {
+    "contact_sheet_frames": 136,
+    "contact_sheets": 4,
+    "full_resolution_candidate_1280": [
+      "home-on",
+      "home-off",
+      "west-bank-on",
+      "west-bank-off"
+    ],
+    "finding": "on equals accepted baseline and restores exactly; off uses preserved fallback at the same world positions; same inventory and HUD; interior unchanged",
+    "whole_map_art_acceptance": false
+  },
+  "independent_source_review": 6013201866,
+  "independent_native_finding": 4658898780,
+  "p2_resolved": true,
+  "final_approved": false,
+  "report_head_full_hook_pending": true,
+  "report_head_ci_pending": true,
+  "vmap_003_accepted": false,
+  "performance_eligible": false,
+  "logs_zip_sha256": "49e0c97492d0f90e34e1f9a941948d8fedb26e6a7460373e13c70b768fac55b1",
+  "log_members": {
+    "native-job.log": {
+      "bytes": 51819,
+      "sha256": "a75635bb98d6721d8aa0e6c987da3aa14e078cbd7d2cb6e197fe461d5a47511b"
+    },
+    "reader-controls.txt": {
+      "bytes": 877,
+      "sha256": "c380298dc64c7dc7f1de13ad48fac4ed3acb8e3e7c912c484c69d79030097965"
+    },
+    "reproduce-controls.txt": {
+      "bytes": 4187,
+      "sha256": "4e6f480ce4a963cfcec41d820313dd74aefa82bf5b7376a84c5e9175553668c1"
+    },
+    "inspection-driver.txt": {
+      "bytes": 1343,
+      "sha256": "f99e8c931ae1ed8b4dc0474eb21bf64d392a8828513cb407fafdc793880ec288"
+    },
+    "parts-reader.txt": {
+      "bytes": 194,
+      "sha256": "c7b7986ea4e16a9e36f1af7ddedbecbd9fd37b39854710fb6ab4e54540a2de88"
+    }
+  },
+  "checked_capture_head_current_candidate": true,
+  "parts_cli_exit_code": 0,
+  "capture_head_all_four_workflows_success": true,
+  "ci_status": "ci-status.json"
+}

@@ -1,0 +1,24 @@
+{
+  "old": {
+    "tests": 1,
+    "failures": 2,
+    "errors": 0,
+    "passed": false,
+    "log": "old.txt"
+  },
+  "current": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "passed": true,
+    "log": "current.txt"
+  },
+  "old_source_sha256": "a0ad73d98ea72e18afe936624cc169e3fffe8ff070eb7f5aac46eee44b1939b7",
+  "current_source_sha256": "10d18a1ce0f1c0a4da787cefa91d6124c228c6e84ee9787be14cbf421a543d7f",
+  "native_evidence": false,
+  "subject_origin": "Exact saved source from verified own WIP archive before input-closure fix; archive manifest pins its SHA256.",
+  "old_subject": "old-contract.txt",
+  "test": "tools.qa.world.rollback.test_contract.ContractTests.test_executed_data_and_other_assets_reject_tampering",
+  "current_test_sha256": "8f2d53c14c2c92f1de457afa184e98d5c65d42d5008cb24aff0bffd2428cb5f0",
+  "original_data_modified": false
+}

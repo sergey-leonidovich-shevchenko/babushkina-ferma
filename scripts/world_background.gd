@@ -35,6 +35,7 @@ const VillageTerrainCanvas := preload("res://scripts/presentation/village_terrai
 const VillageWaterSurface := preload("res://scripts/presentation/village_water_surface.gd")
 const ViewportWorldContext := preload("res://scripts/presentation/viewport_world_context.gd")
 const VisualReferenceMode := preload("res://scripts/presentation/visual_reference_mode.gd")
+const VisualVersion := preload("res://scripts/presentation/visual_version.gd")
 const VillageTerrainRenderer := preload("res://scripts/systems/village_terrain_renderer.gd")
 const VillageMapPreviewSystem := preload("res://scripts/systems/village_map_preview_system.gd")
 const VillageRegionData := preload("res://scripts/systems/village_region_data.gd")
@@ -307,7 +308,7 @@ func set_soft_garden(enabled: bool) -> void:
 func _sync_ground_layers() -> void:
 	if water_layer == null or cover_layer == null:
 		return
-	var enabled := location == "overworld" and ground_split
+	var enabled := location == "overworld" and ground_split and VisualVersion.enabled(self)
 	water_layer.visible = (
 		enabled and terrain_ready and not (get_meta("terrain_direct", false) == true)
 	)
@@ -453,16 +454,17 @@ func invalidate_terrain_rect(rect: Rect2) -> bool:
 ## Переносит текущие визуальные флаги в существующий CanvasItem
 ## без смены текстур или игровых данных.
 func _configure_terrain_canvas() -> void:
+	var modern := VisualVersion.enabled(self)
 	terrain_canvas.location = location
-	terrain_canvas.base_only = location == "overworld" and ground_split
-	terrain_canvas.painted_grass = painted_grass
-	terrain_canvas.soft_ground_edges = soft_ground_edges
-	terrain_canvas.rectangular_roads = rectangular_roads
-	terrain_canvas.joined_roads = joined_roads
-	terrain_canvas.soft_plaza = soft_plaza
-	terrain_canvas.soft_garden = soft_garden
-	terrain_canvas.color_patches = ground_color_patches
-	terrain_canvas.separate_bridge_rails = split_bridge_rails
+	terrain_canvas.base_only = location == "overworld" and ground_split and modern
+	terrain_canvas.painted_grass = painted_grass and modern
+	terrain_canvas.soft_ground_edges = soft_ground_edges and modern
+	terrain_canvas.rectangular_roads = rectangular_roads and modern
+	terrain_canvas.joined_roads = joined_roads and modern
+	terrain_canvas.soft_plaza = soft_plaza and modern
+	terrain_canvas.soft_garden = soft_garden and modern
+	terrain_canvas.color_patches = ground_color_patches and modern
+	terrain_canvas.separate_bridge_rails = split_bridge_rails and modern
 	terrain_canvas.season = season
 	terrain_canvas.weather = weather
 	terrain_canvas.queue_redraw()
@@ -587,6 +589,7 @@ func draw_adventure_location() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_overworld() -> void:
+	var modern := VisualVersion.enabled(self)
 	if terrain_ready and not (get_meta("terrain_direct", false) == true):
 		draw_texture_rect(
 			terrain_viewport.get_texture(),
@@ -598,17 +601,21 @@ func draw_overworld() -> void:
 			self,
 			season,
 			weather,
-			painted_grass,
-			soft_ground_edges,
-			rectangular_roads,
-			joined_roads,
-			soft_plaza,
-			soft_garden,
-			ground_color_patches,
-			split_bridge_rails
+			painted_grass and modern,
+			soft_ground_edges and modern,
+			rectangular_roads and modern,
+			joined_roads and modern,
+			soft_plaza and modern,
+			soft_garden and modern,
+			ground_color_patches and modern,
+			split_bridge_rails and modern
 		)
 		VillageRegionTerrain.paths(
-			self, location, soft_ground_edges, rectangular_roads, joined_roads
+			self,
+			location,
+			soft_ground_edges and modern,
+			rectangular_roads and modern,
+			joined_roads and modern
 		)
 
 
