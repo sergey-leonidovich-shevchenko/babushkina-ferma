@@ -1,0 +1,78 @@
+name: VCOMPAT-010 visual rollback
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/vcompat-010.yml'
+      - 'scripts/presentation/visual_version.gd*'
+      - 'tools/qa/world/rollback/**'
+      - 'tests/suites/visual_rollback_suite.gd*'
+      - 'docs/reports/visual-overhaul/vcompat-010/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native_rollback:
+    name: Visual rollback native X11
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      VCOMPAT_EXPECTED_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+      LIBGL_ALWAYS_SOFTWARE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - name: Set isolated evidence paths
+        run: |
+          echo "FARM_GODOT_BIN=$RUNNER_TEMP/vcompat-010/Godot_v4.7.1-stable_linux.x86_64" >> "$GITHUB_ENV"
+          echo "VCOMPAT_OUTPUT=$RUNNER_TEMP/vcompat-010/evidence" >> "$GITHUB_ENV"
+      - name: Install rendering and reader dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y fonts-noto-cjk fonts-liberation xvfb xauth libgl1-mesa-dri libglx-mesa0
+          python -m pip install Pillow==11.3.0
+      - name: Download official pinned Godot 4.7.1
+        run: |
+          mkdir -p "$(dirname "$FARM_GODOT_BIN")"
+          curl -fsSL -o "${FARM_GODOT_BIN}.zip" https://github.com/godotengine/godot/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip
+          GODOT_ZIP="${FARM_GODOT_BIN}.zip" python -c 'import hashlib,os,pathlib; assert hashlib.sha256(pathlib.Path(os.environ["GODOT_ZIP"]).read_bytes()).hexdigest() == "c7ff14fd28472c8d4f193043de30278dcf7e5241a1dcf7566b02e27addaa33ba"'
+          unzip -q "${FARM_GODOT_BIN}.zip" -d "$(dirname "$FARM_GODOT_BIN")"
+          chmod +x "$FARM_GODOT_BIN"
+      - name: Collect genuine baseline and candidate frames
+        run: |
+          set -o pipefail
+          xvfb-run -a -s '-screen 0 1280x720x24' python tools/run.py qa.world.rollback.collect --output "$VCOMPAT_OUTPUT" |& tee "$RUNNER_TEMP/vcompat-010/collection.txt"
+      - name: Verify source, physical windows, reversible pixels and independent viewports
+        run: |
+          set -o pipefail
+          python tools/run.py qa.world.rollback.verify --output "$VCOMPAT_OUTPUT" --expected-head "$VCOMPAT_EXPECTED_HEAD" --check-current-candidate | tee "$RUNNER_TEMP/vcompat-010/verification.txt"
+      - name: Preserve raw evidence including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vcompat-010-native
+          path: |
+            ${{ env.VCOMPAT_OUTPUT }}/source.json
+            ${{ env.VCOMPAT_OUTPUT }}/inputs
+            ${{ env.VCOMPAT_OUTPUT }}/baseline/production-blobs.json
+            ${{ env.VCOMPAT_OUTPUT }}/baseline/*.txt
+            ${{ env.VCOMPAT_OUTPUT }}/baseline/*.launch.json
+            ${{ env.VCOMPAT_OUTPUT }}/baseline/1152
+            ${{ env.VCOMPAT_OUTPUT }}/baseline/1280
+            ${{ env.VCOMPAT_OUTPUT }}/candidate/production-blobs.json
+            ${{ env.VCOMPAT_OUTPUT }}/candidate/*.txt
+            ${{ env.VCOMPAT_OUTPUT }}/candidate/*.launch.json
+            ${{ env.VCOMPAT_OUTPUT }}/candidate/1152
+            ${{ env.VCOMPAT_OUTPUT }}/candidate/1280
+            ${{ runner.temp }}/vcompat-010/collection.txt
+            ${{ runner.temp }}/vcompat-010/verification.txt
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14

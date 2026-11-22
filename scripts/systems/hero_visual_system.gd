@@ -114,7 +114,10 @@ static func draw_actor(
 
 ## Мировой проход вызывает контакт до лута; самостоятельные превью сохраняют прежний default.
 static func draw_shadow(game: Node2D, ground: Vector2) -> void:
-	if game.get("current_location") == "overworld":
+	if (
+		game.get("current_location") == "overworld"
+		and preload("res://scripts/presentation/visual_version.gd").enabled(game)
+	):
 		ContactShadows.draw(game, ContactShadows.Shape.BOOTS, ground)
 	else:
 		# Игровой фасад и витрина персонажей оба предоставляют эту систему.

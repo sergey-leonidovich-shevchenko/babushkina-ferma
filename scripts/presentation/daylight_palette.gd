@@ -9,7 +9,10 @@ const WARM_ALPHA := 0.08
 ## Временный откат принадлежит одному canvas и никогда не сохраняется в настройках.
 static func enabled(canvas: CanvasItem) -> bool:
 	var value: Variant = canvas.get_meta(LEGACY, false)
-	return not (value is bool and value)
+	return (
+		not (value is bool and value)
+		and preload("res://scripts/presentation/visual_version.gd").enabled(canvas)
+	)
 
 
 ## Использует календарные дробные минуты; не создаёт собственных часов или кешей.

@@ -23,6 +23,8 @@ const Board := preload("res://scripts/presentation/village_board_visual.gd")
 const PilotPass := preload("res://scripts/presentation/pilot_object_pass.gd")
 const Lamp := preload("res://scripts/presentation/village_lamp_visual.gd")
 const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
+const Version := preload("res://scripts/presentation/visual_version.gd")
+const Fence := preload("res://scripts/systems/fence_renderer.gd")
 const GROUND_OFFSET := Vector2(0, 24)
 
 
@@ -30,10 +32,17 @@ const GROUND_OFFSET := Vector2(0, 24)
 static func draw(game: Node2D, foreground: bool) -> void:
 	if game.get("current_location") != "overworld":
 		return
-	preload("res://scripts/presentation/village_fence_visual.gd").draw_farm(game, foreground)
-	Board.draw_signs(game, foreground)
+	var modern := Version.enabled(game)
+	if modern:
+		preload("res://scripts/presentation/village_fence_visual.gd").draw_farm(game, foreground)
+	elif not foreground:
+		preload("res://scripts/systems/village_terrain_renderer.gd").draw_legacy_fences(
+			game, Fence.climate_color(game)
+		)
+	if modern:
+		Board.draw_signs(game, foreground)
 	var visible := WorldVisibility.visible_rect(game)
-	if not foreground:
+	if not foreground and modern:
 		for prop: Dictionary in Layout.PROP_PLACEMENTS:
 			var position: Vector2 = prop.position
 			var ground := position + GROUND_OFFSET
@@ -57,6 +66,12 @@ static func draw(game: Node2D, foreground: bool) -> void:
 			continue
 		var ground := position + GROUND_OFFSET
 		var kind: String = prop.kind
+		if not modern:
+			var legacy_rect: Rect2 = Layout.prop_rect(prop)
+			if visible.intersects(legacy_rect, true):
+				var legacy_texture: Texture2D = Props[kind]
+				game.draw_texture_rect(legacy_texture, legacy_rect, false)
+			continue
 		if kind == "board":
 			if visible.intersects(Board.destination("board", ground), true):
 				PilotPass.draw(game, prop, foreground, Board.draw.bind(game, "board", ground))

@@ -1,3 +1,7 @@
+# Runtime facade fields and legacy dictionaries are exercised by the game suites.
+@warning_ignore_start(
+	"untyped_declaration", "unsafe_call_argument", "unsafe_method_access", "unsafe_property_access"
+)
 extends Node
 
 const Ambient := preload("res://scripts/systems/village_ambient_renderer.gd")
@@ -42,12 +46,14 @@ static func placements() -> Array:
 	return result
 
 
-## Разрешает локальный эффект; некорректный флаг, low, эталон и доступность дают неподвижный прежний спрайт.
+## Разрешает локальный эффект; некорректный флаг, low, эталон и доступность дают неподвижный
+## прежний спрайт.
 static func allowed(game: Node) -> bool:
 	var flag: Variant = game.get_meta(FLAG, true)
 	return (
 		typeof(flag) == TYPE_BOOL
 		and flag
+		and preload("res://scripts/presentation/visual_version.gd").enabled(game)
 		and game.get_meta(QUALITY, "normal") == "normal"
 		and game.current_location == "overworld"
 		and not game.title_screen
@@ -58,7 +64,8 @@ static func allowed(game: Node) -> bool:
 	)
 
 
-## Готовит визуальные ресурсы вне draw; часы читает из завершённой симуляции, включая остановленную паузу.
+## Готовит визуальные ресурсы вне draw; часы читает из завершённой симуляции, включая
+## остановленную паузу.
 static func update(game: Node2D) -> void:
 	if not game.is_inside_tree():
 		return
@@ -91,7 +98,8 @@ static func update(game: Node2D) -> void:
 	owner.prepare(game, visible)
 
 
-## Хранит одну ограниченную группу видов; при DPI меняет старый target синхронно и не накапливает viewport.
+## Хранит одну ограниченную группу видов; при DPI меняет старый target синхронно и не
+## накапливает viewport.
 func prepare(game: Node2D, visible: Array) -> void:
 	var scale := clampi(
 		ceili(game.get_viewport().get_texture().get_size().x / 1152.0 * WorldProjection.zoom(game)),
@@ -155,7 +163,8 @@ static func draw(game: Node2D, kind: String, position: Vector2, tint: Color) -> 
 	return false
 
 
-## Возвращает ограниченные счётчики для QA без создания узлов, массива кадров или игрового состояния.
+## Возвращает ограниченные счётчики для QA без создания узлов, массива кадров или игрового
+## состояния.
 static func statistics(game: Node) -> Dictionary:
 	var owner: Node = game.get_node_or_null(NAME)
 	if owner == null:

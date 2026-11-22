@@ -795,6 +795,12 @@ tools/qa/world/weather/*
 !tools/qa/world/weather/*.gd
 !tools/qa/world/weather/*.gd.uid
 !tools/qa/world/weather/README.md
+!tools/qa/world/rollback/
+tools/qa/world/rollback/*
+!tools/qa/world/rollback/*.py
+!tools/qa/world/rollback/*.gd
+!tools/qa/world/rollback/*.gd.uid
+!tools/qa/world/rollback/README.md
 !tools/qa/world/shadows/
 tools/qa/world/shadows/*
 !tools/qa/world/shadows/*.py

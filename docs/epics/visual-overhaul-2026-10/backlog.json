@@ -7977,7 +7977,7 @@
       "id": "VCOMPAT-010",
       "epic": "VCOMPAT",
       "title": "Проверить откат визуальной версии",
-      "status": "ready",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
