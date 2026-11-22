@@ -176,6 +176,7 @@ python3 tools/run.py qa.world.lighting.comparison.test_contract
 python3 tools/run.py qa.world.lighting.comparison.test_reader
 python3 tools/run.py qa.world.lighting.daycycle.test_contract
 python3 tools/run.py qa.world.lighting.daycycle.test_reader
+python3 tools/run.py qa.world.lighting.quality.test_contract
 python3 tools/run.py qa.world.weather.test_contract
 python3 tools/run.py qa.world.weather.test_reader
 python3 tools/run.py qa.world.rollback.test_contract
