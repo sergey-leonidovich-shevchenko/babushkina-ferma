@@ -5283,7 +5283,7 @@
       "id": "VWEATHER-001",
       "epic": "VWEATHER",
       "title": "Определить согласованный visual clock погоды",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P2",
       "phase": "pilot",
       "kind": "engineering",
@@ -5320,13 +5320,14 @@
       },
       "branch": "codex/vweather-001-visual-task",
       "evidence": [
-        "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/84 — draft; head 8689c111 прошёл полный hook и native CI; полный комплект ещё не получил независимого одобрения, in_progress.",
-        "docs/reports/visual-overhaul/vweather-001/PLAN.md — база, полные needs и границы.",
-        "docs/reports/visual-overhaul/vweather-001/native-ci-02/summary.json — original ZIP/SHA, 160 настоящих PNG, четыре серии, шесть совпавших pause-пар и успешный clean current-candidate head 8689c111.",
-        "docs/reports/visual-overhaul/vweather-001/native-ci-02/local-gates.json — quality 219/0, architecture 127, Game 53 759/0, normal 90/0, F10 90/0, Wiki 167/0 на head 8689c111.",
-        "docs/reports/visual-overhaul/vweather-001/failures/ci-01.json — прежний failure не переписан; old CLI exit1 → corrected CLI exit0, reader 14/0.",
-        "wiki/articles/weather-clock.md — реальные сравнения и ограничения; VWEATHER-003 и VMAP-003 не приняты."
-      ]
+        "[PR №84](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/84)",
+        "[Приёмка точного head и merge](../../../reports/visual-overhaul/vweather-001/closeout/result.json)",
+        "[Исходная нативная серия и границы](../../../reports/visual-overhaul/vweather-001/README.md)",
+        "[Матрица 160 PNG и SHA исходного ZIP](../../../reports/visual-overhaul/vweather-001/native-ci-02/summary.json)",
+        "[Первый отказ CI и воспроизведение reader](../../../reports/visual-overhaul/vweather-001/failures/ci-01.json)",
+        "[Погода и игровая пауза](../../../../wiki/articles/weather-clock.md)"
+      ],
+      "result": "22 ноября 2026 VWEATHER-001 принята в PR №84: exact head 2b490b3e7d87a80f3634f3e15d75f993c099d83c, tree f8f46011a595c1aba84b4fdd6ce84567487f78f2, версия 0.0.479, независимое APPROVED 6008790041, все 11 CI и решение Team Lead. Обычный merge 2c96121133c48d52ececd61bffc023ac2b6eea0a имеет родителей 0ca4eb345933d2766b340f3d79ea45fb4f38cf5b и одобренный head; tree совпадает. Одни immutable transient-часы осадков на game/viewport/background/world продвигаются после разрешённого движения, не накапливают долг паузы и сбрасываются при переходе/загрузке/восстановлении. Reduced motion сохраняет статичные осадки без вспышки; прогноз, календарь, save, геометрия и рисунок сохранены. Captured 8689c111: 160 PNG / четыре серии, шесть совпавших candidate pause-пар, движущиеся baseline, resume без catch-up, два независимых viewport; strict-current окончательного head и его новый native CI успешны. Полный локальный hook: quality 219/0, architecture 127 групп, Game 53 759/0, normal/F10 по 90/0; Wiki 167/0. CI отдельно: Game 53 777/0, water 55/0, smoke 180 и шесть валидных performance-серий в каждом test job. Независимый браузер 1280/390, шесть исходных PNG и точные JSON/HTTP подтверждены. CI1 failure и все frozen evidence сохранены; другие 1036 карточек/top metadata/planning не меняются. Полная запись: docs/reports/visual-overhaul/vweather-001/closeout/result.json. Собственные gates, CI, независимое ревью и решение Team для отдельного учётного PR ещё обязательны. Маски крыш VWEATHER-003, новый рисунок осадков, GPU/FPS/Retina/long-session и VMAP-003 не приняты."
     },
     {
       "id": "VWEATHER-002",

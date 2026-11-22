@@ -6,7 +6,7 @@
 
 ## VWEATHER-001 — Определить согласованный visual clock погоды
 
-Статус: `in_progress` · P2 · этап `pilot` · `engineering`
+Статус: `done` · P2 · этап `pilot` · `engineering`
 
 Осадки не живут на независимом настенном таймере при ручной паузе; переход карты сбрасывает локальные частицы
 
@@ -38,7 +38,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/84 — draft; head 8689c111 прошёл полный hook и native CI; полный комплект ещё не получил независимого одобрения, in_progress., docs/reports/visual-overhaul/vweather-001/PLAN.md — база, полные needs и границы., docs/reports/visual-overhaul/vweather-001/native-ci-02/summary.json — original ZIP/SHA, 160 настоящих PNG, четыре серии, шесть совпавших pause-пар и успешный clean current-candidate head 8689c111., docs/reports/visual-overhaul/vweather-001/native-ci-02/local-gates.json — quality 219/0, architecture 127, Game 53 759/0, normal 90/0, F10 90/0, Wiki 167/0 на head 8689c111., docs/reports/visual-overhaul/vweather-001/failures/ci-01.json — прежний failure не переписан; old CLI exit1 → corrected CLI exit0, reader 14/0., wiki/articles/weather-clock.md — реальные сравнения и ограничения; VWEATHER-003 и VMAP-003 не приняты..
+Доказательства: [PR №84](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/84), [Приёмка точного head и merge](../../../reports/visual-overhaul/vweather-001/closeout/result.json), [Исходная нативная серия и границы](../../../reports/visual-overhaul/vweather-001/README.md), [Матрица 160 PNG и SHA исходного ZIP](../../../reports/visual-overhaul/vweather-001/native-ci-02/summary.json), [Первый отказ CI и воспроизведение reader](../../../reports/visual-overhaul/vweather-001/failures/ci-01.json), [Погода и игровая пауза](../../../../wiki/articles/weather-clock.md).
 
 <a id="vweather-002"></a>
 

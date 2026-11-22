@@ -1,0 +1,182 @@
+{
+  "task": "VWEATHER-001",
+  "accepted_on": "2026-11-22",
+  "date_source": "Calendar part of accepted merge git %cI: 2026-11-22T04:14:01+05:00",
+  "implementation_pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/84",
+  "approved_head": "2b490b3e7d87a80f3634f3e15d75f993c099d83c",
+  "accepted_base": "0ca4eb345933d2766b340f3d79ea45fb4f38cf5b",
+  "accepted_merge": "2c96121133c48d52ececd61bffc023ac2b6eea0a",
+  "merge_parents": [
+    "0ca4eb345933d2766b340f3d79ea45fb4f38cf5b",
+    "2b490b3e7d87a80f3634f3e15d75f993c099d83c"
+  ],
+  "accepted_tree": "f8f46011a595c1aba84b4fdd6ce84567487f78f2",
+  "version": "0.0.479",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/84#pullrequestreview-6008790041",
+  "review_verdict": "Independent APPROVED exact head; GitHub COMMENTED because agents share one account",
+  "review_evidence": "implementation-review.json",
+  "ci_evidence": "implementation-checks.json",
+  "checks": [
+    {
+      "id": 137008301260,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "2b490b3e7d87a80f3634f3e15d75f993c099d83c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44957358054/job/137008301260"
+    },
+    {
+      "id": 137008301005,
+      "name": "Wiki quality gate",
+      "head_sha": "2b490b3e7d87a80f3634f3e15d75f993c099d83c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44957358054/job/137008301005"
+    },
+    {
+      "id": 137008300894,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "2b490b3e7d87a80f3634f3e15d75f993c099d83c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44957358054/job/137008300894"
+    },
+    {
+      "id": 137008300804,
+      "name": "Exact-head X11 comparison",
+      "head_sha": "2b490b3e7d87a80f3634f3e15d75f993c099d83c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44957358097/job/137008300804"
+    },
+    {
+      "id": 137008300764,
+      "name": "test",
+      "head_sha": "2b490b3e7d87a80f3634f3e15d75f993c099d83c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44957358054/job/137008300764"
+    },
+    {
+      "id": 137008300683,
+      "name": "Calendar palette native X11",
+      "head_sha": "2b490b3e7d87a80f3634f3e15d75f993c099d83c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44957358122/job/137008300683"
+    },
+    {
+      "id": 137008300389,
+      "name": "Weather clock native X11",
+      "head_sha": "2b490b3e7d87a80f3634f3e15d75f993c099d83c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44957358051/job/137008300389"
+    },
+    {
+      "id": 137008287910,
+      "name": "Wiki quality gate",
+      "head_sha": "2b490b3e7d87a80f3634f3e15d75f993c099d83c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44957353734/job/137008287910"
+    },
+    {
+      "id": 137008287839,
+      "name": "test",
+      "head_sha": "2b490b3e7d87a80f3634f3e15d75f993c099d83c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44957353734/job/137008287839"
+    },
+    {
+      "id": 137008287821,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "head_sha": "2b490b3e7d87a80f3634f3e15d75f993c099d83c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44957353734/job/137008287821"
+    },
+    {
+      "id": 137008287693,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "head_sha": "2b490b3e7d87a80f3634f3e15d75f993c099d83c",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/44957353734/job/137008287693"
+    }
+  ],
+  "team_decision": "Team Lead accepted the exact head/tree after independent APPROVED 6008790041 and all 11 CI successes. Authorized ordinary merge and a separately reviewed accounting PR. Accepted implementation merged on 22 November 2026.",
+  "implementation_validation": {
+    "local_normal_hook": {
+      "quality_passed": 219,
+      "quality_failed": 0,
+      "architecture": "PASS; 127 unittest groups",
+      "game_passed": 53759,
+      "game_failed": 0,
+      "normal_redraw_passed": 90,
+      "f10_redraw_passed": 90,
+      "normal_userdata_unchanged": true,
+      "own_override_removed": true
+    },
+    "post_bump_wiki": {
+      "version": "0.0.479",
+      "passed": 167,
+      "failed": 0,
+      "browser_widths": [
+        1280,
+        390
+      ],
+      "native_images": 6,
+      "console_errors": 0,
+      "viewport_reset": true
+    },
+    "independent_reviewer_validation": "implementation-review.json preserves final SOURCE PASS and APPROVED: contract 6/0, reader 14/0, strict-current 160 PNG / 4 runs, exact original PNG/HTTP/browser checks; both CI test jobs Game 53777/0, water 55/0, normal/F10 90/0, smoke 180 and six valid performance series each."
+  },
+  "native": {
+    "captured_base": "0ca4eb345933d2766b340f3d79ea45fb4f38cf5b",
+    "captured_head": "8689c111392c4e2f93f9af0c78a4a5fa4bec5197",
+    "archive_sha256": "4b68fa34dc99c25f1d6b3dc159dd361589b8194a247a714ee474487d636eaa56",
+    "archive_bytes": 20851843,
+    "archive_entries": 216,
+    "png": 160,
+    "runs": 4,
+    "windows": [
+      [
+        1152,
+        648
+      ],
+      [
+        1280,
+        720
+      ]
+    ],
+    "candidate_pause_pairs_equal": 6,
+    "baseline_pause_pairs_changed": 6,
+    "strict_current_on_approved_head": true,
+    "metadata_exception": "SemVer only; captured runtime and producer bytes preserved",
+    "new_capture_for_accounting": false,
+    "proof": "../native-ci-02/summary.json",
+    "original_failed_ci_retained": "../failures/ci-01.json"
+  },
+  "decision": "One immutable five-field visual clock per game/viewport/background/world, advanced after permitted motion; pause without catch-up, reset on transition/load/recovery, static reduced-motion precipitation without storm flash. Forecast/calendar/save/geometry and precipitation shapes preserved.",
+  "limits": {
+    "roof_masks_accepted": false,
+    "new_precipitation_art_accepted": false,
+    "gpu_accepted": false,
+    "hardware_fps_accepted": false,
+    "retina_accepted": false,
+    "long_session_accepted": false,
+    "whole_map_accepted": false
+  },
+  "preservation": "preservation.json",
+  "accounting": "This separate record follows accepted implementation merge; its own full normal hook, post-bump Wiki/browser, CI, independent exact-head review and Team decision are still required. Implementation checks do not substitute for accounting checks.",
+  "first_location": {
+    "proof": "route.json",
+    "whole_location_accepted": false,
+    "before_done": 83,
+    "after_done": 84,
+    "total": 93,
+    "task_in_dependency_portion": true
+  }
+}
