@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "task": "VLIGHT-010",
+  "head": "93df8ef619d27b86994d8e190023a6f3b744135a",
+  "native_source_sha256": "a3cab4400f5afef46a119e0ce2e562983d758cec4e18a9247b3f72ed05afa759",
+  "samples": 1440,
+  "sample_csv_sha256": "bd6eec504039febe235b5f482a16c1424dc435f9c0bb818f028eb8356462df58",
+  "groups": {
+    "baseline": {
+      "1152": {
+        "standard": {
+          "samples": 180,
+          "median_draw_ms": 3.6095,
+          "repeat_median_draw_ms": [
+            3.623,
+            3.6295,
+            3.569
+          ],
+          "repeat_min_max_ms": [
+            3.569,
+            3.6295
+          ]
+        }
+      },
+      "1280": {
+        "standard": {
+          "samples": 180,
+          "median_draw_ms": 3.6805,
+          "repeat_median_draw_ms": [
+            3.6905,
+            3.703,
+            3.628
+          ],
+          "repeat_min_max_ms": [
+            3.628,
+            3.703
+          ]
+        }
+      }
+    },
+    "candidate": {
+      "1152": {
+        "standard": {
+          "samples": 180,
+          "median_draw_ms": 3.652,
+          "repeat_median_draw_ms": [
+            3.66,
+            3.67,
+            3.589
+          ],
+          "repeat_min_max_ms": [
+            3.589,
+            3.67
+          ]
+        },
+        "low": {
+          "samples": 180,
+          "median_draw_ms": 3.5775,
+          "repeat_median_draw_ms": [
+            3.669,
+            3.577,
+            3.531
+          ],
+          "repeat_min_max_ms": [
+            3.531,
+            3.669
+          ]
+        },
+        "off": {
+          "samples": 180,
+          "median_draw_ms": 3.5165,
+          "repeat_median_draw_ms": [
+            3.5665,
+            3.51,
+            3.504
+          ],
+          "repeat_min_max_ms": [
+            3.504,
+            3.5665
+          ]
+        }
+      },
+      "1280": {
+        "standard": {
+          "samples": 180,
+          "median_draw_ms": 3.5815,
+          "repeat_median_draw_ms": [
+            3.6165,
+            3.601,
+            3.536
+          ],
+          "repeat_min_max_ms": [
+            3.536,
+            3.6165
+          ]
+        },
+        "low": {
+          "samples": 180,
+          "median_draw_ms": 3.627,
+          "repeat_median_draw_ms": [
+            3.615,
+            3.6645,
+            3.5885
+          ],
+          "repeat_min_max_ms": [
+            3.5885,
+            3.6645
+          ]
+        },
+        "off": {
+          "samples": 180,
+          "median_draw_ms": 3.5335,
+          "repeat_median_draw_ms": [
+            3.5085,
+            3.611,
+            3.5245
+          ],
+          "repeat_min_max_ms": [
+            3.5085,
+            3.611
+          ]
+        }
+      }
+    }
+  },
+  "gpu_time_measured": false,
+  "hardware_fps_acceptance": false,
+  "context": "Fixed pose/clock, paused simulation, X11 llvmpipe. Whole root CPU draw; no PNG readback in timed interval. Not hardware performance acceptance."
+}

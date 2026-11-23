@@ -11,6 +11,7 @@ const Reference := preload("res://scripts/presentation/visual_reference_mode.gd"
 const Caves := preload("res://scripts/systems/cave_room_data.gd")
 const Lamp := preload("res://scripts/presentation/village_lamp_visual.gd")
 const WeatherClock := preload("res://scripts/presentation/weather_visual_clock.gd")
+const LightQuality := preload("res://scripts/presentation/lighting_quality.gd")
 
 
 ## Рисует поверх мира освещение, осадки и небесное событие, не затрагивая интерфейс.
@@ -31,6 +32,7 @@ static func draw(game: Node2D) -> void:
 		tint = Color(0.12, 0.03, 0.19, minf(darkness + 0.12, 0.75))
 	elif location == "overworld" and Palette.enabled(game):
 		tint = Palette.tint(minutes)
+	tint = LightQuality.tint(game, tint)
 	if tint.a > 0.0:
 		game.draw_rect(Rect2(Vector2.ZERO, game.get_viewport_rect().size), tint)
 	if darkness > 0.0:
@@ -46,6 +48,8 @@ static func draw(game: Node2D) -> void:
 
 ## Рисует тёплые ориентиры у домов, чтобы ночная деревня оставалась читаемой.
 static func draw_lights(game: Node2D, darkness: float) -> void:
+	if not LightQuality.decorative_enabled(game):
+		return
 	if game.current_location == "moon_glade":
 		var return_screen := WorldSpace.world_to_screen(game, WorldEvents.RETURN_PORTAL_POSITION)
 		game.draw_circle(return_screen, 72.0, Color(0.32, 0.66, 1.0, 0.14))

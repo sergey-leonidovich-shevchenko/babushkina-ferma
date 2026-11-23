@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "task": "VLIGHT-010",
+  "author": "Developer Agent",
+  "native_head": "93df8ef619d27b86994d8e190023a6f3b744135a",
+  "native_archive_sha256": "a8206c84afd1e48f9a2fc54b12f133c7b51917c4bd0f44148303776d8f4d2c11",
+  "scope": "Author visual review of first overworld sample plus existing home regression, not independent approval or whole-map acceptance",
+  "full_frames_reviewed": 48,
+  "widths": [
+    1152,
+    1280
+  ],
+  "rooms": [
+    "street",
+    "home"
+  ],
+  "times": [
+    "day",
+    "dusk",
+    "night"
+  ],
+  "modes": [
+    "baseline standard",
+    "candidate standard",
+    "candidate low",
+    "candidate off"
+  ],
+  "review_sheets": {
+    "street-1152-all.png": "d39ee3e9ca6709997a4f507debf9f689074d0160af14b6b4cf1dae7a1dedfff9",
+    "home-1280-all.png": "ecff00e8dd28535083df844d5dbdb8eb9740e7c3b78918f63926606fbcd70aef",
+    "home-1152-all.png": "bbf564cc6aa0a6e4f1613e68de15f8a912d9ba2ebb0ad5a4b95c80eb6cbb78ca",
+    "street-1280-all.png": "5a06446a965d1cedb21ad257120b7ccb2a4213c478b7c109b67c1194ca773f5d"
+  },
+  "observations": {
+    "standard": "Full scene is unchanged relative to baseline at the same time and window. Exact equality separately proven by reader.",
+    "low": "Door facade/porch, home exit floor, skeleton silhouette and stone remain distinct at both sizes, including night. Reduced blue darkness; world art and silhouette are preserved.",
+    "off": "World darkness disappears while the actual clock and moon HUD remain at night. This is an effect switch.",
+    "hud": "Readable parchment HUD remains in identical positions and colors; opaque pixels checked separately.",
+    "viewport": "Changing the street owner leaves the home viewport unchanged; changing home leaves street unchanged; both restore exactly."
+  },
+  "limitations": [
+    "QA skeleton and stone are existing production entities held at a fixed pose; placement is an observation fixture, not a new gameplay encounter.",
+    "Existing art and house interior were not redesigned or accepted as new content.",
+    "Full-map composition, object-local light and roof occlusion remain outside VLIGHT-010.",
+    "Still frames do not accept live movement, Retina, long sessions, GPU or hardware FPS."
+  ],
+  "independent_approval": false,
+  "whole_location_accepted": false
+}
