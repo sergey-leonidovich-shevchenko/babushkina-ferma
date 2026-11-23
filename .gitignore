@@ -813,6 +813,12 @@ tools/qa/world/lighting/*
 !tools/qa/world/lighting/*.gd
 !tools/qa/world/lighting/*.gd.uid
 !tools/qa/world/lighting/README.md
+!tools/qa/world/lighting/quality/
+tools/qa/world/lighting/quality/*
+!tools/qa/world/lighting/quality/*.py
+!tools/qa/world/lighting/quality/*.gd
+!tools/qa/world/lighting/quality/*.gd.uid
+!tools/qa/world/lighting/quality/README.md
 !tools/qa/world/lighting/comparison/
 tools/qa/world/lighting/comparison/*
 !tools/qa/world/lighting/comparison/*.py

@@ -1,0 +1,494 @@
+{
+  "task": "VLIGHT-010",
+  "native_head": "93df8ef619d27b86994d8e190023a6f3b744135a",
+  "native_source_sha256": "a3cab4400f5afef46a119e0ce2e562983d758cec4e18a9247b3f72ed05afa759",
+  "generator_sha256": "cc74c7b5efc0e50e0f414716ebbf8a4ccbc11b98fc342f31d35b026609beda78",
+  "figures": {
+    "street-profiles.png": {
+      "size": [
+        3488,
+        2096
+      ],
+      "placements": [
+        {
+          "source": "candidate/1152/street-day-standard.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            0,
+            40,
+            1152,
+            648
+          ],
+          "label": "День · standard"
+        },
+        {
+          "source": "candidate/1152/street-day-low.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            1168,
+            40,
+            1152,
+            648
+          ],
+          "label": "День · low"
+        },
+        {
+          "source": "candidate/1152/street-day-off.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            2336,
+            40,
+            1152,
+            648
+          ],
+          "label": "День · off"
+        },
+        {
+          "source": "candidate/1152/street-dusk-standard.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            0,
+            744,
+            1152,
+            648
+          ],
+          "label": "Сумерки · standard"
+        },
+        {
+          "source": "candidate/1152/street-dusk-low.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            1168,
+            744,
+            1152,
+            648
+          ],
+          "label": "Сумерки · low"
+        },
+        {
+          "source": "candidate/1152/street-dusk-off.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            2336,
+            744,
+            1152,
+            648
+          ],
+          "label": "Сумерки · off"
+        },
+        {
+          "source": "candidate/1152/street-night-standard.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            0,
+            1448,
+            1152,
+            648
+          ],
+          "label": "Ночь · standard"
+        },
+        {
+          "source": "candidate/1152/street-night-low.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            1168,
+            1448,
+            1152,
+            648
+          ],
+          "label": "Ночь · low"
+        },
+        {
+          "source": "candidate/1152/street-night-off.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            2336,
+            1448,
+            1152,
+            648
+          ],
+          "label": "Ночь · off"
+        }
+      ]
+    },
+    "home-profiles.png": {
+      "size": [
+        3488,
+        2096
+      ],
+      "placements": [
+        {
+          "source": "candidate/1152/home-day-standard.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            0,
+            40,
+            1152,
+            648
+          ],
+          "label": "День · standard"
+        },
+        {
+          "source": "candidate/1152/home-day-low.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            1168,
+            40,
+            1152,
+            648
+          ],
+          "label": "День · low"
+        },
+        {
+          "source": "candidate/1152/home-day-off.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            2336,
+            40,
+            1152,
+            648
+          ],
+          "label": "День · off"
+        },
+        {
+          "source": "candidate/1152/home-dusk-standard.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            0,
+            744,
+            1152,
+            648
+          ],
+          "label": "Сумерки · standard"
+        },
+        {
+          "source": "candidate/1152/home-dusk-low.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            1168,
+            744,
+            1152,
+            648
+          ],
+          "label": "Сумерки · low"
+        },
+        {
+          "source": "candidate/1152/home-dusk-off.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            2336,
+            744,
+            1152,
+            648
+          ],
+          "label": "Сумерки · off"
+        },
+        {
+          "source": "candidate/1152/home-night-standard.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            0,
+            1448,
+            1152,
+            648
+          ],
+          "label": "Ночь · standard"
+        },
+        {
+          "source": "candidate/1152/home-night-low.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            1168,
+            1448,
+            1152,
+            648
+          ],
+          "label": "Ночь · low"
+        },
+        {
+          "source": "candidate/1152/home-night-off.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            2336,
+            1448,
+            1152,
+            648
+          ],
+          "label": "Ночь · off"
+        }
+      ]
+    },
+    "comparison.png": {
+      "size": [
+        1152,
+        1392
+      ],
+      "placements": [
+        {
+          "source": "baseline/1152/street-night-standard.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            0,
+            40,
+            1152,
+            648
+          ],
+          "label": "До · принятая main · ночь"
+        },
+        {
+          "source": "candidate/1152/street-night-low.png",
+          "crop": [
+            0,
+            0,
+            1152,
+            648
+          ],
+          "at": [
+            0,
+            744,
+            1152,
+            648
+          ],
+          "label": "После · low · ночь"
+        }
+      ]
+    },
+    "viewports.png": {
+      "size": [
+        916,
+        1408
+      ],
+      "placements": [
+        {
+          "source": "candidate/1152/twin-standard-0.png",
+          "crop": [
+            351,
+            100,
+            801,
+            400
+          ],
+          "at": [
+            0,
+            40,
+            450,
+            300
+          ],
+          "label": "standard · viewport 1"
+        },
+        {
+          "source": "candidate/1152/twin-standard-1.png",
+          "crop": [
+            255,
+            100,
+            705,
+            400
+          ],
+          "at": [
+            466,
+            40,
+            450,
+            300
+          ],
+          "label": "standard · viewport 2"
+        },
+        {
+          "source": "candidate/1152/twin-first-low-0.png",
+          "crop": [
+            351,
+            100,
+            801,
+            400
+          ],
+          "at": [
+            0,
+            396,
+            450,
+            300
+          ],
+          "label": "first-low · viewport 1"
+        },
+        {
+          "source": "candidate/1152/twin-first-low-1.png",
+          "crop": [
+            255,
+            100,
+            705,
+            400
+          ],
+          "at": [
+            466,
+            396,
+            450,
+            300
+          ],
+          "label": "first-low · viewport 2"
+        },
+        {
+          "source": "candidate/1152/twin-second-off-0.png",
+          "crop": [
+            351,
+            100,
+            801,
+            400
+          ],
+          "at": [
+            0,
+            752,
+            450,
+            300
+          ],
+          "label": "second-off · viewport 1"
+        },
+        {
+          "source": "candidate/1152/twin-second-off-1.png",
+          "crop": [
+            255,
+            100,
+            705,
+            400
+          ],
+          "at": [
+            466,
+            752,
+            450,
+            300
+          ],
+          "label": "second-off · viewport 2"
+        },
+        {
+          "source": "candidate/1152/twin-restored-0.png",
+          "crop": [
+            351,
+            100,
+            801,
+            400
+          ],
+          "at": [
+            0,
+            1108,
+            450,
+            300
+          ],
+          "label": "restored · viewport 1"
+        },
+        {
+          "source": "candidate/1152/twin-restored-1.png",
+          "crop": [
+            255,
+            100,
+            705,
+            400
+          ],
+          "at": [
+            466,
+            1108,
+            450,
+            300
+          ],
+          "label": "restored · viewport 2"
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "street-profiles.png": "7531babb579a55df1d41226b6ec107c3b14d0e5f88286e40a721b51795010743",
+    "home-profiles.png": "299f46c4e592bb41613b1ce7f24f6102ede52ad2b84f10cff854ab8a4d52ec56",
+    "comparison.png": "bd31b50909c875954e82851aed782a083517a3dd7323f86fa8d87e45e615d4b0",
+    "viewports.png": "6f89a8a78e6602fcbb6750b5ab8203c889f7308890b7094f7ea1330d6f518aef"
+  }
+}
