@@ -24,6 +24,18 @@ class Evidence:
             "native directory or original ZIP required",
         )
         self.source = source
+        self.prefix = ""
+        if source.is_file():
+            with zipfile.ZipFile(source) as stream:
+                names = stream.namelist()
+                roots = [prefix for prefix in ("", "evidence/") if prefix + "source.json" in names]
+                need(len(roots) <= 1, "ambiguous original native ZIP root")
+                if roots:
+                    self.prefix = roots[0]
+                    need(
+                        names.count(self.prefix + "source.json") == 1,
+                        "duplicate original source manifest",
+                    )
 
     def read(self, name: str) -> bytes:
         """Никакой extractall, сетевого fallback или произвольных абсолютных путей в manifest."""
@@ -45,8 +57,9 @@ class Evidence:
             )
             return target.read_bytes()
         with zipfile.ZipFile(self.source) as stream:
-            need(stream.namelist().count(name) == 1, "duplicate or missing original ZIP member")
-            entry = stream.getinfo(name)
+            member = self.prefix + name
+            need(stream.namelist().count(member) == 1, "duplicate or missing original ZIP member")
+            entry = stream.getinfo(member)
             need(
                 entry.file_size < 128 * 1024 * 1024 and not stat.S_ISLNK(entry.external_attr >> 16),
                 "oversized or symlink ZIP member",

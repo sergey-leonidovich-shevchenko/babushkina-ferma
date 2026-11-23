@@ -86,6 +86,7 @@ def capture(store: Evidence, source: dict[str, Any], label: str, width: int) -> 
     )
     c.need(set(data["frames"]) == c.frame_ids(baseline), "complete native frame matrix differs")
     signals: dict[str, Any] = {}
+    luminance: dict[str, list[float]] = {}
     last_frame, last_tick = -1, -1
     for case in c.CASES:
         reference = data["frames"][case + "-standard"]
@@ -136,8 +137,19 @@ def capture(store: Evidence, source: dict[str, Any], label: str, width: int) -> 
             pixels.hud(root, hud)
             c.need(pixels.equal(reference_hud, hud), "profile changed actual same-time HUD")
             c.need(set(row["hidden"]) == set(c.TARGETS), "target controls incomplete")
+            c.need(set(row["hidden_passes"]) == set(c.TARGETS), "hidden pass controls incomplete")
             values = {}
             for target in c.TARGETS:
+                expected_pass = (
+                    ("buildings" if case.startswith("street-") else "interior")
+                    if target == "door"
+                    else {"enemy": "enemies", "resource": "resources"}[target]
+                )
+                calls = row["hidden_passes"][target]
+                c.need(
+                    bool(calls) and all(name == expected_pass for name in calls),
+                    "actual hidden render pass differs: " + case + "/" + target,
+                )
                 expected = name + f"-{target}-hidden.png"
                 c.need(row["hidden"][target] == expected, "wrong target-hidden frame")
                 values[target] = pixels.target(
@@ -152,6 +164,13 @@ def capture(store: Evidence, source: dict[str, Any], label: str, width: int) -> 
                 c.need(
                     not pixels.equal(standard, low) and not pixels.equal(low, off),
                     "low/off profiles did not change real lit pixels",
+                )
+                luminance[case] = [
+                    pixels.world_luminance(image, reference_hud) for image in (standard, low, off)
+                ]
+                c.need(
+                    luminance[case][0] < luminance[case][1] < luminance[case][2],
+                    "native lighting order differs: standard < low < off required",
                 )
             for target in c.TARGETS:
                 c.need(
@@ -201,6 +220,7 @@ def capture(store: Evidence, source: dict[str, Any], label: str, width: int) -> 
     return {
         "capture": data,
         "signals": signals,
+        "luminance": luminance,
         "costs": readings.check(data["costs"], baseline, width),
     }
 

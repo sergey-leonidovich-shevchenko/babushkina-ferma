@@ -104,7 +104,7 @@ func _start() -> void:
 	quit(0 if failures.is_empty() else 2)
 
 
-## Читаемость двери проверяет её production ROI без фонового слоя, врага/жилы — без их draw.
+## Читаемость целей проверяет их production ROI без действительного прохода отрисовки.
 func _capture(id: String) -> void:
 	await Cases.redraw(self, game, 6)
 	var before := Cases.state(game, baseline)
@@ -119,6 +119,7 @@ func _capture(id: String) -> void:
 		"file": _png(id + ".png"),
 		"targets": {},
 		"hidden": {},
+		"hidden_passes": {},
 	}
 	var window := DisplayServer.window_get_size()
 	row.observation = {
@@ -142,9 +143,10 @@ func _capture(id: String) -> void:
 	var background := game.get_node("WorldBackground") as CanvasItem
 	for target: String in ["door", "enemy", "resource"]:
 		game.hidden_target = target
-		background.visible = target != "door"
+		game.hidden_passes.clear()
 		await Cases.redraw(self, game, 4)
 		row.hidden[target] = _png(id + "-" + target + "-hidden.png")
+		row.hidden_passes[target] = game.hidden_passes.duplicate()
 	game.hidden_target = ""
 	game.hud_only = true
 	background.visible = false

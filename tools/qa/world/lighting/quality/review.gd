@@ -2,6 +2,7 @@ extends SceneTree
 
 const Cases := preload("res://tools/qa/world/lighting/quality/cases.gd")
 const Quality := preload("res://scripts/presentation/lighting_quality.gd")
+const Fixture := preload("res://tools/qa/world/lighting/quality/game.gd")
 
 var passed := 0
 var failed := 0
@@ -70,7 +71,39 @@ func _test_capture_setup() -> void:
 		for target: String in ["door", "enemy", "resource"]:
 			var bounds: Rect2 = targets[target]
 			expect(bounds.has_area(), "actual production target has measured geometry: " + target)
+		var room: String = entry.room
+		_test_target_passes(game, room)
 	game.free()
+
+
+## Проверяет настоящий dispatch корня; вызовы скрыты до draw, игровое состояние не удаляется.
+func _test_target_passes(game: Fixture, room: String) -> void:
+	var before := Cases.state(game, false)
+	var saved_before: Dictionary = before.save
+	for target: String in ["door", "enemy", "resource"]:
+		game.hidden_target = target
+		game.hidden_passes.clear()
+		var expected := ""
+		if target == "door":
+			if room == "street":
+				expected = "buildings"
+				game.draw_buildings()
+			else:
+				expected = "interior"
+				game.draw_interior_objects()
+		elif target == "enemy":
+			expected = "enemies"
+			game.draw_enemy_nodes_and_gate()
+		else:
+			expected = "resources"
+			game.draw_resource_nodes()
+		expect(game.hidden_passes == [expected], "actual target render dispatch is suppressed")
+		var after := Cases.state(game, false)
+		var saved_after: Dictionary = after.save
+		expect(saved_after == saved_before, "target suppression retains full gameplay save")
+	game.hidden_target = ""
+	var background := game.get_node("WorldBackground") as CanvasItem
+	expect(background.visible, "target controls retain their actual world background")
 
 
 ## Создаёт настоящий game bootstrap только после проверки изолированного OS userdata.

@@ -1,7 +1,27 @@
 # VLIGHT-010 · Упрощённый свет
 
-Семейство отделено от аудита света и календарной палитры. [План и границы](../../../../../docs/reports/visual-overhaul/vlight-010/PLAN.md). Статус `in_progress`; нативные доказательства ещё не получены.
+Статус `in_progress`. [План и границы](../../../../../docs/reports/visual-overhaul/vlight-010/PLAN.md).
+Нативные доказательства ещё не получены; полная приёмка не заявляется.
 
-`review.gd` исполняет настоящую `lighting_quality_suite` в отдельном headless-профиле `Codex-VLIGHT-010-*`. Настройка startup userdata должна быть применена до запуска движка и подтверждена фактическим `OS.get_user_data_dir`; обычные файлы сравниваются до/после. Это проверка модели и save-инвариантов, а не визуальная или FPS-приёмка.
+`review.gd` исполняет настоящую `lighting_quality_suite` и фабрику сцен в отдельном
+headless-профиле `Codex-VLIGHT-010-*`. Startup userdata применяется до первого
+обращения к движку и подтверждается фактическим OS user dir; обычные файлы
+сравниваются до/после. Это модель и save-инварианты, не визуальная или FPS-приёмка.
 
-Нативный producer/reader будет работать только на удалённом Linux/X11 с двумя настоящими Git-экспортами, отдельным HUD, целевыми ROI и полной матрицей standard/low/off. Обычный игровой GUI на ПК владельца не запускается.
+```sh
+python3 tools/run.py qa.world.lighting.quality.test_contract
+python3 tools/run.py qa.world.lighting.quality.collect --output /absolute/fresh/output
+python3 tools/run.py qa.world.lighting.quality.verify --output /absolute/original/evidence.zip --expected-head <SHA> --check-current-candidate
+```
+
+Collector требует удалённый Linux/X11, чистый checkout и точный
+`VLIGHT_QUALITY_EXPECTED_HEAD`; обычный игровой GUI на ПК владельца не запускается.
+Два настоящих Git-экспорта и46 замороженных входов дают304 артефакта/270PNG.
+HUD снят отдельно. Контроли пропускают реальные проходы фасадов/интерьера,
+врагов и ресурсов; вызовы фиксируются, игровое состояние сохраняется.
+
+Reader читает исходный ZIP с корнем source.json или evidence/source.json;
+неоднозначный корень отвергается. Все RGBA и размеры точны, без resize.
+Порядок яркости мира ночью/в сумерках проверяется независимо от имени режима.
+CPU draw и сырые frame-интервалы измеряются без PNG readback внутри samples.
+Software X11 не принимает аппаратный FPS, GPU-бюджет или всю VMAP-003.

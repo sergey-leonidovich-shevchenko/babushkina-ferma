@@ -115,7 +115,7 @@ def geometry(row: dict[str, Any], case: str) -> None:
 
 
 def target(root: Image.Image, hidden: Image.Image, bounds: list[int]) -> float:
-    """Порог двери использует контроль без фона; враг и жила — без их настоящего draw-прохода."""
+    """Сравнивает ROI с парой без настоящего прохода фасада, выхода, врага или жилы."""
     x, y, width, height = bounds
     c.need(
         root.size == hidden.size
@@ -133,3 +133,11 @@ def target(root: Image.Image, hidden: Image.Image, bounds: list[int]) -> float:
     witness = delta.convert("L").point([0] * 6 + [255] * 250)
     c.need(witness.histogram()[255] >= 80, "target has no readable native pixel witness")
     return float(sum(ImageStat.Stat(delta).mean))
+
+
+def world_luminance(root: Image.Image, layer: Image.Image) -> float:
+    """Проверяет свет на действительных пикселях мира, исключая всю область отдельного HUD."""
+    c.need(root.size == layer.size, "world/HUD size differs")
+    mask = layer.convert("RGBA").getchannel("A").point([255] + [0] * 255)
+    c.need(mask.histogram()[255] > 10000, "native world luminance witness missing")
+    return float(ImageStat.Stat(root.convert("RGB").convert("L"), mask).mean[0])

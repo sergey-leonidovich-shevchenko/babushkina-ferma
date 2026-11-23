@@ -52,6 +52,10 @@ def verify(output: Path, expected_head: str, current: bool = False) -> dict[str,
             label: {width: row["signals"] for width, row in widths.items()}
             for label, widths in rows.items()
         },
+        "world_luminance": {
+            label: {width: row["luminance"] for width, row in widths.items()}
+            for label, widths in rows.items()
+        },
         "costs": {
             label: {width: row["costs"] for width, row in widths.items()}
             for label, widths in rows.items()

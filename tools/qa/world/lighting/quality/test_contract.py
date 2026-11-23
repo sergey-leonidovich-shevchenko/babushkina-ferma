@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import io
 import json
 import os
 import subprocess
@@ -153,6 +154,43 @@ print(json.dumps(sorted({str(Path(m.__file__).resolve().relative_to(root)) for n
             warnings.simplefilter("ignore", UserWarning)
             stream.writestr("source.json", '{"version":1}')
             stream.writestr("source.json", '{"version":2}')
+        with self.assertRaisesRegex(ValueError, "duplicate"):
+            Evidence(archive).document("source.json")
+
+    def _actual_actions_archive(self) -> tuple[Path, bytes, bytes]:
+        """Копирует целый исторический Actions ZIP; его неудача не становится native-приёмкой."""
+        name = "docs/reports/visual-overhaul/vlight-003/failures/ci-02-artifact.zip"
+        original = c.ROOT / name
+        raw = c.shared.git("show", c.BASE + ":" + name)
+        self.assertEqual(original.read_bytes(), raw)
+        archive = self.root / "actual-actions.zip"
+        archive.write_bytes(raw)
+        with zipfile.ZipFile(io.BytesIO(raw)) as stream:
+            manifest = stream.read("evidence/source.json")
+        return archive, raw, manifest
+
+    def test_actual_actions_zip_namespace(self) -> None:
+        """Читает настоящий evidence/source.json без extract/repack и не принимает сам пакет."""
+        archive, raw, manifest = self._actual_actions_archive()
+        document = Evidence(archive).document("source.json")
+        self.assertEqual(document, json.loads(manifest))
+        self.assertFalse(document["complete"])
+        self.assertEqual(archive.read_bytes(), raw)
+
+    def test_actual_actions_zip_ambiguous_roots(self) -> None:
+        """В копии реального ZIP второй корень не позволяет выбрать удобный manifest."""
+        archive, _, manifest = self._actual_actions_archive()
+        with zipfile.ZipFile(archive, "a") as stream:
+            stream.writestr("source.json", manifest)
+        with self.assertRaisesRegex(ValueError, "ambiguous"):
+            Evidence(archive).document("source.json")
+
+    def test_actual_actions_zip_duplicate_source(self) -> None:
+        """Дубликат исходного prefixed member отклоняется до разбора его JSON."""
+        archive, _, manifest = self._actual_actions_archive()
+        with warnings.catch_warnings(), zipfile.ZipFile(archive, "a") as stream:
+            warnings.simplefilter("ignore", UserWarning)
+            stream.writestr("evidence/source.json", manifest)
         with self.assertRaisesRegex(ValueError, "duplicate"):
             Evidence(archive).document("source.json")
 
