@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "task": "VLIGHT-010",
+  "head": "93df8ef619d27b86994d8e190023a6f3b744135a",
+  "archive_sha256": "a8206c84afd1e48f9a2fc54b12f133c7b51917c4bd0f44148303776d8f4d2c11",
+  "historical_functions": {
+    "head": "62f9f697d143b7383432459ec8a6d26992a3235f",
+    "checks_sha256": "7bb5203fc6114c76a27bbe4bc30d38cfc7e5f0e2885884aeaa5d5201b0524603",
+    "verify_sha256": "ee7683af8a7134c37deb7d5fd1adf319ca6b241d1eff49b70e8220e63e50c35b",
+    "scope": "historical verify/checks functions; same current source/pixel/timing guards"
+  },
+  "results": [
+    {
+      "case": "original real packet",
+      "new_accepted": true,
+      "old_functions_accepted": true
+    },
+    {
+      "case": "truncated matrix",
+      "new_rejected": true,
+      "reason": "full native artifact matrix differs"
+    },
+    {
+      "case": "wrong exact head",
+      "new_rejected": true,
+      "reason": "wrong base or exact head"
+    },
+    {
+      "case": "input changed",
+      "new_rejected": true,
+      "reason": "input differs from captured Git: tools/qa/world/lighting/quality/game.gd"
+    },
+    {
+      "case": "effective profile",
+      "new_rejected": true,
+      "reason": "effective light profile or seed differs"
+    },
+    {
+      "case": "wrong seed",
+      "new_rejected": true,
+      "reason": "effective light profile or seed differs"
+    },
+    {
+      "case": "coherent full save change",
+      "new_rejected": true,
+      "reason": "full cross-profile gameplay differs: save"
+    },
+    {
+      "case": "target entity changed",
+      "new_rejected": true,
+      "reason": "draw changed full actual state"
+    },
+    {
+      "case": "inactive window",
+      "new_rejected": true,
+      "reason": "physical frame came from inactive/resized window"
+    },
+    {
+      "case": "reused frame",
+      "new_rejected": true,
+      "reason": "capture reused a physical frame or nonadvancing clock"
+    },
+    {
+      "case": "wrong actual render pass",
+      "new_rejected": true,
+      "reason": "actual hidden render pass differs: street-night/door"
+    },
+    {
+      "case": "native target ROI changed",
+      "new_rejected": true,
+      "reason": "native ROI does not follow actual camera/stretch: enemy"
+    },
+    {
+      "case": "actual bad HUD",
+      "new_rejected": true,
+      "reason": "world lighting recolors opaque HUD"
+    },
+    {
+      "case": "hidden target replaced by actual full image",
+      "new_rejected": true,
+      "reason": "target has no readable native pixel witness"
+    },
+    {
+      "case": "off is actual standard",
+      "old_functions_accepted": true,
+      "new_rejected": true,
+      "reason": "native lighting order differs: standard < low < off required"
+    },
+    {
+      "case": "truncated timing",
+      "new_rejected": true,
+      "reason": "measurement sample/warmup count differs"
+    },
+    {
+      "case": "forged timing interval",
+      "new_rejected": true,
+      "reason": "reused/nonadvancing actual frame or forged interval"
+    },
+    {
+      "case": "normal setup userdata",
+      "new_rejected": true,
+      "reason": "actual OS profile differs"
+    },
+    {
+      "case": "aliased twins",
+      "new_rejected": true,
+      "reason": "twin viewports alias"
+    },
+    {
+      "case": "broken standard restore",
+      "new_rejected": true,
+      "reason": "restoring standard did not return exact RGBA"
+    }
+  ],
+  "all_negative_rejected": true,
+  "original_unchanged": true,
+  "synthetic_positive": false
+}

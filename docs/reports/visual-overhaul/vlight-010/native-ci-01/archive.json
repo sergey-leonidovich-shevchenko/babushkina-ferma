@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "task": "VLIGHT-010",
+  "head": "93df8ef619d27b86994d8e190023a6f3b744135a",
+  "run_id": 45095929093,
+  "run_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095929093",
+  "artifact_id": 14783542652,
+  "original_file_name": "vlight-010-native-ci-01.zip",
+  "bytes": 173941412,
+  "sha256": "a8206c84afd1e48f9a2fc54b12f133c7b51917c4bd0f44148303776d8f4d2c11",
+  "format": "byte-exact contiguous original ZIP parts; concatenate without repack",
+  "parts": [
+    {
+      "name": "artifact.zip.part-000",
+      "bytes": 67108864,
+      "sha256": "42fc872f7f62d8d7d33a6b352554000116ccb6672768c984dca2d16f036b90a9"
+    },
+    {
+      "name": "artifact.zip.part-001",
+      "bytes": 67108864,
+      "sha256": "f9982c476d83e99a7d8ed602bfe3da4545eaa99b891f22347caf7636f7b7769e"
+    },
+    {
+      "name": "artifact.zip.part-002",
+      "bytes": 39723684,
+      "sha256": "73b16f3bdaac8b977ee5e0375d54d037883c881ce9409618a8445bef73fc67be"
+    }
+  ]
+}

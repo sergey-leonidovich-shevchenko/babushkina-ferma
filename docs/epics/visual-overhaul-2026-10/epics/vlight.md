@@ -362,7 +362,7 @@
 - [scripts/systems/cave_lighting_system.gd](../../../../scripts/systems/cave_lighting_system.gd)
 - [scripts/systems/interior_renderer.gd](../../../../scripts/systems/interior_renderer.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vlight-010/`.
+Результаты: `docs/reports/visual-overhaul/vlight-010/`.
 
 Критерии:
 
@@ -380,4 +380,4 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vlight-010/README.md, docs/reports/visual-overhaul/vlight-010/verification.json, docs/reports/visual-overhaul/vlight-010/native-ci-01/archive.json, wiki/articles/lighting-quality.md.

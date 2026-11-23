@@ -1,0 +1,763 @@
+{
+  "task": "VLIGHT-010",
+  "base": "e0d393034f36bc4ba27329cd9e4e0b09c3a157d1",
+  "head": "93df8ef619d27b86994d8e190023a6f3b744135a",
+  "native_png": 270,
+  "runs": 4,
+  "default_standard_equal": true,
+  "target_signal": {
+    "baseline": {
+      "1152": {
+        "street-day-standard": {
+          "door": 163.32528735632184,
+          "enemy": 57.11548751486326,
+          "resource": 85.18007662835248
+        },
+        "street-dusk-standard": {
+          "door": 103.83103448275861,
+          "enemy": 36.27801724137932,
+          "resource": 54.22922446822566
+        },
+        "street-night-standard": {
+          "door": 62.273563218390805,
+          "enemy": 21.725475624256838,
+          "resource": 32.47430307834588
+        },
+        "home-day-standard": {
+          "door": 125.83988095238095,
+          "enemy": 59.34085051546391,
+          "resource": 139.89699074074073
+        },
+        "home-dusk-standard": {
+          "door": 87.09166666666667,
+          "enemy": 41.00010738831615,
+          "resource": 96.45563271604938
+        },
+        "home-night-standard": {
+          "door": 48.20119047619047,
+          "enemy": 22.578178694158076,
+          "resource": 53.279320987654316
+        }
+      },
+      "1280": {
+        "street-day-standard": {
+          "door": 163.0890442890443,
+          "enemy": 57.141638122708976,
+          "resource": 85.28704896907217
+        },
+        "street-dusk-standard": {
+          "door": 103.71002331002332,
+          "enemy": 36.288804759329366,
+          "resource": 54.31174828178695
+        },
+        "street-night-standard": {
+          "door": 62.182750582750586,
+          "enemy": 21.739258458025358,
+          "resource": 32.51449742268041
+        },
+        "home-day-standard": {
+          "door": 126.2875457875458,
+          "enemy": 59.79718752729496,
+          "resource": 135.45755220240818
+        },
+        "home-dusk-standard": {
+          "door": 87.39239926739927,
+          "enemy": 41.3142632544327,
+          "resource": 93.39643347050755
+        },
+        "home-night-standard": {
+          "door": 48.38003663003663,
+          "enemy": 22.756572626430255,
+          "resource": 51.60691967687852
+        }
+      }
+    },
+    "candidate": {
+      "1152": {
+        "street-day-standard": {
+          "door": 163.32528735632184,
+          "enemy": 57.11548751486326,
+          "resource": 85.18007662835248
+        },
+        "street-day-low": {
+          "door": 163.32528735632184,
+          "enemy": 57.11548751486326,
+          "resource": 85.18007662835248
+        },
+        "street-day-off": {
+          "door": 163.32528735632184,
+          "enemy": 57.11548751486326,
+          "resource": 85.18007662835248
+        },
+        "street-dusk-standard": {
+          "door": 103.83103448275861,
+          "enemy": 36.27801724137932,
+          "resource": 54.22922446822566
+        },
+        "street-dusk-low": {
+          "door": 124.78793103448275,
+          "enemy": 43.59021997621879,
+          "resource": 65.03937111903818
+        },
+        "street-dusk-off": {
+          "door": 163.32528735632184,
+          "enemy": 57.11548751486326,
+          "resource": 85.18007662835248
+        },
+        "street-night-standard": {
+          "door": 62.273563218390805,
+          "enemy": 21.725475624256838,
+          "resource": 32.47430307834588
+        },
+        "street-night-low": {
+          "door": 97.55459770114943,
+          "enemy": 34.132060047562426,
+          "resource": 50.78293037389351
+        },
+        "street-night-off": {
+          "door": 163.32528735632184,
+          "enemy": 57.11548751486326,
+          "resource": 85.18007662835248
+        },
+        "home-day-standard": {
+          "door": 125.83988095238095,
+          "enemy": 59.34085051546391,
+          "resource": 139.89699074074073
+        },
+        "home-day-low": {
+          "door": 125.83988095238095,
+          "enemy": 59.34085051546391,
+          "resource": 139.89699074074073
+        },
+        "home-day-off": {
+          "door": 125.83988095238095,
+          "enemy": 59.34085051546391,
+          "resource": 139.89699074074073
+        },
+        "home-dusk-standard": {
+          "door": 87.09166666666667,
+          "enemy": 41.00010738831615,
+          "resource": 96.45563271604938
+        },
+        "home-dusk-low": {
+          "door": 101.28214285714286,
+          "enemy": 47.43481529209622,
+          "resource": 111.94425154320987
+        },
+        "home-dusk-off": {
+          "door": 125.83988095238095,
+          "enemy": 59.34085051546391,
+          "resource": 139.89699074074073
+        },
+        "home-night-standard": {
+          "door": 48.20119047619047,
+          "enemy": 22.578178694158076,
+          "resource": 53.279320987654316
+        },
+        "home-night-low": {
+          "door": 75.24464285714285,
+          "enemy": 35.433311855670105,
+          "resource": 83.5823688271605
+        },
+        "home-night-off": {
+          "door": 125.83988095238095,
+          "enemy": 59.34085051546391,
+          "resource": 139.89699074074073
+        }
+      },
+      "1280": {
+        "street-day-standard": {
+          "door": 163.0890442890443,
+          "enemy": 57.141638122708976,
+          "resource": 85.28704896907217
+        },
+        "street-day-low": {
+          "door": 163.0890442890443,
+          "enemy": 57.141638122708976,
+          "resource": 85.28704896907217
+        },
+        "street-day-off": {
+          "door": 163.0890442890443,
+          "enemy": 57.141638122708976,
+          "resource": 85.28704896907217
+        },
+        "street-dusk-standard": {
+          "door": 103.71002331002332,
+          "enemy": 36.288804759329366,
+          "resource": 54.31174828178695
+        },
+        "street-dusk-low": {
+          "door": 124.64428904428905,
+          "enemy": 43.609939306532056,
+          "resource": 65.125
+        },
+        "street-dusk-off": {
+          "door": 163.0890442890443,
+          "enemy": 57.141638122708976,
+          "resource": 85.28704896907217
+        },
+        "street-night-standard": {
+          "door": 62.182750582750586,
+          "enemy": 21.739258458025358,
+          "resource": 32.51449742268041
+        },
+        "street-night-low": {
+          "door": 97.43962703962703,
+          "enemy": 34.14560423051499,
+          "resource": 50.84310567010309
+        },
+        "street-night-off": {
+          "door": 163.0890442890443,
+          "enemy": 57.141638122708976,
+          "resource": 85.28704896907217
+        },
+        "home-day-standard": {
+          "door": 126.2875457875458,
+          "enemy": 59.79718752729496,
+          "resource": 135.45755220240818
+        },
+        "home-day-low": {
+          "door": 126.2875457875458,
+          "enemy": 59.79718752729496,
+          "resource": 135.45755220240818
+        },
+        "home-day-off": {
+          "door": 126.2875457875458,
+          "enemy": 59.79718752729496,
+          "resource": 135.45755220240818
+        },
+        "home-dusk-standard": {
+          "door": 87.39239926739927,
+          "enemy": 41.3142632544327,
+          "resource": 93.39643347050755
+        },
+        "home-dusk-low": {
+          "door": 101.61492673992674,
+          "enemy": 47.80234081579177,
+          "resource": 108.3935375704923
+        },
+        "home-dusk-off": {
+          "door": 126.2875457875458,
+          "enemy": 59.79718752729496,
+          "resource": 135.45755220240818
+        },
+        "home-night-standard": {
+          "door": 48.38003663003663,
+          "enemy": 22.756572626430255,
+          "resource": 51.60691967687852
+        },
+        "home-night-low": {
+          "door": 75.52152014652015,
+          "enemy": 35.69377238186741,
+          "resource": 80.91952446273434
+        },
+        "home-night-off": {
+          "door": 126.2875457875458,
+          "enemy": 59.79718752729496,
+          "resource": 135.45755220240818
+        }
+      }
+    }
+  },
+  "world_luminance": {
+    "baseline": {
+      "1152": {},
+      "1280": {}
+    },
+    "candidate": {
+      "1152": {
+        "street-dusk": [
+          94.27100849917538,
+          100.78722048864742,
+          112.93374409493418
+        ],
+        "street-night": [
+          56.523375306931015,
+          76.2337442420551,
+          112.93047506815377
+        ],
+        "home-dusk": [
+          50.44058298131123,
+          55.00318790025322,
+          63.326426711749285
+        ],
+        "home-night": [
+          37.7578043337006,
+          46.482922281549286,
+          63.326426711749285
+        ]
+      },
+      "1280": {
+        "street-dusk": [
+          94.24791975161213,
+          100.76098877477908,
+          112.89820515882494
+        ],
+        "street-night": [
+          56.510594697874375,
+          76.21363983759255,
+          112.89675423931216
+        ],
+        "home-dusk": [
+          50.59555420351579,
+          55.18142080064898,
+          63.55109865303038
+        ],
+        "home-night": [
+          37.84139366327933,
+          46.61861734618737,
+          63.55109865303038
+        ]
+      }
+    }
+  },
+  "costs": {
+    "baseline": {
+      "1152": [
+        {
+          "mode": "standard",
+          "repeat": 0,
+          "draw": {
+            "p50_us": 3623.0,
+            "p95_us": 3727.85,
+            "p99_us": 4019.049999999999,
+            "max_us": 4258.0
+          },
+          "frame": {
+            "p50_us": 15987.0,
+            "p95_us": 16690.649999999998,
+            "p99_us": 18293.839999999993,
+            "max_us": 19665.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "standard",
+          "repeat": 1,
+          "draw": {
+            "p50_us": 3629.5,
+            "p95_us": 3797.35,
+            "p99_us": 4925.979999999999,
+            "max_us": 5149.0
+          },
+          "frame": {
+            "p50_us": 15987.5,
+            "p95_us": 16999.55,
+            "p99_us": 20577.739999999998,
+            "max_us": 20763.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "standard",
+          "repeat": 2,
+          "draw": {
+            "p50_us": 3569.0,
+            "p95_us": 3815.9,
+            "p99_us": 3853.82,
+            "max_us": 3855.0
+          },
+          "frame": {
+            "p50_us": 15929.5,
+            "p95_us": 16622.25,
+            "p99_us": 17440.219999999994,
+            "max_us": 18232.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        }
+      ],
+      "1280": [
+        {
+          "mode": "standard",
+          "repeat": 0,
+          "draw": {
+            "p50_us": 3690.5,
+            "p95_us": 3848.25,
+            "p99_us": 4083.1899999999982,
+            "max_us": 4354.0
+          },
+          "frame": {
+            "p50_us": 18335.0,
+            "p95_us": 19041.75,
+            "p99_us": 20278.18,
+            "max_us": 20395.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "standard",
+          "repeat": 1,
+          "draw": {
+            "p50_us": 3703.0,
+            "p95_us": 3827.1,
+            "p99_us": 3856.14,
+            "max_us": 3888.0
+          },
+          "frame": {
+            "p50_us": 18442.0,
+            "p95_us": 19281.95,
+            "p99_us": 20866.179999999993,
+            "max_us": 21868.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "standard",
+          "repeat": 2,
+          "draw": {
+            "p50_us": 3628.0,
+            "p95_us": 3888.2499999999977,
+            "p99_us": 5382.239999999998,
+            "max_us": 5656.0
+          },
+          "frame": {
+            "p50_us": 18358.0,
+            "p95_us": 20420.149999999998,
+            "p99_us": 23505.54,
+            "max_us": 23620.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        }
+      ]
+    },
+    "candidate": {
+      "1152": [
+        {
+          "mode": "standard",
+          "repeat": 0,
+          "draw": {
+            "p50_us": 3660.0,
+            "p95_us": 3784.0,
+            "p99_us": 3817.46,
+            "max_us": 3821.0
+          },
+          "frame": {
+            "p50_us": 16317.5,
+            "p95_us": 16947.649999999998,
+            "p99_us": 19601.469999999983,
+            "max_us": 22709.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "low",
+          "repeat": 0,
+          "draw": {
+            "p50_us": 3669.0,
+            "p95_us": 3878.15,
+            "p99_us": 3958.8599999999997,
+            "max_us": 4045.0
+          },
+          "frame": {
+            "p50_us": 16154.0,
+            "p95_us": 17099.35,
+            "p99_us": 17712.46,
+            "max_us": 17952.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "off",
+          "repeat": 0,
+          "draw": {
+            "p50_us": 3566.5,
+            "p95_us": 3831.1,
+            "p99_us": 3860.0899999999997,
+            "max_us": 3889.0
+          },
+          "frame": {
+            "p50_us": 13806.5,
+            "p95_us": 14657.3,
+            "p99_us": 15225.41,
+            "max_us": 15226.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "off",
+          "repeat": 1,
+          "draw": {
+            "p50_us": 3510.0,
+            "p95_us": 3610.15,
+            "p99_us": 3625.43,
+            "max_us": 3639.0
+          },
+          "frame": {
+            "p50_us": 13401.5,
+            "p95_us": 14197.85,
+            "p99_us": 14814.529999999995,
+            "max_us": 15601.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "low",
+          "repeat": 1,
+          "draw": {
+            "p50_us": 3577.0,
+            "p95_us": 3754.15,
+            "p99_us": 3795.16,
+            "max_us": 3840.0
+          },
+          "frame": {
+            "p50_us": 15994.5,
+            "p95_us": 16705.15,
+            "p99_us": 17111.38,
+            "max_us": 17240.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "standard",
+          "repeat": 1,
+          "draw": {
+            "p50_us": 3670.0,
+            "p95_us": 3814.55,
+            "p99_us": 3831.05,
+            "max_us": 3834.0
+          },
+          "frame": {
+            "p50_us": 16258.5,
+            "p95_us": 17087.8,
+            "p99_us": 17742.55,
+            "max_us": 18011.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "low",
+          "repeat": 2,
+          "draw": {
+            "p50_us": 3531.0,
+            "p95_us": 3606.15,
+            "p99_us": 3684.0199999999995,
+            "max_us": 3756.0
+          },
+          "frame": {
+            "p50_us": 15742.5,
+            "p95_us": 16362.449999999999,
+            "p99_us": 17405.519999999997,
+            "max_us": 17979.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "off",
+          "repeat": 2,
+          "draw": {
+            "p50_us": 3504.0,
+            "p95_us": 3571.75,
+            "p99_us": 3637.35,
+            "max_us": 3658.0
+          },
+          "frame": {
+            "p50_us": 13446.5,
+            "p95_us": 14455.85,
+            "p99_us": 15180.389999999996,
+            "max_us": 15994.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "standard",
+          "repeat": 2,
+          "draw": {
+            "p50_us": 3589.0,
+            "p95_us": 3731.4,
+            "p99_us": 3791.99,
+            "max_us": 3815.0
+          },
+          "frame": {
+            "p50_us": 16048.0,
+            "p95_us": 16929.55,
+            "p99_us": 17301.92,
+            "max_us": 17427.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        }
+      ],
+      "1280": [
+        {
+          "mode": "standard",
+          "repeat": 0,
+          "draw": {
+            "p50_us": 3616.5,
+            "p95_us": 3769.9,
+            "p99_us": 4069.199999999998,
+            "max_us": 4435.0
+          },
+          "frame": {
+            "p50_us": 18280.5,
+            "p95_us": 19115.65,
+            "p99_us": 19956.46,
+            "max_us": 20314.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "low",
+          "repeat": 0,
+          "draw": {
+            "p50_us": 3615.0,
+            "p95_us": 3733.35,
+            "p99_us": 3894.009999999999,
+            "max_us": 4107.0
+          },
+          "frame": {
+            "p50_us": 18147.5,
+            "p95_us": 18988.4,
+            "p99_us": 19795.169999999995,
+            "max_us": 20879.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "off",
+          "repeat": 0,
+          "draw": {
+            "p50_us": 3508.5,
+            "p95_us": 3591.55,
+            "p99_us": 3616.25,
+            "max_us": 3631.0
+          },
+          "frame": {
+            "p50_us": 15010.0,
+            "p95_us": 15636.15,
+            "p99_us": 15841.43,
+            "max_us": 15914.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "off",
+          "repeat": 1,
+          "draw": {
+            "p50_us": 3611.0,
+            "p95_us": 3684.2,
+            "p99_us": 3747.3599999999997,
+            "max_us": 3804.0
+          },
+          "frame": {
+            "p50_us": 15291.0,
+            "p95_us": 16161.25,
+            "p99_us": 16818.01,
+            "max_us": 16972.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "low",
+          "repeat": 1,
+          "draw": {
+            "p50_us": 3664.5,
+            "p95_us": 3876.95,
+            "p99_us": 3906.89,
+            "max_us": 3924.0
+          },
+          "frame": {
+            "p50_us": 18428.5,
+            "p95_us": 19702.2,
+            "p99_us": 20954.689999999995,
+            "max_us": 21550.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "standard",
+          "repeat": 1,
+          "draw": {
+            "p50_us": 3601.0,
+            "p95_us": 3853.35,
+            "p99_us": 4078.9399999999982,
+            "max_us": 4394.0
+          },
+          "frame": {
+            "p50_us": 18263.5,
+            "p95_us": 18954.9,
+            "p99_us": 19346.429999999997,
+            "max_us": 19714.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "low",
+          "repeat": 2,
+          "draw": {
+            "p50_us": 3588.5,
+            "p95_us": 3781.55,
+            "p99_us": 3829.47,
+            "max_us": 3869.0
+          },
+          "frame": {
+            "p50_us": 18252.0,
+            "p95_us": 18915.65,
+            "p99_us": 19942.659999999996,
+            "max_us": 20902.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "off",
+          "repeat": 2,
+          "draw": {
+            "p50_us": 3524.5,
+            "p95_us": 3615.35,
+            "p99_us": 3891.869999999998,
+            "max_us": 4191.0
+          },
+          "frame": {
+            "p50_us": 15092.5,
+            "p95_us": 16025.0,
+            "p99_us": 17127.94,
+            "max_us": 17443.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        },
+        {
+          "mode": "standard",
+          "repeat": 2,
+          "draw": {
+            "p50_us": 3536.0,
+            "p95_us": 3615.2,
+            "p99_us": 3647.94,
+            "max_us": 3668.0
+          },
+          "frame": {
+            "p50_us": 18023.5,
+            "p95_us": 20153.649999999998,
+            "p99_us": 21069.149999999998,
+            "max_us": 21137.0
+          },
+          "gpu_time_measured": false,
+          "hardware_fps_acceptance": false
+        }
+      ]
+    }
+  },
+  "gpu_time_measured": false,
+  "hardware_fps_acceptance": false,
+  "whole_location_accepted": false
+}

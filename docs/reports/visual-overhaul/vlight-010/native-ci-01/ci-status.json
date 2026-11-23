@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "task": "VLIGHT-010",
+  "head": "93df8ef619d27b86994d8e190023a6f3b744135a",
+  "stage": "Published source2 checks; not report-head acceptance",
+  "all_returned_checks_success": true,
+  "checks": [
+    {
+      "id": 137435607737,
+      "name": "Wiki quality gate",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "93df8ef619d27b86994d8e190023a6f3b744135a",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095929129/job/137435607737",
+      "completed_at": "2026-11-23T01:43:40Z"
+    },
+    {
+      "id": 137435607602,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "93df8ef619d27b86994d8e190023a6f3b744135a",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095929129/job/137435607602",
+      "completed_at": "2026-11-23T01:47:52Z"
+    },
+    {
+      "id": 137435607571,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "93df8ef619d27b86994d8e190023a6f3b744135a",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095929129/job/137435607571",
+      "completed_at": "2026-11-23T01:44:50Z"
+    },
+    {
+      "id": 137435607454,
+      "name": "Calendar palette native X11",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "93df8ef619d27b86994d8e190023a6f3b744135a",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095929130/job/137435607454",
+      "completed_at": "2026-11-23T01:50:25Z"
+    },
+    {
+      "id": 137435607380,
+      "name": "test",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "93df8ef619d27b86994d8e190023a6f3b744135a",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095929129/job/137435607380",
+      "completed_at": "2026-11-23T02:17:10Z"
+    },
+    {
+      "id": 137435607051,
+      "name": "Exact-head X11 comparison",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "93df8ef619d27b86994d8e190023a6f3b744135a",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095929088/job/137435607051",
+      "completed_at": "2026-11-23T01:45:21Z"
+    },
+    {
+      "id": 137435607038,
+      "name": "Low lighting native X11",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "93df8ef619d27b86994d8e190023a6f3b744135a",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095929093/job/137435607038",
+      "completed_at": "2026-11-23T01:49:04Z"
+    },
+    {
+      "id": 137435606996,
+      "name": "Weather clock native X11",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "93df8ef619d27b86994d8e190023a6f3b744135a",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095929022/job/137435606996",
+      "completed_at": "2026-11-23T01:47:36Z"
+    },
+    {
+      "id": 137435114053,
+      "name": "test",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "93df8ef619d27b86994d8e190023a6f3b744135a",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095768795/job/137435114053",
+      "completed_at": "2026-11-23T02:16:10Z"
+    },
+    {
+      "id": 137435113690,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "93df8ef619d27b86994d8e190023a6f3b744135a",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095768795/job/137435113690",
+      "completed_at": "2026-11-23T01:44:49Z"
+    },
+    {
+      "id": 137435113639,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "93df8ef619d27b86994d8e190023a6f3b744135a",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095768795/job/137435113639",
+      "completed_at": "2026-11-23T01:42:25Z"
+    },
+    {
+      "id": 137435113363,
+      "name": "Wiki quality gate",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "93df8ef619d27b86994d8e190023a6f3b744135a",
+      "details_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095768795/job/137435113363",
+      "completed_at": "2026-11-23T01:42:36Z"
+    }
+  ]
+}
