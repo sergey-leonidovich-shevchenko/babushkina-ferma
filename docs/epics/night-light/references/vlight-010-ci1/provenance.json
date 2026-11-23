@@ -1,0 +1,25 @@
+{
+  "head": "93df8ef619d27b86994d8e190023a6f3b744135a",
+  "run_id": 45095929093,
+  "job_id": 137435607038,
+  "zip_sha256": "a8206c84afd1e48f9a2fc54b12f133c7b51917c4bd0f44148303776d8f4d2c11",
+  "bytes": 173941412,
+  "scope": "Fresh Developer source2 CI static native; report/independent acceptance pending, not LIGHT runtime or motion evidence",
+  "files": {
+    "street-standard.png": "ef2792a036a025e2be104d1cee74daadf589d5bfde82e171de5dc552fe49320b",
+    "street-low.png": "2ab147aec76125c420138eb3abe36253ec886967568384b86b06a8c62f5b7a88",
+    "home-standard.png": "81c29f16e922490358056b2bff3e6eab764a6fcd92a81c64322e50ce042afdcb"
+  },
+  "native_members": {
+    "street-standard.png": "evidence/candidate/1280/street-night-standard.png",
+    "street-low.png": "evidence/candidate/1280/street-night-low.png",
+    "home-standard.png": "evidence/candidate/1280/home-night-standard.png"
+  },
+  "copied_raw_bytes_verified": true,
+  "findings": "Current standard still has small glow centered on glass, no broad ground spill. Low deliberately removes decorative halo and reduces night tint; retain accessibility with future effect. Home existing ray remains a separate future005 concern. No motion conclusion.",
+  "source_task": "VLIGHT-010",
+  "run_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45095929093",
+  "reviewed_for": "LIGHT-00 static lighting audit",
+  "full_native_suite_claimed": false,
+  "motion_or_hardware_fps_claimed": false
+}
