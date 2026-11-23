@@ -1739,6 +1739,14 @@
       "file": "docs/epics/rainfall/backlog.json",
       "group": "visual",
       "expected": 4
+    },
+    {
+      "id": "night-light",
+      "title": "Ночной свет и перемещаемые источники",
+      "format": "json",
+      "file": "docs/epics/night-light/backlog.json",
+      "group": "visual",
+      "expected": 1
     }
   ],
   "queues": [

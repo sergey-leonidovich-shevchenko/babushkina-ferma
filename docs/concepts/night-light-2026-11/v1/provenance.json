@@ -1,0 +1,25 @@
+{
+  "task": "LIGHT-00",
+  "created": "2026-11-23",
+  "method": "built-in image_gen / lighting-weather edit",
+  "runtime_asset": false,
+  "native_evidence": false,
+  "reference_archive": "docs/reports/visual-overhaul/vlight-003/native/candidate.zip",
+  "reference_member": "1280/street-night-palette.png",
+  "generation_origin": "exec-5b7ded20-bb27-4728-a3ac-4d58387f0c55.png",
+  "files": {
+    "native-reference.png": {
+      "sha256": "8d2a6bf8ff21ac6b84a80638beca5d8704308d1b0e6773864891e28377351854",
+      "bytes": 911778
+    },
+    "target.png": {
+      "sha256": "ff6830f83b7c028c07f642e833687da8ed45e6bae3d58c946fe40cc22fb2f18d",
+      "bytes": 1801726
+    },
+    "PROMPT.txt": {
+      "sha256": "7644f6b3cbef947749c4273d463f564fee914746db4ddf0f43acfa4e74fbaec7",
+      "bytes": 1752
+    }
+  },
+  "limits": "AI concept; minor scene/UI redraw may occur, only lighting direction selected; no timing/performance/movable-source acceptance"
+}
