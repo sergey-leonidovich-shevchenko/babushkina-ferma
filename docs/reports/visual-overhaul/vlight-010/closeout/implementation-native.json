@@ -1,0 +1,26 @@
+{
+  "task": "VLIGHT-010",
+  "head": "a1e9c8d587a206ece892a9737352366bb1ea821a",
+  "run_id": 45135670704,
+  "job_id": 137561234811,
+  "artifact_id": 14799912833,
+  "run_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45135670704",
+  "bytes": 173941860,
+  "sha256": "21a122f0c546b3affa5a1e871b627f10543b69d645e60b09732b13ee9e28a803",
+  "readonly_verifier": {
+    "expected_head": "a1e9c8d587a206ece892a9737352366bb1ea821a",
+    "check_current_candidate": true,
+    "exit_code": 0,
+    "native_png": 270,
+    "runs": 4,
+    "default_standard_equal": true
+  },
+  "all270_png_equal_original_ci1": true,
+  "original_archive": "../native-ci-01/archive.json",
+  "original_sha256": "a8206c84afd1e48f9a2fc54b12f133c7b51917c4bd0f44148303776d8f4d2c11",
+  "independent_verification": "implementation-review.json",
+  "raw_current_summary": "implementation-native-summary.json",
+  "gpu_time_measured": false,
+  "hardware_fps_acceptance": false,
+  "whole_location_accepted": false
+}

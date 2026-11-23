@@ -5278,7 +5278,7 @@
       "id": "VLIGHT-010",
       "epic": "VLIGHT",
       "title": "Принять свет на низком качестве",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -5318,9 +5318,11 @@
         "docs/reports/visual-overhaul/vlight-010/README.md",
         "docs/reports/visual-overhaul/vlight-010/verification.json",
         "docs/reports/visual-overhaul/vlight-010/native-ci-01/archive.json",
-        "wiki/articles/lighting-quality.md"
+        "wiki/articles/lighting-quality.md",
+        "docs/reports/visual-overhaul/vlight-010/closeout/README.md",
+        "docs/reports/visual-overhaul/vlight-010/closeout/result.json"
       ],
-      "result": "23 ноября 2026: source2 head 93df8ef619d27b86994d8e190023a6f3b744135a (.490). Реализованы owner-local standard/low/off с сохранением календаря, HUD, save и общего rollback. Модель 257/0, strict 12/12, CLI 10/0; полный обычный hook quality 269/0, architecture PASS, Game 54121/0, normal/F10 по 90/0, post-bump Wiki 167/0 и браузер 1280/390 прошли. Настоящий Linux/X11 CI45095929093:270 PNG/304 артефакта/46 входов, два физических окна и четыре процесса; чистый локальный strict-current PASS, просмотр 48 полных кадров, 19 copied-real отказов и парный дефект off=standard. Оригинальный ZIP сохранён точными частями; CPU draw не доказывает аппаратный FPS или ускорение. Отчётная доработка и её полный hook/CI, actual Linux early-output guard, финальное независимое ревью exact head и решение Team Lead ещё обязательны. Предварительный source pass 6015738024 не является окончательным APPROVED. Статус in_progress; Task-Complete отсутствует; VRELEASE-003/VMAP-003 не приняты. [PR №90](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/90)"
+      "result": "23 ноября 2026 VLIGHT-010 принята: [PR №90](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/90), exact head a1e9c8d587a206ece892a9737352366bb1ea821a (.493), независимое APPROVED 6018708449, все 12 текущих CI success и решение Team Lead. Обычный merge 2ad79b4e24b39a953a651d88e68e55e1536eecee: родители d0f748105d57abade82f5c36e7f4e61aaa9ab3cb и approved head, tree b92e43190e160c530ee7941cd7cde57d6927cbac точно совпал. Owner-local standard/low/off сохраняют календарь, HUD, save, два viewport и visual rollback. Native270 PNG/4 запуска/304 артефакта/46 QA-входов: standard exact, low/off читаемы, весь свежий PNG-набор равен CI1; оригинальный ZIP сохранён точными частями,1440 samples и19 copied-real отказов не изменены. P2 скрытой PR-ссылки закрыт на настоящем computed и реальных кликах 1280/390. Оба текущих Linux early-output guard дали exit2 до engine, 351 файлов и archive неизменны. Полный локальный hook quality 275/0,132 группы1727 тестов,Game 54121/0,normal/F10 по 90/0;Wiki 167/0. Оба общих CI: Game 54139/0,water 55/0,normal/F10 по 90/0,smoke 180,по 6 valid performance-series. Учёт отдельный, со своими gates;1036 других карточек и planning сохраняются. CPU-разброс перекрывается: ускорение/GPU/hardwareFPS, новые источники004–009,меню VPERF-010,VRELEASE-003/VMAP-003 не приняты. Запись приёмки: docs/reports/visual-overhaul/vlight-010/closeout/README.md."
     },
     {
       "id": "VWEATHER-001",

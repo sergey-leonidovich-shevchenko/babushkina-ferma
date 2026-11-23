@@ -1,8 +1,9 @@
 # Упрощённый свет первой деревни
 
-Для первой деревни проверены три обратимых режима света. VLIGHT-010 остаётся
-в работе: [PR №90](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/90)
-ещё требует окончательного ревью и решения Team Lead.
+Для первой деревни приняты три обратимых режима света. 23 ноября 2026
+[PR №90](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/90)
+принят на head a1e9c8d (.493) после независимого APPROVED 6018708449,
+всех 12 CI и решения Team Lead. Обычный merge 2ad79b4e сохранил точное дерево.
 
 [Карточка VLIGHT-010](#/development/tasks/visual--VLIGHT-010) ·
 [Первая локация](#/development/first-location) · [День и сумерки](daylight-cycle.md)
@@ -67,6 +68,10 @@ low/off остаётся в памяти и восстанавливается �
 [Медианы и повторы](../../docs/reports/visual-overhaul/vlight-010/native-ci-01/metrics.json) ·
 [Снимок проверки до отчётного коммита](../../docs/reports/visual-overhaul/vlight-010/verification.json)
 
-Окончательные проверки и независимое ревью отчётного head ещё обязательны.
+Окончательный a1e9c8d отдельно прошёл полный hook, Wiki 167/0, браузер 1280/390,
+clean strict-current и 12/12 новых CI. Свежие 270 PNG равны исходным; оба текущих
+Linux guard подтвердили отказ до движка и сохранность 351 файлов. P2 ссылки PR
+исправлен и независимо закрыт. [Точная запись приёмки](../../docs/reports/visual-overhaul/vlight-010/closeout/result.json).
+Отдельный учёт получает собственные проверки и ревью.
 Новые рисунки источников, маски крыш, аппаратные бюджеты, долгая сессия,
 VRELEASE-003 и VMAP-003 этим сравнением не принимаются.

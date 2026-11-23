@@ -383,7 +383,7 @@
 
 ## VLIGHT-010 — Принять свет на низком качестве
 
-Статус: `in_progress` · P1 · этап `pilot` · `engineering`
+Статус: `done` · P1 · этап `pilot` · `engineering`
 
 Упрощённый профиль сохраняет видимость дверей, врагов и ресурсов; эффект можно отключить без смены механик
 
@@ -415,4 +415,4 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vlight-010/README.md, docs/reports/visual-overhaul/vlight-010/verification.json, docs/reports/visual-overhaul/vlight-010/native-ci-01/archive.json, wiki/articles/lighting-quality.md.
+Доказательства: docs/reports/visual-overhaul/vlight-010/README.md, docs/reports/visual-overhaul/vlight-010/verification.json, docs/reports/visual-overhaul/vlight-010/native-ci-01/archive.json, wiki/articles/lighting-quality.md, docs/reports/visual-overhaul/vlight-010/closeout/README.md, docs/reports/visual-overhaul/vlight-010/closeout/result.json.

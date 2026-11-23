@@ -1,0 +1,78 @@
+{
+  "task": "VLIGHT-010",
+  "accepted_on": "2026-11-23",
+  "date_source": "Accepted merge git %cI: 2026-11-23T13:48:41+05:00",
+  "implementation_pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/90",
+  "approved_head": "a1e9c8d587a206ece892a9737352366bb1ea821a",
+  "accepted_base": "d0f748105d57abade82f5c36e7f4e61aaa9ab3cb",
+  "accepted_merge": "2ad79b4e24b39a953a651d88e68e55e1536eecee",
+  "merge_parents": [
+    "d0f748105d57abade82f5c36e7f4e61aaa9ab3cb",
+    "a1e9c8d587a206ece892a9737352366bb1ea821a"
+  ],
+  "accepted_tree": "b92e43190e160c530ee7941cd7cde57d6927cbac",
+  "merge_tree_equal_approved_head": true,
+  "version": "0.0.493",
+  "merged_at": "2026-11-23T08:48:41Z",
+  "review_id": 6018708449,
+  "review_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/90#pullrequestreview-6018708449",
+  "review_verdict": "Independent APPROVED exact head; GitHub COMMENTED because agents share one account",
+  "review_evidence": "implementation-review.json",
+  "team_decision": {
+    "thread_id": "01a14c6e-9afd-7d33-a968-2c72339fce8d",
+    "turn_id": "01a20796-d561-7450-94b7-4406c1947668",
+    "decision": "Accept exact head/tree/version/base, normal merge and separate accounting after independent final APPROVED6018708449 and all12CI; decision itself is not the fact of merge.",
+    "merge_independently_confirmed": true
+  },
+  "all12_current_checks_success": true,
+  "ci_evidence": "implementation-checks.json",
+  "native_evidence": "implementation-native.json",
+  "local_evidence": {
+    "file": "implementation-local-logs.zip",
+    "bytes": 395446,
+    "sha256": "c67b161bdaeb5a62bee74bcd131069bb84928497e4ea8b65fdb7d0dd7faac1c2",
+    "sanitized": true
+  },
+  "p2": {
+    "original_review_id": 6016553188,
+    "inline_id": 4661806182,
+    "thread_id": "PRRT_kwDOTqkhCs66sYgT",
+    "resolved_reply_id": 4663196203,
+    "old_head": "200f9d23d9569e0bf368e9a43fbce556afb612e5",
+    "actual_consumer_old": null,
+    "actual_consumer_new": "PR90 label and URL",
+    "real_author_browser_clicks": [
+      1280,
+      390
+    ],
+    "first_mobile_navigation_not_counted": true
+  },
+  "local_implementation_gates": {
+    "whole_quality_files": 275,
+    "failed": 0,
+    "architecture_groups": 132,
+    "architecture_tests": 1727,
+    "mac_linux_only_skip": 1,
+    "game_passed": 54121,
+    "normal_passed": 90,
+    "f10_passed": 90,
+    "wiki_passed": 167,
+    "normal_userdata_unchanged": true,
+    "own_override_removed": true
+  },
+  "actual_core_jobs": "implementation-core-results.json",
+  "scope": "Transient owner-local standard/low/off for first overworld; existing home transition regression. Gameplay/save/HUD and common rollback preserved.",
+  "implementation_task_complete_trailer": false,
+  "accounting_gates": "Still required separately; implementation gates do not replace them.",
+  "gpu_time_measured": false,
+  "hardware_fps_acceptance": false,
+  "whole_location_accepted": false,
+  "open_boundaries": [
+    "VLIGHT-004..009 new source art/object-local light",
+    "Roof masks",
+    "VPERF-010 app quality menu",
+    "Retina/hardware FPS and long session",
+    "VRELEASE-003",
+    "VMAP-003"
+  ]
+}
