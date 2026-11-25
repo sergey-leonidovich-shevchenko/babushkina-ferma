@@ -7245,7 +7245,7 @@
       "id": "VPERF-002",
       "epic": "VPERF",
       "title": "Зафиксировать бюджет эталона",
-      "status": "backlog",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -7280,8 +7280,14 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vperf-002-visual-task",
-      "evidence": []
+      "branch": "codex/vperf-002-reference-budget",
+      "evidence": [
+        "docs/reports/visual-overhaul/vperf-002/README.md",
+        "docs/reports/visual-overhaul/vperf-002/budget.json",
+        "docs/reports/visual-overhaul/vperf-002/historical-replay.json",
+        "docs/reports/visual-overhaul/vperf-002/closeout/README.md"
+      ],
+      "result": "Принят бюджет для MacBookPro16,1 / i7-9750H / Radeon Pro 5300M, AC, 1152×648, мир 120%, фиксированная камера VPERF-001. Для каждого из 3×30 с и 600 с заданы p95 ≤ 16,7 мс, p99 ≤ 25 мс, доля интервалов > 33,4 мс ≤ 0,1% и максимум ≤ 50 мс. Повторный расчёт четырёх исходных журналов дал медиану коротких p95 56,306 мс и худший короткий p95 81,45335 мс. Аппаратный FPS и GPU-время текущей сборки предстоит измерить. Реализация принята 25 ноября 2026 после независимого ревью и 9 проверок CI. [PR №94](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/94)"
     },
     {
       "id": "VPERF-003",
@@ -9609,7 +9615,7 @@
       "evidence": [
         "docs/reports/visual-overhaul/vrelease-003/dependency-audit.json"
       ],
-      "result": "Проверены все 54 зависимости и 12 исходных файлов на принятом коммите 3ecd79eb. Предстоит снять в Linux/X11 общий маршрут с травой, водой и перекрытиями, проверить паузу, телепорт и неподвижный вариант при той же камере."
+      "result": "Проверены все 54 зависимости и 12 исходных файлов на принятом коммите 3ecd79eb. Предстоит снять в Linux/X11 общий маршрут с травой, водой и перекрытиями, проверить паузу, телепорт и неподвижный вариант при той же камере. [PR №95](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/95)"
     },
     {
       "id": "VRELEASE-004",
