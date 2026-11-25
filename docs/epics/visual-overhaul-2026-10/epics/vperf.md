@@ -46,11 +46,11 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 ## VPERF-002 — Зафиксировать бюджет эталона
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `in_progress` · P0 · этап `foundation` · `engineering`
 
 16.7 мс для цели 60 FPS рассматривается только после выбора машины и разрешения; p95 и выбросы обязательны
 
-Ветка: `codex/vperf-002-visual-task`.
+Ветка: `codex/vperf-002-reference-budget`.
 
 Зависимости: VPERF-001.
 
@@ -62,7 +62,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 - [scripts/systems/render_pacing_system.gd](../../../../scripts/systems/render_pacing_system.gd)
 - [tools/water_audit.gd](../../../../tools/water_audit.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vperf-002/`.
+Результаты: `docs/reports/visual-overhaul/vperf-002/`.
 
 Критерии:
 
@@ -80,7 +80,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vperf-002/README.md, docs/reports/visual-overhaul/vperf-002/budget.json, docs/reports/visual-overhaul/vperf-002/historical-replay.json.
 
 <a id="vperf-003"></a>
 
