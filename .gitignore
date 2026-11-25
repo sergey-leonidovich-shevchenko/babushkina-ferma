@@ -801,6 +801,10 @@ tools/qa/world/rollback/*
 !tools/qa/world/rollback/*.gd
 !tools/qa/world/rollback/*.gd.uid
 !tools/qa/world/rollback/README.md
+!tools/qa/world/moving_pilot/
+tools/qa/world/moving_pilot/*
+!tools/qa/world/moving_pilot/*.py
+!tools/qa/world/moving_pilot/*.gd
 !tools/qa/world/shadows/
 tools/qa/world/shadows/*
 !tools/qa/world/shadows/*.py
