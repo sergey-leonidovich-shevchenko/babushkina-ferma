@@ -20,11 +20,12 @@ const Teleport := preload("res://scripts/systems/qa_teleport_system.gd")
 const TeleportInput := preload("res://scripts/systems/qa_teleport_input.gd")
 const OLD_SLOT := "res://tests/fixtures/saves/v1-core.json"
 const START := Vector2(1944, 780)
-# Ближе к левому краю настила, чтобы край силуэта пересекал перила.
-const BRIDGE_X := 1580.0
+const BRIDGE_X := 1588.0
+const BRIDGE_RAIL_X := 1578.0
 const HZ := 30
 const FRAME_TICKS := 3
 const WALK_LIMIT := HZ * 7
+const STALL_LIMIT := 8
 
 var output := ""
 var profile := ""
@@ -81,6 +82,8 @@ func _run() -> void:
 	var start: Dictionary = Points.registry().points[0].duplicate()
 	start.player = Points.pair(START)
 	Points.configure(game, start)
+	# Изолируем маршрут графики от единственного местного противника в этом профиле.
+	game.slime_alive = false
 	game.remove_meta(&"camera_reference_zoom")
 	game.settings_state.reduced_motion = mode == "static"
 	game.settings_state.vsync_enabled = false
@@ -91,10 +94,9 @@ func _run() -> void:
 	await _settle()
 	_require(game.is_position_walkable(START), "initial waypoint is blocked")
 	await _hold("idle", 36)
-	await _walk("grass", Vector2(1776, START.y))
-	await _walk("bank", Vector2(BRIDGE_X, START.y))
-	await _walk("bridge-approach", Vector2(BRIDGE_X, 840))
-	await _walk("bridge-crossing", Vector2(BRIDGE_X, 1080))
+	if not await _outdoor_route():
+		_write()
+		return
 	_require(await _pause(), "pause menu entry failed")
 	await _move_through_locations()
 	await _check_old_slot()
@@ -102,11 +104,36 @@ func _run() -> void:
 	_write()
 
 
+## Подходит к перилам боком на середине настила, пока передний слой перекрывает силуэт.
+func _outdoor_route() -> bool:
+	var waypoints := {
+		"grass": Vector2(1776, START.y),
+		"bank": Vector2(BRIDGE_X, START.y),
+		"bridge-approach": Vector2(BRIDGE_X, 840),
+		"bridge-north": Vector2(BRIDGE_X, 936),
+	}
+	for label: String in waypoints:
+		if not await _walk_outside(label, waypoints[label]):
+			return false
+	if not await _walk_outside("bridge-rail", Vector2(BRIDGE_RAIL_X, game.player.y)):
+		return false
+	await _hold("bridge-rail", 9)
+	return await _walk_outside("bridge-crossing", Vector2(BRIDGE_X, 1080))
+
+
+func _walk_outside(label: String, target: Vector2) -> bool:
+	await _walk(label, target)
+	_require(game.current_location == "overworld", "unexpected transition at " + label)
+	return errors.is_empty()
+
+
 ## Выбирает направление движения к точке. Координаты изменяет только физический цикл.
 func _walk(label: String, target: Vector2) -> void:
 	var initial_world: String = game.current_location
+	var stalled := 0
 	for _step in WALK_LIMIT:
-		var offset := target - Vector2(game.player)
+		var previous := Vector2(game.player)
+		var offset := target - previous
 		if offset.length() <= 7.0 or game.current_location != initial_world:
 			break
 		game.move_left_held = offset.x < -4.0
@@ -114,6 +141,15 @@ func _walk(label: String, target: Vector2) -> void:
 		game.move_up_held = offset.y < -4.0
 		game.move_down_held = offset.y > 4.0
 		await _step_and_sample(label)
+		if game.current_location != initial_world:
+			break
+		var displacement := previous.distance_to(game.player)
+		if displacement > 2.0 * game.speed / HZ:
+			_require(false, "unexpected position jump at " + label)
+			break
+		stalled = stalled + 1 if is_zero_approx(displacement) else 0
+		if stalled >= STALL_LIMIT:
+			break
 	game.clear_movement_keys()
 	_require(
 		game.current_location != initial_world or Vector2(game.player).distance_to(target) <= 7.0,
@@ -193,6 +229,10 @@ func _check_old_slot() -> void:
 ## Сравнивает ту же камеру до отключения общего флага и после его восстановления.
 func _rollback() -> void:
 	game.settings_state.reduced_motion = true
+	# Дождь из слота v1 показан на предыдущем отрезке. Для сравнения пикселей фиксируем ясную погоду.
+	game.state.world.weather_day = game.day
+	game.state.world.weather = "clear"
+	game.sync_background_environment()
 	game.message = ""
 	await _settle()
 	await _frame("rollback-on")
@@ -254,7 +294,10 @@ func _frame(label: String) -> void:
 	var start_draws := Engine.get_frames_drawn()
 	for _draw in 2:
 		game.queue_redraw()
+		await process_frame
 		await RenderingServer.frame_post_draw
+	await process_frame
+	var draw_count := Engine.get_frames_drawn() - start_draws
 	var image := root.get_texture().get_image()
 	var window := DisplayServer.window_get_size()
 	if (
@@ -262,7 +305,7 @@ func _frame(label: String) -> void:
 		or image.get_size() != size
 		or window != size
 		or not root.visible
-		or Engine.get_frames_drawn() <= start_draws
+		or draw_count < 2
 		or before != _save_digest()
 	):
 		_require(false, "invalid native frame at " + label)
@@ -286,9 +329,11 @@ func _frame(label: String) -> void:
 			"location": game.current_location,
 			"player": Points.pair(game.player),
 			"ground": Points.pair(Pose.ground(game)),
+			"facing": Points.pair(game.facing),
 			"camera": Points.pair(game.camera_offset),
 			"zoom": WorldProjection.zoom(game),
 			"minutes": game.game_minutes,
+			"hp": game.player_hp,
 			"world_seconds": Clock.seconds(game),
 			"paused": game.menu_state.pause_open,
 			"teleport_open": Teleport.active(game),
@@ -302,7 +347,7 @@ func _frame(label: String) -> void:
 			"rail_split": background.split_bridge_rails and Version.enabled(game),
 			"modern": Version.enabled(game),
 			"save_sha256": before,
-			"native_draws": Engine.get_frames_drawn() - start_draws,
+			"native_draws": draw_count,
 			"regions":
 			{
 				"grass": _project_rect(Ambient.destination_rect(Vector2(1944, 648))),

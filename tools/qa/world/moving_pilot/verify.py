@@ -29,6 +29,8 @@ ROUTE = (
     "grass",
     "bank",
     "bridge-approach",
+    "bridge-north",
+    "bridge-rail",
     "bridge-crossing",
     "pause",
     "resume",
@@ -63,9 +65,11 @@ PAIR_FIELDS = (
     "location",
     "player",
     "ground",
+    "facing",
     "camera",
     "zoom",
     "minutes",
+    "hp",
     "save_sha256",
 )
 
@@ -198,11 +202,28 @@ def verify_run(
         and math.isclose(resume["minutes"] - pause[-1]["minutes"], elapsed, abs_tol=1e-8),
         "pause did not resume normally",
     )
-    crossing = groups["bridge-crossing"]
+    crossing_labels = ("bridge-north", "bridge-rail", "bridge-crossing")
+    walk_labels = ("idle", "grass", "bank", "bridge-approach", *crossing_labels)
+    walk = [row for label in walk_labels for row in groups[label]]
+    require(
+        all(row["location"] == "overworld" and row["hp"] == walk[0]["hp"] for row in walk),
+        "the outdoor walk experienced combat or an unexpected transition",
+    )
+    crossing = [row for label in crossing_labels for row in groups[label]]
     require(
         sum(bool(row["bridge_deck"] and row["rail_split"]) for row in crossing) >= 8
         and crossing[-1]["player"][1] - crossing[0]["player"][1] > 190,
         "hero did not pass the bridge in the foreground-rail route",
+    )
+    require(
+        any(
+            row["bridge_deck"]
+            and row["rail_split"]
+            and row["facing"] == [-1, 0]
+            and 1578 <= row["ground"][0] <= 1583
+            for row in groups["bridge-rail"]
+        ),
+        "hero did not face the foreground rail at the edge of the passage",
     )
     rollback = [groups[f"rollback-{state}"][0] for state in ("on", "off", "restored")]
     require([r["modern"] for r in rollback] == [True, False, True], "visual rollback flag")
