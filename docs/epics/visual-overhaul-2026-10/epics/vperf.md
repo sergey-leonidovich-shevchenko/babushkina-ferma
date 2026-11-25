@@ -46,7 +46,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 ## VPERF-002 — Зафиксировать бюджет эталона
 
-Статус: `in_progress` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 16.7 мс для цели 60 FPS рассматривается только после выбора машины и разрешения; p95 и выбросы обязательны
 
@@ -80,7 +80,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vperf-002/README.md, docs/reports/visual-overhaul/vperf-002/budget.json, docs/reports/visual-overhaul/vperf-002/historical-replay.json.
+Доказательства: docs/reports/visual-overhaul/vperf-002/README.md, docs/reports/visual-overhaul/vperf-002/budget.json, docs/reports/visual-overhaul/vperf-002/historical-replay.json, docs/reports/visual-overhaul/vperf-002/closeout/README.md.
 
 <a id="vperf-003"></a>
 

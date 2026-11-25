@@ -7245,7 +7245,7 @@
       "id": "VPERF-002",
       "epic": "VPERF",
       "title": "Зафиксировать бюджет эталона",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -7284,9 +7284,10 @@
       "evidence": [
         "docs/reports/visual-overhaul/vperf-002/README.md",
         "docs/reports/visual-overhaul/vperf-002/budget.json",
-        "docs/reports/visual-overhaul/vperf-002/historical-replay.json"
+        "docs/reports/visual-overhaul/vperf-002/historical-replay.json",
+        "docs/reports/visual-overhaul/vperf-002/closeout/README.md"
       ],
-      "result": "Эталон разработки — MacBookPro16,1 / i7-9750H / Radeon Pro 5300M, AC, 1152×648, мир 120%, фиксированная камера VPERF-001. Для каждого из 3×30 с и 600 с заданы p95 ≤ 16,7 мс, p99 ≤ 25 мс, доля интервалов > 33,4 мс ≤ 0,1% и максимум ≤ 50 мс. Повторный расчёт четырёх принятых журналов VPERF-001 совпал со сводкой и даёт медиану короткого p95 56,306 мс. Цель текущего билда, GPU-время, аппаратные 60 FPS и живой маршрут остаются открытыми. Коммит бюджета 8908e090916ea55c0c565e4e359253125d6f634c прошёл штатный hook и 168 тестов Wiki. Пакет ожидает CI и независимого ревью. [PR №94](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/94)"
+      "result": "Принят бюджет для MacBookPro16,1 / i7-9750H / Radeon Pro 5300M, AC, 1152×648, мир 120%, фиксированная камера VPERF-001. Для каждого из 3×30 с и 600 с заданы p95 ≤ 16,7 мс, p99 ≤ 25 мс, доля интервалов > 33,4 мс ≤ 0,1% и максимум ≤ 50 мс. Повторный расчёт четырёх исходных журналов дал медиану коротких p95 56,306 мс и худший короткий p95 81,45335 мс. Аппаратный FPS и GPU-время текущей сборки предстоит измерить. Реализация принята 25 ноября 2026 после независимого ревью и 9 проверок CI. [PR №94](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/94)"
     },
     {
       "id": "VPERF-003",
