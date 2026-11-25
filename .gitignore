@@ -758,6 +758,11 @@ tools/qa/performance/*
 !tools/qa/performance/storage_perf_game.gd.uid
 !tools/qa/performance/storage_perf_review.gd.uid
 !tools/qa/performance/wildlife_query_review.gd.uid
+!tools/qa/performance/pass_cost/
+tools/qa/performance/pass_cost/*
+!tools/qa/performance/pass_cost/*.py
+!tools/qa/performance/pass_cost/*.gd
+!tools/qa/performance/pass_cost/*.gd.uid
 
 # REFACTOR-03: camera context preparation; source implementations have not moved.
 !tools/qa/camera/

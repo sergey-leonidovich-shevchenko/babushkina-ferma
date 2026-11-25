@@ -23,6 +23,7 @@ const ContactShadows := preload("res://scripts/presentation/overworld_contact_sh
 const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
 const HeroVisual := preload("res://scripts/systems/hero_visual_system.gd")
 const Version := preload("res://scripts/presentation/visual_version.gd")
+const RenderProbe := preload("res://scripts/presentation/overworld_render_probe.gd")
 
 
 ## Координирует отрисовку текущего состояния без изменения игровой логики.
@@ -52,18 +53,23 @@ static func draw(game: Node2D) -> void:
 		HeroVisual.draw_shadow(game, Pose.ground(game))
 		game.draw_quest_npcs()
 	elif game.current_location == "overworld":
-		game.VillageAmbientRenderer.draw_ground(game)
+		if not RenderProbe.omits(game, RenderProbe.GRASS):
+			game.VillageAmbientRenderer.draw_ground(game)
 		game.draw_farm()
-		ContactShadows.draw(game)
-		if separate_hero_contact:
-			HeroVisual.draw_shadow(game, Pose.ground(game))
+		if not RenderProbe.omits(game, RenderProbe.SHADOWS):
+			ContactShadows.draw(game)
+			if separate_hero_contact:
+				HeroVisual.draw_shadow(game, Pose.ground(game))
 		VillagePropRenderer.draw(game, false)
 		game.draw_rpg_world()
 	else:
 		game.draw_farm()
 	VillageRegionRenderer.draw_ground(game)
 	VillageRegionRenderer.draw_objects(game)
-	if game.current_location in ["overworld", "village_river"]:
+	if (
+		game.current_location in ["overworld", "village_river"]
+		and not RenderProbe.omits(game, RenderProbe.WATER)
+	):
 		game.draw_fishing_animations()
 	game.EnvironmentVisualSystem.draw_biome_trees(game, game.current_location)
 	CaveRenderer.draw_lights(game)
