@@ -124,15 +124,18 @@ def frames_summary(
         "missing or truncated native render intervals",
     )
     start, finish = metadata["sample_start_usec"], metadata["sample_end_usec"]
-    previous_time = metadata["first_draw_usec"]
+    opening = metadata["first_draw"]
+    closing = metadata["final_draw"]
+    previous_time = opening["usec"]
     c.require(start < previous_time < finish, "initial draw boundary lies outside measurement")
     c.require(
         seconds - 0.5 <= (finish - start) / 1e6 <= seconds * 1.25,
         "unusable wall duration at fixed physics ticks",
     )
-    previous_draw = rows[0][2] - 1
-    previous_process = rows[0][3]
-    previous_tick = 1.0
+    previous_draw: float = opening["draw_id"]
+    previous_process: float = opening["process_id"]
+    previous_tick: float = opening["physics_tick"]
+    c.require(1 <= previous_tick < seconds * 60, "opening draw did not observe live physics")
     for usec, interval, draw, process, tick, calls, static, texture, idle, physics, *_ in rows:
         c.require(
             previous_time < usec <= finish
@@ -151,6 +154,13 @@ def frames_summary(
             "invalid drawable frame, memory or engine counters",
         )
         previous_time, previous_draw, previous_process, previous_tick = usec, draw, process, tick
+    c.require(
+        previous_time == finish == closing["usec"]
+        and previous_draw == closing["draw_id"]
+        and previous_process == closing["process_id"]
+        and previous_tick == closing["physics_tick"] == seconds * 60,
+        "last row is not the final native draw on the last physics tick",
+    )
     late = sum(row[1] > 33.4 for row in rows)
     return {
         "interval_count": len(rows),
@@ -206,7 +216,7 @@ def inspect(
     launch = c.read(path / "launch.json")
     c.require(
         data["task"] == c.TASK
-        and data["schema"] == 1
+        and data["schema"] == 2
         and not data["error"]
         and data["route_only"] is False
         and data["seconds"] == seconds
@@ -243,6 +253,14 @@ def inspect(
         and data["gpu_time_ms"] is None
         and data["frame_boundary"] == "frame_post_draw",
         "native configuration or measurement attribution mismatch",
+    )
+    c.require(
+        abs(
+            (data["utc_ended"] - data["utc_started"])
+            - (data["sample_end_usec"] - data["sample_start_usec"]) / 1e6
+        )
+        < 0.2,
+        "external and monotonic measurement boundaries disagree",
     )
     for phase in ("initial", "final"):
         endpoint = data[phase]

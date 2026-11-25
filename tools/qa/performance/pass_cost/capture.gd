@@ -55,7 +55,8 @@ var frames := PackedFloat64Array()
 var trajectory := PackedFloat64Array()
 var frame_count := 0
 var previous_draw := 0
-var first_draw := 0
+var first_draw := {}
+var final_draw := {}
 var sample_start := 0
 var sample_end := 0
 var begin_epoch := 0.0
@@ -64,6 +65,7 @@ var maintenance_start := 0
 var initial := {}
 var error := ""
 var finished := false
+var final_draw_pending := false
 var entry_save := ""
 var target_ticks := 0
 var reported_vsync := -1
@@ -189,7 +191,7 @@ func _start() -> void:
 
 ## Повторяет принятый маршрут штатным вводом до очередного физического тика.
 func _set_input() -> void:
-	if finished:
+	if finished or final_draw_pending:
 		return
 	if ticks == 0:
 		begin_epoch = Time.get_unix_time_from_system()
@@ -213,7 +215,7 @@ func _key(code: Key, pressed: bool, held: bool) -> void:
 
 ## Записывает фактическую игровую опору и камеру после производственной физики.
 func record_step() -> void:
-	if finished:
+	if finished or final_draw_pending:
 		return
 	var position: Vector2 = game.player
 	var camera: Vector2 = game.camera_offset
@@ -245,7 +247,12 @@ func record_step() -> void:
 	):
 		_abort("route left the live focused first overworld")
 	elif ticks == target_ticks:
-		_end_sample()
+		if route_only:
+			_end_sample()
+		else:
+			# Последний физический тик завершён. Оставляем включённым сбор его кадра.
+			final_draw_pending = true
+			game.set_physics_process(false)
 
 
 ## Обозначает границу отправки кадра. Мониторы движка и CPU процесса анализируются отдельно.
@@ -256,8 +263,10 @@ func _record_draw() -> void:
 		_abort("sample capacity, native window or focus changed")
 		return
 	var now := Time.get_ticks_usec()
+	var draw_id := Engine.get_frames_drawn()
+	var process_id := Engine.get_process_frames()
 	if previous_draw == 0:
-		first_draw = now
+		first_draw = _draw_boundary(now, draw_id, process_id)
 		previous_draw = now
 		return
 	var ground := Pose.ground(game)
@@ -268,8 +277,8 @@ func _record_draw() -> void:
 		[
 			now,
 			(now - previous_draw) / 1000.0,
-			Engine.get_frames_drawn(),
-			Engine.get_process_frames(),
+			draw_id,
+			process_id,
 			ticks,
 			Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),
 			Performance.get_monitor(Performance.MEMORY_STATIC),
@@ -284,6 +293,13 @@ func _record_draw() -> void:
 	)
 	frame_count += 1
 	previous_draw = now
+	if final_draw_pending:
+		final_draw = _draw_boundary(now, draw_id, process_id)
+		_end_sample(now)
+
+
+func _draw_boundary(usec: int, draw_id: int, process_id: int) -> Dictionary:
+	return {"usec": usec, "draw_id": draw_id, "process_id": process_id, "physics_tick": ticks}
 
 
 func _store(buffer: PackedFloat64Array, row: int, values: Array) -> void:
@@ -342,9 +358,9 @@ func _abort(reason: String) -> void:
 	_end_sample()
 
 
-func _end_sample() -> void:
+func _end_sample(last_draw_usec: int = 0) -> void:
 	finished = true
-	sample_end = Time.get_ticks_usec()
+	sample_end = last_draw_usec if last_draw_usec > 0 else Time.get_ticks_usec()
 	end_epoch = Time.get_unix_time_from_system()
 	game.set_physics_process(false)
 	_finish.call_deferred()
@@ -368,7 +384,7 @@ func _finish() -> void:
 	_write("save-before.json", entry_save)
 	_write("save-after.json", JSON.stringify(Save.snapshot(game), "", true, true))
 	var metadata := {
-		"schema": 1,
+		"schema": 2,
 		"task": "VPERF-003",
 		"pass": omitted,
 		"seconds": seconds,
@@ -396,7 +412,8 @@ func _finish() -> void:
 		"seed": game.world_loot_seed,
 		"sample_start_usec": sample_start,
 		"sample_end_usec": sample_end,
-		"first_draw_usec": first_draw,
+		"first_draw": first_draw,
+		"final_draw": final_draw,
 		"utc_started": begin_epoch,
 		"utc_ended": end_epoch,
 		"frame_boundary": "frame_post_draw",

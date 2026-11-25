@@ -13,6 +13,33 @@ from tools.qa.performance.pass_cost import contract as c
 from tools.qa.performance.pass_cost import verify as reader
 
 
+def frame_trace(
+    intervals: list[float],
+) -> tuple[list[tuple[float, ...]], dict[str, Any]]:
+    start = 10_000_000
+    first_draw = start + 10_000
+    usec = first_draw
+    rows: list[tuple[float, ...]] = []
+    for index, interval in enumerate(intervals):
+        usec += round(interval * 1000)
+        tick = max(1, min(1800, round((usec - start) * 60 / 1e6)))
+        rows.append((usec, interval, 200 + index, index + 1, tick, 30, 1024, 0, 7, 1))
+    return rows, {
+        "seconds": 30,
+        "draw_count": len(rows),
+        "retained_interval_count": len(rows),
+        "sample_start_usec": start,
+        "sample_end_usec": usec,
+        "first_draw": {"usec": first_draw, "draw_id": 199, "process_id": 0, "physics_tick": 1},
+        "final_draw": {
+            "usec": usec,
+            "draw_id": rows[-1][2],
+            "process_id": rows[-1][3],
+            "physics_tick": 1800,
+        },
+    }
+
+
 class PassCostReaderTests(unittest.TestCase):
     def test_schedule_and_required_inputs(self) -> None:
         schedule = c.schedule()
@@ -80,27 +107,33 @@ class PassCostReaderTests(unittest.TestCase):
             reader.check_trajectory(rows[:-1], metadata, route)
 
     def test_slow_frame_is_retained_and_missing_draw_rejected(self) -> None:
-        rows: list[tuple[float, ...]] = []
-        first_draw = 10_005_000
-        usec = first_draw
-        for index in range(1000):
-            interval = 400.0 if index == 400 else 29.5
-            usec += int(interval * 1000)
-            rows.append((usec, interval, 200 + index, index, index + 2, 30, 1024, 0, 7, 1))
-        meta = {
-            "seconds": 30,
-            "draw_count": len(rows),
-            "retained_interval_count": len(rows),
-            "sample_start_usec": 10_000_000,
-            "first_draw_usec": first_draw,
-            "sample_end_usec": 40_000_000,
-        }
+        rows, meta = frame_trace([29.59] * 1000 + [400.0])
         actual = reader.frames_summary(rows, meta)
         self.assertEqual(actual["frame_interval_ms"]["max"], 400.0)
         self.assertEqual(actual["intervals_over_33_4_ms"], 1)
         rows[500] = (*rows[500][:2], rows[500][2] + 1, *rows[500][3:])
         with self.assertRaisesRegex(ValueError, "out of order"):
             reader.frames_summary(rows, meta)
+
+    def test_contiguous_prefix_cannot_discard_the_slow_tail_of_a_run(self) -> None:
+        rows, metadata = frame_trace([20.0] * 350 + [229.0] * 99 + [319.0])
+        complete = reader.frames_summary(rows, metadata)
+        self.assertEqual(complete["frame_interval_ms"]["max"], 319.0)
+        self.assertEqual(complete["frame_interval_ms"]["p95"], 229.0)
+        self.assertEqual(complete["intervals_over_33_4_ms"], 100)
+        prefix = rows[:350]
+        self.assertEqual((prefix[-1][0] - metadata["sample_start_usec"]) / 1e6, 7.01)
+        shortened = {**metadata, "draw_count": len(prefix), "retained_interval_count": len(prefix)}
+        with self.assertRaisesRegex(ValueError, "not the final native draw"):
+            reader.frames_summary(prefix, shortened)
+        for field in metadata["final_draw"]:
+            damaged = copy.deepcopy(metadata)
+            damaged["final_draw"][field] += 1
+            with (
+                self.subTest(field=field),
+                self.assertRaisesRegex(ValueError, "not the final native draw"),
+            ):
+                reader.frames_summary(rows, damaged)
 
     def test_renderer_camera_must_derive_from_the_same_physical_route(self) -> None:
         start = (600.0, 555.0)
