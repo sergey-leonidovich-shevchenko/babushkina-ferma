@@ -42,26 +42,46 @@ Idle-интервалы, render-интервалы, CPU процесса и мо
 
 Из корня проекта с Python и зависимостями штатного QA можно заново проверить
 исходную серию и рассчитать опубликованные пороги. Первая команда сверяет весь
-архив по штатному reader. Вторая использует все исходные render-строки.
+архив по штатной проверке. Вторая берёт список прогонов из VPERF-001,
+сверяет SHA256 каждого CSV и пересчитывает итог по трём коротким повторам.
+Для отрицательного контроля замените путь `historical-replay.json` в команде путём к копии.
 
 ```sh
 python3 tools/run.py qa.performance.perf_contract
-python3 - <<'PY'
+python3 - docs/reports/visual-overhaul/vperf-002/historical-replay.json <<'PY'
+import hashlib
 import json
+import sys
 from itertools import groupby
 from pathlib import Path
-from tools.qa.performance.perf_contract import distribution, rows
+from statistics import median
+from tools.qa.performance.perf_contract import SCHEDULE, distribution, require, rows
 
 root = Path('docs/reports/visual-overhaul')
+native = root / 'vperf-001/native'
+manifest_path = native / 'source.json'
+manifest = json.loads(manifest_path.read_bytes())
 budget = json.loads((root / 'vperf-002/budget.json').read_text())['budget']['limits_in_each_run']
-replay = json.loads((root / 'vperf-002/historical-replay.json').read_text())
-for run, expected in replay['runs'].items():
-    path = root / 'vperf-001/native' / run / 'render-rows.csv.gz'
+replay = json.loads(Path(sys.argv[1]).read_text())
+require(manifest['schedule'] == SCHEDULE, 'unexpected VPERF-001 schedule')
+require(replay['base_commit'] == manifest['base_commit'], 'recorded base differs')
+require(replay['source_manifest_sha256'] == hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
+        'recorded source manifest hash differs')
+require(set(replay['runs']) == {run for run, _, _ in SCHEDULE}, 'recorded run set differs')
+
+short_p95 = []
+for run, seconds, _ in SCHEDULE:
+    expected = replay['runs'][run]
+    member = f'{run}/render-rows.csv.gz'
+    path = native / member
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    require(digest == manifest['artifacts'][member], f'{run}: source CSV hash differs')
+    require(digest == expected['render_csv_sha256'], f'{run}: recorded CSV hash differs')
     fields = ['usec', 'interval_ms', 'render_frame', 'process_frame']
     values = [row['interval_ms'] for row in rows(path, fields)]
     stats = distribution(values)
     late = [value > budget['late_interval_ms_exclusive'] for value in values]
-    fraction = sum(late) / len(values)
+    fraction = sum(late) / len(late)
     streak = max((sum(group) for is_late, group in groupby(late) if is_late), default=0)
     checks = {
         'p95': stats['p95'] <= budget['p95_ms_inclusive'],
@@ -69,10 +89,21 @@ for run, expected in replay['runs'].items():
         'late_fraction': fraction <= budget['late_fraction_inclusive'],
         'max': stats['max'] <= budget['max_ms_inclusive'],
     }
-    assert len(values) == expected['render_intervals']
-    assert stats == expected['render_interval_ms']
-    assert (sum(late), fraction, streak) == (expected['late_count'], expected['late_fraction'], expected['longest_late_streak'])
-    assert checks == expected['historical_threshold_results']
+    require(len(values) == expected['render_intervals'], f'{run}: interval count differs')
+    require(stats == expected['render_interval_ms'], f'{run}: distribution differs')
+    require((sum(late), fraction, streak) ==
+            (expected['late_count'], expected['late_fraction'], expected['longest_late_streak']),
+            f'{run}: late intervals differ')
+    require(checks == expected['historical_threshold_results'] and
+            all(checks.values()) == expected['historical_thresholds_met'],
+            f'{run}: threshold decisions differ')
+    if seconds == 30:
+        short_p95.append(stats['p95'])
     print(run, len(values), stats['p95'], checks)
+
+require(len(short_p95) == 3, 'expected three independent short repeats')
+require(median(short_p95) == replay['short_p95_median_ms'], 'short p95 median differs')
+require(max(short_p95) == replay['short_p95_worst_ms'], 'short p95 worst differs')
+print('short p95 median/worst:', median(short_p95), max(short_p95))
 PY
 ```
