@@ -1,0 +1,94 @@
+{
+  "task": "VLIGHT-010",
+  "head": "a1e9c8d587a206ece892a9737352366bb1ea821a",
+  "jobs": [
+    {
+      "task": "VLIGHT-010",
+      "head": "a1e9c8d587a206ece892a9737352366bb1ea821a",
+      "run_id": 45135422377,
+      "job_id": 137560434201,
+      "event": "push",
+      "linux_early_cli_guard": {
+        "actual_linux_cli": true,
+        "captured_head": "93df8ef619d27b86994d8e190023a6f3b744135a",
+        "early_guard_only": true,
+        "error": "fresh external output with existing parent required",
+        "existing_files_unchanged": 351,
+        "exit_code": 2,
+        "fixture_head": "b058a88961e8a3af1067cbcd69082eca5ed3ca58",
+        "original_archive_unchanged": true,
+        "real_engine_invoked": false,
+        "real_x_connection_claimed": false,
+        "synthetic_native_positive": false,
+        "task": "VLIGHT-010"
+      },
+      "game": {
+        "passed": 54139,
+        "failed": 0
+      },
+      "water": {
+        "passed": 55,
+        "failed": 0
+      },
+      "redraw_normal": {
+        "passed": 90,
+        "failed": 0
+      },
+      "redraw_f10": {
+        "passed": 90,
+        "failed": 0
+      },
+      "smoke_frames": 180,
+      "performance_series": 6,
+      "all_performance_series_valid": true,
+      "hardware_fps_acceptance": false,
+      "whole_location_accepted": false,
+      "full_log_chars": 1084635,
+      "full_log_bytes": 1085798
+    },
+    {
+      "task": "VLIGHT-010",
+      "head": "a1e9c8d587a206ece892a9737352366bb1ea821a",
+      "run_id": 45135670440,
+      "job_id": 137561235304,
+      "event": "pull_request",
+      "linux_early_cli_guard": {
+        "actual_linux_cli": true,
+        "captured_head": "93df8ef619d27b86994d8e190023a6f3b744135a",
+        "early_guard_only": true,
+        "error": "fresh external output with existing parent required",
+        "existing_files_unchanged": 351,
+        "exit_code": 2,
+        "fixture_head": "54363d30400d52eacdf8df05058fda1c6065f3a8",
+        "original_archive_unchanged": true,
+        "real_engine_invoked": false,
+        "real_x_connection_claimed": false,
+        "synthetic_native_positive": false,
+        "task": "VLIGHT-010"
+      },
+      "game": {
+        "passed": 54139,
+        "failed": 0
+      },
+      "water": {
+        "passed": 55,
+        "failed": 0
+      },
+      "redraw_normal": {
+        "passed": 90,
+        "failed": 0
+      },
+      "redraw_f10": {
+        "passed": 90,
+        "failed": 0
+      },
+      "smoke_frames": 180,
+      "performance_series": 6,
+      "all_performance_series_valid": true,
+      "hardware_fps_acceptance": false,
+      "whole_location_accepted": false,
+      "full_log_chars": 1085200,
+      "retention": "Labeled excerpt and summary; full log remains linked GitHub job"
+    }
+  ]
+}

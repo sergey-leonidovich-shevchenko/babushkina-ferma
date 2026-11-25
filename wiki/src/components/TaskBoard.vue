@@ -6,6 +6,7 @@ import {
   developmentPath,
   matchesQuery,
   taskLabels,
+  taskResultLink,
   findTask,
   copyPlanningText,
 } from '../lib/planning.ts'
@@ -43,17 +44,7 @@ const selected = computed(() =>
     ? undefined
     : planning.value!.catalog.tasks.find((task) => task.key === route.params.id)
 )
-const reviewLink = computed(() =>
-  selected.value?.status === 'in_progress'
-    ? selected.value.result.match(
-        /\[(PR [#№]\d+)\]\((https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/pull\/\d+)\)/
-      )
-    : null
-)
-const resultText = computed(() => {
-  const result = selected.value?.result ?? ''
-  return reviewLink.value ? result.replace(reviewLink.value[0], '').trim() : result
-})
+const resultLink = computed(() => taskResultLink(selected.value?.result ?? ''))
 const epic = computed(() =>
   planning.value!.catalog.epics.find((item) => item.key === selected.value?.epic)
 )
@@ -187,15 +178,19 @@ function copyCard() {
       </section>
       <section>
         <h3>Подтверждения и результат</h3>
-        <p class="planning-prose">
+        <p v-if="resultLink" class="planning-prose">
+          <span v-text="resultLink.before" />
+          <a :href="resultLink.href" target="_blank" rel="noopener noreferrer">
+            {{ resultLink.label }}
+          </a>
+          <span v-text="resultLink.after" />
+        </p>
+        <p v-else class="planning-prose">
           {{
-            resultText ||
+            selected.result ||
             'Подтверждения ещё не записаны. Карточка не означает готовую игровую механику.'
           }}
         </p>
-        <a v-if="reviewLink" :href="reviewLink[2]" target="_blank" rel="noopener noreferrer">
-          {{ reviewLink[1] }}
-        </a>
       </section>
       <div class="planning-detail-actions">
         <button class="button" @click="copyCard">

@@ -5278,7 +5278,7 @@
       "id": "VLIGHT-010",
       "epic": "VLIGHT",
       "title": "Принять свет на низком качестве",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -5318,9 +5318,11 @@
         "docs/reports/visual-overhaul/vlight-010/README.md",
         "docs/reports/visual-overhaul/vlight-010/verification.json",
         "docs/reports/visual-overhaul/vlight-010/native-ci-01/archive.json",
-        "wiki/articles/lighting-quality.md"
+        "wiki/articles/lighting-quality.md",
+        "docs/reports/visual-overhaul/vlight-010/closeout/README.md",
+        "docs/reports/visual-overhaul/vlight-010/closeout/result.json"
       ],
-      "result": "23 ноября 2026: source2 head 93df8ef619d27b86994d8e190023a6f3b744135a (.490). Реализованы owner-local standard/low/off с сохранением календаря, HUD, save и общего rollback. Модель 257/0, strict 12/12, CLI 10/0; полный обычный hook quality 269/0, architecture PASS, Game 54121/0, normal/F10 по 90/0, post-bump Wiki 167/0 и браузер 1280/390 прошли. Настоящий Linux/X11 CI45095929093:270 PNG/304 артефакта/46 входов, два физических окна и четыре процесса; чистый локальный strict-current PASS, просмотр 48 полных кадров, 19 copied-real отказов и парный дефект off=standard. Оригинальный ZIP сохранён точными частями; CPU draw не доказывает аппаратный FPS или ускорение. Отчётная доработка и её полный hook/CI, actual Linux early-output guard, финальное независимое ревью exact head и решение Team Lead ещё обязательны. Предварительный source pass 6015738024 не является окончательным APPROVED. Статус in_progress; Task-Complete отсутствует; VRELEASE-003/VMAP-003 не приняты. [PR №90](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/90)"
+      "result": "23 ноября 2026 принят [PR №90](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/90). На улице и в доме можно упростить или выключить освещение. Календарь, интерфейс и сохранения работают во всех трёх режимах. Проверены 270 кадров при двух размерах окна. Замеры на тестовом стенде не подтвердили ускорения. Отчёт и исходные измерения доступны в Wiki «Упрощённый свет первой деревни»."
     },
     {
       "id": "VWEATHER-001",

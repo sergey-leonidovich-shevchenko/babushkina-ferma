@@ -165,6 +165,20 @@ export function developmentPath(section: string, id?: string) {
   return `/development/${section}${id ? `/${encodeURIComponent(id)}` : ''}`
 }
 
+/** Выделяет ссылку на PR, сохраняя окружающий текст результата и его пунктуацию. */
+export function taskResultLink(result: string) {
+  const match = /\[(PR [#№]\d+)\]\((https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/pull\/\d+)\)/.exec(
+    result
+  )
+  if (!match) return null
+  return {
+    before: result.slice(0, match.index),
+    label: match[1],
+    href: match[2],
+    after: result.slice(match.index + match[0].length),
+  }
+}
+
 /** Проверяет текст без зависимости от регистра и буквы ё. */
 export function matchesQuery(query: string, ...values: string[]) {
   const normalize = (text: string) => text.toLocaleLowerCase().replace(/ё/g, 'е')

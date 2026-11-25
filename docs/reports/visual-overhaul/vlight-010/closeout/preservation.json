@@ -1,0 +1,320 @@
+{
+  "task": "VLIGHT-010",
+  "accounting_base": "2132415e23046aad3ce7d4f8eb985b1df39b9444",
+  "method": "Actual canonical records and top metadata compared to accepted merge; Git blob hashes of every retained native/report input and 46 captured QA inputs compared to working bytes. Existing-file changes restricted before the ordinary hook; only its normal SemVer files may be added.",
+  "changed_task_ids": [
+    "VLIGHT-010"
+  ],
+  "changed_own_fields": [
+    "status",
+    "evidence",
+    "result"
+  ],
+  "other_visual_records_unchanged": 1036,
+  "top_metadata_unchanged": true,
+  "planning_state_and_sources": {
+    "wiki/planning/state.json": {
+      "base_blob": "b138fba0db34158a0048ed85877b46e9f49d9a13",
+      "working_blob": "b138fba0db34158a0048ed85877b46e9f49d9a13"
+    },
+    "wiki/planning/sources.json": {
+      "base_blob": "7b19ff48bb41b725630d0b5e2e654c03dbad7c14",
+      "working_blob": "7b19ff48bb41b725630d0b5e2e654c03dbad7c14"
+    }
+  },
+  "accepted_LIGHT00_unchanged": true,
+  "runtime_qa_art_changed_paths": [],
+  "captured_qa_inputs": {
+    "tools/qa/world/lighting/quality/game.gd": {
+      "base_blob": "9c9b70f7f2dbfd54960038560fd9fddb00d4e2e0",
+      "working_blob": "9c9b70f7f2dbfd54960038560fd9fddb00d4e2e0"
+    },
+    "tools/qa/world/lighting/quality/game.gd.uid": {
+      "base_blob": "d2441e549b0539eb9c890b90f2570c0a344c483f",
+      "working_blob": "d2441e549b0539eb9c890b90f2570c0a344c483f"
+    },
+    "tools/qa/world/lighting/quality/cases.gd": {
+      "base_blob": "97e45c2a91fd495a6481cab4f0b262339ddd6286",
+      "working_blob": "97e45c2a91fd495a6481cab4f0b262339ddd6286"
+    },
+    "tools/qa/world/lighting/quality/cases.gd.uid": {
+      "base_blob": "0cadcf32c9cc2bfcf4229443917e6f45e69b1e94",
+      "working_blob": "0cadcf32c9cc2bfcf4229443917e6f45e69b1e94"
+    },
+    "tools/qa/world/lighting/quality/capture.gd": {
+      "base_blob": "508f7420aa18723d5ee522de953d196ab01b4a58",
+      "working_blob": "508f7420aa18723d5ee522de953d196ab01b4a58"
+    },
+    "tools/qa/world/lighting/quality/capture.gd.uid": {
+      "base_blob": "571fdd0b920c053718a4e4a0b3a768550585db0c",
+      "working_blob": "571fdd0b920c053718a4e4a0b3a768550585db0c"
+    },
+    "tools/qa/world/lighting/quality/profile.gd": {
+      "base_blob": "2ee1de998d02c86b362df8103cfbc25233041e7d",
+      "working_blob": "2ee1de998d02c86b362df8103cfbc25233041e7d"
+    },
+    "tools/qa/world/lighting/quality/profile.gd.uid": {
+      "base_blob": "07abdc738e77a8665239756ac9e6dbaaab54a6f8",
+      "working_blob": "07abdc738e77a8665239756ac9e6dbaaab54a6f8"
+    },
+    "tools/qa/world/lighting/quality/measure.gd": {
+      "base_blob": "b1f85fe73f858f891c0e0b7af9152596f0fc4fbe",
+      "working_blob": "b1f85fe73f858f891c0e0b7af9152596f0fc4fbe"
+    },
+    "tools/qa/world/lighting/quality/measure.gd.uid": {
+      "base_blob": "9132c397c02fde88fe738ca7947c1214f1cbb358",
+      "working_blob": "9132c397c02fde88fe738ca7947c1214f1cbb358"
+    },
+    "tools/qa/world/lighting/quality/viewports.gd": {
+      "base_blob": "d77e2e788f401d0c81fdb038e851ac879473df6f",
+      "working_blob": "d77e2e788f401d0c81fdb038e851ac879473df6f"
+    },
+    "tools/qa/world/lighting/quality/viewports.gd.uid": {
+      "base_blob": "131dc9987c52625cb39949558af8543985b4f95d",
+      "working_blob": "131dc9987c52625cb39949558af8543985b4f95d"
+    },
+    "tools/qa/world/lighting/inventory_cases.gd": {
+      "base_blob": "f80406f06a4c4b6028d56c0ead4878e71ca96a13",
+      "working_blob": "f80406f06a4c4b6028d56c0ead4878e71ca96a13"
+    },
+    "tools/qa/world/lighting/inventory_game.gd": {
+      "base_blob": "2d919c58a8968afa0c7b1a2bd192444e41a7b155",
+      "working_blob": "2d919c58a8968afa0c7b1a2bd192444e41a7b155"
+    },
+    "tools/qa/world/lighting/light_probe.gd": {
+      "base_blob": "49314e4a8723df54ff2cf9491639995ebb4ef1d7",
+      "working_blob": "49314e4a8723df54ff2cf9491639995ebb4ef1d7"
+    },
+    "tools/qa/world/render_order_game.gd": {
+      "base_blob": "b81030bc070eac809512c42702b09917a92866e7",
+      "working_blob": "b81030bc070eac809512c42702b09917a92866e7"
+    },
+    "tools/qa/camera/visual_camera_points.gd": {
+      "base_blob": "96cfa29d855f6878f88c543148893ea8ce35af53",
+      "working_blob": "96cfa29d855f6878f88c543148893ea8ce35af53"
+    },
+    "tools/qa/world/lighting/inventory_cases.gd.uid": {
+      "base_blob": "4b49112f7b8860826180417c9f250b5841d2e225",
+      "working_blob": "4b49112f7b8860826180417c9f250b5841d2e225"
+    },
+    "tools/qa/world/lighting/inventory_game.gd.uid": {
+      "base_blob": "5708038836e96297c27bba9f69beaab1b48d3590",
+      "working_blob": "5708038836e96297c27bba9f69beaab1b48d3590"
+    },
+    "tools/qa/world/lighting/light_probe.gd.uid": {
+      "base_blob": "f277e0846d0707f77a2fdd5fe04d171c93deb442",
+      "working_blob": "f277e0846d0707f77a2fdd5fe04d171c93deb442"
+    },
+    "tools/qa/world/render_order_game.gd.uid": {
+      "base_blob": "9d26d6de0de5fab6aeee6f25251804cda6e8b6ce",
+      "working_blob": "9d26d6de0de5fab6aeee6f25251804cda6e8b6ce"
+    },
+    "tools/qa/world/lighting/quality/__init__.py": {
+      "base_blob": "5a852d2768e9e81a20a03244bc247292d5e56ef8",
+      "working_blob": "5a852d2768e9e81a20a03244bc247292d5e56ef8"
+    },
+    "tools/qa/world/lighting/quality/contract.py": {
+      "base_blob": "e218483cdd21866ec77d97a6367b4f8f0803dc2f",
+      "working_blob": "e218483cdd21866ec77d97a6367b4f8f0803dc2f"
+    },
+    "tools/qa/world/lighting/quality/collect.py": {
+      "base_blob": "f79c5bc4b8e7d4805f21eeb8ab2c9b3de3ff66df",
+      "working_blob": "f79c5bc4b8e7d4805f21eeb8ab2c9b3de3ff66df"
+    },
+    "tools/qa/world/lighting/quality/evidence.py": {
+      "base_blob": "ff42b63321ee86d27a92a8a87b712bb19586894c",
+      "working_blob": "ff42b63321ee86d27a92a8a87b712bb19586894c"
+    },
+    "tools/qa/world/lighting/quality/verify.py": {
+      "base_blob": "2aa395c6342db16e10aaf8b89413f20aa99599af",
+      "working_blob": "2aa395c6342db16e10aaf8b89413f20aa99599af"
+    },
+    "tools/qa/world/lighting/quality/provenance.py": {
+      "base_blob": "445a768b73071c47fa5af098be504bbf0dd7783f",
+      "working_blob": "445a768b73071c47fa5af098be504bbf0dd7783f"
+    },
+    "tools/qa/world/lighting/quality/pixels.py": {
+      "base_blob": "d08858029a27bb7381acaa6ce879bc105495b8a0",
+      "working_blob": "d08858029a27bb7381acaa6ce879bc105495b8a0"
+    },
+    "tools/qa/world/lighting/quality/readings.py": {
+      "base_blob": "610298aaaab3d63ffd39cb8b4a44bada5c3e78c1",
+      "working_blob": "610298aaaab3d63ffd39cb8b4a44bada5c3e78c1"
+    },
+    "tools/qa/world/lighting/quality/checks.py": {
+      "base_blob": "373bb780ad67fb31422eb21f066102cca187eb1a",
+      "working_blob": "373bb780ad67fb31422eb21f066102cca187eb1a"
+    },
+    "docs/reports/visual-overhaul/vbase-003/camera-points.json": {
+      "base_blob": "dec98741d22c7761e7404c7ee2553288c416c341",
+      "working_blob": "dec98741d22c7761e7404c7ee2553288c416c341"
+    },
+    ".github/workflows/vlight-010.yml": {
+      "base_blob": "254e14f81b9fd3b784aa2f3701ca60f510350271",
+      "working_blob": "254e14f81b9fd3b784aa2f3701ca60f510350271"
+    },
+    "tools/run.py": {
+      "base_blob": "a0865636ecb587ac4f4675af702bc415c3ec4cd5",
+      "working_blob": "a0865636ecb587ac4f4675af702bc415c3ec4cd5"
+    },
+    "tools/common/__init__.py": {
+      "base_blob": "4c2d5c40b32b94cfde3d38846f46525bae5ada5d",
+      "working_blob": "4c2d5c40b32b94cfde3d38846f46525bae5ada5d"
+    },
+    "tools/common/git.py": {
+      "base_blob": "7d1d78de2e64973592389e86e2be0c0fa0e8e4d4",
+      "working_blob": "7d1d78de2e64973592389e86e2be0c0fa0e8e4d4"
+    },
+    "tools/common/launch.py": {
+      "base_blob": "b0d0bf617d08c0618d2ea24455ffcd4c4084e3e4",
+      "working_blob": "b0d0bf617d08c0618d2ea24455ffcd4c4084e3e4"
+    },
+    "tools/common/paths.py": {
+      "base_blob": "9dc1617c5f8f966aba05407c352d049dcad75ce9",
+      "working_blob": "9dc1617c5f8f966aba05407c352d049dcad75ce9"
+    },
+    "tools/qa/__init__.py": {
+      "base_blob": "ba72c62be22b513b38ad6ba1962a3bdf17f491ed",
+      "working_blob": "ba72c62be22b513b38ad6ba1962a3bdf17f491ed"
+    },
+    "tools/qa/world/__init__.py": {
+      "base_blob": "7d479333587e9946c3478a1c79b2f3bb8796f384",
+      "working_blob": "7d479333587e9946c3478a1c79b2f3bb8796f384"
+    },
+    "tools/qa/world/lighting/__init__.py": {
+      "base_blob": "ddcca8712859df9469a78f04b18aeee9f369b67c",
+      "working_blob": "ddcca8712859df9469a78f04b18aeee9f369b67c"
+    },
+    "tools/qa/world/lighting/contract.py": {
+      "base_blob": "575c1189324966904ff478a65427b5b13f0831d3",
+      "working_blob": "575c1189324966904ff478a65427b5b13f0831d3"
+    },
+    "tools/qa/world/lighting/daycycle/__init__.py": {
+      "base_blob": "44a6a00bbe5bb4b99e02f0c48ddf5084e22f9985",
+      "working_blob": "44a6a00bbe5bb4b99e02f0c48ddf5084e22f9985"
+    },
+    "tools/qa/world/lighting/daycycle/contract.py": {
+      "base_blob": "c78a1607c3de24342e218fc54fbbac30ff86f5fc",
+      "working_blob": "c78a1607c3de24342e218fc54fbbac30ff86f5fc"
+    },
+    "tools/qa/world/weather/__init__.py": {
+      "base_blob": "c7f72723f3b4a9ba129f5115f1425566e5b3702b",
+      "working_blob": "c7f72723f3b4a9ba129f5115f1425566e5b3702b"
+    },
+    "tools/qa/world/weather/collect.py": {
+      "base_blob": "8454ac473e50a6e345c4ef9d41efffb8d829043f",
+      "working_blob": "8454ac473e50a6e345c4ef9d41efffb8d829043f"
+    },
+    "tools/qa/world/weather/contract.py": {
+      "base_blob": "2358f2f844b76d6329d722b9968ee4068eb8a9cc",
+      "working_blob": "2358f2f844b76d6329d722b9968ee4068eb8a9cc"
+    }
+  },
+  "frozen_report_files": {
+    "docs/reports/visual-overhaul/vlight-010/PLAN.md": {
+      "base_blob": "d935f159fe1bae7f61fe16bbea45730ae791a225",
+      "working_blob": "d935f159fe1bae7f61fe16bbea45730ae791a225"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/archive.json": {
+      "base_blob": "59862e7c48e3676f49204e32d62cc0e1b63e2fd3",
+      "working_blob": "59862e7c48e3676f49204e32d62cc0e1b63e2fd3"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/artifact.zip.part-000": {
+      "base_blob": "49f6760fa2b62978ed25a3abc2763a9b794687e1",
+      "working_blob": "49f6760fa2b62978ed25a3abc2763a9b794687e1"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/artifact.zip.part-001": {
+      "base_blob": "eeb8dad311f0865acc4bf3879d82d366d894a55a",
+      "working_blob": "eeb8dad311f0865acc4bf3879d82d366d894a55a"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/artifact.zip.part-002": {
+      "base_blob": "abf9d32799f93de4da20180b5e8753b997156e37",
+      "working_blob": "abf9d32799f93de4da20180b5e8753b997156e37"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/ci-status.json": {
+      "base_blob": "212504fb36155c3791e569dfa6153e8be4512a66",
+      "working_blob": "212504fb36155c3791e569dfa6153e8be4512a66"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/figures/comparison.png": {
+      "base_blob": "83aa9bf16f9cc09288f9c7a81be32c8fdc20b132",
+      "working_blob": "83aa9bf16f9cc09288f9c7a81be32c8fdc20b132"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/figures/gallery.json": {
+      "base_blob": "a1aa36a5c0fabaabac7b5ca5d3e0c7eecafbe904",
+      "working_blob": "a1aa36a5c0fabaabac7b5ca5d3e0c7eecafbe904"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/figures/home-profiles.png": {
+      "base_blob": "5fd1d9bfdc8fb9b74f5096c72092571f5391e036",
+      "working_blob": "5fd1d9bfdc8fb9b74f5096c72092571f5391e036"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/figures/street-profiles.png": {
+      "base_blob": "3581c347eaea6920499d4828041a226540a31085",
+      "working_blob": "3581c347eaea6920499d4828041a226540a31085"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/figures/viewports.png": {
+      "base_blob": "e22c5ea83521b0070df62d10a3171cd69ee2e73f",
+      "working_blob": "e22c5ea83521b0070df62d10a3171cd69ee2e73f"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/home-low.png": {
+      "base_blob": "526735cbfd149044c26575a9a2018f7017207f55",
+      "working_blob": "526735cbfd149044c26575a9a2018f7017207f55"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/metrics.json": {
+      "base_blob": "bbaa3515ac94a4d6655ef5f3cb0e5b22ddb2e941",
+      "working_blob": "bbaa3515ac94a4d6655ef5f3cb0e5b22ddb2e941"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/regressions.json": {
+      "base_blob": "0c621d330808be0a1596d8d98260f2fcd862f6a9",
+      "working_blob": "0c621d330808be0a1596d8d98260f2fcd862f6a9"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/samples.csv": {
+      "base_blob": "ed7b0c9dd8a2dda4fc595ac6de09cc1b782e6648",
+      "working_blob": "ed7b0c9dd8a2dda4fc595ac6de09cc1b782e6648"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/source.json": {
+      "base_blob": "29b9941d98d5567f321e14b69217dc662f00b1a1",
+      "working_blob": "29b9941d98d5567f321e14b69217dc662f00b1a1"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/street-low.png": {
+      "base_blob": "7325f954e67696e3b7f339bb5d1d9625a0519838",
+      "working_blob": "7325f954e67696e3b7f339bb5d1d9625a0519838"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/summary.json": {
+      "base_blob": "d916acfd2a7eb49d9a69c94f8953852ea0ea5f0a",
+      "working_blob": "d916acfd2a7eb49d9a69c94f8953852ea0ea5f0a"
+    },
+    "docs/reports/visual-overhaul/vlight-010/native-ci-01/visual-review.json": {
+      "base_blob": "d34c68ee820716cf2ded025777efb3cacc147882",
+      "working_blob": "d34c68ee820716cf2ded025777efb3cacc147882"
+    },
+    "docs/reports/visual-overhaul/vlight-010/verification.json": {
+      "base_blob": "131b041d569e1431a298f396d41f237031aacb11",
+      "working_blob": "131b041d569e1431a298f396d41f237031aacb11"
+    }
+  },
+  "original_archive_sha256": "a8206c84afd1e48f9a2fc54b12f133c7b51917c4bd0f44148303776d8f4d2c11",
+  "permitted_existing_paths": [
+    "TESTING.md",
+    "VERSION",
+    "docs/epics/visual-overhaul-2026-10/backlog.json",
+    "docs/epics/visual-overhaul-2026-10/epics/vlight.md",
+    "docs/epics/visual-overhaul-2026-10/index.html",
+    "docs/reports/visual-overhaul/vlight-010/README.md",
+    "project.godot",
+    "wiki/articles/index.json",
+    "wiki/articles/lighting-quality.md",
+    "wiki/src/components/TaskBoard.vue",
+    "wiki/src/lib/planning.ts",
+    "wiki/tests/planning.test.mjs",
+    "Бабушкина ферма.app/Contents/Info.plist"
+  ],
+  "new_paths_prefix": "docs/reports/visual-overhaul/vlight-010/closeout/",
+  "semver_exception": "Only normal hook version bump in VERSION/project.godot/app Info.plist; post-commit strict-current is separately required.",
+  "accounting_gates": "Pending; this preparation proof is not their completion.",
+  "other_visual_records_canonical_bytes_equal": true,
+  "other_visual_records_canonical_sha256": "695688fe5b1aab181e14fdf97cd57f1fd30f05c152e281176576aae39b9fb48d",
+  "numeric_representations_preserved": true,
+  "accepted_LIGHT00_status": "done",
+  "accepted_LIGHT00_pr": 92,
+  "accepted_LIGHT00_merge": "2132415e23046aad3ce7d4f8eb985b1df39b9444"
+}
