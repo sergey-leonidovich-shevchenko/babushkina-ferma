@@ -7,8 +7,23 @@ import { readPlanningCatalog, markdownTasks, sourcePath } from '../scripts/plann
 import { createPlanningStore, agentBrief } from '../scripts/planning-store.mjs'
 import { createWikiServer, listen } from '../scripts/server.mjs'
 import { wikiRoot } from '../scripts/runtime.mjs'
+import { taskResultLink } from '../src/lib/planning.ts'
 
 const catalog = await readPlanningCatalog()
+
+test('completed lighting task keeps its PR link inside the result sentence', () => {
+  const task = catalog.tasks.find((row) => row.key === 'visual--VLIGHT-010')
+  assert.equal(task.status, 'done')
+  const link = taskResultLink(task.result)
+  assert.equal(link.label, 'PR №90')
+  assert.equal(
+    link.href,
+    'https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/90'
+  )
+  assert.equal(link.before + '[' + link.label + '](' + link.href + ')' + link.after, task.result)
+  assert.equal(taskResultLink('Результат без ссылки'), null)
+  assert.equal(taskResultLink('[PR №90](javascript:alert(1))'), null)
+})
 // Решения пользователя меняются во время разработки и не являются fixture теста.
 const seed = {
   schema: 1,

@@ -43,7 +43,8 @@
       "all_performance_series_valid": true,
       "hardware_fps_acceptance": false,
       "whole_location_accepted": false,
-      "full_log_bytes": 1084635
+      "full_log_chars": 1084635,
+      "full_log_bytes": 1085798
     },
     {
       "task": "VLIGHT-010",

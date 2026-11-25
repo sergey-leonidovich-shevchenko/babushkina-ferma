@@ -301,7 +301,11 @@
     "docs/epics/visual-overhaul-2026-10/index.html",
     "docs/reports/visual-overhaul/vlight-010/README.md",
     "project.godot",
+    "wiki/articles/index.json",
     "wiki/articles/lighting-quality.md",
+    "wiki/src/components/TaskBoard.vue",
+    "wiki/src/lib/planning.ts",
+    "wiki/tests/planning.test.mjs",
     "Бабушкина ферма.app/Contents/Info.plist"
   ],
   "new_paths_prefix": "docs/reports/visual-overhaul/vlight-010/closeout/",
