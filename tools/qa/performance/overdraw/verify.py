@@ -123,6 +123,38 @@ def check_calibration(path: Path) -> None:
         )
 
 
+def check_contact(record: dict[str, Any]) -> None:
+    contact = record["contact"]
+    bends = dict(contact["bends"])
+    expected_scale = 0 if record["case"] == "still-bridge" else math.ceil(record["zoom"])
+    base.require(
+        contact["scale"] == expected_scale
+        and len(bends) == len(contact["bends"]) == record["wind_rows"]
+        and all(len(bend) == 2 and all(map(math.isfinite, bend)) for bend in bends.values()),
+        "wind scale, row count or contact vectors do not match",
+    )
+    if record["case"] == c.CONTACT:
+        x, y = bends.get(6, (0, 0))
+        base.require(
+            contact["frame"] is True and x < -0.5 and y > 0.5,
+            "the first grass in the actual compositor did not bend on both axes",
+        )
+    else:
+        base.require(
+            contact["frame"] is False and all(bend == [0, 0] for bend in bends.values()),
+            "a wind-only capture acquired a contact field",
+        )
+
+
+def contact_composite(folder: Path) -> dict[str, int]:
+    original, trimmed = (
+        png(folder / f"{c.CONTACT}-{name}-composite.png", SIZE) for name in c.VARIANTS
+    )
+    mask = original.getchannel("A").histogram()
+    base.require(mask[0] > 0 and sum(mask[1:255]) > 0, "composite alpha was not exercised")
+    return equal_frame(original, trimmed, "contact composite")
+
+
 def check_views(root: Path) -> dict[str, Any]:
     folder = root / "views"
     check_calibration(folder / "calibration.png")
@@ -137,6 +169,8 @@ def check_views(root: Path) -> dict[str, Any]:
         case = initial["case"]
         check_camera(initial)
         check_camera(final)
+        check_contact(initial)
+        check_contact(final)
         base.require(
             initial["display"] == final["display"] == "X11"
             and initial["framebuffer"] == final["framebuffer"] == list(SIZE)
@@ -150,6 +184,9 @@ def check_views(root: Path) -> dict[str, Any]:
             and final["deck_trim"] is True
             and initial["wind_rows"] == final["wind_rows"],
             f"camera, visual profile or game state differs: {case}",
+        )
+        base.require(
+            initial["contact"] == final["contact"], f"contact changed inside the pair: {case}"
         )
         frame = [png(folder / f"{case}-{name}-frame.png", SIZE) for name in c.VARIANTS]
         visual = equal_frame(frame[0], frame[1], case)
@@ -184,6 +221,9 @@ def check_views(root: Path) -> dict[str, Any]:
         if case == "dense-grass":
             positive_delta(counts, "grass_composite", case)
         findings[case] = {"camera": initial["state"]["camera"], "visual": visual, "layers": counts}
+        if case == c.CONTACT:
+            findings[case]["contact"] = initial["contact"]
+            findings[case]["contact_composite"] = contact_composite(folder)
     return findings
 
 

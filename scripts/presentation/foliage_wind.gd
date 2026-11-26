@@ -147,12 +147,15 @@ func prepare(game: Node2D, visible: Array) -> void:
 
 
 ## Выводит подготовленный слот в прежней фазе ambient; ни материал мира, ни HUD не меняются.
-static func draw(game: Node2D, kind: String, position: Vector2, tint: Color) -> bool:
+static func draw(
+	game: Node2D, kind: String, position: Vector2, tint: Color, canvas: CanvasItem = null
+) -> bool:
 	if not allowed(game):
 		return false
 	var owner: Node = game.get_node_or_null(NAME)
 	if owner == null or owner.batch.is_empty():
 		return false
+	var target: CanvasItem = canvas if canvas != null else game
 	for index in owner.visible_rows:
 		var row: Dictionary = owner.batch.rows[index]
 		if row.kind != kind or row.position != position:
@@ -162,7 +165,7 @@ static func draw(game: Node2D, kind: String, position: Vector2, tint: Color) -> 
 		var region := Rect2(
 			(slot.position + crop.position) * owner.batch.scale, crop.size * owner.batch.scale
 		)
-		game.draw_texture_rect_region(
+		target.draw_texture_rect_region(
 			owner.batch.viewport.get_texture(),
 			Batch.world_destination(row.rect, crop),
 			region,

@@ -7380,7 +7380,7 @@
       "evidence": [
         "docs/reports/visual-overhaul/vperf-004/README.md"
       ],
-      "result": "Подготовлены отсечение прозрачных полей ветровой травы и воды за непрозрачной сердцевиной настила. Нативное сравнение площади, RGBA и живого маршрута ожидается."
+      "result": "Подготовлены отсечение прозрачных полей ветровой травы и воды за непрозрачной сердцевиной настила. Нативное сравнение площади, RGBA и живого маршрута ожидается. [PR №99](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/99)"
     },
     {
       "id": "VPERF-005",
@@ -9580,7 +9580,7 @@
       "id": "VRELEASE-003",
       "epic": "VRELEASE",
       "title": "Принять движущийся пилот",
-      "status": "backlog",
+      "status": "done",
       "priority": "P0",
       "phase": "rollout",
       "kind": "engineering",
@@ -9621,7 +9621,13 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vrelease-003-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vrelease-003/dependency-audit.json",
+        "docs/reports/visual-overhaul/vrelease-003/native-ci-02/review.json",
+        "wiki/articles/moving-pilot.md",
+        "docs/reports/visual-overhaul/vrelease-003/closeout/result.json"
+      ],
+      "result": "Принята в [PR №95](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/95), merge 6fa873a2; точный head cc3e0d9f прошёл независимое ревью и все 10 CI. В Wiki четыре ролика Linux/X11. В каждой паре совпали камера и сохранение. Проверены трава, вода, мост, пауза, телепорт, штатные двери, слот v1, откат графики и отказы подмены видео."
     },
     {
       "id": "VRELEASE-004",

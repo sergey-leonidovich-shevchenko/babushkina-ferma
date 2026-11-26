@@ -1,0 +1,52 @@
+{
+  "capture_head": "646c18c0c86c031d14eba96a9c3c81d83948c841",
+  "archive_sha256": "b0355d4cd7a49e9f0c999e2acb7139f555c4b65b868f7b1322ed533a48a82219",
+  "review_thread": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/95#discussion_r4702409952",
+  "decoder": "FFmpeg 7.1",
+  "verifier_source_sha256": {
+    "tools/qa/world/moving_pilot/verify.py": "463a23bc7e68c65c2e2d778cecf3a0235314de5d8059c6a7f295de599ef251cc",
+    "tools/qa/world/moving_pilot/test_video_binding.py": "04c0ba332ac18a864114c734e3a44289de9b2380d83d2eb15aacc39da3e9166a"
+  },
+  "original": {
+    "task": "VRELEASE-003",
+    "head": "646c18c0c86c031d14eba96a9c3c81d83948c841",
+    "tree": "ff3b65a91495cf1ebf0ef3a7e64c3a318601df5f",
+    "version": "0.0.499",
+    "native_routes": {
+      "1152/live": {
+        "frames": 119,
+        "grass_moves": true,
+        "water_moves": true,
+        "rollback_pixels_restored": true
+      },
+      "1152/static": {
+        "frames": 119,
+        "grass_moves": false,
+        "water_moves": false,
+        "rollback_pixels_restored": true
+      },
+      "1280/live": {
+        "frames": 119,
+        "grass_moves": true,
+        "water_moves": true,
+        "rollback_pixels_restored": true
+      },
+      "1280/static": {
+        "frames": 119,
+        "grass_moves": false,
+        "water_moves": false,
+        "rollback_pixels_restored": true
+      }
+    },
+    "paired_camera_and_save": true,
+    "video_frames_match_native_sources": true,
+    "performance_eligible": false
+  },
+  "mutations_update_clip_sha256_in_source_manifest": true,
+  "substituted_static_clip": "video mode mismatch at frame 0",
+  "swapped_adjacent_idle_frames": [
+    0,
+    1
+  ],
+  "reordered_clip": "video frame order mismatch at 0"
+}

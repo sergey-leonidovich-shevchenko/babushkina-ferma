@@ -11,6 +11,9 @@ const AMPLITUDE := 1.35
 const PLANT_SIZE := 72.0
 const FILTER_MARGIN := 2
 
+static var _coverage_atlas: WeakRef
+static var _coverage_cache: Dictionary[Rect2i, Rect2i] = {}
+
 
 ## Вычисляет пространственную фазу из мировой опоры, не трогая игровой или глобальный RNG.
 static func phase(anchor: Vector2) -> float:
@@ -48,7 +51,10 @@ static func build(
 	var groups: Dictionary[String, Array] = {}
 	var nodes: Array[MultiMeshInstance2D] = []
 	var content: Dictionary[String, Rect2] = {}
-	var atlas_image: Image = atlas.get_image() if trim_padding else null
+	var cache: Dictionary[Rect2i, Rect2i] = {}
+	if trim_padding:
+		cache = _atlas_coverage(atlas)
+	var atlas_image: Image
 	for index in rows.size():
 		var row: Dictionary = rows[index]
 		var kind: String = row.kind
@@ -70,7 +76,17 @@ static func build(
 		var root: Vector2i = profile.root
 		var lock_y: int = profile.lock_y
 		var top: int = profile.top
-		var bounds := source_content(atlas_image, Rect2i(region))
+		var bounds := Rect2i()
+		if trim_padding:
+			var source := Rect2i(region)
+			if cache.has(source):
+				bounds = cache[source]
+			else:
+				if atlas_image == null:
+					atlas_image = atlas.get_image()
+				bounds = source_content(atlas_image, source)
+				if cache.size() < CAPACITY:
+					cache[source] = bounds
 		var mesh_data := UV.mesh_data(kind, PLANT_SIZE / source_size.x)
 		if bounds.has_area():
 			_trim_mesh_width(mesh_data, bounds)
@@ -114,6 +130,17 @@ static func build(
 		"trim_padding": trim_padding,
 		"content": content
 	}
+
+
+## Импортированная текстура неизменна между сменами масштаба. У нового атласа свой кеш.
+static func _atlas_coverage(atlas: Texture2D) -> Dictionary[Rect2i, Rect2i]:
+	if not atlas is CompressedTexture2D:
+		var empty: Dictionary[Rect2i, Rect2i] = {}
+		return empty
+	if _coverage_atlas == null or _coverage_atlas.get_ref() != atlas:
+		_coverage_atlas = weakref(atlas)
+		_coverage_cache.clear()
+	return _coverage_cache
 
 
 ## Сохраняет все непрозрачные тексели и ещё два для фильтра, даже у мягкой полупрозрачной кромки.

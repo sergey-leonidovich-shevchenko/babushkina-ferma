@@ -13,6 +13,7 @@ from tools.qa.performance.overdraw.verify import (
     SIZE,
     area,
     check_calibration,
+    check_contact,
     equal_frame,
     no_growth,
     water_stays_under_decks,
@@ -26,6 +27,7 @@ class CoverageTest(unittest.TestCase):
         self.assertIn("long-cycle/trimmed/frames.csv.gz", evidence)
         self.assertIn("views/dense-grass-baseline-wind.png", evidence)
         self.assertNotIn("views/still-bridge-trimmed-wind.png", evidence)
+        self.assertIn("views/grass-contact-trimmed-composite.png", evidence)
 
     def test_counter_counts_layers_and_unique_pixels(self) -> None:
         band = Image.new("L", (6, 4), 0)
@@ -52,6 +54,9 @@ class CoverageTest(unittest.TestCase):
         different.putpixel((1, 0), (0, 2, 0, 255))
         with self.assertRaisesRegex(ValueError, "visible pixels changed"):
             equal_frame(original, different, "bridge")
+        different.putpixel((1, 0), (0, 0, 0, 254))
+        with self.assertRaisesRegex(ValueError, "visible pixels changed"):
+            equal_frame(original, different, "contact composite")
 
     def test_water_can_disappear_only_inside_proven_deck(self) -> None:
         original = Image.new("L", SIZE)
@@ -79,6 +84,18 @@ class CoverageTest(unittest.TestCase):
             Image.merge("RGB", (band, wrong, band)).save(path)
             with self.assertRaisesRegex(ValueError, "differs in G"):
                 check_calibration(path)
+
+    def test_contact_requires_both_axes_and_the_smaller_raster_target(self) -> None:
+        contact = {"scale": 1, "frame": True, "bends": [[6, [-1.25, 0.75]]]}
+        row = {"case": c.CONTACT, "zoom": 1.0, "wind_rows": 1, "contact": contact}
+        check_contact(row)
+        contact["bends"] = [[6, [-1.25, 0]]]
+        with self.assertRaisesRegex(ValueError, "both axes"):
+            check_contact(row)
+        contact["bends"] = [[6, [-1.25, 0.75]]]
+        contact["scale"] = 2
+        with self.assertRaisesRegex(ValueError, "wind scale"):
+            check_contact(row)
 
 
 if __name__ == "__main__":

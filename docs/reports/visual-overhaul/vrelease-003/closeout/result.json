@@ -1,0 +1,207 @@
+{
+  "implementation_pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/95",
+  "approved_head": "cc3e0d9fb32383048b050cdf4f6eb801cdfe6c70",
+  "accepted_base": "6cfd8b7ccbc57173f17c53e83e46f0ead7b0e33b",
+  "accepted_merge": "6fa873a2ac72acd1f3f76760dc837a3f670bfcb2",
+  "accepted_tree": "732c91f6ebb0b85c38e02f7c732f154ced912b0c",
+  "version": "0.0.501",
+  "merged_at": "2026-11-26T11:17:09+05:00",
+  "review_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/95#pullrequestreview-6069384737",
+  "review_commit": "cc3e0d9fb32383048b050cdf4f6eb801cdfe6c70",
+  "review_verdict": "Independent explicit APPROVED; GitHub state COMMENTED",
+  "review_id": 6069384737,
+  "team_acceptance_confirmed": true,
+  "jobs": [
+    {
+      "run_id": 45762411698,
+      "id": 139715243712,
+      "name": "Wiki quality gate",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "run_id": 45762411698,
+      "id": 139715243825,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "run_id": 45762411698,
+      "id": 139715243927,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "run_id": 45762411698,
+      "id": 139715244041,
+      "name": "test",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "run_id": 45762403325,
+      "id": 139715216835,
+      "name": "Wiki quality gate",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "run_id": 45762403325,
+      "id": 139715217120,
+      "name": "Fixed-input reproduction (macos-x64)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "run_id": 45762403325,
+      "id": 139715217207,
+      "name": "Fixed-input reproduction (linux-x64)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "run_id": 45762403325,
+      "id": 139715217242,
+      "name": "test",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "run_id": 45762411882,
+      "id": 139715243809,
+      "name": "Exact-head X11 comparison",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "run_id": 45762411851,
+      "id": 139715244330,
+      "name": "Same-camera village route (X11)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "native_archive": {
+    "run_id": 45762411851,
+    "job_id": 139715244330,
+    "artifact_id": 15091096188,
+    "bytes": 471633036,
+    "sha256": "cc276a13944010219e04fee7df0374973a562eecf5acb0edf247ec423086cd50",
+    "local_verifier_equal_to_ci": true,
+    "link": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45762411851/artifacts/15091096188"
+  },
+  "task": "VRELEASE-003",
+  "local": {
+    "head": "cc3e0d9fb32383048b050cdf4f6eb801cdfe6c70",
+    "version": "0.0.501",
+    "tree": "732c91f6ebb0b85c38e02f7c732f154ced912b0c",
+    "base": "6cfd8b7ccbc57173f17c53e83e46f0ead7b0e33b",
+    "local_phases": {
+      "commit": {
+        "exit": 0,
+        "normal_userdata_unchanged": true,
+        "isolated_override_removed": true,
+        "receipt": "phase-commit-integration-2-ae92d625106e478ea6d35670f286fab5.json"
+      },
+      "wiki": {
+        "exit": 0,
+        "normal_userdata_unchanged": true,
+        "isolated_override_removed": true,
+        "receipt": "phase-wiki-integration-2-0ef26fb1d9884099801a5f0ced09b24c.json"
+      }
+    },
+    "quality_files": 287,
+    "game_passed": 54121,
+    "redraw": [
+      90,
+      90
+    ],
+    "wiki_passed": 168,
+    "browser": {
+      "route": "/#/guides/moving-pilot",
+      "version": "0.0.501",
+      "ended": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "durations": [
+        11.9,
+        11.9,
+        11.9,
+        11.9
+      ],
+      "capture_sizes": [
+        [
+          1152,
+          648
+        ],
+        [
+          1152,
+          648
+        ],
+        [
+          1280,
+          720
+        ],
+        [
+          1280,
+          720
+        ]
+      ],
+      "media_errors": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "report_and_p2_links_visible": true
+    }
+  },
+  "native_verification": {
+    "task": "VRELEASE-003",
+    "head": "cc3e0d9fb32383048b050cdf4f6eb801cdfe6c70",
+    "tree": "732c91f6ebb0b85c38e02f7c732f154ced912b0c",
+    "version": "0.0.501",
+    "native_routes": {
+      "1152/live": {
+        "frames": 119,
+        "grass_moves": true,
+        "water_moves": true,
+        "rollback_pixels_restored": true
+      },
+      "1152/static": {
+        "frames": 119,
+        "grass_moves": false,
+        "water_moves": false,
+        "rollback_pixels_restored": true
+      },
+      "1280/live": {
+        "frames": 119,
+        "grass_moves": true,
+        "water_moves": true,
+        "rollback_pixels_restored": true
+      },
+      "1280/static": {
+        "frames": 119,
+        "grass_moves": false,
+        "water_moves": false,
+        "rollback_pixels_restored": true
+      }
+    },
+    "paired_camera_and_save": true,
+    "video_frames_match_native_sources": true,
+    "performance_eligible": false
+  },
+  "video_substitution_checks": {
+    "head": "cc3e0d9fb32383048b050cdf4f6eb801cdfe6c70",
+    "wrong_mode": "video mode mismatch at frame 0",
+    "wrong_order": "video frame order mismatch at 0"
+  },
+  "historical_wiki_media": "../native-ci-02/review.json",
+  "hardware_fps_acceptance": false,
+  "whole_location_accepted": false
+}

@@ -7,17 +7,20 @@ const Probe := preload("res://scripts/presentation/overworld_render_probe.gd")
 const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
 const WorldProjection := preload("res://scripts/systems/world_projection_system.gd")
 const Clock := preload("res://scripts/presentation/village_ground_clock.gd")
+const PostMotion := preload("res://scripts/presentation/post_motion_frame.gd")
 const Save := preload("res://scripts/systems/save_system.gd")
 const Background := preload("res://scripts/world_background.gd")
 const Terrain := preload("res://scripts/systems/village_terrain_renderer.gd")
 const Water := preload("res://scripts/systems/water_map_registry.gd")
 const Surface := preload("res://scripts/presentation/village_water_surface.gd")
 const SIZE := Vector2i(1152, 648)
+const CONTACT_CASE := "grass-contact"
 const CASES := [
 	["west-bridge", Vector2(864, 456), 1, 780.0, "normal", 1.2, 12.5],
 	["east-bridge", Vector2(1608, 912), 1, 1200.0, "low", 1.2, 29.25],
 	["dense-grass", Vector2(1944, 768), 1, 845.0, "normal", 1.2, 46.75],
 	["still-bridge", Vector2(864, 456), 31, 780.0, "static", 1.0, 0.0],
+	[CONTACT_CASE, Vector2(1955, 655), 1, 845.0, "normal", 1.0, 51.25],
 ]
 
 var output := ""
@@ -33,6 +36,19 @@ class CoverageCard:
 		draw_set_transform_matrix(camera)
 		for polygon in polygons:
 			draw_colored_polygon(polygon, Color.WHITE)
+
+
+class ContactComposite:
+	extends Node2D
+	var game: Node2D
+	var rows: Array[Dictionary]
+
+	func _draw() -> void:
+		draw_set_transform_matrix(WorldProjection.transform(game))
+		for row in rows:
+			var kind: String = row.kind
+			var position: Vector2 = row.position
+			Wind.draw(game, kind, position, Color(1, 1, 1, 0.82), self)
 
 
 func _initialize() -> void:
@@ -94,6 +110,7 @@ func _run() -> void:
 func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 	var case_id: String = case_data[0]
 	var player: Vector2 = case_data[1]
+	var phase: float = case_data[6]
 	var view := {
 		"id": case_id,
 		"player": Points.pair(player),
@@ -106,7 +123,7 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 	if not trimmed:
 		game.set_meta(Probe.FULL_COVERAGE, true)
 	game.set_meta(Surface.QUALITY, case_data[4])
-	game.set_meta(Clock.META, case_data[6])
+	game.set_meta(Clock.META, phase - 0.25 if case_id == CONTACT_CASE else phase)
 	root.add_child(game)
 	Points.configure(game, view)
 	var settings: Object = game.get("settings_state")
@@ -116,6 +133,13 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 	# Игра хранит узлы презентации за фасадом; CameraSystem обновляет его штатным методом.
 	game.call("update_camera")
 	Pose.reset(game)
+	if case_id == CONTACT_CASE:
+		# Сейчас камера и герой неподвижны. Два штатных визуальных такта поднимают контакт.
+		for step in 2:
+			if not PostMotion.publish(game, 0.125):
+				game.free()
+				return {}
+			Wind.update(game)
 	var background := game.get_node("WorldBackground") as Background
 	var prefix := case_id + ("-trimmed" if trimmed else "-baseline")
 	var ready := false
@@ -141,6 +165,13 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 		game.free()
 		return {}
 	var owner := game.get_node_or_null(Wind.NAME) as Wind
+	var contact := _contact_snapshot(game, owner)
+	if contact.is_empty():
+		game.free()
+		return {}
+	if case_id == CONTACT_CASE and not await _contact_composite(game, owner, prefix):
+		game.free()
+		return {}
 	var world_mask := await _world_coverage(game, background, owner, prefix)
 	var wind_mask := await _wind_coverage(owner, prefix)
 	var receipt := {
@@ -154,11 +185,60 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 		"final_save": JSON.stringify(Save.snapshot(game), "", true, true).sha256_text(),
 		"deck_trim": background.water_layer.trim_decks and background.water_surface.trim_decks,
 		"wind_rows": owner.visible_rows.size() if owner != null else 0,
+		"contact": contact,
 		"framebuffer": Points.pair(image.get_size()),
 		"display": DisplayServer.get_name(),
 	}
 	game.free()
 	return receipt if world_mask and wind_mask else {}
+
+
+## Связывает записанные изгибы с фактическим uniform после кадра композита.
+static func _contact_snapshot(game: Node2D, owner: Wind) -> Dictionary:
+	if owner == null:
+		return {"scale": 0, "frame": false, "bends": []}
+	var contact_frame := PostMotion.read(game)
+	for group: MultiMeshInstance2D in owner.batch.groups:
+		var material := group.material as ShaderMaterial
+		if material.get_shader_parameter("contact_bends") != owner.render_contacts:
+			return {}
+	var bends := []
+	for index: int in owner.visible_rows:
+		var bend: Vector2 = owner.render_contacts[index]
+		bends.append([index, Points.pair(bend)])
+	return {"scale": owner.batch.scale, "frame": contact_frame.get("active", false), "bends": bends}
+
+
+## Вызывает тот же композитор на прозрачном target, чтобы проверять краевую альфу отдельно от земли.
+func _contact_composite(game: Node2D, owner: Wind, prefix: String) -> bool:
+	if owner == null:
+		return false
+	var target := SubViewport.new()
+	target.disable_3d = true
+	target.transparent_bg = true
+	target.size = SIZE
+	target.canvas_item_default_texture_filter = (
+		game.get_viewport().canvas_item_default_texture_filter
+	)
+	target.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	root.add_child(target)
+	var card := ContactComposite.new()
+	card.game = game
+	card.texture_filter = game.texture_filter
+	card.texture_repeat = game.texture_repeat
+	for index: int in owner.visible_rows:
+		var row: Dictionary = owner.batch.rows[index]
+		card.rows.append(row)
+	target.add_child(card)
+	for frame in 2:
+		await RenderingServer.frame_post_draw
+	var image := target.get_texture().get_image()
+	var saved := (
+		image.get_size() == SIZE
+		and image.save_png(output.path_join(prefix + "-composite.png")) == OK
+	)
+	target.free()
+	return saved
 
 
 func _world_coverage(game: Node2D, background: Background, owner: Wind, prefix: String) -> bool:
