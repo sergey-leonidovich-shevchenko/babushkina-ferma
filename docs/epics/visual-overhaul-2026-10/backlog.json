@@ -7383,7 +7383,7 @@
       "id": "VPERF-005",
       "epic": "VPERF",
       "title": "Ограничить текстурную память",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -7419,7 +7419,9 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vperf-005-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vperf-005/README.md — инвентарь старта и протокол парного X11-замера"
+      ]
     },
     {
       "id": "VPERF-006",

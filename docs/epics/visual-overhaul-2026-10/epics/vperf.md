@@ -166,7 +166,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 ## VPERF-005 — Ограничить текстурную память
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `in_progress` · P0 · этап `foundation` · `engineering`
 
 Размеры и форматы новых мастеров сопоставлены с текущими ~719 MiB текстур; память не равна размеру PNG на диске
 
@@ -182,7 +182,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 - [scripts/systems/render_pacing_system.gd](../../../../scripts/systems/render_pacing_system.gd)
 - [tools/water_audit.gd](../../../../tools/water_audit.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vperf-005/`.
+Результаты: `docs/reports/visual-overhaul/vperf-005/`.
 
 Критерии:
 
@@ -200,7 +200,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vperf-005/README.md — инвентарь старта и протокол парного X11-замера.
 
 <a id="vperf-006"></a>
 

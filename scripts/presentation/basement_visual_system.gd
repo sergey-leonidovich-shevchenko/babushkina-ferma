@@ -1,44 +1,65 @@
 extends RefCounted
 
 const Facing := preload("res://scripts/systems/furniture_facing_system.gd")
-const SPRITES := {
-	"pottery":[[preload("res://assets/game/basement/pottery_1_south.tres"),preload("res://assets/game/basement/pottery_1_west.tres"),preload("res://assets/game/basement/pottery_1_south.tres"),preload("res://assets/game/basement/pottery_1_east.tres")],[preload("res://assets/game/basement/pottery_2_south.tres"),preload("res://assets/game/basement/pottery_2_west.tres"),preload("res://assets/game/basement/pottery_2_south.tres"),preload("res://assets/game/basement/pottery_2_east.tres")],[preload("res://assets/game/basement/pottery_3_south.tres"),preload("res://assets/game/basement/pottery_3_west.tres"),preload("res://assets/game/basement/pottery_3_south.tres"),preload("res://assets/game/basement/pottery_3_east.tres")],[preload("res://assets/game/basement/pottery_4_south.tres"),preload("res://assets/game/basement/pottery_4_west.tres"),preload("res://assets/game/basement/pottery_4_south.tres"),preload("res://assets/game/basement/pottery_4_east.tres")]],
-	"sawmill":[[preload("res://assets/game/basement/sawmill_1_south.tres"),preload("res://assets/game/basement/sawmill_1_west.tres"),preload("res://assets/game/basement/sawmill_1_south.tres"),preload("res://assets/game/basement/sawmill_1_east.tres")],[preload("res://assets/game/basement/sawmill_2_south.tres"),preload("res://assets/game/basement/sawmill_2_west.tres"),preload("res://assets/game/basement/sawmill_2_south.tres"),preload("res://assets/game/basement/sawmill_2_east.tres")],[preload("res://assets/game/basement/sawmill_3_south.tres"),preload("res://assets/game/basement/sawmill_3_west.tres"),preload("res://assets/game/basement/sawmill_3_south.tres"),preload("res://assets/game/basement/sawmill_3_east.tres")],[preload("res://assets/game/basement/sawmill_4_south.tres"),preload("res://assets/game/basement/sawmill_4_west.tres"),preload("res://assets/game/basement/sawmill_4_south.tres"),preload("res://assets/game/basement/sawmill_4_east.tres")]],
-	"glassblowing":[[preload("res://assets/game/basement/glassblowing_1_south.tres"),preload("res://assets/game/basement/glassblowing_1_west.tres"),preload("res://assets/game/basement/glassblowing_1_south.tres"),preload("res://assets/game/basement/glassblowing_1_east.tres")],[preload("res://assets/game/basement/glassblowing_2_south.tres"),preload("res://assets/game/basement/glassblowing_2_west.tres"),preload("res://assets/game/basement/glassblowing_2_south.tres"),preload("res://assets/game/basement/glassblowing_2_east.tres")],[preload("res://assets/game/basement/glassblowing_3_south.tres"),preload("res://assets/game/basement/glassblowing_3_west.tres"),preload("res://assets/game/basement/glassblowing_3_south.tres"),preload("res://assets/game/basement/glassblowing_3_east.tres")],[preload("res://assets/game/basement/glassblowing_4_south.tres"),preload("res://assets/game/basement/glassblowing_4_west.tres"),preload("res://assets/game/basement/glassblowing_4_south.tres"),preload("res://assets/game/basement/glassblowing_4_east.tres")]],
-	"forge":[[preload("res://assets/game/basement/forge_1_south.tres"),preload("res://assets/game/basement/forge_1_west.tres"),preload("res://assets/game/basement/forge_1_south.tres"),preload("res://assets/game/basement/forge_1_east.tres")],[preload("res://assets/game/basement/forge_2_south.tres"),preload("res://assets/game/basement/forge_2_west.tres"),preload("res://assets/game/basement/forge_2_south.tres"),preload("res://assets/game/basement/forge_2_east.tres")],[preload("res://assets/game/basement/forge_3_south.tres"),preload("res://assets/game/basement/forge_3_west.tres"),preload("res://assets/game/basement/forge_3_south.tres"),preload("res://assets/game/basement/forge_3_east.tres")],[preload("res://assets/game/basement/forge_4_south.tres"),preload("res://assets/game/basement/forge_4_west.tres"),preload("res://assets/game/basement/forge_4_south.tres"),preload("res://assets/game/basement/forge_4_east.tres")]],
-	"alchemy":[[preload("res://assets/game/basement/alchemy_1_south.tres"),preload("res://assets/game/basement/alchemy_1_west.tres"),preload("res://assets/game/basement/alchemy_1_south.tres"),preload("res://assets/game/basement/alchemy_1_east.tres")],[preload("res://assets/game/basement/alchemy_2_south.tres"),preload("res://assets/game/basement/alchemy_2_west.tres"),preload("res://assets/game/basement/alchemy_2_south.tres"),preload("res://assets/game/basement/alchemy_2_east.tres")],[preload("res://assets/game/basement/alchemy_3_south.tres"),preload("res://assets/game/basement/alchemy_3_west.tres"),preload("res://assets/game/basement/alchemy_3_south.tres"),preload("res://assets/game/basement/alchemy_3_east.tres")],[preload("res://assets/game/basement/alchemy_4_south.tres"),preload("res://assets/game/basement/alchemy_4_west.tres"),preload("res://assets/game/basement/alchemy_4_south.tres"),preload("res://assets/game/basement/alchemy_4_east.tres")]],
-	"workbench":[[preload("res://assets/game/basement/workbench_1_south.tres"),preload("res://assets/game/basement/workbench_1_west.tres"),preload("res://assets/game/basement/workbench_1_south.tres"),preload("res://assets/game/basement/workbench_1_east.tres")],[preload("res://assets/game/basement/workbench_2_south.tres"),preload("res://assets/game/basement/workbench_2_west.tres"),preload("res://assets/game/basement/workbench_2_south.tres"),preload("res://assets/game/basement/workbench_2_east.tres")],[preload("res://assets/game/basement/workbench_3_south.tres"),preload("res://assets/game/basement/workbench_3_west.tres"),preload("res://assets/game/basement/workbench_3_south.tres"),preload("res://assets/game/basement/workbench_3_east.tres")],[preload("res://assets/game/basement/workbench_4_south.tres"),preload("res://assets/game/basement/workbench_4_west.tres"),preload("res://assets/game/basement/workbench_4_south.tres"),preload("res://assets/game/basement/workbench_4_east.tres")]],
-	"furnace":[[preload("res://assets/game/basement/furnace_1_south.tres"),preload("res://assets/game/basement/furnace_1_west.tres"),preload("res://assets/game/basement/furnace_1_south.tres"),preload("res://assets/game/basement/furnace_1_east.tres")],[preload("res://assets/game/basement/furnace_2_south.tres"),preload("res://assets/game/basement/furnace_2_west.tres"),preload("res://assets/game/basement/furnace_2_south.tres"),preload("res://assets/game/basement/furnace_2_east.tres")],[preload("res://assets/game/basement/furnace_3_south.tres"),preload("res://assets/game/basement/furnace_3_west.tres"),preload("res://assets/game/basement/furnace_3_south.tres"),preload("res://assets/game/basement/furnace_3_east.tres")],[preload("res://assets/game/basement/furnace_4_south.tres"),preload("res://assets/game/basement/furnace_4_west.tres"),preload("res://assets/game/basement/furnace_4_south.tres"),preload("res://assets/game/basement/furnace_4_east.tres")]],
-	"cauldron":[[preload("res://assets/game/basement/cauldron_1_south.tres"),preload("res://assets/game/basement/cauldron_1_west.tres"),preload("res://assets/game/basement/cauldron_1_south.tres"),preload("res://assets/game/basement/cauldron_1_east.tres")],[preload("res://assets/game/basement/cauldron_2_south.tres"),preload("res://assets/game/basement/cauldron_2_west.tres"),preload("res://assets/game/basement/cauldron_2_south.tres"),preload("res://assets/game/basement/cauldron_2_east.tres")],[preload("res://assets/game/basement/cauldron_3_south.tres"),preload("res://assets/game/basement/cauldron_3_west.tres"),preload("res://assets/game/basement/cauldron_3_south.tres"),preload("res://assets/game/basement/cauldron_3_east.tres")],[preload("res://assets/game/basement/cauldron_4_south.tres"),preload("res://assets/game/basement/cauldron_4_west.tres"),preload("res://assets/game/basement/cauldron_4_south.tres"),preload("res://assets/game/basement/cauldron_4_east.tres")]],
-	"study":[[preload("res://assets/game/workshops/study_table_1.tres"),preload("res://assets/game/basement/study_1_west.tres"),preload("res://assets/game/workshops/study_table_1.tres"),preload("res://assets/game/basement/study_1_east.tres")],[preload("res://assets/game/workshops/study_table_2.tres"),preload("res://assets/game/basement/study_2_west.tres"),preload("res://assets/game/workshops/study_table_2.tres"),preload("res://assets/game/basement/study_2_east.tres")],[preload("res://assets/game/workshops/study_table_3.tres"),preload("res://assets/game/basement/study_3_west.tres"),preload("res://assets/game/workshops/study_table_3.tres"),preload("res://assets/game/basement/study_3_east.tres")],[preload("res://assets/game/basement/study_4_south.tres"),preload("res://assets/game/basement/study_4_west.tres"),preload("res://assets/game/basement/study_4_south.tres"),preload("res://assets/game/basement/study_4_east.tres")]],
-	"recycling":[[preload("res://assets/game/basement/recycling_1_south.tres"),preload("res://assets/game/basement/recycling_1_west.tres"),preload("res://assets/game/basement/recycling_1_south.tres"),preload("res://assets/game/basement/recycling_1_east.tres")],[preload("res://assets/game/basement/recycling_2_south.tres"),preload("res://assets/game/basement/recycling_2_west.tres"),preload("res://assets/game/basement/recycling_2_south.tres"),preload("res://assets/game/basement/recycling_2_east.tres")],[preload("res://assets/game/basement/recycling_3_south.tres"),preload("res://assets/game/basement/recycling_3_west.tres"),preload("res://assets/game/basement/recycling_3_south.tres"),preload("res://assets/game/basement/recycling_3_east.tres")],[preload("res://assets/game/basement/recycling_4_south.tres"),preload("res://assets/game/basement/recycling_4_west.tres"),preload("res://assets/game/basement/recycling_4_south.tres"),preload("res://assets/game/basement/recycling_4_east.tres")]],
+const Artisan := preload("res://scripts/systems/artisan_data.gd")
+const Kitchen := preload("res://scripts/presentation/kitchen_visual_system.gd")
+const Layout := preload("res://scripts/systems/basement_layout_system.gd")
+const StationSprites := preload("res://scripts/presentation/basement_station_sprites.gd")
+const ARTISAN_SPRITE_PATHS := {
+	0: "res://assets/game/artisan/%s_%d_south.tres",
+	1: "res://assets/game/artisan/%s_%d_west.tres",
+	3: "res://assets/game/artisan/%s_%d_east.tres",
 }
 const SHELL := {
-	"wall":preload("res://assets/game/basement/wall.tres"),
-	"corner_left":preload("res://assets/game/basement/corner_left.tres"),
-	"corner_right":preload("res://assets/game/basement/corner_right.tres"),
-	"post":preload("res://assets/game/basement/post.tres"),
-	"lantern":preload("res://assets/game/basement/lantern.tres"),
-	"blueprint":preload("res://assets/game/basement/blueprint.tres"),
-	"stairs_up":preload("res://assets/game/basement/stairs_up.tres"),
-	"stairs_down":preload("res://assets/game/basement/stairs_down.tres"),
-	"crates":preload("res://assets/game/basement/crates.tres"),
-	"barrel":preload("res://assets/game/basement/barrel.tres"),
-	"materials":preload("res://assets/game/basement/materials.tres"),
-	"beam":preload("res://assets/game/basement/beam.tres"),
+	"wall": preload("res://assets/game/basement/wall.tres"),
+	"corner_left": preload("res://assets/game/basement/corner_left.tres"),
+	"corner_right": preload("res://assets/game/basement/corner_right.tres"),
+	"post": preload("res://assets/game/basement/post.tres"),
+	"lantern": preload("res://assets/game/basement/lantern.tres"),
+	"blueprint": preload("res://assets/game/basement/blueprint.tres"),
+	"stairs_up": preload("res://assets/game/basement/stairs_up.tres"),
+	"stairs_down": preload("res://assets/game/basement/stairs_down.tres"),
+	"crates": preload("res://assets/game/basement/crates.tres"),
+	"barrel": preload("res://assets/game/basement/barrel.tres"),
+	"materials": preload("res://assets/game/basement/materials.tres"),
+	"beam": preload("res://assets/game/basement/beam.tres"),
 }
 
+static var _artisan_station_textures: Dictionary[String, AtlasTexture] = {}
+
+
 ## Выбирает отдельный ракурс нужного уровня либо собственной строительной кучи.
-static func texture(kind: String, level: int, direction: int, pile: bool=false) -> AtlasTexture:
-	direction=Facing.visible(direction)
-	if kind=="cauldron": return preload("res://scripts/presentation/kitchen_visual_system.gd").STATION[3 if pile else clampi(level,1,3)-1][posmod(direction,4)]
-	if preload("res://scripts/presentation/artisan_visual_system.gd").SPRITES.has(kind): return preload("res://scripts/presentation/artisan_visual_system.gd").SPRITES[kind][3 if pile else clampi(level,1,3)-1][posmod(direction,4)]
-	return SPRITES[kind][3 if pile else clampi(level,1,3)-1][posmod(direction,4)]
+static func texture(kind: String, level: int, direction: int, pile: bool = false) -> AtlasTexture:
+	direction = Facing.visible(direction)
+	var tier := 4 if pile else clampi(level, 1, 3)
+	if kind in Artisan.STATIONS:
+		# Атласы нужны лишь при запросе спрайта. Кеш ограничен 8 × 4 × 3 ресурсами.
+		var template: String = ARTISAN_SPRITE_PATHS[direction]
+		var path := template % [kind, tier]
+		if not _artisan_station_textures.has(path):
+			_artisan_station_textures[path] = (
+				ResourceLoader.load(path, "AtlasTexture") as AtlasTexture
+			)
+		return _artisan_station_textures[path]
+	var sprite_index := (tier - 1) * Facing.SELECTABLE.size() + Facing.SELECTABLE.find(direction)
+	var sprite: Variant = (
+		Kitchen.STATION[tier - 1][direction]
+		if kind == "cauldron"
+		else StationSprites.SPRITES[kind][sprite_index]
+	)
+	return sprite if sprite is AtlasTexture else null
+
 
 ## Совмещает полный силуэт с нижней опорой основания без растяжения или растровых поворотов.
-static func destination(item: Dictionary, pile: bool=false) -> Rect2:
-	var bounds:=preload("res://scripts/systems/basement_layout_system.gd").rect(item)
-	var size:=texture(item.kind,int(item.get("level",1)),int(item.direction),pile).get_size()
-	var width:=maxf(bounds.size.x,72)+24; var height:=120.0 if pile else 168.0
-	size*=minf(width/size.x,height/size.y)
-	return Rect2(Vector2(bounds.get_center().x-size.x/2,bounds.end.y-size.y),size)
+static func destination(item: Dictionary, pile: bool = false) -> Rect2:
+	var bounds := Layout.rect(item)
+	# Оба поля проверяет планировщик или валидатор сохранения. JSON хранит числа как float.
+	@warning_ignore("unsafe_call_argument")
+	var level := int(item.get("level", 1))
+	@warning_ignore("unsafe_call_argument")
+	var direction := int(item.direction)
+	var size := texture(str(item.kind), level, direction, pile).get_size()
+	var width := maxf(bounds.size.x, 72) + 24
+	var height := 120.0 if pile else 168.0
+	size *= minf(width / size.x, height / size.y)
+	return Rect2(Vector2(bounds.get_center().x - size.x / 2, bounds.end.y - size.y), size)

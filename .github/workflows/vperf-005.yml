@@ -1,0 +1,77 @@
+name: VPERF-005 texture memory
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/vperf-005.yml'
+      - 'tools/qa/performance/texture_budget/**'
+      - 'tools/qa/performance/perf_contract*.gd'
+      - 'tools/qa/performance/perf_contract.py'
+      - 'scripts/presentation/artisan_visual_system.gd'
+      - 'scripts/presentation/basement_station_sprites.gd'
+      - 'scripts/presentation/basement_visual_system.gd'
+      - 'scripts/presentation/workshop_visual_system.gd'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  paired-texture-memory:
+    name: Sequential paired X11 texture memory
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      VPERF_TEXTURE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+      LIBGL_ALWAYS_SOFTWARE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - name: Install X11 and verifier dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y fonts-noto-cjk fonts-liberation xvfb xauth openbox libgl1-mesa-dri libglx-mesa0
+          python -m pip install Pillow==11.3.0
+      - name: Download and verify Godot 4.7.1
+        run: |
+          capture_dir="$RUNNER_TEMP/vperf-005"
+          mkdir -p "$capture_dir"
+          archive="$capture_dir/godot.zip"
+          curl -fsSL -o "$archive" https://github.com/godotengine/godot/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip
+          printf '%s  %s\n' c7ff14fd28472c8d4f193043de30278dcf7e5241a1dcf7566b02e27addaa33ba "$archive" | sha256sum -c -
+          unzip -q "$archive" -d "$capture_dir"
+          engine="$capture_dir/Godot_v4.7.1-stable_linux.x86_64"
+          chmod +x "$engine"
+          printf 'FARM_GODOT_BIN=%s\nVPERF_TEXTURE_OUTPUT=%s\n' "$engine" "$capture_dir/evidence" >> "$GITHUB_ENV"
+      - name: Capture both exact Git trees
+        run: |
+          xvfb-run -a -s '-screen 0 1280x720x24' bash -eu -o pipefail -c '
+            openbox --sm-disable > "$RUNNER_TEMP/vperf-005/window-manager.txt" 2>&1 &
+            wm=$!
+            trap '\''kill "$wm" 2>/dev/null || true'\'' EXIT
+            python tools/run.py qa.performance.texture_budget.pair collect --output "$VPERF_TEXTURE_OUTPUT" --expected-head "$VPERF_TEXTURE_HEAD" |
+              tee "$RUNNER_TEMP/vperf-005/collection.txt"
+          '
+      - name: Recompute paired metrics and verify native witnesses
+        run: |
+          set -o pipefail
+          python tools/run.py qa.performance.texture_budget.pair verify --output "$VPERF_TEXTURE_OUTPUT" --expected-head "$VPERF_TEXTURE_HEAD" |
+            tee "$RUNNER_TEMP/vperf-005/summary.json"
+      - name: Retain raw observations and partial failure receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vperf-005-native
+          path: |
+            ${{ env.VPERF_TEXTURE_OUTPUT }}/
+            ${{ runner.temp }}/vperf-005/collection.txt
+            ${{ runner.temp }}/vperf-005/summary.json
+            ${{ runner.temp }}/vperf-005/window-manager.txt
+          if-no-files-found: warn
+          retention-days: 30

@@ -763,6 +763,10 @@ tools/qa/performance/pass_cost/*
 !tools/qa/performance/pass_cost/*.py
 !tools/qa/performance/pass_cost/*.gd
 !tools/qa/performance/pass_cost/*.gd.uid
+!tools/qa/performance/texture_budget/
+tools/qa/performance/texture_budget/*
+!tools/qa/performance/texture_budget/*.py
+!tools/qa/performance/texture_budget/*.gd
 
 # REFACTOR-03: camera context preparation; source implementations have not moved.
 !tools/qa/camera/
