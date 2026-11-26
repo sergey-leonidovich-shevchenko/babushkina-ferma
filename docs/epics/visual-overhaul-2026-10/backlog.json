@@ -9577,7 +9577,7 @@
       "id": "VRELEASE-003",
       "epic": "VRELEASE",
       "title": "Принять движущийся пилот",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "rollout",
       "kind": "engineering",
@@ -9621,9 +9621,10 @@
       "evidence": [
         "docs/reports/visual-overhaul/vrelease-003/dependency-audit.json",
         "docs/reports/visual-overhaul/vrelease-003/native-ci-02/review.json",
-        "wiki/articles/moving-pilot.md"
+        "wiki/articles/moving-pilot.md",
+        "docs/reports/visual-overhaul/vrelease-003/closeout/result.json"
       ],
-      "result": "На 646c18c0 сняты и проверены четыре ролика Linux/X11: 476 кадров, 238 пар одинаковой камеры и сохранения, остановка травы и воды в режиме «Меньше движения», мост, пауза, телепорт, обычные двери, слот v1 и пиксельное восстановление графики. Проверены 54 зависимости и 12 исходных доказательств на принятой базе 3ecd79eb. Отчёт и видео подготовлены к независимой приёмке в [PR №95](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/95)."
+      "result": "Принята в [PR №95](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/95), merge 6fa873a2; точный head cc3e0d9f прошёл независимое ревью и все 10 CI. В Wiki четыре ролика Linux/X11. В каждой паре совпали камера и сохранение. Проверены трава, вода, мост, пауза, телепорт, штатные двери, слот v1, откат графики и отказы подмены видео."
     },
     {
       "id": "VRELEASE-004",
