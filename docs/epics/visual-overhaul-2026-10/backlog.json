@@ -7293,7 +7293,7 @@
       "id": "VPERF-003",
       "epic": "VPERF",
       "title": "Измерить стоимость каждого прохода",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -7329,7 +7329,10 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vperf-003-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vperf-003/README.md"
+      ],
+      "result": "Подготовлен стенд шести вариантов на одном маршруте: полный кадр, отдельно вода, живой слой травы, контактные тени, свет и UI. Траектория, камера и сериализация слота сверяются по каждой паре. Локальная диагностическая симуляция подтвердила одинаковые 1800 тиков, камеру и снимки слота во всех шести вариантах. Нативная серия GitHub X11 и независимое ревью ожидаются. [PR №97](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/97)"
     },
     {
       "id": "VPERF-004",
