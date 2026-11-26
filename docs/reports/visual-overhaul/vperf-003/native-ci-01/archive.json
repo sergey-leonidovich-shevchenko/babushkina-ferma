@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "task": "VPERF-003",
+  "head": "6553b46bebd9a90dcf1b15f70bc9f65849e9fbd0",
+  "tree": "4340a116586396cd925601015a48f06828616cbc",
+  "run_id": 45733042734,
+  "run_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45733042734",
+  "artifact_id": 15082150035,
+  "artifact_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45733042734/artifacts/15082150035",
+  "original_file_name": "vperf-003-pass-cost.zip",
+  "bytes": 51877105,
+  "sha256": "93e06ae81338473fffe99a2ed959896494b2edbf9cada33b635038bca6b9c2b7",
+  "format": "byte-exact contiguous original ZIP parts; concatenate without repack",
+  "parts": [
+    {
+      "name": "artifact.zip.part-000",
+      "bytes": 16777216,
+      "sha256": "355b3a5f139f13b90426b63a892cd707e9970ee57ce195b6e440a90c7cab3980"
+    },
+    {
+      "name": "artifact.zip.part-001",
+      "bytes": 16777216,
+      "sha256": "499d74a5c47a24655fc79c2e2da4c9cfc3b55a255e752991c00d6c3012f4497c"
+    },
+    {
+      "name": "artifact.zip.part-002",
+      "bytes": 16777216,
+      "sha256": "28eb73bb69f771eb0f84f54c81b38139274d94b7f3dbf14dc9d8d95b8d578405"
+    },
+    {
+      "name": "artifact.zip.part-003",
+      "bytes": 1545457,
+      "sha256": "39a5f8ca320f18c99b0df9e17b2f459937c6655392718a19a9a2d3a9353a8c80"
+    }
+  ]
+}

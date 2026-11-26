@@ -1,0 +1,1589 @@
+{
+  "task": "VPERF-003",
+  "schema": 1,
+  "head": "6553b46bebd9a90dcf1b15f70bc9f65849e9fbd0",
+  "tree": "4340a116586396cd925601015a48f06828616cbc",
+  "execution": "same remote X11/Mesa software renderer for all sequential runs",
+  "equipment": [
+    "X11",
+    "opengl3",
+    "llvmpipe (LLVM 20.1.2, 256 bits)",
+    null,
+    0
+  ],
+  "host": {
+    "platform": "Linux-7.0.0-1020-azure-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "cpu_model": "AMD EPYC 7763 64-Core Processor",
+    "logical_cpu_count": 4,
+    "ram_bytes": 16760320000
+  },
+  "engine_sha256": "32f8d7596c4b41185512b1c49d69f2da3be018fd784a53e349fa92a98a97bcde",
+  "runner_id": "45733042734",
+  "runner_attempt": "1",
+  "hardware_fps_accepted": false,
+  "gpu_time_ms": null,
+  "runs": {
+    "repeat-1": {
+      "baseline": {
+        "interval_count": 930,
+        "sample_wall_s": 30.026477,
+        "frame_interval_ms": {
+          "p50": 32.1905,
+          "p95": 34.91905,
+          "p99": 38.14492,
+          "max": 132.148
+        },
+        "draw_calls": {
+          "p50": 183.0,
+          "p95": 244.0,
+          "p99": 247.0,
+          "max": 250.0
+        },
+        "engine_process_ms": {
+          "p50": 27.778,
+          "p95": 124.203,
+          "p99": 320.941,
+          "max": 320.941
+        },
+        "engine_physics_ms": {
+          "p50": 4.735,
+          "p95": 6.637,
+          "p99": 6.807,
+          "max": 6.807
+        },
+        "engine_static_bytes_max": 144750112.0,
+        "engine_texture_bytes_max": 701100686.0,
+        "intervals_over_33_4_ms": 152,
+        "late_fraction": 0.16344086021505377,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.007370321,
+          "user_cpu_s": 58.64,
+          "system_cpu_s": 0.87,
+          "mean_cpu_cores": 2.379698434346227,
+          "rss_bytes": {
+            "first": 1117925376,
+            "last": 1117925376,
+            "max": 1117925376
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "water": {
+        "interval_count": 1025,
+        "sample_wall_s": 30.027528,
+        "frame_interval_ms": {
+          "p50": 29.75,
+          "p95": 32.1932,
+          "p99": 34.39023999999999,
+          "max": 38.153
+        },
+        "draw_calls": {
+          "p50": 180.0,
+          "p95": 239.0,
+          "p99": 243.0,
+          "max": 246.0
+        },
+        "engine_process_ms": {
+          "p50": 25.218,
+          "p95": 29.119,
+          "p99": 303.374,
+          "max": 303.374
+        },
+        "engine_physics_ms": {
+          "p50": 4.734,
+          "p95": 5.827,
+          "p99": 6.63,
+          "max": 6.63
+        },
+        "engine_static_bytes_max": 144730644.0,
+        "engine_texture_bytes_max": 700936874.0,
+        "intervals_over_33_4_ms": 18,
+        "late_fraction": 0.0175609756097561,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.001414752,
+          "user_cpu_s": 55.81,
+          "system_cpu_s": 0.95,
+          "mean_cpu_cores": 2.2702715251527703,
+          "rss_bytes": {
+            "first": 1117241344,
+            "last": 1117241344,
+            "max": 1117241344
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "grass": {
+        "interval_count": 996,
+        "sample_wall_s": 30.000487,
+        "frame_interval_ms": {
+          "p50": 30.314500000000002,
+          "p95": 32.804500000000004,
+          "p99": 36.08719999999999,
+          "max": 120.732
+        },
+        "draw_calls": {
+          "p50": 178.0,
+          "p95": 241.0,
+          "p99": 243.0,
+          "max": 246.0
+        },
+        "engine_process_ms": {
+          "p50": 26.568,
+          "p95": 113.444,
+          "p99": 324.057,
+          "max": 324.057
+        },
+        "engine_physics_ms": {
+          "p50": 4.714,
+          "p95": 6.439,
+          "p99": 6.62,
+          "max": 6.62
+        },
+        "engine_static_bytes_max": 144641526.0,
+        "engine_texture_bytes_max": 698741390.0,
+        "intervals_over_33_4_ms": 31,
+        "late_fraction": 0.03112449799196787,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.001562076,
+          "user_cpu_s": 58.64,
+          "system_cpu_s": 0.87,
+          "mean_cpu_cores": 2.380251274664395,
+          "rss_bytes": {
+            "first": 1137287168,
+            "last": 1137287168,
+            "max": 1137287168
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "shadows": {
+        "interval_count": 926,
+        "sample_wall_s": 29.989379,
+        "frame_interval_ms": {
+          "p50": 32.198,
+          "p95": 35.24325,
+          "p99": 39.83525,
+          "max": 123.627
+        },
+        "draw_calls": {
+          "p50": 172.0,
+          "p95": 238.75,
+          "p99": 242.75,
+          "max": 245.0
+        },
+        "engine_process_ms": {
+          "p50": 28.172,
+          "p95": 116.096,
+          "p99": 326.318,
+          "max": 326.318
+        },
+        "engine_physics_ms": {
+          "p50": 4.989,
+          "p95": 6.532,
+          "p99": 6.856,
+          "max": 6.856
+        },
+        "engine_static_bytes_max": 144735856.0,
+        "engine_texture_bytes_max": 701100686.0,
+        "intervals_over_33_4_ms": 172,
+        "late_fraction": 0.1857451403887689,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.002301454,
+          "user_cpu_s": 58.49,
+          "system_cpu_s": 0.87,
+          "mean_cpu_cores": 2.3741814372253827,
+          "rss_bytes": {
+            "first": 1116794880,
+            "last": 1116794880,
+            "max": 1116794880
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "light": {
+        "interval_count": 1060,
+        "sample_wall_s": 30.021261,
+        "frame_interval_ms": {
+          "p50": 28.647,
+          "p95": 31.41085,
+          "p99": 34.89393000000004,
+          "max": 122.256
+        },
+        "draw_calls": {
+          "p50": 180.0,
+          "p95": 240.04999999999995,
+          "p99": 244.0,
+          "max": 247.0
+        },
+        "engine_process_ms": {
+          "p50": 25.301,
+          "p95": 114.61,
+          "p99": 301.981,
+          "max": 301.981
+        },
+        "engine_physics_ms": {
+          "p50": 4.855,
+          "p95": 6.315,
+          "p99": 6.88,
+          "max": 6.901
+        },
+        "engine_static_bytes_max": 144748420.0,
+        "engine_texture_bytes_max": 701100686.0,
+        "intervals_over_33_4_ms": 17,
+        "late_fraction": 0.016037735849056604,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.001459324,
+          "user_cpu_s": 55.26,
+          "system_cpu_s": 0.96,
+          "mean_cpu_cores": 2.2486687385496715,
+          "rss_bytes": {
+            "first": 1120317440,
+            "last": 1120317440,
+            "max": 1120317440
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "ui": {
+        "interval_count": 1148,
+        "sample_wall_s": 30.003372,
+        "frame_interval_ms": {
+          "p50": 26.4665,
+          "p95": 29.56765,
+          "p99": 32.34057999999998,
+          "max": 123.271
+        },
+        "draw_calls": {
+          "p50": 115.0,
+          "p95": 170.0,
+          "p99": 173.0,
+          "max": 175.0
+        },
+        "engine_process_ms": {
+          "p50": 23.399,
+          "p95": 115.402,
+          "p99": 341.615,
+          "max": 341.615
+        },
+        "engine_physics_ms": {
+          "p50": 4.829,
+          "p95": 6.051,
+          "p99": 6.167,
+          "max": 6.167
+        },
+        "engine_static_bytes_max": 143405740.0,
+        "engine_texture_bytes_max": 697505984.0,
+        "intervals_over_33_4_ms": 10,
+        "late_fraction": 0.008710801393728223,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.001445678,
+          "user_cpu_s": 61.8,
+          "system_cpu_s": 1.01,
+          "mean_cpu_cores": 2.512254723544631,
+          "rss_bytes": {
+            "first": 1118662656,
+            "last": 1118662656,
+            "max": 1118662656
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      }
+    },
+    "repeat-2": {
+      "grass": {
+        "interval_count": 998,
+        "sample_wall_s": 30.001433,
+        "frame_interval_ms": {
+          "p50": 30.165,
+          "p95": 33.01355,
+          "p99": 36.41824999999999,
+          "max": 120.242
+        },
+        "draw_calls": {
+          "p50": 178.0,
+          "p95": 240.14999999999998,
+          "p99": 243.0,
+          "max": 246.0
+        },
+        "engine_process_ms": {
+          "p50": 27.116,
+          "p95": 112.862,
+          "p99": 324.863,
+          "max": 324.863
+        },
+        "engine_physics_ms": {
+          "p50": 4.807,
+          "p95": 6.65,
+          "p99": 6.683,
+          "max": 6.683
+        },
+        "engine_static_bytes_max": 144641526.0,
+        "engine_texture_bytes_max": 698741390.0,
+        "intervals_over_33_4_ms": 38,
+        "late_fraction": 0.03807615230460922,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.001938428,
+          "user_cpu_s": 58.35,
+          "system_cpu_s": 0.88,
+          "mean_cpu_cores": 2.369016313297834,
+          "rss_bytes": {
+            "first": 1138597888,
+            "last": 1138597888,
+            "max": 1138597888
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "shadows": {
+        "interval_count": 939,
+        "sample_wall_s": 30.036131,
+        "frame_interval_ms": {
+          "p50": 32.002,
+          "p95": 34.5336,
+          "p99": 37.3435,
+          "max": 124.655
+        },
+        "draw_calls": {
+          "p50": 175.0,
+          "p95": 239.0,
+          "p99": 243.0,
+          "max": 245.0
+        },
+        "engine_process_ms": {
+          "p50": 27.801,
+          "p95": 116.898,
+          "p99": 319.884,
+          "max": 319.884
+        },
+        "engine_physics_ms": {
+          "p50": 4.713,
+          "p95": 5.827,
+          "p99": 6.428,
+          "max": 6.428
+        },
+        "engine_static_bytes_max": 144735856.0,
+        "engine_texture_bytes_max": 701100686.0,
+        "intervals_over_33_4_ms": 127,
+        "late_fraction": 0.13525026624068157,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.003654121,
+          "user_cpu_s": 58.76,
+          "system_cpu_s": 0.87,
+          "mean_cpu_cores": 2.38485141857398,
+          "rss_bytes": {
+            "first": 1118883840,
+            "last": 1118883840,
+            "max": 1118883840
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "light": {
+        "interval_count": 1059,
+        "sample_wall_s": 30.011203,
+        "frame_interval_ms": {
+          "p50": 28.807,
+          "p95": 31.3261,
+          "p99": 34.342580000000005,
+          "max": 119.789
+        },
+        "draw_calls": {
+          "p50": 179.0,
+          "p95": 241.0999999999999,
+          "p99": 244.0,
+          "max": 247.0
+        },
+        "engine_process_ms": {
+          "p50": 24.837,
+          "p95": 111.82,
+          "p99": 308.015,
+          "max": 308.015
+        },
+        "engine_physics_ms": {
+          "p50": 4.78,
+          "p95": 5.999,
+          "p99": 6.921,
+          "max": 6.921
+        },
+        "engine_static_bytes_max": 144748420.0,
+        "engine_texture_bytes_max": 701100686.0,
+        "intervals_over_33_4_ms": 19,
+        "late_fraction": 0.01794145420207743,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.003601186,
+          "user_cpu_s": 55.1,
+          "system_cpu_s": 0.97,
+          "mean_cpu_cores": 2.2424769769322137,
+          "rss_bytes": {
+            "first": 1119784960,
+            "last": 1119784960,
+            "max": 1119784960
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "ui": {
+        "interval_count": 1162,
+        "sample_wall_s": 30.000372,
+        "frame_interval_ms": {
+          "p50": 26.153,
+          "p95": 28.8689,
+          "p99": 31.00278,
+          "max": 127.265
+        },
+        "draw_calls": {
+          "p50": 115.0,
+          "p95": 170.0,
+          "p99": 173.0,
+          "max": 175.0
+        },
+        "engine_process_ms": {
+          "p50": 22.9805,
+          "p95": 118.579,
+          "p99": 341.306,
+          "max": 341.306
+        },
+        "engine_physics_ms": {
+          "p50": 4.68,
+          "p95": 5.893,
+          "p99": 5.898,
+          "max": 5.898
+        },
+        "engine_static_bytes_max": 143405740.0,
+        "engine_texture_bytes_max": 697505984.0,
+        "intervals_over_33_4_ms": 6,
+        "late_fraction": 0.0051635111876075735,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.001558453,
+          "user_cpu_s": 62.03,
+          "system_cpu_s": 1.0,
+          "mean_cpu_cores": 2.521042842928732,
+          "rss_bytes": {
+            "first": 1118646272,
+            "last": 1118646272,
+            "max": 1118646272
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "baseline": {
+        "interval_count": 920,
+        "sample_wall_s": 30.034373,
+        "frame_interval_ms": {
+          "p50": 32.4355,
+          "p95": 35.691599999999994,
+          "p99": 39.851889999999976,
+          "max": 128.729
+        },
+        "draw_calls": {
+          "p50": 183.0,
+          "p95": 244.04999999999995,
+          "p99": 247.0,
+          "max": 250.0
+        },
+        "engine_process_ms": {
+          "p50": 28.76,
+          "p95": 120.043,
+          "p99": 321.098,
+          "max": 321.098
+        },
+        "engine_physics_ms": {
+          "p50": 4.842,
+          "p95": 7.629,
+          "p99": 8.186,
+          "max": 8.186
+        },
+        "engine_static_bytes_max": 144750112.0,
+        "engine_texture_bytes_max": 701100686.0,
+        "intervals_over_33_4_ms": 227,
+        "late_fraction": 0.2467391304347826,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.001389888,
+          "user_cpu_s": 58.4,
+          "system_cpu_s": 0.88,
+          "mean_cpu_cores": 2.3710681792316204,
+          "rss_bytes": {
+            "first": 1118306304,
+            "last": 1118306304,
+            "max": 1118306304
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "water": {
+        "interval_count": 1011,
+        "sample_wall_s": 30.018626,
+        "frame_interval_ms": {
+          "p50": 30.063,
+          "p95": 32.674,
+          "p99": 34.88629999999999,
+          "max": 37.075
+        },
+        "draw_calls": {
+          "p50": 179.0,
+          "p95": 239.0,
+          "p99": 243.0,
+          "max": 246.0
+        },
+        "engine_process_ms": {
+          "p50": 25.427,
+          "p95": 30.311,
+          "p99": 300.19,
+          "max": 300.19
+        },
+        "engine_physics_ms": {
+          "p50": 4.833,
+          "p95": 5.824,
+          "p99": 6.771,
+          "max": 6.771
+        },
+        "engine_static_bytes_max": 144730644.0,
+        "engine_texture_bytes_max": 700936874.0,
+        "intervals_over_33_4_ms": 25,
+        "late_fraction": 0.024727992087042534,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.002924144,
+          "user_cpu_s": 55.86,
+          "system_cpu_s": 1.03,
+          "mean_cpu_cores": 2.2753338638453613,
+          "rss_bytes": {
+            "first": 1136635904,
+            "last": 1136635904,
+            "max": 1136635904
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      }
+    },
+    "repeat-3": {
+      "light": {
+        "interval_count": 1061,
+        "sample_wall_s": 29.99045,
+        "frame_interval_ms": {
+          "p50": 28.6,
+          "p95": 31.276,
+          "p99": 34.0936,
+          "max": 118.398
+        },
+        "draw_calls": {
+          "p50": 180.0,
+          "p95": 242.0,
+          "p99": 244.0,
+          "max": 247.0
+        },
+        "engine_process_ms": {
+          "p50": 25.038,
+          "p95": 110.963,
+          "p99": 305.226,
+          "max": 305.226
+        },
+        "engine_physics_ms": {
+          "p50": 4.914,
+          "p95": 6.202,
+          "p99": 6.787,
+          "max": 6.787
+        },
+        "engine_static_bytes_max": 144748420.0,
+        "engine_texture_bytes_max": 701100686.0,
+        "intervals_over_33_4_ms": 16,
+        "late_fraction": 0.015080113100848256,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.001558385,
+          "user_cpu_s": 55.19,
+          "system_cpu_s": 0.97,
+          "mean_cpu_cores": 2.246259978485737,
+          "rss_bytes": {
+            "first": 1136197632,
+            "last": 1136197632,
+            "max": 1136197632
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "ui": {
+        "interval_count": 1148,
+        "sample_wall_s": 29.991581,
+        "frame_interval_ms": {
+          "p50": 26.4825,
+          "p95": 29.3068,
+          "p99": 31.541819999999973,
+          "max": 123.325
+        },
+        "draw_calls": {
+          "p50": 115.0,
+          "p95": 170.0,
+          "p99": 173.0,
+          "max": 175.0
+        },
+        "engine_process_ms": {
+          "p50": 23.268,
+          "p95": 119.503,
+          "p99": 346.314,
+          "max": 346.314
+        },
+        "engine_physics_ms": {
+          "p50": 4.716,
+          "p95": 6.138,
+          "p99": 6.497,
+          "max": 6.497
+        },
+        "engine_static_bytes_max": 143405740.0,
+        "engine_texture_bytes_max": 697505984.0,
+        "intervals_over_33_4_ms": 6,
+        "late_fraction": 0.005226480836236934,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.004029215,
+          "user_cpu_s": 61.76,
+          "system_cpu_s": 0.96,
+          "mean_cpu_cores": 2.508395725372696,
+          "rss_bytes": {
+            "first": 1120821248,
+            "last": 1120821248,
+            "max": 1120821248
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "baseline": {
+        "interval_count": 932,
+        "sample_wall_s": 30.000284,
+        "frame_interval_ms": {
+          "p50": 32.1495,
+          "p95": 34.6343,
+          "p99": 37.75032999999999,
+          "max": 122.666
+        },
+        "draw_calls": {
+          "p50": 182.5,
+          "p95": 245.0,
+          "p99": 247.0,
+          "max": 250.0
+        },
+        "engine_process_ms": {
+          "p50": 27.842,
+          "p95": 115.188,
+          "p99": 320.529,
+          "max": 320.529
+        },
+        "engine_physics_ms": {
+          "p50": 4.721,
+          "p95": 6.286,
+          "p99": 6.323,
+          "max": 6.56
+        },
+        "engine_static_bytes_max": 144750112.0,
+        "engine_texture_bytes_max": 701100686.0,
+        "intervals_over_33_4_ms": 126,
+        "late_fraction": 0.1351931330472103,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.001637654,
+          "user_cpu_s": 58.76,
+          "system_cpu_s": 0.87,
+          "mean_cpu_cores": 2.3850437649415266,
+          "rss_bytes": {
+            "first": 1118375936,
+            "last": 1118375936,
+            "max": 1118375936
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "water": {
+        "interval_count": 1012,
+        "sample_wall_s": 30.028687,
+        "frame_interval_ms": {
+          "p50": 30.0385,
+          "p95": 32.2636,
+          "p99": 33.622389999999996,
+          "max": 37.51
+        },
+        "draw_calls": {
+          "p50": 179.0,
+          "p95": 241.0,
+          "p99": 243.0,
+          "max": 246.0
+        },
+        "engine_process_ms": {
+          "p50": 25.149,
+          "p95": 28.895,
+          "p99": 297.85,
+          "max": 297.85
+        },
+        "engine_physics_ms": {
+          "p50": 4.797,
+          "p95": 6.089,
+          "p99": 6.393,
+          "max": 6.393
+        },
+        "engine_static_bytes_max": 144730644.0,
+        "engine_texture_bytes_max": 700936874.0,
+        "intervals_over_33_4_ms": 16,
+        "late_fraction": 0.015810276679841896,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.00146175,
+          "user_cpu_s": 55.76,
+          "system_cpu_s": 0.95,
+          "mean_cpu_cores": 2.2682673744066184,
+          "rss_bytes": {
+            "first": 1116651520,
+            "last": 1116651520,
+            "max": 1116651520
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "grass": {
+        "interval_count": 995,
+        "sample_wall_s": 29.999399,
+        "frame_interval_ms": {
+          "p50": 30.277,
+          "p95": 33.2549,
+          "p99": 35.82803999999999,
+          "max": 126.263
+        },
+        "draw_calls": {
+          "p50": 178.0,
+          "p95": 240.29999999999995,
+          "p99": 243.0,
+          "max": 246.0
+        },
+        "engine_process_ms": {
+          "p50": 26.765,
+          "p95": 118.602,
+          "p99": 320.801,
+          "max": 320.801
+        },
+        "engine_physics_ms": {
+          "p50": 4.706,
+          "p95": 6.121,
+          "p99": 6.429,
+          "max": 6.429
+        },
+        "engine_static_bytes_max": 144641526.0,
+        "engine_texture_bytes_max": 698741390.0,
+        "intervals_over_33_4_ms": 44,
+        "late_fraction": 0.044221105527638194,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.001412312,
+          "user_cpu_s": 58.42,
+          "system_cpu_s": 0.86,
+          "mean_cpu_cores": 2.371066052598445,
+          "rss_bytes": {
+            "first": 1116590080,
+            "last": 1116590080,
+            "max": 1116590080
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      },
+      "shadows": {
+        "interval_count": 942,
+        "sample_wall_s": 30.01215,
+        "frame_interval_ms": {
+          "p50": 31.819499999999998,
+          "p95": 34.0871,
+          "p99": 38.58354000000001,
+          "max": 124.373
+        },
+        "draw_calls": {
+          "p50": 175.0,
+          "p95": 238.94999999999993,
+          "p99": 243.0,
+          "max": 245.0
+        },
+        "engine_process_ms": {
+          "p50": 28.118,
+          "p95": 116.851,
+          "p99": 320.722,
+          "max": 320.722
+        },
+        "engine_physics_ms": {
+          "p50": 4.913,
+          "p95": 6.269,
+          "p99": 6.639,
+          "max": 6.639
+        },
+        "engine_static_bytes_max": 144735856.0,
+        "engine_texture_bytes_max": 701100686.0,
+        "intervals_over_33_4_ms": 84,
+        "late_fraction": 0.08917197452229299,
+        "process": {
+          "sample_count": 6,
+          "sampled_wall_s": 25.003867142,
+          "user_cpu_s": 58.91,
+          "system_cpu_s": 0.89,
+          "mean_cpu_cores": 2.3916300490795495,
+          "rss_bytes": {
+            "first": 1135783936,
+            "last": 1135783936,
+            "max": 1135783936
+          }
+        },
+        "observer_buffer_bytes": 20260800,
+        "gpu_time_ms": null,
+        "loops": 1,
+        "maintenance_cycles": 0,
+        "simulation": {
+          "trajectory.csv.gz": "81d69ace2e631043e0c772079a60b4054f6426c69770a333a3375e37897c7bff",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "d8970311f043c0afdb5b87a9c7dc0d9c8cdbe52d2b6754f80293bbaa594ea493",
+          "final_weather": "clear"
+        }
+      }
+    },
+    "long-cycle": {
+      "baseline": {
+        "interval_count": 18685,
+        "sample_wall_s": 600.010264,
+        "frame_interval_ms": {
+          "p50": 32.148,
+          "p95": 34.584399999999995,
+          "p99": 37.38347999999999,
+          "max": 123.382
+        },
+        "draw_calls": {
+          "p50": 177.0,
+          "p95": 240.0,
+          "p99": 243.0,
+          "max": 497.0
+        },
+        "engine_process_ms": {
+          "p50": 27.82,
+          "p95": 31.162,
+          "p99": 32.512,
+          "max": 319.868
+        },
+        "engine_physics_ms": {
+          "p50": 4.813,
+          "p95": 6.069,
+          "p99": 6.773,
+          "max": 7.714
+        },
+        "engine_static_bytes_max": 147037010.0,
+        "engine_texture_bytes_max": 701100686.0,
+        "intervals_over_33_4_ms": 2851,
+        "late_fraction": 0.1525822852555526,
+        "process": {
+          "sample_count": 120,
+          "sampled_wall_s": 595.07186937,
+          "user_cpu_s": 1377.28,
+          "system_cpu_s": 22.58,
+          "mean_cpu_cores": 2.3524217360199295,
+          "rss_bytes": {
+            "first": 1139683328,
+            "last": 1139683328,
+            "max": 1139683328
+          }
+        },
+        "observer_buffer_bytes": 22176000,
+        "gpu_time_ms": null,
+        "loops": 39,
+        "maintenance_cycles": 19,
+        "simulation": {
+          "trajectory.csv.gz": "28e6ebc871a3740dad14e3be5705299acfde8c149fb28345ac2c2af536a9737b",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "c26474ac81c3a6158bc960a65129424194a419760fbc558a66468ac4bb053bac",
+          "final_weather": "wind"
+        }
+      },
+      "water": {
+        "interval_count": 20470,
+        "sample_wall_s": 600.016798,
+        "frame_interval_ms": {
+          "p50": 29.684,
+          "p95": 32.23655,
+          "p99": 34.68824000000001,
+          "max": 88.637
+        },
+        "draw_calls": {
+          "p50": 173.0,
+          "p95": 236.0,
+          "p99": 239.0,
+          "max": 495.0
+        },
+        "engine_process_ms": {
+          "p50": 25.429,
+          "p95": 28.613,
+          "p99": 30.248,
+          "max": 298.436
+        },
+        "engine_physics_ms": {
+          "p50": 4.837,
+          "p95": 6.036,
+          "p99": 6.502720000000015,
+          "max": 7.039
+        },
+        "engine_static_bytes_max": 147017486.0,
+        "engine_texture_bytes_max": 700936874.0,
+        "intervals_over_33_4_ms": 393,
+        "late_fraction": 0.01919882755251588,
+        "process": {
+          "sample_count": 120,
+          "sampled_wall_s": 595.066250926,
+          "user_cpu_s": 1309.35,
+          "system_cpu_s": 24.87,
+          "mean_cpu_cores": 2.242136901435397,
+          "rss_bytes": {
+            "first": 1116581888,
+            "last": 1116712960,
+            "max": 1116712960
+          }
+        },
+        "observer_buffer_bytes": 22176000,
+        "gpu_time_ms": null,
+        "loops": 39,
+        "maintenance_cycles": 19,
+        "simulation": {
+          "trajectory.csv.gz": "28e6ebc871a3740dad14e3be5705299acfde8c149fb28345ac2c2af536a9737b",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "c26474ac81c3a6158bc960a65129424194a419760fbc558a66468ac4bb053bac",
+          "final_weather": "wind"
+        }
+      },
+      "grass": {
+        "interval_count": 20416,
+        "sample_wall_s": 600.005152,
+        "frame_interval_ms": {
+          "p50": 29.756500000000003,
+          "p95": 32.343250000000005,
+          "p99": 34.7547,
+          "max": 121.207
+        },
+        "draw_calls": {
+          "p50": 172.0,
+          "p95": 236.0,
+          "p99": 239.0,
+          "max": 493.0
+        },
+        "engine_process_ms": {
+          "p50": 25.989,
+          "p95": 28.823,
+          "p99": 31.038,
+          "max": 324.75
+        },
+        "engine_physics_ms": {
+          "p50": 4.702,
+          "p95": 6.011,
+          "p99": 6.534,
+          "max": 7.56
+        },
+        "engine_static_bytes_max": 146928368.0,
+        "engine_texture_bytes_max": 698741390.0,
+        "intervals_over_33_4_ms": 469,
+        "late_fraction": 0.02297217868338558,
+        "process": {
+          "sample_count": 120,
+          "sampled_wall_s": 595.067467179,
+          "user_cpu_s": 1404.95,
+          "system_cpu_s": 19.14,
+          "mean_cpu_cores": 2.393157210813585,
+          "rss_bytes": {
+            "first": 1115930624,
+            "last": 1136246784,
+            "max": 1136246784
+          }
+        },
+        "observer_buffer_bytes": 22176000,
+        "gpu_time_ms": null,
+        "loops": 39,
+        "maintenance_cycles": 19,
+        "simulation": {
+          "trajectory.csv.gz": "28e6ebc871a3740dad14e3be5705299acfde8c149fb28345ac2c2af536a9737b",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "c26474ac81c3a6158bc960a65129424194a419760fbc558a66468ac4bb053bac",
+          "final_weather": "wind"
+        }
+      },
+      "shadows": {
+        "interval_count": 18850,
+        "sample_wall_s": 600.009741,
+        "frame_interval_ms": {
+          "p50": 31.928,
+          "p95": 34.342,
+          "p99": 37.294019999999996,
+          "max": 128.134
+        },
+        "draw_calls": {
+          "p50": 168.0,
+          "p95": 235.0,
+          "p99": 238.0,
+          "max": 491.0
+        },
+        "engine_process_ms": {
+          "p50": 27.615,
+          "p95": 30.708,
+          "p99": 33.932,
+          "max": 326.136
+        },
+        "engine_physics_ms": {
+          "p50": 4.811,
+          "p95": 6.01,
+          "p99": 6.382,
+          "max": 6.863
+        },
+        "engine_static_bytes_max": 147022698.0,
+        "engine_texture_bytes_max": 701100686.0,
+        "intervals_over_33_4_ms": 2232,
+        "late_fraction": 0.11840848806366047,
+        "process": {
+          "sample_count": 120,
+          "sampled_wall_s": 595.066031853,
+          "user_cpu_s": 1379.43,
+          "system_cpu_s": 21.86,
+          "mean_cpu_cores": 2.3548479076119784,
+          "rss_bytes": {
+            "first": 1136332800,
+            "last": 1140920320,
+            "max": 1140920320
+          }
+        },
+        "observer_buffer_bytes": 22176000,
+        "gpu_time_ms": null,
+        "loops": 39,
+        "maintenance_cycles": 19,
+        "simulation": {
+          "trajectory.csv.gz": "28e6ebc871a3740dad14e3be5705299acfde8c149fb28345ac2c2af536a9737b",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "c26474ac81c3a6158bc960a65129424194a419760fbc558a66468ac4bb053bac",
+          "final_weather": "wind"
+        }
+      },
+      "light": {
+        "interval_count": 21543,
+        "sample_wall_s": 600.015538,
+        "frame_interval_ms": {
+          "p50": 28.355,
+          "p95": 31.028,
+          "p99": 33.35811999999997,
+          "max": 117.717
+        },
+        "draw_calls": {
+          "p50": 174.0,
+          "p95": 237.0,
+          "p99": 240.0,
+          "max": 494.0
+        },
+        "engine_process_ms": {
+          "p50": 24.429,
+          "p95": 27.733,
+          "p99": 29.973,
+          "max": 311.004
+        },
+        "engine_physics_ms": {
+          "p50": 4.824,
+          "p95": 6.077,
+          "p99": 6.733,
+          "max": 7.634
+        },
+        "engine_static_bytes_max": 147035262.0,
+        "engine_texture_bytes_max": 701100686.0,
+        "intervals_over_33_4_ms": 211,
+        "late_fraction": 0.009794364758854384,
+        "process": {
+          "sample_count": 120,
+          "sampled_wall_s": 595.063275036,
+          "user_cpu_s": 1293.42,
+          "system_cpu_s": 24.86,
+          "mean_cpu_cores": 2.215361046974789,
+          "rss_bytes": {
+            "first": 1118769152,
+            "last": 1116901376,
+            "max": 1118769152
+          }
+        },
+        "observer_buffer_bytes": 22176000,
+        "gpu_time_ms": null,
+        "loops": 39,
+        "maintenance_cycles": 19,
+        "simulation": {
+          "trajectory.csv.gz": "28e6ebc871a3740dad14e3be5705299acfde8c149fb28345ac2c2af536a9737b",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "c26474ac81c3a6158bc960a65129424194a419760fbc558a66468ac4bb053bac",
+          "final_weather": "wind"
+        }
+      },
+      "ui": {
+        "interval_count": 23093,
+        "sample_wall_s": 600.006964,
+        "frame_interval_ms": {
+          "p50": 26.454,
+          "p95": 29.36559999999999,
+          "p99": 31.41067999999996,
+          "max": 122.383
+        },
+        "draw_calls": {
+          "p50": 111.0,
+          "p95": 170.0,
+          "p99": 172.0,
+          "max": 431.0
+        },
+        "engine_process_ms": {
+          "p50": 23.148,
+          "p95": 26.171,
+          "p99": 27.686,
+          "max": 342.307
+        },
+        "engine_physics_ms": {
+          "p50": 4.85,
+          "p95": 5.893,
+          "p99": 6.403,
+          "max": 7.393
+        },
+        "engine_static_bytes_max": 145634528.0,
+        "engine_texture_bytes_max": 697505984.0,
+        "intervals_over_33_4_ms": 77,
+        "late_fraction": 0.0033343437405274324,
+        "process": {
+          "sample_count": 120,
+          "sampled_wall_s": 595.065841609,
+          "user_cpu_s": 1453.67,
+          "system_cpu_s": 25.1,
+          "mean_cpu_cores": 2.4850527397128865,
+          "rss_bytes": {
+            "first": 1118089216,
+            "last": 1116217344,
+            "max": 1118089216
+          }
+        },
+        "observer_buffer_bytes": 22176000,
+        "gpu_time_ms": null,
+        "loops": 39,
+        "maintenance_cycles": 19,
+        "simulation": {
+          "trajectory.csv.gz": "28e6ebc871a3740dad14e3be5705299acfde8c149fb28345ac2c2af536a9737b",
+          "save-before.json": "e9991f62705d1b3dc65245508ca48ccbf496fbcfb9a0734401fc80e81fe58385",
+          "save-after.json": "c26474ac81c3a6158bc960a65129424194a419760fbc558a66468ac4bb053bac",
+          "final_weather": "wind"
+        }
+      }
+    }
+  },
+  "paired_deltas": {
+    "repeat-1": {
+      "water": {
+        "frame_interval_ms": {
+          "p50": 2.4405,
+          "p95": 2.725850000000001,
+          "p99": 3.7546800000000076,
+          "max": 93.995
+        },
+        "draw_calls_p50": 3.0,
+        "mean_cpu_cores": 0.10942690919345655,
+        "rss_peak_bytes": 684032,
+        "gpu_time_ms": null
+      },
+      "grass": {
+        "frame_interval_ms": {
+          "p50": 1.8759999999999977,
+          "p95": 2.114549999999994,
+          "p99": 2.0577200000000104,
+          "max": 11.415999999999997
+        },
+        "draw_calls_p50": 5.0,
+        "mean_cpu_cores": -0.0005528403181682684,
+        "rss_peak_bytes": -19361792,
+        "gpu_time_ms": null
+      },
+      "shadows": {
+        "frame_interval_ms": {
+          "p50": -0.007500000000000284,
+          "p95": -0.3242000000000047,
+          "p99": -1.690330000000003,
+          "max": 8.521
+        },
+        "draw_calls_p50": 11.0,
+        "mean_cpu_cores": 0.0055169971208441915,
+        "rss_peak_bytes": 1130496,
+        "gpu_time_ms": null
+      },
+      "light": {
+        "frame_interval_ms": {
+          "p50": 3.5435000000000016,
+          "p95": 3.5081999999999987,
+          "p99": 3.250989999999959,
+          "max": 9.891999999999996
+        },
+        "draw_calls_p50": 3.0,
+        "mean_cpu_cores": 0.13102969579655532,
+        "rss_peak_bytes": -2392064,
+        "gpu_time_ms": null
+      },
+      "ui": {
+        "frame_interval_ms": {
+          "p50": 5.724,
+          "p95": 5.351399999999998,
+          "p99": 5.804340000000018,
+          "max": 8.876999999999995
+        },
+        "draw_calls_p50": 68.0,
+        "mean_cpu_cores": -0.132556289198404,
+        "rss_peak_bytes": -737280,
+        "gpu_time_ms": null
+      }
+    },
+    "repeat-2": {
+      "water": {
+        "frame_interval_ms": {
+          "p50": 2.3724999999999987,
+          "p95": 3.0175999999999945,
+          "p99": 4.965589999999985,
+          "max": 91.65400000000001
+        },
+        "draw_calls_p50": 4.0,
+        "mean_cpu_cores": 0.0957343153862591,
+        "rss_peak_bytes": -18329600,
+        "gpu_time_ms": null
+      },
+      "grass": {
+        "frame_interval_ms": {
+          "p50": 2.2704999999999984,
+          "p95": 2.678049999999992,
+          "p99": 3.4336399999999827,
+          "max": 8.487000000000009
+        },
+        "draw_calls_p50": 5.0,
+        "mean_cpu_cores": 0.0020518659337862566,
+        "rss_peak_bytes": -20291584,
+        "gpu_time_ms": null
+      },
+      "shadows": {
+        "frame_interval_ms": {
+          "p50": 0.4334999999999951,
+          "p95": 1.1579999999999941,
+          "p99": 2.5083899999999772,
+          "max": 4.074000000000012
+        },
+        "draw_calls_p50": 8.0,
+        "mean_cpu_cores": -0.01378323934235981,
+        "rss_peak_bytes": -577536,
+        "gpu_time_ms": null
+      },
+      "light": {
+        "frame_interval_ms": {
+          "p50": 3.628499999999999,
+          "p95": 4.365499999999994,
+          "p99": 5.509309999999971,
+          "max": 8.940000000000012
+        },
+        "draw_calls_p50": 4.0,
+        "mean_cpu_cores": 0.12859120229940668,
+        "rss_peak_bytes": -1478656,
+        "gpu_time_ms": null
+      },
+      "ui": {
+        "frame_interval_ms": {
+          "p50": 6.282499999999999,
+          "p95": 6.822699999999994,
+          "p99": 8.849109999999975,
+          "max": 1.4640000000000128
+        },
+        "draw_calls_p50": 68.0,
+        "mean_cpu_cores": -0.14997466369711177,
+        "rss_peak_bytes": -339968,
+        "gpu_time_ms": null
+      }
+    },
+    "repeat-3": {
+      "water": {
+        "frame_interval_ms": {
+          "p50": 2.111000000000004,
+          "p95": 2.3707000000000065,
+          "p99": 4.127939999999995,
+          "max": 85.156
+        },
+        "draw_calls_p50": 3.5,
+        "mean_cpu_cores": 0.11677639053490818,
+        "rss_peak_bytes": 1724416,
+        "gpu_time_ms": null
+      },
+      "grass": {
+        "frame_interval_ms": {
+          "p50": 1.8725000000000023,
+          "p95": 1.379400000000004,
+          "p99": 1.9222900000000038,
+          "max": -3.5970000000000084
+        },
+        "draw_calls_p50": 4.5,
+        "mean_cpu_cores": 0.013977712343081539,
+        "rss_peak_bytes": 1785856,
+        "gpu_time_ms": null
+      },
+      "shadows": {
+        "frame_interval_ms": {
+          "p50": 0.3300000000000054,
+          "p95": 0.5472000000000037,
+          "p99": -0.8332100000000224,
+          "max": -1.7070000000000078
+        },
+        "draw_calls_p50": 7.5,
+        "mean_cpu_cores": -0.006586284138022869,
+        "rss_peak_bytes": -17408000,
+        "gpu_time_ms": null
+      },
+      "light": {
+        "frame_interval_ms": {
+          "p50": 3.549500000000002,
+          "p95": 3.3583000000000034,
+          "p99": 3.656729999999989,
+          "max": 4.268000000000001
+        },
+        "draw_calls_p50": 2.5,
+        "mean_cpu_cores": 0.13878378645578948,
+        "rss_peak_bytes": -17821696,
+        "gpu_time_ms": null
+      },
+      "ui": {
+        "frame_interval_ms": {
+          "p50": 5.667000000000002,
+          "p95": 5.327500000000004,
+          "p99": 6.208510000000018,
+          "max": -0.659000000000006
+        },
+        "draw_calls_p50": 67.5,
+        "mean_cpu_cores": -0.12335196043116925,
+        "rss_peak_bytes": -2445312,
+        "gpu_time_ms": null
+      }
+    },
+    "long-cycle": {
+      "water": {
+        "frame_interval_ms": {
+          "p50": 2.464000000000002,
+          "p95": 2.347849999999994,
+          "p99": 2.695239999999984,
+          "max": 34.745000000000005
+        },
+        "draw_calls_p50": 4.0,
+        "mean_cpu_cores": 0.11028483458453264,
+        "rss_peak_bytes": 22970368,
+        "gpu_time_ms": null
+      },
+      "grass": {
+        "frame_interval_ms": {
+          "p50": 2.3915000000000006,
+          "p95": 2.2411499999999904,
+          "p99": 2.628779999999992,
+          "max": 2.1750000000000114
+        },
+        "draw_calls_p50": 5.0,
+        "mean_cpu_cores": -0.040735474793655246,
+        "rss_peak_bytes": 3436544,
+        "gpu_time_ms": null
+      },
+      "shadows": {
+        "frame_interval_ms": {
+          "p50": 0.22000000000000242,
+          "p95": 0.2423999999999964,
+          "p99": 0.08945999999999543,
+          "max": -4.751999999999981
+        },
+        "draw_calls_p50": 9.0,
+        "mean_cpu_cores": -0.0024261715920488314,
+        "rss_peak_bytes": -1236992,
+        "gpu_time_ms": null
+      },
+      "light": {
+        "frame_interval_ms": {
+          "p50": 3.793000000000003,
+          "p95": 3.5563999999999965,
+          "p99": 4.0253600000000205,
+          "max": 5.665000000000006
+        },
+        "draw_calls_p50": 3.0,
+        "mean_cpu_cores": 0.13706068904514046,
+        "rss_peak_bytes": 20914176,
+        "gpu_time_ms": null
+      },
+      "ui": {
+        "frame_interval_ms": {
+          "p50": 5.694000000000003,
+          "p95": 5.218800000000005,
+          "p99": 5.972800000000031,
+          "max": 0.9990000000000094
+        },
+        "draw_calls_p50": 66.0,
+        "mean_cpu_cores": -0.132631003692957,
+        "rss_peak_bytes": 21594112,
+        "gpu_time_ms": null
+      }
+    }
+  },
+  "short_median_delta_ms": {
+    "water": 2.725850000000001,
+    "grass": 2.114549999999994,
+    "shadows": 0.5472000000000037,
+    "light": 3.5081999999999987,
+    "ui": 5.351399999999998
+  }
+}

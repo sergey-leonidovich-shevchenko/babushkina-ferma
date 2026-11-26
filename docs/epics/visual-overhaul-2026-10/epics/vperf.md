@@ -86,7 +86,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 ## VPERF-003 — Измерить стоимость каждого прохода
 
-Статус: `in_progress` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Вода, трава, тени, свет и UI отключаются независимо; есть baseline и дельта на одном маршруте
 
@@ -120,7 +120,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vperf-003/README.md.
+Доказательства: docs/reports/visual-overhaul/vperf-003/README.md, docs/reports/visual-overhaul/vperf-003/closeout/README.md, docs/reports/visual-overhaul/vperf-003/native-ci-01/archive.json, docs/reports/visual-overhaul/vperf-003/native-ci-01/summary.json.
 
 <a id="vperf-004"></a>
 
