@@ -14,6 +14,7 @@ from tools.qa.performance.overdraw.verify import (
     area,
     check_calibration,
     check_contact,
+    check_readiness,
     equal_frame,
     no_growth,
     water_stays_under_decks,
@@ -96,6 +97,35 @@ class CoverageTest(unittest.TestCase):
         contact["scale"] = 2
         with self.assertRaisesRegex(ValueError, "wind scale"):
             check_contact(row)
+
+    def test_window_requires_bounded_stable_native_draws(self) -> None:
+        ready = {
+            "ready": True,
+            "focus": True,
+            "visible": True,
+            "ground_ready": True,
+            "ground_split": True,
+            "water_visible": True,
+            "host_size": list(SIZE),
+            "window_size": list(SIZE),
+            "framebuffer": list(SIZE),
+            "window_mode": 0,
+            "terrain_requests": 1,
+            "stable_draws": 8,
+            "callbacks": 13,
+            "elapsed_ms": 582,
+        }
+        check_readiness({"case": "west-bridge", "readiness": ready})
+        for key, value in (
+            ("focus", False),
+            ("ground_ready", False),
+            ("framebuffer", [1144, 648]),
+            ("stable_draws", 7),
+            ("callbacks", 0),
+            ("elapsed_ms", 8000),
+        ):
+            with self.subTest(key=key), self.assertRaisesRegex(ValueError, "window did not settle"):
+                check_readiness({"case": "west-bridge", "readiness": ready | {key: value}})
 
 
 if __name__ == "__main__":

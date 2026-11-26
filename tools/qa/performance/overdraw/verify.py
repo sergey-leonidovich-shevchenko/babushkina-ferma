@@ -123,6 +123,29 @@ def check_calibration(path: Path) -> None:
         )
 
 
+def check_readiness(record: dict[str, Any]) -> None:
+    observed = record["readiness"]
+    base.require(
+        all(
+            observed[key] is True
+            for key in (
+                "ready",
+                "focus",
+                "visible",
+                "ground_ready",
+                "ground_split",
+                "water_visible",
+            )
+        )
+        and all(observed[key] == list(SIZE) for key in ("host_size", "window_size", "framebuffer"))
+        and observed["window_mode"] == 0
+        and observed["terrain_requests"] >= 1
+        and observed["callbacks"] >= observed["stable_draws"] >= 8
+        and 500 <= observed["elapsed_ms"] < 8000,
+        f"native window did not settle: {record['case']}",
+    )
+
+
 def check_contact(record: dict[str, Any]) -> None:
     contact = record["contact"]
     bends = dict(contact["bends"])
@@ -169,6 +192,8 @@ def check_views(root: Path) -> dict[str, Any]:
         case = initial["case"]
         check_camera(initial)
         check_camera(final)
+        check_readiness(initial)
+        check_readiness(final)
         check_contact(initial)
         check_contact(final)
         base.require(

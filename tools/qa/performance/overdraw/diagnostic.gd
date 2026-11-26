@@ -15,6 +15,9 @@ const Water := preload("res://scripts/systems/water_map_registry.gd")
 const Surface := preload("res://scripts/presentation/village_water_surface.gd")
 const SIZE := Vector2i(1152, 648)
 const CONTACT_CASE := "grass-contact"
+const READY_DRAWS := 8
+const READY_MIN_MS := 500
+const READY_TIMEOUT_MS := 8000
 const CASES := [
 	["west-bridge", Vector2(864, 456), 1, 780.0, "normal", 1.2, 12.5],
 	["east-bridge", Vector2(1608, 912), 1, 1200.0, "low", 1.2, 29.25],
@@ -25,6 +28,7 @@ const CASES := [
 
 var output := ""
 var profile := ""
+var completed_draws := 0
 
 
 class CoverageCard:
@@ -125,6 +129,7 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 	game.set_meta(Surface.QUALITY, case_data[4])
 	game.set_meta(Clock.META, phase - 0.25 if case_id == CONTACT_CASE else phase)
 	root.add_child(game)
+	current_scene = game
 	Points.configure(game, view)
 	var settings: Object = game.get("settings_state")
 	settings.set("reduced_motion", case_data[4] == "static")
@@ -142,26 +147,23 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 			Wind.update(game)
 	var background := game.get_node("WorldBackground") as Background
 	var prefix := case_id + ("-trimmed" if trimmed else "-baseline")
-	var ready := false
-	for frame in 75:
-		Wind.update(game)
-		game.queue_redraw()
-		await RenderingServer.frame_post_draw
-		ready = (
-			frame >= 9 and background.terrain_ready and background.water_layer.is_visible_in_tree()
-		)
-		if ready:
-			break
+	var readiness := await _settle_view(game, background)
+	if readiness.ready != true:
+		_report_view_failure(prefix, readiness)
+		game.free()
+		return {}
 	var state := Points.snapshot(game, view)
 	var unchanged := JSON.stringify(Save.snapshot(game), "", true, true).sha256_text()
 	var image := root.get_texture().get_image()
-	if (
-		not ready
-		or not DisplayServer.window_is_focused()
-		or DisplayServer.window_get_size() != SIZE
-		or image.get_size() != SIZE
-		or image.save_png(output.path_join(prefix + "-frame.png")) != OK
-	):
+	var image_size := image.get_size() if image != null else Vector2i.ZERO
+	var capture_state := _window_state(background)
+	var saved := ERR_UNAVAILABLE
+	if image_size == SIZE and _ready_frame(capture_state):
+		saved = image.save_png(output.path_join(prefix + "-frame.png"))
+	if saved != OK:
+		capture_state["image_size"] = Points.pair(image_size)
+		capture_state["save_result"] = saved
+		_report_view_failure(prefix, capture_state)
 		game.free()
 		return {}
 	var owner := game.get_node_or_null(Wind.NAME) as Wind
@@ -188,9 +190,97 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 		"contact": contact,
 		"framebuffer": Points.pair(image.get_size()),
 		"display": DisplayServer.get_name(),
+		"readiness": readiness,
 	}
 	game.free()
 	return receipt if world_mask and wind_mask else {}
+
+
+## Применяет оконный профиль после инициализации игры и ждёт серию стабильных нативных кадров.
+func _settle_view(game: Node2D, background: Background) -> Dictionary:
+	await process_frame
+	root.mode = Window.MODE_WINDOWED
+	root.size = SIZE
+	root.show()
+	root.grab_focus()
+	completed_draws = 0
+	RenderingServer.frame_post_draw.connect(_record_draw)
+	var started := Time.get_ticks_msec()
+	var deadline := started + READY_TIMEOUT_MS
+	var retry_focus := started + 250
+	var stable := 0
+	var observed_draws := 0
+	var observed := _window_state(background)
+	var ready := false
+	var elapsed := 0
+	while Time.get_ticks_msec() < deadline and not ready:
+		Wind.update(game)
+		game.queue_redraw()
+		# Таймер продолжает работать, даже если renderer перестал присылать frame_post_draw.
+		await process_frame
+		observed = _window_state(background)
+		var now := Time.get_ticks_msec()
+		elapsed = now - started
+		var valid := _ready_frame(observed)
+		if not valid:
+			stable = 0
+		if completed_draws != observed_draws:
+			observed_draws = completed_draws
+			if valid:
+				stable += 1
+			ready = stable >= READY_DRAWS and elapsed >= READY_MIN_MS and now < deadline
+		if observed.focus == false and now >= retry_focus:
+			root.grab_focus()
+			retry_focus = now + 250
+	RenderingServer.frame_post_draw.disconnect(_record_draw)
+	observed["stable_draws"] = stable
+	observed["callbacks"] = completed_draws
+	observed["elapsed_ms"] = elapsed
+	observed["ready"] = ready
+	return observed
+
+
+func _record_draw() -> void:
+	completed_draws += 1
+
+
+func _window_state(background: Background) -> Dictionary:
+	return {
+		"focus": DisplayServer.window_is_focused(),
+		"visible": root.visible,
+		"host_size": Points.pair(DisplayServer.window_get_size()),
+		"window_size": Points.pair(root.size),
+		"framebuffer": Points.pair(root.get_texture().get_size()),
+		"window_mode": root.mode,
+		"ground_ready": background.terrain_ready,
+		"ground_split": background.ground_split,
+		"water_visible": background.water_layer.is_visible_in_tree(),
+		"terrain_requests": background.terrain_requests,
+	}
+
+
+func _ready_frame(observed: Dictionary) -> bool:
+	var expected := Points.pair(SIZE)
+	return (
+		observed.focus == true
+		and observed.visible == true
+		and observed.host_size == expected
+		and observed.window_size == expected
+		and observed.framebuffer == expected
+		and observed.window_mode == Window.MODE_WINDOWED
+		and observed.ground_ready == true
+		and observed.ground_split == true
+		and observed.water_visible == true
+		and observed.terrain_requests > 0
+	)
+
+
+func _report_view_failure(prefix: String, observed: Dictionary) -> void:
+	var failure := {"view": prefix, "observed": observed}
+	var file := FileAccess.open(output.path_join("window-error.json"), FileAccess.WRITE)
+	if file != null:
+		file.store_string(JSON.stringify(failure) + "\n")
+	push_error("VPERF-004 fixed view readiness: " + JSON.stringify(failure))
 
 
 ## Связывает записанные изгибы с фактическим uniform после кадра композита.
