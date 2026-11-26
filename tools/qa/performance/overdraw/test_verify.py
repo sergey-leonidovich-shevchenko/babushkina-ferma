@@ -10,11 +10,14 @@ from PIL import Image, ImageDraw
 
 from tools.qa.performance.overdraw import contract as c
 from tools.qa.performance.overdraw.verify import (
+    CONTACT_WIND_SIZE,
     SIZE,
     area,
     check_calibration,
+    check_camera,
     check_contact,
     check_readiness,
+    contact_composite,
     equal_frame,
     no_growth,
     water_stays_under_decks,
@@ -29,6 +32,7 @@ class CoverageTest(unittest.TestCase):
         self.assertIn("views/dense-grass-baseline-wind.png", evidence)
         self.assertNotIn("views/still-bridge-trimmed-wind.png", evidence)
         self.assertIn("views/grass-contact-trimmed-composite.png", evidence)
+        self.assertIn("views/grass-contact-baseline-wind-color.png", evidence)
 
     def test_counter_counts_layers_and_unique_pixels(self) -> None:
         band = Image.new("L", (6, 4), 0)
@@ -97,6 +101,51 @@ class CoverageTest(unittest.TestCase):
         contact["scale"] = 2
         with self.assertRaisesRegex(ValueError, "wind scale"):
             check_contact(row)
+
+    def test_static_view_keeps_the_fixture_effect_phase(self) -> None:
+        row = {
+            "case": "still-bridge",
+            "quality": "static",
+            "zoom": 1.0,
+            "live_seconds": 0.0,
+            "effect_seconds": 0.0,
+            "state": {
+                "player": [864.0, 456.0],
+                "camera": [288.0, 132.0],
+                "day": 31,
+                "minutes": 780.0,
+                "facing": [0, 1],
+                "location": "overworld",
+                "seed": 20261015,
+                "walkable": "walkable",
+                "weather": "rain",
+            },
+        }
+        check_camera(row)
+        row["effect_seconds"] = 0.25
+        with self.assertRaisesRegex(ValueError, "fixed view does not match"):
+            check_camera(row)
+
+    def test_contact_keeps_native_atlas_and_composited_alpha(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            image = Image.new("RGBA", CONTACT_WIND_SIZE)
+            image.putpixel((5, 5), (1, 2, 3, 76))
+            composite = Image.new("RGBA", SIZE)
+            composite.putpixel((10, 10), (2, 3, 4, 69))
+            for name in c.VARIANTS:
+                image.save(folder / f"{c.CONTACT}-{name}-wind-color.png")
+                composite.save(folder / f"{c.CONTACT}-{name}-composite.png")
+            contact_composite(folder)
+            image.putpixel((5, 5), (1, 2, 3, 77))
+            image.save(folder / f"{c.CONTACT}-trimmed-wind-color.png")
+            with self.assertRaisesRegex(ValueError, "native wind texture changed"):
+                contact_composite(folder)
+            image.save(folder / f"{c.CONTACT}-baseline-wind-color.png")
+            composite.putpixel((10, 10), (2, 3, 4, 70))
+            composite.save(folder / f"{c.CONTACT}-trimmed-composite.png")
+            with self.assertRaisesRegex(ValueError, "contact composite"):
+                contact_composite(folder)
 
     def test_window_requires_bounded_stable_native_draws(self) -> None:
         ready = {

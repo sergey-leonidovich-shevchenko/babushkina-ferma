@@ -89,8 +89,11 @@ static func build(
 					cache[source] = bounds
 		var mesh_data := UV.mesh_data(kind, PLANT_SIZE / source_size.x)
 		if bounds.has_area():
-			_trim_mesh_width(mesh_data, bounds)
-			content[kind] = composite_rect(bounds, region.size)
+			# На сетке 1× исходные треугольники и композит камыша сохраняют байты мягкой альфы.
+			if scale > 1:
+				_trim_mesh_width(mesh_data, bounds)
+			if scale > 1 or kind != "reeds":
+				content[kind] = composite_rect(bounds, region.size)
 		multi.mesh = UV.make_mesh(mesh_data)
 		multi.instance_count = indices.size()
 		for instance in indices.size():

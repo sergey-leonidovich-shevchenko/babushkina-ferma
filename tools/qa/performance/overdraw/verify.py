@@ -17,6 +17,7 @@ from tools.qa.performance.pass_cost import contract as base
 from tools.qa.performance.pass_cost.verify import deltas, inspect
 
 SIZE = (1152, 648)
+CONTACT_WIND_SIZE = (384, 192)
 LAYERS = ("water_surface", "grass_composite", "water_bottom")
 DECK_INTERIORS = ((822, 376, 906, 550), (1566, 880, 1650, 1054))
 
@@ -107,7 +108,7 @@ def check_camera(record: dict[str, Any]) -> None:
         and state["weather"] == ("rain" if record["case"] == "still-bridge" else "clear")
         and record["quality"] == profile
         and record["zoom"] == zoom
-        and record["live_seconds"] == phase,
+        and record["live_seconds"] == record["effect_seconds"] == phase,
         f"fixed view does not match its contract: {record['case']}",
     )
 
@@ -170,6 +171,12 @@ def check_contact(record: dict[str, Any]) -> None:
 
 
 def contact_composite(folder: Path) -> dict[str, int]:
+    atlas = [
+        png(folder / f"{c.CONTACT}-{name}-wind-color.png", CONTACT_WIND_SIZE) for name in c.VARIANTS
+    ]
+    base.require(
+        atlas[0].tobytes() == atlas[1].tobytes(), "1x native wind texture changed before composite"
+    )
     original, trimmed = (
         png(folder / f"{c.CONTACT}-{name}-composite.png", SIZE) for name in c.VARIANTS
     )
@@ -239,11 +246,16 @@ def check_views(root: Path) -> dict[str, Any]:
                 "baseline": area(original_wind),
                 "trimmed": area(trimmed_wind),
             }
-            positive_delta(counts, "grass_wind_target", case)
+            if case == c.CONTACT:
+                base.require(
+                    original_wind.tobytes() == trimmed_wind.tobytes(), "1x wind geometry changed"
+                )
+            else:
+                positive_delta(counts, "grass_wind_target", case)
         if "bridge" in case:
             positive_delta(counts, "water_surface", case)
             positive_delta(counts, "water_bottom", case)
-        if case == "dense-grass":
+        if case in ("dense-grass", c.CONTACT):
             positive_delta(counts, "grass_composite", case)
         findings[case] = {"camera": initial["state"]["camera"], "visual": visual, "layers": counts}
         if case == c.CONTACT:

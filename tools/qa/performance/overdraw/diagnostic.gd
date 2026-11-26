@@ -14,6 +14,7 @@ const Terrain := preload("res://scripts/systems/village_terrain_renderer.gd")
 const Water := preload("res://scripts/systems/water_map_registry.gd")
 const Surface := preload("res://scripts/presentation/village_water_surface.gd")
 const SIZE := Vector2i(1152, 648)
+const CONTACT_WIND_SIZE := Vector2i(384, 192)
 const CONTACT_CASE := "grass-contact"
 const READY_DRAWS := 8
 const READY_MIN_MS := 500
@@ -126,6 +127,7 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 	var game := Points.create_game() as Node2D
 	if not trimmed:
 		game.set_meta(Probe.FULL_COVERAGE, true)
+	game.set_meta(Probe.FIXED_EFFECT_SECONDS, phase)
 	game.set_meta(Surface.QUALITY, case_data[4])
 	game.set_meta(Clock.META, phase - 0.25 if case_id == CONTACT_CASE else phase)
 	root.add_child(game)
@@ -182,6 +184,7 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 		"quality": case_data[4],
 		"zoom": case_data[5],
 		"live_seconds": Clock.seconds(game),
+		"effect_seconds": Probe.effect_seconds(game),
 		"state": state,
 		"save": unchanged,
 		"final_save": JSON.stringify(Save.snapshot(game), "", true, true).sha256_text(),
@@ -302,6 +305,14 @@ static func _contact_snapshot(game: Node2D, owner: Wind) -> Dictionary:
 ## Вызывает тот же композитор на прозрачном target, чтобы проверять краевую альфу отдельно от земли.
 func _contact_composite(game: Node2D, owner: Wind, prefix: String) -> bool:
 	if owner == null:
+		return false
+	var wind: SubViewport = owner.batch.viewport
+	var wind_image := wind.get_texture().get_image()
+	if (
+		wind_image == null
+		or wind_image.get_size() != CONTACT_WIND_SIZE
+		or wind_image.save_png(output.path_join(prefix + "-wind-color.png")) != OK
+	):
 		return false
 	var target := SubViewport.new()
 	target.disable_3d = true

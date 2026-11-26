@@ -33,7 +33,11 @@ def expected_files() -> set[str]:
         for variant in VARIANTS
         for layer in (("frame", "world") if case == "still-bridge" else ("frame", "world", "wind"))
     }
-    fixed.update(f"views/{CONTACT}-{variant}-composite.png" for variant in VARIANTS)
+    fixed.update(
+        f"views/{CONTACT}-{variant}-{layer}.png"
+        for variant in VARIANTS
+        for layer in ("composite", "wind-color")
+    )
     return (
         timed
         | fixed
