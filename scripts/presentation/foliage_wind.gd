@@ -12,6 +12,7 @@ const WorldProjection := preload("res://scripts/systems/world_projection_system.
 const Visibility := preload("res://scripts/systems/world_visibility_system.gd")
 const Contact := preload("res://scripts/presentation/foliage_contact.gd")
 const Recovery := preload("res://scripts/presentation/foliage_recovery.gd")
+const RenderProbe := preload("res://scripts/presentation/overworld_render_probe.gd")
 const FLAG := &"foliage_wind_enabled"
 const QUALITY := &"foliage_wind_quality"
 const NAME := "FoliageWind"
@@ -56,6 +57,7 @@ static func allowed(game: Node) -> bool:
 		and preload("res://scripts/presentation/visual_version.gd").enabled(game)
 		and game.get_meta(QUALITY, "normal") == "normal"
 		and game.current_location == "overworld"
+		and not RenderProbe.omits(game, RenderProbe.GRASS)
 		and not game.title_screen
 		and not game.language_screen
 		and not game.LevelEditorSystem.active(game)

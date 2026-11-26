@@ -54,6 +54,7 @@ const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_s
 const DebugPlaygroundRenderer := preload("res://scripts/systems/debug_playground_renderer.gd")
 
 const OWNER_META := &"viewport_world_owner"
+const RenderProbe := preload("res://scripts/presentation/overworld_render_probe.gd")
 
 const GRASS_VARIANTS := [
 	GRASS_TILE,
@@ -310,7 +311,10 @@ func _sync_ground_layers() -> void:
 		return
 	var enabled := location == "overworld" and ground_split and VisualVersion.enabled(self)
 	water_layer.visible = (
-		enabled and terrain_ready and not (get_meta("terrain_direct", false) == true)
+		enabled
+		and terrain_ready
+		and not (get_meta("terrain_direct", false) == true)
+		and not RenderProbe.omits(get_parent(), RenderProbe.WATER)
 	)
 	cover_layer.visible = enabled
 	cutout_layer.visible = enabled

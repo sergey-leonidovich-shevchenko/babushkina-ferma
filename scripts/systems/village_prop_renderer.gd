@@ -25,6 +25,7 @@ const Lamp := preload("res://scripts/presentation/village_lamp_visual.gd")
 const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
 const Version := preload("res://scripts/presentation/visual_version.gd")
 const Fence := preload("res://scripts/systems/fence_renderer.gd")
+const RenderProbe := preload("res://scripts/presentation/overworld_render_probe.gd")
 const GROUND_OFFSET := Vector2(0, 24)
 
 
@@ -42,7 +43,7 @@ static func draw(game: Node2D, foreground: bool) -> void:
 	if modern:
 		Board.draw_signs(game, foreground)
 	var visible := WorldVisibility.visible_rect(game)
-	if not foreground and modern:
+	if not foreground and modern and not RenderProbe.omits(game, RenderProbe.SHADOWS):
 		for prop: Dictionary in Layout.PROP_PLACEMENTS:
 			var position: Vector2 = prop.position
 			var ground := position + GROUND_OFFSET
