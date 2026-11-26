@@ -9577,7 +9577,7 @@
       "id": "VRELEASE-003",
       "epic": "VRELEASE",
       "title": "Принять движущийся пилот",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "rollout",
       "kind": "engineering",
@@ -9618,7 +9618,12 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vrelease-003-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vrelease-003/dependency-audit.json",
+        "docs/reports/visual-overhaul/vrelease-003/native-ci-02/review.json",
+        "wiki/articles/moving-pilot.md"
+      ],
+      "result": "На 646c18c0 сняты и проверены четыре ролика Linux/X11: 476 кадров, 238 пар одинаковой камеры и сохранения, остановка травы и воды в режиме «Меньше движения», мост, пауза, телепорт, обычные двери, слот v1 и пиксельное восстановление графики. Проверены 54 зависимости и 12 исходных доказательств на принятой базе 3ecd79eb. Отчёт и видео подготовлены к независимой приёмке в [PR №95](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/95)."
     },
     {
       "id": "VRELEASE-004",

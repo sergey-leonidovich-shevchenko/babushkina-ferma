@@ -1,0 +1,65 @@
+name: VRELEASE-003 moving village pilot
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/vrelease-003.yml'
+      - 'tools/qa/world/moving_pilot/**'
+      - 'docs/reports/visual-overhaul/vrelease-003/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native_route:
+    name: Same-camera village route (X11)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      PILOT_EXPECTED_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+      LIBGL_ALWAYS_SOFTWARE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - name: Install native rendering and evidence dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y fonts-noto-cjk fonts-liberation xvfb xauth libgl1-mesa-dri libglx-mesa0 ffmpeg
+          python -m pip install Pillow==11.3.0 imageio-ffmpeg==0.6.0
+      - name: Download pinned official Godot
+        run: |
+          engine_dir="$RUNNER_TEMP/vrelease-003"
+          mkdir -p "$engine_dir"
+          curl -fsSL -o "$engine_dir/godot.zip" https://github.com/godotengine/godot/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip
+          echo "c7ff14fd28472c8d4f193043de30278dcf7e5241a1dcf7566b02e27addaa33ba  $engine_dir/godot.zip" | sha256sum --check
+          unzip -q "$engine_dir/godot.zip" -d "$engine_dir"
+          echo "FARM_GODOT_BIN=$engine_dir/Godot_v4.7.1-stable_linux.x86_64" >> "$GITHUB_ENV"
+          echo "PILOT_OUTPUT=$engine_dir/evidence" >> "$GITHUB_ENV"
+      - name: Capture living and reduced-motion routes
+        run: |
+          xvfb-run -a -s '-screen 0 1600x900x24' python tools/run.py qa.world.moving_pilot.collect --output "$PILOT_OUTPUT" --expected-head "$PILOT_EXPECTED_HEAD"
+      - name: Verify route, frames, source and playback
+        run: |
+          set -o pipefail
+          python tools/run.py qa.world.moving_pilot.verify --output "$PILOT_OUTPUT" --expected-head "$PILOT_EXPECTED_HEAD" | tee "$RUNNER_TEMP/vrelease-003/verification.json"
+          python tools/run.py qa.world.moving_pilot.test_video_binding --output "$PILOT_OUTPUT" --expected-head "$PILOT_EXPECTED_HEAD" | tee "$RUNNER_TEMP/vrelease-003/video-binding.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vrelease-003-native
+          path: |
+            ${{ env.PILOT_OUTPUT }}/source.json
+            ${{ env.PILOT_OUTPUT }}/*.txt
+            ${{ env.PILOT_OUTPUT }}/*.launch.json
+            ${{ env.PILOT_OUTPUT }}/1152
+            ${{ env.PILOT_OUTPUT }}/1280
+            ${{ runner.temp }}/vrelease-003/verification.json
+            ${{ runner.temp }}/vrelease-003/video-binding.json
+          if-no-files-found: error
+          retention-days: 14

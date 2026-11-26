@@ -86,7 +86,7 @@
 
 ## VRELEASE-003 — Принять движущийся пилот
 
-Статус: `backlog` · P0 · этап `rollout` · `engineering`
+Статус: `in_progress` · P0 · этап `rollout` · `engineering`
 
 Трава, вода, перекрытия, пауза и телепорт показаны на видео; неподвижный fallback тоже принят
 
@@ -102,7 +102,7 @@
 - [QA_CHECKLIST.md](../../../../QA_CHECKLIST.md)
 - [docs/BACKLOG_WORKFLOW.md](../../../../docs/BACKLOG_WORKFLOW.md)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrelease-003/`.
+Результаты: `docs/reports/visual-overhaul/vrelease-003/`.
 
 Критерии:
 
@@ -120,7 +120,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrelease-003/dependency-audit.json, docs/reports/visual-overhaul/vrelease-003/native-ci-02/review.json, wiki/articles/moving-pilot.md.
 
 <a id="vrelease-004"></a>
 

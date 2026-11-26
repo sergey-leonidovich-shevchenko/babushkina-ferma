@@ -1,0 +1,162 @@
+{
+  "task": "VRELEASE-003",
+  "baseline": "3ecd79ebb7b2a846fd0a8cdad0fd81616c5a3ab0",
+  "version": "0.0.495",
+  "direct": [
+    {
+      "id": "VRELEASE-002",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "docs/reports/visual-overhaul/vrelease-002/summary.json",
+          "bytes": 1376,
+          "sha256": "0ac7b394f4d018f1992e597bd243dcb378d277c40510364982a54b59501d55c3"
+        },
+        {
+          "path": "docs/reports/visual-overhaul/vrelease-002/completion.json",
+          "bytes": 704,
+          "sha256": "5ce2e2d5fa3a16efc457ce1c12c88772a9ab161215370ac40cbb280372c3d5c5"
+        }
+      ]
+    },
+    {
+      "id": "VFOLIAGE-010",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "docs/reports/visual-overhaul/vfoliage-010/verification.json",
+          "bytes": 11393,
+          "sha256": "e73fa41eab1019b1a2451768ee93609d4e4e413b0a5c1625c811f5c08c6b363f"
+        },
+        {
+          "path": "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/motion.mp4",
+          "bytes": 1233084,
+          "sha256": "4eb7f8313b22c52f1438b4686cf1771813d1569740c1d0e743259ed20328a47c"
+        }
+      ]
+    },
+    {
+      "id": "VSHORE-006",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "docs/reports/visual-overhaul/vshore-006/native/comparison.json",
+          "bytes": 2715,
+          "sha256": "b797e28c75e88652d691673c27a736af7645a5625b5961406acc6a85dc329272"
+        },
+        {
+          "path": "docs/reports/visual-overhaul/vshore-006/native/camera-pan.mp4",
+          "bytes": 2228010,
+          "sha256": "1a152f5209c57de9cdd529b30fe6475f3c7219c01c9a5d160e3fc42d28800178"
+        }
+      ]
+    },
+    {
+      "id": "VSHADOW-010",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "docs/reports/visual-overhaul/vshadow-010/closeout/result.json",
+          "bytes": 6496,
+          "sha256": "a881a435a368b843d212bd9d22b169b313cc195e77952d2fabb182e563b82c2c"
+        },
+        {
+          "path": "docs/reports/visual-overhaul/vshadow-010/verification-current.json",
+          "bytes": 6702,
+          "sha256": "d77413ce6abac7be606f6124975d355a17f704a00c959d8765bc239408de6b7d"
+        }
+      ]
+    },
+    {
+      "id": "VLIGHT-010",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "docs/reports/visual-overhaul/vlight-010/closeout/result.json",
+          "bytes": 3165,
+          "sha256": "2c1a9980483791a0e786eda9de2a70e8a4acb426ad213118df063da74846c963"
+        },
+        {
+          "path": "docs/reports/visual-overhaul/vlight-010/native-ci-01/summary.json",
+          "bytes": 20809,
+          "sha256": "1f6ab8122064942a7278ab4959fade7a322229a1c61da09510bf8116a6c78311"
+        }
+      ]
+    },
+    {
+      "id": "VCOMPAT-010",
+      "status": "done",
+      "evidence": [
+        {
+          "path": "docs/reports/visual-overhaul/vcompat-010/closeout/result.json",
+          "bytes": 3586,
+          "sha256": "f065a6633c20d402a79c894201f48739778bcf4abb39957517650878e80cc105"
+        },
+        {
+          "path": "docs/reports/visual-overhaul/vcompat-010/native-ci-02/summary.json",
+          "bytes": 3184,
+          "sha256": "97bdbfe34e600631fc20b4fe58dc905337e6224963803368a6ff705a780b4576"
+        }
+      ]
+    }
+  ],
+  "transitive_dependencies": [
+    "visual--VART-001",
+    "visual--VART-002",
+    "visual--VART-003",
+    "visual--VART-004",
+    "visual--VART-005",
+    "visual--VART-006",
+    "visual--VART-007",
+    "visual--VART-008",
+    "visual--VBASE-001",
+    "visual--VBASE-003",
+    "visual--VBASE-004",
+    "visual--VCAMERA-001",
+    "visual--VCOMPAT-001",
+    "visual--VCOMPAT-010",
+    "visual--VFOLIAGE-001",
+    "visual--VFOLIAGE-002",
+    "visual--VFOLIAGE-003",
+    "visual--VFOLIAGE-004",
+    "visual--VFOLIAGE-005",
+    "visual--VFOLIAGE-006",
+    "visual--VFOLIAGE-009",
+    "visual--VFOLIAGE-010",
+    "visual--VGROUND-001",
+    "visual--VGROUND-003",
+    "visual--VGROUND-005",
+    "visual--VGROUND-006",
+    "visual--VGROUND-007",
+    "visual--VGROUND-008",
+    "visual--VGROUND-009",
+    "visual--VGROUND-010",
+    "visual--VLIGHT-001",
+    "visual--VLIGHT-010",
+    "visual--VPROP-002",
+    "visual--VPROP-003",
+    "visual--VPROP-004",
+    "visual--VPROP-005",
+    "visual--VPROP-006",
+    "visual--VPROP-007",
+    "visual--VRELEASE-002",
+    "visual--VRENDER-001",
+    "visual--VRENDER-002",
+    "visual--VRENDER-003",
+    "visual--VRENDER-004",
+    "visual--VRENDER-005",
+    "visual--VRENDER-006",
+    "visual--VRENDER-008",
+    "visual--VSHADOW-001",
+    "visual--VSHADOW-010",
+    "visual--VSHORE-001",
+    "visual--VSHORE-002",
+    "visual--VSHORE-003",
+    "visual--VSHORE-004",
+    "visual--VSHORE-005",
+    "visual--VSHORE-006"
+  ],
+  "unresolved_dependencies": [],
+  "native_route_capture": "pending",
+  "stationary_fallback_capture": "pending"
+}
