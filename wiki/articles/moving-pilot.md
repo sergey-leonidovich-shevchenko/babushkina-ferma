@@ -1,5 +1,7 @@
 # Движущийся пилот первой деревни
 
+Пилот принят в [PR №95](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/95) на коммите `cc3e0d9f`. Все 10 проверок CI прошли. [Независимое ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/95#pullrequestreview-6069384737) · [Запись приёмки](../../docs/reports/visual-overhaul/vrelease-003/closeout/result.json)
+
 Один маршрут снят с обычными эффектами и с настройкой «Меньше движения».
 Камера, действия героя и исходное состояние в каждой паре совпадают.
 [Карточка VRELEASE-003](#/development/tasks/visual--VRELEASE-003) ·
