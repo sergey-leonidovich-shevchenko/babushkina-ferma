@@ -9,6 +9,8 @@ VARIANTS = ("baseline", "trimmed")
 CONTACT = "grass-contact"
 CONTACT_DEFAULT = "grass-contact-120"
 CONTACTS = (CONTACT, CONTACT_DEFAULT)
+CONTACT_INDEX = 6
+CONTACT_WORLD_RECT = (1896, 588, 1992, 684)
 VIEWS = {
     "west-bridge": ((864, 456), 1, 780.0, "normal", 1.2, 12.5),
     "east-bridge": ((1608, 912), 1, 1200.0, "low", 1.2, 29.25),
@@ -42,6 +44,9 @@ def expected_files() -> set[str]:
         for variant in VARIANTS
         for layer in ("composite", "wind-color")
     )
+    fixed.update(f"views/{CONTACT_DEFAULT}-{variant}-plant.png" for variant in VARIANTS)
+    fixed.add(f"views/{CONTACT_DEFAULT}-baseline-composite-only.png")
+    fixed.add(f"views/{CONTACT_DEFAULT}-trimmed-mesh-only.png")
     return (
         timed
         | fixed

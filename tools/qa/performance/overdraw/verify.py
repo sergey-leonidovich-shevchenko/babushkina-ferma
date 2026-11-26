@@ -72,19 +72,22 @@ def water_stays_under_decks(
     base.require(outside.getbbox() is None, "water coverage was removed outside an opaque deck")
 
 
-def equal_frame(original: Image.Image, trimmed: Image.Image, view: str) -> dict[str, int]:
-    difference = ImageChops.difference(original, trimmed)
-    red, green, blue, alpha = difference.split()
+def check_rgb(difference: Image.Image, view: str) -> int:
+    red, green, blue, _ = difference.split()
     peak = ImageChops.lighter(ImageChops.lighter(red, green), blue)
     histogram = peak.histogram()
     changed = peak.width * peak.height - histogram[0]
     base.require(
-        alpha.getbbox() is None
-        and sum(histogram[2:]) == 0
-        and changed * 400 <= peak.width * peak.height,
+        sum(histogram[2:]) == 0 and changed * 400 <= peak.width * peak.height,
         f"visible pixels changed: {view}",
     )
-    return {"rgb_pixels_differing_by_one": changed, "alpha_pixels_changed": 0}
+    return changed
+
+
+def equal_frame(original: Image.Image, trimmed: Image.Image, view: str) -> dict[str, int]:
+    difference = ImageChops.difference(original, trimmed)
+    base.require(difference.getchannel("A").getbbox() is None, f"visible pixels changed: {view}")
+    return {"rgb_pixels_differing_by_one": check_rgb(difference, view), "alpha_pixels_changed": 0}
 
 
 def check_camera(record: dict[str, Any]) -> None:
@@ -158,10 +161,14 @@ def check_contact(record: dict[str, Any]) -> None:
         "wind scale, row count or contact vectors do not match",
     )
     if record["case"] in c.CONTACTS:
-        x, y = bends.get(6, (0, 0))
+        x, y = bends.get(c.CONTACT_INDEX, (0, 0))
         base.require(
             contact["frame"] is True and x < -0.5 and y > 0.5,
             "the first grass in the actual compositor did not bend on both axes",
+        )
+        base.require(
+            contact["plant_rect"] == list(c.CONTACT_WORLD_RECT),
+            "bent grass bounds do not match the projected comparison",
         )
     else:
         base.require(
@@ -170,7 +177,77 @@ def check_contact(record: dict[str, Any]) -> None:
         )
 
 
-def contact_composite(folder: Path, case: str) -> dict[str, int]:
+def bent_grass_box(camera: list[float], zoom: float) -> tuple[int, int, int, int]:
+    left, top, right, bottom = c.CONTACT_WORLD_RECT
+    # The guard includes filtering at the edge of the original full quad.
+    return (
+        math.floor((left - camera[0]) * zoom) - 1,
+        math.floor((top - camera[1]) * zoom) - 1,
+        math.ceil((right - camera[0]) * zoom) + 1,
+        math.ceil((bottom - camera[1]) * zoom) + 1,
+    )
+
+
+def default_contact_edges(
+    original: Image.Image, trimmed: Image.Image, folder: Path, case: str, camera: list[float]
+) -> dict[str, int]:
+    box = bent_grass_box(camera, c.VIEWS[case][4])
+    isolated = [png(folder / f"{case}-{name}-plant.png", SIZE) for name in c.VARIANTS]
+    grass_alpha = isolated[0].getchannel("A").crop(box).histogram()
+    base.require(sum(grass_alpha[1:255]) > 0, "bent grass did not exercise partial alpha")
+    base.require(
+        all(
+            full.crop(box).tobytes() == plant.crop(box).tobytes()
+            for full, plant in zip((original, trimmed), isolated, strict=True)
+        ),
+        "bent grass isolation differs from the full compositor",
+    )
+    for plant in isolated:
+        extent = plant.getchannel("A").getbbox()
+        base.require(
+            extent is not None
+            and all(a <= b for a, b in zip(box[:2], extent[:2], strict=True))
+            and all(a >= b for a, b in zip(box[2:], extent[2:], strict=True)),
+            "bent grass frame has alpha outside its projected box",
+        )
+    bent = equal_frame(
+        isolated[0].crop(box), isolated[1].crop(box), "contact composite (bent grass)"
+    )
+
+    original_alpha = original.getchannel("A")
+    trimmed_alpha = trimmed.getchannel("A")
+    support = [
+        image.point(lambda value: 255 if value else 0) for image in (original_alpha, trimmed_alpha)
+    ]
+    base.require(
+        support[0].tobytes() == support[1].tobytes(), "contact composite silhouette changed"
+    )
+    difference = ImageChops.difference(original, trimmed)
+    alpha = difference.getchannel("A")
+    histogram = alpha.histogram()
+    occupied = support[0].histogram()[255]
+    base.require(
+        sum(histogram[2:]) == 0 and histogram[1] * 400 <= occupied,
+        "contact composite exceeded one alpha code outside the bent grass",
+    )
+    findings = {
+        "rgb_pixels_differing_by_one": check_rgb(difference, "contact composite (full 120%)"),
+        "alpha_pixels_changed": histogram[1],
+        "max_alpha_difference": int(histogram[1] > 0),
+        "covered_pixels": occupied,
+        "bent_alpha_pixels_changed": bent["alpha_pixels_changed"],
+        "bent_rgb_pixels_differing_by_one": bent["rgb_pixels_differing_by_one"],
+    }
+    for factor, variant in (("composite-only", "baseline"), ("mesh-only", "trimmed")):
+        control = png(folder / f"{case}-{variant}-{factor}.png", SIZE).getchannel("A")
+        delta = ImageChops.difference(original_alpha, control)
+        counts = delta.histogram()
+        findings[factor + "_alpha_pixels_changed"] = SIZE[0] * SIZE[1] - counts[0]
+        findings[factor + "_bent_alpha_pixels_changed"] = sum(delta.crop(box).histogram()[1:])
+    return findings
+
+
+def contact_composite(folder: Path, case: str, camera: list[float]) -> dict[str, int]:
     scale = math.ceil(c.VIEWS[case][4])
     atlas_size = (CONTACT_WIND_SIZE[0] * scale, CONTACT_WIND_SIZE[1] * scale)
     atlas = [png(folder / f"{case}-{name}-wind-color.png", atlas_size) for name in c.VARIANTS]
@@ -186,6 +263,8 @@ def contact_composite(folder: Path, case: str) -> dict[str, int]:
     original, trimmed = (png(folder / f"{case}-{name}-composite.png", SIZE) for name in c.VARIANTS)
     mask = original.getchannel("A").histogram()
     base.require(mask[0] > 0 and sum(mask[1:255]) > 0, "composite alpha was not exercised")
+    if case == c.CONTACT_DEFAULT:
+        return default_contact_edges(original, trimmed, folder, case, camera)
     return equal_frame(original, trimmed, f"contact composite ({case})")
 
 
@@ -256,6 +335,15 @@ def check_views(root: Path) -> dict[str, Any]:
                 )
             else:
                 positive_delta(counts, "grass_wind_target", case)
+                if case == c.CONTACT_DEFAULT:
+                    width = original_wind.width // 4
+                    x, y = c.CONTACT_INDEX % 4 * width, c.CONTACT_INDEX // 4 * width
+                    slot = (x, y, x + width, y + width)
+                    counts["bent_grass_slot"] = {
+                        "baseline": area(original_wind.crop(slot)),
+                        "trimmed": area(trimmed_wind.crop(slot)),
+                    }
+                    positive_delta(counts, "bent_grass_slot", case)
         if "bridge" in case:
             positive_delta(counts, "water_surface", case)
             positive_delta(counts, "water_bottom", case)
@@ -264,7 +352,9 @@ def check_views(root: Path) -> dict[str, Any]:
         findings[case] = {"camera": initial["state"]["camera"], "visual": visual, "layers": counts}
         if case in c.CONTACTS:
             findings[case]["contact"] = initial["contact"]
-            findings[case]["contact_composite"] = contact_composite(folder, case)
+            findings[case]["contact_composite"] = contact_composite(
+                folder, case, initial["state"]["camera"]
+            )
     return findings
 
 

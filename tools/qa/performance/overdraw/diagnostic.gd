@@ -17,6 +17,7 @@ const SIZE := Vector2i(1152, 648)
 const CONTACT_WIND_SIZE := Vector2i(384, 192)
 const CONTACT_CASE := "grass-contact"
 const CONTACT_DEFAULT_CASE := "grass-contact-120"
+const CONTACT_INDEX := 6
 const READY_DRAWS := 8
 const READY_MIN_MS := 500
 const READY_TIMEOUT_MS := 8000
@@ -176,7 +177,12 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 	if contact.is_empty():
 		game.free()
 		return {}
-	if is_contact and not await _contact_composite(game, owner, prefix):
+	if is_contact and owner != null:
+		var plant_row: Dictionary = owner.batch.rows[CONTACT_INDEX]
+		var plant: Rect2 = plant_row.rect
+		var padded := plant.grow(Wind.Batch.PAD)
+		contact["plant_rect"] = [padded.position.x, padded.position.y, padded.end.x, padded.end.y]
+	if is_contact and not await _contact_composite(game, owner, prefix, case_id, trimmed):
 		game.free()
 		return {}
 	var world_mask := await _world_coverage(game, background, owner, prefix)
@@ -306,7 +312,9 @@ static func _contact_snapshot(game: Node2D, owner: Wind) -> Dictionary:
 
 
 ## Вызывает тот же композитор на прозрачном target, чтобы проверять краевую альфу отдельно от земли.
-func _contact_composite(game: Node2D, owner: Wind, prefix: String) -> bool:
+func _contact_composite(
+	game: Node2D, owner: Wind, prefix: String, case_id: String, trimmed: bool
+) -> bool:
 	if owner == null:
 		return false
 	var wind: SubViewport = owner.batch.viewport
@@ -318,6 +326,35 @@ func _contact_composite(game: Node2D, owner: Wind, prefix: String) -> bool:
 		or wind_image.save_png(output.path_join(prefix + "-wind-color.png")) != OK
 	):
 		return false
+	if not await _save_composite(game, owner, owner.visible_rows, prefix + "-composite.png"):
+		return false
+	if case_id != CONTACT_DEFAULT_CASE:
+		return true
+	if not await _save_composite(game, owner, [CONTACT_INDEX], prefix + "-plant.png"):
+		return false
+	# Два дополнительных кадра изолируют форму меша и область композита на настоящем target.
+	var compact: Dictionary = owner.batch.content
+	owner.batch.content = {} if trimmed else _compact_contact_content(owner)
+	var stage := "-mesh-only.png" if trimmed else "-composite-only.png"
+	var saved := await _save_composite(game, owner, owner.visible_rows, prefix + stage)
+	owner.batch.content = compact
+	return saved
+
+
+func _compact_contact_content(owner: Wind) -> Dictionary:
+	var compact := {}
+	var image := Wind.Ambient.ATLAS.get_image()
+	for index: int in owner.visible_rows:
+		var row: Dictionary = owner.batch.rows[index]
+		if not compact.has(row.kind):
+			var source: Rect2 = row.source
+			var bounds := Wind.Batch.source_content(image, Rect2i(source))
+			if bounds.has_area():
+				compact[row.kind] = Wind.Batch.composite_rect(bounds, source.size)
+	return compact
+
+
+func _save_composite(game: Node2D, owner: Wind, indices: Array, file: String) -> bool:
 	var target := SubViewport.new()
 	target.disable_3d = true
 	target.transparent_bg = true
@@ -331,17 +368,14 @@ func _contact_composite(game: Node2D, owner: Wind, prefix: String) -> bool:
 	card.game = game
 	card.texture_filter = game.texture_filter
 	card.texture_repeat = game.texture_repeat
-	for index: int in owner.visible_rows:
+	for index: int in indices:
 		var row: Dictionary = owner.batch.rows[index]
 		card.rows.append(row)
 	target.add_child(card)
 	for frame in 2:
 		await RenderingServer.frame_post_draw
 	var image := target.get_texture().get_image()
-	var saved := (
-		image.get_size() == SIZE
-		and image.save_png(output.path_join(prefix + "-composite.png")) == OK
-	)
+	var saved := image.get_size() == SIZE and image.save_png(output.path_join(file)) == OK
 	target.free()
 	return saved
 
