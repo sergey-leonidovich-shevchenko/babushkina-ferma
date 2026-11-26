@@ -120,7 +120,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vrelease-003/dependency-audit.json.
+Доказательства: docs/reports/visual-overhaul/vrelease-003/dependency-audit.json, docs/reports/visual-overhaul/vrelease-003/native-ci-02/review.json, wiki/articles/moving-pilot.md.
 
 <a id="vrelease-004"></a>
 

@@ -6,11 +6,11 @@ import argparse
 import json
 import math
 import re
-import subprocess
 from pathlib import Path
 from typing import Any, cast
 
-from PIL import Image, ImageChops
+from imageio_ffmpeg import read_frames  # type: ignore[import-untyped]
+from PIL import Image, ImageChops, ImageStat
 
 from tools.qa.world.lighting.contract import git
 from tools.qa.world.moving_pilot.collect import (
@@ -73,6 +73,11 @@ PAIR_FIELDS = (
     "save_sha256",
 )
 
+# CRF 18 и YUV420 меняют мелкую фактуру и края. Сравниваем контрастные области исходников.
+DISTINCT_PIXEL_MASK = [0] * 25 + [255] * 231
+MIN_DISTINCT_PIXELS = 64
+MAX_MEAN_VIDEO_ERROR = 6.0
+
 
 def paired_trace(rows: list[Row]) -> list[tuple[Any, ...]]:
     return [tuple(row[key] for key in PAIR_FIELDS) for row in rows]
@@ -105,32 +110,68 @@ def regional_difference(folder: Path, rows: list[Row], size: tuple[int, int], ke
     )
 
 
-def verify_video(folder: Path, size: tuple[int, int], count: int) -> None:
-    stdout = subprocess.check_output(
-        [
-            "ffprobe",
-            "-v",
-            "error",
-            "-count_frames",
-            "-select_streams",
-            "v:0",
-            "-show_entries",
-            "stream=width,height,r_frame_rate,nb_read_frames",
-            "-of",
-            "json",
-            str(folder / "route.mp4"),
-        ],
-        timeout=120,
+def source_match(
+    native: Image.Image,
+    rival: Image.Image,
+    decoded: Image.Image,
+    error: Image.Image,
+    message: str,
+) -> bool:
+    """Where sources visibly differ, the decoded frame must be closer to its own source."""
+    red, green, blue = ImageChops.difference(native, rival).split()
+    contrast = ImageChops.lighter(ImageChops.lighter(red, green), blue)
+    mask = contrast.point(DISTINCT_PIXEL_MASK)
+    if mask.histogram()[255] < MIN_DISTINCT_PIXELS:
+        return False
+    own_error = sum(ImageStat.Stat(error, mask).mean)
+    rival_error = sum(ImageStat.Stat(ImageChops.difference(decoded, rival), mask).mean)
+    require(own_error < rival_error, message)
+    return True
+
+
+def verify_video(folder: Path, other_mode: Path, size: tuple[int, int], count: int) -> None:
+    """Bind all pictures in presentation order to PNGs of the same capture and mode."""
+    frames = read_frames(
+        str(folder / "route.mp4"),
+        pix_fmt="rgb24",
+        input_params=["-nostdin", "-threads", "1"],
+        output_params=["-threads", "1", "-fps_mode", "passthrough"],
     )
-    entries = json.loads(stdout)["streams"]
-    require(len(entries) == 1, "expected one video stream")
-    stream = entries[0]
-    require(
-        (stream["width"], stream["height"]) == size
-        and stream["r_frame_rate"] == "10/1"
-        and int(stream["nb_read_frames"]) == count,
-        "video geometry, rate or decoded frame count differs",
-    )
+    try:
+        metadata = next(frames)
+        require(metadata["size"] == size and metadata["fps"] == 10.0, "video geometry or rate")
+        previous = None
+        native = image(folder / "frames/0000.png", size)
+        decoded_count = 0
+        mode_witnesses = 0
+        for index, frame in enumerate(frames):
+            require(index < count, "extra decoded video frame")
+            decoded = Image.frombytes("RGB", size, frame)
+            error = ImageChops.difference(decoded, native)
+            require(
+                max(ImageStat.Stat(error).mean) <= MAX_MEAN_VIDEO_ERROR,
+                f"video content mismatch at frame {index}",
+            )
+            alternative = image(other_mode / f"frames/{index:04}.png", size)
+            mode_witnesses += source_match(
+                native, alternative, decoded, error, f"video mode mismatch at frame {index}"
+            )
+            following = (
+                image(folder / f"frames/{index + 1:04}.png", size) if index + 1 < count else None
+            )
+            for neighbor in (previous, following):
+                if neighbor is not None:
+                    source_match(
+                        native, neighbor, decoded, error, f"video frame order mismatch at {index}"
+                    )
+            previous = native
+            if following is not None:
+                native = following
+            decoded_count += 1
+        require(decoded_count == count, "decoded video frame count differs")
+        require(mode_witnesses > 0, "no video frames distinguish the two modes")
+    finally:
+        frames.close()
 
 
 def verify_run(
@@ -168,7 +209,8 @@ def verify_run(
             require(row["tick"] >= rows[index - 1]["tick"], "simulation trace moved backwards")
         image(folder / row["file"], size)
     require(len(list((folder / "frames").glob("*.png"))) == len(rows), "unexpected PNG")
-    verify_video(folder, size, len(rows))
+    other_mode = folder.with_name("static" if mode == "live" else "live")
+    verify_video(folder, other_mode, size, len(rows))
     for label, world in LANDINGS.items():
         require(all(row["location"] == world for row in groups[label]), f"wrong world: {label}")
     require(
@@ -303,6 +345,7 @@ def verify(folder: Path, head: str) -> dict[str, Any]:
         "version": source["version"],
         "native_routes": result,
         "paired_camera_and_save": True,
+        "video_frames_match_native_sources": True,
         "performance_eligible": False,
     }
 

@@ -1,0 +1,34 @@
+{
+  "task": "VRELEASE-003",
+  "head": "646c18c0c86c031d14eba96a9c3c81d83948c841",
+  "tree": "ff3b65a91495cf1ebf0ef3a7e64c3a318601df5f",
+  "version": "0.0.499",
+  "native_routes": {
+    "1152/live": {
+      "frames": 119,
+      "grass_moves": true,
+      "water_moves": true,
+      "rollback_pixels_restored": true
+    },
+    "1152/static": {
+      "frames": 119,
+      "grass_moves": false,
+      "water_moves": false,
+      "rollback_pixels_restored": true
+    },
+    "1280/live": {
+      "frames": 119,
+      "grass_moves": true,
+      "water_moves": true,
+      "rollback_pixels_restored": true
+    },
+    "1280/static": {
+      "frames": 119,
+      "grass_moves": false,
+      "water_moves": false,
+      "rollback_pixels_restored": true
+    }
+  },
+  "paired_camera_and_save": true,
+  "performance_eligible": false
+}

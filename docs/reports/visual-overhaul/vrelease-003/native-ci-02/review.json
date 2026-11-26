@@ -1,0 +1,325 @@
+{
+  "task": "VRELEASE-003",
+  "head": "646c18c0c86c031d14eba96a9c3c81d83948c841",
+  "tree": "ff3b65a91495cf1ebf0ef3a7e64c3a318601df5f",
+  "version": "0.0.499",
+  "run": 45724146564,
+  "job": 139589593743,
+  "archive": {
+    "id": 15074495714,
+    "bytes": 471632166,
+    "sha256": "b0355d4cd7a49e9f0c999e2acb7139f555c4b65b868f7b1322ed533a48a82219",
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45724146564/artifacts/15074495714"
+  },
+  "source_manifest": "source.json",
+  "verification": "verification.json",
+  "local_decoder": "AVFoundation / AVAssetReader",
+  "retained_frame": {
+    "path": "bridge-rail.png",
+    "archive_member": "1152/live/frames/0040.png",
+    "sha256": "4465842cbd16b18a65afb7f7aaf919f585f0b7a6a9a0d542247979e75f7bbe11"
+  },
+  "matrix": {
+    "1152/live": {
+      "decoded_video": {
+        "duration": 11.9,
+        "fps": 10,
+        "frames": 119,
+        "height": 648,
+        "path": "1152/live/route.mp4",
+        "width": 1152
+      },
+      "native_draws_minimum": 3,
+      "stages": 24,
+      "bridge_deck_frames": 15,
+      "pause_frames": 12,
+      "pause_difference_from_last_bbox": [
+        [
+          0,
+          0,
+          1152,
+          648
+        ],
+        [
+          0,
+          0,
+          1152,
+          648
+        ],
+        [
+          714,
+          9,
+          719,
+          29
+        ],
+        null,
+        null,
+        null,
+        [
+          714,
+          9,
+          719,
+          29
+        ],
+        [
+          714,
+          7,
+          719,
+          29
+        ],
+        [
+          714,
+          7,
+          719,
+          29
+        ],
+        [
+          714,
+          9,
+          719,
+          29
+        ],
+        null,
+        null
+      ],
+      "first_frame_for_stage": {
+        "idle": "frames/0000.png",
+        "grass": "frames/0012.png",
+        "bank": "frames/0020.png",
+        "bridge-approach": "frames/0030.png",
+        "bridge-north": "frames/0034.png",
+        "bridge-rail": "frames/0040.png",
+        "bridge-crossing": "frames/0044.png",
+        "pause": "frames/0052.png",
+        "resume": "frames/0064.png",
+        "teleport-menu-cottage_interior": "frames/0068.png",
+        "teleport-arrival-cottage_interior": "frames/0074.png",
+        "interior": "frames/0075.png",
+        "exit-door": "frames/0081.png",
+        "outside": "frames/0083.png",
+        "enter-door": "frames/0089.png",
+        "returned-interior": "frames/0093.png",
+        "teleport-menu-overworld": "frames/0097.png",
+        "teleport-arrival-overworld": "frames/0103.png",
+        "returned-overworld": "frames/0104.png",
+        "legacy-interior": "frames/0109.png",
+        "legacy-exit": "frames/0112.png",
+        "rollback-on": "frames/0116.png",
+        "rollback-off": "frames/0117.png",
+        "rollback-restored": "frames/0118.png"
+      }
+    },
+    "1152/static": {
+      "decoded_video": {
+        "duration": 11.9,
+        "fps": 10,
+        "frames": 119,
+        "height": 648,
+        "path": "1152/static/route.mp4",
+        "width": 1152
+      },
+      "native_draws_minimum": 3,
+      "stages": 24,
+      "bridge_deck_frames": 15,
+      "pause_frames": 12,
+      "pause_difference_from_last_bbox": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "first_frame_for_stage": {
+        "idle": "frames/0000.png",
+        "grass": "frames/0012.png",
+        "bank": "frames/0020.png",
+        "bridge-approach": "frames/0030.png",
+        "bridge-north": "frames/0034.png",
+        "bridge-rail": "frames/0040.png",
+        "bridge-crossing": "frames/0044.png",
+        "pause": "frames/0052.png",
+        "resume": "frames/0064.png",
+        "teleport-menu-cottage_interior": "frames/0068.png",
+        "teleport-arrival-cottage_interior": "frames/0074.png",
+        "interior": "frames/0075.png",
+        "exit-door": "frames/0081.png",
+        "outside": "frames/0083.png",
+        "enter-door": "frames/0089.png",
+        "returned-interior": "frames/0093.png",
+        "teleport-menu-overworld": "frames/0097.png",
+        "teleport-arrival-overworld": "frames/0103.png",
+        "returned-overworld": "frames/0104.png",
+        "legacy-interior": "frames/0109.png",
+        "legacy-exit": "frames/0112.png",
+        "rollback-on": "frames/0116.png",
+        "rollback-off": "frames/0117.png",
+        "rollback-restored": "frames/0118.png"
+      }
+    },
+    "1280/live": {
+      "decoded_video": {
+        "duration": 11.9,
+        "fps": 10,
+        "frames": 119,
+        "height": 720,
+        "path": "1280/live/route.mp4",
+        "width": 1280
+      },
+      "native_draws_minimum": 3,
+      "stages": 24,
+      "bridge_deck_frames": 15,
+      "pause_frames": 12,
+      "pause_difference_from_last_bbox": [
+        [
+          0,
+          0,
+          1280,
+          720
+        ],
+        [
+          0,
+          0,
+          1280,
+          720
+        ],
+        [
+          793,
+          8,
+          798,
+          33
+        ],
+        [
+          793,
+          8,
+          798,
+          33
+        ],
+        [
+          793,
+          10,
+          798,
+          33
+        ],
+        null,
+        [
+          793,
+          13,
+          798,
+          33
+        ],
+        [
+          793,
+          9,
+          798,
+          33
+        ],
+        [
+          793,
+          8,
+          798,
+          33
+        ],
+        [
+          793,
+          9,
+          798,
+          33
+        ],
+        [
+          793,
+          10,
+          798,
+          33
+        ],
+        null
+      ],
+      "first_frame_for_stage": {
+        "idle": "frames/0000.png",
+        "grass": "frames/0012.png",
+        "bank": "frames/0020.png",
+        "bridge-approach": "frames/0030.png",
+        "bridge-north": "frames/0034.png",
+        "bridge-rail": "frames/0040.png",
+        "bridge-crossing": "frames/0044.png",
+        "pause": "frames/0052.png",
+        "resume": "frames/0064.png",
+        "teleport-menu-cottage_interior": "frames/0068.png",
+        "teleport-arrival-cottage_interior": "frames/0074.png",
+        "interior": "frames/0075.png",
+        "exit-door": "frames/0081.png",
+        "outside": "frames/0083.png",
+        "enter-door": "frames/0089.png",
+        "returned-interior": "frames/0093.png",
+        "teleport-menu-overworld": "frames/0097.png",
+        "teleport-arrival-overworld": "frames/0103.png",
+        "returned-overworld": "frames/0104.png",
+        "legacy-interior": "frames/0109.png",
+        "legacy-exit": "frames/0112.png",
+        "rollback-on": "frames/0116.png",
+        "rollback-off": "frames/0117.png",
+        "rollback-restored": "frames/0118.png"
+      }
+    },
+    "1280/static": {
+      "decoded_video": {
+        "duration": 11.9,
+        "fps": 10,
+        "frames": 119,
+        "height": 720,
+        "path": "1280/static/route.mp4",
+        "width": 1280
+      },
+      "native_draws_minimum": 3,
+      "stages": 24,
+      "bridge_deck_frames": 15,
+      "pause_frames": 12,
+      "pause_difference_from_last_bbox": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "first_frame_for_stage": {
+        "idle": "frames/0000.png",
+        "grass": "frames/0012.png",
+        "bank": "frames/0020.png",
+        "bridge-approach": "frames/0030.png",
+        "bridge-north": "frames/0034.png",
+        "bridge-rail": "frames/0040.png",
+        "bridge-crossing": "frames/0044.png",
+        "pause": "frames/0052.png",
+        "resume": "frames/0064.png",
+        "teleport-menu-cottage_interior": "frames/0068.png",
+        "teleport-arrival-cottage_interior": "frames/0074.png",
+        "interior": "frames/0075.png",
+        "exit-door": "frames/0081.png",
+        "outside": "frames/0083.png",
+        "enter-door": "frames/0089.png",
+        "returned-interior": "frames/0093.png",
+        "teleport-menu-overworld": "frames/0097.png",
+        "teleport-arrival-overworld": "frames/0103.png",
+        "returned-overworld": "frames/0104.png",
+        "legacy-interior": "frames/0109.png",
+        "legacy-exit": "frames/0112.png",
+        "rollback-on": "frames/0116.png",
+        "rollback-off": "frames/0117.png",
+        "rollback-restored": "frames/0118.png"
+      }
+    }
+  }
+}
