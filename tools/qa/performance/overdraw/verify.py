@@ -157,7 +157,7 @@ def check_contact(record: dict[str, Any]) -> None:
         and all(len(bend) == 2 and all(map(math.isfinite, bend)) for bend in bends.values()),
         "wind scale, row count or contact vectors do not match",
     )
-    if record["case"] == c.CONTACT:
+    if record["case"] in c.CONTACTS:
         x, y = bends.get(6, (0, 0))
         base.require(
             contact["frame"] is True and x < -0.5 and y > 0.5,
@@ -170,19 +170,23 @@ def check_contact(record: dict[str, Any]) -> None:
         )
 
 
-def contact_composite(folder: Path) -> dict[str, int]:
-    atlas = [
-        png(folder / f"{c.CONTACT}-{name}-wind-color.png", CONTACT_WIND_SIZE) for name in c.VARIANTS
-    ]
+def contact_composite(folder: Path, case: str) -> dict[str, int]:
+    scale = math.ceil(c.VIEWS[case][4])
+    atlas_size = (CONTACT_WIND_SIZE[0] * scale, CONTACT_WIND_SIZE[1] * scale)
+    atlas = [png(folder / f"{case}-{name}-wind-color.png", atlas_size) for name in c.VARIANTS]
     base.require(
-        atlas[0].tobytes() == atlas[1].tobytes(), "1x native wind texture changed before composite"
+        all(image.getchannel("A").getbbox() is not None for image in atlas),
+        f"native wind texture has no foliage: {case}",
     )
-    original, trimmed = (
-        png(folder / f"{c.CONTACT}-{name}-composite.png", SIZE) for name in c.VARIANTS
-    )
+    if case == c.CONTACT:
+        base.require(
+            atlas[0].tobytes() == atlas[1].tobytes(),
+            "1x native wind texture changed before composite",
+        )
+    original, trimmed = (png(folder / f"{case}-{name}-composite.png", SIZE) for name in c.VARIANTS)
     mask = original.getchannel("A").histogram()
     base.require(mask[0] > 0 and sum(mask[1:255]) > 0, "composite alpha was not exercised")
-    return equal_frame(original, trimmed, "contact composite")
+    return equal_frame(original, trimmed, f"contact composite ({case})")
 
 
 def check_views(root: Path) -> dict[str, Any]:
@@ -255,12 +259,12 @@ def check_views(root: Path) -> dict[str, Any]:
         if "bridge" in case:
             positive_delta(counts, "water_surface", case)
             positive_delta(counts, "water_bottom", case)
-        if case in ("dense-grass", c.CONTACT):
+        if case in ("dense-grass", *c.CONTACTS):
             positive_delta(counts, "grass_composite", case)
         findings[case] = {"camera": initial["state"]["camera"], "visual": visual, "layers": counts}
-        if case == c.CONTACT:
+        if case in c.CONTACTS:
             findings[case]["contact"] = initial["contact"]
-            findings[case]["contact_composite"] = contact_composite(folder)
+            findings[case]["contact_composite"] = contact_composite(folder, case)
     return findings
 
 

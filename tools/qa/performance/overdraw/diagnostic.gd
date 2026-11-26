@@ -16,6 +16,7 @@ const Surface := preload("res://scripts/presentation/village_water_surface.gd")
 const SIZE := Vector2i(1152, 648)
 const CONTACT_WIND_SIZE := Vector2i(384, 192)
 const CONTACT_CASE := "grass-contact"
+const CONTACT_DEFAULT_CASE := "grass-contact-120"
 const READY_DRAWS := 8
 const READY_MIN_MS := 500
 const READY_TIMEOUT_MS := 8000
@@ -25,6 +26,7 @@ const CASES := [
 	["dense-grass", Vector2(1944, 768), 1, 845.0, "normal", 1.2, 46.75],
 	["still-bridge", Vector2(864, 456), 31, 780.0, "static", 1.0, 0.0],
 	[CONTACT_CASE, Vector2(1955, 655), 1, 845.0, "normal", 1.0, 51.25],
+	[CONTACT_DEFAULT_CASE, Vector2(1955, 655), 1, 845.0, "normal", 1.2, 51.25],
 ]
 
 var output := ""
@@ -116,6 +118,7 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 	var case_id: String = case_data[0]
 	var player: Vector2 = case_data[1]
 	var phase: float = case_data[6]
+	var is_contact := case_id in [CONTACT_CASE, CONTACT_DEFAULT_CASE]
 	var view := {
 		"id": case_id,
 		"player": Points.pair(player),
@@ -129,7 +132,7 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 		game.set_meta(Probe.FULL_COVERAGE, true)
 	game.set_meta(Probe.FIXED_EFFECT_SECONDS, phase)
 	game.set_meta(Surface.QUALITY, case_data[4])
-	game.set_meta(Clock.META, phase - 0.25 if case_id == CONTACT_CASE else phase)
+	game.set_meta(Clock.META, phase - 0.25 if is_contact else phase)
 	root.add_child(game)
 	current_scene = game
 	Points.configure(game, view)
@@ -140,7 +143,7 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 	# Игра хранит узлы презентации за фасадом; CameraSystem обновляет его штатным методом.
 	game.call("update_camera")
 	Pose.reset(game)
-	if case_id == CONTACT_CASE:
+	if is_contact:
 		# Сейчас камера и герой неподвижны. Два штатных визуальных такта поднимают контакт.
 		for step in 2:
 			if not PostMotion.publish(game, 0.125):
@@ -173,7 +176,7 @@ func _capture(case_data: Array, trimmed: bool) -> Dictionary:
 	if contact.is_empty():
 		game.free()
 		return {}
-	if case_id == CONTACT_CASE and not await _contact_composite(game, owner, prefix):
+	if is_contact and not await _contact_composite(game, owner, prefix):
 		game.free()
 		return {}
 	var world_mask := await _world_coverage(game, background, owner, prefix)
@@ -307,10 +310,11 @@ func _contact_composite(game: Node2D, owner: Wind, prefix: String) -> bool:
 	if owner == null:
 		return false
 	var wind: SubViewport = owner.batch.viewport
+	var scale: int = owner.batch.scale
 	var wind_image := wind.get_texture().get_image()
 	if (
 		wind_image == null
-		or wind_image.get_size() != CONTACT_WIND_SIZE
+		or wind_image.get_size() != CONTACT_WIND_SIZE * scale
 		or wind_image.save_png(output.path_join(prefix + "-wind-color.png")) != OK
 	):
 		return false

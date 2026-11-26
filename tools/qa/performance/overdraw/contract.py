@@ -7,12 +7,15 @@ CAPTURE = "tools/qa/performance/overdraw/capture.gd"
 DIAGNOSTIC = "tools/qa/performance/overdraw/diagnostic.gd"
 VARIANTS = ("baseline", "trimmed")
 CONTACT = "grass-contact"
+CONTACT_DEFAULT = "grass-contact-120"
+CONTACTS = (CONTACT, CONTACT_DEFAULT)
 VIEWS = {
     "west-bridge": ((864, 456), 1, 780.0, "normal", 1.2, 12.5),
     "east-bridge": ((1608, 912), 1, 1200.0, "low", 1.2, 29.25),
     "dense-grass": ((1944, 768), 1, 845.0, "normal", 1.2, 46.75),
     "still-bridge": ((864, 456), 31, 780.0, "static", 1.0, 0.0),
     CONTACT: ((1955, 655), 1, 845.0, "normal", 1.0, 51.25),
+    CONTACT_DEFAULT: ((1955, 655), 1, 845.0, "normal", 1.2, 51.25),
 }
 CASES = tuple(VIEWS)
 
@@ -34,7 +37,8 @@ def expected_files() -> set[str]:
         for layer in (("frame", "world") if case == "still-bridge" else ("frame", "world", "wind"))
     }
     fixed.update(
-        f"views/{CONTACT}-{variant}-{layer}.png"
+        f"views/{case}-{variant}-{layer}.png"
+        for case in CONTACTS
         for variant in VARIANTS
         for layer in ("composite", "wind-color")
     )

@@ -33,6 +33,8 @@ class CoverageTest(unittest.TestCase):
         self.assertNotIn("views/still-bridge-trimmed-wind.png", evidence)
         self.assertIn("views/grass-contact-trimmed-composite.png", evidence)
         self.assertIn("views/grass-contact-baseline-wind-color.png", evidence)
+        self.assertIn("views/grass-contact-120-baseline-wind.png", evidence)
+        self.assertIn("views/grass-contact-120-trimmed-composite.png", evidence)
 
     def test_counter_counts_layers_and_unique_pixels(self) -> None:
         band = Image.new("L", (6, 4), 0)
@@ -102,6 +104,14 @@ class CoverageTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "wind scale"):
             check_contact(row)
 
+    def test_default_contact_uses_the_optimized_target_with_two_axis_bend(self) -> None:
+        contact = {"scale": 2, "frame": True, "bends": [[6, [-1.25, 0.75]]]}
+        row = {"case": c.CONTACT_DEFAULT, "zoom": 1.2, "wind_rows": 1, "contact": contact}
+        check_contact(row)
+        contact["bends"] = [[6, [0, 0]]]
+        with self.assertRaisesRegex(ValueError, "both axes"):
+            check_contact(row)
+
     def test_static_view_keeps_the_fixture_effect_phase(self) -> None:
         row = {
             "case": "still-bridge",
@@ -136,16 +146,33 @@ class CoverageTest(unittest.TestCase):
             for name in c.VARIANTS:
                 image.save(folder / f"{c.CONTACT}-{name}-wind-color.png")
                 composite.save(folder / f"{c.CONTACT}-{name}-composite.png")
-            contact_composite(folder)
+            contact_composite(folder, c.CONTACT)
             image.putpixel((5, 5), (1, 2, 3, 77))
             image.save(folder / f"{c.CONTACT}-trimmed-wind-color.png")
             with self.assertRaisesRegex(ValueError, "native wind texture changed"):
-                contact_composite(folder)
+                contact_composite(folder, c.CONTACT)
             image.save(folder / f"{c.CONTACT}-baseline-wind-color.png")
             composite.putpixel((10, 10), (2, 3, 4, 70))
             composite.save(folder / f"{c.CONTACT}-trimmed-composite.png")
             with self.assertRaisesRegex(ValueError, "contact composite"):
-                contact_composite(folder)
+                contact_composite(folder, c.CONTACT)
+
+    def test_default_contact_rejects_changed_alpha_after_composite(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            width, height = CONTACT_WIND_SIZE
+            atlas = Image.new("RGBA", (width * 2, height * 2))
+            atlas.putpixel((5, 5), (1, 2, 3, 76))
+            composite = Image.new("RGBA", SIZE)
+            composite.putpixel((10, 10), (2, 3, 4, 69))
+            for name in c.VARIANTS:
+                atlas.save(folder / f"{c.CONTACT_DEFAULT}-{name}-wind-color.png")
+                composite.save(folder / f"{c.CONTACT_DEFAULT}-{name}-composite.png")
+            contact_composite(folder, c.CONTACT_DEFAULT)
+            composite.putpixel((10, 10), (2, 3, 4, 70))
+            composite.save(folder / f"{c.CONTACT_DEFAULT}-trimmed-composite.png")
+            with self.assertRaisesRegex(ValueError, "contact composite"):
+                contact_composite(folder, c.CONTACT_DEFAULT)
 
     def test_window_requires_bounded_stable_native_draws(self) -> None:
         ready = {
