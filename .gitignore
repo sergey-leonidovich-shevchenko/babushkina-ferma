@@ -763,6 +763,11 @@ tools/qa/performance/pass_cost/*
 !tools/qa/performance/pass_cost/*.py
 !tools/qa/performance/pass_cost/*.gd
 !tools/qa/performance/pass_cost/*.gd.uid
+!tools/qa/performance/overdraw/
+tools/qa/performance/overdraw/*
+!tools/qa/performance/overdraw/*.py
+!tools/qa/performance/overdraw/*.gd
+!tools/qa/performance/overdraw/*.gd.uid
 
 # REFACTOR-03: camera context preparation; source implementations have not moved.
 !tools/qa/camera/

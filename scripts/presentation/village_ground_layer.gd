@@ -9,6 +9,11 @@ var soft_ground_edges := false
 var rectangular_roads := false
 var joined_roads := false
 var separate_bridge_rails := false
+var trim_decks := false:
+	set(value):
+		if trim_decks != value:
+			trim_decks = value
+			queue_redraw()
 var paint_count := 0
 
 
@@ -58,4 +63,4 @@ func _draw() -> void:
 			self, "overworld", soft_ground_edges, rectangular_roads, joined_roads
 		)
 	else:
-		Terrain.draw_underwater_bottom(self, season, weather, true)
+		Terrain.draw_underwater_bottom(self, season, weather, true, trim_decks)

@@ -79,6 +79,19 @@ class RouteObserver:
 		capture.record_step()
 
 
+func _task_id() -> String:
+	return "VPERF-003"
+
+
+func _profiles() -> Array:
+	return PASSES
+
+
+func _configure_profile() -> void:
+	if omitted in ["water", "grass", "shadows", "ui"]:
+		game.set_meta(Probe.OMITTED_PASS, StringName(omitted))
+
+
 ## Принимает отдельный userdata и два срока. Headless пишет только пробу маршрута.
 func _initialize() -> void:
 	for argument in OS.get_cmdline_user_args():
@@ -97,12 +110,12 @@ func _initialize() -> void:
 			return
 	if (
 		not output.is_absolute_path()
-		or RegEx.create_from_string("^Codex-VPERF-003-[a-f0-9]{32}$").search(profile) == null
-		or omitted not in PASSES
+		or RegEx.create_from_string("^Codex-%s-[a-f0-9]{32}$" % _task_id()).search(profile) == null
+		or omitted not in _profiles()
 		or seconds not in [30, 600]
 		or route_only != (DisplayServer.get_name() == "headless")
 	):
-		push_error("VPERF-003: неверный профиль, срок, вариант либо тип дисплея")
+		push_error("%s: неверный профиль, срок, вариант либо тип дисплея" % _task_id())
 		quit(2)
 		return
 	_start.call_deferred()
@@ -117,7 +130,7 @@ func _start() -> void:
 		or DirAccess.dir_exists_absolute(output)
 		or DirAccess.make_dir_absolute(output) != OK
 	):
-		push_error("VPERF-003: требуются новый каталог и подтверждённый userdata")
+		push_error("%s: требуются новый каталог и подтверждённый userdata" % _task_id())
 		quit(2)
 		return
 	var baseline: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ROUTE))
@@ -126,12 +139,11 @@ func _start() -> void:
 	root.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
 	root.content_scale_size = Vector2i.ZERO
 	root.content_scale_factor = 1.0
-	root.title = "VPERF-003 | %s | %ds" % [omitted, seconds]
+	root.title = "%s | %s | %ds" % [_task_id(), omitted, seconds]
 	Engine.physics_ticks_per_second = HZ
 	Engine.max_fps = 0
 	game = Points.create_game()
-	if omitted in ["water", "grass", "shadows", "ui"]:
-		game.set_meta(Probe.OMITTED_PASS, StringName(omitted))
+	_configure_profile()
 	root.add_child(game)
 	current_scene = game
 	(
@@ -385,7 +397,7 @@ func _finish() -> void:
 	_write("save-after.json", JSON.stringify(Save.snapshot(game), "", true, true))
 	var metadata := {
 		"schema": 2,
-		"task": "VPERF-003",
+		"task": _task_id(),
 		"pass": omitted,
 		"seconds": seconds,
 		"route_only": route_only,
@@ -426,7 +438,7 @@ func _finish() -> void:
 		"reduced_motion": game.settings_state.reduced_motion,
 	}
 	_write("run.json", JSON.stringify(metadata) + "\n")
-	print("VPERF-003 ", omitted, " ", ticks, " ticks / ", frame_count, " intervals ", error)
+	print(_task_id(), " ", omitted, " ", ticks, " ticks / ", frame_count, " intervals ", error)
 	quit(0 if error.is_empty() else 2)
 
 

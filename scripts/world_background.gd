@@ -316,6 +316,9 @@ func _sync_ground_layers() -> void:
 		and not (get_meta("terrain_direct", false) == true)
 		and not RenderProbe.omits(get_parent(), RenderProbe.WATER)
 	)
+	var trim_decks := enabled and not RenderProbe.preserves_full_coverage(get_parent())
+	water_layer.trim_decks = trim_decks
+	water_surface.trim_decks = trim_decks
 	cover_layer.visible = enabled
 	cutout_layer.visible = enabled
 	water_layer.configure(season, weather, false)

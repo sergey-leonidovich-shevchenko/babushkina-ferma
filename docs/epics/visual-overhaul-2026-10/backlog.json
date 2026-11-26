@@ -7341,7 +7341,7 @@
       "id": "VPERF-004",
       "epic": "VPERF",
       "title": "Ограничить overdraw",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -7377,7 +7377,10 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vperf-004-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vperf-004/README.md"
+      ],
+      "result": "Подготовлены отсечение прозрачных полей ветровой травы и воды за непрозрачной сердцевиной настила. Нативное сравнение площади, RGBA и живого маршрута ожидается."
     },
     {
       "id": "VPERF-005",

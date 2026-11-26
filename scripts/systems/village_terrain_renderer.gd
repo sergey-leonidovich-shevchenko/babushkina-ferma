@@ -9,6 +9,7 @@ const WATER := preload("res://assets/game/locations/overworld/modular/water_mate
 const BridgeLayers := preload("res://scripts/presentation/overworld_bridge_layers.gd")
 const BRIDGE := BridgeLayers.TEXTURE
 const UnderwaterBottom := preload("res://scripts/presentation/underwater_bottom.gd")
+const WaterOcclusion := preload("res://scripts/presentation/village_water_occlusion.gd")
 const Version := preload("res://scripts/presentation/visual_version.gd")
 const WaterMapRegistry := preload("res://scripts/systems/water_map_registry.gd")
 const FenceRenderer := preload("res://scripts/systems/fence_renderer.gd")
@@ -19,6 +20,8 @@ const BANK_PALETTES := {
 	"cave": [Color("34383e"), Color("74736d")],
 }
 static var _fence_sources: Dictionary = {}
+static var _water_below_decks: Dictionary = {}
+static var _water_surface_meshes: Dictionary[int, ArrayMesh] = {}
 
 
 ## Сохраняет прежний полный проход для прямого рендера и обратимого контроля разделённых слоёв.
@@ -209,14 +212,19 @@ static func draw_banks(canvas: Node2D) -> void:
 
 ## Заполняет прежнюю геометрию воды только рисунком дна, не создавая новую карту коллизий.
 static func draw_underwater_bottom(
-	canvas: Node2D, season: String, weather: String = "clear", clipped: bool = false
+	canvas: Node2D,
+	season: String,
+	weather: String = "clear",
+	clipped: bool = false,
+	trim_decks: bool = false
 ) -> void:
 	if not Version.enabled(canvas):
 		return
 	var tint := ground_tint(season, weather) * Color("f4f0df")
-	UnderwaterBottom.draw(
-		canvas, surface_polygons(clipped), &"overworld-clipped" if clipped else &"overworld", tint
-	)
+	var key := &"overworld"
+	if clipped:
+		key = &"overworld-decks" if trim_decks else &"overworld-clipped"
+	UnderwaterBottom.draw(canvas, surface_polygons(clipped, trim_decks), key, tint)
 
 
 ## Сохраняет дно читаемым под отдельным спокойным слоем воды во всех сезонах и погоде.
@@ -245,7 +253,8 @@ static func draw_surface(
 	season: String,
 	clipped: bool = false,
 	weather: String = "clear",
-	kind: String = ""
+	kind: String = "",
+	trim_decks: bool = false
 ) -> void:
 	var snapshot: Dictionary = WaterMapRegistry.visual("overworld")
 	var regions: Array = snapshot.regions
@@ -254,45 +263,89 @@ static func draw_surface(
 		if Version.enabled(canvas)
 		else ground_tint(season, weather)
 	)
-	var frame := PackedVector2Array(
-		[
-			Vector2.ZERO,
-			Vector2(MapData.WORLD_SIZE.x, 0),
-			MapData.WORLD_SIZE,
-			Vector2(0, MapData.WORLD_SIZE.y),
-		]
-	)
 	for region: Dictionary in regions:
 		if not kind.is_empty() and region.kind != kind:
 			continue
 		var depth: float = region.depth
 		var tint := water_depth_tint(base_tint, depth)
-		for points: PackedVector2Array in region.polygons:
-			if clipped:
-				for part: PackedVector2Array in Geometry2D.intersect_polygons(points, frame):
-					material(canvas, part, WATER, tint)
-			else:
-				material(canvas, points, WATER, tint)
+		var polygons := surface_region_polygons(region, clipped, trim_decks)
+		if clipped and trim_decks:
+			var body_id: int = region.body
+			var mesh := _surface_mesh(body_id, polygons)
+			if mesh != null:
+				canvas.draw_mesh(mesh, WATER, Transform2D.IDENTITY, tint)
+				continue
+		for points: PackedVector2Array in polygons:
+			material(canvas, points, WATER, tint)
+
+
+## Та же геометрия поверхности используется в кадре и в диагностике площади.
+static func surface_region_polygons(
+	region: Dictionary, clipped: bool, trim_decks: bool
+) -> Array[PackedVector2Array]:
+	var polygons: Array[PackedVector2Array] = region.polygons
+	if not clipped:
+		return polygons
+	var body_id: int = region.body
+	return _water_polygons(polygons, "body-%d" % body_id, trim_decks)
 
 
 ## Ограничивает самостоятельную поверхность теми же границами, которыми раньше отсекал её viewport.
-static func surface_polygons(clipped: bool = false) -> Array[PackedVector2Array]:
+static func surface_polygons(
+	clipped: bool = false, trim_decks: bool = false
+) -> Array[PackedVector2Array]:
 	var snapshot := WaterMapRegistry.visual("overworld")
 	var polygons: Array[PackedVector2Array] = snapshot.polygons
 	if not clipped:
 		return polygons
-	var frame := PackedVector2Array(
-		[
-			Vector2.ZERO,
-			Vector2(MapData.WORLD_SIZE.x, 0),
-			MapData.WORLD_SIZE,
-			Vector2(0, MapData.WORLD_SIZE.y)
-		]
-	)
+	return _water_polygons(polygons, "bottom", trim_decks)
+
+
+## Кеширует только встроенную геометрию первого overworld; канонический снимок воды не меняется.
+static func _water_polygons(
+	polygons: Array[PackedVector2Array], key: String, trim_decks: bool
+) -> Array[PackedVector2Array]:
+	if trim_decks and _water_below_decks.has(key):
+		return _water_below_decks[key]
+	var frame := WaterOcclusion.rectangle(Rect2(Vector2.ZERO, MapData.WORLD_SIZE))
 	var result: Array[PackedVector2Array] = []
 	for points: PackedVector2Array in polygons:
 		result.append_array(Geometry2D.intersect_polygons(points, frame))
+	if trim_decks:
+		result = WaterOcclusion.visible_polygons(result)
+		_water_below_decks[key] = result
 	return result
+
+
+## Рисует разделённые геометрией настила части одной командой, с прежними мировыми UV.
+static func _surface_mesh(body_id: int, polygons: Array[PackedVector2Array]) -> ArrayMesh:
+	if _water_surface_meshes.has(body_id):
+		return _water_surface_meshes[body_id]
+	var vertices := PackedVector2Array()
+	var uv := PackedVector2Array()
+	var indices := PackedInt32Array()
+	var texture_size := WATER.get_size()
+	for polygon in polygons:
+		var triangles := Geometry2D.triangulate_polygon(polygon)
+		if triangles.is_empty():
+			return null
+		var offset := vertices.size()
+		vertices.append_array(polygon)
+		for point in polygon:
+			uv.append(point / texture_size)
+		for index in triangles:
+			indices.append(offset + index)
+	if indices.is_empty():
+		return null
+	var data := []
+	data.resize(Mesh.ARRAY_MAX)
+	data[Mesh.ARRAY_VERTEX] = vertices
+	data[Mesh.ARRAY_TEX_UV] = uv
+	data[Mesh.ARRAY_INDEX] = indices
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, data)
+	_water_surface_meshes[body_id] = mesh
+	return mesh
 
 
 ## Вырезает каноническую поверхность в прозрачность специальным blend-disabled материалом.
