@@ -66,6 +66,11 @@ def restore(bundle: Path, receipt: Path, output: Path) -> None:
             and len(stored.namelist()) == len(expected_entries),
             "unexpected or repeated capture entries",
         )
+        require(
+            type(expected_bundle["unique_blobs"]) is int
+            and len(payloads) == expected_bundle["unique_blobs"],
+            "capture blob count differs from the checked-in receipt",
+        )
     source = json.loads(payloads[index["evidence/source.json"]["sha256"]])
     source_files = source["files"]
     require(
