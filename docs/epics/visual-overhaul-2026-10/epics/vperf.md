@@ -206,7 +206,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 ## VPERF-006 — Сравнить пакетирование декора
 
-Статус: `in_progress` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 MultiMesh применяется только после сравнения; группировка учитывает culling и невозможность свободного Y-sort отдельных экземпляров
 
@@ -240,7 +240,7 @@ MultiMesh применяется только после сравнения; г�
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vperf-006/PLAN.md, docs/reports/visual-overhaul/vperf-006/geometry-control.json.
+Доказательства: docs/reports/visual-overhaul/vperf-006/PLAN.md, docs/reports/visual-overhaul/vperf-006/geometry-control.json, docs/reports/visual-overhaul/vperf-006/closeout/README.md, docs/reports/visual-overhaul/vperf-006/native-ci-01/summary.json, docs/reports/visual-overhaul/vperf-006/native-ci-01/archive.json.
 
 <a id="vperf-007"></a>
 

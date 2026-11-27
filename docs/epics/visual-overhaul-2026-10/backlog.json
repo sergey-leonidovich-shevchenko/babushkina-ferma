@@ -7431,7 +7431,7 @@
       "id": "VPERF-006",
       "epic": "VPERF",
       "title": "Сравнить пакетирование декора",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -7469,9 +7469,12 @@
       "branch": "codex/vperf-006-decor-batching",
       "evidence": [
         "docs/reports/visual-overhaul/vperf-006/PLAN.md",
-        "docs/reports/visual-overhaul/vperf-006/geometry-control.json"
+        "docs/reports/visual-overhaul/vperf-006/geometry-control.json",
+        "docs/reports/visual-overhaul/vperf-006/closeout/README.md",
+        "docs/reports/visual-overhaul/vperf-006/native-ci-01/summary.json",
+        "docs/reports/visual-overhaul/vperf-006/native-ci-01/archive.json"
       ],
-      "result": "В QA-стенде подготовлены штатный слой, общий MultiMesh и пространственные партии. Офлайн проверены канонические опоры, граница группы, пустая область, признак готового кеша и происхождение PNG и сырых трасс. Нативный X11 сравнит полное и локальное обновление, перекрытия и живой маршрут на одном коммите. [Ветка сравнения](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/compare/main...codex/vperf-006-decor-batching)"
+      "result": "Сравнили три варианта отрисовки 14 цветов на одном Git-коммите 4b577cb6. Для штатного режима, общего MultiMesh и пространственных партий p95 600-секундного прогона составил 21,68085, 22,36800 и 22,39800 мс. Штатный режим выбран для игры. Все 46 сравнений PNG дали одинаковые пиксели. Сохранены сырые трассы, счётчики и результаты Mesa llvmpipe. Принято после независимого ревью и 10 проверок CI. [Принятый PR №103](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/103)."
     },
     {
       "id": "VPERF-007",
