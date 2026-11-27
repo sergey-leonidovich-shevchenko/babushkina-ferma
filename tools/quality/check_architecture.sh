@@ -102,6 +102,7 @@ python3 tools/run.py qa.camera.reference_zoom_perf verify >/dev/null
 python3 tools/run.py qa.camera.test_reference_zoom
 python3 tools/run.py qa.performance.test_perf_contract
 python3 tools/run.py qa.performance.pass_cost.test_verify
+python3 tools/run.py qa.performance.overdraw.test_verify
 python3 tools/run.py qa.performance.perf_contract >/dev/null
 python3 tools/run.py qa.performance.perf_contract --controls --output docs/reports/visual-overhaul/vperf-001/controls >/dev/null
 python3 tools/run.py qa.world.render_order >/dev/null

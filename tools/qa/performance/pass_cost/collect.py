@@ -120,11 +120,14 @@ def capture(
     runtime: Path,
     variant: str,
     seconds: int,
+    *,
+    task: str = c.TASK,
+    script: str = c.CAPTURE,
 ) -> None:
     """Запускает ровно один процесс и сохраняет сырые выводы, включая отказы и тайм-ауты."""
     target.parent.mkdir(parents=True, exist_ok=True)
     target.mkdir()
-    profile = "Codex-VPERF-003-" + uuid.uuid4().hex
+    profile = f"Codex-{task}-" + uuid.uuid4().hex
     environment = runner_environment(runtime)
     override(project, profile)
     command = [
@@ -141,7 +144,7 @@ def capture(
         "--log-file",
         str(target / "engine.log"),
         "--script",
-        "res://" + c.CAPTURE,
+        "res://" + script,
         "--",
         "--output=" + str(runtime / "capture"),
         "--profile=" + profile,
@@ -236,28 +239,7 @@ def collect(path: Path) -> None:
         temporary = Path(directory)
         project = temporary / "project"
         export_project(head, project)
-        importing = temporary / "import"
-        importing.mkdir()
-        environment = runner_environment(importing)
-        override(project, "Codex-VPERF-003-" + uuid.uuid4().hex)
-        with (output / "import.txt").open("x") as stream:
-            subprocess.run(
-                [
-                    str(engine),
-                    "--headless",
-                    "--path",
-                    str(project),
-                    "--editor",
-                    "--quit",
-                    "--log-file",
-                    str(importing / "godot.log"),
-                ],
-                env=environment,
-                stdout=stream,
-                stderr=subprocess.STDOUT,
-                timeout=600,
-                check=True,
-            )
+        import_project(engine, project, temporary / "import", output, c.TASK)
         for run, variant, seconds in c.schedule():
             runtime = temporary / (run + "-" + variant)
             runtime.mkdir()
@@ -276,6 +258,31 @@ def collect(path: Path) -> None:
     }
     source["complete"] = True
     c.write(output / "source.json", source)
+
+
+def import_project(engine: Path, project: Path, importing: Path, output: Path, task: str) -> None:
+    """Импортирует ресурсы исходного дерева в новом профиле до измерений."""
+    importing.mkdir()
+    environment = runner_environment(importing)
+    override(project, f"Codex-{task}-" + uuid.uuid4().hex)
+    with (output / "import.txt").open("x") as stream:
+        subprocess.run(
+            [
+                str(engine),
+                "--headless",
+                "--path",
+                str(project),
+                "--editor",
+                "--quit",
+                "--log-file",
+                str(importing / "godot.log"),
+            ],
+            env=environment,
+            stdout=stream,
+            stderr=subprocess.STDOUT,
+            timeout=600,
+            check=True,
+        )
 
 
 def main() -> None:

@@ -7,6 +7,13 @@ const QUALITY := &"water_surface_quality"
 const DIRECTIONAL := &"water_surface_directional"
 const LOOP_SECONDS := 64.0
 
+var trim_decks := false:
+	set(value):
+		if trim_decks == value:
+			return
+		trim_decks = value
+		queue_redraw()
+		_river.queue_redraw()
 var _season := "spring"
 var _weather := "clear"
 var _quality := ""
@@ -70,9 +77,9 @@ func apply_profile(quality: String, seconds: float, directional: bool = true) ->
 
 ## Оставляет колебание у пруда на исходной поверхности.
 func _draw() -> void:
-	Terrain.draw_surface(self, _season, true, _weather, "pond")
+	Terrain.draw_surface(self, _season, true, _weather, "pond", trim_decks)
 
 
-## Использует канонические речные полигоны, включая воду под настилом.
+## Использует канонические речные полигоны с отсечением только закрытых настилом пикселей.
 func _draw_river() -> void:
-	Terrain.draw_surface(_river, _season, true, _weather, "river")
+	Terrain.draw_surface(_river, _season, true, _weather, "river", trim_decks)

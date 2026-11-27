@@ -211,11 +211,13 @@ def inspect(
     seconds: int,
     route: dict[str, Any],
     expected_version: str,
+    *,
+    task: str = c.TASK,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     data = c.read(path / "run.json")
     launch = c.read(path / "launch.json")
     c.require(
-        data["task"] == c.TASK
+        data["task"] == task
         and data["schema"] == 2
         and not data["error"]
         and data["route_only"] is False
@@ -228,7 +230,7 @@ def inspect(
         and launch["timeout"] is False
         and launch["profile"] == data["profile"]
         and launch["pid"] == data["pid"]
-        and re.fullmatch(r"Codex-VPERF-003-[a-f0-9]{32}", data["profile"])
+        and re.fullmatch(rf"Codex-{re.escape(task)}-[a-f0-9]{{32}}", data["profile"])
         and launch["command"][-3:]
         == [
             "--profile=" + data["profile"],
