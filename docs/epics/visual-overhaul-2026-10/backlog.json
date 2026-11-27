@@ -7341,7 +7341,7 @@
       "id": "VPERF-004",
       "epic": "VPERF",
       "title": "Ограничить overdraw",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -7378,9 +7378,12 @@
       },
       "branch": "codex/vperf-004-visual-task",
       "evidence": [
-        "docs/reports/visual-overhaul/vperf-004/README.md"
+        "docs/reports/visual-overhaul/vperf-004/README.md",
+        "docs/reports/visual-overhaul/vperf-004/closeout/README.md",
+        "docs/reports/visual-overhaul/vperf-004/native-ci-01/archive.json",
+        "docs/reports/visual-overhaul/vperf-004/native-ci-01/summary.json"
       ],
-      "result": "Подготовлены отсечение прозрачных полей ветровой травы и воды за непрозрачной сердцевиной настила. Нативное сравнение площади, RGBA и живого маршрута ожидается. [PR №99](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/99)"
+      "result": "На Linux X11 с Mesa llvmpipe принято сокращение прозрачного покрытия травы и воды. В плотной траве покрытие композита снизилось с 60 031 до 32 770 фрагментов. Под западным и восточным настилами каждый водный проход исключил 11 600 и 11 500 фрагментов соответственно. В восьми прогонах парные траектории, камеры и снимки слота совпали. Медиана выигрыша p95 трёх коротких пар — 0,8024 мс, за 600 с p95 изменился с 35,572 до 34,72865 мс. GPU-время и аппаратный FPS остаются неизмеренными. Реализация принята 27 ноября 2026 после независимого ревью и 11 успешных проверок CI. [PR №99](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/99)"
     },
     {
       "id": "VPERF-005",
