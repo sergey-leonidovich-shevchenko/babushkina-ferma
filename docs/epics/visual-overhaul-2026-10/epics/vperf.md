@@ -206,11 +206,11 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 ## VPERF-006 — Сравнить пакетирование декора
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `in_progress` · P0 · этап `foundation` · `engineering`
 
 MultiMesh применяется только после сравнения; группировка учитывает culling и невозможность свободного Y-sort отдельных экземпляров
 
-Ветка: `codex/vperf-006-visual-task`.
+Ветка: `codex/vperf-006-decor-batching`.
 
 Зависимости: VPERF-001.
 
@@ -222,7 +222,7 @@ MultiMesh применяется только после сравнения; г�
 - [scripts/systems/render_pacing_system.gd](../../../../scripts/systems/render_pacing_system.gd)
 - [tools/water_audit.gd](../../../../tools/water_audit.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vperf-006/`.
+Результаты: `docs/reports/visual-overhaul/vperf-006/`.
 
 Критерии:
 
@@ -240,7 +240,7 @@ MultiMesh применяется только после сравнения; г�
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vperf-006/PLAN.md, docs/reports/visual-overhaul/vperf-006/geometry-control.json.
 
 <a id="vperf-007"></a>
 

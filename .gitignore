@@ -768,6 +768,11 @@ tools/qa/performance/overdraw/*
 !tools/qa/performance/overdraw/*.py
 !tools/qa/performance/overdraw/*.gd
 !tools/qa/performance/overdraw/*.gd.uid
+!tools/qa/performance/decor_batching/
+tools/qa/performance/decor_batching/*
+!tools/qa/performance/decor_batching/*.py
+!tools/qa/performance/decor_batching/*.gd
+!tools/qa/performance/decor_batching/*.gd.uid
 
 # REFACTOR-03: camera context preparation; source implementations have not moved.
 !tools/qa/camera/

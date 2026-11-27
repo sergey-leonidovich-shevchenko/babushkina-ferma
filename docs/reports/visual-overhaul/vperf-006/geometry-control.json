@@ -1,0 +1,113 @@
+{
+  "branches": {
+    "east_view": {
+      "one_batch": {
+        "groups": 1,
+        "submitted": 14,
+        "visible": 5
+      },
+      "spatial_batches": {
+        "groups": 4,
+        "submitted": 5,
+        "visible": 5
+      }
+    },
+    "empty_patch": {
+      "one_batch": {
+        "groups": 1,
+        "submitted": 14,
+        "visible": 0
+      },
+      "spatial_batches": {
+        "groups": 0,
+        "submitted": 0,
+        "visible": 0
+      }
+    },
+    "flower_crossing_cell": {
+      "one_batch": {
+        "groups": 1,
+        "submitted": 14,
+        "visible": 1
+      },
+      "spatial_batches": {
+        "groups": 1,
+        "submitted": 3,
+        "visible": 1
+      }
+    },
+    "full_rebuild": {
+      "one_batch": {
+        "groups": 1,
+        "submitted": 14,
+        "visible": 14
+      },
+      "spatial_batches": {
+        "groups": 10,
+        "submitted": 14,
+        "visible": 14
+      }
+    },
+    "home_view": {
+      "one_batch": {
+        "groups": 1,
+        "submitted": 14,
+        "visible": 4
+      },
+      "spatial_batches": {
+        "groups": 3,
+        "submitted": 6,
+        "visible": 4
+      }
+    },
+    "north_view": {
+      "one_batch": {
+        "groups": 1,
+        "submitted": 14,
+        "visible": 3
+      },
+      "spatial_batches": {
+        "groups": 3,
+        "submitted": 7,
+        "visible": 3
+      }
+    },
+    "three_flowers": {
+      "one_batch": {
+        "groups": 1,
+        "submitted": 14,
+        "visible": 3
+      },
+      "spatial_batches": {
+        "groups": 1,
+        "submitted": 3,
+        "visible": 3
+      }
+    },
+    "village_square_view": {
+      "one_batch": {
+        "groups": 1,
+        "submitted": 14,
+        "visible": 5
+      },
+      "spatial_batches": {
+        "groups": 4,
+        "submitted": 8,
+        "visible": 5
+      }
+    },
+    "west_bridge_view": {
+      "one_batch": {
+        "groups": 1,
+        "submitted": 14,
+        "visible": 6
+      },
+      "spatial_batches": {
+        "groups": 3,
+        "submitted": 6,
+        "visible": 6
+      }
+    }
+  },
+  "scope": "offline_geometry"
+}

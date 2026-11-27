@@ -1,0 +1,70 @@
+name: VPERF-006 decor batching
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/vperf-006.yml'
+      - 'tools/qa/performance/decor_batching/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  paired-decor:
+    name: Paired X11 decor capture
+    runs-on: ubuntu-24.04
+    timeout-minutes: 110
+    env:
+      VPERF006_EXPECTED_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - name: Install X11 and verifier dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y fonts-noto-cjk fonts-liberation xvfb xauth openbox libgl1-mesa-dri libglx-mesa0
+          python -m pip install Pillow==11.3.0
+      - name: Download and verify Godot 4.7.1
+        run: |
+          owner_dir="$RUNNER_TEMP/vperf-006"
+          mkdir -p "$owner_dir"
+          archive="$owner_dir/godot.zip"
+          curl -fsSL -o "$archive" https://github.com/godotengine/godot/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip
+          printf '%s  %s\n' c7ff14fd28472c8d4f193043de30278dcf7e5241a1dcf7566b02e27addaa33ba "$archive" | sha256sum -c -
+          unzip -q "$archive" -d "$owner_dir"
+          engine="$owner_dir/Godot_v4.7.1-stable_linux.x86_64"
+          chmod +x "$engine"
+          printf 'FARM_GODOT_BIN=%s\nVPERF_OUTPUT=%s\n' "$engine" "$owner_dir/evidence" >> "$GITHUB_ENV"
+      - name: Record fixed refreshes and warm routes
+        run: |
+          xvfb-run -a -s '-screen 0 1280x720x24' bash -eu -o pipefail -c '
+            openbox --sm-disable > "$RUNNER_TEMP/vperf-006/window-manager.txt" 2>&1 &
+            wm=$!
+            trap '\''kill "$wm" 2>/dev/null || true'\'' EXIT
+            python tools/run.py qa.performance.decor_batching.native_collect --output "$VPERF_OUTPUT" 2>&1 |
+              tee "$RUNNER_TEMP/vperf-006/collection.txt"
+          '
+      - name: Verify paired pixels, geometry and raw metrics
+        run: |
+          set -o pipefail
+          python tools/run.py qa.performance.decor_batching.native_verify --output "$VPERF_OUTPUT" --expected-head "$VPERF006_EXPECTED_HEAD" |
+            tee "$RUNNER_TEMP/vperf-006/summary.json"
+      - name: Preserve raw captures and failure diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vperf-006-decor-batching
+          path: |
+            ${{ env.VPERF_OUTPUT }}/
+            ${{ runner.temp }}/vperf-006/collection.txt
+            ${{ runner.temp }}/vperf-006/summary.json
+            ${{ runner.temp }}/vperf-006/window-manager.txt
+          if-no-files-found: warn
+          retention-days: 30

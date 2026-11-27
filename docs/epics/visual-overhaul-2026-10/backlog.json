@@ -7431,7 +7431,7 @@
       "id": "VPERF-006",
       "epic": "VPERF",
       "title": "Сравнить пакетирование декора",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -7466,8 +7466,12 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vperf-006-visual-task",
-      "evidence": []
+      "branch": "codex/vperf-006-decor-batching",
+      "evidence": [
+        "docs/reports/visual-overhaul/vperf-006/PLAN.md",
+        "docs/reports/visual-overhaul/vperf-006/geometry-control.json"
+      ],
+      "result": "В QA-стенде подготовлены штатный слой, общий MultiMesh и пространственные партии. Офлайн проверены канонические опоры, граница группы, пустая область, признак готового кеша и происхождение PNG и сырых трасс. Нативный X11 сравнит полное и локальное обновление, перекрытия и живой маршрут на одном коммите. [Ветка сравнения](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/compare/main...codex/vperf-006-decor-batching)"
     },
     {
       "id": "VPERF-007",
