@@ -15,6 +15,8 @@ DIRECTORY = "tools/qa/performance/decor_batching"
 REPETITIONS = 12
 RENDERER = "X11 / gl_compatibility / Mesa llvmpipe"
 PINNED_INPUTS = (geometry.MAP_SOURCE, "scripts/systems/village_layout_system.gd", shared.ROUTE)
+TRACE_NAMES = ("frames", "trajectory", "terrain-cache")
+CACHE_FIELDS = ("draw_id", "revision", "terrain_ready")
 
 
 def plan() -> dict[str, Any]:
@@ -77,7 +79,9 @@ def expected_files() -> set[str]:
     }
     files = {"plan.json", "engine-version.txt", "import.txt"}
     for run, variant, seconds in schedule():
-        names = (*shared.RUN_FILES, "terrain-events.json") if seconds else fixed
+        names = (
+            (*shared.RUN_FILES, "trace-origin.json", "terrain-cache.csv.gz") if seconds else fixed
+        )
         files.update(f"{run}/{variant}/{name}" for name in names)
     files.update(f"fixed/baseline/flower-order-{order}.png" for order in ("correct", "wrong"))
     return files
@@ -106,7 +110,7 @@ def inventory(folder: Path) -> dict[str, str]:
 def trace_digests(folder: Path) -> dict[str, str]:
     """Matches the engine receipt over the CSV bytes before gzip packaging."""
     digests = {}
-    for name in ("frames", "trajectory"):
+    for name in TRACE_NAMES:
         with gzip.open(folder / f"{name}.csv.gz", "rb") as stream:
             digests[name] = hashlib.file_digest(stream, "sha256").hexdigest()
     return digests

@@ -16,6 +16,7 @@ from tools.qa.performance.decor_batching import native_contract as contract
 from tools.qa.performance.decor_batching import native_verify as native
 from tools.qa.performance.decor_batching import verify as geometry
 from tools.qa.performance.decor_batching.archive_fixture import (
+    BOOTSTRAP,
     PRESET,
     command,
     receipt,
@@ -56,7 +57,7 @@ def write_warm(root: Path, historical: Path) -> None:
                 decor=variant,
                 decor_preset=PRESET,
                 vsync=1,
-                decor_terrain={"revision": 1, "requests": 1, "full_paints": 1, "local_paints": 0},
+                decor_terrain=BOOTSTRAP["after"],
             )
         shared.write(destination / "run.json", data)
         receipt(
@@ -71,16 +72,30 @@ def write_warm(root: Path, historical: Path) -> None:
                 f"--seconds={seconds}",
             ],
         )
+        write_cache(destination, data["first_draw"]["draw_id"])
         shared.write(
-            destination / "terrain-events.json",
+            destination / "trace-origin.json",
             {
                 "pid": data["pid"],
                 "profile": data["profile"],
                 "batch_nodes": batch_nodes[variant],
                 "raw_sha256": contract.trace_digests(destination),
-                "events": [],
+                "bootstrap": BOOTSTRAP,
             },
         )
+
+
+def write_cache(destination: Path, first_draw: int) -> None:
+    with (
+        gzip.open(destination / "frames.csv.gz", "rt", newline="") as frames,
+        gzip.open(destination / "terrain-cache.csv.gz", "wt", newline="") as cache,
+    ):
+        draws = csv.DictReader(frames)
+        writer = csv.writer(cache)
+        writer.writerow(contract.CACHE_FIELDS)
+        revision = BOOTSTRAP["after"]["revision"]
+        writer.writerow((first_draw, revision, 1))
+        writer.writerows((row["draw_id"], revision, 1) for row in draws)
 
 
 def manifest(root: Path) -> None:
@@ -185,7 +200,35 @@ def truncate(root: Path) -> None:
     run = shared.read(folder / "run.json")
     run["draw_count"] = run["retained_interval_count"] = len(retained) - 1
     shared.write(folder / "run.json", run)
-    origin_file = folder / "terrain-events.json"
+    origin_file = folder / "trace-origin.json"
+    origin = shared.read(origin_file)
+    origin["raw_sha256"] = contract.trace_digests(folder)
+    shared.write(origin_file, origin)
+
+
+def insert_false_cache_event(root: Path) -> None:
+    path = root / "repeat-1/baseline/trace-origin.json"
+    origin = shared.read(path)
+    data = shared.read(path.parent / "run.json")
+    origin["events"] = [
+        {
+            "draw_id": data["first_draw"]["draw_id"] + 2,
+            "revision": data["initial"]["decor_terrain"]["revision"],
+            "terrain_ready": False,
+        }
+    ]
+    shared.write(path, origin)
+
+
+def drop_cache_row(root: Path) -> None:
+    folder = root / "repeat-1/baseline"
+    path = folder / "terrain-cache.csv.gz"
+    with gzip.open(path, "rt") as stream:
+        rows = stream.readlines()
+    del rows[6]
+    with gzip.open(path, "wt") as stream:
+        stream.writelines(rows)
+    origin_file = folder / "trace-origin.json"
     origin = shared.read(origin_file)
     origin["raw_sha256"] = contract.trace_digests(folder)
     shared.write(origin_file, origin)
@@ -209,7 +252,9 @@ class ArchiveReaderTest(unittest.TestCase):
             faults: tuple[tuple[Callable[[Path], None], str], ...] = (
                 (rotate, "trace capture group count differs"),
                 (replace_trace, "raw trace differs from capture"),
-                (misalign_entry_cache, "warm terrain cache history differs"),
+                (misalign_entry_cache, "bootstrap did not reach the recorded cache entry"),
+                (insert_false_cache_event, "unexpected fields in raw trace receipt"),
+                (drop_cache_row, "terrain state must cover every native draw exactly once"),
                 (
                     swap_local_terrain,
                     "PNG bytes differ from capture: baseline/flower_crossing_cell",

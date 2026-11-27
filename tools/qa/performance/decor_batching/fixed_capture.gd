@@ -177,6 +177,11 @@ func _case(spec: Dictionary, repetitions: int) -> bool:
 		_candidate.set_capture_clip(Rect2())
 	if not await _settle():
 		return false
+	if not _evidence.has("bootstrap"):
+		var bootstrap := await Mode.bootstrap(_background)
+		if bootstrap.is_empty():
+			return false
+		_evidence["bootstrap"] = bootstrap
 	var repaint := Rect2()
 	if spec.repaint != null:
 		var cell: Array = spec.repaint

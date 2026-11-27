@@ -1,12 +1,12 @@
 extends "res://tools/qa/performance/pass_cost/capture.gd"
 
 const Mode := preload("res://tools/qa/performance/decor_batching/capture_mode.gd")
+const CACHE_FIELDS := ["draw_id", "revision", "terrain_ready"]
 
 var variant := ""
 var _background: Mode.Background
-var _last_revision := -1
-var _last_ready := true
-var _terrain_events := []
+var _bootstrap := {}
+var _cache_rows := PackedInt64Array()
 
 
 ## Переиспользует приёмку маршрута и сбор сырых интервалов из VPERF-003.
@@ -16,6 +16,7 @@ func _start() -> void:
 		push_error("VPERF-006: требуется нативный тёплый маршрут без выключенных проходов")
 		quit(2)
 		return
+	_cache_rows.resize((MAX_DRAWS + 1) * CACHE_FIELDS.size())
 	node_added.connect(_watch_game)
 	await super._start()
 
@@ -30,43 +31,42 @@ func _watch_game(node: Node) -> void:
 func _install_variant() -> void:
 	_background = game.get_node("WorldBackground") as Mode.Background
 	Mode.install(_background, variant)
+	_bootstrap_variant.call_deferred()
+
+
+func _bootstrap_variant() -> void:
+	_bootstrap = await Mode.bootstrap(_background)
 
 
 func _conditions() -> Dictionary:
 	var result := super._conditions()
-	result["valid"] = result.valid and Mode.installed(_background, variant)
+	result["valid"] = (
+		result.valid and not _bootstrap.is_empty() and Mode.installed(_background, variant)
+	)
 	result["decor"] = variant
 	result["decor_preset"] = Mode.preset(_background)
 	result["decor_terrain"] = Mode.terrain(_background)
-	if sample_start == 0:
-		_last_revision = _background.terrain_revision.revision
 	return result
 
 
-## Помечает смену ревизии и кадры с незавершённым кешем на живом маршруте.
+## Записывает состояние кеша в тот же callback, включая начальную границу интервалов.
 func _record_draw() -> void:
-	if sample_start != 0 and not finished:
-		var revision: int = _background.terrain_revision.revision
-		var ready: bool = _background.terrain_ready
-		if not ready or ready != _last_ready or revision != _last_revision:
-			(
-				_terrain_events
-				. append(
-					{
-						"draw_id": Engine.get_frames_drawn(),
-						"revision": revision,
-						"terrain_ready": ready,
-					}
-				)
-			)
-			_last_revision = revision
-			_last_ready = ready
+	if sample_start == 0 or finished:
+		return
+	var previous_count := frame_count
+	var opening := previous_draw == 0
 	super._record_draw()
+	if frame_count != previous_count or (opening and previous_draw != 0):
+		var index := frame_count * CACHE_FIELDS.size()
+		_cache_rows[index] = Engine.get_frames_drawn()
+		_cache_rows[index + 1] = _background.terrain_revision.revision
+		_cache_rows[index + 2] = int(_background.terrain_ready)
 
 
-## Связывает сырые CSV с их процессом и фактической группировкой до упаковки архива.
+## Записывает ограниченный буфер после замера и связывает байты с их процессом.
 func _write(name: String, content: String) -> void:
 	if name == "run.json":
+		_write_cache()
 		var origin := {
 			"pid": OS.get_process_id(),
 			"profile": profile,
@@ -75,8 +75,22 @@ func _write(name: String, content: String) -> void:
 			{
 				"frames": FileAccess.get_sha256(output.path_join("frames.csv")),
 				"trajectory": FileAccess.get_sha256(output.path_join("trajectory.csv")),
+				"terrain-cache": FileAccess.get_sha256(output.path_join("terrain-cache.csv")),
 			},
-			"events": _terrain_events,
+			"bootstrap": _bootstrap,
 		}
-		super._write("terrain-events.json", JSON.stringify(origin) + "\n")
+		super._write("trace-origin.json", JSON.stringify(origin) + "\n")
+		var metadata: Dictionary = JSON.parse_string(content)
+		metadata.observer_buffer_bytes += _cache_rows.size() * 8
+		content = JSON.stringify(metadata) + "\n"
 	super._write(name, content)
+
+
+func _write_cache() -> void:
+	var file := FileAccess.open(output.path_join("terrain-cache.csv"), FileAccess.WRITE)
+	file.store_line(",".join(CACHE_FIELDS))
+	for row in frame_count + 1 if not first_draw.is_empty() else 0:
+		var index := row * CACHE_FIELDS.size()
+		file.store_line(
+			"%d,%d,%d" % [_cache_rows[index], _cache_rows[index + 1], _cache_rows[index + 2]]
+		)

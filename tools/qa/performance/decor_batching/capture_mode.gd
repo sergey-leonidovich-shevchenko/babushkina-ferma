@@ -3,6 +3,7 @@ extends RefCounted
 const Candidate := preload("res://tools/qa/performance/decor_batching/candidate_cover.gd")
 const Background := preload("res://scripts/world_background.gd")
 const VARIANTS := ["baseline", "one_batch", "spatial_batches"]
+const BOOTSTRAP_DRAWS := 16
 
 
 ## Устанавливает вариант только в тестовой сцене и оставляет штатный кеш владельцем слоя.
@@ -12,7 +13,26 @@ static func install(background: Background, variant: String) -> void:
 		cover.set_script(Candidate)
 		var candidate := cover as Candidate
 		candidate.prepare(variant == "spatial_batches")
+
+
+## Начинает каждый замер с одного полного прохода поверх уже готового кеша.
+static func bootstrap(background: Background) -> Dictionary:
+	for _attempt in BOOTSTRAP_DRAWS:
+		if background.terrain_ready:
+			break
+		await RenderingServer.frame_post_draw
+	if not background.terrain_ready:
+		return {}
+	var before := terrain(background)
 	background.refresh_terrain()
+	if background.terrain_ready:
+		return {}
+	var requested := terrain(background)
+	for _attempt in BOOTSTRAP_DRAWS:
+		await RenderingServer.frame_post_draw
+		if background.terrain_ready:
+			return {"before": before, "requested": requested, "after": terrain(background)}
+	return {}
 
 
 ## Сохраняет счётчики реальных обновлений независимо от частоты кадров окна.

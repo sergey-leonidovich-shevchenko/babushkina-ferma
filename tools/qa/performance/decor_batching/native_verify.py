@@ -112,6 +112,22 @@ def check_state(state: Data, spec: Data) -> None:
         c.require(state["winter_batches"] == [], "winter did not hide the flower batches")
 
 
+def check_bootstrap(bootstrap: Data, entry: Data) -> None:
+    before, requested, after = (bootstrap[name] for name in ("before", "requested", "after"))
+    c.require(
+        requested
+        == {**before, "requests": before["requests"] + 1, "revision": before["revision"] + 1}
+        and after
+        == {
+            **requested,
+            "full_paints": requested["full_paints"] + 1,
+            "last_completed": list(geometry.WORLD),
+        }
+        and after == entry,
+        "bootstrap did not reach the recorded cache entry after one full refresh",
+    )
+
+
 def refresh_summary(samples: list[Data], spec: Data) -> Data:
     phase = spec["phase"]
     full = phase == "full_refresh"
@@ -119,8 +135,13 @@ def refresh_summary(samples: list[Data], spec: Data) -> Data:
     is_refresh = full or local
     c.require(len(samples) == contract.REPETITIONS, "fixed repetitions incomplete")
     previous = 0
+    previous_cache = None
     for sample in samples:
         before, after = sample["before"], sample["after"]
+        c.require(
+            previous_cache is None or before == previous_cache,
+            f"unrecorded terrain refresh between repetitions: {spec['id']}",
+        )
         start, request, submit, end = (
             sample[field]
             for field in (
@@ -152,6 +173,7 @@ def refresh_summary(samples: list[Data], spec: Data) -> Data:
             "invalid render counters or stale terrain counter",
         )
         previous = end
+        previous_cache = after
     metrics = {
         "frame_interval_ms": distribution(
             [(row["presented_usec"] - row["previous_draw_usec"]) / 1000 for row in samples]
@@ -251,6 +273,8 @@ def fixed(output: Path, version: str) -> tuple[Data, tuple[str, ...], Data, set[
             and data["overlap"].keys() == plan_ids(plan["overlap"]),
             "fixed matrix incomplete",
         )
+        first_case = data["cases"][plan["cases"][0]["id"]]
+        check_bootstrap(data["bootstrap"], first_case["samples"][0]["before"])
         events = []
         for spec in plan["cases"]:
             label, phase = spec["id"], spec["phase"]
@@ -298,12 +322,21 @@ def fixed(output: Path, version: str) -> tuple[Data, tuple[str, ...], Data, set[
     adapters = {check_adapter(data, version) for data in states.values()}
     c.require(len(adapters) == 1, "fixed adapters differ")
     baseline = states["baseline"]
+    c.require(
+        all(data["bootstrap"] == baseline["bootstrap"] for data in states.values()),
+        "fixed bootstrap cache history differs",
+    )
     environment = baseline["cases"]["full_rebuild"]["state"]
     compare_fixed_frames(folder, plan, states, phase_metrics, environment)
     check_negative(folder / "baseline", baseline)
     result = geometry.verify(pairs, geometry.flowers())
     result["scope"] = "native_fixed_geometry"
-    return {"geometry": result, "metrics": phase_metrics}, adapters.pop(), environment, profiles
+    return (
+        {"geometry": result, "metrics": phase_metrics, "bootstrap": baseline["bootstrap"]},
+        adapters.pop(),
+        environment,
+        profiles,
+    )
 
 
 def plan_ids(entries: list[Data]) -> set[str]:
@@ -404,7 +437,9 @@ def warm_routes(
             )
         metrics["terrain_before"] = data["initial"]["decor_terrain"]
         metrics["terrain_after"] = data["final"]["decor_terrain"]
-        metrics.update(warm_cache_intervals(path, data, origin["events"]))
+        metrics["bootstrap"] = origin["bootstrap"]
+        check_bootstrap(metrics["bootstrap"], metrics["terrain_before"])
+        metrics.update(warm_cache_intervals(path, data))
         results.setdefault(run, {})[variant] = metrics
     deltas: Data = {}
     for run, group in results.items():
@@ -413,7 +448,8 @@ def warm_routes(
         for variant in geometry.VARIANTS[1:]:
             candidate = group[variant]
             c.require(
-                baseline["terrain_before"] == candidate["terrain_before"]
+                baseline["bootstrap"] == candidate["bootstrap"]
+                and baseline["terrain_before"] == candidate["terrain_before"]
                 and baseline["terrain_after"] == candidate["terrain_after"],
                 "warm terrain cache history differs",
             )
@@ -433,8 +469,12 @@ def warm_routes(
 
 
 def trace_origin(path: Path, expected_batches: int) -> Data:
-    origin = c.read(path / "terrain-events.json")
+    origin = c.read(path / "trace-origin.json")
     launch = c.read(path / "launch.json")
+    c.require(
+        origin.keys() == {"pid", "profile", "batch_nodes", "raw_sha256", "bootstrap"},
+        "unexpected fields in raw trace receipt",
+    )
     c.require(
         origin["pid"] == launch["pid"] and origin["profile"] == launch["profile"],
         "trace capture profile or process differs",
@@ -449,36 +489,36 @@ def trace_origin(path: Path, expected_batches: int) -> Data:
     return cast(Data, origin)
 
 
-def warm_cache_intervals(path: Path, data: Data, events: list[Data]) -> Data:
+def warm_cache_intervals(path: Path, data: Data) -> Data:
     """Keep the complete route and separately summarize intervals away from cache updates."""
     rows = warm.csv_rows(path / "frames.csv.gz", c.FRAME_FIELDS)
-    edge_start = data["first_draw"]["draw_id"]
-    edge_end = data["final_draw"]["draw_id"]
-    revision_start = data["initial"]["decor_terrain"]["revision"]
+    cache = warm.csv_rows(path / "terrain-cache.csv.gz", contract.CACHE_FIELDS)
+    draws = [data["first_draw"]["draw_id"], *(row[2] for row in rows)]
+    c.require(
+        [row[0] for row in cache] == draws and draws[-1] == data["final_draw"]["draw_id"],
+        "terrain state must cover every native draw exactly once",
+    )
+    revision = data["initial"]["decor_terrain"]["revision"]
     revision_end = data["final"]["decor_terrain"]["revision"]
-    prior_draw = edge_start - 1
-    revision = revision_start
     excluded: set[int] = set()
-    c.require(isinstance(events, list), "invalid warm terrain events")
-    for event in events:
-        draw, current = event["draw_id"], event["revision"]
+    event_count = 0
+    for index, (_, current, ready) in enumerate(cache):
         c.require(
-            type(draw) is int
-            and type(current) is int
-            and type(event["terrain_ready"]) is bool
-            and edge_start <= draw <= edge_end
-            and draw > prior_draw
-            and revision <= current <= revision_end,
-            "invalid or reordered warm cache event",
+            current.is_integer() and revision <= current <= revision_end and ready in (0, 1),
+            "invalid or reordered warm cache state",
         )
-        excluded.update((draw, draw + 1))
-        prior_draw, revision = draw, current
+        if not ready or current != revision:
+            # Interval index 0 joins the opening boundary to the first CSV row.
+            excluded.update((index - 1, index))
+            event_count += 1
+        revision = current
     c.require(revision == revision_end, "terrain revision changed without a captured frame")
-    intervals = [row[1] for row in rows if row[2] not in excluded]
+    intervals = [row[1] for index, row in enumerate(rows) if index not in excluded]
     c.require(intervals, "warm route has no intervals with a settled terrain cache")
     return {
         "settled_cache_frame_interval_ms": distribution(intervals),
-        "terrain_event_count": len(events),
+        "terrain_state_count": len(cache),
+        "terrain_event_count": event_count,
         "intervals_touching_terrain_events": len(rows) - len(intervals),
     }
 

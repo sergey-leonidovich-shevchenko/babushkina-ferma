@@ -102,7 +102,7 @@ def capture(
     if captured.is_dir():
         for item in captured.iterdir():
             shutil.move(item, folder / item.name)
-    for name in ("frames", "trajectory"):
+    for name in contract.TRACE_NAMES:
         shared.compress_csv(folder / (name + ".csv"))
     stdout = (folder / "stdout.txt").read_text(errors="replace")
     c.require(

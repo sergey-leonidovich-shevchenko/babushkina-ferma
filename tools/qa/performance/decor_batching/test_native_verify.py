@@ -11,6 +11,7 @@ from PIL import Image
 
 from tools.qa.performance.decor_batching import native_contract as contract
 from tools.qa.performance.decor_batching import native_verify as native
+from tools.qa.performance.decor_batching.archive_fixture import fixed_samples
 
 
 class RefreshTest(unittest.TestCase):
@@ -28,7 +29,13 @@ class RefreshTest(unittest.TestCase):
                 "terrain_draw_calls": 5,
                 "static_bytes": 2**22,
                 "texture_bytes": 2**20,
-                "before": {"revision": i, "requests": 1, "full_paints": 1, "local_paints": i},
+                "before": {
+                    "revision": i,
+                    "requests": 1,
+                    "full_paints": 1,
+                    "local_paints": i,
+                    "last_completed": spec["repaint"],
+                },
                 "after": {
                     "revision": i + 1,
                     "requests": 1,
@@ -50,6 +57,18 @@ class RefreshTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "terrain revision"):
             native.refresh_summary(samples, spec)
 
+    def test_hidden_refresh_between_stationary_repetitions(self) -> None:
+        for spec in contract.plan()["cases"]:
+            with self.subTest(case=spec["id"]):
+                samples = fixed_samples(spec)
+                native.refresh_summary(samples, spec)
+                for sample in samples[1:]:
+                    for snapshot in (sample["before"], sample["after"]):
+                        for counter in ("requests", "revision", "full_paints"):
+                            snapshot[counter] += 19
+                with self.assertRaisesRegex(ValueError, "unrecorded terrain refresh"):
+                    native.refresh_summary(samples, spec)
+
     def test_rejects_unexpected_or_missing_raw_files(self) -> None:
         files = contract.expected_files()
         self.assertIn("long-cycle/spatial_batches/frames.csv.gz", files)
@@ -66,7 +85,7 @@ class RefreshTest(unittest.TestCase):
                 contract.inventory(output)
 
     def test_warm_route_keeps_refresh_events_separate(self) -> None:
-        data = {
+        data: native.Data = {
             "first_draw": {"draw_id": 10},
             "final_draw": {"draw_id": 13},
             "initial": {"decor_terrain": {"revision": 2}},
@@ -74,21 +93,23 @@ class RefreshTest(unittest.TestCase):
         }
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
-            event = {"draw_id": 11, "revision": 3, "terrain_ready": True}
-            with patch.object(
-                native.warm,
-                "csv_rows",
-                return_value=[
-                    (1, 90.0, 11),
-                    (2, 50.0, 12),
-                    (3, 18.0, 13),
-                ],
-            ):
-                report = native.warm_cache_intervals(folder, data, [event])
+            rows = [(1, 90.0, 11), (2, 50.0, 12), (3, 18.0, 13)]
+            cache = [(10, 2.0, 1), (11, 3.0, 1), (12, 3.0, 1), (13, 3.0, 1)]
+            with patch.object(native.warm, "csv_rows", side_effect=[rows, cache]):
+                report = native.warm_cache_intervals(folder, data)
+                self.assertEqual(report["terrain_state_count"], 4)
                 self.assertEqual(report["intervals_touching_terrain_events"], 2)
                 self.assertEqual(report["settled_cache_frame_interval_ms"]["p95"], 18.0)
+            unchanged = [(draw, 2.0, ready) for draw, _, ready in cache]
+            with patch.object(native.warm, "csv_rows", side_effect=[rows, unchanged]):
                 with self.assertRaisesRegex(ValueError, "without a captured frame"):
-                    native.warm_cache_intervals(folder, data, [])
+                    native.warm_cache_intervals(folder, data)
+            # A real unready draw also excludes its adjacent intervals with a stable revision.
+            unchanged[1] = (11, 2.0, 0)
+            data["final"]["decor_terrain"]["revision"] = 2
+            with patch.object(native.warm, "csv_rows", side_effect=[rows, unchanged]):
+                report = native.warm_cache_intervals(folder, data)
+                self.assertEqual(report["intervals_touching_terrain_events"], 2)
 
 
 class PixelTest(unittest.TestCase):

@@ -100,11 +100,13 @@ def fixed_samples(spec: native.Data) -> list[native.Data]:
     for index in range(contract.REPETITIONS):
         start = 10000 * index + 1
         repaint = spec["repaint"] or list(geometry.WORLD)
-        before = {key: index * increase for key, increase in steps.items()}
+        before = {
+            key: BOOTSTRAP["after"][key] + index * increase for key, increase in steps.items()
+        }
         after = {key: value + steps[key] for key, value in before.items()}
         samples.append(
             {
-                "before": {**before, "last_completed": repaint},
+                "before": {**before, "last_completed": repaint if index else list(geometry.WORLD)},
                 "after": {**after, "last_completed": repaint},
                 "previous_draw_usec": start,
                 "requested_usec": start + 1,
@@ -117,6 +119,20 @@ def fixed_samples(spec: native.Data) -> list[native.Data]:
             }
         )
     return samples
+
+
+START_CACHE: native.Data = {
+    "revision": 1,
+    "requests": 1,
+    "full_paints": 1,
+    "local_paints": 0,
+    "last_completed": list(geometry.WORLD),
+}
+BOOTSTRAP: dict[str, native.Data] = {
+    "before": START_CACHE,
+    "requested": {**START_CACHE, "revision": 2, "requests": 2},
+    "after": {**START_CACHE, "revision": 2, "requests": 2, "full_paints": 2},
+}
 
 
 def write_frame(
@@ -168,6 +184,7 @@ def write_fixed(root: Path, historical: Path) -> None:
             "variant": variant,
             "pid": 99990 + index,
             "profile": f"Codex-VPERF-003-{index:032x}",
+            "bootstrap": BOOTSTRAP,
             "cases": {},
             "overlap": {},
         }
