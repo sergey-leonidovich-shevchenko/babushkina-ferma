@@ -498,21 +498,48 @@ def warm_cache_intervals(path: Path, data: Data) -> Data:
         [row[0] for row in cache] == draws and draws[-1] == data["final_draw"]["draw_id"],
         "terrain state must cover every native draw exactly once",
     )
-    revision = data["initial"]["decor_terrain"]["revision"]
-    revision_end = data["final"]["decor_terrain"]["revision"]
+    start, end = (
+        tuple(data[phase]["decor_terrain"][field] for field in contract.CACHE_COUNTERS)
+        for phase in ("initial", "final")
+    )
+    c.require(
+        cache[0][1:] == (1, *start) and cache[-1][1:] == (1, *end),
+        "cache draw boundaries differ from the ready entry and exit counters",
+    )
+    previous = settled = start
+    was_ready = True
     excluded: set[int] = set()
     event_count = 0
-    for index, (_, current, ready) in enumerate(cache):
-        c.require(
-            current.is_integer() and revision <= current <= revision_end and ready in (0, 1),
-            "invalid or reordered warm cache state",
+    for index, row in enumerate(cache):
+        ready = row[1]
+        current = row[2:]
+        revision, requests, full_paints, local_paints = (
+            counter - prior for counter, prior in zip(current, settled, strict=True)
         )
-        if not ready or current != revision:
+        c.require(
+            ready in (0, 1)
+            and all(
+                value == int(value) and value >= prior
+                for value, prior in zip(current, previous, strict=True)
+            )
+            and full_paints <= requests <= revision
+            and local_paints <= revision - requests,
+            "invalid or reordered warm cache counters",
+        )
+        paints = full_paints + local_paints
+        c.require(
+            (bool(revision) == bool(paints) if ready else paints < revision)
+            and (not ready or was_ready or current[2:] != previous[2:]),
+            "warm cache readiness contradicts refresh counters",
+        )
+        if not ready or current != previous:
             # Interval index 0 joins the opening boundary to the first CSV row.
             excluded.update((index - 1, index))
             event_count += 1
-        revision = current
-    c.require(revision == revision_end, "terrain revision changed without a captured frame")
+        if ready:
+            settled = current
+        previous = current
+        was_ready = bool(ready)
     intervals = [row[1] for index, row in enumerate(rows) if index not in excluded]
     c.require(intervals, "warm route has no intervals with a settled terrain cache")
     return {

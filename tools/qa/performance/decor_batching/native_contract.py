@@ -16,7 +16,8 @@ REPETITIONS = 12
 RENDERER = "X11 / gl_compatibility / Mesa llvmpipe"
 PINNED_INPUTS = (geometry.MAP_SOURCE, "scripts/systems/village_layout_system.gd", shared.ROUTE)
 TRACE_NAMES = ("frames", "trajectory", "terrain-cache")
-CACHE_FIELDS = ("draw_id", "revision", "terrain_ready")
+CACHE_COUNTERS = ("revision", "requests", "full_paints", "local_paints")
+CACHE_FIELDS = ("draw_id", "terrain_ready", *CACHE_COUNTERS)
 
 
 def plan() -> dict[str, Any]:

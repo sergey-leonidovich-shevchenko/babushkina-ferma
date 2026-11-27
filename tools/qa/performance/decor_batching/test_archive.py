@@ -93,9 +93,9 @@ def write_cache(destination: Path, first_draw: int) -> None:
         draws = csv.DictReader(frames)
         writer = csv.writer(cache)
         writer.writerow(contract.CACHE_FIELDS)
-        revision = BOOTSTRAP["after"]["revision"]
-        writer.writerow((first_draw, revision, 1))
-        writer.writerows((row["draw_id"], revision, 1) for row in draws)
+        counters = tuple(BOOTSTRAP["after"][field] for field in contract.CACHE_COUNTERS)
+        writer.writerow((first_draw, 1, *counters))
+        writer.writerows((row["draw_id"], 1, *counters) for row in draws)
 
 
 def manifest(root: Path) -> None:
@@ -223,11 +223,29 @@ def insert_false_cache_event(root: Path) -> None:
 def drop_cache_row(root: Path) -> None:
     folder = root / "repeat-1/baseline"
     path = folder / "terrain-cache.csv.gz"
-    with gzip.open(path, "rt") as stream:
-        rows = stream.readlines()
+    with gzip.open(path, "rt", newline="") as stream:
+        rows = list(csv.reader(stream))
     del rows[6]
-    with gzip.open(path, "wt") as stream:
-        stream.writelines(rows)
+    replace_cache_trace(folder, rows)
+
+
+def forge_readiness(root: Path) -> None:
+    folder = root / "repeat-1/baseline"
+    with gzip.open(folder / "terrain-cache.csv.gz", "rt", newline="") as stream:
+        rows = list(csv.reader(stream))
+    with gzip.open(folder / "frames.csv.gz", "rt", newline="") as stream:
+        frames = (row for row in csv.DictReader(stream) if row["draw_id"] != rows[-1][0])
+        slowest = sorted(frames, key=lambda row: float(row["interval_ms"]))
+    draws = {row["draw_id"] for row in slowest[-186:]}
+    for row in rows[1:]:
+        if row[0] in draws:
+            row[1] = "0"
+    replace_cache_trace(folder, rows)
+
+
+def replace_cache_trace(folder: Path, rows: list[list[str]]) -> None:
+    with gzip.open(folder / "terrain-cache.csv.gz", "wt", newline="") as stream:
+        csv.writer(stream).writerows(rows)
     origin_file = folder / "trace-origin.json"
     origin = shared.read(origin_file)
     origin["raw_sha256"] = contract.trace_digests(folder)
@@ -255,6 +273,7 @@ class ArchiveReaderTest(unittest.TestCase):
                 (misalign_entry_cache, "bootstrap did not reach the recorded cache entry"),
                 (insert_false_cache_event, "unexpected fields in raw trace receipt"),
                 (drop_cache_row, "terrain state must cover every native draw exactly once"),
+                (forge_readiness, "warm cache readiness contradicts refresh counters"),
                 (
                     swap_local_terrain,
                     "PNG bytes differ from capture: baseline/flower_crossing_cell",

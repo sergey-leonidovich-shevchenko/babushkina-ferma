@@ -1,12 +1,14 @@
 extends "res://tools/qa/performance/pass_cost/capture.gd"
 
 const Mode := preload("res://tools/qa/performance/decor_batching/capture_mode.gd")
-const CACHE_FIELDS := ["draw_id", "revision", "terrain_ready"]
+const CACHE_FIELDS := [
+	"draw_id", "terrain_ready", "revision", "requests", "full_paints", "local_paints"
+]
 
 var variant := ""
 var _background: Mode.Background
 var _bootstrap := {}
-var _cache_rows := PackedInt64Array()
+var _cache_rows := PackedInt32Array()
 
 
 ## Переиспользует приёмку маршрута и сбор сырых интервалов из VPERF-003.
@@ -58,9 +60,13 @@ func _record_draw() -> void:
 	super._record_draw()
 	if frame_count != previous_count or (opening and previous_draw != 0):
 		var index := frame_count * CACHE_FIELDS.size()
+		var revision := _background.terrain_revision
 		_cache_rows[index] = Engine.get_frames_drawn()
-		_cache_rows[index + 1] = _background.terrain_revision.revision
-		_cache_rows[index + 2] = int(_background.terrain_ready)
+		_cache_rows[index + 1] = int(_background.terrain_ready)
+		_cache_rows[index + 2] = revision.revision
+		_cache_rows[index + 3] = _background.terrain_requests
+		_cache_rows[index + 4] = revision.full_paints
+		_cache_rows[index + 5] = revision.local_paints
 
 
 ## Записывает ограниченный буфер после замера и связывает байты с их процессом.
@@ -81,7 +87,7 @@ func _write(name: String, content: String) -> void:
 		}
 		super._write("trace-origin.json", JSON.stringify(origin) + "\n")
 		var metadata: Dictionary = JSON.parse_string(content)
-		metadata.observer_buffer_bytes += _cache_rows.size() * 8
+		metadata.observer_buffer_bytes += _cache_rows.size() * 4
 		content = JSON.stringify(metadata) + "\n"
 	super._write(name, content)
 
@@ -90,7 +96,7 @@ func _write_cache() -> void:
 	var file := FileAccess.open(output.path_join("terrain-cache.csv"), FileAccess.WRITE)
 	file.store_line(",".join(CACHE_FIELDS))
 	for row in frame_count + 1 if not first_draw.is_empty() else 0:
-		var index := row * CACHE_FIELDS.size()
-		file.store_line(
-			"%d,%d,%d" % [_cache_rows[index], _cache_rows[index + 1], _cache_rows[index + 2]]
-		)
+		var values := PackedStringArray()
+		for field in CACHE_FIELDS.size():
+			values.append(str(_cache_rows[row * CACHE_FIELDS.size() + field]))
+		file.store_line(",".join(values))

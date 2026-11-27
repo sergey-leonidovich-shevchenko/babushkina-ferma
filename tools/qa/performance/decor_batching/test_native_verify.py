@@ -85,31 +85,35 @@ class RefreshTest(unittest.TestCase):
                 contract.inventory(output)
 
     def test_warm_route_keeps_refresh_events_separate(self) -> None:
+        before = {"revision": 2, "requests": 2, "full_paints": 2, "local_paints": 0}
+        after = {"revision": 3, "requests": 3, "full_paints": 3, "local_paints": 0}
         data: native.Data = {
             "first_draw": {"draw_id": 10},
-            "final_draw": {"draw_id": 13},
-            "initial": {"decor_terrain": {"revision": 2}},
-            "final": {"decor_terrain": {"revision": 3}},
+            "final_draw": {"draw_id": 15},
+            "initial": {"decor_terrain": before},
+            "final": {"decor_terrain": after},
         }
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
-            rows = [(1, 90.0, 11), (2, 50.0, 12), (3, 18.0, 13)]
-            cache = [(10, 2.0, 1), (11, 3.0, 1), (12, 3.0, 1), (13, 3.0, 1)]
+            rows = [(i, interval, 10 + i) for i, interval in enumerate((90, 50, 45, 31, 18), 1)]
+            cache = [
+                (10, 1, 2, 2, 2, 0),
+                (11, 0, 3, 3, 2, 0),
+                (12, 0, 3, 3, 2, 0),
+                (13, 1, 3, 3, 3, 0),
+                (14, 1, 3, 3, 3, 0),
+                (15, 1, 3, 3, 3, 0),
+            ]
             with patch.object(native.warm, "csv_rows", side_effect=[rows, cache]):
                 report = native.warm_cache_intervals(folder, data)
-                self.assertEqual(report["terrain_state_count"], 4)
-                self.assertEqual(report["intervals_touching_terrain_events"], 2)
+                self.assertEqual(report["terrain_state_count"], 6)
+                self.assertEqual(report["intervals_touching_terrain_events"], 4)
                 self.assertEqual(report["settled_cache_frame_interval_ms"]["p95"], 18.0)
-            unchanged = [(draw, 2.0, ready) for draw, _, ready in cache]
-            with patch.object(native.warm, "csv_rows", side_effect=[rows, unchanged]):
-                with self.assertRaisesRegex(ValueError, "without a captured frame"):
+            unpainted = [*cache[:3], *((draw, 1, 3, 3, 2, 0) for draw in (13, 14, 15))]
+            with patch.object(native.warm, "csv_rows", side_effect=[rows, unpainted]):
+                data["final"]["decor_terrain"] = {**after, "full_paints": 2}
+                with self.assertRaisesRegex(ValueError, "readiness contradicts refresh counters"):
                     native.warm_cache_intervals(folder, data)
-            # A real unready draw also excludes its adjacent intervals with a stable revision.
-            unchanged[1] = (11, 2.0, 0)
-            data["final"]["decor_terrain"]["revision"] = 2
-            with patch.object(native.warm, "csv_rows", side_effect=[rows, unchanged]):
-                report = native.warm_cache_intervals(folder, data)
-                self.assertEqual(report["intervals_touching_terrain_events"], 2)
 
 
 class PixelTest(unittest.TestCase):
