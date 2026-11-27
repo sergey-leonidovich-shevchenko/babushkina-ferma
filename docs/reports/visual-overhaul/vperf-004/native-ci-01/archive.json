@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "task": "VPERF-004",
+  "head": "57b3e43c5c044663bbcc13c14d4cb191cc9d5c13",
+  "tree": "ec3febe02e2335ff668d43591c8d3de7001e5dd4",
+  "run_id": 45909583614,
+  "run_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45909583614",
+  "artifact_id": 15160572192,
+  "artifact_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/45909583614/artifacts/15160572192",
+  "original_file_name": "vperf-004-overdraw.zip",
+  "bytes": 31180893,
+  "sha256": "e9483d6f848f1ce5ea7c5468c0c9f3fe6ed30a9c193dd45c74db134f8b6c2596",
+  "format": "byte-exact contiguous original ZIP parts; concatenate without repack",
+  "parts": [
+    {
+      "name": "artifact.zip.part-000",
+      "bytes": 16777216,
+      "sha256": "148bc4abfc1e20a7c09073de92d8d94a5f0f2a0a995b08d8a92161f089ec5c73"
+    },
+    {
+      "name": "artifact.zip.part-001",
+      "bytes": 14403677,
+      "sha256": "53b006f75cb7018fa4577a536f3c6e3b1a45f4b1bde12baff08169316b3efce8"
+    }
+  ]
+}

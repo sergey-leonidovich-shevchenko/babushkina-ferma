@@ -126,7 +126,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 ## VPERF-004 — Ограничить overdraw
 
-Статус: `in_progress` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Плотная трава и вода проверены по площади прозрачных слоёв, а не только числу draw calls
 
@@ -160,7 +160,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vperf-004/README.md.
+Доказательства: docs/reports/visual-overhaul/vperf-004/README.md, docs/reports/visual-overhaul/vperf-004/closeout/README.md, docs/reports/visual-overhaul/vperf-004/native-ci-01/archive.json, docs/reports/visual-overhaul/vperf-004/native-ci-01/summary.json.
 
 <a id="vperf-005"></a>
 

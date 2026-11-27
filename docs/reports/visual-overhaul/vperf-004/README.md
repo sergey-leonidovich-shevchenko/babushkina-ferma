@@ -19,7 +19,8 @@
 
 ```sh
 python3 tools/run.py qa.performance.overdraw.test_verify
-python3 tools/run.py qa.performance.overdraw.verify --output /path/to/evidence --expected-head <SHA>
+python3 tools/run.py qa.performance.overdraw.verify --output /path/to/evidence \
+  --expected-head 57b3e43c5c044663bbcc13c14d4cb191cc9d5c13
 ```
 
-Финальные нативные числа и вывод будут добавлены после проверки артефакта точного коммита.
+Финальная серия точного коммита содержит шесть парных ракурсов и восемь запусков. Порядок восстановления сырых данных и принятые результаты описаны в [записи приёмки](closeout/README.md).
