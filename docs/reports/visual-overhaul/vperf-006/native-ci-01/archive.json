@@ -1,0 +1,19 @@
+{
+  "task": "VPERF-006",
+  "head": "4b577cb6988d1afb237eec3cb0be2ae40b4c3c4c",
+  "tree": "636c67f23566bd549bc4b1c67205c22fa9b23853",
+  "run": 45966530394,
+  "job": 140396416723,
+  "attempt": 1,
+  "artifact": 15184539477,
+  "original": {
+    "bytes": 181691757,
+    "sha256": "de40084351884283b5dc5b8ea6316ec6ea576f9aa09f2eed24cc0f918082214d"
+  },
+  "bundle": {
+    "bytes": 27214319,
+    "sha256": "3ae399403acae47e42dd14073f952546f688c3308780c08fb93dbc323830d460",
+    "files": 249,
+    "unique_blobs": 138
+  }
+}
